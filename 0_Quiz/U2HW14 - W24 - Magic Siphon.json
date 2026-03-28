@@ -1,0 +1,363 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What does this picture show?",
+        "url": "siphon",
+        "correct ans index": "4",
+        "answers": [
+            { "answer_text": "A cow.", "text": "A cow.", "weight": 0 },
+            { "answer_text": "An explosion.", "text": "An explosion.", "weight": 0 },
+            { "answer_text": "Nothing.", "text": "Nothing.", "weight": 0 },
+            { "answer_text": "A siphon.", "text": "A siphon.", "weight": 100 }
+        ],
+        "a": "A cow.",
+        "b": "An explosion.",
+        "c": "Nothing.",
+        "d": "A siphon."
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Why was the lab called the \"Magic Siphon\"?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            { "answer_text": "Because the siphon took purple solution and changed two beakers from colourless solution to pink/red and green/blue.", "text": "Because the siphon took purple solution and changed two beakers from colourless solution to pink/red and green/blue.", "weight": 100 },
+            { "answer_text": "Because the liquid from the colourless solution rose and emptied into the purple solution.", "text": "Because the liquid from the colourless solution rose and emptied into the purple solution.", "weight": 0 },
+            { "answer_text": "Because nothing happened.", "text": "Because nothing happened.", "weight": 0 },
+            { "answer_text": "Because the siphon moved the colourless solution from one beaker into the other beaker.", "text": "Because the siphon moved the colourless solution from one beaker into the other beaker.", "weight": 0 }
+        ],
+        "a": "Because the siphon took purple solution and changed two beakers from colourless solution to pink/red and green/blue.",
+        "b": "Because the liquid from the colourless solution rose and emptied into the purple solution.",
+        "c": "Because nothing happened.",
+        "d": "Because the siphon moved the colourless solution from one beaker into the other beaker."
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What causes the red cabbage indicator to change colour?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            { "answer_text": "The pH level of the solution", "text": "The pH level of the solution", "weight": 100 },
+            { "answer_text": "The temperature of the solution", "text": "The temperature of the solution", "weight": 0 },
+            { "answer_text": "The amount of light absorbed by the solution", "text": "The amount of light absorbed by the solution", "weight": 0 },
+            { "answer_text": "The volume of the solution", "text": "The volume of the solution", "weight": 0 }
+        ],
+        "a": "The pH level of the solution",
+        "b": "The temperature of the solution",
+        "c": "The amount of light absorbed by the solution",
+        "d": "The volume of the solution"
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What colour does red cabbage indicator turn in a neutral solution (pH 7)?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            { "answer_text": "Red", "text": "Red", "weight": 0 },
+            { "answer_text": "Green", "text": "Green", "weight": 0 },
+            { "answer_text": "Blue/Purple", "text": "Blue/Purple", "weight": 100 },
+            { "answer_text": "Yellow", "text": "Yellow", "weight": 0 }
+        ],
+        "a": "Red",
+        "b": "Green",
+        "c": "Blue/Purple",
+        "d": "Yellow"
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "If you add red cabbage indicator to vinegar, what colour will it turn?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            { "answer_text": "Blue", "text": "Blue", "weight": 0 },
+            { "answer_text": "Yellow", "text": "Yellow", "weight": 0 },
+            { "answer_text": "Green", "text": "Green", "weight": 0 },
+            { "answer_text": "Pink/Red", "text": "Pink/Red", "weight": 100 }
+        ],
+        "a": "Blue",
+        "b": "Yellow",
+        "c": "Green",
+        "d": "Pink/Red"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which household substance would turn red cabbage indicator green or blue?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            { "answer_text": "Vinegar", "text": "Vinegar", "weight": 0 },
+            { "answer_text": "Baking soda (bicarbonate soda)", "text": "Baking soda (bicarbonate soda)", "weight": 100 },
+            { "answer_text": "Lemon juice", "text": "Lemon juice", "weight": 0 },
+            { "answer_text": "Milk", "text": "Milk", "weight": 0 }
+        ],
+        "a": "Vinegar",
+        "b": "Baking soda (bicarbonate soda)",
+        "c": "Lemon juice",
+        "d": "Milk"
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What is the primary principle behind how a siphon works?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            { "answer_text": "Gravity", "text": "Gravity", "weight": 100 },
+            { "answer_text": "Electromagnetism", "text": "Electromagnetism", "weight": 0 },
+            { "answer_text": "Thermal expansion", "text": "Thermal expansion", "weight": 0 },
+            { "answer_text": "Nuclear fusion", "text": "Nuclear fusion", "weight": 0 }
+        ],
+        "a": "Gravity",
+        "b": "Electromagnetism",
+        "c": "Thermal expansion",
+        "d": "Nuclear fusion"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What must be present for a siphon to function properly?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            { "answer_text": "A continuous flow of liquid", "text": "A continuous flow of liquid", "weight": 100 },
+            { "answer_text": "A vacuum pump", "text": "A vacuum pump", "weight": 0 },
+            { "answer_text": "Electrical power", "text": "Electrical power", "weight": 0 },
+            { "answer_text": "High air pressure", "text": "High air pressure", "weight": 0 }
+        ],
+        "a": "A continuous flow of liquid",
+        "b": "A vacuum pump",
+        "c": "Electrical power",
+        "d": "High air pressure"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What is the role of atmospheric pressure in a siphon?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            { "answer_text": "It creates the initial vacuum needed for the siphon, generating unlimited free energy.", "text": "It creates the initial vacuum needed for the siphon, generating unlimited free energy.", "weight": 0 },
+            { "answer_text": "It has no role in the siphon process.", "text": "It has no role in the siphon process.", "weight": 0 },
+            { "answer_text": "It prevents the liquid from flowing backward.", "text": "It prevents the liquid from flowing backward.", "weight": 0 },
+            { "answer_text": "It pushes the liquid up and over the bend in the tube.", "text": "It pushes the liquid up and over the bend in the tube.", "weight": 100 }
+        ],
+        "a": "It creates the initial vacuum needed for the siphon, generating unlimited free energy.",
+        "b": "It has no role in the siphon process.",
+        "c": "It prevents the liquid from flowing backward.",
+        "d": "It pushes the liquid up and over the bend in the tube."
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which of the following is NOT required for a siphon to work?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            { "answer_text": "A height difference between the two ends of the tube", "text": "A height difference between the two ends of the tube", "weight": 0 },
+            { "answer_text": "A source of electricity", "text": "A source of electricity", "weight": 100 },
+            { "answer_text": "A liquid that can flow freely", "text": "A liquid that can flow freely", "weight": 0 },
+            { "answer_text": "A tube or hose", "text": "A tube or hose", "weight": 0 }
+        ],
+        "a": "A height difference between the two ends of the tube",
+        "b": "A source of electricity",
+        "c": "A liquid that can flow freely",
+        "d": "A tube or hose"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What happens if there is a break or air bubble in the siphon tube?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            { "answer_text": "The flow of liquid will stop.", "text": "The flow of liquid will stop.", "weight": 100 },
+            { "answer_text": "The flow of liquid will speed up.", "text": "The flow of liquid will speed up.", "weight": 0 },
+            { "answer_text": "The siphon will reverse direction.", "text": "The siphon will reverse direction.", "weight": 0 },
+            { "answer_text": "Nothing will happen.", "text": "Nothing will happen.", "weight": 0 }
+        ],
+        "a": "The flow of liquid will stop.",
+        "b": "The flow of liquid will speed up.",
+        "c": "The siphon will reverse direction.",
+        "d": "Nothing will happen."
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "In which situation would a siphon fail to work?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            { "answer_text": "When the liquid is water", "text": "When the liquid is water", "weight": 0 },
+            { "answer_text": "When the tube is made of plastic", "text": "When the tube is made of plastic", "weight": 0 },
+            { "answer_text": "When the outlet end of the tube is higher than the inlet end", "text": "When the outlet end of the tube is higher than the inlet end", "weight": 100 },
+            { "answer_text": "When the liquid is cold", "text": "When the liquid is cold", "weight": 0 }
+        ],
+        "a": "When the liquid is water",
+        "b": "When the tube is made of plastic",
+        "c": "When the outlet end of the tube is higher than the inlet end",
+        "d": "When the liquid is cold"
+    },
+    {
+        "question_name": "Question 13",
+        "question number": 13,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "How does gravity contribute to the operation of a siphon?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            { "answer_text": "It generates heat to keep the liquid moving.", "text": "It generates heat to keep the liquid moving.", "weight": 0 },
+            { "answer_text": "It increases the pressure inside the tube.", "text": "It increases the pressure inside the tube.", "weight": 0 },
+            { "answer_text": "It pulls the liquid upward.", "text": "It pulls the liquid upward.", "weight": 0 },
+            { "answer_text": "It pulls the liquid downward, creating a continuous flow.", "text": "It pulls the liquid downward, creating a continuous flow.", "weight": 100 }
+        ],
+        "a": "It generates heat to keep the liquid moving.",
+        "b": "It increases the pressure inside the tube.",
+        "c": "It pulls the liquid upward.",
+        "d": "It pulls the liquid downward, creating a continuous flow."
+    },
+    {
+        "question_name": "Question 14",
+        "question number": 14,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which factor determines the maximum height a liquid can be lifted in a siphon?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            { "answer_text": "The colour of the liquid", "text": "The colour of the liquid", "weight": 0 },
+            { "answer_text": "The diameter of the tube", "text": "The diameter of the tube", "weight": 0 },
+            { "answer_text": "Atmospheric pressure and liquid properties", "text": "Atmospheric pressure and liquid properties", "weight": 100 },
+            { "answer_text": "The temperature of the surrounding air", "text": "The temperature of the surrounding air", "weight": 0 }
+        ],
+        "a": "The colour of the liquid",
+        "b": "The diameter of the tube",
+        "c": "Atmospheric pressure and liquid properties",
+        "d": "The temperature of the surrounding air"
+    },
+    {
+        "question_name": "Question 15",
+        "question number": 15,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Why does a siphon require the liquid to initially flow into the tube?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            { "answer_text": "To create a vacuum at the top of the tube", "text": "To create a vacuum at the top of the tube", "weight": 100 },
+            { "answer_text": "To increase the temperature of the liquid", "text": "To increase the temperature of the liquid", "weight": 0 },
+            { "answer_text": "To generate electricity", "text": "To generate electricity", "weight": 0 },
+            { "answer_text": "To release the heart of the cards.", "text": "To release the heart of the cards.", "weight": 0 }
+        ],
+        "a": "To create a vacuum at the top of the tube",
+        "b": "To increase the temperature of the liquid",
+        "c": "To generate electricity",
+        "d": "To release the heart of the cards."
+    },
+    {
+        "question_name": "Question 16",
+        "question number": 16,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What happens to the flow rate of a siphon as the height difference between the two ends increases?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            { "answer_text": "The flow rate decreases.", "text": "The flow rate decreases.", "weight": 0 },
+            { "answer_text": "The flow rate remains constant.", "text": "The flow rate remains constant.", "weight": 0 },
+            { "answer_text": "The flow rate increases.", "text": "The flow rate increases.", "weight": 100 },
+            { "answer_text": "The flow rate becomes zero.", "text": "The flow rate becomes zero.", "weight": 0 }
+        ],
+        "a": "The flow rate decreases.",
+        "b": "The flow rate remains constant.",
+        "c": "The flow rate increases.",
+        "d": "The flow rate becomes zero."
+    },
+    {
+        "question_name": "Question 17",
+        "question number": "Q17",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "question text": "Please write your English name used in class:",
+        "url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 18",
+        "question number": "Q18",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "correct ans index": " ",
+        "answers": [
+            { "answer_text": "G6A", "weight": 0 },
+            { "answer_text": "G6B", "weight": 0 },
+            { "answer_text": "G6C", "weight": 0 },
+            { "answer_text": "G7A", "weight": 0 },
+            { "answer_text": "G7B", "weight": 0 },
+            { "answer_text": "G7C", "weight": 0 },
+            { "answer_text": "G8A", "weight": 0 },
+            { "answer_text": "G8B", "weight": 0 },
+            { "answer_text": "G8C", "weight": 0 }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    }
+]

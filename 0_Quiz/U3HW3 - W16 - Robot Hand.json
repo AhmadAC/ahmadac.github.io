@@ -1,0 +1,742 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What component of the human hand acts like a string to pull the fingers toward the palm?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "The tendons",
+                "text": "The tendons",
+                "weight": 100
+            },
+            {
+                "answer_text": "The joints",
+                "text": "The joints",
+                "weight": 0
+            },
+            {
+                "answer_text": "The skin",
+                "text": "The skin",
+                "weight": 0
+            },
+            {
+                "answer_text": "The fulcrum",
+                "text": "The fulcrum",
+                "weight": 0
+            },
+            {
+                "answer_text": "The lever",
+                "text": "The lever",
+                "weight": 0
+            },
+            {
+                "answer_text": "The wrist",
+                "text": "The wrist",
+                "weight": 0
+            }
+        ],
+        "a": "The tendons",
+        "b": "The joints",
+        "c": "The skin",
+        "d": "The fulcrum",
+        "e": "The lever",
+        "f": "The wrist"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which class of lever has the load situated in the middle?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "1st class lever",
+                "text": "1st class lever",
+                "weight": 0
+            },
+            {
+                "answer_text": "2nd class lever",
+                "text": "2nd class lever",
+                "weight": 100
+            },
+            {
+                "answer_text": "3rd class lever",
+                "text": "3rd class lever",
+                "weight": 0
+            },
+            {
+                "answer_text": "4th class lever",
+                "text": "4th class lever",
+                "weight": 0
+            },
+            {
+                "answer_text": "Compound lever",
+                "text": "Compound lever",
+                "weight": 0
+            },
+            {
+                "answer_text": "Reverse lever",
+                "text": "Reverse lever",
+                "weight": 0
+            }
+        ],
+        "a": "1st class lever",
+        "b": "2nd class lever",
+        "c": "3rd class lever",
+        "d": "4th class lever",
+        "e": "Compound lever",
+        "f": "Reverse lever"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "A lever is used to give the user which specific benefit?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Electrical conductivity",
+                "text": "Electrical conductivity",
+                "weight": 0
+            },
+            {
+                "answer_text": "Reduced gravity",
+                "text": "Reduced gravity",
+                "weight": 0
+            },
+            {
+                "answer_text": "Mechanical advantage",
+                "text": "Mechanical advantage",
+                "weight": 100
+            },
+            {
+                "answer_text": "Increased friction",
+                "text": "Increased friction",
+                "weight": 0
+            },
+            {
+                "answer_text": "Thermal insulation",
+                "text": "Thermal insulation",
+                "weight": 0
+            },
+            {
+                "answer_text": "A lighter load",
+                "text": "A lighter load",
+                "weight": 0
+            }
+        ],
+        "a": "Electrical conductivity",
+        "b": "Reduced gravity",
+        "c": "Mechanical advantage",
+        "d": "Increased friction",
+        "e": "Thermal insulation",
+        "f": "A lighter load"
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "How long must the designed hand hold an item to meet the stated testable goals?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "30 seconds",
+                "text": "30 seconds",
+                "weight": 0
+            },
+            {
+                "answer_text": "1 minute",
+                "text": "1 minute",
+                "weight": 0
+            },
+            {
+                "answer_text": "10 seconds",
+                "text": "10 seconds",
+                "weight": 0
+            },
+            {
+                "answer_text": "5 seconds",
+                "text": "5 seconds",
+                "weight": 100
+            },
+            {
+                "answer_text": "20 seconds",
+                "text": "20 seconds",
+                "weight": 0
+            },
+            {
+                "answer_text": "2 seconds",
+                "text": "2 seconds",
+                "weight": 0
+            }
+        ],
+        "a": "30 seconds",
+        "b": "1 minute",
+        "c": "10 seconds",
+        "d": "5 seconds",
+        "e": "20 seconds",
+        "f": "2 seconds"
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which part of the human hand provides enough friction so that gripped items do not slip away?",
+        "url": "",
+        "correct ans index": "5",
+        "answers": [
+            {
+                "answer_text": "The muscles",
+                "text": "The muscles",
+                "weight": 0
+            },
+            {
+                "answer_text": "The wrist bone",
+                "text": "The wrist bone",
+                "weight": 0
+            },
+            {
+                "answer_text": "The joints",
+                "text": "The joints",
+                "weight": 0
+            },
+            {
+                "answer_text": "The bones",
+                "text": "The bones",
+                "weight": 0
+            },
+            {
+                "answer_text": "The skin",
+                "text": "The skin",
+                "weight": 100
+            },
+            {
+                "answer_text": "The knuckles",
+                "text": "The knuckles",
+                "weight": 0
+            }
+        ],
+        "a": "The muscles",
+        "b": "The wrist bone",
+        "c": "The joints",
+        "d": "The bones",
+        "e": "The skin",
+        "f": "The knuckles"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "How is the \"fulcrum\" defined in relation to a lever?",
+        "url": "",
+        "correct ans index": "6",
+        "answers": [
+            {
+                "answer_text": "The place where you apply force",
+                "text": "The place where you apply force",
+                "weight": 0
+            },
+            {
+                "answer_text": "The object being lifted or moved",
+                "text": "The object being lifted or moved",
+                "weight": 0
+            },
+            {
+                "answer_text": "The rigid bar connecting the parts",
+                "text": "The rigid bar connecting the parts",
+                "weight": 0
+            },
+            {
+                "answer_text": "The weight of the load",
+                "text": "The weight of the load",
+                "weight": 0
+            },
+            {
+                "answer_text": "The result of mechanical advantage",
+                "text": "The result of mechanical advantage",
+                "weight": 0
+            },
+            {
+                "answer_text": "The place where the lever or levers are free to rotate",
+                "text": "The place where the lever or levers are free to rotate",
+                "weight": 100
+            }
+        ],
+        "a": "The place where you apply force",
+        "b": "The object being lifted or moved",
+        "c": "The rigid bar connecting the parts",
+        "d": "The weight of the load",
+        "e": "The result of mechanical advantage",
+        "f": "The place where the lever or levers are free to rotate"
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Where is the effort located in a 3rd class lever?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "In the middle",
+                "text": "In the middle",
+                "weight": 100
+            },
+            {
+                "answer_text": "On the far left end only",
+                "text": "On the far left end only",
+                "weight": 0
+            },
+            {
+                "answer_text": "On the far right end only",
+                "text": "On the far right end only",
+                "weight": 0
+            },
+            {
+                "answer_text": "Underneath the fulcrum",
+                "text": "Underneath the fulcrum",
+                "weight": 0
+            },
+            {
+                "answer_text": "Mixed with the load",
+                "text": "Mixed with the load",
+                "weight": 0
+            },
+            {
+                "answer_text": "Behind the pivot point",
+                "text": "Behind the pivot point",
+                "weight": 0
+            }
+        ],
+        "a": "In the middle",
+        "b": "On the far left end only",
+        "c": "On the far right end only",
+        "d": "Underneath the fulcrum",
+        "e": "Mixed with the load",
+        "f": "Behind the pivot point"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which term refers to how the anatomy of a real human hand influences the design?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "Societal Impact",
+                "text": "Societal Impact",
+                "weight": 0
+            },
+            {
+                "answer_text": "Bio-mimicry Connection",
+                "text": "Bio-mimicry Connection",
+                "weight": 100
+            },
+            {
+                "answer_text": "Group Dynamics",
+                "text": "Group Dynamics",
+                "weight": 0
+            },
+            {
+                "answer_text": "Success Criteria Analysis",
+                "text": "Success Criteria Analysis",
+                "weight": 0
+            },
+            {
+                "answer_text": "Accessibility & Cost",
+                "text": "Accessibility & Cost",
+                "weight": 0
+            },
+            {
+                "answer_text": "Critical Failures",
+                "text": "Critical Failures",
+                "weight": 0
+            }
+        ],
+        "a": "Societal Impact",
+        "b": "Bio-mimicry Connection",
+        "c": "Group Dynamics",
+        "d": "Success Criteria Analysis",
+        "e": "Accessibility & Cost",
+        "f": "Critical Failures"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which anatomical component connects to the tendons and powers them?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "The bones",
+                "text": "The bones",
+                "weight": 0
+            },
+            {
+                "answer_text": "The skin",
+                "text": "The skin",
+                "weight": 0
+            },
+            {
+                "answer_text": "The muscle",
+                "text": "The muscle",
+                "weight": 100
+            },
+            {
+                "answer_text": "The wrist",
+                "text": "The wrist",
+                "weight": 0
+            },
+            {
+                "answer_text": "The joints",
+                "text": "The joints",
+                "weight": 0
+            },
+            {
+                "answer_text": "The fulcrum",
+                "text": "The fulcrum",
+                "weight": 0
+            }
+        ],
+        "a": "The bones",
+        "b": "The skin",
+        "c": "The muscle",
+        "d": "The wrist",
+        "e": "The joints",
+        "f": "The fulcrum"
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Why is the \"Iteration & Redesign\" step of the engineering process important for students?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "To make the project take as long as possible",
+                "text": "To make the project take as long as possible",
+                "weight": 0
+            },
+            {
+                "answer_text": "To use up all the remaining glue and tape",
+                "text": "To use up all the remaining glue and tape",
+                "weight": 0
+            },
+            {
+                "answer_text": "To prove that the first attempt is always perfect",
+                "text": "To prove that the first attempt is always perfect",
+                "weight": 0
+            },
+            {
+                "answer_text": "To learn from failures and improve the performance of the design",
+                "text": "To learn from failures and improve the performance of the design",
+                "weight": 100
+            },
+            {
+                "answer_text": "To make the robotic hand look more colorful",
+                "text": "To make the robotic hand look more colorful",
+                "weight": 0
+            },
+            {
+                "answer_text": "To copy exactly what the teacher built",
+                "text": "To copy exactly what the teacher built",
+                "weight": 0
+            }
+        ],
+        "a": "To make the project take as long as possible",
+        "b": "To use up all the remaining glue and tape",
+        "c": "To prove that the first attempt is always perfect",
+        "d": "To learn from failures and improve the performance of the design",
+        "e": "To make the robotic hand look more colorful",
+        "f": "To copy exactly what the teacher built"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What is the primary benefit of studying \"bio-mimicry\" (how the human hand works) before building the robot?",
+        "url": "",
+        "correct ans index": "5",
+        "answers": [
+            {
+                "answer_text": "To learn how to draw a hand for art class",
+                "text": "To learn how to draw a hand for art class",
+                "weight": 0
+            },
+            {
+                "answer_text": "To count how many bones are in the wrist",
+                "text": "To count how many bones are in the wrist",
+                "weight": 0
+            },
+            {
+                "answer_text": "To see if human skin is waterproof",
+                "text": "To see if human skin is waterproof",
+                "weight": 0
+            },
+            {
+                "answer_text": "To determine if the robot needs fingernails",
+                "text": "To determine if the robot needs fingernails",
+                "weight": 0
+            },
+            {
+                "answer_text": "To understand how nature creates movement and grip to solve engineering problems",
+                "text": "To understand how nature creates movement and grip to solve engineering problems",
+                "weight": 100
+            },
+            {
+                "answer_text": "To prove that robots are stronger than humans",
+                "text": "To prove that robots are stronger than humans",
+                "weight": 0
+            }
+        ],
+        "a": "To learn how to draw a hand for art class",
+        "b": "To count how many bones are in the wrist",
+        "c": "To see if human skin is waterproof",
+        "d": "To determine if the robot needs fingernails",
+        "e": "To understand how nature creates movement and grip to solve engineering problems",
+        "f": "To prove that robots are stronger than humans"
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Why are robotic grippers necessary for industries like space exploration or handling hazardous waste?",
+        "url": "",
+        "correct ans index": "6",
+        "answers": [
+            {
+                "answer_text": "Because robots get lonely in space",
+                "text": "Because robots get lonely in space",
+                "weight": 0
+            },
+            {
+                "answer_text": "To ensure the mission costs more money",
+                "text": "To ensure the mission costs more money",
+                "weight": 0
+            },
+            {
+                "answer_text": "Because robots look cooler than humans in photos",
+                "text": "Because robots look cooler than humans in photos",
+                "weight": 0
+            },
+            {
+                "answer_text": "To use up extra electricity",
+                "text": "To use up extra electricity",
+                "weight": 0
+            },
+            {
+                "answer_text": "To prevent humans from having jobs",
+                "text": "To prevent humans from having jobs",
+                "weight": 0
+            },
+            {
+                "answer_text": "To perform tasks that are too dangerous or deadly for humans to do directly",
+                "text": "To perform tasks that are too dangerous or deadly for humans to do directly",
+                "weight": 100
+            }
+        ],
+        "a": "Because robots get lonely in space",
+        "b": "To ensure the mission costs more money",
+        "c": "Because robots look cooler than humans in photos",
+        "d": "To use up extra electricity",
+        "e": "To prevent humans from having jobs",
+        "f": "To perform tasks that are too dangerous or deadly for humans to do directly"
+    },
+    {
+        "question_name": "Question 13",
+        "question number": 13,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Why is it valuable for engineers to design low-cost robotic hands instead of only expensive ones?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "To decrease the quality so the hand breaks faster",
+                "text": "To decrease the quality so the hand breaks faster",
+                "weight": 0
+            },
+            {
+                "answer_text": "To make sure only wealthy people can use them",
+                "text": "To make sure only wealthy people can use them",
+                "weight": 0
+            },
+            {
+                "answer_text": "To make helpful technology accessible to people who cannot afford thousands of dollars",
+                "text": "To make helpful technology accessible to people who cannot afford thousands of dollars",
+                "weight": 100
+            },
+            {
+                "answer_text": "To stop people from using robotic hands",
+                "text": "To stop people from using robotic hands",
+                "weight": 0
+            },
+            {
+                "answer_text": "To make the hands heavier and harder to use",
+                "text": "To make the hands heavier and harder to use",
+                "weight": 0
+            },
+            {
+                "answer_text": "To avoid using modern materials",
+                "text": "To avoid using modern materials",
+                "weight": 0
+            }
+        ],
+        "a": "To decrease the quality so the hand breaks faster",
+        "b": "To make sure only wealthy people can use them",
+        "c": "To make helpful technology accessible to people who cannot afford thousands of dollars",
+        "d": "To stop people from using robotic hands",
+        "e": "To make the hands heavier and harder to use",
+        "f": "To avoid using modern materials"
+    },
+    {
+        "question_name": "Question 14",
+        "question number": 14,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What key skill are students practicing when they assign roles, share responsibilities, and resolve disagreements?",
+        "url": "",
+        "correct ans index": "5",
+        "answers": [
+            {
+                "answer_text": "Advanced calculus",
+                "text": "Advanced calculus",
+                "weight": 0
+            },
+            {
+                "answer_text": "Silent reading",
+                "text": "Silent reading",
+                "weight": 0
+            },
+            {
+                "answer_text": "Competitive arguing",
+                "text": "Competitive arguing",
+                "weight": 0
+            },
+            {
+                "answer_text": "Handwriting speed",
+                "text": "Handwriting speed",
+                "weight": 0
+            },
+            {
+                "answer_text": "Collaboration and teamwork",
+                "text": "Collaboration and teamwork",
+                "weight": 100
+            },
+            {
+                "answer_text": "Memorization of facts",
+                "text": "Memorization of facts",
+                "weight": 0
+            }
+        ],
+        "a": "Advanced calculus",
+        "b": "Silent reading",
+        "c": "Competitive arguing",
+        "d": "Handwriting speed",
+        "e": "Collaboration and teamwork",
+        "f": "Memorization of facts"
+    },
+    {
+        "question_name": "Question 15",
+        "question number": "Q15",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "question text": "Please write your English name used in class:",
+        "url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 16",
+        "question number": "Q16",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "correct ans index": " ",
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    }
+]

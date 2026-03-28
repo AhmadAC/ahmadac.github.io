@@ -1,0 +1,550 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What are the two primary chemical substances required to create the reaction that generates the bubbles in this experiment?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Vegetable oil and sunflower oil",
+                "text": "Vegetable oil and sunflower oil",
+                "weight": 0
+            },
+            {
+                "answer_text": "Distilled vinegar and red cabbage",
+                "text": "Distilled vinegar and red cabbage",
+                "weight": 0
+            },
+            {
+                "answer_text": "Warm water and red cabbage leaves",
+                "text": "Warm water and red cabbage leaves",
+                "weight": 0
+            },
+            {
+                "answer_text": "Distilled vinegar and bicarbonate of soda",
+                "text": "Distilled vinegar and bicarbonate of soda",
+                "weight": 100
+            },
+            {
+                "answer_text": "Bicarbonate of soda and vegetable oil",
+                "text": "Bicarbonate of soda and vegetable oil",
+                "weight": 0
+            },
+            {
+                "answer_text": "Liquid soap and baking powder",
+                "text": "Liquid soap and baking powder",
+                "weight": 0
+            }
+        ],
+        "a": "Vegetable oil and sunflower oil",
+        "b": "Distilled vinegar and red cabbage",
+        "c": "Warm water and red cabbage leaves",
+        "d": "Distilled vinegar and bicarbonate of soda",
+        "e": "Bicarbonate of soda and vegetable oil",
+        "f": "Liquid soap and baking powder"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "How is the pH indicator solution initially prepared before being used in the experiment?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "By boiling vinegar and adding food coloring",
+                "text": "By boiling vinegar and adding food coloring",
+                "weight": 0
+            },
+            {
+                "answer_text": "By mixing bicarbonate of soda with cold water",
+                "text": "By mixing bicarbonate of soda with cold water",
+                "weight": 0
+            },
+            {
+                "answer_text": "By soaking thin strips of red cabbage in warm water",
+                "text": "By soaking thin strips of red cabbage in warm water",
+                "weight": 100
+            },
+            {
+                "answer_text": "By blending vegetable oil with lemon juice",
+                "text": "By blending vegetable oil with lemon juice",
+                "weight": 0
+            },
+            {
+                "answer_text": "By dissolving baking powder in distilled vinegar",
+                "text": "By dissolving baking powder in distilled vinegar",
+                "weight": 0
+            },
+            {
+                "answer_text": "By freezing red cabbage leaves and then crushing them",
+                "text": "By freezing red cabbage leaves and then crushing them",
+                "weight": 0
+            }
+        ],
+        "a": "By boiling vinegar and adding food coloring",
+        "b": "By mixing bicarbonate of soda with cold water",
+        "c": "By soaking thin strips of red cabbage in warm water",
+        "d": "By blending vegetable oil with lemon juice",
+        "e": "By dissolving baking powder in distilled vinegar",
+        "f": "By freezing red cabbage leaves and then crushing them"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "When the distilled vinegar is added to the purple red cabbage solution, what color change occurs and why?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "It turns blue-green because vinegar is a base.",
+                "text": "It turns blue-green because vinegar is a base.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It turns bright pink because vinegar is an acid.",
+                "text": "It turns bright pink because vinegar is an acid.",
+                "weight": 100
+            },
+            {
+                "answer_text": "It turns yellow because the mixture becomes neutral.",
+                "text": "It turns yellow because the mixture becomes neutral.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It turns clear because the vinegar bleaches the pigment.",
+                "text": "It turns clear because the vinegar bleaches the pigment.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It turns dark purple because the density increases.",
+                "text": "It turns dark purple because the density increases.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It turns orange because of a reaction with oxygen.",
+                "text": "It turns orange because of a reaction with oxygen.",
+                "weight": 0
+            }
+        ],
+        "a": "It turns blue-green because vinegar is a base.",
+        "b": "It turns bright pink because vinegar is an acid.",
+        "c": "It turns yellow because the mixture becomes neutral.",
+        "d": "It turns clear because the vinegar bleaches the pigment.",
+        "e": "It turns dark purple because the density increases.",
+        "f": "It turns orange because of a reaction with oxygen."
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Why does the pink vinegar solution sink to the bottom of the vase when it is poured into the oil?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "The vinegar solution is less dense than the oil.",
+                "text": "The vinegar solution is less dense than the oil.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The vinegar solution is more dense than the oil.",
+                "text": "The vinegar solution is more dense than the oil.",
+                "weight": 100
+            },
+            {
+                "answer_text": "The oil is hydrophobic and repels the vinegar downwards.",
+                "text": "The oil is hydrophobic and repels the vinegar downwards.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The bicarbonate of soda pulls the vinegar down magnetically.",
+                "text": "The bicarbonate of soda pulls the vinegar down magnetically.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The vinegar solution has the exact same density as the oil.",
+                "text": "The vinegar solution has the exact same density as the oil.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The vinegar solution is heavier than the glass vase.",
+                "text": "The vinegar solution is heavier than the glass vase.",
+                "weight": 0
+            }
+        ],
+        "a": "The vinegar solution is less dense than the oil.",
+        "b": "The vinegar solution is more dense than the oil.",
+        "c": "The oil is hydrophobic and repels the vinegar downwards.",
+        "d": "The bicarbonate of soda pulls the vinegar down magnetically.",
+        "e": "The vinegar solution has the exact same density as the oil.",
+        "f": "The vinegar solution is heavier than the glass vase."
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What specific gas is trapped inside the bubbles produced by the chemical reaction?",
+        "url": "",
+        "correct ans index": "5",
+        "answers": [
+            {
+                "answer_text": "Oxygen",
+                "text": "Oxygen",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrogen",
+                "text": "Hydrogen",
+                "weight": 0
+            },
+            {
+                "answer_text": "Helium",
+                "text": "Helium",
+                "weight": 0
+            },
+            {
+                "answer_text": "Nitrogen",
+                "text": "Nitrogen",
+                "weight": 0
+            },
+            {
+                "answer_text": "Carbon Dioxide",
+                "text": "Carbon Dioxide",
+                "weight": 100
+            },
+            {
+                "answer_text": "Methane",
+                "text": "Methane",
+                "weight": 0
+            }
+        ],
+        "a": "Oxygen",
+        "b": "Hydrogen",
+        "c": "Helium",
+        "d": "Nitrogen",
+        "e": "Carbon Dioxide",
+        "f": "Methane"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Once the chemical reaction occurs at the bottom of the glass, why do the bubbles rise up through the oil?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "The gas-filled bubbles are less dense than the oil.",
+                "text": "The gas-filled bubbles are less dense than the oil.",
+                "weight": 100
+            },
+            {
+                "answer_text": "The bubbles are attracted to the light at the top of the vase.",
+                "text": "The bubbles are attracted to the light at the top of the vase.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The chemical reaction generates heat which creates convection currents.",
+                "text": "The chemical reaction generates heat which creates convection currents.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The bicarbonate of soda pushes the bubbles upward mechanically.",
+                "text": "The bicarbonate of soda pushes the bubbles upward mechanically.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The oil is actually heavier than the glass, forcing the bubbles up.",
+                "text": "The oil is actually heavier than the glass, forcing the bubbles up.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The bubbles are magnetic and are repelled by the bottom of the glass.",
+                "text": "The bubbles are magnetic and are repelled by the bottom of the glass.",
+                "weight": 0
+            }
+        ],
+        "a": "The gas-filled bubbles are less dense than the oil.",
+        "b": "The bubbles are attracted to the light at the top of the vase.",
+        "c": "The chemical reaction generates heat which creates convection currents.",
+        "d": "The bicarbonate of soda pushes the bubbles upward mechanically.",
+        "e": "The oil is actually heavier than the glass, forcing the bubbles up.",
+        "f": "The bubbles are magnetic and are repelled by the bottom of the glass."
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "As the reaction proceeds and the acid in the bubbles is \"used up\" by reacting with the base, what happens to the color of the indicator inside the bubbles or at the bottom?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "It changes from pink to blue-green.",
+                "text": "It changes from pink to blue-green.",
+                "weight": 100
+            },
+            {
+                "answer_text": "It changes from blue-green to bright red.",
+                "text": "It changes from blue-green to bright red.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It turns completely transparent.",
+                "text": "It turns completely transparent.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It turns a bright neon yellow.",
+                "text": "It turns a bright neon yellow.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It changes from purple to black.",
+                "text": "It changes from purple to black.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It remains bright pink indefinitely.",
+                "text": "It remains bright pink indefinitely.",
+                "weight": 0
+            }
+        ],
+        "a": "It changes from pink to blue-green.",
+        "b": "It changes from blue-green to bright red.",
+        "c": "It turns completely transparent.",
+        "d": "It turns a bright neon yellow.",
+        "e": "It changes from purple to black.",
+        "f": "It remains bright pink indefinitely."
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "On the pH scale described, what color does the red cabbage indicator take when placed in a \"neutral\" solution (pH 7), such as water?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Red",
+                "text": "Red",
+                "weight": 0
+            },
+            {
+                "answer_text": "Green",
+                "text": "Green",
+                "weight": 0
+            },
+            {
+                "answer_text": "Blue-Green",
+                "text": "Blue-Green",
+                "weight": 0
+            },
+            {
+                "answer_text": "Blue-Purple",
+                "text": "Blue-Purple",
+                "weight": 100
+            },
+            {
+                "answer_text": "Yellow",
+                "text": "Yellow",
+                "weight": 0
+            },
+            {
+                "answer_text": "Orange",
+                "text": "Orange",
+                "weight": 0
+            }
+        ],
+        "a": "Red",
+        "b": "Green",
+        "c": "Blue-Green",
+        "d": "Blue-Purple",
+        "e": "Yellow",
+        "f": "Orange"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "When setting up the experiment, why is it important to pour the oil gently over the bicarbonate of soda?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "To ensure the oil mixes thoroughly with the powder immediately.",
+                "text": "To ensure the oil mixes thoroughly with the powder immediately.",
+                "weight": 0
+            },
+            {
+                "answer_text": "To prevents the oil from touching the sides of the glass.",
+                "text": "To prevents the oil from touching the sides of the glass.",
+                "weight": 0
+            },
+            {
+                "answer_text": "To avoid stirring up the bicarbonate of soda and displacing it from the base of the cup.",
+                "text": "To avoid stirring up the bicarbonate of soda and displacing it from the base of the cup.",
+                "weight": 100
+            },
+            {
+                "answer_text": "To heat up the bicarbonate of soda via friction.",
+                "text": "To heat up the bicarbonate of soda via friction.",
+                "weight": 0
+            },
+            {
+                "answer_text": "To ensure the oil changes color before the vinegar is added.",
+                "text": "To ensure the oil changes color before the vinegar is added.",
+                "weight": 0
+            },
+            {
+                "answer_text": "To dissolve the bicarbonate of soda into the oil.",
+                "text": "To dissolve the bicarbonate of soda into the oil.",
+                "weight": 0
+            }
+        ],
+        "a": "To ensure the oil mixes thoroughly with the powder immediately.",
+        "b": "To prevents the oil from touching the sides of the glass.",
+        "c": "To avoid stirring up the bicarbonate of soda and displacing it from the base of the cup.",
+        "d": "To heat up the bicarbonate of soda via friction.",
+        "e": "To ensure the oil changes color before the vinegar is added.",
+        "f": "To dissolve the bicarbonate of soda into the oil."
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "If you were to fully dissolve the bicarbonate of soda in water before pouring it into the vase (instead of leaving it as a powder at the bottom), how would this likely affect the \"Bubble Tower\" display when the acid is added?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "The reaction would not happen at all because the base is wet.",
+                "text": "The reaction would not happen at all because the base is wet.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The reaction would occur very rapidly or instantly upon mixing, likely spoiling the slow, rising \"lava lamp\" bubble effect.",
+                "text": "The reaction would occur very rapidly or instantly upon mixing, likely spoiling the slow, rising \"lava lamp\" bubble effect.",
+                "weight": 100
+            },
+            {
+                "answer_text": "The bubbles would sink instead of rise because the liquid is too heavy.",
+                "text": "The bubbles would sink instead of rise because the liquid is too heavy.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The oil would turn solid immediately upon contact with the dissolved base.",
+                "text": "The oil would turn solid immediately upon contact with the dissolved base.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The solution would turn yellow instead of pink or blue-green.",
+                "text": "The solution would turn yellow instead of pink or blue-green.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The vinegar would float on top of the oil and never reach the dissolved base.",
+                "text": "The vinegar would float on top of the oil and never reach the dissolved base.",
+                "weight": 0
+            }
+        ],
+        "a": "The reaction would not happen at all because the base is wet.",
+        "b": "The reaction would occur very rapidly or instantly upon mixing, likely spoiling the slow, rising \"lava lamp\" bubble effect.",
+        "c": "The bubbles would sink instead of rise because the liquid is too heavy.",
+        "d": "The oil would turn solid immediately upon contact with the dissolved base.",
+        "e": "The solution would turn yellow instead of pink or blue-green.",
+        "f": "The vinegar would float on top of the oil and never reach the dissolved base."
+    },
+    {
+        "question_name": "Question 11",
+        "question number": "Q11",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "question text": "Please write your English name used in class:",
+        "url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 12",
+        "question number": "Q12",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "correct ans index": " ",
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    }
+]

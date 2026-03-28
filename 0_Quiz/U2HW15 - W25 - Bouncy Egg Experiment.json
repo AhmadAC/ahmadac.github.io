@@ -1,0 +1,430 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What is the primary chemical reaction occurring when an egg is placed in vinegar?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "CaCO₃ + HCl → CaCl₂  + CO₂ + H₂O",
+                "text": "CaCO₃ + HCl → CaCl₂  + CO₂ + H₂O",
+                "weight": 0
+            },
+            {
+                "answer_text": "CaCO₃ + H₂O → Ca(OH) ₂ + CO₂",
+                "text": "CaCO₃ + H₂O → Ca(OH) ₂ + CO₂",
+                "weight": 0
+            },
+            {
+                "answer_text": "CaCO₃ + 2CH₃COOH → Ca²⁺ + 2CH₃COO⁻ + CO₂ + H₂O",
+                "text": "CaCO₃ + 2CH₃COOH → Ca²⁺ + 2CH₃COO⁻ + CO₂ + H₂O",
+                "weight": 100
+            },
+            {
+                "answer_text": "NaHCO₃ + CH₃COOH → Na⁺ + CH₃COO⁻ + CO₂ + H₂O",
+                "text": "NaHCO₃ + CH₃COOH → Na⁺ + CH₃COO⁻ + CO₂ + H₂O",
+                "weight": 0
+            }
+        ],
+        "a": "CaCO₃ + HCl → CaCl₂  + CO₂ + H₂O",
+        "b": "CaCO₃ + H₂O → Ca(OH) ₂ + CO₂",
+        "c": "CaCO₃ + 2CH₃COOH → Ca²⁺ + 2CH₃COO⁻ + CO₂ + H₂O",
+        "d": "NaHCO₃ + CH₃COOH → Na⁺ + CH₃COO⁻ + CO₂ + H₂O"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What causes the bubbles observed during the bouncy egg experiment?",
+        "url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Water vapor forming",
+                "text": "Water vapor forming",
+                "weight": 0
+            },
+            {
+                "answer_text": "Oxygen gas being released",
+                "text": "Oxygen gas being released",
+                "weight": 0
+            },
+            {
+                "answer_text": "Carbon dioxide gas being released",
+                "text": "Carbon dioxide gas being released",
+                "weight": 100
+            },
+            {
+                "answer_text": "Hydrogen gas being released",
+                "text": "Hydrogen gas being released",
+                "weight": 0
+            }
+        ],
+        "a": "Water vapor forming",
+        "b": "Oxygen gas being released",
+        "c": "Carbon dioxide gas being released",
+        "d": "Hydrogen gas being released"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What happens to the eggshell during the experiment?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "It expands due to osmosis",
+                "text": "It expands due to osmosis",
+                "weight": 0
+            },
+            {
+                "answer_text": "It becomes harder due to a chemical reaction",
+                "text": "It becomes harder due to a chemical reaction",
+                "weight": 0
+            },
+            {
+                "answer_text": "It remains unchanged but the egg becomes bouncy",
+                "text": "It remains unchanged but the egg becomes bouncy",
+                "weight": 0
+            },
+            {
+                "answer_text": "It dissolves completely due to a reaction with acetic acid",
+                "text": "It dissolves completely due to a reaction with acetic acid",
+                "weight": 100
+            }
+        ],
+        "a": "It expands due to osmosis",
+        "b": "It becomes harder due to a chemical reaction",
+        "c": "It remains unchanged but the egg becomes bouncy",
+        "d": "It dissolves completely due to a reaction with acetic acid"
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Why does the egg become bouncy after being submerged in vinegar for several days?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "The vinegar adds elasticity to the egg's membrane",
+                "text": "The vinegar adds elasticity to the egg's membrane",
+                "weight": 0
+            },
+            {
+                "answer_text": "The egg absorbs vinegar, making it rubbery",
+                "text": "The egg absorbs vinegar, making it rubbery",
+                "weight": 0
+            },
+            {
+                "answer_text": "The egg undergoes a phase change to become solid rubber",
+                "text": "The egg undergoes a phase change to become solid rubber",
+                "weight": 0
+            },
+            {
+                "answer_text": "The calcium carbonate shell dissolves, leaving only the flexible inner membrane",
+                "text": "The calcium carbonate shell dissolves, leaving only the flexible inner membrane",
+                "weight": 100
+            }
+        ],
+        "a": "The vinegar adds elasticity to the egg's membrane",
+        "b": "The egg absorbs vinegar, making it rubbery",
+        "c": "The egg undergoes a phase change to become solid rubber",
+        "d": "The calcium carbonate shell dissolves, leaving only the flexible inner membrane"
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which component of vinegar reacts with the eggshell?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "Sodium bicarbonate (NaHCO₃)",
+                "text": "Sodium bicarbonate (NaHCO₃)",
+                "weight": 0
+            },
+            {
+                "answer_text": "Acetic acid (CH₃COOH)",
+                "text": "Acetic acid (CH₃COOH)",
+                "weight": 100
+            },
+            {
+                "answer_text": "Calcium chloride (CaCl₂)",
+                "text": "Calcium chloride (CaCl₂)",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrochloric acid (HCl)",
+                "text": "Hydrochloric acid (HCl)",
+                "weight": 0
+            }
+        ],
+        "a": "Sodium bicarbonate (NaHCO₃)",
+        "b": "Acetic acid (CH₃COOH)",
+        "c": "Calcium chloride (CaCl₂)",
+        "d": "Hydrochloric acid (HCl)"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What is the main product formed when calcium carbonate reacts with acetic acid?",
+        "url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "Calcium acetate (Ca(CH₃COO)₂)",
+                "text": "Calcium acetate (Ca(CH₃COO)₂)",
+                "weight": 100
+            },
+            {
+                "answer_text": "Calcium chloride (CaCl₂)",
+                "text": "Calcium chloride (CaCl₂)",
+                "weight": 0
+            },
+            {
+                "answer_text": "Calcium hydroxide (Ca(OH) ₂)",
+                "text": "Calcium hydroxide (Ca(OH) ₂)",
+                "weight": 0
+            },
+            {
+                "answer_text": "Calcium sulfate (CaSO₄)",
+                "text": "Calcium sulfate (CaSO₄)",
+                "weight": 0
+            }
+        ],
+        "a": "Calcium acetate (Ca(CH₃COO)₂)",
+        "b": "Calcium chloride (CaCl₂)",
+        "c": "Calcium hydroxide (Ca(OH) ₂)",
+        "d": "Calcium sulfate (CaSO₄)"
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What happens to the size of the egg after being submerged in vinegar for several days?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "It decreases because the shell dissolves",
+                "text": "It decreases because the shell dissolves",
+                "weight": 0
+            },
+            {
+                "answer_text": "It increases because water enters the egg through osmosis",
+                "text": "It increases because water enters the egg through osmosis",
+                "weight": 100
+            },
+            {
+                "answer_text": "It remains the same as no material is added or removed",
+                "text": "It remains the same as no material is added or removed",
+                "weight": 0
+            },
+            {
+                "answer_text": "It decreases because carbon dioxide escapes",
+                "text": "It decreases because carbon dioxide escapes",
+                "weight": 0
+            }
+        ],
+        "a": "It decreases because the shell dissolves",
+        "b": "It increases because water enters the egg through osmosis",
+        "c": "It remains the same as no material is added or removed",
+        "d": "It decreases because carbon dioxide escapes"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "What property of the egg allows it to bounce after the experiment?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "The hardened outer layer formed by vinegar",
+                "text": "The hardened outer layer formed by vinegar",
+                "weight": 0
+            },
+            {
+                "answer_text": "The contraction of the egg's volume",
+                "text": "The contraction of the egg's volume",
+                "weight": 0
+            },
+            {
+                "answer_text": "The increased density of the egg",
+                "text": "The increased density of the egg",
+                "weight": 0
+            },
+            {
+                "answer_text": "The elastic nature of the inner membrane exposed after the shell dissolves",
+                "text": "The elastic nature of the inner membrane exposed after the shell dissolves",
+                "weight": 100
+            }
+        ],
+        "a": "The hardened outer layer formed by vinegar",
+        "b": "The contraction of the egg's volume",
+        "c": "The increased density of the egg",
+        "d": "The elastic nature of the inner membrane exposed after the shell dissolves"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Which of the following is NOT a product of the reaction between calcium carbonate and acetic acid?",
+        "url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "Carbon dioxide",
+                "text": "Carbon dioxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Sodium chloride",
+                "text": "Sodium chloride",
+                "weight": 100
+            },
+            {
+                "answer_text": "Water",
+                "text": "Water",
+                "weight": 0
+            },
+            {
+                "answer_text": "Calcium acetate",
+                "text": "Calcium acetate",
+                "weight": 0
+            }
+        ],
+        "a": "Carbon dioxide",
+        "b": "Sodium chloride",
+        "c": "Water",
+        "d": "Calcium acetate"
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "question text": "Is the reaction between the eggshell (calcium carbonate) and vinegar (acetic acid) fast or slow?",
+        "url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Fast, because carbon dioxide bubbles form rapidly at the start",
+                "text": "Fast, because carbon dioxide bubbles form rapidly at the start",
+                "weight": 0
+            },
+            {
+                "answer_text": "Fast, because the reaction produces immediate results",
+                "text": "Fast, because the reaction produces immediate results",
+                "weight": 0
+            },
+            {
+                "answer_text": "Slow, because vinegar is a weak acid and does not react with calcium carbonate",
+                "text": "Slow, because vinegar is a weak acid and does not react with calcium carbonate",
+                "weight": 0
+            },
+            {
+                "answer_text": "Slow, because it takes several days for the shell to fully dissolve",
+                "text": "Slow, because it takes several days for the shell to fully dissolve",
+                "weight": 100
+            }
+        ],
+        "a": "Fast, because carbon dioxide bubbles form rapidly at the start",
+        "b": "Fast, because the reaction produces immediate results",
+        "c": "Slow, because vinegar is a weak acid and does not react with calcium carbonate",
+        "d": "Slow, because it takes several days for the shell to fully dissolve"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": "Q11",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "question text": "Please write your English name used in class:",
+        "url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 12",
+        "question number": "Q12",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "correct ans index": " ",
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    }
+]
