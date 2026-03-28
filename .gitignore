@@ -7,3 +7,10 @@ $ cat .gitignore
 /Ignore/
 /.git/
 /1.0 - Push Github Repo.bat
+.docx
+.doc
+.pdf
+.xlsx
+.pptx
+.ppt
+.txt
