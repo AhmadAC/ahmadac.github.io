@@ -1,6 +1,6 @@
 // --- GLOBAL APP MANAGEMENT ---
 let viewMode = 1;
-let quizInstances =[];
+let quizInstances = [];
 let canvasData = {}; // Shared across all instances
 const CLASSES =["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
@@ -157,6 +157,7 @@ class QuizInstance {
         const list = this.elements.assignmentList;
         list.innerHTML = "Loading...";
         this.switchView("view-assignments");
+        
         let grade = classCode[1];
         let assignmentsDict = {};
         if (grade === '6' && canvasData['6'] && canvasData['6'][classCode]) {
@@ -166,26 +167,38 @@ class QuizInstance {
         } else if (grade === '8' && canvasData['8']) {
             assignmentsDict = canvasData['8'];
         }
-        list.innerHTML = "";
+        
         let validTitles = Object.keys(assignmentsDict).filter(k => typeof assignmentsDict[k] !== 'object');
         validTitles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+        
         if (validTitles.length === 0) {
             list.innerHTML = "<p style='color:#666; font-style:italic;'>No assignments found.</p>";
             return;
         }
-        for (let title of validTitles) {
+
+        // Fetch all the headers concurrently to drastically speed up loading
+        const existenceChecks = validTitles.map(async (title) => {
+            const exists = await checkQuizExists(title);
+            return { title, exists };
+        });
+
+        // Wait for all checks to complete at the same time
+        const results = await Promise.all(existenceChecks);
+        
+        // Clear loading text and render all buttons in one go
+        list.innerHTML = "";
+        results.forEach(result => {
             let btn = document.createElement("button");
             btn.className = "btn-assignment";
-            let exists = await checkQuizExists(title);
-            if (!exists) {
-                btn.innerText = `${title} (File Missing)`;
+            if (!result.exists) {
+                btn.innerText = `${result.title} (File Missing)`;
                 btn.disabled = true;
             } else {
-                btn.innerText = title;
-                btn.onclick = () => this.startQuiz(title);
+                btn.innerText = result.title;
+                btn.onclick = () => this.startQuiz(result.title);
             }
             list.appendChild(btn);
-        }
+        });
     }
     
     async startQuiz(quizName) {
@@ -217,7 +230,7 @@ class QuizInstance {
                 }
             });
 
-            let quizQuestions = [], adminQuestions =[];
+            let quizQuestions =[], adminQuestions = [];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || "").toLowerCase();
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
@@ -227,7 +240,7 @@ class QuizInstance {
                 }
             });
             quizQuestions.sort(() => Math.random() - 0.5); 
-            this.currentQuestions = [...quizQuestions, ...adminQuestions];
+            this.currentQuestions =[...quizQuestions, ...adminQuestions];
             
             this.renderQuiz();
         } catch (e) {
@@ -291,7 +304,7 @@ class QuizInstance {
     }
     
     setupMultipleChoiceUI(container, q, idx) {
-        let options = [];
+        let options =[];
         let correctIdx = q['correct ans index'];
         if (typeof correctIdx === 'string' && !isNaN(correctIdx)) correctIdx = parseInt(correctIdx) - 1;
         else if (typeof correctIdx === 'number') correctIdx = correctIdx - 1;
@@ -436,7 +449,7 @@ class QuizInstance {
         state.slots.forEach((s, i) => {
             if (s.current === word) {
                 s.current = null;
-                const otherSlotEl = this.root.querySelector(`[data-question-index="${qIdx}"][data-slot-index="${i}"]`);
+                const otherSlotEl = this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${i}"]`);
                 if(otherSlotEl) {
                     otherSlotEl.innerText = "_____________";
                     otherSlotEl.className = "answer-slot";
@@ -445,7 +458,7 @@ class QuizInstance {
         });
 
         slotData.current = word;
-        const targetSlotEl = this.selectedSlot ? this.selectedSlot.element : this.root.querySelector(`[data-question-index="${qIdx}"][data-slot-index="${slotIdx}"]`);
+        const targetSlotEl = this.selectedSlot ? this.selectedSlot.element : this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${slotIdx}"]`);
         
         if (targetSlotEl) {
             targetSlotEl.innerText = word;
