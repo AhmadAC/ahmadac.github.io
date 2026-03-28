@@ -1,6 +1,6 @@
 // --- GLOBAL APP MANAGEMENT ---
 let viewMode = 1;
-let quizInstances = [];
+let quizInstances =[];
 let canvasData = {}; // Shared across all instances
 const CLASSES =["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
@@ -230,7 +230,7 @@ class QuizInstance {
                 }
             });
 
-            let quizQuestions =[], adminQuestions = [];
+            let quizQuestions =[], adminQuestions =[];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || "").toLowerCase();
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
@@ -278,7 +278,7 @@ class QuizInstance {
             let url = q.url || q.question_url;
             if (url && url.trim()) {
                 let cleanUrl = url.trim();
-                let exts = cleanUrl.includes('.') ? [''] : ['.png', '.jpg', '.gif'];
+                let exts = cleanUrl.includes('.') ? [''] :['.png', '.jpg', '.gif'];
                 header += `<img class="question-media" src="0_Quiz/media/${cleanUrl}${exts[0]}" onerror="this.onerror=null; this.src='0_Quiz/media/${cleanUrl}${exts[1] || ''}';">`;
             }
             frame.innerHTML = header;
@@ -725,7 +725,7 @@ class QuizInstance {
         container.innerHTML = "";
         let raw = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         let resultsFlat = [];
-        for (const [cls, students] of Object.entries(raw)) {
+        for (const[cls, students] of Object.entries(raw)) {
             for (const [name, quizzes] of Object.entries(students)) {
                 for (const [qName, data] of Object.entries(quizzes)) {
                     let lastAttempt = data.attempts[data.attempts.length - 1];
@@ -759,6 +759,13 @@ class QuizInstance {
 
 // --- GLOBAL HELPERS ---
 function triggerConfetti() {
+    try {
+        let audio = new Audio('sounds/pop.mp3');
+        audio.play().catch(e => console.warn("Audio play blocked by browser:", e));
+    } catch (e) {
+        console.warn("Audio not supported or file missing:", e);
+    }
+
     if (typeof confetti !== 'undefined') {
         let duration = 3000;
         let end = Date.now() + duration;

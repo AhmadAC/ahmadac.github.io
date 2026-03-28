@@ -20,6 +20,7 @@ body {
     padding: 0;
     background-color: var(--bg-main);
     height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height for mobile browser UI bars */
     overflow: hidden;
 }
 
@@ -31,6 +32,8 @@ body {
 
 .app-instance-container {
     flex: 1; /* Each instance grows to fill space */
+    min-width: 0; /* Prevent flex overflow */
+    min-height: 0; /* Prevent flex overflow */
     background-color: var(--bg-quiz);
     display: flex;
     flex-direction: column;
@@ -65,7 +68,9 @@ body {
 .view {
     display: none;
     flex-direction: column;
+    flex: 1; /* Grow to fill container */
     height: 100%;
+    min-height: 0; /* Prevent flex overflow */
 }
 .view.active {
     display: flex;
@@ -75,6 +80,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
+    min-height: 0; /* Allow scrolling without pushing container */
 }
 
 .view-title {
@@ -130,6 +136,7 @@ body {
     align-items: center;
     padding: 15px 20px;
     background-color: var(--bg-quiz);
+    flex-shrink: 0; /* Prevent shrinking */
 }
 .header-row h2 {
     font-size: 18px;
@@ -144,6 +151,7 @@ body {
     padding: 15px 20px;
     background-color: #ffffff;
     border-top: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent shrinking out of view */
 }
 .flex-spacer { flex: 1; }
 
@@ -231,6 +239,7 @@ body {
     align-items: center;
     padding: 15px 20px 10px 20px;
     background-color: #f0f2f5;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 .quiz-header h2 { margin: 0; font-size: 14px; color: var(--text-dark); flex: 1; }
 .quiz-progress-lbl { font-size: 12px; font-weight: bold; color: #555; }
