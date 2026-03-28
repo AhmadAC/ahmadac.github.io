@@ -230,7 +230,7 @@ class QuizInstance {
                 }
             });
 
-            let quizQuestions =[], adminQuestions =[];
+            let quizQuestions = [], adminQuestions =[];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || "").toLowerCase();
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
@@ -240,7 +240,7 @@ class QuizInstance {
                 }
             });
             quizQuestions.sort(() => Math.random() - 0.5); 
-            this.currentQuestions =[...quizQuestions, ...adminQuestions];
+            this.currentQuestions = [...quizQuestions, ...adminQuestions];
             
             this.renderQuiz();
         } catch (e) {
@@ -256,13 +256,28 @@ class QuizInstance {
         this.selectedSlot = null;
         this.activeMatchingQuestionId = null;
 
+        let foundFirstAdmin = false; // Tracks if we've added the spacer yet
+
         this.currentQuestions.forEach((q, idx) => {
             let qNum = idx + 1;
             let type = q.type || q.question_type;
             let qText = q['question text'] || q.question_text;
+            let qTextLower = (qText || "").toLowerCase();
             let pts = parseInt(q.points || q.points_possible) || 0;
             let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0].text;
             
+            // Check if this is an admin question (Name or Class)
+            let isAdmin = qTextLower.includes('select your class') || qTextLower.includes('english name') || qTextLower.includes('your name');
+
+            // Inject a visual blank spacer before the first admin question to flush out the sticky word bank
+            if (isAdmin && !foundFirstAdmin) {
+                let spacer = document.createElement('div');
+                spacer.style.height = "65vh"; // Large buffer to force scroll off
+                spacer.style.pointerEvents = "none";
+                container.appendChild(spacer);
+                foundFirstAdmin = true;
+            }
+
             let frame = document.createElement('div');
             frame.className = "question-frame";
             frame.dataset.questionIndex = idx;
@@ -278,7 +293,7 @@ class QuizInstance {
             let url = q.url || q.question_url;
             if (url && url.trim()) {
                 let cleanUrl = url.trim();
-                let exts = cleanUrl.includes('.') ? [''] :['.png', '.jpg', '.gif'];
+                let exts = cleanUrl.includes('.') ? [''] : ['.png', '.jpg', '.gif'];
                 header += `<img class="question-media" src="0_Quiz/media/${cleanUrl}${exts[0]}" onerror="this.onerror=null; this.src='0_Quiz/media/${cleanUrl}${exts[1] || ''}';">`;
             }
             frame.innerHTML = header;
@@ -304,7 +319,7 @@ class QuizInstance {
     }
     
     setupMultipleChoiceUI(container, q, idx) {
-        let options =[];
+        let options = [];
         let correctIdx = q['correct ans index'];
         if (typeof correctIdx === 'string' && !isNaN(correctIdx)) correctIdx = parseInt(correctIdx) - 1;
         else if (typeof correctIdx === 'number') correctIdx = correctIdx - 1;
@@ -643,7 +658,7 @@ class QuizInstance {
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
         if (!data[cls][name]) data[cls][name] = {};
-        if (!data[cls][name][quizName]) data[cls][name][quizName] = { best: 0, attempts:[] };
+        if (!data[cls][name][quizName]) data[cls][name][quizName] = { best: 0, attempts: [] };
 
         let ts = new Date().toISOString();
         data[cls][name][quizName].attempts.push({ s: score, t: total, ts: ts });
@@ -724,9 +739,9 @@ class QuizInstance {
         const container = this.elements.resultsList;
         container.innerHTML = "";
         let raw = JSON.parse(localStorage.getItem('quiz_results') || '{}');
-        let resultsFlat = [];
-        for (const[cls, students] of Object.entries(raw)) {
-            for (const [name, quizzes] of Object.entries(students)) {
+        let resultsFlat =[];
+        for (const [cls, students] of Object.entries(raw)) {
+            for (const[name, quizzes] of Object.entries(students)) {
                 for (const [qName, data] of Object.entries(quizzes)) {
                     let lastAttempt = data.attempts[data.attempts.length - 1];
                     resultsFlat.push({
