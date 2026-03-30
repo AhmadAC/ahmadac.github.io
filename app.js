@@ -176,16 +176,13 @@ class QuizInstance {
             return;
         }
 
-        // Fetch all the headers concurrently to drastically speed up loading
         const existenceChecks = validTitles.map(async (title) => {
             const exists = await checkQuizExists(title);
             return { title, exists };
         });
 
-        // Wait for all checks to complete at the same time
         const results = await Promise.all(existenceChecks);
         
-        // Clear loading text and render all buttons in one go
         list.innerHTML = "";
         results.forEach(result => {
             let btn = document.createElement("button");
@@ -256,7 +253,7 @@ class QuizInstance {
         this.selectedSlot = null;
         this.activeMatchingQuestionId = null;
 
-        let foundFirstAdmin = false; // Tracks if we've added the spacer yet
+        let foundFirstAdmin = false;
 
         this.currentQuestions.forEach((q, idx) => {
             let qNum = idx + 1;
@@ -266,13 +263,11 @@ class QuizInstance {
             let pts = parseInt(q.points || q.points_possible) || 0;
             let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0].text;
             
-            // Check if this is an admin question (Name or Class)
             let isAdmin = qTextLower.includes('select your class') || qTextLower.includes('english name') || qTextLower.includes('your name');
 
-            // Inject a visual blank spacer before the first admin question to flush out the sticky word bank
             if (isAdmin && !foundFirstAdmin) {
                 let spacer = document.createElement('div');
-                spacer.style.height = "65vh"; // Large buffer to force scroll off
+                spacer.style.height = "65vh";
                 spacer.style.pointerEvents = "none";
                 container.appendChild(spacer);
                 foundFirstAdmin = true;
@@ -382,13 +377,16 @@ class QuizInstance {
     setupComplexMatchingUI(container, q, idx) {
         let pairs = q.answers ||[];
         let distractors = q.distractors || q.matching_answer_incorrect_matches || [];
+        let allAnswers = pairs.map(p => p.answer_text);
+        let allWords = [...allAnswers, ...distractors];
         
-        let allWords =[...pairs.map(p => p.answer_text), ...distractors];
-        allWords.sort(() => Math.random() - 0.5);
-        
+        const uniqueWords = [...new Set(allWords)];
+        const allowReuse = uniqueWords.length < allAnswers.length;
+
         this.matchingStates[idx] = {
-            words: allWords,
+            words: allowReuse ? uniqueWords.sort() : allWords.sort(() => Math.random() - 0.5),
             slots: pairs.map(p => ({ correct: p.answer_text, current: null })),
+            allowReuse: allowReuse
         };
 
         pairs.forEach((pair, slotIdx) => {
@@ -437,8 +435,10 @@ class QuizInstance {
         
         let state = this.matchingStates[qIdx];
         state.words.forEach(word => {
-            let isUsed = state.slots.some(s => s.current === word);
-            if (isUsed) return;
+            if (!state.allowReuse) {
+                let isUsed = state.slots.some(s => s.current === word);
+                if (isUsed) return;
+            }
             
             let btn = document.createElement('button');
             btn.className = 'word-bank-btn';
@@ -461,16 +461,18 @@ class QuizInstance {
         const state = this.matchingStates[qIdx];
         const slotData = state.slots[slotIdx];
 
-        state.slots.forEach((s, i) => {
-            if (s.current === word) {
-                s.current = null;
-                const otherSlotEl = this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${i}"]`);
-                if(otherSlotEl) {
-                    otherSlotEl.innerText = "_____________";
-                    otherSlotEl.className = "answer-slot";
+        if (!state.allowReuse) {
+            state.slots.forEach((s, i) => {
+                if (s.current === word) {
+                    s.current = null;
+                    const otherSlotEl = this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${i}"]`);
+                    if(otherSlotEl) {
+                        otherSlotEl.innerText = "_____________";
+                        otherSlotEl.className = "answer-slot";
+                    }
                 }
-            }
-        });
+            });
+        }
 
         slotData.current = word;
         const targetSlotEl = this.selectedSlot ? this.selectedSlot.element : this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${slotIdx}"]`);
@@ -520,7 +522,7 @@ class QuizInstance {
         let answered = 0;
         this.currentQuestions.forEach((q, idx) => {
             let type = q.type || q.question_type;
-            let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0;
+            let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0].text;
             
             if (isComplexMatching) {
                 let state = this.matchingStates[idx];
@@ -538,41 +540,43 @@ class QuizInstance {
     }
 
     submitQuiz() {
-        let nameAns = null, classAns = null;
-
-        // PHASE 1: VALIDATION (Check for Name and Class first without changing anything)
+        let nameAns = null;
+        let classAns = null;
+    
+        // PHASE 1: VALIDATION
         this.currentQuestions.forEach((q, idx) => {
-            let frame = this.root.querySelector(`[data-question-index="${idx}"]`);
-            let txt = (q['question text'] || q.question_text || "").toLowerCase();
-            let type = q.type || q.question_type;
-            let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0;
-
+            const frame = this.root.querySelector(`[data-question-index="${idx}"]`);
+            const txt = (q['question text'] || q.question_text || "").toLowerCase();
+            const type = q.type || q.question_type;
+    
             if (type === 'essay_question' && txt.includes('name')) {
                 nameAns = frame.querySelector('.essay-input').value.trim();
-            } else if (type === 'matching_question' && !isComplexMatching && txt.includes('class')) {
+            } 
+            // This is the fix: Directly check for the property set by the class selection UI.
+            // This is robust and doesn't rely on complex/inconsistent flags.
+            else if (type === 'matching_question' && txt.includes('class')) {
                 classAns = q._userAnswer;
             }
         });
-
-        // Error out if missing name or class
+    
         if (!nameAns || !classAns) {
-            let missing =[];
+            let missing = [];
             if (!nameAns) missing.push("your name");
             if (!classAns) missing.push("your class");
             this.elements.errorMsg.innerText = "Please enter " + missing.join(" and ") + ".";
-            return; // Stop here and don't lock the quiz
+            return;
         }
-
-        // PHASE 2: GRADING & LOCKING (Proceed only if Phase 1 passed)
+    
+        // PHASE 2: GRADING & LOCKING
         this.elements.errorMsg.innerText = "";
         this.elements.stickyBank.classList.add("hidden");
         let totalScore = 0, totalPossible = 0;
-
+    
         this.currentQuestions.forEach((q, idx) => {
             let frame = this.root.querySelector(`[data-question-index="${idx}"]`);
             let txt = (q['question text'] || q.question_text || "").toLowerCase();
             let type = q.type || q.question_type;
-            let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0;
+            let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0].text;
             let pts = parseInt(q.points || q.points_possible) || 0;
 
             if (type === 'essay_question' && txt.includes('name')) {
@@ -615,13 +619,12 @@ class QuizInstance {
                 }
             }
         });
-
-        // Store final results
+    
         this.finalStudentName = nameAns;
         this.finalStudentClass = classAns;
         this.finalScore = totalScore;
         this.finalTotalPossible = totalPossible;
-
+    
         let perc = totalPossible === 0 ? 100 : Math.round((totalScore / totalPossible) * 100);
         let state = perc >= 60 ? "pass" : perc > 0 ? "warning" : "fail";
         
@@ -629,7 +632,7 @@ class QuizInstance {
         if (state !== "fail" || totalPossible === 0) {
             this.saveResult(this.currentQuizName, nameAns, classAns, totalScore, totalPossible);
         }
-
+    
         let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore} / ${totalPossible} (${perc}%)`;
         if (state === "warning") msg += "\n\nGreat start! Your score has been saved.";
         else if (state === "fail") msg += "\n\nPlease Try Again";
@@ -643,15 +646,9 @@ class QuizInstance {
         this.elements.resultBox.classList.remove("hidden");
         this.elements.scrollArea.scrollTop = this.elements.scrollArea.scrollHeight;
     }
-
+    
     resetQuiz() {
         this.startQuiz(this.currentQuizName);
-        this.elements.resultBox.classList.add("hidden");
-        this.elements.btnSubmit.classList.remove("hidden");
-        this.elements.btnRedo.classList.add("hidden");
-        this.elements.btnSavePic.classList.add("hidden");
-        this.elements.errorMsg.innerText = "";
-        this.elements.scrollArea.scrollTop = 0;
     }
 
     saveResult(quizName, name, cls, score, total) {
