@@ -1,0 +1,692 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which device turns mechanical energy into electrical energy when you turn a handle?",
+        "question_text": "Which device turns mechanical energy into electrical energy when you turn a handle?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "6",
+        "answers": [
+            {
+                "answer_text": "AC",
+                "text": "AC",
+                "weight": 0
+            },
+            {
+                "answer_text": "DC Motor",
+                "text": "DC Motor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Cell",
+                "text": "Cell",
+                "weight": 0
+            },
+            {
+                "answer_text": "Insulator",
+                "text": "Insulator",
+                "weight": 0
+            },
+            {
+                "answer_text": "LED",
+                "text": "LED",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hand-cranked generator",
+                "text": "Hand-cranked generator",
+                "weight": 100
+            }
+        ],
+        "a": "AC",
+        "b": "DC Motor",
+        "c": "Cell",
+        "d": "Insulator",
+        "e": "LED",
+        "f": "Hand-cranked generator"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A material that is usually a metal and allows electricity to flow through it easily is called a:",
+        "question_text": "A material that is usually a metal and allows electricity to flow through it easily is called a:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "Conductor",
+                "text": "Conductor",
+                "weight": 100
+            },
+            {
+                "answer_text": "Battery",
+                "text": "Battery",
+                "weight": 0
+            },
+            {
+                "answer_text": "Switch",
+                "text": "Switch",
+                "weight": 0
+            },
+            {
+                "answer_text": "Non-metal",
+                "text": "Non-metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "LED",
+                "text": "LED",
+                "weight": 0
+            },
+            {
+                "answer_text": "Insulator",
+                "text": "Insulator",
+                "weight": 0
+            }
+        ],
+        "a": "Conductor",
+        "b": "Battery",
+        "c": "Switch",
+        "d": "Non-metal",
+        "e": "LED",
+        "f": "Insulator"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A single unit that stores chemical energy and has a positive and negative terminal is called a:",
+        "question_text": "A single unit that stores chemical energy and has a positive and negative terminal is called a:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "DC Motor",
+                "text": "DC Motor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Conductor",
+                "text": "Conductor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Light energy",
+                "text": "Light energy",
+                "weight": 0
+            },
+            {
+                "answer_text": "Cell",
+                "text": "Cell",
+                "weight": 100
+            },
+            {
+                "answer_text": "Switch",
+                "text": "Switch",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hand-cranked generator",
+                "text": "Hand-cranked generator",
+                "weight": 0
+            }
+        ],
+        "a": "DC Motor",
+        "b": "Conductor",
+        "c": "Light energy",
+        "d": "Cell",
+        "e": "Switch",
+        "f": "Hand-cranked generator"
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What part of a circuit can you use to \"break\" the path and turn the electricity on or off?",
+        "question_text": "What part of a circuit can you use to \"break\" the path and turn the electricity on or off?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "AC",
+                "text": "AC",
+                "weight": 0
+            },
+            {
+                "answer_text": "Insulator",
+                "text": "Insulator",
+                "weight": 0
+            },
+            {
+                "answer_text": "Switch",
+                "text": "Switch",
+                "weight": 100
+            },
+            {
+                "answer_text": "Metal",
+                "text": "Metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "LED",
+                "text": "LED",
+                "weight": 0
+            },
+            {
+                "answer_text": "Battery",
+                "text": "Battery",
+                "weight": 0
+            }
+        ],
+        "a": "AC",
+        "b": "Insulator",
+        "c": "Switch",
+        "d": "Metal",
+        "e": "LED",
+        "f": "Battery"
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In an LED, electrical energy is changed into what other type of energy?",
+        "question_text": "In an LED, electrical energy is changed into what other type of energy?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "5",
+        "answers": [
+            {
+                "answer_text": "Mechanical energy",
+                "text": "Mechanical energy",
+                "weight": 0
+            },
+            {
+                "answer_text": "Conductor",
+                "text": "Conductor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Cell",
+                "text": "Cell",
+                "weight": 0
+            },
+            {
+                "answer_text": "AC",
+                "text": "AC",
+                "weight": 0
+            },
+            {
+                "answer_text": "Light energy",
+                "text": "Light energy",
+                "weight": 100
+            },
+            {
+                "answer_text": "Nonmetal",
+                "text": "Nonmetal",
+                "weight": 0
+            }
+        ],
+        "a": "Mechanical energy",
+        "b": "Conductor",
+        "c": "Cell",
+        "d": "AC",
+        "e": "Light energy",
+        "f": "Nonmetal"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which device uses electrical energy to create mechanical energy (motion) to make things spin?",
+        "question_text": "Which device uses electrical energy to create mechanical energy (motion) to make things spin?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "Switch",
+                "text": "Switch",
+                "weight": 0
+            },
+            {
+                "answer_text": "DC Motor",
+                "text": "DC Motor",
+                "weight": 100
+            },
+            {
+                "answer_text": "Insulator",
+                "text": "Insulator",
+                "weight": 0
+            },
+            {
+                "answer_text": "Battery",
+                "text": "Battery",
+                "weight": 0
+            },
+            {
+                "answer_text": "Light energy",
+                "text": "Light energy",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hand-cranked generator",
+                "text": "Hand-cranked generator",
+                "weight": 0
+            }
+        ],
+        "a": "Switch",
+        "b": "DC Motor",
+        "c": "Insulator",
+        "d": "Battery",
+        "e": "Light energy",
+        "f": "Hand-cranked generator"
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When you connect two or more cells together to get more power, you create a:",
+        "question_text": "When you connect two or more cells together to get more power, you create a:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "Battery",
+                "text": "Battery",
+                "weight": 100
+            },
+            {
+                "answer_text": "Non-metal",
+                "text": "Non-metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "DC Motor",
+                "text": "DC Motor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Negative terminal",
+                "text": "Negative terminal",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hand-cranked generator",
+                "text": "Hand-cranked generator",
+                "weight": 0
+            },
+            {
+                "answer_text": "Conductor",
+                "text": "Conductor",
+                "weight": 0
+            }
+        ],
+        "a": "Battery",
+        "b": "Non-metal",
+        "c": "DC Motor",
+        "d": "Negative terminal",
+        "e": "Hand-cranked generator",
+        "f": "Conductor"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A special power source that uses magnetic fields and stored energy to provide power is called an:",
+        "question_text": "A special power source that uses magnetic fields and stored energy to provide power is called an:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "6",
+        "answers": [
+            {
+                "answer_text": "LED",
+                "text": "LED",
+                "weight": 0
+            },
+            {
+                "answer_text": "Insulator",
+                "text": "Insulator",
+                "weight": 0
+            },
+            {
+                "answer_text": "Switch",
+                "text": "Switch",
+                "weight": 0
+            },
+            {
+                "answer_text": "Metal",
+                "text": "Metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "AC",
+                "text": "AC",
+                "weight": 0
+            },
+            {
+                "answer_text": "Electromagnetic battery",
+                "text": "Electromagnetic battery",
+                "weight": 100
+            }
+        ],
+        "a": "LED",
+        "b": "Insulator",
+        "c": "Switch",
+        "d": "Metal",
+        "e": "AC",
+        "f": "Electromagnetic battery"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Electricity from a wall outlet that moves back and forth in different directions is called:",
+        "question_text": "Electricity from a wall outlet that moves back and forth in different directions is called:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "DC Motor",
+                "text": "DC Motor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Cell",
+                "text": "Cell",
+                "weight": 0
+            },
+            {
+                "answer_text": "AC",
+                "text": "AC",
+                "weight": 100
+            },
+            {
+                "answer_text": "Conductor",
+                "text": "Conductor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Positive terminal",
+                "text": "Positive terminal",
+                "weight": 0
+            },
+            {
+                "answer_text": "Battery",
+                "text": "Battery",
+                "weight": 0
+            }
+        ],
+        "a": "DC Motor",
+        "b": "Cell",
+        "c": "AC",
+        "d": "Conductor",
+        "e": "Positive terminal",
+        "f": "Battery"
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What does the term LED stand for?",
+        "question_text": "What does the term LED stand for?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "5",
+        "answers": [
+            {
+                "answer_text": "Low Energy Device",
+                "text": "Low Energy Device",
+                "weight": 0
+            },
+            {
+                "answer_text": "Long Electrical Design",
+                "text": "Long Electrical Design",
+                "weight": 0
+            },
+            {
+                "answer_text": "Light Every Day",
+                "text": "Light Every Day",
+                "weight": 0
+            },
+            {
+                "answer_text": "Liquid Energy Direct",
+                "text": "Liquid Energy Direct",
+                "weight": 0
+            },
+            {
+                "answer_text": "Light Emitting Diode",
+                "text": "Light Emitting Diode",
+                "weight": 100
+            },
+            {
+                "answer_text": "Large Electric Drain",
+                "text": "Large Electric Drain",
+                "weight": 0
+            }
+        ],
+        "a": "Low Energy Device",
+        "b": "Long Electrical Design",
+        "c": "Light Every Day",
+        "d": "Liquid Energy Direct",
+        "e": "Light Emitting Diode",
+        "f": "Large Electric Drain"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A material, such as plastic or rubber (non-metal), that does not let electricity pass through is an:",
+        "question_text": "A material, such as plastic or rubber (non-metal), that does not let electricity pass through is an:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "AC",
+                "text": "AC",
+                "weight": 0
+            },
+            {
+                "answer_text": "Insulator",
+                "text": "Insulator",
+                "weight": 100
+            },
+            {
+                "answer_text": "Metal",
+                "text": "Metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "Switch",
+                "text": "Switch",
+                "weight": 0
+            },
+            {
+                "answer_text": "Conductor",
+                "text": "Conductor",
+                "weight": 0
+            },
+            {
+                "answer_text": "Cell",
+                "text": "Cell",
+                "weight": 0
+            }
+        ],
+        "a": "AC",
+        "b": "Insulator",
+        "c": "Metal",
+        "d": "Switch",
+        "e": "Conductor",
+        "f": "Cell"
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Electricity flows (current) out of the positive terminal of a battery and returns through the:",
+        "question_text": "Electricity flows (current) out of the positive terminal of a battery and returns through the:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Hand-cranked generator",
+                "text": "Hand-cranked generator",
+                "weight": 0
+            },
+            {
+                "answer_text": "DC Motor",
+                "text": "DC Motor",
+                "weight": 0
+            },
+            {
+                "answer_text": "LED",
+                "text": "LED",
+                "weight": 0
+            },
+            {
+                "answer_text": "Negative terminal",
+                "text": "Negative terminal",
+                "weight": 100
+            },
+            {
+                "answer_text": "Electromagnetic battery",
+                "text": "Electromagnetic battery",
+                "weight": 0
+            },
+            {
+                "answer_text": "Light energy",
+                "text": "Light energy",
+                "weight": 0
+            }
+        ],
+        "a": "Hand-cranked generator",
+        "b": "DC Motor",
+        "c": "LED",
+        "d": "Negative terminal",
+        "e": "Electromagnetic battery",
+        "f": "Light energy"
+    },
+    {
+        "question_name": "Question 13",
+        "question number": "Q13",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 14",
+        "question number": "Q14",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    }
+]
