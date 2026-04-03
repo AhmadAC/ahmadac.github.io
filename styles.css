@@ -146,13 +146,21 @@ body {
 
 .footer-row {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
-    padding: 15px 20px;
+    padding: 10px 20px;
     background-color: #ffffff;
     border-top: 1px solid var(--border-color);
     flex-shrink: 0; /* Prevent shrinking out of view */
 }
+
+.footer-line {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
 .flex-spacer { flex: 1; }
 
 .btn-nav {
@@ -422,7 +430,15 @@ body {
 .quiz-result-box[data-status="pass"] p { color: #004d00; }
 .quiz-result-box[data-status="warning"] p { color: #e65100; }
 .quiz-result-box[data-status="fail"] p { color: #b71c1c; }
-.error-msg { color: #e74c3c; font-weight: bold; font-size: 13px; margin-right: 10px; }
+
+/* Error Message in Footer */
+.quiz-error-msg { 
+    color: #e74c3c; 
+    font-weight: bold; 
+    font-size: 13px; 
+    text-align: center; 
+    flex: 1; /* Allow it to grow and shrink */
+}
 .hidden { display: none !important; }
 
 /* Result Cards on Results Page */

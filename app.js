@@ -115,40 +115,15 @@ class QuizInstance {
             btnRedo: this.root.querySelector('.btn-redo-quiz'),
             btnSavePic: this.root.querySelector('.btn-save-picture'),
             resultsList: this.root.querySelector('.results-list'),
+            btnJumpTop: this.root.querySelector('.btn-jump-top'),
+            btnJumpBottom: this.root.querySelector('.btn-jump-bottom')
         };
         this.init();
     }
 
     init() {
         this.initClassGrid();
-        this.initJumpButtons();
         this.addEventListeners();
-    }
-
-    initJumpButtons() {
-        // Create Top Jump Button (Q1)
-        this.elements.btnJumpTop = document.createElement('button');
-        this.elements.btnJumpTop.className = 'btn-jump hidden';
-        this.elements.btnJumpTop.innerText = 'Q1';
-        this.elements.btnJumpTop.style.marginRight = '5px';
-        this.elements.btnJumpTop.onclick = () => {
-            this.elements.scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-
-        // Create Bottom Jump Button (Qx)
-        this.elements.btnJumpBottom = document.createElement('button');
-        this.elements.btnJumpBottom.className = 'btn-jump hidden';
-        this.elements.btnJumpBottom.style.marginRight = '15px';
-        this.elements.btnJumpBottom.onclick = () => {
-            this.elements.scrollArea.scrollTo({ top: this.elements.scrollArea.scrollHeight, behavior: 'smooth' });
-        };
-
-        // Insert them before the submit button in the footer
-        const footer = this.elements.btnSubmit.parentNode;
-        if (footer) {
-            footer.insertBefore(this.elements.btnJumpTop, this.elements.btnSubmit);
-            footer.insertBefore(this.elements.btnJumpBottom, this.elements.btnSubmit);
-        }
     }
 
     switchView(viewClass) {
@@ -161,6 +136,9 @@ class QuizInstance {
         this.root.querySelector('.btn-back-to-class').addEventListener('click', () => this.switchView('view-class-select'));
         this.root.querySelector('.btn-back-to-class-from-results').addEventListener('click', () => this.switchView('view-class-select'));
         this.root.querySelector('.btn-back-to-assignments').addEventListener('click', () => this.switchView('view-assignments'));
+        
+        this.elements.btnJumpTop.addEventListener('click', () => this.elements.scrollArea.scrollTo({ top: 0, behavior: 'smooth' }));
+        this.elements.btnJumpBottom.addEventListener('click', () => this.elements.scrollArea.scrollTo({ top: this.elements.scrollArea.scrollHeight, behavior: 'smooth' }));
         this.elements.btnSubmit.addEventListener('click', () => this.submitQuiz());
         this.elements.btnRedo.addEventListener('click', () => this.resetQuiz());
         this.elements.btnSavePic.addEventListener('click', () => this.saveResultAsImage());
