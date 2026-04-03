@@ -217,8 +217,22 @@ class QuizInstance {
             const res = await fetch(`0_Quiz/${quizName}.json`);
             const rawData = await res.json();
             
+            // --- NEW: Detect Metadata for Randomization ---
+            let randomizeQuestions = true; // Default to true
+            if (Array.isArray(rawData)) {
+                const metaItem = rawData.find(item => item && item.quiz_metadata);
+                if (metaItem && metaItem.quiz_metadata.randomize_questions !== undefined) {
+                    randomizeQuestions = metaItem.quiz_metadata.randomize_questions;
+                }
+            } else if (rawData && rawData.quiz_metadata) {
+                if (rawData.quiz_metadata.randomize_questions !== undefined) {
+                    randomizeQuestions = rawData.quiz_metadata.randomize_questions;
+                }
+            }
+            
             let normalized = normalizeQuizData(rawData);
 
+            // Always randomize inner choices for matching questions if complex
             normalized.forEach(q => {
                 const type = q.type || q.question_type;
                 const isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0].text;
@@ -236,7 +250,12 @@ class QuizInstance {
                     quizQuestions.push(q);
                 }
             });
-            quizQuestions.sort(() => Math.random() - 0.5); 
+            
+            // --- NEW: Conditionally randomize the question order ---
+            if (randomizeQuestions) {
+                quizQuestions.sort(() => Math.random() - 0.5); 
+            }
+            
             this.currentQuestions = [...quizQuestions, ...adminQuestions];
             
             this.renderQuiz();
