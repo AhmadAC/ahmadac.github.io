@@ -340,20 +340,73 @@
         "z": ""
     },
     {
+        "question_name": "Question 11",
         "question number": "Q11",
+        "question_type": "essay_question",
         "type": "essay_question",
         "points": 0,
-        "correct ans index": " ",
+        "points_possible": 0,
         "question text": "Please write your English name used in class:",
-        "url": ""
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
     },
     {
+        "question_name": "Question 12",
         "question number": "Q12",
+        "question_type": "matching_question",
         "type": "matching_question",
         "points": 0,
-        "correct ans index": " ",
+        "points_possible": 0,
         "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
         "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
         "a": "G6A",
         "b": "G6B",
         "c": "G6C",
@@ -363,5 +416,10 @@
         "g": "G8A",
         "h": "G8B",
         "i": "G8C"
+    },
+    {
+        "quiz_metadata": {
+            "randomize_questions": false
+        }
     }
 ]
