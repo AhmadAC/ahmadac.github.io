@@ -10,7 +10,7 @@
     --warning-bg: #fff8e1;
     --warning-border: #ffa000;
     --fail-bg: #ffe6e6;
-    --fail-border: #d32f2f;
+    --fail-border: #ee0000;
 }
 
 * { box-sizing: border-box; font-family: sans-serif; }
@@ -104,6 +104,7 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 12px;
+    height: 60px; /* Matching python app */
     color: var(--text-dark);
     font-size: 16px;
     font-weight: bold;
@@ -292,33 +293,55 @@ body {
 
 .question-content { 
     padding: 15px;
-    /* This allows the image to use this container as a reference for its height */
     display: flex;
     flex-direction: column;
 }
 .question-text { font-size: 13px; color: var(--text-dark); margin-bottom: 15px; }
 
-/* --- IMAGE RESIZING FIX --- */
 .question-media {
     max-width: 100%;
-    /* The key change: The image's max height is now relative to the viewport height. */
-    /* This prevents it from being too tall on a single screen. */
     max-height: 50vh;
     width: auto;
     height: auto;
     display: block;
     margin: 15px auto;
     border-radius: 4px;
-    /* This ensures the image scales down correctly without being distorted. */
     object-fit: contain;
 }
 
-
-/* Options formatting */
-.mcq-option { display: flex; align-items: flex-start; margin-bottom: 10px; cursor: pointer; }
-.mcq-option input[type="radio"] { margin-top: 3px; cursor: pointer; accent-color: var(--primary); }
-.mcq-option label { margin-left: 8px; font-size: 13px; color: var(--text-dark); cursor: pointer; flex: 1; }
-.mcq-option label.correct-answer-show { color: #008a00; font-weight: bold; background-color: #e6fffa; padding: 2px 4px; border-radius: 4px; }
+/* MCQ Cards matching the Python Styles */
+.mcq-card {
+    font-size: 13px;
+    color: var(--text-dark);
+    padding: 10px 14px;
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+.mcq-card:hover {
+    background-color: #f0f6fa;
+    border-color: var(--primary);
+}
+.mcq-card.selected {
+    background-color: #e1f0fa;
+    border: 2px solid var(--primary);
+    padding: 9px 13px; /* To maintain standard height with the 2px border */
+}
+.mcq-card.correct {
+    background-color: var(--success-bg);
+    border: 2px solid var(--success-border);
+    color: #008a00;
+    padding: 9px 13px;
+}
+.mcq-card.incorrect {
+    background-color: var(--fail-bg);
+    border: 2px solid var(--fail-border);
+    color: var(--fail-border);
+    padding: 9px 13px;
+}
 
 .essay-input {
     width: 100%;
@@ -328,8 +351,7 @@ body {
     font-size: 13px;
 }
 
-/* Matching Styles */
-.sticky-bank {
+.sticky-word-bank {
     background-color: #fdfdfd;
     border-bottom: 3px solid var(--primary);
     border-top: 1px solid var(--border-color);
@@ -341,8 +363,6 @@ body {
     top: 0;
     z-index: 100;
 }
-.sticky-bank.hidden { display: none; }
-
 .word-bank-btn {
     background-color: #ffffff;
     border: 1px solid var(--primary);
@@ -355,7 +375,6 @@ body {
 }
 .word-bank-btn:hover { background-color: #e1f0fa; }
 .word-bank-btn.selected { background-color: #bae6fd; color: black; border: 2px solid #005a9e; }
-.word-bank-btn.used { display: none; } /* hide if used in slot */
 
 .match-row {
     display: flex;
@@ -390,10 +409,9 @@ body {
 .answer-slot:hover { border-color: var(--primary); background-color: #f0f6fa; }
 .answer-slot.selected { background-color: #f0f6fa; color: var(--primary); border: 2px dashed var(--primary); }
 .answer-slot.filled { background-color: #e1f0fa; color: var(--primary); border: 1px solid var(--primary); }
-.answer-slot.correct { background-color: #e6fffa; color: #008a00; border: 1px solid #008a00; }
-.answer-slot.incorrect { background-color: #ffe6e6; color: #b71c1c; border: 1px solid #b71c1c; }
+.answer-slot.correct { background-color: var(--success-bg); color: #008a00; border: 1px solid #008a00; }
+.answer-slot.incorrect { background-color: var(--fail-bg); color: #b71c1c; border: 1px solid #b71c1c; }
 
-/* Standard old-style matching (Class selection buttons) */
 .class-btn-group {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -416,7 +434,6 @@ body {
     font-weight: bold;
 }
 
-/* Results Box */
 .quiz-result-box {
     margin: 10px 20px;
     border-radius: 5px;
@@ -431,17 +448,15 @@ body {
 .quiz-result-box[data-status="warning"] p { color: #e65100; }
 .quiz-result-box[data-status="fail"] p { color: #b71c1c; }
 
-/* Error Message in Footer */
 .quiz-error-msg { 
     color: #e74c3c; 
     font-weight: bold; 
     font-size: 13px; 
     text-align: center; 
-    flex: 1; /* Allow it to grow and shrink */
+    flex: 1;
 }
 .hidden { display: none !important; }
 
-/* Result Cards on Results Page */
 .result-card {
     display: flex;
     justify-content: space-between;
