@@ -167,6 +167,24 @@ body {
 }
 .btn-nav:hover { background-color: #3f5161; }
 
+/* Jump Buttons added to the footer */
+.btn-jump {
+    background-color: transparent;
+    color: #555555;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-jump:hover {
+    background-color: var(--bg-quiz);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
 .btn-primary {
     background-color: var(--primary);
     color: white;

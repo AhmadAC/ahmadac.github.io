@@ -121,7 +121,34 @@ class QuizInstance {
 
     init() {
         this.initClassGrid();
+        this.initJumpButtons();
         this.addEventListeners();
+    }
+
+    initJumpButtons() {
+        // Create Top Jump Button (Q1)
+        this.elements.btnJumpTop = document.createElement('button');
+        this.elements.btnJumpTop.className = 'btn-jump hidden';
+        this.elements.btnJumpTop.innerText = 'Q1';
+        this.elements.btnJumpTop.style.marginRight = '5px';
+        this.elements.btnJumpTop.onclick = () => {
+            this.elements.scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // Create Bottom Jump Button (Qx)
+        this.elements.btnJumpBottom = document.createElement('button');
+        this.elements.btnJumpBottom.className = 'btn-jump hidden';
+        this.elements.btnJumpBottom.style.marginRight = '15px';
+        this.elements.btnJumpBottom.onclick = () => {
+            this.elements.scrollArea.scrollTo({ top: this.elements.scrollArea.scrollHeight, behavior: 'smooth' });
+        };
+
+        // Insert them before the submit button in the footer
+        const footer = this.elements.btnSubmit.parentNode;
+        if (footer) {
+            footer.insertBefore(this.elements.btnJumpTop, this.elements.btnSubmit);
+            footer.insertBefore(this.elements.btnJumpBottom, this.elements.btnSubmit);
+        }
     }
 
     switchView(viewClass) {
@@ -208,6 +235,9 @@ class QuizInstance {
         this.elements.errorMsg.innerText = "";
         this.elements.stickyBank.classList.add("hidden");
         
+        this.elements.btnJumpTop.classList.add("hidden");
+        this.elements.btnJumpBottom.classList.add("hidden");
+        
         const container = this.elements.quizContent;
         container.innerHTML = "Loading...";
         this.switchView("view-quiz");
@@ -217,7 +247,7 @@ class QuizInstance {
             const res = await fetch(`0_Quiz/${quizName}.json`);
             const rawData = await res.json();
             
-            // --- NEW: Detect Metadata for Randomization ---
+            // Detect Metadata for Randomization
             let randomizeQuestions = true; // Default to true
             if (Array.isArray(rawData)) {
                 const metaItem = rawData.find(item => item && item.quiz_metadata);
@@ -251,7 +281,7 @@ class QuizInstance {
                 }
             });
             
-            // --- NEW: Conditionally randomize the question order ---
+            // Conditionally randomize the question order
             if (randomizeQuestions) {
                 quizQuestions.sort(() => Math.random() - 0.5); 
             }
@@ -328,6 +358,12 @@ class QuizInstance {
             }
             container.appendChild(frame);
         });
+        
+        if (this.currentQuestions.length > 0) {
+            this.elements.btnJumpBottom.innerText = `Q${this.currentQuestions.length}`;
+            this.elements.btnJumpTop.classList.remove("hidden");
+            this.elements.btnJumpBottom.classList.remove("hidden");
+        }
         
         this.updateProgress();
     }
@@ -571,8 +607,6 @@ class QuizInstance {
             if (type === 'essay_question' && txt.includes('name')) {
                 nameAns = frame.querySelector('.essay-input').value.trim();
             } 
-            // This is the fix: Directly check for the property set by the class selection UI.
-            // This is robust and doesn't rely on complex/inconsistent flags.
             else if (type === 'matching_question' && txt.includes('class')) {
                 classAns = q._userAnswer;
             }
