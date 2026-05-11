@@ -102,6 +102,7 @@ class QuizInstance {
         this.selectedClass = null;
         this.currentQuizName = null;
         this.currentQuestions = [];
+        this.sidebarButtons = [];
         this.matchingStates = {};
         this.selectedBankWord = null;
         this.selectedSlot = null;
@@ -126,6 +127,7 @@ class QuizInstance {
             quizProgress: this.root.querySelector('.quiz-progress-lbl'),
             stickyBank: this.root.querySelector('.sticky-word-bank'),
             scrollArea: this.root.querySelector('.quiz-scroll-area'),
+            sidebarList: this.root.querySelector('.sidebar-list'),
             quizContent: this.root.querySelector('.quiz-content'),
             resultBox: this.root.querySelector('.quiz-result-box'),
             resultText: this.root.querySelector('.quiz-result-text'),
@@ -180,66 +182,117 @@ class QuizInstance {
         });
     }
 
-    async loadAssignments(classCode) {
-        this.selectedClass = classCode;
-        if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Assignments for ${classCode}`;
-        
-        const list = this.elements.assignmentList;
-        if (list) list.innerHTML = "Loading...";
-        
-        this.switchView("view-assignments");
-
-        let grade = classCode[1];
-        let assignmentsDict = {};
-
-        // --- BUG FIX: Correctly load assignments for G7/G8 which have a flat structure ---
-        if (grade === '6' && canvasData['6']?.[classCode]) {
-            assignmentsDict = canvasData['6'][classCode];
-        } else if (grade === '7' && canvasData['7']) {
-            assignmentsDict = canvasData['7']; // Grade 7 is shared
-        } else if (grade === '8' && canvasData['8']) {
-            assignmentsDict = canvasData['8']; // Grade 8 is shared
+    createAssignmentButton(title, exists) {
+        let btn = document.createElement("button");
+        btn.className = "btn-assignment";
+        if (!exists) {
+            btn.innerText = `${title} (File Missing)`;
+            btn.disabled = true;
+        } else {
+            btn.innerText = title;
+            btn.onclick = () => this.startQuiz(title);
         }
+        return btn;
+    }
 
-        let validTitles = Object.keys(assignmentsDict).filter(k => typeof assignmentsDict[k] !== 'object');
-        // --- FEATURE: Implement Natural Sorting for assignment lists ---
-        validTitles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
-
+    async renderPreviousAssignments(titles, buttonToRemove) {
+        const list = this.elements.assignmentList;
         if (!list) return;
 
-        if (validTitles.length === 0) {
-            list.innerHTML = "<p style='color:#666; font-style:italic;'>No assignments found.</p>";
-            return;
-        }
-
-        const existenceChecks = validTitles.map(async (title) => {
+        const existenceChecks = titles.map(async (title) => {
             const exists = await checkQuizExists(title);
             return { title, exists };
         });
 
         const results = await Promise.all(existenceChecks);
 
-        list.innerHTML = "";
+        // Sort previous assignments to ensure they are in chronological order
+        results.sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: 'base' }));
+
+        const fragment = document.createDocumentFragment();
         results.forEach(result => {
-            let btn = document.createElement("button");
-            btn.className = "btn-assignment";
-            if (!result.exists) {
-                btn.innerText = `${result.title} (File Missing)`;
-                btn.disabled = true;
-            } else {
-                btn.innerText = result.title;
-                btn.onclick = () => this.startQuiz(result.title);
-            }
+            let btn = this.createAssignmentButton(result.title, result.exists);
+            fragment.appendChild(btn);
+        });
+        
+        // Insert the fragment of old assignments before the "Show More" button
+        list.insertBefore(fragment, buttonToRemove);
+        
+        buttonToRemove.remove();
+    }
+
+    async loadAssignments(classCode) {
+        this.selectedClass = classCode;
+        if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Assignments for ${classCode}`;
+        
+        const list = this.elements.assignmentList;
+        if (!list) return;
+        list.innerHTML = "Loading...";
+        
+        this.switchView("view-assignments");
+
+        let grade = classCode[1];
+        let assignmentsDict = {};
+
+        if (grade === '6' && canvasData['6']?.[classCode]) {
+            assignmentsDict = canvasData['6'][classCode];
+        } else if (grade === '7' && canvasData['7']) {
+            assignmentsDict = canvasData['7'];
+        } else if (grade === '8' && canvasData['8']) {
+            assignmentsDict = canvasData['8'];
+        }
+
+        let validTitles = Object.keys(assignmentsDict).filter(k => typeof assignmentsDict[k] !== 'object');
+        validTitles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+
+        list.innerHTML = "";
+
+        if (validTitles.length === 0) {
+            list.innerHTML = "<p style='color:#666; font-style:italic;'>No assignments found.</p>";
+            return;
+        }
+
+        const latestTitles = validTitles.slice(-5);
+        const previousTitles = validTitles.slice(0, -5);
+
+        // Add the "Show More" button to the top of the list first, if needed
+        if (previousTitles.length > 0) {
+            const showMoreBtn = document.createElement("button");
+            showMoreBtn.className = "btn-show-previous";
+            showMoreBtn.innerText = `Show ${previousTitles.length} previous assignments...`;
+            showMoreBtn.onclick = () => {
+                showMoreBtn.innerText = "Loading...";
+                showMoreBtn.disabled = true;
+                this.renderPreviousAssignments(previousTitles, showMoreBtn);
+            };
+            list.appendChild(showMoreBtn);
+        }
+
+        // Fetch and render the 5 latest assignments after the button
+        const existenceChecks = latestTitles.map(async (title) => {
+            const exists = await checkQuizExists(title);
+            return { title, exists };
+        });
+
+        const results = await Promise.all(existenceChecks);
+
+        results.forEach(result => {
+            let btn = this.createAssignmentButton(result.title, result.exists);
             list.appendChild(btn);
         });
     }
 
+
     async startQuiz(quizName) {
         this.currentQuizName = quizName;
+        
+        if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
+        this.sidebarButtons = [];
         
         if (this.elements.quizTitle) this.elements.quizTitle.innerText = quizName;
         this.elements.resultBox?.classList.add("hidden");
         this.elements.btnSubmit?.classList.remove("hidden");
+        this.elements.btnSubmit.disabled = false;
         this.elements.btnRedo?.classList.add("hidden");
         this.elements.btnSavePic?.classList.add("hidden");
         if (this.elements.errorMsg) this.elements.errorMsg.innerText = "";
@@ -325,19 +378,50 @@ class QuizInstance {
             let pts = parseInt(q.points || q.points_possible) || 0;
             let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0]?.text;
             let isAdmin = qTextLower.includes('select your class') || qTextLower.includes('english name') || qTextLower.includes('your name');
-
-            if (isAdmin && !foundFirstAdmin) {
-                let spacer = document.createElement('div');
-                spacer.style.height = "65vh";
-                spacer.style.pointerEvents = "none";
-                container.appendChild(spacer);
-                foundFirstAdmin = true;
-            }
-
+            
             let frame = document.createElement('div');
             frame.className = "question-frame";
             frame.dataset.questionIndex = idx;
 
+            if (isAdmin && !foundFirstAdmin) {
+                let spacer = document.createElement('div');
+                spacer.style.height = "35vh";
+                spacer.style.display = "flex";
+                spacer.style.flexDirection = "column";
+                spacer.style.alignItems = "center";
+                spacer.style.justifyContent = "center";
+                
+                let hintLbl = document.createElement('div');
+                hintLbl.innerText = "More questions below";
+                hintLbl.style.color = "#666666";
+                hintLbl.style.fontSize = "18px";
+                hintLbl.style.fontWeight = "bold";
+                hintLbl.style.fontStyle = "italic";
+                
+                let arrowBtn = document.createElement('button');
+                arrowBtn.innerText = "▼";
+                arrowBtn.style.background = "transparent";
+                arrowBtn.style.color = "#111111";
+                arrowBtn.style.fontSize = "80px";
+                arrowBtn.style.border = "none";
+                arrowBtn.style.marginTop = "-10px";
+                arrowBtn.style.cursor = "pointer";
+                arrowBtn.title = "Scroll down to finish the quiz";
+                
+                arrowBtn.onclick = () => {
+                    let scrollArea = this.elements.scrollArea;
+                    if (scrollArea) {
+                        let offsetTop = frame.getBoundingClientRect().top - scrollArea.getBoundingClientRect().top + scrollArea.scrollTop;
+                        scrollArea.scrollTo({ top: offsetTop - 10, behavior: 'smooth' });
+                    }
+                };
+                
+                spacer.appendChild(hintLbl);
+                spacer.appendChild(arrowBtn);
+                container.appendChild(spacer);
+                foundFirstAdmin = true;
+            }
+            
             let header = `
                 <div class="question-header">
                     <span class="question-header-num">Question ${qNum}</span>
@@ -370,7 +454,31 @@ class QuizInstance {
                 this.setupClassSelectionUI(contentDiv, q, idx);
             }
             container.appendChild(frame);
+
+            // Generate Sidebar Nav Button
+            let qBtn = document.createElement("button");
+            qBtn.className = "btn-sidebar-q";
+            qBtn.innerText = `Q${qNum}`;
+            qBtn.dataset.answered = "false";
+            qBtn.dataset.highlighted = "false";
+            qBtn.onclick = () => {
+                let scrollArea = this.elements.scrollArea;
+                if (scrollArea) {
+                    let offsetTop = frame.getBoundingClientRect().top - scrollArea.getBoundingClientRect().top + scrollArea.scrollTop;
+                    scrollArea.scrollTo({ top: offsetTop - 10, behavior: 'smooth' });
+                }
+            };
+            
+            if (this.elements.sidebarList) {
+                this.elements.sidebarList.appendChild(qBtn);
+            }
+            this.sidebarButtons.push(qBtn);
         });
+
+        let endSpacer = document.createElement('div');
+        endSpacer.style.height = "15vh";
+        endSpacer.style.pointerEvents = "none";
+        container.appendChild(endSpacer);
 
         if (this.currentQuestions.length > 0) {
             if (this.elements.btnJumpBottom) {
@@ -579,19 +687,96 @@ class QuizInstance {
 
     updateProgress() {
         if (!this.elements.quizProgress) return;
-        let answered = 0;
+        let answeredCount = 0;
         this.currentQuestions.forEach((q, idx) => {
+            let isAnswered = false;
             let type = q.type || q.question_type;
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text;
-            if (isComplexMatching && this.matchingStates[idx]?.slots.some(s => s.current !== null)) answered++;
-            else if (type === 'multiple_choice_question' && q._selectedMcqIndex !== undefined && q._selectedMcqIndex !== -1) answered++;
-            else if (type === 'essay_question' && this.root.querySelector(`[data-question-index="${idx}"] .essay-input`)?.value.trim()) answered++;
-            else if (q._userAnswer) answered++;
+            
+            if (isComplexMatching) {
+                let state = this.matchingStates[idx];
+                if (state && state.slots.length > 0) {
+                    let filled = state.slots.filter(s => s.current !== null).length;
+                    if (filled === state.slots.length) isAnswered = true;
+                }
+            } else if (type === 'multiple_choice_question') {
+                if (q._selectedMcqIndex !== undefined && q._selectedMcqIndex !== -1) isAnswered = true;
+            } else if (type === 'essay_question') {
+                let val = this.root.querySelector(`[data-question-index="${idx}"] .essay-input`)?.value?.trim();
+                if (val) isAnswered = true;
+            } else if (q._userAnswer) {
+                isAnswered = true;
+            }
+            
+            if (isAnswered) answeredCount++;
+            
+            let btn = this.sidebarButtons[idx];
+            if (btn) {
+                if (isAnswered) {
+                    btn.dataset.answered = "true";
+                    btn.dataset.highlighted = "false";
+                } else {
+                    btn.dataset.answered = "false";
+                    if (isComplexMatching && this.matchingStates[idx]?.slots.some(s => s.current !== null)) {
+                        btn.dataset.highlighted = "false";
+                    }
+                }
+            }
         });
-        this.elements.quizProgress.innerText = `${answered}/${this.currentQuestions.length}`;
+        this.elements.quizProgress.innerText = `${answeredCount}/${this.currentQuestions.length}`;
     }
 
     submitQuiz() {
+        let unansweredIndices = [];
+        this.currentQuestions.forEach((q, idx) => {
+            let type = q.type || q.question_type;
+            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text;
+            
+            if (isComplexMatching) {
+                let state = this.matchingStates[idx];
+                if (!state || state.slots.filter(s => s.current !== null).length < state.slots.length) {
+                    unansweredIndices.push(idx);
+                }
+            } else if (type === 'multiple_choice_question') {
+                if (q._selectedMcqIndex === undefined || q._selectedMcqIndex === -1) {
+                    unansweredIndices.push(idx);
+                }
+            } else if (type === 'essay_question') {
+                let val = this.root.querySelector(`[data-question-index="${idx}"] .essay-input`)?.value?.trim();
+                if (!val) unansweredIndices.push(idx);
+            } else {
+                if (!q._userAnswer) unansweredIndices.push(idx);
+            }
+        });
+
+        // Trigger Missing Feedback Alert
+        if (unansweredIndices.length > 0) {
+            this.currentQuestions.forEach((q, idx) => {
+                let btn = this.sidebarButtons[idx];
+                if (btn) {
+                    if (unansweredIndices.includes(idx)) {
+                        btn.dataset.highlighted = "true";
+                        btn.dataset.answered = "false";
+                    } else {
+                        btn.dataset.highlighted = "false";
+                        btn.dataset.answered = "true";
+                    }
+                }
+            });
+            
+            let firstUnansweredFrame = this.root.querySelector(`[data-question-index="${unansweredIndices[0]}"]`);
+            if (firstUnansweredFrame && this.elements.scrollArea) {
+                let scrollArea = this.elements.scrollArea;
+                let offsetTop = firstUnansweredFrame.getBoundingClientRect().top - scrollArea.getBoundingClientRect().top + scrollArea.scrollTop;
+                scrollArea.scrollTo({ top: offsetTop - 10, behavior: 'smooth' });
+            }
+            
+            if (this.elements.errorMsg) {
+                this.elements.errorMsg.innerText = "Please answer all questions. Check the orange buttons on the right.";
+            }
+            return;
+        }
+
         let nameAns = null, classAns = null;
         this.currentQuestions.forEach((q, idx) => {
             const txt = (q['question text'] || q.question_text || "").toLowerCase();
@@ -602,10 +787,8 @@ class QuizInstance {
             }
         });
 
-        if (!nameAns || !classAns) {
-            if (this.elements.errorMsg) this.elements.errorMsg.innerText = "Please enter " + (!nameAns ? "your name" : "") + (!nameAns && !classAns ? " and " : "") + (!classAns ? "your class" : "") + ".";
-            return;
-        }
+        if (!nameAns) nameAns = "Unknown";
+        if (!classAns) classAns = "Unknown";
 
         if (this.elements.errorMsg) this.elements.errorMsg.innerText = "";
         this.elements.stickyBank?.classList.add("hidden");
@@ -641,7 +824,6 @@ class QuizInstance {
                     card.onclick = null; // Disable clicks during grading
                     card.style.pointerEvents = 'none';
 
-                    // Only highlight answers if the user actually attempted the question
                     if (userIdx !== -1) {
                         if (i === userIdx) {
                             if (card.dataset.isCorrect === 'true') {
@@ -652,7 +834,6 @@ class QuizInstance {
                             }
                         }
                         
-                        // Show correct answer if not selected
                         if (card.dataset.isCorrect === 'true' && i !== userIdx) {
                             card.classList.add('correct');
                             card.innerHTML += " (Correct Answer)";
@@ -677,6 +858,7 @@ class QuizInstance {
         if (state === "fail") msg += "\n\nPlease Try Again";
 
         this.elements.btnSubmit?.classList.add("hidden");
+        this.elements.btnSubmit.disabled = true;
         this.elements.btnRedo?.classList.remove("hidden");
         this.elements.btnSavePic?.classList.remove("hidden");
         if (this.elements.resultBox && this.elements.resultText) {
