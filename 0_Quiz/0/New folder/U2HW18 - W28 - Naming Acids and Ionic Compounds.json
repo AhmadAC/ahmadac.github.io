@@ -1,0 +1,631 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which of the following chemical formulas most likely represents an acid?",
+        "question_text": "Which of the following chemical formulas most likely represents an acid?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "H₂O",
+                "text": "H₂O",
+                "weight": 0
+            },
+            {
+                "answer_text": "CO₂",
+                "text": "CO₂",
+                "weight": 0
+            },
+            {
+                "answer_text": "HCl",
+                "text": "HCl",
+                "weight": 100
+            },
+            {
+                "answer_text": "NaCl",
+                "text": "NaCl",
+                "weight": 0
+            }
+        ],
+        "a": "H₂O",
+        "b": "CO₂",
+        "c": "HCl",
+        "d": "NaCl"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When naming a binary acid, what prefix is typically added to the beginning of the name?",
+        "question_text": "When naming a binary acid, what prefix is typically added to the beginning of the name?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "non-",
+                "text": "non-",
+                "weight": 0
+            },
+            {
+                "answer_text": "poly-",
+                "text": "poly-",
+                "weight": 0
+            },
+            {
+                "answer_text": "per-",
+                "text": "per-",
+                "weight": 0
+            },
+            {
+                "answer_text": "hydro-",
+                "text": "hydro-",
+                "weight": 100
+            }
+        ],
+        "a": "non-",
+        "b": "poly-",
+        "c": "per-",
+        "d": "hydro-"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the correct chemical name for the binary acid HBr?",
+        "question_text": "What is the correct chemical name for the binary acid HBr?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Bromic acid",
+                "text": "Bromic acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrogen bromide acid",
+                "text": "Hydrogen bromide acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrobromic acid",
+                "text": "Hydrobromic acid",
+                "weight": 100
+            },
+            {
+                "answer_text": "Hydrobromous acid",
+                "text": "Hydrobromous acid",
+                "weight": 0
+            }
+        ],
+        "a": "Bromic acid",
+        "b": "Hydrogen bromide acid",
+        "c": "Hydrobromic acid",
+        "d": "Hydrobromous acid"
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If a polyatomic acid contains a polyatomic ion whose name ends in \"-ate\" (e.g., nitrate), what will the ending of the acid's name be?",
+        "question_text": "If a polyatomic acid contains a polyatomic ion whose name ends in \"-ate\" (e.g., nitrate), what will the ending of the acid's name be?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "-ide acid",
+                "text": "-ide acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ous acid",
+                "text": "-ous acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ic acid",
+                "text": "-ic acid",
+                "weight": 100
+            },
+            {
+                "answer_text": "hydro- -ic acid",
+                "text": "hydro- -ic acid",
+                "weight": 0
+            }
+        ],
+        "a": "-ide acid",
+        "b": "-ous acid",
+        "c": "-ic acid",
+        "d": "hydro- -ic acid"
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the correct chemical name for the acid H₂SO₄, which contains the sulfate ion (SO₄²⁻)?",
+        "question_text": "What is the correct chemical name for the acid H₂SO₄, which contains the sulfate ion (SO₄²⁻)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Hydrosulfuric acid",
+                "text": "Hydrosulfuric acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Sulfurous acid",
+                "text": "Sulfurous acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrogen sulfate acid",
+                "text": "Hydrogen sulfate acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Sulfuric acid",
+                "text": "Sulfuric acid",
+                "weight": 100
+            }
+        ],
+        "a": "Hydrosulfuric acid",
+        "b": "Sulfurous acid",
+        "c": "Hydrogen sulfate acid",
+        "d": "Sulfuric acid"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A compound formed between a metal element and a nonmetal element is generally classified as:",
+        "question_text": "A compound formed between a metal element and a nonmetal element is generally classified as:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "an acid",
+                "text": "an acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "an ionic compound",
+                "text": "an ionic compound",
+                "weight": 100
+            },
+            {
+                "answer_text": "an element",
+                "text": "an element",
+                "weight": 0
+            },
+            {
+                "answer_text": "a covalent compound",
+                "text": "a covalent compound",
+                "weight": 0
+            }
+        ],
+        "a": "an acid",
+        "b": "an ionic compound",
+        "c": "an element",
+        "d": "a covalent compound"
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When naming a simple ionic compound consisting of a metal and a single nonmetal element, what suffix is typically used for the nonmetal's name?",
+        "question_text": "When naming a simple ionic compound consisting of a metal and a single nonmetal element, what suffix is typically used for the nonmetal's name?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "-ic",
+                "text": "-ic",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ite",
+                "text": "-ite",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ate",
+                "text": "-ate",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ide",
+                "text": "-ide",
+                "weight": 100
+            }
+        ],
+        "a": "-ic",
+        "b": "-ite",
+        "c": "-ate",
+        "d": "-ide"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the correct chemical name for the simple ionic compound CaO?",
+        "question_text": "What is the correct chemical name for the simple ionic compound CaO?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "Calcium oxide",
+                "text": "Calcium oxide",
+                "weight": 100
+            },
+            {
+                "answer_text": "Calcium(II) oxide",
+                "text": "Calcium(II) oxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Monocalcium monoxide",
+                "text": "Monocalcium monoxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Calcium oxygen",
+                "text": "Calcium oxygen",
+                "weight": 0
+            }
+        ],
+        "a": "Calcium oxide",
+        "b": "Calcium(II) oxide",
+        "c": "Monocalcium monoxide",
+        "d": "Calcium oxygen"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What does the term \"binary ionic compound\" mean?",
+        "question_text": "What does the term \"binary ionic compound\" mean?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "An ionic compound containing two different polyatomic ions.",
+                "text": "An ionic compound containing two different polyatomic ions.",
+                "weight": 0
+            },
+            {
+                "answer_text": "An ionic compound containing two atoms of the same metal.",
+                "text": "An ionic compound containing two atoms of the same metal.",
+                "weight": 0
+            },
+            {
+                "answer_text": "An ionic compound made of atoms from only two different elements, one metal and one nonmetal.",
+                "text": "An ionic compound made of atoms from only two different elements, one metal and one nonmetal.",
+                "weight": 100
+            },
+            {
+                "answer_text": "An ionic compound that is twice as strong as other ionic compounds.",
+                "text": "An ionic compound that is twice as strong as other ionic compounds.",
+                "weight": 0
+            }
+        ],
+        "a": "An ionic compound containing two different polyatomic ions.",
+        "b": "An ionic compound containing two atoms of the same metal.",
+        "c": "An ionic compound made of atoms from only two different elements, one metal and one nonmetal.",
+        "d": "An ionic compound that is twice as strong as other ionic compounds."
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Roman numerals (such as I, II, III) are used in the names of some ionic compounds to indicate:",
+        "question_text": "Roman numerals (such as I, II, III) are used in the names of some ionic compounds to indicate:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "The negative charge of the anion.",
+                "text": "The negative charge of the anion.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The number of nonmetal atoms in the formula.",
+                "text": "The number of nonmetal atoms in the formula.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The positive charge of the metal cation, especially when the metal can form ions with different charges.",
+                "text": "The positive charge of the metal cation, especially when the metal can form ions with different charges.",
+                "weight": 100
+            },
+            {
+                "answer_text": "The total number of atoms in one molecule of the compound.",
+                "text": "The total number of atoms in one molecule of the compound.",
+                "weight": 0
+            }
+        ],
+        "a": "The negative charge of the anion.",
+        "b": "The number of nonmetal atoms in the formula.",
+        "c": "The positive charge of the metal cation, especially when the metal can form ions with different charges.",
+        "d": "The total number of atoms in one molecule of the compound."
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Prefixes such as 'mono-', 'di-', and 'tri-' are commonly used in the systematic naming of which type of compounds?",
+        "question_text": "Prefixes such as 'mono-', 'di-', and 'tri-' are commonly used in the systematic naming of which type of compounds?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "Binary covalent compounds",
+                "text": "Binary covalent compounds",
+                "weight": 100
+            },
+            {
+                "answer_text": "Polyatomic acids (Oxyacids)",
+                "text": "Polyatomic acids (Oxyacids)",
+                "weight": 0
+            },
+            {
+                "answer_text": "Ionic compounds containing polyatomic ions",
+                "text": "Ionic compounds containing polyatomic ions",
+                "weight": 0
+            },
+            {
+                "answer_text": "Binary acids",
+                "text": "Binary acids",
+                "weight": 0
+            }
+        ],
+        "a": "Binary covalent compounds",
+        "b": "Polyatomic acids (Oxyacids)",
+        "c": "Ionic compounds containing polyatomic ions",
+        "d": "Binary acids"
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which statement best defines a \"polyatomic ion\"?",
+        "question_text": "Which statement best defines a \"polyatomic ion\"?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "A group of covalently bonded atoms that has an overall net electrical charge.",
+                "text": "A group of covalently bonded atoms that has an overall net electrical charge.",
+                "weight": 100
+            },
+            {
+                "answer_text": "A metal atom that is part of an acid.",
+                "text": "A metal atom that is part of an acid.",
+                "weight": 0
+            },
+            {
+                "answer_text": "An element that can exist in many different forms.",
+                "text": "An element that can exist in many different forms.",
+                "weight": 0
+            },
+            {
+                "answer_text": "An ion formed from a single atom that has multiple possible charges.",
+                "text": "An ion formed from a single atom that has multiple possible charges.",
+                "weight": 0
+            }
+        ],
+        "a": "A group of covalently bonded atoms that has an overall net electrical charge.",
+        "b": "A metal atom that is part of an acid.",
+        "c": "An element that can exist in many different forms.",
+        "d": "An ion formed from a single atom that has multiple possible charges."
+    },
+    {
+        "question_name": "Question 13",
+        "question number": 13,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In the chemical formulas of most acids, which element is typically listed first?",
+        "question_text": "In the chemical formulas of most acids, which element is typically listed first?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "Nitrogen",
+                "text": "Nitrogen",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrogen",
+                "text": "Hydrogen",
+                "weight": 100
+            },
+            {
+                "answer_text": "Oxygen",
+                "text": "Oxygen",
+                "weight": 0
+            },
+            {
+                "answer_text": "Carbon",
+                "text": "Carbon",
+                "weight": 0
+            }
+        ],
+        "a": "Nitrogen",
+        "b": "Hydrogen",
+        "c": "Oxygen",
+        "d": "Carbon"
+    },
+    {
+        "question_name": "Question 14",
+        "question number": 14,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "The polyatomic ions nitrate (NO₃⁻) and nitrite (NO₂⁻) are important in naming certain acids. Both of these ions contain which element in addition to oxygen?",
+        "question_text": "The polyatomic ions nitrate (NO₃⁻) and nitrite (NO₂⁻) are important in naming certain acids. Both of these ions contain which element in addition to oxygen?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "1",
+        "answers": [
+            {
+                "answer_text": "Nitrogen",
+                "text": "Nitrogen",
+                "weight": 100
+            },
+            {
+                "answer_text": "Carbon",
+                "text": "Carbon",
+                "weight": 0
+            },
+            {
+                "answer_text": "Sulfur",
+                "text": "Sulfur",
+                "weight": 0
+            },
+            {
+                "answer_text": "Chlorine",
+                "text": "Chlorine",
+                "weight": 0
+            }
+        ],
+        "a": "Nitrogen",
+        "b": "Carbon",
+        "c": "Sulfur",
+        "d": "Chlorine"
+    },
+    {
+        "question_name": "Question 15",
+        "question number": "Q15",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 16",
+        "question number": "Q16",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    },
+    {
+        "quiz_metadata": {
+            "randomize_questions": true
+        }
+    }
+]

@@ -11,7 +11,10 @@
             "U2HW3 - W10 - Electron Configuration": "16",
             "U2HW4 - W11 - Homogeneous and Heterogeneous Mixtures": "12",
             "U2HW5 - W12 - Electron Configuration 2": "10",
-            "U2HW6 - W13 - Metal Vocabulary": "15"
+            "U2HW6 - W13 - Metal Vocabulary": "15",
+            "U3HW1 - W27 - Simple Machines 1": "",
+            "U3HW2 - W28 - Simple Machines 2": "",
+            "U3HW3 - W29 - Robot Hand": ""
         },
         "G6B": {
             "U1HW1 - W2 - Safety": "10",
@@ -32,7 +35,11 @@
             "U3HW6 - W19 - Balancing Sculpture 2": "",
             "U3HW7 - W23 - Ball Tosser 1": "",
             "U3HW8 - W24 - Ball Tosser 2": "",
-            "U3HW9 - W25 - Paper Airplane": ""
+            "U3HW9 - W25 - Paper Airplane": "",
+            "U3HW10 - W26 - Electrical Circuits": "",
+            "U3HW1 - W27 - Simple Machines 1": "",
+            "U3HW2 - W28 - Simple Machines 2": "",
+            "U3HW3 - W29 - Robot Hand": ""
         },
         "G6C": {
             "U1HW1 - W14 - Safety": "10",
@@ -42,7 +49,11 @@
             "U1HW6 - W19 - Identifying Variables": "",
             "U1HW7 - W23 - The Atom - Definition": "",
             "U1HW8 - W24 - Label the Atom": "",
-            "U2HW3 - W25 - Electron Configuration": ""
+            "U2HW3 - W25 - Electron Configuration": "",
+            "U2HW4 - W26 - Homogeneous and Heterogeneous Mixtures": "",
+            "U3HW1 - W27 - Simple Machines 1": "",
+            "U3HW2 - W28 - Simple Machines 2": "",
+            "U3HW3 - W29 - Robot Hand": ""
         }
     },
     "7": {
@@ -60,12 +71,15 @@
         "U2HW3 - W14 - Review 1": "10",
         "U2HW4 - W15 - Paddle Boat 1": "10",
         "U2HW5 - W16 - Paddle Boat 2": "10",
-        "U2HW7 - W18 - Balloon Buggie 1": "",
-        "U2HW8 - W19 - Balloon Buggie 2": "",
+        "U2HW7 - W18 - Balloon Buggy 1": "",
+        "U2HW8 - W19 - Balloon Buggy 2": "",
         "U2HW10 - W24 - Parachute 2": "",
         "U2HW9 - W23 - Parachute 1": "",
         "U3HW1 - W25 - Electrical Circuits Vocabulary": "",
-        "U3HW2 - W26 - Electrical Circuits Symbols": ""
+        "U3HW2 - W26 - Electrical Circuits Symbols": "",
+        "U3HW3 - W27 - Electrical Symbols": "",
+        "U3HW4 - W28 - Box Alarm Questions": "",
+        "U3HW5 - W29 - Circuit Diagrams": ""
     },
     "8": {
         "U1HW1 - W2 - Safety": "10",
@@ -88,6 +102,8 @@
         "U2HW14 - W24 - Magic Siphon": "",
         "U2HW15 - W25 - Bouncy Egg Experiment": "",
         "U2HW16 - W26 - Oxidation Numbers 1": "",
-        "U2HW17 - W27 - Oxidation Numbers 2": ""
+        "U2HW17 - W27 - Oxidation Numbers 2": "",
+        "U2HW18 - W28 - Naming Acids and Ionic Compounds": "",
+        "U2HW19 - W29 - Naming Compounds 1": ""
     }
 }

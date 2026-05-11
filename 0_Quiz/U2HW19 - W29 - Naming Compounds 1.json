@@ -1,0 +1,901 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "An atom or group of atoms that has gained electrons, resulting in a negative charge, is known as a(n) ______, and is typically formed from a ______ element:",
+        "question_text": "An atom or group of atoms that has gained electrons, resulting in a negative charge, is known as a(n) ______, and is typically formed from a ______ element:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "cation, metal",
+                "text": "cation, metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "anion, nonmetal",
+                "text": "anion, nonmetal",
+                "weight": 100
+            },
+            {
+                "answer_text": "polyatomic ion, metalloid",
+                "text": "polyatomic ion, metalloid",
+                "weight": 0
+            },
+            {
+                "answer_text": "cation, nonmetal",
+                "text": "cation, nonmetal",
+                "weight": 0
+            },
+            {
+                "answer_text": "anion, metal",
+                "text": "anion, metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "isotope, noble gas",
+                "text": "isotope, noble gas",
+                "weight": 0
+            }
+        ],
+        "a": "cation, metal",
+        "b": "anion, nonmetal",
+        "c": "polyatomic ion, metalloid",
+        "d": "cation, nonmetal",
+        "e": "anion, metal",
+        "f": "isotope, noble gas"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Many polyatomic ions, such as chlorate (ClO₃⁻) and phosphate (PO₄³⁻), primarily consist of which types of elements bonded together before acquiring an overall charge?",
+        "question_text": "Many polyatomic ions, such as chlorate (ClO₃⁻) and phosphate (PO₄³⁻), primarily consist of which types of elements bonded together before acquiring an overall charge?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Two different metal elements",
+                "text": "Two different metal elements",
+                "weight": 0
+            },
+            {
+                "answer_text": "A metal and a nonmetal element",
+                "text": "A metal and a nonmetal element",
+                "weight": 0
+            },
+            {
+                "answer_text": "Multiple nonmetal elements",
+                "text": "Multiple nonmetal elements",
+                "weight": 100
+            },
+            {
+                "answer_text": "A metalloid and a noble gas",
+                "text": "A metalloid and a noble gas",
+                "weight": 0
+            },
+            {
+                "answer_text": "Only hydrogen and a metal",
+                "text": "Only hydrogen and a metal",
+                "weight": 0
+            },
+            {
+                "answer_text": "A transition metal and a halogen",
+                "text": "A transition metal and a halogen",
+                "weight": 0
+            }
+        ],
+        "a": "Two different metal elements",
+        "b": "A metal and a nonmetal element",
+        "c": "Multiple nonmetal elements",
+        "d": "A metalloid and a noble gas",
+        "e": "Only hydrogen and a metal",
+        "f": "A transition metal and a halogen"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A key characteristic used to initially identify a compound as a potential acid from its chemical formula is the presence of:",
+        "question_text": "A key characteristic used to initially identify a compound as a potential acid from its chemical formula is the presence of:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Oxygen as the last element.",
+                "text": "Oxygen as the last element.",
+                "weight": 0
+            },
+            {
+                "answer_text": "A metal as the first element.",
+                "text": "A metal as the first element.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrogen as the first element.",
+                "text": "Hydrogen as the first element.",
+                "weight": 100
+            },
+            {
+                "answer_text": "A polyatomic ion as the only component.",
+                "text": "A polyatomic ion as the only component.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Carbon as the central atom.",
+                "text": "Carbon as the central atom.",
+                "weight": 0
+            },
+            {
+                "answer_text": "A halogen as the first element.",
+                "text": "A halogen as the first element.",
+                "weight": 0
+            }
+        ],
+        "a": "Oxygen as the last element.",
+        "b": "A metal as the first element.",
+        "c": "Hydrogen as the first element.",
+        "d": "A polyatomic ion as the only component.",
+        "e": "Carbon as the central atom.",
+        "f": "A halogen as the first element."
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "The systematic name for a binary acid, such as H₂Se (hydroselenic acid), always includes which of the following combinations of prefix and suffix for the nonmetal part?",
+        "question_text": "The systematic name for a binary acid, such as H₂Se (hydroselenic acid), always includes which of the following combinations of prefix and suffix for the nonmetal part?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "No prefix, -ous acid",
+                "text": "No prefix, -ous acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "hydro- prefix, -ous acid",
+                "text": "hydro- prefix, -ous acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "per- prefix, -ic acid",
+                "text": "per- prefix, -ic acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "hydro- prefix, -ic acid",
+                "text": "hydro- prefix, -ic acid",
+                "weight": 100
+            },
+            {
+                "answer_text": "hypo- prefix, -ite acid",
+                "text": "hypo- prefix, -ite acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "No prefix, -ate acid",
+                "text": "No prefix, -ate acid",
+                "weight": 0
+            }
+        ],
+        "a": "No prefix, -ous acid",
+        "b": "hydro- prefix, -ous acid",
+        "c": "per- prefix, -ic acid",
+        "d": "hydro- prefix, -ic acid",
+        "e": "hypo- prefix, -ite acid",
+        "f": "No prefix, -ate acid"
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If an acid is formed from a polyatomic ion named \"carbonate\" (CO₃²⁻), what will be the name of the corresponding acid (H₂CO₃)?",
+        "question_text": "If an acid is formed from a polyatomic ion named \"carbonate\" (CO₃²⁻), what will be the name of the corresponding acid (H₂CO₃)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Hydrocarbonic acid",
+                "text": "Hydrocarbonic acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Carbonous acid",
+                "text": "Carbonous acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Carbonic acid",
+                "text": "Carbonic acid",
+                "weight": 100
+            },
+            {
+                "answer_text": "Hydrocarbonous acid",
+                "text": "Hydrocarbonous acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Percarbonic acid",
+                "text": "Percarbonic acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrogen carbon trioxide acid",
+                "text": "Hydrogen carbon trioxide acid",
+                "weight": 0
+            }
+        ],
+        "a": "Hydrocarbonic acid",
+        "b": "Carbonous acid",
+        "c": "Carbonic acid",
+        "d": "Hydrocarbonous acid",
+        "e": "Percarbonic acid",
+        "f": "Hydrogen carbon trioxide acid"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "The acid HClO₂ contains the chlorite ion (ClO₂⁻). According to the rules for naming polyatomic acids (oxyacids), what is the correct chemical name for HClO₂?",
+        "question_text": "The acid HClO₂ contains the chlorite ion (ClO₂⁻). According to the rules for naming polyatomic acids (oxyacids), what is the correct chemical name for HClO₂?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Hydrochloric acid",
+                "text": "Hydrochloric acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Chloric acid",
+                "text": "Chloric acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hydrochlorous acid",
+                "text": "Hydrochlorous acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Chlorous acid",
+                "text": "Chlorous acid",
+                "weight": 100
+            },
+            {
+                "answer_text": "Perchloric acid",
+                "text": "Perchloric acid",
+                "weight": 0
+            },
+            {
+                "answer_text": "Hypochloric acid",
+                "text": "Hypochloric acid",
+                "weight": 0
+            }
+        ],
+        "a": "Hydrochloric acid",
+        "b": "Chloric acid",
+        "c": "Hydrochlorous acid",
+        "d": "Chlorous acid",
+        "e": "Perchloric acid",
+        "f": "Hypochloric acid"
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In a simple ionic compound formed between a metal like Barium (Ba) and a nonmetal like Fluorine (F), what is the correct ending for the anion's name (fluorine part)?",
+        "question_text": "In a simple ionic compound formed between a metal like Barium (Ba) and a nonmetal like Fluorine (F), what is the correct ending for the anion's name (fluorine part)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "5",
+        "answers": [
+            {
+                "answer_text": "-ate",
+                "text": "-ate",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ite",
+                "text": "-ite",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ic",
+                "text": "-ic",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ous",
+                "text": "-ous",
+                "weight": 0
+            },
+            {
+                "answer_text": "-ide",
+                "text": "-ide",
+                "weight": 100
+            },
+            {
+                "answer_text": "-ine",
+                "text": "-ine",
+                "weight": 0
+            }
+        ],
+        "a": "-ate",
+        "b": "-ite",
+        "c": "-ic",
+        "d": "-ous",
+        "e": "-ide",
+        "f": "-ine"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the correct chemical name for the simple ionic compound K₂O, formed from potassium and oxygen?",
+        "question_text": "What is the correct chemical name for the simple ionic compound K₂O, formed from potassium and oxygen?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Dipotassium monoxide",
+                "text": "Dipotassium monoxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Potassium(I) oxide",
+                "text": "Potassium(I) oxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Potassium oxide",
+                "text": "Potassium oxide",
+                "weight": 100
+            },
+            {
+                "answer_text": "Potassium(II) oxide",
+                "text": "Potassium(II) oxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Potassium peroxide",
+                "text": "Potassium peroxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Potassic oxide",
+                "text": "Potassic oxide",
+                "weight": 0
+            }
+        ],
+        "a": "Dipotassium monoxide",
+        "b": "Potassium(I) oxide",
+        "c": "Potassium oxide",
+        "d": "Potassium(II) oxide",
+        "e": "Potassium peroxide",
+        "f": "Potassic oxide"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When naming an ionic compound composed of a metal and a polyatomic ion, such as Na₃PO₄ (where PO₄³⁻ is phosphate), how is the polyatomic ion part named?",
+        "question_text": "When naming an ionic compound composed of a metal and a polyatomic ion, such as Na₃PO₄ (where PO₄³⁻ is phosphate), how is the polyatomic ion part named?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Its ending is changed to -ide.",
+                "text": "Its ending is changed to -ide.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Its ending is changed to -ic if it originally ended in -ate.",
+                "text": "Its ending is changed to -ic if it originally ended in -ate.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Its name is used as is, without alteration.",
+                "text": "Its name is used as is, without alteration.",
+                "weight": 100
+            },
+            {
+                "answer_text": "Its ending is changed to -ous if it originally ended in -ite.",
+                "text": "Its ending is changed to -ous if it originally ended in -ite.",
+                "weight": 0
+            },
+            {
+                "answer_text": "A 'hydro-' prefix is added to its name.",
+                "text": "A 'hydro-' prefix is added to its name.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Numerical prefixes (di-, tri-) are added based on its implied count in the formula.",
+                "text": "Numerical prefixes (di-, tri-) are added based on its implied count in the formula.",
+                "weight": 0
+            }
+        ],
+        "a": "Its ending is changed to -ide.",
+        "b": "Its ending is changed to -ic if it originally ended in -ate.",
+        "c": "Its name is used as is, without alteration.",
+        "d": "Its ending is changed to -ous if it originally ended in -ite.",
+        "e": "A 'hydro-' prefix is added to its name.",
+        "f": "Numerical prefixes (di-, tri-) are added based on its implied count in the formula."
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the correct chemical name for the compound Al(NO₃)₃ (NO₃⁻ is the nitrate ion).?",
+        "question_text": "What is the correct chemical name for the compound Al(NO₃)₃ (NO₃⁻ is the nitrate ion).?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Aluminum trinitrate",
+                "text": "Aluminum trinitrate",
+                "weight": 0
+            },
+            {
+                "answer_text": "Aluminum(III) nitrate",
+                "text": "Aluminum(III) nitrate",
+                "weight": 0
+            },
+            {
+                "answer_text": "Aluminum nitrite",
+                "text": "Aluminum nitrite",
+                "weight": 0
+            },
+            {
+                "answer_text": "Aluminum nitrate",
+                "text": "Aluminum nitrate",
+                "weight": 100
+            },
+            {
+                "answer_text": "Aluminic trioxide nitride",
+                "text": "Aluminic trioxide nitride",
+                "weight": 0
+            },
+            {
+                "answer_text": "Nitrogen aluminate",
+                "text": "Nitrogen aluminate",
+                "weight": 0
+            }
+        ],
+        "a": "Aluminum trinitrate",
+        "b": "Aluminum(III) nitrate",
+        "c": "Aluminum nitrite",
+        "d": "Aluminum nitrate",
+        "e": "Aluminic trioxide nitride",
+        "f": "Nitrogen aluminate"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A compound is named 'Lead (IV) oxide'. What does the '(IV)' indicate about the lead in this specific compound?",
+        "question_text": "A compound is named 'Lead (IV) oxide'. What does the '(IV)' indicate about the lead in this specific compound?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "There are four lead atoms in the formula.",
+                "text": "There are four lead atoms in the formula.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Lead is in the fourth period of the periodic table.",
+                "text": "Lead is in the fourth period of the periodic table.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The lead ion has a +4 charge.",
+                "text": "The lead ion has a +4 charge.",
+                "weight": 100
+            },
+            {
+                "answer_text": "The oxide ion has a -4 charge.",
+                "text": "The oxide ion has a -4 charge.",
+                "weight": 0
+            },
+            {
+                "answer_text": "It is the fourth most common isotope of lead.",
+                "text": "It is the fourth most common isotope of lead.",
+                "weight": 0
+            },
+            {
+                "answer_text": "There are four oxygen atoms bonded to lead.",
+                "text": "There are four oxygen atoms bonded to lead.",
+                "weight": 0
+            }
+        ],
+        "a": "There are four lead atoms in the formula.",
+        "b": "Lead is in the fourth period of the periodic table.",
+        "c": "The lead ion has a +4 charge.",
+        "d": "The oxide ion has a -4 charge.",
+        "e": "It is the fourth most common isotope of lead.",
+        "f": "There are four oxygen atoms bonded to lead."
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Given that the sulfide ion is S²⁻, what is the correct chemical name for the compound Fe₂S₃ (Iron can have multiple charges)?",
+        "question_text": "Given that the sulfide ion is S²⁻, what is the correct chemical name for the compound Fe₂S₃ (Iron can have multiple charges)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Iron sulfide",
+                "text": "Iron sulfide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Iron(II) sulfide",
+                "text": "Iron(II) sulfide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Diiron trisulfide",
+                "text": "Diiron trisulfide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Iron(III) sulfide",
+                "text": "Iron(III) sulfide",
+                "weight": 100
+            },
+            {
+                "answer_text": "Ferrous(II) sulfite",
+                "text": "Ferrous(II) sulfite",
+                "weight": 0
+            },
+            {
+                "answer_text": "Iron(II) trisulfide",
+                "text": "Iron(II) trisulfide",
+                "weight": 0
+            }
+        ],
+        "a": "Iron sulfide",
+        "b": "Iron(II) sulfide",
+        "c": "Diiron trisulfide",
+        "d": "Iron(III) sulfide",
+        "e": "Ferrous(II) sulfite",
+        "f": "Iron(II) trisulfide"
+    },
+    {
+        "question_name": "Question 13",
+        "question number": 13,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In the systematic naming of binary covalent compounds like SO₂, which rule applies to the use of Greek prefixes?",
+        "question_text": "In the systematic naming of binary covalent compounds like SO₂, which rule applies to the use of Greek prefixes?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "'Mono-' is always used for the first element if there is only one atom.",
+                "text": "'Mono-' is always used for the first element if there is only one atom.",
+                "weight": 0
+            },
+            {
+                "answer_text": "'Mono-' is omitted for the first element, but always used for the second if there is only one atom.",
+                "text": "'Mono-' is omitted for the first element, but always used for the second if there is only one atom.",
+                "weight": 100
+            },
+            {
+                "answer_text": "Prefixes are only used if both elements have more than one atom.",
+                "text": "Prefixes are only used if both elements have more than one atom.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Prefixes are only used for the second element, never the first.",
+                "text": "Prefixes are only used for the second element, never the first.",
+                "weight": 0
+            },
+            {
+                "answer_text": "The prefix 'uni-' is used instead of 'mono-' for the first element.",
+                "text": "The prefix 'uni-' is used instead of 'mono-' for the first element.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Roman numerals are used instead of prefixes for the first element.",
+                "text": "Roman numerals are used instead of prefixes for the first element.",
+                "weight": 0
+            }
+        ],
+        "a": "'Mono-' is always used for the first element if there is only one atom.",
+        "b": "'Mono-' is omitted for the first element, but always used for the second if there is only one atom.",
+        "c": "Prefixes are only used if both elements have more than one atom.",
+        "d": "Prefixes are only used for the second element, never the first.",
+        "e": "The prefix 'uni-' is used instead of 'mono-' for the first element.",
+        "f": "Roman numerals are used instead of prefixes for the first element."
+    },
+    {
+        "question_name": "Question 14",
+        "question number": 14,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the correct chemical name for the binary covalent compound N₂O₄?",
+        "question_text": "What is the correct chemical name for the binary covalent compound N₂O₄?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "4",
+        "answers": [
+            {
+                "answer_text": "Nitrogen oxide",
+                "text": "Nitrogen oxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Dinitrogen oxide",
+                "text": "Dinitrogen oxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Nitrogen(IV) oxide",
+                "text": "Nitrogen(IV) oxide",
+                "weight": 0
+            },
+            {
+                "answer_text": "Dinitrogen tetroxide",
+                "text": "Dinitrogen tetroxide",
+                "weight": 100
+            },
+            {
+                "answer_text": "Nitrogen tetraoxygen",
+                "text": "Nitrogen tetraoxygen",
+                "weight": 0
+            },
+            {
+                "answer_text": "Dinittric tetroxide",
+                "text": "Dinittric tetroxide",
+                "weight": 0
+            }
+        ],
+        "a": "Nitrogen oxide",
+        "b": "Dinitrogen oxide",
+        "c": "Nitrogen(IV) oxide",
+        "d": "Dinitrogen tetroxide",
+        "e": "Nitrogen tetraoxygen",
+        "f": "Dinittric tetroxide"
+    },
+    {
+        "question_name": "Question 15",
+        "question number": 15,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A compound with the formula PCl₃ consists of phosphorus and chlorine (both nonmetals). Based on its composition, how would this compound primarily be classified and named?",
+        "question_text": "A compound with the formula PCl₃ consists of phosphorus and chlorine (both nonmetals). Based on its composition, how would this compound primarily be classified and named?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "2",
+        "answers": [
+            {
+                "answer_text": "As a binary acid, using the \"hydro-\" prefix.",
+                "text": "As a binary acid, using the \"hydro-\" prefix.",
+                "weight": 0
+            },
+            {
+                "answer_text": "As a covalent compound, using numerical prefixes.",
+                "text": "As a covalent compound, using numerical prefixes.",
+                "weight": 100
+            },
+            {
+                "answer_text": "As an ionic compound, naming the cation and then the anion ending in \"-ide\".",
+                "text": "As an ionic compound, naming the cation and then the anion ending in \"-ide\".",
+                "weight": 0
+            },
+            {
+                "answer_text": "As a polyatomic ion, requiring a Roman numeral for phosphorus.",
+                "text": "As a polyatomic ion, requiring a Roman numeral for phosphorus.",
+                "weight": 0
+            },
+            {
+                "answer_text": "As a simple binary ionic compound, with chlorine named \"chlorate\".",
+                "text": "As a simple binary ionic compound, with chlorine named \"chlorate\".",
+                "weight": 0
+            },
+            {
+                "answer_text": "As an oxyacid, because it contains a nonmetal and chlorine.",
+                "text": "As an oxyacid, because it contains a nonmetal and chlorine.",
+                "weight": 0
+            }
+        ],
+        "a": "As a binary acid, using the \"hydro-\" prefix.",
+        "b": "As a covalent compound, using numerical prefixes.",
+        "c": "As an ionic compound, naming the cation and then the anion ending in \"-ide\".",
+        "d": "As a polyatomic ion, requiring a Roman numeral for phosphorus.",
+        "e": "As a simple binary ionic compound, with chlorine named \"chlorate\".",
+        "f": "As an oxyacid, because it contains a nonmetal and chlorine."
+    },
+    {
+        "question_name": "Question 16",
+        "question number": 16,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Consider the acid H₃PO₄ (containing the phosphate ion, PO₄³⁻) and the acid HI. Which statement accurately describes a key difference in their naming conventions?",
+        "question_text": "Consider the acid H₃PO₄ (containing the phosphate ion, PO₄³⁻) and the acid HI. Which statement accurately describes a key difference in their naming conventions?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "3",
+        "answers": [
+            {
+                "answer_text": "Both are named using the \"hydro-\" prefix because they start with hydrogen.",
+                "text": "Both are named using the \"hydro-\" prefix because they start with hydrogen.",
+                "weight": 0
+            },
+            {
+                "answer_text": "H₃PO₄ is named using the \"hydro-\" prefix, while HI is not.",
+                "text": "H₃PO₄ is named using the \"hydro-\" prefix, while HI is not.",
+                "weight": 0
+            },
+            {
+                "answer_text": "H₃PO₄ (from phosphate) is named phosphoric acid (no \"hydro-\"), while HI is named hydroiodic acid.",
+                "text": "H₃PO₄ (from phosphate) is named phosphoric acid (no \"hydro-\"), while HI is named hydroiodic acid.",
+                "weight": 100
+            },
+            {
+                "answer_text": "H₃PO₄ is named phosphorous acid, and HI is named iodic acid.",
+                "text": "H₃PO₄ is named phosphorous acid, and HI is named iodic acid.",
+                "weight": 0
+            },
+            {
+                "answer_text": "Both are named by simply stating \"hydrogen\" followed by the anion name (e.g., hydrogen phosphate).",
+                "text": "Both are named by simply stating \"hydrogen\" followed by the anion name (e.g., hydrogen phosphate).",
+                "weight": 0
+            },
+            {
+                "answer_text": "H₃PO₄ is named perphosphoric acid, and HI is named hypoiodous acid.",
+                "text": "H₃PO₄ is named perphosphoric acid, and HI is named hypoiodous acid.",
+                "weight": 0
+            }
+        ],
+        "a": "Both are named using the \"hydro-\" prefix because they start with hydrogen.",
+        "b": "H₃PO₄ is named using the \"hydro-\" prefix, while HI is not.",
+        "c": "H₃PO₄ (from phosphate) is named phosphoric acid (no \"hydro-\"), while HI is named hydroiodic acid.",
+        "d": "H₃PO₄ is named phosphorous acid, and HI is named iodic acid.",
+        "e": "Both are named by simply stating \"hydrogen\" followed by the anion name (e.g., hydrogen phosphate).",
+        "f": "H₃PO₄ is named perphosphoric acid, and HI is named hypoiodous acid."
+    },
+    {
+        "question_name": "Question 17",
+        "question number": "Q17",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 18",
+        "question number": "Q18",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    },
+    {
+        "quiz_metadata": {
+            "randomize_questions": true
+        }
+    }
+]
