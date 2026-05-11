@@ -1,8 +1,8 @@
 // --- GLOBAL APP MANAGEMENT ---
 let viewMode = 1;
-let quizInstances = [];
+let quizInstances =[];
 let canvasData = {}; // Shared across all instances
-const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
+const CLASSES =["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
 document.addEventListener("DOMContentLoaded", () => {
     const viewModeBtn = document.getElementById("view-mode-btn");
@@ -26,7 +26,7 @@ function setViewMode(numScreens) {
     if (!masterContainer) return;
     
     masterContainer.innerHTML = "";
-    quizInstances = [];
+    quizInstances =[];
 
     for (let i = 0; i < numScreens; i++) {
         const template = document.getElementById("quiz-instance-template");
@@ -60,7 +60,7 @@ async function checkQuizExists(quizName) {
 }
 
 function normalizeQuizData(raw) {
-    let items = [];
+    let items =[];
     if (Array.isArray(raw)) {
         items = raw;
     } else if (raw && typeof raw === 'object') {
@@ -102,7 +102,7 @@ class QuizInstance {
         this.selectedClass = null;
         this.currentQuizName = null;
         this.currentQuestions = [];
-        this.sidebarButtons = [];
+        this.sidebarButtons =[];
         this.matchingStates = {};
         this.selectedBankWord = null;
         this.selectedSlot = null;
@@ -206,7 +206,6 @@ class QuizInstance {
 
         const results = await Promise.all(existenceChecks);
 
-        // Sort previous assignments to ensure they are in chronological order
         results.sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: 'base' }));
 
         const fragment = document.createDocumentFragment();
@@ -215,7 +214,6 @@ class QuizInstance {
             fragment.appendChild(btn);
         });
         
-        // Insert the fragment of old assignments before the "Show More" button
         list.insertBefore(fragment, buttonToRemove);
         
         buttonToRemove.remove();
@@ -255,7 +253,6 @@ class QuizInstance {
         const latestTitles = validTitles.slice(-5);
         const previousTitles = validTitles.slice(0, -5);
 
-        // Add the "Show More" button to the top of the list first, if needed
         if (previousTitles.length > 0) {
             const showMoreBtn = document.createElement("button");
             showMoreBtn.className = "btn-show-previous";
@@ -268,7 +265,6 @@ class QuizInstance {
             list.appendChild(showMoreBtn);
         }
 
-        // Fetch and render the 5 latest assignments after the button
         const existenceChecks = latestTitles.map(async (title) => {
             const exists = await checkQuizExists(title);
             return { title, exists };
@@ -282,12 +278,11 @@ class QuizInstance {
         });
     }
 
-
     async startQuiz(quizName) {
         this.currentQuizName = quizName;
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
-        this.sidebarButtons = [];
+        this.sidebarButtons =[];
         
         if (this.elements.quizTitle) this.elements.quizTitle.innerText = quizName;
         this.elements.resultBox?.classList.add("hidden");
@@ -333,7 +328,7 @@ class QuizInstance {
                 }
             });
 
-            let quizQuestions = [], adminQuestions = [];
+            let quizQuestions = [], adminQuestions =[];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
@@ -433,7 +428,7 @@ class QuizInstance {
             let url = q.url || q.question_url;
             if (url && url.trim()) {
                 let cleanUrl = url.trim();
-                let exts = cleanUrl.includes('.') ? [''] : ['.png', '.jpg', '.gif'];
+                let exts = cleanUrl.includes('.') ? [''] :['.png', '.jpg', '.gif'];
                 header += `<img class="question-media" src="0_Quiz/media/${cleanUrl}${exts[0]}" onerror="this.onerror=null; this.src='0_Quiz/media/${cleanUrl}${exts[1] || ''}';">`;
             }
             
@@ -455,7 +450,6 @@ class QuizInstance {
             }
             container.appendChild(frame);
 
-            // Generate Sidebar Nav Button
             let qBtn = document.createElement("button");
             qBtn.className = "btn-sidebar-q";
             qBtn.innerText = `Q${qNum}`;
@@ -506,20 +500,19 @@ class QuizInstance {
         options.sort(() => Math.random() - 0.5);
 
         q._correctOptionText = (options.find(o => o.is_correct) || {}).text;
-        q._mcqElements = [];
+        q._mcqElements =[];
         q._selectedMcqIndex = -1;
 
         options.forEach((opt, i) => {
             let card = document.createElement('div');
             card.className = 'mcq-card';
-            card.innerHTML = opt.text; // Supports potential RichText HTML logic mapped from Python
+            card.innerHTML = opt.text;
             card.dataset.isCorrect = opt.is_correct;
             
             card.onclick = () => {
                 q._selectedMcqIndex = i;
                 q._userAnswer = opt.text; 
                 
-                // Visual reset & set
                 q._mcqElements.forEach(c => c.classList.remove('selected'));
                 card.classList.add('selected');
                 
@@ -550,8 +543,8 @@ class QuizInstance {
     }
 
     setupComplexMatchingUI(container, q, idx) {
-        let pairs = q.answers || [];
-        let distractors = q.distractors || q.matching_answer_incorrect_matches || [];
+        let pairs = q.answers ||[];
+        let distractors = q.distractors || q.matching_answer_incorrect_matches ||[];
         let allAnswers = pairs.map(p => p.answer_text);
         let allWords = [...allAnswers, ...distractors];
 
@@ -727,7 +720,7 @@ class QuizInstance {
     }
 
     submitQuiz() {
-        let unansweredIndices = [];
+        let unansweredIndices =[];
         this.currentQuestions.forEach((q, idx) => {
             let type = q.type || q.question_type;
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text;
@@ -749,7 +742,6 @@ class QuizInstance {
             }
         });
 
-        // Trigger Missing Feedback Alert
         if (unansweredIndices.length > 0) {
             this.currentQuestions.forEach((q, idx) => {
                 let btn = this.sidebarButtons[idx];
@@ -821,7 +813,7 @@ class QuizInstance {
                 let isCorrect = false;
 
                 q._mcqElements.forEach((card, i) => {
-                    card.onclick = null; // Disable clicks during grading
+                    card.onclick = null;
                     card.style.pointerEvents = 'none';
 
                     if (userIdx !== -1) {
@@ -872,8 +864,55 @@ class QuizInstance {
     resetQuiz() {
         this.startQuiz(this.currentQuizName);
     }
+    
+    async submitToTally(payload) {
+        // --- CONFIGURATION: Run the python script and paste the generated output here ---
+        const TALLY_SUBMIT_URL = "https://tally.so/api/submissions/REPLACE_WITH_FORM_ID"; 
+        
+        const fieldMap = {
+            studentName: "REPLACE_WITH_UUID",
+            studentClass: "REPLACE_WITH_UUID",
+            quizName: "REPLACE_WITH_UUID",
+            score: "REPLACE_WITH_UUID",
+            totalPossible: "REPLACE_WITH_UUID"
+        };
+        // --------------------------------------------------------------------------------
+
+        if (!TALLY_SUBMIT_URL.includes("submissions/") || TALLY_SUBMIT_URL.includes("REPLACE_WITH_FORM_ID")) {
+            console.warn("Tally URL or IDs seem incorrect. Please update the configuration from Python script output. Skipping submission.");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("submissionData", JSON.stringify({
+            "formId": TALLY_SUBMIT_URL.split('/').pop(),
+            "submissionId": crypto.randomUUID(),
+            "createdAt": new Date().toISOString()
+        }));
+
+        for (const key in payload) {
+            if (fieldMap[key] && fieldMap[key] !== "REPLACE_WITH_UUID") {
+                formData.append(fieldMap[key], payload[key]);
+            }
+        }
+
+        try {
+            const response = await fetch(TALLY_SUBMIT_URL, {
+                method: 'POST',
+                body: formData,
+            });
+            if (response.ok) {
+                console.log("Score successfully submitted to Tally.so");
+            } else {
+                console.error("Failed to submit score to Tally.so", await response.text());
+            }
+        } catch (error) {
+            console.error("Network error while submitting to Tally.so:", error);
+        }
+    }
 
     saveResult(quizName, name, cls, score, total) {
+        // 1. Save to local storage as a backup
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
         if (!data[cls][name]) data[cls][name] = {};
@@ -881,11 +920,22 @@ class QuizInstance {
         data[cls][name][quizName].attempts.push({ s: score, t: total, ts: new Date().toISOString() });
         if (score > data[cls][name][quizName].best) data[cls][name][quizName].best = score;
         localStorage.setItem('quiz_results', JSON.stringify(data));
+
+        // 2. Prepare and send data to Tally.so (Removed Percentage tracking)
+        const tallyPayload = {
+            studentName: name,
+            studentClass: cls,
+            quizName: quizName,
+            score: score,
+            totalPossible: total
+        };
+        
+        this.submitToTally(tallyPayload);
     }
 
     saveResultAsImage() {
         if (!this.finalStudentName || !this.finalStudentClass) return;
-        const data = [
+        const data =[
             { label: "Class", value: this.finalStudentClass },
             { label: "HW", value: this.currentQuizName },
             { label: "Name", value: this.finalStudentName },
