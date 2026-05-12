@@ -5,10 +5,12 @@ let canvasData = {}; // Shared across all instances
 const CLASSES =["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("[DEBUG] DOMContentLoaded - Initializing App");
     const viewModeBtn = document.getElementById("view-mode-btn");
     if (viewModeBtn) viewModeBtn.addEventListener("click", cycleViewMode);
     
     loadCanvasData().then(() => {
+        console.log("[DEBUG] Canvas data loaded. Setting initial view mode to 1.");
         setViewMode(1); // Start with 1 screen
     });
 });
@@ -18,19 +20,27 @@ function cycleViewMode() {
     if (viewMode > 3) {
         viewMode = 1;
     }
+    console.log(`[DEBUG] Cycled View Mode to: ${viewMode} screens`);
     setViewMode(viewMode);
 }
 
 function setViewMode(numScreens) {
     const masterContainer = document.getElementById("master-container");
-    if (!masterContainer) return;
+    if (!masterContainer) {
+        console.error("[DEBUG] master-container not found in DOM!");
+        return;
+    }
     
     masterContainer.innerHTML = "";
     quizInstances =[];
+    console.log(`[DEBUG] Injecting ${numScreens} quiz instance(s) into the DOM`);
 
     for (let i = 0; i < numScreens; i++) {
         const template = document.getElementById("quiz-instance-template");
-        if (!template) continue;
+        if (!template) {
+            console.error("[DEBUG] quiz-instance-template not found in DOM!");
+            continue;
+        }
         
         const instanceNode = template.content.cloneNode(true);
         masterContainer.appendChild(instanceNode);
@@ -41,11 +51,13 @@ function setViewMode(numScreens) {
 
 async function loadCanvasData() {
     try {
+        console.log("[DEBUG] Fetching canvas.json...");
         const response = await fetch('0_Quiz/canvas.json');
-        if (!response.ok) throw new Error("Could not find canvas.json");
+        if (!response.ok) throw new Error(`Could not find canvas.json (Status: ${response.status})`);
         canvasData = await response.json();
+        console.log("[DEBUG] Successfully loaded canvas.json:", canvasData);
     } catch (e) {
-        console.warn("Using fallback empty canvas.json structure", e);
+        console.warn("[DEBUG] Using fallback empty canvas.json structure. Error:", e.message);
         canvasData = { "6": {}, "7": {}, "8": {} };
     }
 }
@@ -53,8 +65,10 @@ async function loadCanvasData() {
 async function checkQuizExists(quizName) {
     try {
         const res = await fetch(`0_Quiz/${quizName}.json`, { method: 'HEAD' });
+        if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName}.json`);
         return res.ok;
     } catch {
+        console.warn(`[DEBUG] checkQuizExists network error for ${quizName}.json`);
         return false;
     }
 }
@@ -87,11 +101,13 @@ function normalizeQuizData(raw) {
         }
     }
     
-    return items.filter(d => 
+    const filtered = items.filter(d => 
         d['question text'] || d['question_text'] || 
         d['Question Text'] || d['Question_Text'] ||
         d.question || d.Question
     );
+    console.log(`[DEBUG] Normalized quiz data from ${raw ? 'object/array' : 'null'} into ${filtered.length} usable questions.`);
+    return filtered;
 }
 
 // --- QUIZ INSTANCE CLASS ---
@@ -99,9 +115,11 @@ class QuizInstance {
     constructor(rootElement) {
         this.root = rootElement;
         this.instanceId = Date.now() + Math.floor(Math.random() * 1000); 
+        console.log(`[DEBUG] Initializing QuizInstance ID: ${this.instanceId}`);
+        
         this.selectedClass = null;
         this.currentQuizName = null;
-        this.currentQuestions = [];
+        this.currentQuestions =[];
         this.sidebarButtons =[];
         this.matchingStates = {};
         this.selectedBankWord = null;
@@ -149,6 +167,7 @@ class QuizInstance {
     }
 
     switchView(viewClass) {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Switching view to ${viewClass}`);
         Object.values(this.views).forEach(v => {
             if (v) v.classList.remove('active');
         });
@@ -177,7 +196,10 @@ class QuizInstance {
             const btn = document.createElement("button");
             btn.className = "btn-class";
             btn.innerText = cls;
-            btn.onclick = () => this.loadAssignments(cls);
+            btn.onclick = () => {
+                console.log(`[DEBUG][Inst ${this.instanceId}] Class selected: ${cls}`);
+                this.loadAssignments(cls);
+            };
             this.elements.classGrid.appendChild(btn);
         });
     }
@@ -190,12 +212,16 @@ class QuizInstance {
             btn.disabled = true;
         } else {
             btn.innerText = title;
-            btn.onclick = () => this.startQuiz(title);
+            btn.onclick = () => {
+                console.log(`[DEBUG][Inst ${this.instanceId}] Assignment selected: ${title}`);
+                this.startQuiz(title);
+            };
         }
         return btn;
     }
 
     async renderPreviousAssignments(titles, buttonToRemove) {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Rendering previous assignments...`);
         const list = this.elements.assignmentList;
         if (!list) return;
 
@@ -215,8 +241,8 @@ class QuizInstance {
         });
         
         list.insertBefore(fragment, buttonToRemove);
-        
         buttonToRemove.remove();
+        console.log(`[DEBUG][Inst ${this.instanceId}] Rendered ${results.length} previous assignments.`);
     }
 
     async loadAssignments(classCode) {
@@ -246,6 +272,7 @@ class QuizInstance {
         list.innerHTML = "";
 
         if (validTitles.length === 0) {
+            console.warn(`[DEBUG][Inst ${this.instanceId}] No assignments found in canvas.json for class ${classCode}`);
             list.innerHTML = "<p style='color:#666; font-style:italic;'>No assignments found.</p>";
             return;
         }
@@ -265,6 +292,7 @@ class QuizInstance {
             list.appendChild(showMoreBtn);
         }
 
+        console.log(`[DEBUG][Inst ${this.instanceId}] Checking existence of ${latestTitles.length} latest assignments...`);
         const existenceChecks = latestTitles.map(async (title) => {
             const exists = await checkQuizExists(title);
             return { title, exists };
@@ -279,6 +307,7 @@ class QuizInstance {
     }
 
     async startQuiz(quizName) {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Fetching quiz data for: ${quizName}`);
         this.currentQuizName = quizName;
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
@@ -303,8 +332,9 @@ class QuizInstance {
 
         try {
             const res = await fetch(`0_Quiz/${quizName}.json`);
-            if (!res.ok) throw new Error("File missing or server error");
+            if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
             const rawData = await res.json();
+            console.log(`[DEBUG][Inst ${this.instanceId}] Raw quiz JSON loaded successfully.`, rawData);
 
             let randomizeQuestions = true;
             if (Array.isArray(rawData)) {
@@ -317,18 +347,39 @@ class QuizInstance {
                     randomizeQuestions = rawData.quiz_metadata.randomize_questions;
                 }
             }
+            console.log(`[DEBUG][Inst ${this.instanceId}] Randomize Questions setting:`, randomizeQuestions);
 
             let normalized = normalizeQuizData(rawData);
 
+            // Normalize complex matching questions to support standard Canvas Format vs Raw format
             normalized.forEach(q => {
                 const type = q.type || q.question_type;
-                const isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0]?.text;
+                
+                if (type === 'matching_question') {
+                    if (Array.isArray(q.answers)) {
+                        q.answers.forEach(p => {
+                            if (p.answer_match_left !== undefined && p.text === undefined) p.text = String(p.answer_match_left);
+                            if (p.answer_match_right !== undefined && p.answer_text === undefined) p.answer_text = String(p.answer_match_right);
+                        });
+                    }
+                    
+                    let distRaw = q.distractors || q.matching_answer_incorrect_matches;
+                    if (typeof distRaw === 'string') {
+                        q.distractors = distRaw.split('\n').map(d => d.trim()).filter(d => d.length > 0);
+                    } else if (Array.isArray(distRaw)) {
+                        q.distractors = distRaw;
+                    } else {
+                        q.distractors =[];
+                    }
+                }
+
+                const isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0]?.text !== undefined;
                 if (isComplexMatching) {
                     q.answers.sort(() => Math.random() - 0.5);
                 }
             });
 
-            let quizQuestions = [], adminQuestions =[];
+            let quizQuestions =[], adminQuestions =[];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
@@ -342,11 +393,12 @@ class QuizInstance {
                 quizQuestions.sort(() => Math.random() - 0.5);
             }
 
-            this.currentQuestions = [...quizQuestions, ...adminQuestions];
+            this.currentQuestions =[...quizQuestions, ...adminQuestions];
+            console.log(`[DEBUG][Inst ${this.instanceId}] Total processed questions:`, this.currentQuestions.length);
             this.renderQuiz();
             
         } catch (e) {
-            console.error("Quiz Load Error:", e);
+            console.error(`[DEBUG][Inst ${this.instanceId}] Quiz Load Error:`, e);
             if (container) {
                 container.innerHTML = `<p style="color:red; font-weight:bold; padding:20px;">Failed to load quiz data: ${e.message}</p>`;
             }
@@ -354,6 +406,7 @@ class QuizInstance {
     }
 
     renderQuiz() {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Rendering ${this.currentQuestions.length} questions to DOM.`);
         const container = this.elements.quizContent;
         if (!container) return;
         
@@ -371,7 +424,7 @@ class QuizInstance {
             let qText = q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'];
             let qTextLower = (qText || "").toLowerCase();
             let pts = parseInt(q.points || q.points_possible) || 0;
-            let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0]?.text;
+            let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0]?.text !== undefined;
             let isAdmin = qTextLower.includes('select your class') || qTextLower.includes('english name') || qTextLower.includes('your name');
             
             let frame = document.createElement('div');
@@ -443,7 +496,10 @@ class QuizInstance {
                 let inp = document.createElement('input');
                 inp.type = "text";
                 inp.className = "essay-input";
-                inp.oninput = () => this.updateProgress();
+                inp.oninput = () => {
+                    console.log(`[DEBUG][Inst ${this.instanceId}] Essay Q${qNum} typed. Value:`, inp.value.trim());
+                    this.updateProgress();
+                }
                 contentDiv.appendChild(inp);
             } else if (type === 'matching_question') {
                 this.setupClassSelectionUI(contentDiv, q, idx);
@@ -482,11 +538,12 @@ class QuizInstance {
             this.elements.btnJumpTop?.classList.remove("hidden");
         }
 
+        console.log(`[DEBUG][Inst ${this.instanceId}] Quiz rendered. Updating progress...`);
         this.updateProgress();
     }
 
     setupMultipleChoiceUI(container, q, idx) {
-        let options = [];
+        let options =[];
         let correctIdx = q['correct ans index'];
         if (typeof correctIdx === 'string' && !isNaN(correctIdx)) correctIdx = parseInt(correctIdx, 10) - 1;
         else if (typeof correctIdx === 'number') correctIdx = correctIdx - 1;
@@ -510,6 +567,7 @@ class QuizInstance {
             card.dataset.isCorrect = opt.is_correct;
             
             card.onclick = () => {
+                console.log(`[DEBUG][Inst ${this.instanceId}] MCQ Q${idx+1} answered: ${opt.text}`);
                 q._selectedMcqIndex = i;
                 q._userAnswer = opt.text; 
                 
@@ -532,6 +590,7 @@ class QuizInstance {
             btn.className = 'class-btn-radio';
             btn.innerText = opt;
             btn.onclick = () => {
+                console.log(`[DEBUG][Inst ${this.instanceId}] Class/Admin Q${idx+1} selected: ${opt}`);
                 Array.from(grid.children).forEach(c => c.classList.remove('checked'));
                 btn.classList.add('checked');
                 q._userAnswer = opt;
@@ -544,11 +603,12 @@ class QuizInstance {
 
     setupComplexMatchingUI(container, q, idx) {
         let pairs = q.answers ||[];
-        let distractors = q.distractors || q.matching_answer_incorrect_matches ||[];
+        // Normalization moved to startQuiz guarantees q.distractors is an array now.
+        let distractors = q.distractors ||[]; 
         let allAnswers = pairs.map(p => p.answer_text);
-        let allWords = [...allAnswers, ...distractors];
+        let allWords =[...allAnswers, ...distractors];
 
-        const uniqueWords = [...new Set(allWords)];
+        const uniqueWords =[...new Set(allWords)];
         const allowReuse = uniqueWords.length < allWords.length;
 
         this.matchingStates[idx] = {
@@ -583,7 +643,10 @@ class QuizInstance {
             let areaRect = area.getBoundingClientRect();
 
             if (rect.bottom > areaRect.top + 50 && rect.top < areaRect.bottom - 50) {
-                if (this.activeMatchingQuestionId !== idx) this.renderStickyBank(idx);
+                if (this.activeMatchingQuestionId !== idx) {
+                    console.log(`[DEBUG][Inst ${this.instanceId}] Sticky bank activated for matching Q${parseInt(idx)+1}`);
+                    this.renderStickyBank(idx);
+                }
                 foundVisible = true;
                 break;
             }
@@ -620,6 +683,7 @@ class QuizInstance {
     }
 
     fillSlotWithWord(qIdx, slotIdx, word) {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Matching Q${parseInt(qIdx)+1} Slot ${slotIdx} filled with: ${word}`);
         const state = this.matchingStates[qIdx];
         if (!state) return;
         
@@ -637,7 +701,7 @@ class QuizInstance {
         }
 
         state.slots[slotIdx].current = word;
-        const targetSlotEl = this.selectedSlot?.element || this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${slotIdx}"]`);
+        const targetSlotEl = this.selectedSlot?.element || this.root.querySelector(`[data-question-index="${qIdx}"][data-slot-index="${slotIdx}"]`);
 
         if (targetSlotEl) {
             targetSlotEl.innerText = word;
@@ -656,6 +720,7 @@ class QuizInstance {
         const slotData = state.slots[slotIdx];
 
         if (slotData.current) {
+            console.log(`[DEBUG][Inst ${this.instanceId}] Matching Q${parseInt(qIdx)+1} Slot ${slotIdx} cleared.`);
             slotData.current = null;
             slotEl.innerText = "_____________";
             slotEl.className = "answer-slot";
@@ -684,7 +749,7 @@ class QuizInstance {
         this.currentQuestions.forEach((q, idx) => {
             let isAnswered = false;
             let type = q.type || q.question_type;
-            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text;
+            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined;
             
             if (isComplexMatching) {
                 let state = this.matchingStates[idx];
@@ -720,10 +785,11 @@ class QuizInstance {
     }
 
     submitQuiz() {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Submit button clicked. Validating answers...`);
         let unansweredIndices =[];
         this.currentQuestions.forEach((q, idx) => {
             let type = q.type || q.question_type;
-            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text;
+            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined;
             
             if (isComplexMatching) {
                 let state = this.matchingStates[idx];
@@ -743,6 +809,7 @@ class QuizInstance {
         });
 
         if (unansweredIndices.length > 0) {
+            console.warn(`[DEBUG][Inst ${this.instanceId}] Quiz missing answers at indices:`, unansweredIndices);
             this.currentQuestions.forEach((q, idx) => {
                 let btn = this.sidebarButtons[idx];
                 if (btn) {
@@ -769,6 +836,7 @@ class QuizInstance {
             return;
         }
 
+        console.log(`[DEBUG][Inst ${this.instanceId}] All questions answered. Grading...`);
         let nameAns = null, classAns = null;
         this.currentQuestions.forEach((q, idx) => {
             const txt = (q['question text'] || q.question_text || "").toLowerCase();
@@ -791,7 +859,7 @@ class QuizInstance {
             if (!frame) return;
             let type = q.type || q.question_type, pts = parseInt(q.points || q.points_possible) || 0;
             
-            if (type === 'matching_question' && q.answers?.[0]?.text) {
+            if (type === 'matching_question' && q.answers?.[0]?.text !== undefined) {
                 totalPossible += pts;
                 let state = this.matchingStates[idx], correctCount = 0;
                 state.slots.forEach((s, sIdx) => {
@@ -843,8 +911,12 @@ class QuizInstance {
         let perc = totalPossible === 0 ? 100 : Math.round((totalScore / totalPossible) * 100);
         let state = perc >= 60 ? "pass" : perc > 0 ? "warning" : "fail";
 
+        console.log(`[DEBUG][Inst ${this.instanceId}] Final Score: ${totalScore}/${totalPossible} (${perc}%)`);
+
         if (perc === 100) triggerConfetti();
-        if (state !== "fail" || totalPossible === 0) this.saveResult(this.currentQuizName, nameAns, classAns, totalScore, totalPossible);
+        
+        console.log(`[DEBUG][Inst ${this.instanceId}] Saving result to Cloud/Storage...`);
+        this.saveResult(this.currentQuizName, nameAns, classAns, totalScore, totalPossible);
 
         let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)`;
         if (state === "fail") msg += "\n\nPlease Try Again";
@@ -862,55 +934,53 @@ class QuizInstance {
     }
 
     resetQuiz() {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Resetting quiz...`);
         this.startQuiz(this.currentQuizName);
     }
     
-    async submitToTally(payload) {
-        // --- CONFIGURATION: Run the python script and paste the generated output here ---
-        const TALLY_SUBMIT_URL = "https://tally.so/api/submissions/0Q1kqQ";
+    async submitToGoogleForms(payload) {
+        // --- GOOGLE FORMS CONFIGURATION ---
+        const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScWKKkcGj1kOkhxsxU2eH0P5_TZANSZ7pbCUklzdvWKfhmbug/formResponse";
+        
         const fieldMap = {
-            studentName: "5dc4e327-f1d2-472f-85c6-d838a02c5b48",
-            studentClass: "84fdeb27-d180-4154-9c3d-607ab09ceba0",
-            quizName: "9e90aa77-f1ec-43b0-a87b-64f04eda6234",
-            score: "fc716b46-315f-486e-8eea-443bfd4ce403",
-            totalPossible: "e196e2e3-010e-43c7-80b0-ee57dd8c6487",
+            studentName: "entry.745060881",
+            studentClass: "entry.1524443816",
+            quizName: "entry.182191353",
+            score: "entry.113183733",
+            totalPossible: "entry.536891228",
         };
-        // --------------------------------------------------------------------------------
+        // ----------------------------------
 
-        if (!TALLY_SUBMIT_URL.includes("submissions/") || TALLY_SUBMIT_URL.includes("REPLACE_WITH_FORM_ID")) {
-            console.warn("Tally URL or IDs seem incorrect. Please update the configuration from Python script output. Skipping submission.");
-            return;
-        }
+        console.log(`[DEBUG][Inst ${this.instanceId}] Preparing to submit to Google Forms.`);
+        console.log(`[DEBUG][Inst ${this.instanceId}] Payload data:`, payload);
 
         const formData = new FormData();
-        formData.append("submissionData", JSON.stringify({
-            "formId": TALLY_SUBMIT_URL.split('/').pop(),
-            "submissionId": crypto.randomUUID(),
-            "createdAt": new Date().toISOString()
-        }));
 
         for (const key in payload) {
-            if (fieldMap[key] && fieldMap[key] !== "REPLACE_WITH_UUID") {
+            if (fieldMap[key]) {
                 formData.append(fieldMap[key], payload[key]);
             }
         }
 
         try {
-            const response = await fetch(TALLY_SUBMIT_URL, {
+            console.log(`[DEBUG][Inst ${this.instanceId}] Sending POST request to Google (no-cors)...`);
+            // We must use mode: 'no-cors' so the browser doesn't block the background request.
+            await fetch(GOOGLE_FORM_ACTION_URL, {
                 method: 'POST',
+                mode: 'no-cors',
                 body: formData,
             });
-            if (response.ok) {
-                console.log("Score successfully submitted to Tally.so");
-            } else {
-                console.error("Failed to submit score to Tally.so", await response.text());
-            }
+            
+            // With 'no-cors', Google processes the data but hides the response status.
+            // If it didn't throw a JavaScript execution network error, it succeeded!
+            console.log("[DEBUG] ✅ Score successfully submitted to Google Forms!");
         } catch (error) {
-            console.error("Network error while submitting to Tally.so:", error);
+            console.error("[DEBUG] ❌ Network error while submitting to Google Forms:", error);
         }
     }
 
     saveResult(quizName, name, cls, score, total) {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Saving to localStorage backup...`);
         // 1. Save to local storage as a backup
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
@@ -919,9 +989,10 @@ class QuizInstance {
         data[cls][name][quizName].attempts.push({ s: score, t: total, ts: new Date().toISOString() });
         if (score > data[cls][name][quizName].best) data[cls][name][quizName].best = score;
         localStorage.setItem('quiz_results', JSON.stringify(data));
+        console.log(`[DEBUG][Inst ${this.instanceId}] LocalStorage save complete.`);
 
-        // 2. Prepare and send data to Tally.so (Removed Percentage tracking)
-        const tallyPayload = {
+        // 2. Prepare and send data to Google Forms
+        const payload = {
             studentName: name,
             studentClass: cls,
             quizName: quizName,
@@ -929,11 +1000,15 @@ class QuizInstance {
             totalPossible: total
         };
         
-        this.submitToTally(tallyPayload);
+        this.submitToGoogleForms(payload);
     }
 
     saveResultAsImage() {
-        if (!this.finalStudentName || !this.finalStudentClass) return;
+        console.log(`[DEBUG][Inst ${this.instanceId}] Generating image for download...`);
+        if (!this.finalStudentName || !this.finalStudentClass) {
+            console.warn("[DEBUG] Missing student name or class for image generation.");
+            return;
+        }
         const data =[
             { label: "Class", value: this.finalStudentClass },
             { label: "HW", value: this.currentQuizName },
@@ -966,15 +1041,17 @@ class QuizInstance {
         link.download = `${this.finalStudentClass}_${this.finalStudentName.replace(/[^a-z0-9]/gi, '_')}_${this.currentQuizName.replace(/[^a-z0-9]/gi, '_')}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
+        console.log(`[DEBUG][Inst ${this.instanceId}] Image download triggered: ${link.download}`);
     }
 
     showResultsPage() {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Displaying LocalStorage Results Page.`);
         this.switchView("view-results");
         const container = this.elements.resultsList;
         if (!container) return;
         container.innerHTML = "";
         let raw = JSON.parse(localStorage.getItem('quiz_results') || '{}');
-        let resultsFlat = [];
+        let resultsFlat =[];
         Object.entries(raw).forEach(([cls, students]) => {
             Object.entries(students).forEach(([name, quizzes]) => {
                 Object.entries(quizzes).forEach(([qName, data]) => {
@@ -998,6 +1075,7 @@ class QuizInstance {
 }
 
 function triggerConfetti() {
+    console.log("[DEBUG] Triggering Confetti! 🎉");
     try { new Audio('sounds/pop.mp3').play().catch(()=>{}); } catch (e) {}
     if (typeof confetti !== 'undefined') {
         let end = Date.now() + 3000;
