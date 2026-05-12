@@ -867,14 +867,13 @@ class QuizInstance {
     
     async submitToTally(payload) {
         // --- CONFIGURATION: Run the python script and paste the generated output here ---
-        const TALLY_SUBMIT_URL = "https://tally.so/api/submissions/REPLACE_WITH_FORM_ID"; 
-        
+        const TALLY_SUBMIT_URL = "https://tally.so/api/submissions/0Q1kqQ";
         const fieldMap = {
-            studentName: "REPLACE_WITH_UUID",
-            studentClass: "REPLACE_WITH_UUID",
-            quizName: "REPLACE_WITH_UUID",
-            score: "REPLACE_WITH_UUID",
-            totalPossible: "REPLACE_WITH_UUID"
+            studentName: "5dc4e327-f1d2-472f-85c6-d838a02c5b48",
+            studentClass: "84fdeb27-d180-4154-9c3d-607ab09ceba0",
+            quizName: "9e90aa77-f1ec-43b0-a87b-64f04eda6234",
+            score: "fc716b46-315f-486e-8eea-443bfd4ce403",
+            totalPossible: "e196e2e3-010e-43c7-80b0-ee57dd8c6487",
         };
         // --------------------------------------------------------------------------------
 
