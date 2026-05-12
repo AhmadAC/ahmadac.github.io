@@ -2,7 +2,7 @@
 let viewMode = 1;
 let quizInstances =[];
 let canvasData = {}; // Shared across all instances
-const CLASSES =["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
+const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("[DEBUG] DOMContentLoaded - Initializing App");
@@ -379,7 +379,7 @@ class QuizInstance {
                 }
             });
 
-            let quizQuestions =[], adminQuestions =[];
+            let quizQuestions = [], adminQuestions =[];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
@@ -393,7 +393,7 @@ class QuizInstance {
                 quizQuestions.sort(() => Math.random() - 0.5);
             }
 
-            this.currentQuestions =[...quizQuestions, ...adminQuestions];
+            this.currentQuestions = [...quizQuestions, ...adminQuestions];
             console.log(`[DEBUG][Inst ${this.instanceId}] Total processed questions:`, this.currentQuestions.length);
             this.renderQuiz();
             
@@ -481,7 +481,7 @@ class QuizInstance {
             let url = q.url || q.question_url;
             if (url && url.trim()) {
                 let cleanUrl = url.trim();
-                let exts = cleanUrl.includes('.') ? [''] :['.png', '.jpg', '.gif'];
+                let exts = cleanUrl.includes('.') ? [''] : ['.png', '.jpg', '.gif'];
                 header += `<img class="question-media" src="0_Quiz/media/${cleanUrl}${exts[0]}" onerror="this.onerror=null; this.src='0_Quiz/media/${cleanUrl}${exts[1] || ''}';">`;
             }
             
@@ -543,7 +543,7 @@ class QuizInstance {
     }
 
     setupMultipleChoiceUI(container, q, idx) {
-        let options =[];
+        let options = [];
         let correctIdx = q['correct ans index'];
         if (typeof correctIdx === 'string' && !isNaN(correctIdx)) correctIdx = parseInt(correctIdx, 10) - 1;
         else if (typeof correctIdx === 'number') correctIdx = correctIdx - 1;
@@ -606,9 +606,9 @@ class QuizInstance {
         // Normalization moved to startQuiz guarantees q.distractors is an array now.
         let distractors = q.distractors ||[]; 
         let allAnswers = pairs.map(p => p.answer_text);
-        let allWords =[...allAnswers, ...distractors];
+        let allWords = [...allAnswers, ...distractors];
 
-        const uniqueWords =[...new Set(allWords)];
+        const uniqueWords = [...new Set(allWords)];
         const allowReuse = uniqueWords.length < allWords.length;
 
         this.matchingStates[idx] = {
@@ -938,60 +938,81 @@ class QuizInstance {
         this.startQuiz(this.currentQuizName);
     }
     
-    async submitToGoogleForms(payload) {
-        // --- GOOGLE FORMS CONFIGURATION ---
-        const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLScWKKkcGj1kOkhxsxU2eH0P5_TZANSZ7pbCUklzdvWKfhmbug/formResponse";
+    async submitToTencentWebhook(payload) {
+        const TENCENT_URL = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2";
+        const WEBHOOK_URL = "https://corsproxy.io/?" + encodeURIComponent(TENCENT_URL);
         
-        const fieldMap = {
-            studentName: "entry.745060881",
-            studentClass: "entry.1524443816",
-            quizName: "entry.182191353",
-            score: "entry.113183733",
-            totalPossible: "entry.536891228",
+        console.log(`[DEBUG][Inst ${this.instanceId}] Preparing to submit to Tencent webhook via CORS proxy.`);
+        
+        // Remove the "schema" object! Including the schema block with label names 
+        // confuses Tencent's API into rejecting the record types silently.
+        const requestBody = {
+            "add_records":[
+                {
+                    "values": {
+                        "f04Gwj": String(payload.studentName || "Unknown"),
+                        "ftQMc5": String(payload.studentClass || "Unknown"),
+                        "ftk5Tx": String(payload.quizName || "Unknown"),
+                        "ffFwIh": Number(payload.score || 0),
+                        "fn8TJd": Number(payload.totalPossible || 0)
+                    }
+                }
+            ]
         };
-        // ----------------------------------
-
-        console.log(`[DEBUG][Inst ${this.instanceId}] Preparing to submit to Google Forms.`);
-        console.log(`[DEBUG][Inst ${this.instanceId}] Payload data:`, payload);
-
-        const formData = new FormData();
-
-        for (const key in payload) {
-            if (fieldMap[key]) {
-                formData.append(fieldMap[key], payload[key]);
-            }
-        }
 
         try {
-            console.log(`[DEBUG][Inst ${this.instanceId}] Sending POST request to Google (no-cors)...`);
-            // We must use mode: 'no-cors' so the browser doesn't block the background request.
-            await fetch(GOOGLE_FORM_ACTION_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: formData,
-            });
+            console.log(`[DEBUG][Inst ${this.instanceId}] Sending POST request to Proxy...`);
             
-            // With 'no-cors', Google processes the data but hides the response status.
-            // If it didn't throw a JavaScript execution network error, it succeeded!
-            console.log("[DEBUG] ✅ Score successfully submitted to Google Forms!");
+            const response = await fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
+            });
+
+            const result = await response.json();
+            
+            console.log("[DEBUG] Tencent webhook response:", result);
+            
+            // Check if Tencent ACTUALLY inserted it (record_id will be present)
+            let successfullyCreated = false;
+            if (result.add_records && result.add_records.length > 0) {
+                if (result.add_records[0].record_id) {
+                    successfullyCreated = true;
+                }
+            }
+
+            if (result.ret === 0 || result.errcode === 0 || response.ok) {
+                if (successfullyCreated) {
+                    console.log("[DEBUG] ✅ Score successfully submitted AND created in Tencent Smartsheet!");
+                } else {
+                    console.warn("[DEBUG] ⚠️ Tencent returned success, but no record_id was generated. The row was dropped silently. Please ensure your SmartSheet column types exactly match Text, Text, Text, Number, Number.");
+                }
+                return true;
+            } else {
+                console.error("[DEBUG] ❌ Tencent webhook error:", result);
+                throw new Error(result.errmsg || result.msg || "Failed to submit to Tencent Smartsheet");
+            }
         } catch (error) {
-            console.error("[DEBUG] ❌ Network error while submitting to Google Forms:", error);
+            console.error("[DEBUG] ❌ Network error while submitting to Tencent webhook:", error);
+            throw error;
         }
     }
 
     saveResult(quizName, name, cls, score, total) {
         console.log(`[DEBUG][Inst ${this.instanceId}] Saving to localStorage backup...`);
-        // 1. Save to local storage as a backup
+        
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
         if (!data[cls][name]) data[cls][name] = {};
-        if (!data[cls][name][quizName]) data[cls][name][quizName] = { best: 0, attempts: [] };
+        if (!data[cls][name][quizName]) data[cls][name][quizName] = { best: 0, attempts:[] };
         data[cls][name][quizName].attempts.push({ s: score, t: total, ts: new Date().toISOString() });
         if (score > data[cls][name][quizName].best) data[cls][name][quizName].best = score;
         localStorage.setItem('quiz_results', JSON.stringify(data));
         console.log(`[DEBUG][Inst ${this.instanceId}] LocalStorage save complete.`);
 
-        // 2. Prepare and send data to Google Forms
         const payload = {
             studentName: name,
             studentClass: cls,
@@ -1000,7 +1021,9 @@ class QuizInstance {
             totalPossible: total
         };
         
-        this.submitToGoogleForms(payload);
+        this.submitToTencentWebhook(payload).catch(err => {
+            console.error("[DEBUG] Failed to submit to Tencent webhook:", err);
+        });
     }
 
     saveResultAsImage() {
