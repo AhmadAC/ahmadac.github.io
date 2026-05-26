@@ -134,7 +134,8 @@ class QuizInstance {
             classSelect: this.root.querySelector('.view-class-select'),
             assignments: this.root.querySelector('.view-assignments'),
             quiz: this.root.querySelector('.view-quiz'),
-            results: this.root.querySelector('.view-results')
+            results: this.root.querySelector('.view-results'),
+            document: this.root.querySelector('.view-document')
         };
         
         this.elements = {
@@ -155,7 +156,9 @@ class QuizInstance {
             btnSavePic: this.root.querySelector('.btn-save-picture'),
             resultsList: this.root.querySelector('.results-list'),
             btnJumpTop: this.root.querySelector('.btn-jump-top'),
-            btnJumpBottom: this.root.querySelector('.btn-jump-bottom')
+            btnJumpBottom: this.root.querySelector('.btn-jump-bottom'),
+            documentTitle: this.root.querySelector('.document-title-lbl'),
+            documentContent: this.root.querySelector('.document-content')
         };
         
         this.init();
@@ -179,7 +182,13 @@ class QuizInstance {
         this.root.querySelector('.btn-view-results')?.addEventListener('click', () => this.showResultsPage());
         this.root.querySelector('.btn-back-to-class')?.addEventListener('click', () => this.switchView('view-class-select'));
         this.root.querySelector('.btn-back-to-class-from-results')?.addEventListener('click', () => this.switchView('view-class-select'));
-        this.root.querySelector('.btn-back-to-assignments')?.addEventListener('click', () => this.switchView('view-assignments'));
+        
+        this.root.querySelectorAll('.btn-back-to-assignments').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (this.elements.documentContent) this.elements.documentContent.innerHTML = ""; 
+                this.switchView('view-assignments');
+            });
+        });
 
         this.elements.btnJumpTop?.addEventListener('click', () => this.elements.scrollArea?.scrollTo({ top: 0, behavior: 'smooth' }));
         this.elements.btnJumpBottom?.addEventListener('click', () => this.elements.scrollArea?.scrollTo({ top: this.elements.scrollArea.scrollHeight, behavior: 'smooth' }));
@@ -258,15 +267,26 @@ class QuizInstance {
         let grade = classCode[1];
         let assignmentsDict = {};
 
-        if (grade === '6' && canvasData['6']?.[classCode]) {
-            assignmentsDict = canvasData['6'][classCode];
-        } else if (grade === '7' && canvasData['7']) {
-            assignmentsDict = canvasData['7'];
-        } else if (grade === '8' && canvasData['8']) {
-            assignmentsDict = canvasData['8'];
+        // --- FIX: Dynamic JSON parsing matching Python logic ---
+        if (canvasData[grade]) {
+            let gradeData = canvasData[grade];
+            
+            // 1. Collect flat assignments for the whole grade
+            Object.keys(gradeData).forEach(title => {
+                if (typeof gradeData[title] !== 'object') {
+                    assignmentsDict[title] = gradeData[title];
+                }
+            });
+            
+            // 2. Add class-specific assignments
+            if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
+                Object.keys(gradeData[classCode]).forEach(title => {
+                    assignmentsDict[title] = gradeData[classCode][title];
+                });
+            }
         }
 
-        let validTitles = Object.keys(assignmentsDict).filter(k => typeof assignmentsDict[k] !== 'object');
+        let validTitles = Object.keys(assignmentsDict);
         validTitles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
 
         list.innerHTML = "";
@@ -307,7 +327,7 @@ class QuizInstance {
     }
 
     async startQuiz(quizName) {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Fetching quiz data for: ${quizName}`);
+        console.log(`[DEBUG][Inst ${this.instanceId}] Fetching data for: ${quizName}`);
         this.currentQuizName = quizName;
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
@@ -326,6 +346,7 @@ class QuizInstance {
 
         const container = this.elements.quizContent;
         if (container) container.innerHTML = "Loading...";
+        if (this.elements.documentContent) this.elements.documentContent.innerHTML = "Loading...";
         
         this.switchView("view-quiz");
         if (this.elements.scrollArea) this.elements.scrollArea.scrollTop = 0;
@@ -334,7 +355,12 @@ class QuizInstance {
             const res = await fetch(`0_Quiz/${quizName}.json`);
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
             const rawData = await res.json();
-            console.log(`[DEBUG][Inst ${this.instanceId}] Raw quiz JSON loaded successfully.`, rawData);
+            console.log(`[DEBUG][Inst ${this.instanceId}] Raw JSON loaded successfully.`, rawData);
+
+            if (rawData.metadata && rawData.metadata.type === 'document') {
+                this.renderDocument(quizName, rawData);
+                return;
+            }
 
             let randomizeQuestions = true;
             if (Array.isArray(rawData)) {
@@ -347,11 +373,9 @@ class QuizInstance {
                     randomizeQuestions = rawData.quiz_metadata.randomize_questions;
                 }
             }
-            console.log(`[DEBUG][Inst ${this.instanceId}] Randomize Questions setting:`, randomizeQuestions);
 
             let normalized = normalizeQuizData(rawData);
 
-            // Normalize complex matching questions to support standard Canvas Format vs Raw format
             normalized.forEach(q => {
                 const type = q.type || q.question_type;
                 
@@ -394,19 +418,62 @@ class QuizInstance {
             }
 
             this.currentQuestions = [...quizQuestions, ...adminQuestions];
-            console.log(`[DEBUG][Inst ${this.instanceId}] Total processed questions:`, this.currentQuestions.length);
             this.renderQuiz();
             
         } catch (e) {
-            console.error(`[DEBUG][Inst ${this.instanceId}] Quiz Load Error:`, e);
+            console.error(`[DEBUG][Inst ${this.instanceId}] Load Error:`, e);
             if (container) {
-                container.innerHTML = `<p style="color:red; font-weight:bold; padding:20px;">Failed to load quiz data: ${e.message}</p>`;
+                container.innerHTML = `<p style="color:red; font-weight:bold; padding:20px;">Failed to load data: ${e.message}</p>`;
             }
         }
     }
 
+    renderDocument(docName, rawData) {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Rendering Document View for: ${docName}`);
+        if (this.elements.documentTitle) this.elements.documentTitle.innerText = docName;
+        
+        const container = this.elements.documentContent;
+        if (container) {
+            container.innerHTML = "";
+            const iframe = document.createElement('iframe');
+            iframe.className = "document-iframe";
+            
+            iframe.sandbox = "allow-same-origin allow-scripts allow-downloads";
+            
+            let htmlContent = rawData.data || "<p style='padding:20px; text-align:center;'>No document content available.</p>";
+            
+            // Clean up dark mode colors
+            htmlContent = htmlContent.replace(/color:\s*#e0e0e0;?/gi, '');
+            htmlContent = htmlContent.replace(/color:\s*#ffffff;?/gi, '');
+            
+            // Force all links to natively download the file
+            htmlContent = htmlContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
+                attrs = attrs.replace(/target=["'][^"']*["']/gi, '');
+                if (!/download/i.test(attrs)) {
+                    let hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+                    let filename = "document";
+                    if (hrefMatch && hrefMatch[1]) {
+                        filename = hrefMatch[1].split('/').pop();
+                    }
+                    attrs += ` download="${filename}"`;
+                }
+                return `<a ${attrs}>`;
+            });
+
+            if (htmlContent.toLowerCase().includes('<head>')) {
+                htmlContent = htmlContent.replace(/<head>/i, '<head><base href="0_Quiz/">');
+            } else {
+                htmlContent = `<head><base href="0_Quiz/"></head>` + htmlContent;
+            }
+
+            iframe.srcdoc = htmlContent;
+            container.appendChild(iframe);
+        }
+        
+        this.switchView("view-document");
+    }
+
     renderQuiz() {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Rendering ${this.currentQuestions.length} questions to DOM.`);
         const container = this.elements.quizContent;
         if (!container) return;
         
@@ -497,7 +564,6 @@ class QuizInstance {
                 inp.type = "text";
                 inp.className = "essay-input";
                 inp.oninput = () => {
-                    console.log(`[DEBUG][Inst ${this.instanceId}] Essay Q${qNum} typed. Value:`, inp.value.trim());
                     this.updateProgress();
                 }
                 contentDiv.appendChild(inp);
@@ -538,7 +604,6 @@ class QuizInstance {
             this.elements.btnJumpTop?.classList.remove("hidden");
         }
 
-        console.log(`[DEBUG][Inst ${this.instanceId}] Quiz rendered. Updating progress...`);
         this.updateProgress();
     }
 
@@ -567,7 +632,6 @@ class QuizInstance {
             card.dataset.isCorrect = opt.is_correct;
             
             card.onclick = () => {
-                console.log(`[DEBUG][Inst ${this.instanceId}] MCQ Q${idx+1} answered: ${opt.text}`);
                 q._selectedMcqIndex = i;
                 q._userAnswer = opt.text; 
                 
@@ -590,7 +654,6 @@ class QuizInstance {
             btn.className = 'class-btn-radio';
             btn.innerText = opt;
             btn.onclick = () => {
-                console.log(`[DEBUG][Inst ${this.instanceId}] Class/Admin Q${idx+1} selected: ${opt}`);
                 Array.from(grid.children).forEach(c => c.classList.remove('checked'));
                 btn.classList.add('checked');
                 q._userAnswer = opt;
@@ -603,7 +666,6 @@ class QuizInstance {
 
     setupComplexMatchingUI(container, q, idx) {
         let pairs = q.answers ||[];
-        // Normalization moved to startQuiz guarantees q.distractors is an array now.
         let distractors = q.distractors ||[]; 
         let allAnswers = pairs.map(p => p.answer_text);
         let allWords = [...allAnswers, ...distractors];
@@ -644,7 +706,6 @@ class QuizInstance {
 
             if (rect.bottom > areaRect.top + 50 && rect.top < areaRect.bottom - 50) {
                 if (this.activeMatchingQuestionId !== idx) {
-                    console.log(`[DEBUG][Inst ${this.instanceId}] Sticky bank activated for matching Q${parseInt(idx)+1}`);
                     this.renderStickyBank(idx);
                 }
                 foundVisible = true;
@@ -683,7 +744,6 @@ class QuizInstance {
     }
 
     fillSlotWithWord(qIdx, slotIdx, word) {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Matching Q${parseInt(qIdx)+1} Slot ${slotIdx} filled with: ${word}`);
         const state = this.matchingStates[qIdx];
         if (!state) return;
         
@@ -720,7 +780,6 @@ class QuizInstance {
         const slotData = state.slots[slotIdx];
 
         if (slotData.current) {
-            console.log(`[DEBUG][Inst ${this.instanceId}] Matching Q${parseInt(qIdx)+1} Slot ${slotIdx} cleared.`);
             slotData.current = null;
             slotEl.innerText = "_____________";
             slotEl.className = "answer-slot";
@@ -785,7 +844,6 @@ class QuizInstance {
     }
 
     submitQuiz() {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Submit button clicked. Validating answers...`);
         let unansweredIndices =[];
         this.currentQuestions.forEach((q, idx) => {
             let type = q.type || q.question_type;
@@ -809,7 +867,6 @@ class QuizInstance {
         });
 
         if (unansweredIndices.length > 0) {
-            console.warn(`[DEBUG][Inst ${this.instanceId}] Quiz missing answers at indices:`, unansweredIndices);
             this.currentQuestions.forEach((q, idx) => {
                 let btn = this.sidebarButtons[idx];
                 if (btn) {
@@ -836,7 +893,6 @@ class QuizInstance {
             return;
         }
 
-        console.log(`[DEBUG][Inst ${this.instanceId}] All questions answered. Grading...`);
         let nameAns = null, classAns = null;
         this.currentQuestions.forEach((q, idx) => {
             const txt = (q['question text'] || q.question_text || "").toLowerCase();
@@ -911,11 +967,8 @@ class QuizInstance {
         let perc = totalPossible === 0 ? 100 : Math.round((totalScore / totalPossible) * 100);
         let state = perc >= 60 ? "pass" : perc > 0 ? "warning" : "fail";
 
-        console.log(`[DEBUG][Inst ${this.instanceId}] Final Score: ${totalScore}/${totalPossible} (${perc}%)`);
-
         if (perc === 100) triggerConfetti();
         
-        console.log(`[DEBUG][Inst ${this.instanceId}] Saving result to Cloud/Storage...`);
         this.saveResult(this.currentQuizName, nameAns, classAns, totalScore, totalPossible);
 
         let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)`;
@@ -934,7 +987,6 @@ class QuizInstance {
     }
 
     resetQuiz() {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Resetting quiz...`);
         this.startQuiz(this.currentQuizName);
     }
     
@@ -942,10 +994,6 @@ class QuizInstance {
         const TENCENT_URL = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2";
         const WEBHOOK_URL = "https://corsproxy.io/?" + encodeURIComponent(TENCENT_URL);
         
-        console.log(`[DEBUG][Inst ${this.instanceId}] Preparing to submit to Tencent webhook via CORS proxy.`);
-        
-        // Remove the "schema" object! Including the schema block with label names 
-        // confuses Tencent's API into rejecting the record types silently.
         const requestBody = {
             "add_records":[
                 {
@@ -961,8 +1009,6 @@ class QuizInstance {
         };
 
         try {
-            console.log(`[DEBUG][Inst ${this.instanceId}] Sending POST request to Proxy...`);
-            
             const response = await fetch(WEBHOOK_URL, {
                 method: 'POST',
                 headers: {
@@ -973,10 +1019,6 @@ class QuizInstance {
             });
 
             const result = await response.json();
-            
-            console.log("[DEBUG] Tencent webhook response:", result);
-            
-            // Check if Tencent ACTUALLY inserted it (record_id will be present)
             let successfullyCreated = false;
             if (result.add_records && result.add_records.length > 0) {
                 if (result.add_records[0].record_id) {
@@ -985,25 +1027,16 @@ class QuizInstance {
             }
 
             if (result.ret === 0 || result.errcode === 0 || response.ok) {
-                if (successfullyCreated) {
-                    console.log("[DEBUG] ✅ Score successfully submitted AND created in Tencent Smartsheet!");
-                } else {
-                    console.warn("[DEBUG] ⚠️ Tencent returned success, but no record_id was generated. The row was dropped silently. Please ensure your SmartSheet column types exactly match Text, Text, Text, Number, Number.");
-                }
                 return true;
             } else {
-                console.error("[DEBUG] ❌ Tencent webhook error:", result);
                 throw new Error(result.errmsg || result.msg || "Failed to submit to Tencent Smartsheet");
             }
         } catch (error) {
-            console.error("[DEBUG] ❌ Network error while submitting to Tencent webhook:", error);
             throw error;
         }
     }
 
     saveResult(quizName, name, cls, score, total) {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Saving to localStorage backup...`);
-        
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
         if (!data[cls][name]) data[cls][name] = {};
@@ -1011,7 +1044,6 @@ class QuizInstance {
         data[cls][name][quizName].attempts.push({ s: score, t: total, ts: new Date().toISOString() });
         if (score > data[cls][name][quizName].best) data[cls][name][quizName].best = score;
         localStorage.setItem('quiz_results', JSON.stringify(data));
-        console.log(`[DEBUG][Inst ${this.instanceId}] LocalStorage save complete.`);
 
         const payload = {
             studentName: name,
@@ -1027,9 +1059,7 @@ class QuizInstance {
     }
 
     saveResultAsImage() {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Generating image for download...`);
         if (!this.finalStudentName || !this.finalStudentClass) {
-            console.warn("[DEBUG] Missing student name or class for image generation.");
             return;
         }
         const data =[
@@ -1064,11 +1094,9 @@ class QuizInstance {
         link.download = `${this.finalStudentClass}_${this.finalStudentName.replace(/[^a-z0-9]/gi, '_')}_${this.currentQuizName.replace(/[^a-z0-9]/gi, '_')}.png`;
         link.href = canvas.toDataURL('image/png');
         link.click();
-        console.log(`[DEBUG][Inst ${this.instanceId}] Image download triggered: ${link.download}`);
     }
 
     showResultsPage() {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Displaying LocalStorage Results Page.`);
         this.switchView("view-results");
         const container = this.elements.resultsList;
         if (!container) return;
@@ -1098,7 +1126,6 @@ class QuizInstance {
 }
 
 function triggerConfetti() {
-    console.log("[DEBUG] Triggering Confetti! 🎉");
     try { new Audio('sounds/pop.mp3').play().catch(()=>{}); } catch (e) {}
     if (typeof confetti !== 'undefined') {
         let end = Date.now() + 3000;
