@@ -1,8 +1,38 @@
 // --- GLOBAL APP MANAGEMENT ---
 let viewMode = 1;
-let quizInstances =[];
+let quizInstances = [];
 let canvasData = {}; // Shared across all instances
 const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
+
+// --- BASE64 DECODING LOGIC ---
+function decodeUtf8B64(b64) {
+    try {
+        const binString = atob(b64);
+        const bytes = new Uint8Array(binString.length);
+        for (let i = 0; i < binString.length; i++) {
+            bytes[i] = binString.charCodeAt(i);
+        }
+        return new TextDecoder('utf-8').decode(bytes);
+    } catch (e) {
+        console.error("Error decoding base64:", e);
+        return b64;
+    }
+}
+
+function recursiveDecode(data) {
+    if (typeof data === 'string' && data.startsWith("b64:")) {
+        return decodeUtf8B64(data.substring(4));
+    } else if (Array.isArray(data)) {
+        return data.map(item => recursiveDecode(item));
+    } else if (data !== null && typeof data === 'object') {
+        const decodedObj = {};
+        for (const key in data) {
+            decodedObj[key] = recursiveDecode(data[key]);
+        }
+        return decodedObj;
+    }
+    return data;
+}
 
 // Secret trigger for dev tools
 // Typing `results` in the console will reveal the 'View All Results' button
@@ -50,7 +80,7 @@ function setViewMode(numScreens) {
     }
     
     masterContainer.innerHTML = "";
-    quizInstances =[];
+    quizInstances = [];
     console.log(`[DEBUG] Injecting ${numScreens} quiz instance(s) into the DOM`);
 
     for (let i = 0; i < numScreens; i++) {
@@ -72,7 +102,9 @@ async function loadCanvasData() {
         console.log("[DEBUG] Fetching canvas.json...");
         const response = await fetch('0_Quiz/canvas.json');
         if (!response.ok) throw new Error(`Could not find canvas.json (Status: ${response.status})`);
-        canvasData = await response.json();
+        const rawCanvas = await response.json();
+        // Decode in case canvas.json was encrypted
+        canvasData = recursiveDecode(rawCanvas);
         console.log("[DEBUG] Successfully loaded canvas.json:", canvasData);
     } catch (e) {
         console.warn("[DEBUG] Using fallback empty canvas.json structure. Error:", e.message);
@@ -92,7 +124,7 @@ async function checkQuizExists(quizName) {
 }
 
 function normalizeQuizData(raw) {
-    let items =[];
+    let items = [];
     if (Array.isArray(raw)) {
         items = raw;
     } else if (raw && typeof raw === 'object') {
@@ -137,8 +169,8 @@ class QuizInstance {
         
         this.selectedClass = null;
         this.currentQuizName = null;
-        this.currentQuestions =[];
-        this.sidebarButtons =[];
+        this.currentQuestions = [];
+        this.sidebarButtons = [];
         this.matchingStates = {};
         this.selectedBankWord = null;
         this.selectedSlot = null;
@@ -285,7 +317,6 @@ class QuizInstance {
         let grade = classCode[1];
         let assignmentsDict = {};
 
-        // --- FIX: Dynamic JSON parsing matching Python logic ---
         if (canvasData[grade]) {
             let gradeData = canvasData[grade];
             
@@ -349,7 +380,7 @@ class QuizInstance {
         this.currentQuizName = quizName;
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
-        this.sidebarButtons =[];
+        this.sidebarButtons = [];
         
         if (this.elements.quizTitle) this.elements.quizTitle.innerText = quizName;
         this.elements.resultBox?.classList.add("hidden");
@@ -372,8 +403,12 @@ class QuizInstance {
         try {
             const res = await fetch(`0_Quiz/${quizName}.json`);
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
-            const rawData = await res.json();
-            console.log(`[DEBUG][Inst ${this.instanceId}] Raw JSON loaded successfully.`, rawData);
+            
+            // Decrypt the raw JSON structure
+            const rawDataRaw = await res.json();
+            const rawData = recursiveDecode(rawDataRaw);
+            
+            console.log(`[DEBUG][Inst ${this.instanceId}] Raw JSON loaded & decoded successfully.`, rawData);
 
             if (rawData.metadata && rawData.metadata.type === 'document') {
                 this.renderDocument(quizName, rawData);
@@ -411,7 +446,7 @@ class QuizInstance {
                     } else if (Array.isArray(distRaw)) {
                         q.distractors = distRaw;
                     } else {
-                        q.distractors =[];
+                        q.distractors = [];
                     }
                 }
 
@@ -421,7 +456,7 @@ class QuizInstance {
                 }
             });
 
-            let quizQuestions = [], adminQuestions =[];
+            let quizQuestions = [], adminQuestions = [];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
@@ -460,11 +495,9 @@ class QuizInstance {
             
             let htmlContent = rawData.data || "<p style='padding:20px; text-align:center;'>No document content available.</p>";
             
-            // Clean up dark mode colors
             htmlContent = htmlContent.replace(/color:\s*#e0e0e0;?/gi, '');
             htmlContent = htmlContent.replace(/color:\s*#ffffff;?/gi, '');
             
-            // Force all links to natively download the file
             htmlContent = htmlContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
                 attrs = attrs.replace(/target=["'][^"']*["']/gi, '');
                 if (!/download/i.test(attrs)) {
@@ -640,7 +673,7 @@ class QuizInstance {
         options.sort(() => Math.random() - 0.5);
 
         q._correctOptionText = (options.find(o => o.is_correct) || {}).text;
-        q._mcqElements =[];
+        q._mcqElements = [];
         q._selectedMcqIndex = -1;
 
         options.forEach((opt, i) => {
@@ -683,8 +716,8 @@ class QuizInstance {
     }
 
     setupComplexMatchingUI(container, q, idx) {
-        let pairs = q.answers ||[];
-        let distractors = q.distractors ||[]; 
+        let pairs = q.answers || [];
+        let distractors = q.distractors || []; 
         let allAnswers = pairs.map(p => p.answer_text);
         let allWords = [...allAnswers, ...distractors];
 
@@ -862,7 +895,7 @@ class QuizInstance {
     }
 
     submitQuiz() {
-        let unansweredIndices =[];
+        let unansweredIndices = [];
         this.currentQuestions.forEach((q, idx) => {
             let type = q.type || q.question_type;
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined;
@@ -1058,7 +1091,7 @@ class QuizInstance {
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
         if (!data[cls][name]) data[cls][name] = {};
-        if (!data[cls][name][quizName]) data[cls][name][quizName] = { best: 0, attempts:[] };
+        if (!data[cls][name][quizName]) data[cls][name][quizName] = { best: 0, attempts: [] };
         data[cls][name][quizName].attempts.push({ s: score, t: total, ts: new Date().toISOString() });
         if (score > data[cls][name][quizName].best) data[cls][name][quizName].best = score;
         localStorage.setItem('quiz_results', JSON.stringify(data));
@@ -1080,7 +1113,7 @@ class QuizInstance {
         if (!this.finalStudentName || !this.finalStudentClass) {
             return;
         }
-        const data =[
+        const data = [
             { label: "Class", value: this.finalStudentClass },
             { label: "HW", value: this.currentQuizName },
             { label: "Name", value: this.finalStudentName },
@@ -1120,7 +1153,7 @@ class QuizInstance {
         if (!container) return;
         container.innerHTML = "";
         let raw = JSON.parse(localStorage.getItem('quiz_results') || '{}');
-        let resultsFlat =[];
+        let resultsFlat = [];
         Object.entries(raw).forEach(([cls, students]) => {
             Object.entries(students).forEach(([name, quizzes]) => {
                 Object.entries(quizzes).forEach(([qName, data]) => {
