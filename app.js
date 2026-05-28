@@ -4,6 +4,24 @@ let quizInstances =[];
 let canvasData = {}; // Shared across all instances
 const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
+// Secret trigger for dev tools
+// Typing `results` in the console will reveal the 'View All Results' button
+Object.defineProperty(window, 'results', {
+    get: function() {
+        document.querySelectorAll('.btn-view-results').forEach(btn => {
+            btn.classList.remove('hidden');
+        });
+        
+        const template = document.getElementById("quiz-instance-template");
+        if (template) {
+            const templateBtn = template.content.querySelector('.btn-view-results');
+            if (templateBtn) templateBtn.classList.remove('hidden');
+        }
+        
+        return "View All Results button is now visible.";
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("[DEBUG] DOMContentLoaded - Initializing App");
     const viewModeBtn = document.getElementById("view-mode-btn");
