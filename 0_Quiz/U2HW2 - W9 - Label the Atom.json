@@ -9,32 +9,32 @@
         "url": "atomlabel",
         "answers": [
             {
-                "text": "A",
-                "answer_text": "Nucleus"
+                "text": "b64:QQ==",
+                "answer_text": "b64:TnVjbGV1cw=="
             },
             {
-                "text": "B",
-                "answer_text": "Proton"
+                "text": "b64:Qg==",
+                "answer_text": "b64:UHJvdG9u"
             },
             {
-                "text": "C",
-                "answer_text": "Valence Electron Shell"
+                "text": "b64:Qw==",
+                "answer_text": "b64:VmFsZW5jZSBFbGVjdHJvbiBTaGVsbA=="
             },
             {
-                "text": "D",
-                "answer_text": "Electron"
+                "text": "b64:RA==",
+                "answer_text": "b64:RWxlY3Ryb24="
             },
             {
-                "text": "E",
-                "answer_text": "Neutron"
+                "text": "b64:RQ==",
+                "answer_text": "b64:TmV1dHJvbg=="
             }
         ],
         "distractors": [
-            "Cell",
-            "Circle",
-            "Positron",
-            "Egg Shell",
-            "Element"
+            "b64:Q2VsbA==",
+            "b64:Q2lyY2xl",
+            "b64:UG9zaXRyb24=",
+            "b64:RWdnIFNoZWxs",
+            "b64:RWxlbWVudA=="
         ]
     },
     {
@@ -47,42 +47,42 @@
         "url": "diatomic",
         "answers": [
             {
-                "text": "1",
-                "answer_text": "H"
+                "text": "b64:MQ==",
+                "answer_text": "b64:SA=="
             },
             {
-                "text": "2",
-                "answer_text": "N"
+                "text": "b64:Mg==",
+                "answer_text": "b64:Tg=="
             },
             {
-                "text": "3",
-                "answer_text": "F"
+                "text": "b64:Mw==",
+                "answer_text": "b64:Rg=="
             },
             {
-                "text": "4",
-                "answer_text": "O"
+                "text": "b64:NA==",
+                "answer_text": "b64:Tw=="
             },
             {
-                "text": "5",
-                "answer_text": "I"
+                "text": "b64:NQ==",
+                "answer_text": "b64:SQ=="
             },
             {
-                "text": "6",
-                "answer_text": "Cl"
+                "text": "b64:Ng==",
+                "answer_text": "b64:Q2w="
             },
             {
-                "text": "7",
-                "answer_text": "Br"
+                "text": "b64:Nw==",
+                "answer_text": "b64:QnI="
             }
         ],
         "distractors": [
-            "Rh",
-            "Cn",
-            "Yb",
-            "Ne",
-            "Ag",
-            "Cf",
-            "Rb"
+            "b64:Umg=",
+            "b64:Q24=",
+            "b64:WWI=",
+            "b64:TmU=",
+            "b64:QWc=",
+            "b64:Q2Y=",
+            "b64:UmI="
         ]
     },
     {
@@ -100,14 +100,14 @@
         "correct ans index": " ",
         "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
         "url": "",
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

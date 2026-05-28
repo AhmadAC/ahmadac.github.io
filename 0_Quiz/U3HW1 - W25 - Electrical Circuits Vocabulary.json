@@ -7,76 +7,76 @@
         "matching_answer_incorrect_matches": [],
         "answers": [
             {
-                "text": "The difference in electric potential between two points in a circuit, measured in volts (V). It represents the work done to move a unit charge from one point to another.",
-                "answer_text": "Potential difference"
+                "text": "b64:VGhlIGRpZmZlcmVuY2UgaW4gZWxlY3RyaWMgcG90ZW50aWFsIGJldHdlZW4gdHdvIHBvaW50cyBpbiBhIGNpcmN1aXQsIG1lYXN1cmVkIGluIHZvbHRzIChWKS4gSXQgcmVwcmVzZW50cyB0aGUgd29yayBkb25lIHRvIG1vdmUgYSB1bml0IGNoYXJnZSBmcm9tIG9uZSBwb2ludCB0byBhbm90aGVyLg==",
+                "answer_text": "b64:UG90ZW50aWFsIGRpZmZlcmVuY2U="
             },
             {
-                "text": "The flow of electric charge through a conductor, measured in amperes (A). It is the rate at which charge passes through a point in a circuit.",
-                "answer_text": "Current"
+                "text": "b64:VGhlIGZsb3cgb2YgZWxlY3RyaWMgY2hhcmdlIHRocm91Z2ggYSBjb25kdWN0b3IsIG1lYXN1cmVkIGluIGFtcGVyZXMgKEEpLiBJdCBpcyB0aGUgcmF0ZSBhdCB3aGljaCBjaGFyZ2UgcGFzc2VzIHRocm91Z2ggYSBwb2ludCBpbiBhIGNpcmN1aXQu",
+                "answer_text": "b64:Q3VycmVudA=="
             },
             {
-                "text": "A device used to measure the voltage or potential difference between two points in a circuit.",
-                "answer_text": "Voltmeter"
+                "text": "b64:QSBkZXZpY2UgdXNlZCB0byBtZWFzdXJlIHRoZSB2b2x0YWdlIG9yIHBvdGVudGlhbCBkaWZmZXJlbmNlIGJldHdlZW4gdHdvIHBvaW50cyBpbiBhIGNpcmN1aXQu",
+                "answer_text": "b64:Vm9sdG1ldGVy"
             },
             {
-                "text": "The terminal of a battery or cell where current flows in.",
-                "answer_text": "Negative terminal"
+                "text": "b64:VGhlIHRlcm1pbmFsIG9mIGEgYmF0dGVyeSBvciBjZWxsIHdoZXJlIGN1cnJlbnQgZmxvd3MgaW4u",
+                "answer_text": "b64:TmVnYXRpdmUgdGVybWluYWw="
             },
             {
-                "text": "A component that limits or regulates the flow of electric current in a circuit.",
-                "answer_text": "Resistor"
+                "text": "b64:QSBjb21wb25lbnQgdGhhdCBsaW1pdHMgb3IgcmVndWxhdGVzIHRoZSBmbG93IG9mIGVsZWN0cmljIGN1cnJlbnQgaW4gYSBjaXJjdWl0Lg==",
+                "answer_text": "b64:UmVzaXN0b3I="
             },
             {
-                "text": "The terminal of a battery or cell where current flows out.",
-                "answer_text": "Positive terminal"
+                "text": "b64:VGhlIHRlcm1pbmFsIG9mIGEgYmF0dGVyeSBvciBjZWxsIHdoZXJlIGN1cnJlbnQgZmxvd3Mgb3V0Lg==",
+                "answer_text": "b64:UG9zaXRpdmUgdGVybWluYWw="
             },
             {
-                "text": "A device that produces light when an electric current passes through it.",
-                "answer_text": "Bulb"
+                "text": "b64:QSBkZXZpY2UgdGhhdCBwcm9kdWNlcyBsaWdodCB3aGVuIGFuIGVsZWN0cmljIGN1cnJlbnQgcGFzc2VzIHRocm91Z2ggaXQu",
+                "answer_text": "b64:QnVsYg=="
             },
             {
-                "text": "A material that does not allow electric current to flow through it.",
-                "answer_text": "Insulator"
+                "text": "b64:QSBtYXRlcmlhbCB0aGF0IGRvZXMgbm90IGFsbG93IGVsZWN0cmljIGN1cnJlbnQgdG8gZmxvdyB0aHJvdWdoIGl0Lg==",
+                "answer_text": "b64:SW5zdWxhdG9y"
             },
             {
-                "text": "An electric current that flows in one direction only.",
-                "answer_text": "Direct Current"
+                "text": "b64:QW4gZWxlY3RyaWMgY3VycmVudCB0aGF0IGZsb3dzIGluIG9uZSBkaXJlY3Rpb24gb25seS4=",
+                "answer_text": "b64:RGlyZWN0IEN1cnJlbnQ="
             },
             {
-                "text": "A graphical representation of an electrical circuit using symbols for components.",
-                "answer_text": "Circuit diagram"
+                "text": "b64:QSBncmFwaGljYWwgcmVwcmVzZW50YXRpb24gb2YgYW4gZWxlY3RyaWNhbCBjaXJjdWl0IHVzaW5nIHN5bWJvbHMgZm9yIGNvbXBvbmVudHMu",
+                "answer_text": "b64:Q2lyY3VpdCBkaWFncmFt"
             },
             {
-                "text": "The individual parts or elements that make up an electrical circuit.",
-                "answer_text": "Components"
+                "text": "b64:VGhlIGluZGl2aWR1YWwgcGFydHMgb3IgZWxlbWVudHMgdGhhdCBtYWtlIHVwIGFuIGVsZWN0cmljYWwgY2lyY3VpdC4=",
+                "answer_text": "b64:Q29tcG9uZW50cw=="
             },
             {
-                "text": "A single unit that generates electrical energy through chemical reactions.",
-                "answer_text": "Cell"
+                "text": "b64:QSBzaW5nbGUgdW5pdCB0aGF0IGdlbmVyYXRlcyBlbGVjdHJpY2FsIGVuZXJneSB0aHJvdWdoIGNoZW1pY2FsIHJlYWN0aW9ucy4=",
+                "answer_text": "b64:Q2VsbA=="
             },
             {
-                "text": "A machine that converts electrical energy into mechanical energy.",
-                "answer_text": "Motor"
+                "text": "b64:QSBtYWNoaW5lIHRoYXQgY29udmVydHMgZWxlY3RyaWNhbCBlbmVyZ3kgaW50byBtZWNoYW5pY2FsIGVuZXJneS4=",
+                "answer_text": "b64:TW90b3I="
             },
             {
-                "text": "A material that allows electric current to flow through it easily.",
-                "answer_text": "Conductor"
+                "text": "b64:QSBtYXRlcmlhbCB0aGF0IGFsbG93cyBlbGVjdHJpYyBjdXJyZW50IHRvIGZsb3cgdGhyb3VnaCBpdCBlYXNpbHku",
+                "answer_text": "b64:Q29uZHVjdG9y"
             },
             {
-                "text": "An electric current that periodically reverses direction.",
-                "answer_text": "Alternating Current"
+                "text": "b64:QW4gZWxlY3RyaWMgY3VycmVudCB0aGF0IHBlcmlvZGljYWxseSByZXZlcnNlcyBkaXJlY3Rpb24u",
+                "answer_text": "b64:QWx0ZXJuYXRpbmcgQ3VycmVudA=="
             },
             {
-                "text": "An audio signalling device that produces a buzzing sound when an electric current passes through it.",
-                "answer_text": "Buzzer"
+                "text": "b64:QW4gYXVkaW8gc2lnbmFsbGluZyBkZXZpY2UgdGhhdCBwcm9kdWNlcyBhIGJ1enppbmcgc291bmQgd2hlbiBhbiBlbGVjdHJpYyBjdXJyZW50IHBhc3NlcyB0aHJvdWdoIGl0Lg==",
+                "answer_text": "b64:QnV6emVy"
             },
             {
-                "text": "A device used to open or close a circuit, controlling the flow of electricity.",
-                "answer_text": "Switch"
+                "text": "b64:QSBkZXZpY2UgdXNlZCB0byBvcGVuIG9yIGNsb3NlIGEgY2lyY3VpdCwgY29udHJvbGxpbmcgdGhlIGZsb3cgb2YgZWxlY3RyaWNpdHku",
+                "answer_text": "b64:U3dpdGNo"
             },
             {
-                "text": "An instrument used to measure electric current in a circuit.",
-                "answer_text": "Ammeter"
+                "text": "b64:QW4gaW5zdHJ1bWVudCB1c2VkIHRvIG1lYXN1cmUgZWxlY3RyaWMgY3VycmVudCBpbiBhIGNpcmN1aXQu",
+                "answer_text": "b64:QW1tZXRlcg=="
             }
         ],
         "distractors": [],
@@ -104,50 +104,50 @@
         "correct ans index": " ",
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

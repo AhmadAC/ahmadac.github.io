@@ -7,33 +7,33 @@
         "points": 1,
         "question text": "What is the primary chemical reaction occurring when an egg is placed in vinegar?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "CaCO₃ + HCl → CaCl₂  + CO₂ + H₂O",
-                "text": "CaCO₃ + HCl → CaCl₂  + CO₂ + H₂O",
-                "weight": 0
+                "answer_text": "b64:Q2FDT+KCgyArIEhDbCDihpIgQ2FDbOKCgiAgKyBDT+KCgiArIEjigoJP",
+                "text": "b64:Q2FDT+KCgyArIEhDbCDihpIgQ2FDbOKCgiAgKyBDT+KCgiArIEjigoJP",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "CaCO₃ + H₂O → Ca(OH) ₂ + CO₂",
-                "text": "CaCO₃ + H₂O → Ca(OH) ₂ + CO₂",
-                "weight": 0
+                "answer_text": "b64:Q2FDT+KCgyArIEjigoJPIOKGkiBDYShPSCkg4oKCICsgQ0/igoI=",
+                "text": "b64:Q2FDT+KCgyArIEjigoJPIOKGkiBDYShPSCkg4oKCICsgQ0/igoI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "CaCO₃ + 2CH₃COOH → Ca²⁺ + 2CH₃COO⁻ + CO₂ + H₂O",
-                "text": "CaCO₃ + 2CH₃COOH → Ca²⁺ + 2CH₃COO⁻ + CO₂ + H₂O",
-                "weight": 100
+                "answer_text": "b64:Q2FDT+KCgyArIDJDSOKCg0NPT0gg4oaSIENhwrLigbogKyAyQ0jigoNDT0/igbsgKyBDT+KCgiArIEjigoJP",
+                "text": "b64:Q2FDT+KCgyArIDJDSOKCg0NPT0gg4oaSIENhwrLigbogKyAyQ0jigoNDT0/igbsgKyBDT+KCgiArIEjigoJP",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "NaHCO₃ + CH₃COOH → Na⁺ + CH₃COO⁻ + CO₂ + H₂O",
-                "text": "NaHCO₃ + CH₃COOH → Na⁺ + CH₃COO⁻ + CO₂ + H₂O",
-                "weight": 0
+                "answer_text": "b64:TmFIQ0/igoMgKyBDSOKCg0NPT0gg4oaSIE5h4oG6ICsgQ0jigoNDT0/igbsgKyBDT+KCgiArIEjigoJP",
+                "text": "b64:TmFIQ0/igoMgKyBDSOKCg0NPT0gg4oaSIE5h4oG6ICsgQ0jigoNDT0/igbsgKyBDT+KCgiArIEjigoJP",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "CaCO₃ + HCl → CaCl₂  + CO₂ + H₂O",
-        "b": "CaCO₃ + H₂O → Ca(OH) ₂ + CO₂",
-        "c": "CaCO₃ + 2CH₃COOH → Ca²⁺ + 2CH₃COO⁻ + CO₂ + H₂O",
-        "d": "NaHCO₃ + CH₃COOH → Na⁺ + CH₃COO⁻ + CO₂ + H₂O"
+        "a": "b64:Q2FDT+KCgyArIEhDbCDihpIgQ2FDbOKCgiAgKyBDT+KCgiArIEjigoJP",
+        "b": "b64:Q2FDT+KCgyArIEjigoJPIOKGkiBDYShPSCkg4oKCICsgQ0/igoI=",
+        "c": "b64:Q2FDT+KCgyArIDJDSOKCg0NPT0gg4oaSIENhwrLigbogKyAyQ0jigoNDT0/igbsgKyBDT+KCgiArIEjigoJP",
+        "d": "b64:TmFIQ0/igoMgKyBDSOKCg0NPT0gg4oaSIE5h4oG6ICsgQ0jigoNDT0/igbsgKyBDT+KCgiArIEjigoJP"
     },
     {
         "question_name": "Question 2",
@@ -43,33 +43,33 @@
         "points": 1,
         "question text": "What causes the bubbles observed during the bouncy egg experiment?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Water vapor forming",
-                "text": "Water vapor forming",
-                "weight": 0
+                "answer_text": "b64:V2F0ZXIgdmFwb3IgZm9ybWluZw==",
+                "text": "b64:V2F0ZXIgdmFwb3IgZm9ybWluZw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Oxygen gas being released",
-                "text": "Oxygen gas being released",
-                "weight": 0
+                "answer_text": "b64:T3h5Z2VuIGdhcyBiZWluZyByZWxlYXNlZA==",
+                "text": "b64:T3h5Z2VuIGdhcyBiZWluZyByZWxlYXNlZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Carbon dioxide gas being released",
-                "text": "Carbon dioxide gas being released",
-                "weight": 100
+                "answer_text": "b64:Q2FyYm9uIGRpb3hpZGUgZ2FzIGJlaW5nIHJlbGVhc2Vk",
+                "text": "b64:Q2FyYm9uIGRpb3hpZGUgZ2FzIGJlaW5nIHJlbGVhc2Vk",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Hydrogen gas being released",
-                "text": "Hydrogen gas being released",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9nZW4gZ2FzIGJlaW5nIHJlbGVhc2Vk",
+                "text": "b64:SHlkcm9nZW4gZ2FzIGJlaW5nIHJlbGVhc2Vk",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Water vapor forming",
-        "b": "Oxygen gas being released",
-        "c": "Carbon dioxide gas being released",
-        "d": "Hydrogen gas being released"
+        "a": "b64:V2F0ZXIgdmFwb3IgZm9ybWluZw==",
+        "b": "b64:T3h5Z2VuIGdhcyBiZWluZyByZWxlYXNlZA==",
+        "c": "b64:Q2FyYm9uIGRpb3hpZGUgZ2FzIGJlaW5nIHJlbGVhc2Vk",
+        "d": "b64:SHlkcm9nZW4gZ2FzIGJlaW5nIHJlbGVhc2Vk"
     },
     {
         "question_name": "Question 3",
@@ -79,33 +79,33 @@
         "points": 1,
         "question text": "What happens to the eggshell during the experiment?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "It expands due to osmosis",
-                "text": "It expands due to osmosis",
-                "weight": 0
+                "answer_text": "b64:SXQgZXhwYW5kcyBkdWUgdG8gb3Ntb3Npcw==",
+                "text": "b64:SXQgZXhwYW5kcyBkdWUgdG8gb3Ntb3Npcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It becomes harder due to a chemical reaction",
-                "text": "It becomes harder due to a chemical reaction",
-                "weight": 0
+                "answer_text": "b64:SXQgYmVjb21lcyBoYXJkZXIgZHVlIHRvIGEgY2hlbWljYWwgcmVhY3Rpb24=",
+                "text": "b64:SXQgYmVjb21lcyBoYXJkZXIgZHVlIHRvIGEgY2hlbWljYWwgcmVhY3Rpb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It remains unchanged but the egg becomes bouncy",
-                "text": "It remains unchanged but the egg becomes bouncy",
-                "weight": 0
+                "answer_text": "b64:SXQgcmVtYWlucyB1bmNoYW5nZWQgYnV0IHRoZSBlZ2cgYmVjb21lcyBib3VuY3k=",
+                "text": "b64:SXQgcmVtYWlucyB1bmNoYW5nZWQgYnV0IHRoZSBlZ2cgYmVjb21lcyBib3VuY3k=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It dissolves completely due to a reaction with acetic acid",
-                "text": "It dissolves completely due to a reaction with acetic acid",
-                "weight": 100
+                "answer_text": "b64:SXQgZGlzc29sdmVzIGNvbXBsZXRlbHkgZHVlIHRvIGEgcmVhY3Rpb24gd2l0aCBhY2V0aWMgYWNpZA==",
+                "text": "b64:SXQgZGlzc29sdmVzIGNvbXBsZXRlbHkgZHVlIHRvIGEgcmVhY3Rpb24gd2l0aCBhY2V0aWMgYWNpZA==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "It expands due to osmosis",
-        "b": "It becomes harder due to a chemical reaction",
-        "c": "It remains unchanged but the egg becomes bouncy",
-        "d": "It dissolves completely due to a reaction with acetic acid"
+        "a": "b64:SXQgZXhwYW5kcyBkdWUgdG8gb3Ntb3Npcw==",
+        "b": "b64:SXQgYmVjb21lcyBoYXJkZXIgZHVlIHRvIGEgY2hlbWljYWwgcmVhY3Rpb24=",
+        "c": "b64:SXQgcmVtYWlucyB1bmNoYW5nZWQgYnV0IHRoZSBlZ2cgYmVjb21lcyBib3VuY3k=",
+        "d": "b64:SXQgZGlzc29sdmVzIGNvbXBsZXRlbHkgZHVlIHRvIGEgcmVhY3Rpb24gd2l0aCBhY2V0aWMgYWNpZA=="
     },
     {
         "question_name": "Question 4",
@@ -115,33 +115,33 @@
         "points": 1,
         "question text": "Why does the egg become bouncy after being submerged in vinegar for several days?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "The vinegar adds elasticity to the egg's membrane",
-                "text": "The vinegar adds elasticity to the egg's membrane",
-                "weight": 0
+                "answer_text": "b64:VGhlIHZpbmVnYXIgYWRkcyBlbGFzdGljaXR5IHRvIHRoZSBlZ2cncyBtZW1icmFuZQ==",
+                "text": "b64:VGhlIHZpbmVnYXIgYWRkcyBlbGFzdGljaXR5IHRvIHRoZSBlZ2cncyBtZW1icmFuZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The egg absorbs vinegar, making it rubbery",
-                "text": "The egg absorbs vinegar, making it rubbery",
-                "weight": 0
+                "answer_text": "b64:VGhlIGVnZyBhYnNvcmJzIHZpbmVnYXIsIG1ha2luZyBpdCBydWJiZXJ5",
+                "text": "b64:VGhlIGVnZyBhYnNvcmJzIHZpbmVnYXIsIG1ha2luZyBpdCBydWJiZXJ5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The egg undergoes a phase change to become solid rubber",
-                "text": "The egg undergoes a phase change to become solid rubber",
-                "weight": 0
+                "answer_text": "b64:VGhlIGVnZyB1bmRlcmdvZXMgYSBwaGFzZSBjaGFuZ2UgdG8gYmVjb21lIHNvbGlkIHJ1YmJlcg==",
+                "text": "b64:VGhlIGVnZyB1bmRlcmdvZXMgYSBwaGFzZSBjaGFuZ2UgdG8gYmVjb21lIHNvbGlkIHJ1YmJlcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The calcium carbonate shell dissolves, leaving only the flexible inner membrane",
-                "text": "The calcium carbonate shell dissolves, leaving only the flexible inner membrane",
-                "weight": 100
+                "answer_text": "b64:VGhlIGNhbGNpdW0gY2FyYm9uYXRlIHNoZWxsIGRpc3NvbHZlcywgbGVhdmluZyBvbmx5IHRoZSBmbGV4aWJsZSBpbm5lciBtZW1icmFuZQ==",
+                "text": "b64:VGhlIGNhbGNpdW0gY2FyYm9uYXRlIHNoZWxsIGRpc3NvbHZlcywgbGVhdmluZyBvbmx5IHRoZSBmbGV4aWJsZSBpbm5lciBtZW1icmFuZQ==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "The vinegar adds elasticity to the egg's membrane",
-        "b": "The egg absorbs vinegar, making it rubbery",
-        "c": "The egg undergoes a phase change to become solid rubber",
-        "d": "The calcium carbonate shell dissolves, leaving only the flexible inner membrane"
+        "a": "b64:VGhlIHZpbmVnYXIgYWRkcyBlbGFzdGljaXR5IHRvIHRoZSBlZ2cncyBtZW1icmFuZQ==",
+        "b": "b64:VGhlIGVnZyBhYnNvcmJzIHZpbmVnYXIsIG1ha2luZyBpdCBydWJiZXJ5",
+        "c": "b64:VGhlIGVnZyB1bmRlcmdvZXMgYSBwaGFzZSBjaGFuZ2UgdG8gYmVjb21lIHNvbGlkIHJ1YmJlcg==",
+        "d": "b64:VGhlIGNhbGNpdW0gY2FyYm9uYXRlIHNoZWxsIGRpc3NvbHZlcywgbGVhdmluZyBvbmx5IHRoZSBmbGV4aWJsZSBpbm5lciBtZW1icmFuZQ=="
     },
     {
         "question_name": "Question 5",
@@ -151,33 +151,33 @@
         "points": 1,
         "question text": "Which component of vinegar reacts with the eggshell?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Sodium bicarbonate (NaHCO₃)",
-                "text": "Sodium bicarbonate (NaHCO₃)",
-                "weight": 0
+                "answer_text": "b64:U29kaXVtIGJpY2FyYm9uYXRlIChOYUhDT+KCgyk=",
+                "text": "b64:U29kaXVtIGJpY2FyYm9uYXRlIChOYUhDT+KCgyk=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Acetic acid (CH₃COOH)",
-                "text": "Acetic acid (CH₃COOH)",
-                "weight": 100
+                "answer_text": "b64:QWNldGljIGFjaWQgKENI4oKDQ09PSCk=",
+                "text": "b64:QWNldGljIGFjaWQgKENI4oKDQ09PSCk=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Calcium chloride (CaCl₂)",
-                "text": "Calcium chloride (CaCl₂)",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bSBjaGxvcmlkZSAoQ2FDbOKCgik=",
+                "text": "b64:Q2FsY2l1bSBjaGxvcmlkZSAoQ2FDbOKCgik=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrochloric acid (HCl)",
-                "text": "Hydrochloric acid (HCl)",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9jaGxvcmljIGFjaWQgKEhDbCk=",
+                "text": "b64:SHlkcm9jaGxvcmljIGFjaWQgKEhDbCk=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Sodium bicarbonate (NaHCO₃)",
-        "b": "Acetic acid (CH₃COOH)",
-        "c": "Calcium chloride (CaCl₂)",
-        "d": "Hydrochloric acid (HCl)"
+        "a": "b64:U29kaXVtIGJpY2FyYm9uYXRlIChOYUhDT+KCgyk=",
+        "b": "b64:QWNldGljIGFjaWQgKENI4oKDQ09PSCk=",
+        "c": "b64:Q2FsY2l1bSBjaGxvcmlkZSAoQ2FDbOKCgik=",
+        "d": "b64:SHlkcm9jaGxvcmljIGFjaWQgKEhDbCk="
     },
     {
         "question_name": "Question 6",
@@ -187,33 +187,33 @@
         "points": 1,
         "question text": "What is the main product formed when calcium carbonate reacts with acetic acid?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Calcium acetate (Ca(CH₃COO)₂)",
-                "text": "Calcium acetate (Ca(CH₃COO)₂)",
-                "weight": 100
+                "answer_text": "b64:Q2FsY2l1bSBhY2V0YXRlIChDYShDSOKCg0NPTynigoIp",
+                "text": "b64:Q2FsY2l1bSBhY2V0YXRlIChDYShDSOKCg0NPTynigoIp",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Calcium chloride (CaCl₂)",
-                "text": "Calcium chloride (CaCl₂)",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bSBjaGxvcmlkZSAoQ2FDbOKCgik=",
+                "text": "b64:Q2FsY2l1bSBjaGxvcmlkZSAoQ2FDbOKCgik=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Calcium hydroxide (Ca(OH) ₂)",
-                "text": "Calcium hydroxide (Ca(OH) ₂)",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bSBoeWRyb3hpZGUgKENhKE9IKSDigoIp",
+                "text": "b64:Q2FsY2l1bSBoeWRyb3hpZGUgKENhKE9IKSDigoIp",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Calcium sulfate (CaSO₄)",
-                "text": "Calcium sulfate (CaSO₄)",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bSBzdWxmYXRlIChDYVNP4oKEKQ==",
+                "text": "b64:Q2FsY2l1bSBzdWxmYXRlIChDYVNP4oKEKQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Calcium acetate (Ca(CH₃COO)₂)",
-        "b": "Calcium chloride (CaCl₂)",
-        "c": "Calcium hydroxide (Ca(OH) ₂)",
-        "d": "Calcium sulfate (CaSO₄)"
+        "a": "b64:Q2FsY2l1bSBhY2V0YXRlIChDYShDSOKCg0NPTynigoIp",
+        "b": "b64:Q2FsY2l1bSBjaGxvcmlkZSAoQ2FDbOKCgik=",
+        "c": "b64:Q2FsY2l1bSBoeWRyb3hpZGUgKENhKE9IKSDigoIp",
+        "d": "b64:Q2FsY2l1bSBzdWxmYXRlIChDYVNP4oKEKQ=="
     },
     {
         "question_name": "Question 7",
@@ -223,33 +223,33 @@
         "points": 1,
         "question text": "What happens to the size of the egg after being submerged in vinegar for several days?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "It decreases because the shell dissolves",
-                "text": "It decreases because the shell dissolves",
-                "weight": 0
+                "answer_text": "b64:SXQgZGVjcmVhc2VzIGJlY2F1c2UgdGhlIHNoZWxsIGRpc3NvbHZlcw==",
+                "text": "b64:SXQgZGVjcmVhc2VzIGJlY2F1c2UgdGhlIHNoZWxsIGRpc3NvbHZlcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It increases because water enters the egg through osmosis",
-                "text": "It increases because water enters the egg through osmosis",
-                "weight": 100
+                "answer_text": "b64:SXQgaW5jcmVhc2VzIGJlY2F1c2Ugd2F0ZXIgZW50ZXJzIHRoZSBlZ2cgdGhyb3VnaCBvc21vc2lz",
+                "text": "b64:SXQgaW5jcmVhc2VzIGJlY2F1c2Ugd2F0ZXIgZW50ZXJzIHRoZSBlZ2cgdGhyb3VnaCBvc21vc2lz",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It remains the same as no material is added or removed",
-                "text": "It remains the same as no material is added or removed",
-                "weight": 0
+                "answer_text": "b64:SXQgcmVtYWlucyB0aGUgc2FtZSBhcyBubyBtYXRlcmlhbCBpcyBhZGRlZCBvciByZW1vdmVk",
+                "text": "b64:SXQgcmVtYWlucyB0aGUgc2FtZSBhcyBubyBtYXRlcmlhbCBpcyBhZGRlZCBvciByZW1vdmVk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It decreases because carbon dioxide escapes",
-                "text": "It decreases because carbon dioxide escapes",
-                "weight": 0
+                "answer_text": "b64:SXQgZGVjcmVhc2VzIGJlY2F1c2UgY2FyYm9uIGRpb3hpZGUgZXNjYXBlcw==",
+                "text": "b64:SXQgZGVjcmVhc2VzIGJlY2F1c2UgY2FyYm9uIGRpb3hpZGUgZXNjYXBlcw==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It decreases because the shell dissolves",
-        "b": "It increases because water enters the egg through osmosis",
-        "c": "It remains the same as no material is added or removed",
-        "d": "It decreases because carbon dioxide escapes"
+        "a": "b64:SXQgZGVjcmVhc2VzIGJlY2F1c2UgdGhlIHNoZWxsIGRpc3NvbHZlcw==",
+        "b": "b64:SXQgaW5jcmVhc2VzIGJlY2F1c2Ugd2F0ZXIgZW50ZXJzIHRoZSBlZ2cgdGhyb3VnaCBvc21vc2lz",
+        "c": "b64:SXQgcmVtYWlucyB0aGUgc2FtZSBhcyBubyBtYXRlcmlhbCBpcyBhZGRlZCBvciByZW1vdmVk",
+        "d": "b64:SXQgZGVjcmVhc2VzIGJlY2F1c2UgY2FyYm9uIGRpb3hpZGUgZXNjYXBlcw=="
     },
     {
         "question_name": "Question 8",
@@ -259,33 +259,33 @@
         "points": 1,
         "question text": "What property of the egg allows it to bounce after the experiment?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "The hardened outer layer formed by vinegar",
-                "text": "The hardened outer layer formed by vinegar",
-                "weight": 0
+                "answer_text": "b64:VGhlIGhhcmRlbmVkIG91dGVyIGxheWVyIGZvcm1lZCBieSB2aW5lZ2Fy",
+                "text": "b64:VGhlIGhhcmRlbmVkIG91dGVyIGxheWVyIGZvcm1lZCBieSB2aW5lZ2Fy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The contraction of the egg's volume",
-                "text": "The contraction of the egg's volume",
-                "weight": 0
+                "answer_text": "b64:VGhlIGNvbnRyYWN0aW9uIG9mIHRoZSBlZ2cncyB2b2x1bWU=",
+                "text": "b64:VGhlIGNvbnRyYWN0aW9uIG9mIHRoZSBlZ2cncyB2b2x1bWU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The increased density of the egg",
-                "text": "The increased density of the egg",
-                "weight": 0
+                "answer_text": "b64:VGhlIGluY3JlYXNlZCBkZW5zaXR5IG9mIHRoZSBlZ2c=",
+                "text": "b64:VGhlIGluY3JlYXNlZCBkZW5zaXR5IG9mIHRoZSBlZ2c=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The elastic nature of the inner membrane exposed after the shell dissolves",
-                "text": "The elastic nature of the inner membrane exposed after the shell dissolves",
-                "weight": 100
+                "answer_text": "b64:VGhlIGVsYXN0aWMgbmF0dXJlIG9mIHRoZSBpbm5lciBtZW1icmFuZSBleHBvc2VkIGFmdGVyIHRoZSBzaGVsbCBkaXNzb2x2ZXM=",
+                "text": "b64:VGhlIGVsYXN0aWMgbmF0dXJlIG9mIHRoZSBpbm5lciBtZW1icmFuZSBleHBvc2VkIGFmdGVyIHRoZSBzaGVsbCBkaXNzb2x2ZXM=",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "The hardened outer layer formed by vinegar",
-        "b": "The contraction of the egg's volume",
-        "c": "The increased density of the egg",
-        "d": "The elastic nature of the inner membrane exposed after the shell dissolves"
+        "a": "b64:VGhlIGhhcmRlbmVkIG91dGVyIGxheWVyIGZvcm1lZCBieSB2aW5lZ2Fy",
+        "b": "b64:VGhlIGNvbnRyYWN0aW9uIG9mIHRoZSBlZ2cncyB2b2x1bWU=",
+        "c": "b64:VGhlIGluY3JlYXNlZCBkZW5zaXR5IG9mIHRoZSBlZ2c=",
+        "d": "b64:VGhlIGVsYXN0aWMgbmF0dXJlIG9mIHRoZSBpbm5lciBtZW1icmFuZSBleHBvc2VkIGFmdGVyIHRoZSBzaGVsbCBkaXNzb2x2ZXM="
     },
     {
         "question_name": "Question 9",
@@ -295,33 +295,33 @@
         "points": 1,
         "question text": "Which of the following is NOT a product of the reaction between calcium carbonate and acetic acid?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Carbon dioxide",
-                "text": "Carbon dioxide",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9uIGRpb3hpZGU=",
+                "text": "b64:Q2FyYm9uIGRpb3hpZGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Sodium chloride",
-                "text": "Sodium chloride",
-                "weight": 100
+                "answer_text": "b64:U29kaXVtIGNobG9yaWRl",
+                "text": "b64:U29kaXVtIGNobG9yaWRl",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Water",
-                "text": "Water",
-                "weight": 0
+                "answer_text": "b64:V2F0ZXI=",
+                "text": "b64:V2F0ZXI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Calcium acetate",
-                "text": "Calcium acetate",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bSBhY2V0YXRl",
+                "text": "b64:Q2FsY2l1bSBhY2V0YXRl",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Carbon dioxide",
-        "b": "Sodium chloride",
-        "c": "Water",
-        "d": "Calcium acetate"
+        "a": "b64:Q2FyYm9uIGRpb3hpZGU=",
+        "b": "b64:U29kaXVtIGNobG9yaWRl",
+        "c": "b64:V2F0ZXI=",
+        "d": "b64:Q2FsY2l1bSBhY2V0YXRl"
     },
     {
         "question_name": "Question 10",
@@ -331,33 +331,33 @@
         "points": 1,
         "question text": "Is the reaction between the eggshell (calcium carbonate) and vinegar (acetic acid) fast or slow?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Fast, because carbon dioxide bubbles form rapidly at the start",
-                "text": "Fast, because carbon dioxide bubbles form rapidly at the start",
-                "weight": 0
+                "answer_text": "b64:RmFzdCwgYmVjYXVzZSBjYXJib24gZGlveGlkZSBidWJibGVzIGZvcm0gcmFwaWRseSBhdCB0aGUgc3RhcnQ=",
+                "text": "b64:RmFzdCwgYmVjYXVzZSBjYXJib24gZGlveGlkZSBidWJibGVzIGZvcm0gcmFwaWRseSBhdCB0aGUgc3RhcnQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Fast, because the reaction produces immediate results",
-                "text": "Fast, because the reaction produces immediate results",
-                "weight": 0
+                "answer_text": "b64:RmFzdCwgYmVjYXVzZSB0aGUgcmVhY3Rpb24gcHJvZHVjZXMgaW1tZWRpYXRlIHJlc3VsdHM=",
+                "text": "b64:RmFzdCwgYmVjYXVzZSB0aGUgcmVhY3Rpb24gcHJvZHVjZXMgaW1tZWRpYXRlIHJlc3VsdHM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Slow, because vinegar is a weak acid and does not react with calcium carbonate",
-                "text": "Slow, because vinegar is a weak acid and does not react with calcium carbonate",
-                "weight": 0
+                "answer_text": "b64:U2xvdywgYmVjYXVzZSB2aW5lZ2FyIGlzIGEgd2VhayBhY2lkIGFuZCBkb2VzIG5vdCByZWFjdCB3aXRoIGNhbGNpdW0gY2FyYm9uYXRl",
+                "text": "b64:U2xvdywgYmVjYXVzZSB2aW5lZ2FyIGlzIGEgd2VhayBhY2lkIGFuZCBkb2VzIG5vdCByZWFjdCB3aXRoIGNhbGNpdW0gY2FyYm9uYXRl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Slow, because it takes several days for the shell to fully dissolve",
-                "text": "Slow, because it takes several days for the shell to fully dissolve",
-                "weight": 100
+                "answer_text": "b64:U2xvdywgYmVjYXVzZSBpdCB0YWtlcyBzZXZlcmFsIGRheXMgZm9yIHRoZSBzaGVsbCB0byBmdWxseSBkaXNzb2x2ZQ==",
+                "text": "b64:U2xvdywgYmVjYXVzZSBpdCB0YWtlcyBzZXZlcmFsIGRheXMgZm9yIHRoZSBzaGVsbCB0byBmdWxseSBkaXNzb2x2ZQ==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Fast, because carbon dioxide bubbles form rapidly at the start",
-        "b": "Fast, because the reaction produces immediate results",
-        "c": "Slow, because vinegar is a weak acid and does not react with calcium carbonate",
-        "d": "Slow, because it takes several days for the shell to fully dissolve"
+        "a": "b64:RmFzdCwgYmVjYXVzZSBjYXJib24gZGlveGlkZSBidWJibGVzIGZvcm0gcmFwaWRseSBhdCB0aGUgc3RhcnQ=",
+        "b": "b64:RmFzdCwgYmVjYXVzZSB0aGUgcmVhY3Rpb24gcHJvZHVjZXMgaW1tZWRpYXRlIHJlc3VsdHM=",
+        "c": "b64:U2xvdywgYmVjYXVzZSB2aW5lZ2FyIGlzIGEgd2VhayBhY2lkIGFuZCBkb2VzIG5vdCByZWFjdCB3aXRoIGNhbGNpdW0gY2FyYm9uYXRl",
+        "d": "b64:U2xvdywgYmVjYXVzZSBpdCB0YWtlcyBzZXZlcmFsIGRheXMgZm9yIHRoZSBzaGVsbCB0byBmdWxseSBkaXNzb2x2ZQ=="
     },
     {
         "question_name": "Question 11",
@@ -381,50 +381,50 @@
         "correct ans index": " ",
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

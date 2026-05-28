@@ -9,72 +9,72 @@
         "url": "",
         "answers": [
             {
-                "text": "The change in shape or size of an object due to an applied force.",
-                "answer_text": "Deformation"
+                "text": "b64:VGhlIGNoYW5nZSBpbiBzaGFwZSBvciBzaXplIG9mIGFuIG9iamVjdCBkdWUgdG8gYW4gYXBwbGllZCBmb3JjZS4=",
+                "answer_text": "b64:RGVmb3JtYXRpb24="
             },
             {
-                "text": "A mixture of two or more elements, where at least one is a metal, to enhance properties.",
-                "answer_text": "Alloy"
+                "text": "b64:QSBtaXh0dXJlIG9mIHR3byBvciBtb3JlIGVsZW1lbnRzLCB3aGVyZSBhdCBsZWFzdCBvbmUgaXMgYSBtZXRhbCwgdG8gZW5oYW5jZSBwcm9wZXJ0aWVzLg==",
+                "answer_text": "b64:QWxsb3k="
             },
             {
-                "text": "The temperature at which a solid turns into a liquid.",
-                "answer_text": "Melting Point"
+                "text": "b64:VGhlIHRlbXBlcmF0dXJlIGF0IHdoaWNoIGEgc29saWQgdHVybnMgaW50byBhIGxpcXVpZC4=",
+                "answer_text": "b64:TWVsdGluZyBQb2ludA=="
             },
             {
-                "text": "Having the property of attracting iron or certain other materials.",
-                "answer_text": "Magnetic"
+                "text": "b64:SGF2aW5nIHRoZSBwcm9wZXJ0eSBvZiBhdHRyYWN0aW5nIGlyb24gb3IgY2VydGFpbiBvdGhlciBtYXRlcmlhbHMu",
+                "answer_text": "b64:TWFnbmV0aWM="
             },
             {
-                "text": "The ability of a material to be hammered or rolled into thin sheets.",
-                "answer_text": "Malleability"
+                "text": "b64:VGhlIGFiaWxpdHkgb2YgYSBtYXRlcmlhbCB0byBiZSBoYW1tZXJlZCBvciByb2xsZWQgaW50byB0aGluIHNoZWV0cy4=",
+                "answer_text": "b64:TWFsbGVhYmlsaXR5"
             },
             {
-                "text": "The way a material reflects light, typically associated with a shiny appearance.",
-                "answer_text": "Luster"
+                "text": "b64:VGhlIHdheSBhIG1hdGVyaWFsIHJlZmxlY3RzIGxpZ2h0LCB0eXBpY2FsbHkgYXNzb2NpYXRlZCB3aXRoIGEgc2hpbnkgYXBwZWFyYW5jZS4=",
+                "answer_text": "b64:THVzdGVy"
             },
             {
-                "text": "The ability of a material to be stretched into a wire without breaking.",
-                "answer_text": "Ductility"
+                "text": "b64:VGhlIGFiaWxpdHkgb2YgYSBtYXRlcmlhbCB0byBiZSBzdHJldGNoZWQgaW50byBhIHdpcmUgd2l0aG91dCBicmVha2luZy4=",
+                "answer_text": "b64:RHVjdGlsaXR5"
             },
             {
-                "text": "An element that is typically shiny, ductile, malleable, and a good conductor of heat and electricity.",
-                "answer_text": "Metal"
+                "text": "b64:QW4gZWxlbWVudCB0aGF0IGlzIHR5cGljYWxseSBzaGlueSwgZHVjdGlsZSwgbWFsbGVhYmxlLCBhbmQgYSBnb29kIGNvbmR1Y3RvciBvZiBoZWF0IGFuZCBlbGVjdHJpY2l0eS4=",
+                "answer_text": "b64:TWV0YWw="
             },
             {
-                "text": "Lacking shine or brightness.",
-                "answer_text": "Dull"
+                "text": "b64:TGFja2luZyBzaGluZSBvciBicmlnaHRuZXNzLg==",
+                "answer_text": "b64:RHVsbA=="
             },
             {
-                "text": "A material that resists the flow of heat or electricity.",
-                "answer_text": "Insulator"
+                "text": "b64:QSBtYXRlcmlhbCB0aGF0IHJlc2lzdHMgdGhlIGZsb3cgb2YgaGVhdCBvciBlbGVjdHJpY2l0eS4=",
+                "answer_text": "b64:SW5zdWxhdG9y"
             },
             {
-                "text": "A material that allows the flow of heat or electricity.",
-                "answer_text": "Conductor"
+                "text": "b64:QSBtYXRlcmlhbCB0aGF0IGFsbG93cyB0aGUgZmxvdyBvZiBoZWF0IG9yIGVsZWN0cmljaXR5Lg==",
+                "answer_text": "b64:Q29uZHVjdG9y"
             },
             {
-                "text": "A negatively charged subatomic particle found in atoms.",
-                "answer_text": "Electron"
+                "text": "b64:QSBuZWdhdGl2ZWx5IGNoYXJnZWQgc3ViYXRvbWljIHBhcnRpY2xlIGZvdW5kIGluIGF0b21zLg==",
+                "answer_text": "b64:RWxlY3Ryb24="
             },
             {
-                "text": "The process by which heat or electricity is directly transmitted through a material.",
-                "answer_text": "Conduction"
+                "text": "b64:VGhlIHByb2Nlc3MgYnkgd2hpY2ggaGVhdCBvciBlbGVjdHJpY2l0eSBpcyBkaXJlY3RseSB0cmFuc21pdHRlZCB0aHJvdWdoIGEgbWF0ZXJpYWwu",
+                "answer_text": "b64:Q29uZHVjdGlvbg=="
             },
             {
-                "text": "An element that is typically dull, brittle, and a poor conductor of heat and electricity.",
-                "answer_text": "Non-metal"
+                "text": "b64:QW4gZWxlbWVudCB0aGF0IGlzIHR5cGljYWxseSBkdWxsLCBicml0dGxlLCBhbmQgYSBwb29yIGNvbmR1Y3RvciBvZiBoZWF0IGFuZCBlbGVjdHJpY2l0eS4=",
+                "answer_text": "b64:Tm9uLW1ldGFs"
             },
             {
-                "text": "A property of a material that breaks easily without significant deformation.",
-                "answer_text": "Brittle"
+                "text": "b64:QSBwcm9wZXJ0eSBvZiBhIG1hdGVyaWFsIHRoYXQgYnJlYWtzIGVhc2lseSB3aXRob3V0IHNpZ25pZmljYW50IGRlZm9ybWF0aW9uLg==",
+                "answer_text": "b64:QnJpdHRsZQ=="
             }
         ],
         "distractors": [
-            "Covalent",
-            "Molecule",
-            "Paramagnetic",
-            "Flexible",
-            "Plastic"
+            "b64:Q292YWxlbnQ=",
+            "b64:TW9sZWN1bGU=",
+            "b64:UGFyYW1hZ25ldGlj",
+            "b64:RmxleGlibGU=",
+            "b64:UGxhc3RpYw=="
         ]
     },
     {
@@ -92,14 +92,14 @@
         "correct ans index": " ",
         "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
         "url": "",
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

@@ -7,60 +7,60 @@
         "matching_answer_incorrect_matches": [],
         "answers": [
             {
-                "text": "A",
-                "answer_text": "Wire"
+                "text": "b64:QQ==",
+                "answer_text": "b64:V2lyZQ=="
             },
             {
-                "text": "B",
-                "answer_text": "Cell"
+                "text": "b64:Qg==",
+                "answer_text": "b64:Q2VsbA=="
             },
             {
-                "text": "C",
-                "answer_text": "Light Bulb"
+                "text": "b64:Qw==",
+                "answer_text": "b64:TGlnaHQgQnVsYg=="
             },
             {
-                "text": "D",
-                "answer_text": "Resistor"
+                "text": "b64:RA==",
+                "answer_text": "b64:UmVzaXN0b3I="
             },
             {
-                "text": "E",
-                "answer_text": "Switch"
+                "text": "b64:RQ==",
+                "answer_text": "b64:U3dpdGNo"
             },
             {
-                "text": "F",
-                "answer_text": "Fuse"
+                "text": "b64:Rg==",
+                "answer_text": "b64:RnVzZQ=="
             },
             {
-                "text": "G",
-                "answer_text": "Resistor"
+                "text": "b64:Rw==",
+                "answer_text": "b64:UmVzaXN0b3I="
             },
             {
-                "text": "H",
-                "answer_text": "Switch"
+                "text": "b64:SA==",
+                "answer_text": "b64:U3dpdGNo"
             },
             {
-                "text": "I",
-                "answer_text": "Fuse"
+                "text": "b64:SQ==",
+                "answer_text": "b64:RnVzZQ=="
             },
             {
-                "text": "J",
-                "answer_text": "Wire"
+                "text": "b64:Sg==",
+                "answer_text": "b64:V2lyZQ=="
             },
             {
-                "text": "K",
-                "answer_text": "Cell"
+                "text": "b64:Sw==",
+                "answer_text": "b64:Q2VsbA=="
             },
             {
-                "text": "L",
-                "answer_text": "Voltmeter"
+                "text": "b64:TA==",
+                "answer_text": "b64:Vm9sdG1ldGVy"
             },
             {
-                "text": "M",
-                "answer_text": "Ammeter"
+                "text": "b64:TQ==",
+                "answer_text": "b64:QW1tZXRlcg=="
             },
             {
-                "text": "N",
-                "answer_text": "Light Bulb"
+                "text": "b64:Tg==",
+                "answer_text": "b64:TGlnaHQgQnVsYg=="
             }
         ],
         "distractors": [],
@@ -94,50 +94,50 @@
         "correct ans index": " ",
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

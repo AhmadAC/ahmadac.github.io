@@ -7,45 +7,45 @@
         "points": 1,
         "question text": "What is the force that moves a paper airplane forward in the direction of motion?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Lift",
-                "text": "Lift",
-                "weight": 0
+                "answer_text": "b64:TGlmdA==",
+                "text": "b64:TGlmdA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Thrust",
-                "text": "Thrust",
-                "weight": 100
+                "answer_text": "b64:VGhydXN0",
+                "text": "b64:VGhydXN0",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Friction",
-                "text": "Friction",
-                "weight": 0
+                "answer_text": "b64:RnJpY3Rpb24=",
+                "text": "b64:RnJpY3Rpb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Weight",
-                "text": "Weight",
-                "weight": 0
+                "answer_text": "b64:V2VpZ2h0",
+                "text": "b64:V2VpZ2h0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Drag",
-                "text": "Drag",
-                "weight": 0
+                "answer_text": "b64:RHJhZw==",
+                "text": "b64:RHJhZw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Gravity",
-                "text": "Gravity",
-                "weight": 0
+                "answer_text": "b64:R3Jhdml0eQ==",
+                "text": "b64:R3Jhdml0eQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Lift",
-        "b": "Thrust",
-        "c": "Friction",
-        "d": "Weight",
-        "e": "Drag",
-        "f": "Gravity"
+        "a": "b64:TGlmdA==",
+        "b": "b64:VGhydXN0",
+        "c": "b64:RnJpY3Rpb24=",
+        "d": "b64:V2VpZ2h0",
+        "e": "b64:RHJhZw==",
+        "f": "b64:R3Jhdml0eQ=="
     },
     {
         "question_name": "Question 2",
@@ -55,45 +55,45 @@
         "points": 1,
         "question text": "Which force is caused by gravity and pulls the airplane down toward the Earth?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Drag",
-                "text": "Drag",
-                "weight": 0
+                "answer_text": "b64:RHJhZw==",
+                "text": "b64:RHJhZw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Wingspan",
-                "text": "Wingspan",
-                "weight": 0
+                "answer_text": "b64:V2luZ3NwYW4=",
+                "text": "b64:V2luZ3NwYW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Aerodynamics",
-                "text": "Aerodynamics",
-                "weight": 0
+                "answer_text": "b64:QWVyb2R5bmFtaWNz",
+                "text": "b64:QWVyb2R5bmFtaWNz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Weight",
-                "text": "Weight",
-                "weight": 100
+                "answer_text": "b64:V2VpZ2h0",
+                "text": "b64:V2VpZ2h0",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Thrust",
-                "text": "Thrust",
-                "weight": 0
+                "answer_text": "b64:VGhydXN0",
+                "text": "b64:VGhydXN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Analysis",
-                "text": "Analysis",
-                "weight": 0
+                "answer_text": "b64:QW5hbHlzaXM=",
+                "text": "b64:QW5hbHlzaXM=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Drag",
-        "b": "Wingspan",
-        "c": "Aerodynamics",
-        "d": "Weight",
-        "e": "Thrust",
-        "f": "Analysis"
+        "a": "b64:RHJhZw==",
+        "b": "b64:V2luZ3NwYW4=",
+        "c": "b64:QWVyb2R5bmFtaWNz",
+        "d": "b64:V2VpZ2h0",
+        "e": "b64:VGhydXN0",
+        "f": "b64:QW5hbHlzaXM="
     },
     {
         "question_name": "Question 3",
@@ -103,45 +103,45 @@
         "points": 1,
         "question text": "What is the force that holds an airplane in the air?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Trial",
-                "text": "Trial",
-                "weight": 0
+                "answer_text": "b64:VHJpYWw=",
+                "text": "b64:VHJpYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Thrust",
-                "text": "Thrust",
-                "weight": 0
+                "answer_text": "b64:VGhydXN0",
+                "text": "b64:VGhydXN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Performance",
-                "text": "Performance",
-                "weight": 0
+                "answer_text": "b64:UGVyZm9ybWFuY2U=",
+                "text": "b64:UGVyZm9ybWFuY2U=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Material",
-                "text": "Material",
-                "weight": 0
+                "answer_text": "b64:TWF0ZXJpYWw=",
+                "text": "b64:TWF0ZXJpYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Lift",
-                "text": "Lift",
-                "weight": 100
+                "answer_text": "b64:TGlmdA==",
+                "text": "b64:TGlmdA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Meter",
-                "text": "Meter",
-                "weight": 0
+                "answer_text": "b64:TWV0ZXI=",
+                "text": "b64:TWV0ZXI=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Trial",
-        "b": "Thrust",
-        "c": "Performance",
-        "d": "Material",
-        "e": "Lift",
-        "f": "Meter"
+        "a": "b64:VHJpYWw=",
+        "b": "b64:VGhydXN0",
+        "c": "b64:UGVyZm9ybWFuY2U=",
+        "d": "b64:TWF0ZXJpYWw=",
+        "e": "b64:TGlmdA==",
+        "f": "b64:TWV0ZXI="
     },
     {
         "question_name": "Question 4",
@@ -151,45 +151,45 @@
         "points": 1,
         "question text": "Which force acts opposite to the direction of motion and tends to slow the plane down?",
         "url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "Scientific Reasoning",
-                "text": "Scientific Reasoning",
-                "weight": 0
+                "answer_text": "b64:U2NpZW50aWZpYyBSZWFzb25pbmc=",
+                "text": "b64:U2NpZW50aWZpYyBSZWFzb25pbmc=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Lift",
-                "text": "Lift",
-                "weight": 0
+                "answer_text": "b64:TGlmdA==",
+                "text": "b64:TGlmdA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Design",
-                "text": "Design",
-                "weight": 0
+                "answer_text": "b64:RGVzaWdu",
+                "text": "b64:RGVzaWdu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Airborne",
-                "text": "Airborne",
-                "weight": 0
+                "answer_text": "b64:QWlyYm9ybmU=",
+                "text": "b64:QWlyYm9ybmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Weight",
-                "text": "Weight",
-                "weight": 0
+                "answer_text": "b64:V2VpZ2h0",
+                "text": "b64:V2VpZ2h0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Drag",
-                "text": "Drag",
-                "weight": 100
+                "answer_text": "b64:RHJhZw==",
+                "text": "b64:RHJhZw==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Scientific Reasoning",
-        "b": "Lift",
-        "c": "Design",
-        "d": "Airborne",
-        "e": "Weight",
-        "f": "Drag"
+        "a": "b64:U2NpZW50aWZpYyBSZWFzb25pbmc=",
+        "b": "b64:TGlmdA==",
+        "c": "b64:RGVzaWdu",
+        "d": "b64:QWlyYm9ybmU=",
+        "e": "b64:V2VpZ2h0",
+        "f": "b64:RHJhZw=="
     },
     {
         "question_name": "Question 5",
@@ -199,45 +199,45 @@
         "points": 1,
         "question text": "How can you increase the thrust of your paper airplane?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Throw it harder",
-                "text": "Throw it harder",
-                "weight": 100
+                "answer_text": "b64:VGhyb3cgaXQgaGFyZGVy",
+                "text": "b64:VGhyb3cgaXQgaGFyZGVy",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Make the wings smaller",
-                "text": "Make the wings smaller",
-                "weight": 0
+                "answer_text": "b64:TWFrZSB0aGUgd2luZ3Mgc21hbGxlcg==",
+                "text": "b64:TWFrZSB0aGUgd2luZ3Mgc21hbGxlcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Change the material",
-                "text": "Change the material",
-                "weight": 0
+                "answer_text": "b64:Q2hhbmdlIHRoZSBtYXRlcmlhbA==",
+                "text": "b64:Q2hhbmdlIHRoZSBtYXRlcmlhbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Increase the wingspan",
-                "text": "Increase the wingspan",
-                "weight": 0
+                "answer_text": "b64:SW5jcmVhc2UgdGhlIHdpbmdzcGFu",
+                "text": "b64:SW5jcmVhc2UgdGhlIHdpbmdzcGFu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Point it toward the ground",
-                "text": "Point it toward the ground",
-                "weight": 0
+                "answer_text": "b64:UG9pbnQgaXQgdG93YXJkIHRoZSBncm91bmQ=",
+                "text": "b64:UG9pbnQgaXQgdG93YXJkIHRoZSBncm91bmQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Use heavier paper",
-                "text": "Use heavier paper",
-                "weight": 0
+                "answer_text": "b64:VXNlIGhlYXZpZXIgcGFwZXI=",
+                "text": "b64:VXNlIGhlYXZpZXIgcGFwZXI=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Throw it harder",
-        "b": "Make the wings smaller",
-        "c": "Change the material",
-        "d": "Increase the wingspan",
-        "e": "Point it toward the ground",
-        "f": "Use heavier paper"
+        "a": "b64:VGhyb3cgaXQgaGFyZGVy",
+        "b": "b64:TWFrZSB0aGUgd2luZ3Mgc21hbGxlcg==",
+        "c": "b64:Q2hhbmdlIHRoZSBtYXRlcmlhbA==",
+        "d": "b64:SW5jcmVhc2UgdGhlIHdpbmdzcGFu",
+        "e": "b64:UG9pbnQgaXQgdG93YXJkIHRoZSBncm91bmQ=",
+        "f": "b64:VXNlIGhlYXZpZXIgcGFwZXI="
     },
     {
         "question_name": "Question 6",
@@ -247,45 +247,45 @@
         "points": 1,
         "question text": "Why is the front of an airplane narrow?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "To increase the weight",
-                "text": "To increase the weight",
-                "weight": 0
+                "answer_text": "b64:VG8gaW5jcmVhc2UgdGhlIHdlaWdodA==",
+                "text": "b64:VG8gaW5jcmVhc2UgdGhlIHdlaWdodA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To help it stay airborne",
-                "text": "To help it stay airborne",
-                "weight": 0
+                "answer_text": "b64:VG8gaGVscCBpdCBzdGF5IGFpcmJvcm5l",
+                "text": "b64:VG8gaGVscCBpdCBzdGF5IGFpcmJvcm5l",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To create less drag",
-                "text": "To create less drag",
-                "weight": 100
+                "answer_text": "b64:VG8gY3JlYXRlIGxlc3MgZHJhZw==",
+                "text": "b64:VG8gY3JlYXRlIGxlc3MgZHJhZw==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To catch more air",
-                "text": "To catch more air",
-                "weight": 0
+                "answer_text": "b64:VG8gY2F0Y2ggbW9yZSBhaXI=",
+                "text": "b64:VG8gY2F0Y2ggbW9yZSBhaXI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To make it easier to hold",
-                "text": "To make it easier to hold",
-                "weight": 0
+                "answer_text": "b64:VG8gbWFrZSBpdCBlYXNpZXIgdG8gaG9sZA==",
+                "text": "b64:VG8gbWFrZSBpdCBlYXNpZXIgdG8gaG9sZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To use less material",
-                "text": "To use less material",
-                "weight": 0
+                "answer_text": "b64:VG8gdXNlIGxlc3MgbWF0ZXJpYWw=",
+                "text": "b64:VG8gdXNlIGxlc3MgbWF0ZXJpYWw=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To increase the weight",
-        "b": "To help it stay airborne",
-        "c": "To create less drag",
-        "d": "To catch more air",
-        "e": "To make it easier to hold",
-        "f": "To use less material"
+        "a": "b64:VG8gaW5jcmVhc2UgdGhlIHdlaWdodA==",
+        "b": "b64:VG8gaGVscCBpdCBzdGF5IGFpcmJvcm5l",
+        "c": "b64:VG8gY3JlYXRlIGxlc3MgZHJhZw==",
+        "d": "b64:VG8gY2F0Y2ggbW9yZSBhaXI=",
+        "e": "b64:VG8gbWFrZSBpdCBlYXNpZXIgdG8gaG9sZA==",
+        "f": "b64:VG8gdXNlIGxlc3MgbWF0ZXJpYWw="
     },
     {
         "question_name": "Question 7",
@@ -295,45 +295,45 @@
         "points": 1,
         "question text": "Weight acts in a downward direction toward the Earth. What causes this pull?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Friction",
-                "text": "Friction",
-                "weight": 0
+                "answer_text": "b64:RnJpY3Rpb24=",
+                "text": "b64:RnJpY3Rpb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Thrust",
-                "text": "Thrust",
-                "weight": 0
+                "answer_text": "b64:VGhydXN0",
+                "text": "b64:VGhydXN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Gravity",
-                "text": "Gravity",
-                "weight": 100
+                "answer_text": "b64:R3Jhdml0eQ==",
+                "text": "b64:R3Jhdml0eQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Speed",
-                "text": "Speed",
-                "weight": 0
+                "answer_text": "b64:U3BlZWQ=",
+                "text": "b64:U3BlZWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Air pressure",
-                "text": "Air pressure",
-                "weight": 0
+                "answer_text": "b64:QWlyIHByZXNzdXJl",
+                "text": "b64:QWlyIHByZXNzdXJl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Propellers",
-                "text": "Propellers",
-                "weight": 0
+                "answer_text": "b64:UHJvcGVsbGVycw==",
+                "text": "b64:UHJvcGVsbGVycw==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Friction",
-        "b": "Thrust",
-        "c": "Gravity",
-        "d": "Speed",
-        "e": "Air pressure",
-        "f": "Propellers"
+        "a": "b64:RnJpY3Rpb24=",
+        "b": "b64:VGhydXN0",
+        "c": "b64:R3Jhdml0eQ==",
+        "d": "b64:U3BlZWQ=",
+        "e": "b64:QWlyIHByZXNzdXJl",
+        "f": "b64:UHJvcGVsbGVycw=="
     },
     {
         "question_name": "Question 8",
@@ -343,45 +343,45 @@
         "points": 1,
         "question text": "For a paper airplane, where does the thrust come from?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "The wings",
-                "text": "The wings",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdpbmdz",
+                "text": "b64:VGhlIHdpbmdz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A propeller",
-                "text": "A propeller",
-                "weight": 0
+                "answer_text": "b64:QSBwcm9wZWxsZXI=",
+                "text": "b64:QSBwcm9wZWxsZXI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "High air pressure",
-                "text": "High air pressure",
-                "weight": 0
+                "answer_text": "b64:SGlnaCBhaXIgcHJlc3N1cmU=",
+                "text": "b64:SGlnaCBhaXIgcHJlc3N1cmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A rocket",
-                "text": "A rocket",
-                "weight": 0
+                "answer_text": "b64:QSByb2NrZXQ=",
+                "text": "b64:QSByb2NrZXQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The person throwing it",
-                "text": "The person throwing it",
-                "weight": 100
+                "answer_text": "b64:VGhlIHBlcnNvbiB0aHJvd2luZyBpdA==",
+                "text": "b64:VGhlIHBlcnNvbiB0aHJvd2luZyBpdA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A jet engine",
-                "text": "A jet engine",
-                "weight": 0
+                "answer_text": "b64:QSBqZXQgZW5naW5l",
+                "text": "b64:QSBqZXQgZW5naW5l",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The wings",
-        "b": "A propeller",
-        "c": "High air pressure",
-        "d": "A rocket",
-        "e": "The person throwing it",
-        "f": "A jet engine"
+        "a": "b64:VGhlIHdpbmdz",
+        "b": "b64:QSBwcm9wZWxsZXI=",
+        "c": "b64:SGlnaCBhaXIgcHJlc3N1cmU=",
+        "d": "b64:QSByb2NrZXQ=",
+        "e": "b64:VGhlIHBlcnNvbiB0aHJvd2luZyBpdA==",
+        "f": "b64:QSBqZXQgZW5naW5l"
     },
     {
         "question_name": "Question 9",
@@ -391,45 +391,45 @@
         "points": 1,
         "question text": "To fly successfully, the force of lift must be greater than which force?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Weight",
-                "text": "Weight",
-                "weight": 100
+                "answer_text": "b64:V2VpZ2h0",
+                "text": "b64:V2VpZ2h0",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Drag",
-                "text": "Drag",
-                "weight": 0
+                "answer_text": "b64:RHJhZw==",
+                "text": "b64:RHJhZw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Speed",
-                "text": "Speed",
-                "weight": 0
+                "answer_text": "b64:U3BlZWQ=",
+                "text": "b64:U3BlZWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Friction",
-                "text": "Friction",
-                "weight": 0
+                "answer_text": "b64:RnJpY3Rpb24=",
+                "text": "b64:RnJpY3Rpb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Distance",
-                "text": "Distance",
-                "weight": 0
+                "answer_text": "b64:RGlzdGFuY2U=",
+                "text": "b64:RGlzdGFuY2U=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Thrust",
-                "text": "Thrust",
-                "weight": 0
+                "answer_text": "b64:VGhydXN0",
+                "text": "b64:VGhydXN0",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Weight",
-        "b": "Drag",
-        "c": "Speed",
-        "d": "Friction",
-        "e": "Distance",
-        "f": "Thrust"
+        "a": "b64:V2VpZ2h0",
+        "b": "b64:RHJhZw==",
+        "c": "b64:U3BlZWQ=",
+        "d": "b64:RnJpY3Rpb24=",
+        "e": "b64:RGlzdGFuY2U=",
+        "f": "b64:VGhydXN0"
     },
     {
         "question_name": "Question 10",
@@ -439,45 +439,45 @@
         "points": 1,
         "question text": "When air travels around a wing, it moves faster over the top. This creates what?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Steady flight",
-                "text": "Steady flight",
-                "weight": 0
+                "answer_text": "b64:U3RlYWR5IGZsaWdodA==",
+                "text": "b64:U3RlYWR5IGZsaWdodA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "High pressure above the wing",
-                "text": "High pressure above the wing",
-                "weight": 0
+                "answer_text": "b64:SGlnaCBwcmVzc3VyZSBhYm92ZSB0aGUgd2luZw==",
+                "text": "b64:SGlnaCBwcmVzc3VyZSBhYm92ZSB0aGUgd2luZw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "More weight",
-                "text": "More weight",
-                "weight": 0
+                "answer_text": "b64:TW9yZSB3ZWlnaHQ=",
+                "text": "b64:TW9yZSB3ZWlnaHQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Low pressure above the wing",
-                "text": "Low pressure above the wing",
-                "weight": 100
+                "answer_text": "b64:TG93IHByZXNzdXJlIGFib3ZlIHRoZSB3aW5n",
+                "text": "b64:TG93IHByZXNzdXJlIGFib3ZlIHRoZSB3aW5n",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A shorter wingspan",
-                "text": "A shorter wingspan",
-                "weight": 0
+                "answer_text": "b64:QSBzaG9ydGVyIHdpbmdzcGFu",
+                "text": "b64:QSBzaG9ydGVyIHdpbmdzcGFu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "More drag",
-                "text": "More drag",
-                "weight": 0
+                "answer_text": "b64:TW9yZSBkcmFn",
+                "text": "b64:TW9yZSBkcmFn",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Steady flight",
-        "b": "High pressure above the wing",
-        "c": "More weight",
-        "d": "Low pressure above the wing",
-        "e": "A shorter wingspan",
-        "f": "More drag"
+        "a": "b64:U3RlYWR5IGZsaWdodA==",
+        "b": "b64:SGlnaCBwcmVzc3VyZSBhYm92ZSB0aGUgd2luZw==",
+        "c": "b64:TW9yZSB3ZWlnaHQ=",
+        "d": "b64:TG93IHByZXNzdXJlIGFib3ZlIHRoZSB3aW5n",
+        "e": "b64:QSBzaG9ydGVyIHdpbmdzcGFu",
+        "f": "b64:TW9yZSBkcmFn"
     },
     {
         "question_name": "Question 11",
@@ -487,45 +487,45 @@
         "points": 1,
         "question text": "What do we call the distance from the tip of one wing to the tip of the opposite wing?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Analysis",
-                "text": "Analysis",
-                "weight": 0
+                "answer_text": "b64:QW5hbHlzaXM=",
+                "text": "b64:QW5hbHlzaXM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Wingspan",
-                "text": "Wingspan",
-                "weight": 100
+                "answer_text": "b64:V2luZ3NwYW4=",
+                "text": "b64:V2luZ3NwYW4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Aerodynamics",
-                "text": "Aerodynamics",
-                "weight": 0
+                "answer_text": "b64:QWVyb2R5bmFtaWNz",
+                "text": "b64:QWVyb2R5bmFtaWNz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Meter",
-                "text": "Meter",
-                "weight": 0
+                "answer_text": "b64:TWV0ZXI=",
+                "text": "b64:TWV0ZXI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Distance",
-                "text": "Distance",
-                "weight": 0
+                "answer_text": "b64:RGlzdGFuY2U=",
+                "text": "b64:RGlzdGFuY2U=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Performance",
-                "text": "Performance",
-                "weight": 0
+                "answer_text": "b64:UGVyZm9ybWFuY2U=",
+                "text": "b64:UGVyZm9ybWFuY2U=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Analysis",
-        "b": "Wingspan",
-        "c": "Aerodynamics",
-        "d": "Meter",
-        "e": "Distance",
-        "f": "Performance"
+        "a": "b64:QW5hbHlzaXM=",
+        "b": "b64:V2luZ3NwYW4=",
+        "c": "b64:QWVyb2R5bmFtaWNz",
+        "d": "b64:TWV0ZXI=",
+        "e": "b64:RGlzdGFuY2U=",
+        "f": "b64:UGVyZm9ybWFuY2U="
     },
     {
         "question_name": "Question 12",
@@ -535,45 +535,45 @@
         "points": 1,
         "question text": "Which part of the airplane is responsible for creating most of the lift?",
         "url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "The wheels",
-                "text": "The wheels",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdoZWVscw==",
+                "text": "b64:VGhlIHdoZWVscw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The material",
-                "text": "The material",
-                "weight": 0
+                "answer_text": "b64:VGhlIG1hdGVyaWFs",
+                "text": "b64:VGhlIG1hdGVyaWFs",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The nose (front)",
-                "text": "The nose (front)",
-                "weight": 0
+                "answer_text": "b64:VGhlIG5vc2UgKGZyb250KQ==",
+                "text": "b64:VGhlIG5vc2UgKGZyb250KQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The tail",
-                "text": "The tail",
-                "weight": 0
+                "answer_text": "b64:VGhlIHRhaWw=",
+                "text": "b64:VGhlIHRhaWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The engine",
-                "text": "The engine",
-                "weight": 0
+                "answer_text": "b64:VGhlIGVuZ2luZQ==",
+                "text": "b64:VGhlIGVuZ2luZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The wings",
-                "text": "The wings",
-                "weight": 100
+                "answer_text": "b64:VGhlIHdpbmdz",
+                "text": "b64:VGhlIHdpbmdz",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "The wheels",
-        "b": "The material",
-        "c": "The nose (front)",
-        "d": "The tail",
-        "e": "The engine",
-        "f": "The wings"
+        "a": "b64:VGhlIHdoZWVscw==",
+        "b": "b64:VGhlIG1hdGVyaWFs",
+        "c": "b64:VGhlIG5vc2UgKGZyb250KQ==",
+        "d": "b64:VGhlIHRhaWw=",
+        "e": "b64:VGhlIGVuZ2luZQ==",
+        "f": "b64:VGhlIHdpbmdz"
     },
     {
         "question_name": "Question 13",
@@ -583,45 +583,45 @@
         "points": 1,
         "question text": "What is the name for the study of how air interacts with solid objects like airplanes?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Aerodynamics",
-                "text": "Aerodynamics",
-                "weight": 100
+                "answer_text": "b64:QWVyb2R5bmFtaWNz",
+                "text": "b64:QWVyb2R5bmFtaWNz",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Design Meter",
-                "text": "Design Meter",
-                "weight": 0
+                "answer_text": "b64:RGVzaWduIE1ldGVy",
+                "text": "b64:RGVzaWduIE1ldGVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Scientific Reasoning",
-                "text": "Scientific Reasoning",
-                "weight": 0
+                "answer_text": "b64:U2NpZW50aWZpYyBSZWFzb25pbmc=",
+                "text": "b64:U2NpZW50aWZpYyBSZWFzb25pbmc=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Material Science",
-                "text": "Material Science",
-                "weight": 0
+                "answer_text": "b64:TWF0ZXJpYWwgU2NpZW5jZQ==",
+                "text": "b64:TWF0ZXJpYWwgU2NpZW5jZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Weight Analysis",
-                "text": "Weight Analysis",
-                "weight": 0
+                "answer_text": "b64:V2VpZ2h0IEFuYWx5c2lz",
+                "text": "b64:V2VpZ2h0IEFuYWx5c2lz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Performance Trial",
-                "text": "Performance Trial",
-                "weight": 0
+                "answer_text": "b64:UGVyZm9ybWFuY2UgVHJpYWw=",
+                "text": "b64:UGVyZm9ybWFuY2UgVHJpYWw=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Aerodynamics",
-        "b": "Design Meter",
-        "c": "Scientific Reasoning",
-        "d": "Material Science",
-        "e": "Weight Analysis",
-        "f": "Performance Trial"
+        "a": "b64:QWVyb2R5bmFtaWNz",
+        "b": "b64:RGVzaWduIE1ldGVy",
+        "c": "b64:U2NpZW50aWZpYyBSZWFzb25pbmc=",
+        "d": "b64:TWF0ZXJpYWwgU2NpZW5jZQ==",
+        "e": "b64:V2VpZ2h0IEFuYWx5c2lz",
+        "f": "b64:UGVyZm9ybWFuY2UgVHJpYWw="
     },
     {
         "question_name": "Question 14",
@@ -631,45 +631,45 @@
         "points": 1,
         "question text": "Which unit of measurement would you use to measure how many meters your plane flew?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Gram",
-                "text": "Gram",
-                "weight": 0
+                "answer_text": "b64:R3JhbQ==",
+                "text": "b64:R3JhbQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Second",
-                "text": "Second",
-                "weight": 0
+                "answer_text": "b64:U2Vjb25k",
+                "text": "b64:U2Vjb25k",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Liter",
-                "text": "Liter",
-                "weight": 0
+                "answer_text": "b64:TGl0ZXI=",
+                "text": "b64:TGl0ZXI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Kilogram",
-                "text": "Kilogram",
-                "weight": 0
+                "answer_text": "b64:S2lsb2dyYW0=",
+                "text": "b64:S2lsb2dyYW0=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Meter",
-                "text": "Meter",
-                "weight": 100
+                "answer_text": "b64:TWV0ZXI=",
+                "text": "b64:TWV0ZXI=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Degree",
-                "text": "Degree",
-                "weight": 0
+                "answer_text": "b64:RGVncmVl",
+                "text": "b64:RGVncmVl",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Gram",
-        "b": "Second",
-        "c": "Liter",
-        "d": "Kilogram",
-        "e": "Meter",
-        "f": "Degree"
+        "a": "b64:R3JhbQ==",
+        "b": "b64:U2Vjb25k",
+        "c": "b64:TGl0ZXI=",
+        "d": "b64:S2lsb2dyYW0=",
+        "e": "b64:TWV0ZXI=",
+        "f": "b64:RGVncmVl"
     },
     {
         "question_name": "Question 15",
@@ -679,45 +679,45 @@
         "points": 1,
         "question text": "In a science experiment, what do we call a single test conducted to check performance?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "A weight",
-                "text": "A weight",
-                "weight": 0
+                "answer_text": "b64:QSB3ZWlnaHQ=",
+                "text": "b64:QSB3ZWlnaHQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A trial",
-                "text": "A trial",
-                "weight": 100
+                "answer_text": "b64:QSB0cmlhbA==",
+                "text": "b64:QSB0cmlhbA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A design",
-                "text": "A design",
-                "weight": 0
+                "answer_text": "b64:QSBkZXNpZ24=",
+                "text": "b64:QSBkZXNpZ24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A lift",
-                "text": "A lift",
-                "weight": 0
+                "answer_text": "b64:QSBsaWZ0",
+                "text": "b64:QSBsaWZ0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A drag",
-                "text": "A drag",
-                "weight": 0
+                "answer_text": "b64:QSBkcmFn",
+                "text": "b64:QSBkcmFn",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A thrust",
-                "text": "A thrust",
-                "weight": 0
+                "answer_text": "b64:QSB0aHJ1c3Q=",
+                "text": "b64:QSB0aHJ1c3Q=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "A weight",
-        "b": "A trial",
-        "c": "A design",
-        "d": "A lift",
-        "e": "A drag",
-        "f": "A thrust"
+        "a": "b64:QSB3ZWlnaHQ=",
+        "b": "b64:QSB0cmlhbA==",
+        "c": "b64:QSBkZXNpZ24=",
+        "d": "b64:QSBsaWZ0",
+        "e": "b64:QSBkcmFn",
+        "f": "b64:QSB0aHJ1c3Q="
     },
     {
         "question_name": "Question 16",
@@ -727,45 +727,45 @@
         "points": 1,
         "question text": "Drag is caused by differences in air pressure or by what?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Airborne",
-                "text": "Airborne",
-                "weight": 0
+                "answer_text": "b64:QWlyYm9ybmU=",
+                "text": "b64:QWlyYm9ybmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Lift",
-                "text": "Lift",
-                "weight": 0
+                "answer_text": "b64:TGlmdA==",
+                "text": "b64:TGlmdA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Design",
-                "text": "Design",
-                "weight": 0
+                "answer_text": "b64:RGVzaWdu",
+                "text": "b64:RGVzaWdu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Friction",
-                "text": "Friction",
-                "weight": 100
+                "answer_text": "b64:RnJpY3Rpb24=",
+                "text": "b64:RnJpY3Rpb24=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Gravity",
-                "text": "Gravity",
-                "weight": 0
+                "answer_text": "b64:R3Jhdml0eQ==",
+                "text": "b64:R3Jhdml0eQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Weight",
-                "text": "Weight",
-                "weight": 0
+                "answer_text": "b64:V2VpZ2h0",
+                "text": "b64:V2VpZ2h0",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Airborne",
-        "b": "Lift",
-        "c": "Design",
-        "d": "Friction",
-        "e": "Gravity",
-        "f": "Weight"
+        "a": "b64:QWlyYm9ybmU=",
+        "b": "b64:TGlmdA==",
+        "c": "b64:RGVzaWdu",
+        "d": "b64:RnJpY3Rpb24=",
+        "e": "b64:R3Jhdml0eQ==",
+        "f": "b64:V2VpZ2h0"
     },
     {
         "question_name": "Question 17",
@@ -775,45 +775,45 @@
         "points": 1,
         "question text": "What do we call the substance (like paper) that an object is made from?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Analysis",
-                "text": "Analysis",
-                "weight": 0
+                "answer_text": "b64:QW5hbHlzaXM=",
+                "text": "b64:QW5hbHlzaXM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Wingspan",
-                "text": "Wingspan",
-                "weight": 0
+                "answer_text": "b64:V2luZ3NwYW4=",
+                "text": "b64:V2luZ3NwYW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Material",
-                "text": "Material",
-                "weight": 100
+                "answer_text": "b64:TWF0ZXJpYWw=",
+                "text": "b64:TWF0ZXJpYWw=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Trial",
-                "text": "Trial",
-                "weight": 0
+                "answer_text": "b64:VHJpYWw=",
+                "text": "b64:VHJpYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Thrust",
-                "text": "Thrust",
-                "weight": 0
+                "answer_text": "b64:VGhydXN0",
+                "text": "b64:VGhydXN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Performance",
-                "text": "Performance",
-                "weight": 0
+                "answer_text": "b64:UGVyZm9ybWFuY2U=",
+                "text": "b64:UGVyZm9ybWFuY2U=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Analysis",
-        "b": "Wingspan",
-        "c": "Material",
-        "d": "Trial",
-        "e": "Thrust",
-        "f": "Performance"
+        "a": "b64:QW5hbHlzaXM=",
+        "b": "b64:V2luZ3NwYW4=",
+        "c": "b64:TWF0ZXJpYWw=",
+        "d": "b64:VHJpYWw=",
+        "e": "b64:VGhydXN0",
+        "f": "b64:UGVyZm9ybWFuY2U="
     },
     {
         "question_name": "Question 18",
@@ -823,45 +823,45 @@
         "points": 1,
         "question text": "Air moves slower under the wing, which creates a lifting force. Where is this high pressure located?",
         "url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "Above the wing",
-                "text": "Above the wing",
-                "weight": 0
+                "answer_text": "b64:QWJvdmUgdGhlIHdpbmc=",
+                "text": "b64:QWJvdmUgdGhlIHdpbmc=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "At the back of the plane",
-                "text": "At the back of the plane",
-                "weight": 0
+                "answer_text": "b64:QXQgdGhlIGJhY2sgb2YgdGhlIHBsYW5l",
+                "text": "b64:QXQgdGhlIGJhY2sgb2YgdGhlIHBsYW5l",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Inside the paper",
-                "text": "Inside the paper",
-                "weight": 0
+                "answer_text": "b64:SW5zaWRlIHRoZSBwYXBlcg==",
+                "text": "b64:SW5zaWRlIHRoZSBwYXBlcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "At the front of the plane",
-                "text": "At the front of the plane",
-                "weight": 0
+                "answer_text": "b64:QXQgdGhlIGZyb250IG9mIHRoZSBwbGFuZQ==",
+                "text": "b64:QXQgdGhlIGZyb250IG9mIHRoZSBwbGFuZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "In the person's hand",
-                "text": "In the person's hand",
-                "weight": 0
+                "answer_text": "b64:SW4gdGhlIHBlcnNvbidzIGhhbmQ=",
+                "text": "b64:SW4gdGhlIHBlcnNvbidzIGhhbmQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Under the wing",
-                "text": "Under the wing",
-                "weight": 100
+                "answer_text": "b64:VW5kZXIgdGhlIHdpbmc=",
+                "text": "b64:VW5kZXIgdGhlIHdpbmc=",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Above the wing",
-        "b": "At the back of the plane",
-        "c": "Inside the paper",
-        "d": "At the front of the plane",
-        "e": "In the person's hand",
-        "f": "Under the wing"
+        "a": "b64:QWJvdmUgdGhlIHdpbmc=",
+        "b": "b64:QXQgdGhlIGJhY2sgb2YgdGhlIHBsYW5l",
+        "c": "b64:SW5zaWRlIHRoZSBwYXBlcg==",
+        "d": "b64:QXQgdGhlIGZyb250IG9mIHRoZSBwbGFuZQ==",
+        "e": "b64:SW4gdGhlIHBlcnNvbidzIGhhbmQ=",
+        "f": "b64:VW5kZXIgdGhlIHdpbmc="
     },
     {
         "question_name": "Question 19",
@@ -885,50 +885,50 @@
         "correct ans index": " ",
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

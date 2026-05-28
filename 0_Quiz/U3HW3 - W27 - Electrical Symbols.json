@@ -6,39 +6,39 @@
         "points": 8.0,
         "answers": [
             {
-                "answer_match_left": "1",
-                "answer_match_right": "ammeter"
+                "answer_match_left": "b64:MQ==",
+                "answer_match_right": "b64:YW1tZXRlcg=="
             },
             {
-                "answer_match_left": "2",
-                "answer_match_right": "battery"
+                "answer_match_left": "b64:Mg==",
+                "answer_match_right": "b64:YmF0dGVyeQ=="
             },
             {
-                "answer_match_left": "3",
-                "answer_match_right": "bulb"
+                "answer_match_left": "b64:Mw==",
+                "answer_match_right": "b64:YnVsYg=="
             },
             {
-                "answer_match_left": "4",
-                "answer_match_right": "series circuit"
+                "answer_match_left": "b64:NA==",
+                "answer_match_right": "b64:c2VyaWVzIGNpcmN1aXQ="
             },
             {
-                "answer_match_left": "5",
-                "answer_match_right": "parallel circuit"
+                "answer_match_left": "b64:NQ==",
+                "answer_match_right": "b64:cGFyYWxsZWwgY2lyY3VpdA=="
             },
             {
-                "answer_match_left": "6",
-                "answer_match_right": "wire"
+                "answer_match_left": "b64:Ng==",
+                "answer_match_right": "b64:d2lyZQ=="
             },
             {
-                "answer_match_left": "7",
-                "answer_match_right": "voltmeter"
+                "answer_match_left": "b64:Nw==",
+                "answer_match_right": "b64:dm9sdG1ldGVy"
             },
             {
-                "answer_match_left": "8",
-                "answer_match_right": "switch"
+                "answer_match_left": "b64:OA==",
+                "answer_match_right": "b64:c3dpdGNo"
             }
         ],
-        "matching_answer_incorrect_matches": "LPG\nGDP\nGPT\nIodine"
+        "matching_answer_incorrect_matches": "b64:TFBHCkdEUApHUFQKSW9kaW5l"
     },
     {
         "type": "matching_question",
@@ -47,39 +47,39 @@
         "points": 8.0,
         "answers": [
             {
-                "answer_match_left": "9",
-                "answer_match_right": "LED"
+                "answer_match_left": "b64:OQ==",
+                "answer_match_right": "b64:TEVE"
             },
             {
-                "answer_match_left": "10",
-                "answer_match_right": "variable resistor"
+                "answer_match_left": "b64:MTA=",
+                "answer_match_right": "b64:dmFyaWFibGUgcmVzaXN0b3I="
             },
             {
-                "answer_match_left": "11",
-                "answer_match_right": "fixed resistor"
+                "answer_match_left": "b64:MTE=",
+                "answer_match_right": "b64:Zml4ZWQgcmVzaXN0b3I="
             },
             {
-                "answer_match_left": "12",
-                "answer_match_right": "fuse"
+                "answer_match_left": "b64:MTI=",
+                "answer_match_right": "b64:ZnVzZQ=="
             },
             {
-                "answer_match_left": "13",
-                "answer_match_right": "cell"
+                "answer_match_left": "b64:MTM=",
+                "answer_match_right": "b64:Y2VsbA=="
             },
             {
-                "answer_match_left": "14",
-                "answer_match_right": "diode"
+                "answer_match_left": "b64:MTQ=",
+                "answer_match_right": "b64:ZGlvZGU="
             },
             {
-                "answer_match_left": "15",
-                "answer_match_right": "thermistor"
+                "answer_match_left": "b64:MTU=",
+                "answer_match_right": "b64:dGhlcm1pc3Rvcg=="
             },
             {
-                "answer_match_left": "16",
-                "answer_match_right": "LDR"
+                "answer_match_left": "b64:MTY=",
+                "answer_match_right": "b64:TERS"
             }
         ],
-        "matching_answer_incorrect_matches": "LPG\nGDP\nGPT\nIodine"
+        "matching_answer_incorrect_matches": "b64:TFBHCkdEUApHUFQKSW9kaW5l"
     },
     {
         "question_name": "Question 3",
@@ -113,51 +113,51 @@
         "consume_choices": false,
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     },
     {
         "quiz_metadata": {

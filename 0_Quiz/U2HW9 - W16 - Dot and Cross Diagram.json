@@ -10,16 +10,16 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "Cl₂"
+                "answer_text": "b64:Q2zigoI="
             }
         ],
         "distractors": [
-            "Cl",
-            "CL",
-            "2CL",
-            "CL₂",
-            "cL",
-            "cL₂"
+            "b64:Q2w=",
+            "b64:Q0w=",
+            "b64:MkNM",
+            "b64:Q0zigoI=",
+            "b64:Y0w=",
+            "b64:Y0zigoI="
         ]
     },
     {
@@ -33,15 +33,15 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "2"
+                "answer_text": "b64:Mg=="
             }
         ],
         "distractors": [
-            "0",
-            "1",
-            "3",
-            "4",
-            "5"
+            "b64:MA==",
+            "b64:MQ==",
+            "b64:Mw==",
+            "b64:NA==",
+            "b64:NQ=="
         ]
     },
     {
@@ -55,13 +55,13 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "A"
+                "answer_text": "b64:QQ=="
             }
         ],
         "distractors": [
-            "B",
-            "C",
-            "D"
+            "b64:Qg==",
+            "b64:Qw==",
+            "b64:RA=="
         ]
     },
     {
@@ -75,13 +75,13 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "B"
+                "answer_text": "b64:Qg=="
             }
         ],
         "distractors": [
-            "A",
-            "C",
-            "D"
+            "b64:QQ==",
+            "b64:Qw==",
+            "b64:RA=="
         ]
     },
     {
@@ -95,15 +95,15 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "NH₃"
+                "answer_text": "b64:TkjigoM="
             }
         ],
         "distractors": [
-            "HNHH",
-            "NH₂",
-            "NH",
-            "NH₅",
-            "N₂H₂"
+            "b64:SE5ISA==",
+            "b64:TkjigoI=",
+            "b64:Tkg=",
+            "b64:TkjigoU=",
+            "b64:TuKCgkjigoI="
         ]
     },
     {
@@ -117,15 +117,15 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "4"
+                "answer_text": "b64:NA=="
             }
         ],
         "distractors": [
-            "0",
-            "1",
-            "2",
-            "3",
-            "5"
+            "b64:MA==",
+            "b64:MQ==",
+            "b64:Mg==",
+            "b64:Mw==",
+            "b64:NQ=="
         ]
     },
     {
@@ -139,13 +139,13 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "C"
+                "answer_text": "b64:Qw=="
             }
         ],
         "distractors": [
-            "A",
-            "B",
-            "D"
+            "b64:QQ==",
+            "b64:Qg==",
+            "b64:RA=="
         ]
     },
     {
@@ -159,13 +159,13 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "A"
+                "answer_text": "b64:QQ=="
             }
         ],
         "distractors": [
-            "B",
-            "C",
-            "D"
+            "b64:Qg==",
+            "b64:Qw==",
+            "b64:RA=="
         ]
     },
     {
@@ -179,13 +179,13 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "C"
+                "answer_text": "b64:Qw=="
             }
         ],
         "distractors": [
-            "A",
-            "B",
-            "D"
+            "b64:QQ==",
+            "b64:Qg==",
+            "b64:RA=="
         ]
     },
     {
@@ -199,15 +199,15 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "H₂"
+                "answer_text": "b64:SOKCgg=="
             }
         ],
         "distractors": [
-            "H",
-            "h",
-            "h₂",
-            "2h",
-            "2H"
+            "b64:SA==",
+            "b64:aA==",
+            "b64:aOKCgg==",
+            "b64:Mmg=",
+            "b64:Mkg="
         ]
     },
     {
@@ -221,15 +221,15 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "2"
+                "answer_text": "b64:Mg=="
             }
         ],
         "distractors": [
-            "0",
-            "1",
-            "3",
-            "4",
-            "5"
+            "b64:MA==",
+            "b64:MQ==",
+            "b64:Mw==",
+            "b64:NA==",
+            "b64:NQ=="
         ]
     },
     {
@@ -243,13 +243,13 @@
         "answers": [
             {
                 "text": "",
-                "answer_text": "A"
+                "answer_text": "b64:QQ=="
             }
         ],
         "distractors": [
-            "B",
-            "C",
-            "D"
+            "b64:Qg==",
+            "b64:Qw==",
+            "b64:RA=="
         ]
     },
     {
@@ -267,14 +267,14 @@
         "correct ans index": " ",
         "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
         "url": "",
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

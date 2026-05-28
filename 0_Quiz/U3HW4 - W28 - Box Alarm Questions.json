@@ -10,45 +10,45 @@
         "question_text": "What is the testable goal when creating a protective alarm for a box?",
         "url": "",
         "question_url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "The box changes color when handled",
-                "text": "The box changes color when handled",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJveCBjaGFuZ2VzIGNvbG9yIHdoZW4gaGFuZGxlZA==",
+                "text": "b64:VGhlIGJveCBjaGFuZ2VzIGNvbG9yIHdoZW4gaGFuZGxlZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The box automatically locks itself permanently",
-                "text": "The box automatically locks itself permanently",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJveCBhdXRvbWF0aWNhbGx5IGxvY2tzIGl0c2VsZiBwZXJtYW5lbnRseQ==",
+                "text": "b64:VGhlIGJveCBhdXRvbWF0aWNhbGx5IGxvY2tzIGl0c2VsZiBwZXJtYW5lbnRseQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The battery recharges when the lid is shut",
-                "text": "The battery recharges when the lid is shut",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJhdHRlcnkgcmVjaGFyZ2VzIHdoZW4gdGhlIGxpZCBpcyBzaHV0",
+                "text": "b64:VGhlIGJhdHRlcnkgcmVjaGFyZ2VzIHdoZW4gdGhlIGxpZCBpcyBzaHV0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The alarm produces a bright flash of light",
-                "text": "The alarm produces a bright flash of light",
-                "weight": 0
+                "answer_text": "b64:VGhlIGFsYXJtIHByb2R1Y2VzIGEgYnJpZ2h0IGZsYXNoIG9mIGxpZ2h0",
+                "text": "b64:VGhlIGFsYXJtIHByb2R1Y2VzIGEgYnJpZ2h0IGZsYXNoIG9mIGxpZ2h0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The alarm buzzes when someone opens the box",
-                "text": "The alarm buzzes when someone opens the box",
-                "weight": 100
+                "answer_text": "b64:VGhlIGFsYXJtIGJ1enplcyB3aGVuIHNvbWVvbmUgb3BlbnMgdGhlIGJveA==",
+                "text": "b64:VGhlIGFsYXJtIGJ1enplcyB3aGVuIHNvbWVvbmUgb3BlbnMgdGhlIGJveA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The wires break off once the box is lifted",
-                "text": "The wires break off once the box is lifted",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdpcmVzIGJyZWFrIG9mZiBvbmNlIHRoZSBib3ggaXMgbGlmdGVk",
+                "text": "b64:VGhlIHdpcmVzIGJyZWFrIG9mZiBvbmNlIHRoZSBib3ggaXMgbGlmdGVk",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The box changes color when handled",
-        "b": "The box automatically locks itself permanently",
-        "c": "The battery recharges when the lid is shut",
-        "d": "The alarm produces a bright flash of light",
-        "e": "The alarm buzzes when someone opens the box",
-        "f": "The wires break off once the box is lifted"
+        "a": "b64:VGhlIGJveCBjaGFuZ2VzIGNvbG9yIHdoZW4gaGFuZGxlZA==",
+        "b": "b64:VGhlIGJveCBhdXRvbWF0aWNhbGx5IGxvY2tzIGl0c2VsZiBwZXJtYW5lbnRseQ==",
+        "c": "b64:VGhlIGJhdHRlcnkgcmVjaGFyZ2VzIHdoZW4gdGhlIGxpZCBpcyBzaHV0",
+        "d": "b64:VGhlIGFsYXJtIHByb2R1Y2VzIGEgYnJpZ2h0IGZsYXNoIG9mIGxpZ2h0",
+        "e": "b64:VGhlIGFsYXJtIGJ1enplcyB3aGVuIHNvbWVvbmUgb3BlbnMgdGhlIGJveA==",
+        "f": "b64:VGhlIHdpcmVzIGJyZWFrIG9mZiBvbmNlIHRoZSBib3ggaXMgbGlmdGVk"
     },
     {
         "question_name": "Question 2",
@@ -61,45 +61,45 @@
         "question_text": "Which component is typically built in by engineers to easily connect or separate two wires?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "A plastic tube",
-                "text": "A plastic tube",
-                "weight": 0
+                "answer_text": "b64:QSBwbGFzdGljIHR1YmU=",
+                "text": "b64:QSBwbGFzdGljIHR1YmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A glass pane",
-                "text": "A glass pane",
-                "weight": 0
+                "answer_text": "b64:QSBnbGFzcyBwYW5l",
+                "text": "b64:QSBnbGFzcyBwYW5l",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A rubber band",
-                "text": "A rubber band",
-                "weight": 0
+                "answer_text": "b64:QSBydWJiZXIgYmFuZA==",
+                "text": "b64:QSBydWJiZXIgYmFuZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A switch",
-                "text": "A switch",
-                "weight": 100
+                "answer_text": "b64:QSBzd2l0Y2g=",
+                "text": "b64:QSBzd2l0Y2g=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A metal brad",
-                "text": "A metal brad",
-                "weight": 0
+                "answer_text": "b64:QSBtZXRhbCBicmFk",
+                "text": "b64:QSBtZXRhbCBicmFk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A piece of string",
-                "text": "A piece of string",
-                "weight": 0
+                "answer_text": "b64:QSBwaWVjZSBvZiBzdHJpbmc=",
+                "text": "b64:QSBwaWVjZSBvZiBzdHJpbmc=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "A plastic tube",
-        "b": "A glass pane",
-        "c": "A rubber band",
-        "d": "A switch",
-        "e": "A metal brad",
-        "f": "A piece of string"
+        "a": "b64:QSBwbGFzdGljIHR1YmU=",
+        "b": "b64:QSBnbGFzcyBwYW5l",
+        "c": "b64:QSBydWJiZXIgYmFuZA==",
+        "d": "b64:QSBzd2l0Y2g=",
+        "e": "b64:QSBtZXRhbCBicmFk",
+        "f": "b64:QSBwaWVjZSBvZiBzdHJpbmc="
     },
     {
         "question_name": "Question 3",
@@ -112,45 +112,45 @@
         "question_text": "What is an electrical circuit?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "A connected loop that allows power to flow",
-                "text": "A connected loop that allows power to flow",
-                "weight": 100
+                "answer_text": "b64:QSBjb25uZWN0ZWQgbG9vcCB0aGF0IGFsbG93cyBwb3dlciB0byBmbG93",
+                "text": "b64:QSBjb25uZWN0ZWQgbG9vcCB0aGF0IGFsbG93cyBwb3dlciB0byBmbG93",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A device used strictly for sounding emergencies",
-                "text": "A device used strictly for sounding emergencies",
-                "weight": 0
+                "answer_text": "b64:QSBkZXZpY2UgdXNlZCBzdHJpY3RseSBmb3Igc291bmRpbmcgZW1lcmdlbmNpZXM=",
+                "text": "b64:QSBkZXZpY2UgdXNlZCBzdHJpY3RseSBmb3Igc291bmRpbmcgZW1lcmdlbmNpZXM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A switch that automatically controls lights",
-                "text": "A switch that automatically controls lights",
-                "weight": 0
+                "answer_text": "b64:QSBzd2l0Y2ggdGhhdCBhdXRvbWF0aWNhbGx5IGNvbnRyb2xzIGxpZ2h0cw==",
+                "text": "b64:QSBzd2l0Y2ggdGhhdCBhdXRvbWF0aWNhbGx5IGNvbnRyb2xzIGxpZ2h0cw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A type of battery used in households",
-                "text": "A type of battery used in households",
-                "weight": 0
+                "answer_text": "b64:QSB0eXBlIG9mIGJhdHRlcnkgdXNlZCBpbiBob3VzZWhvbGRz",
+                "text": "b64:QSB0eXBlIG9mIGJhdHRlcnkgdXNlZCBpbiBob3VzZWhvbGRz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A piece of rubber used to block electricity",
-                "text": "A piece of rubber used to block electricity",
-                "weight": 0
+                "answer_text": "b64:QSBwaWVjZSBvZiBydWJiZXIgdXNlZCB0byBibG9jayBlbGVjdHJpY2l0eQ==",
+                "text": "b64:QSBwaWVjZSBvZiBydWJiZXIgdXNlZCB0byBibG9jayBlbGVjdHJpY2l0eQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "An unconnected wire dangling from a ceiling",
-                "text": "An unconnected wire dangling from a ceiling",
-                "weight": 0
+                "answer_text": "b64:QW4gdW5jb25uZWN0ZWQgd2lyZSBkYW5nbGluZyBmcm9tIGEgY2VpbGluZw==",
+                "text": "b64:QW4gdW5jb25uZWN0ZWQgd2lyZSBkYW5nbGluZyBmcm9tIGEgY2VpbGluZw==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "A connected loop that allows power to flow",
-        "b": "A device used strictly for sounding emergencies",
-        "c": "A switch that automatically controls lights",
-        "d": "A type of battery used in households",
-        "e": "A piece of rubber used to block electricity",
-        "f": "An unconnected wire dangling from a ceiling"
+        "a": "b64:QSBjb25uZWN0ZWQgbG9vcCB0aGF0IGFsbG93cyBwb3dlciB0byBmbG93",
+        "b": "b64:QSBkZXZpY2UgdXNlZCBzdHJpY3RseSBmb3Igc291bmRpbmcgZW1lcmdlbmNpZXM=",
+        "c": "b64:QSBzd2l0Y2ggdGhhdCBhdXRvbWF0aWNhbGx5IGNvbnRyb2xzIGxpZ2h0cw==",
+        "d": "b64:QSB0eXBlIG9mIGJhdHRlcnkgdXNlZCBpbiBob3VzZWhvbGRz",
+        "e": "b64:QSBwaWVjZSBvZiBydWJiZXIgdXNlZCB0byBibG9jayBlbGVjdHJpY2l0eQ==",
+        "f": "b64:QW4gdW5jb25uZWN0ZWQgd2lyZSBkYW5nbGluZyBmcm9tIGEgY2VpbGluZw=="
     },
     {
         "question_name": "Question 4",
@@ -163,45 +163,45 @@
         "question_text": "What term describes materials that do not allow electricity to flow?",
         "url": "",
         "question_url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "Conductors",
-                "text": "Conductors",
-                "weight": 0
+                "answer_text": "b64:Q29uZHVjdG9ycw==",
+                "text": "b64:Q29uZHVjdG9ycw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Power sources",
-                "text": "Power sources",
-                "weight": 0
+                "answer_text": "b64:UG93ZXIgc291cmNlcw==",
+                "text": "b64:UG93ZXIgc291cmNlcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Connectors",
-                "text": "Connectors",
-                "weight": 0
+                "answer_text": "b64:Q29ubmVjdG9ycw==",
+                "text": "b64:Q29ubmVjdG9ycw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Circuits",
-                "text": "Circuits",
-                "weight": 0
+                "answer_text": "b64:Q2lyY3VpdHM=",
+                "text": "b64:Q2lyY3VpdHM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Buzzers",
-                "text": "Buzzers",
-                "weight": 0
+                "answer_text": "b64:QnV6emVycw==",
+                "text": "b64:QnV6emVycw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulators",
-                "text": "Insulators",
-                "weight": 100
+                "answer_text": "b64:SW5zdWxhdG9ycw==",
+                "text": "b64:SW5zdWxhdG9ycw==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Conductors",
-        "b": "Power sources",
-        "c": "Connectors",
-        "d": "Circuits",
-        "e": "Buzzers",
-        "f": "Insulators"
+        "a": "b64:Q29uZHVjdG9ycw==",
+        "b": "b64:UG93ZXIgc291cmNlcw==",
+        "c": "b64:Q29ubmVjdG9ycw==",
+        "d": "b64:Q2lyY3VpdHM=",
+        "e": "b64:QnV6emVycw==",
+        "f": "b64:SW5zdWxhdG9ycw=="
     },
     {
         "question_name": "Question 5",
@@ -214,45 +214,45 @@
         "question_text": "What is the primary function of a power source in a circuit?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "To break the loop of electricity",
-                "text": "To break the loop of electricity",
-                "weight": 0
+                "answer_text": "b64:VG8gYnJlYWsgdGhlIGxvb3Agb2YgZWxlY3RyaWNpdHk=",
+                "text": "b64:VG8gYnJlYWsgdGhlIGxvb3Agb2YgZWxlY3RyaWNpdHk=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To provide the energy needed for devices to work",
-                "text": "To provide the energy needed for devices to work",
-                "weight": 100
+                "answer_text": "b64:VG8gcHJvdmlkZSB0aGUgZW5lcmd5IG5lZWRlZCBmb3IgZGV2aWNlcyB0byB3b3Jr",
+                "text": "b64:VG8gcHJvdmlkZSB0aGUgZW5lcmd5IG5lZWRlZCBmb3IgZGV2aWNlcyB0byB3b3Jr",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To sound a loud buzzer during an emergency",
-                "text": "To sound a loud buzzer during an emergency",
-                "weight": 0
+                "answer_text": "b64:VG8gc291bmQgYSBsb3VkIGJ1enplciBkdXJpbmcgYW4gZW1lcmdlbmN5",
+                "text": "b64:VG8gc291bmQgYSBsb3VkIGJ1enplciBkdXJpbmcgYW4gZW1lcmdlbmN5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To act as a protective layer over wires",
-                "text": "To act as a protective layer over wires",
-                "weight": 0
+                "answer_text": "b64:VG8gYWN0IGFzIGEgcHJvdGVjdGl2ZSBsYXllciBvdmVyIHdpcmVz",
+                "text": "b64:VG8gYWN0IGFzIGEgcHJvdGVjdGl2ZSBsYXllciBvdmVyIHdpcmVz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To keep valuable items safe from intruders",
-                "text": "To keep valuable items safe from intruders",
-                "weight": 0
+                "answer_text": "b64:VG8ga2VlcCB2YWx1YWJsZSBpdGVtcyBzYWZlIGZyb20gaW50cnVkZXJz",
+                "text": "b64:VG8ga2VlcCB2YWx1YWJsZSBpdGVtcyBzYWZlIGZyb20gaW50cnVkZXJz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To separate two electrical components securely",
-                "text": "To separate two electrical components securely",
-                "weight": 0
+                "answer_text": "b64:VG8gc2VwYXJhdGUgdHdvIGVsZWN0cmljYWwgY29tcG9uZW50cyBzZWN1cmVseQ==",
+                "text": "b64:VG8gc2VwYXJhdGUgdHdvIGVsZWN0cmljYWwgY29tcG9uZW50cyBzZWN1cmVseQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To break the loop of electricity",
-        "b": "To provide the energy needed for devices to work",
-        "c": "To sound a loud buzzer during an emergency",
-        "d": "To act as a protective layer over wires",
-        "e": "To keep valuable items safe from intruders",
-        "f": "To separate two electrical components securely"
+        "a": "b64:VG8gYnJlYWsgdGhlIGxvb3Agb2YgZWxlY3RyaWNpdHk=",
+        "b": "b64:VG8gcHJvdmlkZSB0aGUgZW5lcmd5IG5lZWRlZCBmb3IgZGV2aWNlcyB0byB3b3Jr",
+        "c": "b64:VG8gc291bmQgYSBsb3VkIGJ1enplciBkdXJpbmcgYW4gZW1lcmdlbmN5",
+        "d": "b64:VG8gYWN0IGFzIGEgcHJvdGVjdGl2ZSBsYXllciBvdmVyIHdpcmVz",
+        "e": "b64:VG8ga2VlcCB2YWx1YWJsZSBpdGVtcyBzYWZlIGZyb20gaW50cnVkZXJz",
+        "f": "b64:VG8gc2VwYXJhdGUgdHdvIGVsZWN0cmljYWwgY29tcG9uZW50cyBzZWN1cmVseQ=="
     },
     {
         "question_name": "Question 6",
@@ -265,45 +265,45 @@
         "question_text": "What happens when a circuit is interrupted?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "The power source doubles its output",
-                "text": "The power source doubles its output",
-                "weight": 0
+                "answer_text": "b64:VGhlIHBvd2VyIHNvdXJjZSBkb3VibGVzIGl0cyBvdXRwdXQ=",
+                "text": "b64:VGhlIHBvd2VyIHNvdXJjZSBkb3VibGVzIGl0cyBvdXRwdXQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The wires become permanently damaged",
-                "text": "The wires become permanently damaged",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdpcmVzIGJlY29tZSBwZXJtYW5lbnRseSBkYW1hZ2Vk",
+                "text": "b64:VGhlIHdpcmVzIGJlY29tZSBwZXJtYW5lbnRseSBkYW1hZ2Vk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The power stops flowing and the device turns off",
-                "text": "The power stops flowing and the device turns off",
-                "weight": 100
+                "answer_text": "b64:VGhlIHBvd2VyIHN0b3BzIGZsb3dpbmcgYW5kIHRoZSBkZXZpY2UgdHVybnMgb2Zm",
+                "text": "b64:VGhlIHBvd2VyIHN0b3BzIGZsb3dpbmcgYW5kIHRoZSBkZXZpY2UgdHVybnMgb2Zm",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The circuit automatically redesigns itself",
-                "text": "The circuit automatically redesigns itself",
-                "weight": 0
+                "answer_text": "b64:VGhlIGNpcmN1aXQgYXV0b21hdGljYWxseSByZWRlc2lnbnMgaXRzZWxm",
+                "text": "b64:VGhlIGNpcmN1aXQgYXV0b21hdGljYWxseSByZWRlc2lnbnMgaXRzZWxm",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A switch immediately changes the direction of flow",
-                "text": "A switch immediately changes the direction of flow",
-                "weight": 0
+                "answer_text": "b64:QSBzd2l0Y2ggaW1tZWRpYXRlbHkgY2hhbmdlcyB0aGUgZGlyZWN0aW9uIG9mIGZsb3c=",
+                "text": "b64:QSBzd2l0Y2ggaW1tZWRpYXRlbHkgY2hhbmdlcyB0aGUgZGlyZWN0aW9uIG9mIGZsb3c=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The alarm buzzer gets significantly louder",
-                "text": "The alarm buzzer gets significantly louder",
-                "weight": 0
+                "answer_text": "b64:VGhlIGFsYXJtIGJ1enplciBnZXRzIHNpZ25pZmljYW50bHkgbG91ZGVy",
+                "text": "b64:VGhlIGFsYXJtIGJ1enplciBnZXRzIHNpZ25pZmljYW50bHkgbG91ZGVy",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The power source doubles its output",
-        "b": "The wires become permanently damaged",
-        "c": "The power stops flowing and the device turns off",
-        "d": "The circuit automatically redesigns itself",
-        "e": "A switch immediately changes the direction of flow",
-        "f": "The alarm buzzer gets significantly louder"
+        "a": "b64:VGhlIHBvd2VyIHNvdXJjZSBkb3VibGVzIGl0cyBvdXRwdXQ=",
+        "b": "b64:VGhlIHdpcmVzIGJlY29tZSBwZXJtYW5lbnRseSBkYW1hZ2Vk",
+        "c": "b64:VGhlIHBvd2VyIHN0b3BzIGZsb3dpbmcgYW5kIHRoZSBkZXZpY2UgdHVybnMgb2Zm",
+        "d": "b64:VGhlIGNpcmN1aXQgYXV0b21hdGljYWxseSByZWRlc2lnbnMgaXRzZWxm",
+        "e": "b64:QSBzd2l0Y2ggaW1tZWRpYXRlbHkgY2hhbmdlcyB0aGUgZGlyZWN0aW9uIG9mIGZsb3c=",
+        "f": "b64:VGhlIGFsYXJtIGJ1enplciBnZXRzIHNpZ25pZmljYW50bHkgbG91ZGVy"
     },
     {
         "question_name": "Question 7",
@@ -316,45 +316,45 @@
         "question_text": "During the redesign process, what is typically done immediately after deciding what changes to make and drawing the new design?",
         "url": "",
         "question_url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Evaluating the initial results",
-                "text": "Evaluating the initial results",
-                "weight": 0
+                "answer_text": "b64:RXZhbHVhdGluZyB0aGUgaW5pdGlhbCByZXN1bHRz",
+                "text": "b64:RXZhbHVhdGluZyB0aGUgaW5pdGlhbCByZXN1bHRz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Purchasing new treasures",
-                "text": "Purchasing new treasures",
-                "weight": 0
+                "answer_text": "b64:UHVyY2hhc2luZyBuZXcgdHJlYXN1cmVz",
+                "text": "b64:UHVyY2hhc2luZyBuZXcgdHJlYXN1cmVz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hiding the alarm materials",
-                "text": "Hiding the alarm materials",
-                "weight": 0
+                "answer_text": "b64:SGlkaW5nIHRoZSBhbGFybSBtYXRlcmlhbHM=",
+                "text": "b64:SGlkaW5nIHRoZSBhbGFybSBtYXRlcmlhbHM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Brainstorming initial concepts",
-                "text": "Brainstorming initial concepts",
-                "weight": 0
+                "answer_text": "b64:QnJhaW5zdG9ybWluZyBpbml0aWFsIGNvbmNlcHRz",
+                "text": "b64:QnJhaW5zdG9ybWluZyBpbml0aWFsIGNvbmNlcHRz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Revising or re⁻creating the model",
-                "text": "Revising or re⁻creating the model",
-                "weight": 100
+                "answer_text": "b64:UmV2aXNpbmcgb3IgcmXigbtjcmVhdGluZyB0aGUgbW9kZWw=",
+                "text": "b64:UmV2aXNpbmcgb3IgcmXigbtjcmVhdGluZyB0aGUgbW9kZWw=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Showing it to the entire class",
-                "text": "Showing it to the entire class",
-                "weight": 0
+                "answer_text": "b64:U2hvd2luZyBpdCB0byB0aGUgZW50aXJlIGNsYXNz",
+                "text": "b64:U2hvd2luZyBpdCB0byB0aGUgZW50aXJlIGNsYXNz",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Evaluating the initial results",
-        "b": "Purchasing new treasures",
-        "c": "Hiding the alarm materials",
-        "d": "Brainstorming initial concepts",
-        "e": "Revising or re⁻creating the model",
-        "f": "Showing it to the entire class"
+        "a": "b64:RXZhbHVhdGluZyB0aGUgaW5pdGlhbCByZXN1bHRz",
+        "b": "b64:UHVyY2hhc2luZyBuZXcgdHJlYXN1cmVz",
+        "c": "b64:SGlkaW5nIHRoZSBhbGFybSBtYXRlcmlhbHM=",
+        "d": "b64:QnJhaW5zdG9ybWluZyBpbml0aWFsIGNvbmNlcHRz",
+        "e": "b64:UmV2aXNpbmcgb3IgcmXigbtjcmVhdGluZyB0aGUgbW9kZWw=",
+        "f": "b64:U2hvd2luZyBpdCB0byB0aGUgZW50aXJlIGNsYXNz"
     },
     {
         "question_name": "Question 8",
@@ -367,45 +367,45 @@
         "question_text": "Which object acts as the power source in a simple battery⁻operated circuit?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "A light bulb",
-                "text": "A light bulb",
-                "weight": 0
+                "answer_text": "b64:QSBsaWdodCBidWxi",
+                "text": "b64:QSBsaWdodCBidWxi",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A piece of string",
-                "text": "A piece of string",
-                "weight": 0
+                "answer_text": "b64:QSBwaWVjZSBvZiBzdHJpbmc=",
+                "text": "b64:QSBwaWVjZSBvZiBzdHJpbmc=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "An alarm buzzer",
-                "text": "An alarm buzzer",
-                "weight": 0
+                "answer_text": "b64:QW4gYWxhcm0gYnV6emVy",
+                "text": "b64:QW4gYWxhcm0gYnV6emVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A battery",
-                "text": "A battery",
-                "weight": 100
+                "answer_text": "b64:QSBiYXR0ZXJ5",
+                "text": "b64:QSBiYXR0ZXJ5",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A switch",
-                "text": "A switch",
-                "weight": 0
+                "answer_text": "b64:QSBzd2l0Y2g=",
+                "text": "b64:QSBzd2l0Y2g=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A clothespin",
-                "text": "A clothespin",
-                "weight": 0
+                "answer_text": "b64:QSBjbG90aGVzcGlu",
+                "text": "b64:QSBjbG90aGVzcGlu",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "A light bulb",
-        "b": "A piece of string",
-        "c": "An alarm buzzer",
-        "d": "A battery",
-        "e": "A switch",
-        "f": "A clothespin"
+        "a": "b64:QSBsaWdodCBidWxi",
+        "b": "b64:QSBwaWVjZSBvZiBzdHJpbmc=",
+        "c": "b64:QW4gYWxhcm0gYnV6emVy",
+        "d": "b64:QSBiYXR0ZXJ5",
+        "e": "b64:QSBzd2l0Y2g=",
+        "f": "b64:QSBjbG90aGVzcGlu"
     },
     {
         "question_name": "Question 9",
@@ -418,45 +418,45 @@
         "question_text": "What is the primary purpose of an alarm?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "To create new loops in electrical circuits",
-                "text": "To create new loops in electrical circuits",
-                "weight": 0
+                "answer_text": "b64:VG8gY3JlYXRlIG5ldyBsb29wcyBpbiBlbGVjdHJpY2FsIGNpcmN1aXRz",
+                "text": "b64:VG8gY3JlYXRlIG5ldyBsb29wcyBpbiBlbGVjdHJpY2FsIGNpcmN1aXRz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To keep people or valuable items safe",
-                "text": "To keep people or valuable items safe",
-                "weight": 100
+                "answer_text": "b64:VG8ga2VlcCBwZW9wbGUgb3IgdmFsdWFibGUgaXRlbXMgc2FmZQ==",
+                "text": "b64:VG8ga2VlcCBwZW9wbGUgb3IgdmFsdWFibGUgaXRlbXMgc2FmZQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To provide energy to a battery",
-                "text": "To provide energy to a battery",
-                "weight": 0
+                "answer_text": "b64:VG8gcHJvdmlkZSBlbmVyZ3kgdG8gYSBiYXR0ZXJ5",
+                "text": "b64:VG8gcHJvdmlkZSBlbmVyZ3kgdG8gYSBiYXR0ZXJ5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To teach visual literacy in classrooms",
-                "text": "To teach visual literacy in classrooms",
-                "weight": 0
+                "answer_text": "b64:VG8gdGVhY2ggdmlzdWFsIGxpdGVyYWN5IGluIGNsYXNzcm9vbXM=",
+                "text": "b64:VG8gdGVhY2ggdmlzdWFsIGxpdGVyYWN5IGluIGNsYXNzcm9vbXM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To block the flow of electricity indefinitely",
-                "text": "To block the flow of electricity indefinitely",
-                "weight": 0
+                "answer_text": "b64:VG8gYmxvY2sgdGhlIGZsb3cgb2YgZWxlY3RyaWNpdHkgaW5kZWZpbml0ZWx5",
+                "text": "b64:VG8gYmxvY2sgdGhlIGZsb3cgb2YgZWxlY3RyaWNpdHkgaW5kZWZpbml0ZWx5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To replace standard light bulbs",
-                "text": "To replace standard light bulbs",
-                "weight": 0
+                "answer_text": "b64:VG8gcmVwbGFjZSBzdGFuZGFyZCBsaWdodCBidWxicw==",
+                "text": "b64:VG8gcmVwbGFjZSBzdGFuZGFyZCBsaWdodCBidWxicw==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To create new loops in electrical circuits",
-        "b": "To keep people or valuable items safe",
-        "c": "To provide energy to a battery",
-        "d": "To teach visual literacy in classrooms",
-        "e": "To block the flow of electricity indefinitely",
-        "f": "To replace standard light bulbs"
+        "a": "b64:VG8gY3JlYXRlIG5ldyBsb29wcyBpbiBlbGVjdHJpY2FsIGNpcmN1aXRz",
+        "b": "b64:VG8ga2VlcCBwZW9wbGUgb3IgdmFsdWFibGUgaXRlbXMgc2FmZQ==",
+        "c": "b64:VG8gcHJvdmlkZSBlbmVyZ3kgdG8gYSBiYXR0ZXJ5",
+        "d": "b64:VG8gdGVhY2ggdmlzdWFsIGxpdGVyYWN5IGluIGNsYXNzcm9vbXM=",
+        "e": "b64:VG8gYmxvY2sgdGhlIGZsb3cgb2YgZWxlY3RyaWNpdHkgaW5kZWZpbml0ZWx5",
+        "f": "b64:VG8gcmVwbGFjZSBzdGFuZGFyZCBsaWdodCBidWxicw=="
     },
     {
         "question_name": "Question 10",
@@ -469,45 +469,45 @@
         "question_text": "Which of the following is a common daily use for an alarm?",
         "url": "",
         "question_url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "Changing the battery in a flashlight",
-                "text": "Changing the battery in a flashlight",
-                "weight": 0
+                "answer_text": "b64:Q2hhbmdpbmcgdGhlIGJhdHRlcnkgaW4gYSBmbGFzaGxpZ2h0",
+                "text": "b64:Q2hhbmdpbmcgdGhlIGJhdHRlcnkgaW4gYSBmbGFzaGxpZ2h0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulating rubber from a power source",
-                "text": "Insulating rubber from a power source",
-                "weight": 0
+                "answer_text": "b64:SW5zdWxhdGluZyBydWJiZXIgZnJvbSBhIHBvd2VyIHNvdXJjZQ==",
+                "text": "b64:SW5zdWxhdGluZyBydWJiZXIgZnJvbSBhIHBvd2VyIHNvdXJjZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Turning off a bedroom light",
-                "text": "Turning off a bedroom light",
-                "weight": 0
+                "answer_text": "b64:VHVybmluZyBvZmYgYSBiZWRyb29tIGxpZ2h0",
+                "text": "b64:VHVybmluZyBvZmYgYSBiZWRyb29tIGxpZ2h0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Heating up toast for breakfast",
-                "text": "Heating up toast for breakfast",
-                "weight": 0
+                "answer_text": "b64:SGVhdGluZyB1cCB0b2FzdCBmb3IgYnJlYWtmYXN0",
+                "text": "b64:SGVhdGluZyB1cCB0b2FzdCBmb3IgYnJlYWtmYXN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Keeping a circuit perfectly separated",
-                "text": "Keeping a circuit perfectly separated",
-                "weight": 0
+                "answer_text": "b64:S2VlcGluZyBhIGNpcmN1aXQgcGVyZmVjdGx5IHNlcGFyYXRlZA==",
+                "text": "b64:S2VlcGluZyBhIGNpcmN1aXQgcGVyZmVjdGx5IHNlcGFyYXRlZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Reminding you to take dinner out of the oven",
-                "text": "Reminding you to take dinner out of the oven",
-                "weight": 100
+                "answer_text": "b64:UmVtaW5kaW5nIHlvdSB0byB0YWtlIGRpbm5lciBvdXQgb2YgdGhlIG92ZW4=",
+                "text": "b64:UmVtaW5kaW5nIHlvdSB0byB0YWtlIGRpbm5lciBvdXQgb2YgdGhlIG92ZW4=",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Changing the battery in a flashlight",
-        "b": "Insulating rubber from a power source",
-        "c": "Turning off a bedroom light",
-        "d": "Heating up toast for breakfast",
-        "e": "Keeping a circuit perfectly separated",
-        "f": "Reminding you to take dinner out of the oven"
+        "a": "b64:Q2hhbmdpbmcgdGhlIGJhdHRlcnkgaW4gYSBmbGFzaGxpZ2h0",
+        "b": "b64:SW5zdWxhdGluZyBydWJiZXIgZnJvbSBhIHBvd2VyIHNvdXJjZQ==",
+        "c": "b64:VHVybmluZyBvZmYgYSBiZWRyb29tIGxpZ2h0",
+        "d": "b64:SGVhdGluZyB1cCB0b2FzdCBmb3IgYnJlYWtmYXN0",
+        "e": "b64:S2VlcGluZyBhIGNpcmN1aXQgcGVyZmVjdGx5IHNlcGFyYXRlZA==",
+        "f": "b64:UmVtaW5kaW5nIHlvdSB0byB0YWtlIGRpbm5lciBvdXQgb2YgdGhlIG92ZW4="
     },
     {
         "question_name": "Question 11",
@@ -520,45 +520,45 @@
         "question_text": "How does a simple door alarm circuit function when the door opens?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Opening the door flips a glass switch",
-                "text": "Opening the door flips a glass switch",
-                "weight": 0
+                "answer_text": "b64:T3BlbmluZyB0aGUgZG9vciBmbGlwcyBhIGdsYXNzIHN3aXRjaA==",
+                "text": "b64:T3BlbmluZyB0aGUgZG9vciBmbGlwcyBhIGdsYXNzIHN3aXRjaA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The door cuts the wires with a hidden blade",
-                "text": "The door cuts the wires with a hidden blade",
-                "weight": 0
+                "answer_text": "b64:VGhlIGRvb3IgY3V0cyB0aGUgd2lyZXMgd2l0aCBhIGhpZGRlbiBibGFkZQ==",
+                "text": "b64:VGhlIGRvb3IgY3V0cyB0aGUgd2lyZXMgd2l0aCBhIGhpZGRlbiBibGFkZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A moving wire touches another wire to complete the circuit",
-                "text": "A moving wire touches another wire to complete the circuit",
-                "weight": 100
+                "answer_text": "b64:QSBtb3Zpbmcgd2lyZSB0b3VjaGVzIGFub3RoZXIgd2lyZSB0byBjb21wbGV0ZSB0aGUgY2lyY3VpdA==",
+                "text": "b64:QSBtb3Zpbmcgd2lyZSB0b3VjaGVzIGFub3RoZXIgd2lyZSB0byBjb21wbGV0ZSB0aGUgY2lyY3VpdA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The battery drops onto the floor to break the circuit",
-                "text": "The battery drops onto the floor to break the circuit",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJhdHRlcnkgZHJvcHMgb250byB0aGUgZmxvb3IgdG8gYnJlYWsgdGhlIGNpcmN1aXQ=",
+                "text": "b64:VGhlIGJhdHRlcnkgZHJvcHMgb250byB0aGUgZmxvb3IgdG8gYnJlYWsgdGhlIGNpcmN1aXQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The buzzer disconnects from the wall",
-                "text": "The buzzer disconnects from the wall",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJ1enplciBkaXNjb25uZWN0cyBmcm9tIHRoZSB3YWxs",
+                "text": "b64:VGhlIGJ1enplciBkaXNjb25uZWN0cyBmcm9tIHRoZSB3YWxs",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The alarm gets blocked by an insulator",
-                "text": "The alarm gets blocked by an insulator",
-                "weight": 0
+                "answer_text": "b64:VGhlIGFsYXJtIGdldHMgYmxvY2tlZCBieSBhbiBpbnN1bGF0b3I=",
+                "text": "b64:VGhlIGFsYXJtIGdldHMgYmxvY2tlZCBieSBhbiBpbnN1bGF0b3I=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Opening the door flips a glass switch",
-        "b": "The door cuts the wires with a hidden blade",
-        "c": "A moving wire touches another wire to complete the circuit",
-        "d": "The battery drops onto the floor to break the circuit",
-        "e": "The buzzer disconnects from the wall",
-        "f": "The alarm gets blocked by an insulator"
+        "a": "b64:T3BlbmluZyB0aGUgZG9vciBmbGlwcyBhIGdsYXNzIHN3aXRjaA==",
+        "b": "b64:VGhlIGRvb3IgY3V0cyB0aGUgd2lyZXMgd2l0aCBhIGhpZGRlbiBibGFkZQ==",
+        "c": "b64:QSBtb3Zpbmcgd2lyZSB0b3VjaGVzIGFub3RoZXIgd2lyZSB0byBjb21wbGV0ZSB0aGUgY2lyY3VpdA==",
+        "d": "b64:VGhlIGJhdHRlcnkgZHJvcHMgb250byB0aGUgZmxvb3IgdG8gYnJlYWsgdGhlIGNpcmN1aXQ=",
+        "e": "b64:VGhlIGJ1enplciBkaXNjb25uZWN0cyBmcm9tIHRoZSB3YWxs",
+        "f": "b64:VGhlIGFsYXJtIGdldHMgYmxvY2tlZCBieSBhbiBpbnN1bGF0b3I="
     },
     {
         "question_name": "Question 12",
@@ -571,45 +571,45 @@
         "question_text": "In the analogy of children holding hands in a circle, what do the hands and arms represent in an electrical circuit?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Wires connecting the parts",
-                "text": "Wires connecting the parts",
-                "weight": 100
+                "answer_text": "b64:V2lyZXMgY29ubmVjdGluZyB0aGUgcGFydHM=",
+                "text": "b64:V2lyZXMgY29ubmVjdGluZyB0aGUgcGFydHM=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The power source",
-                "text": "The power source",
-                "weight": 0
+                "answer_text": "b64:VGhlIHBvd2VyIHNvdXJjZQ==",
+                "text": "b64:VGhlIHBvd2VyIHNvdXJjZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The device needing power",
-                "text": "The device needing power",
-                "weight": 0
+                "answer_text": "b64:VGhlIGRldmljZSBuZWVkaW5nIHBvd2Vy",
+                "text": "b64:VGhlIGRldmljZSBuZWVkaW5nIHBvd2Vy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The insulators",
-                "text": "The insulators",
-                "weight": 0
+                "answer_text": "b64:VGhlIGluc3VsYXRvcnM=",
+                "text": "b64:VGhlIGluc3VsYXRvcnM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The emergency signal",
-                "text": "The emergency signal",
-                "weight": 0
+                "answer_text": "b64:VGhlIGVtZXJnZW5jeSBzaWduYWw=",
+                "text": "b64:VGhlIGVtZXJnZW5jeSBzaWduYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The switch",
-                "text": "The switch",
-                "weight": 0
+                "answer_text": "b64:VGhlIHN3aXRjaA==",
+                "text": "b64:VGhlIHN3aXRjaA==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Wires connecting the parts",
-        "b": "The power source",
-        "c": "The device needing power",
-        "d": "The insulators",
-        "e": "The emergency signal",
-        "f": "The switch"
+        "a": "b64:V2lyZXMgY29ubmVjdGluZyB0aGUgcGFydHM=",
+        "b": "b64:VGhlIHBvd2VyIHNvdXJjZQ==",
+        "c": "b64:VGhlIGRldmljZSBuZWVkaW5nIHBvd2Vy",
+        "d": "b64:VGhlIGluc3VsYXRvcnM=",
+        "e": "b64:VGhlIGVtZXJnZW5jeSBzaWduYWw=",
+        "f": "b64:VGhlIHN3aXRjaA=="
     },
     {
         "question_name": "Question 13",
@@ -622,45 +622,45 @@
         "question_text": "What are the standard sequential steps in the basic design process?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Create, Redesign, Revise, Test",
-                "text": "Create, Redesign, Revise, Test",
-                "weight": 0
+                "answer_text": "b64:Q3JlYXRlLCBSZWRlc2lnbiwgUmV2aXNlLCBUZXN0",
+                "text": "b64:Q3JlYXRlLCBSZWRlc2lnbiwgUmV2aXNlLCBUZXN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Plan, Create, Test, Evaluate",
-                "text": "Plan, Create, Test, Evaluate",
-                "weight": 100
+                "answer_text": "b64:UGxhbiwgQ3JlYXRlLCBUZXN0LCBFdmFsdWF0ZQ==",
+                "text": "b64:UGxhbiwgQ3JlYXRlLCBUZXN0LCBFdmFsdWF0ZQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Test, Plan, Evaluate, Redesign",
-                "text": "Test, Plan, Evaluate, Redesign",
-                "weight": 0
+                "answer_text": "b64:VGVzdCwgUGxhbiwgRXZhbHVhdGUsIFJlZGVzaWdu",
+                "text": "b64:VGVzdCwgUGxhbiwgRXZhbHVhdGUsIFJlZGVzaWdu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Evaluate, Create, Plan, Test",
-                "text": "Evaluate, Create, Plan, Test",
-                "weight": 0
+                "answer_text": "b64:RXZhbHVhdGUsIENyZWF0ZSwgUGxhbiwgVGVzdA==",
+                "text": "b64:RXZhbHVhdGUsIENyZWF0ZSwgUGxhbiwgVGVzdA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Plan, Evaluate, Create, Test",
-                "text": "Plan, Evaluate, Create, Test",
-                "weight": 0
+                "answer_text": "b64:UGxhbiwgRXZhbHVhdGUsIENyZWF0ZSwgVGVzdA==",
+                "text": "b64:UGxhbiwgRXZhbHVhdGUsIENyZWF0ZSwgVGVzdA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Create, Test, Plan, Evaluate",
-                "text": "Create, Test, Plan, Evaluate",
-                "weight": 0
+                "answer_text": "b64:Q3JlYXRlLCBUZXN0LCBQbGFuLCBFdmFsdWF0ZQ==",
+                "text": "b64:Q3JlYXRlLCBUZXN0LCBQbGFuLCBFdmFsdWF0ZQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Create, Redesign, Revise, Test",
-        "b": "Plan, Create, Test, Evaluate",
-        "c": "Test, Plan, Evaluate, Redesign",
-        "d": "Evaluate, Create, Plan, Test",
-        "e": "Plan, Evaluate, Create, Test",
-        "f": "Create, Test, Plan, Evaluate"
+        "a": "b64:Q3JlYXRlLCBSZWRlc2lnbiwgUmV2aXNlLCBUZXN0",
+        "b": "b64:UGxhbiwgQ3JlYXRlLCBUZXN0LCBFdmFsdWF0ZQ==",
+        "c": "b64:VGVzdCwgUGxhbiwgRXZhbHVhdGUsIFJlZGVzaWdu",
+        "d": "b64:RXZhbHVhdGUsIENyZWF0ZSwgUGxhbiwgVGVzdA==",
+        "e": "b64:UGxhbiwgRXZhbHVhdGUsIENyZWF0ZSwgVGVzdA==",
+        "f": "b64:Q3JlYXRlLCBUZXN0LCBQbGFuLCBFdmFsdWF0ZQ=="
     },
     {
         "question_name": "Question 14",
@@ -673,45 +673,45 @@
         "question_text": "When an alarm is triggered by smoke inside a building, what is its main function?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "To interrupt the main power grid",
-                "text": "To interrupt the main power grid",
-                "weight": 0
+                "answer_text": "b64:VG8gaW50ZXJydXB0IHRoZSBtYWluIHBvd2VyIGdyaWQ=",
+                "text": "b64:VG8gaW50ZXJydXB0IHRoZSBtYWluIHBvd2VyIGdyaWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To release insulators into the air",
-                "text": "To release insulators into the air",
-                "weight": 0
+                "answer_text": "b64:VG8gcmVsZWFzZSBpbnN1bGF0b3JzIGludG8gdGhlIGFpcg==",
+                "text": "b64:VG8gcmVsZWFzZSBpbnN1bGF0b3JzIGludG8gdGhlIGFpcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To shut off the circuit instantly",
-                "text": "To shut off the circuit instantly",
-                "weight": 0
+                "answer_text": "b64:VG8gc2h1dCBvZmYgdGhlIGNpcmN1aXQgaW5zdGFudGx5",
+                "text": "b64:VG8gc2h1dCBvZmYgdGhlIGNpcmN1aXQgaW5zdGFudGx5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To signal an emergency",
-                "text": "To signal an emergency",
-                "weight": 100
+                "answer_text": "b64:VG8gc2lnbmFsIGFuIGVtZXJnZW5jeQ==",
+                "text": "b64:VG8gc2lnbmFsIGFuIGVtZXJnZW5jeQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To act as a power source",
-                "text": "To act as a power source",
-                "weight": 0
+                "answer_text": "b64:VG8gYWN0IGFzIGEgcG93ZXIgc291cmNl",
+                "text": "b64:VG8gYWN0IGFzIGEgcG93ZXIgc291cmNl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To test the wire cutters",
-                "text": "To test the wire cutters",
-                "weight": 0
+                "answer_text": "b64:VG8gdGVzdCB0aGUgd2lyZSBjdXR0ZXJz",
+                "text": "b64:VG8gdGVzdCB0aGUgd2lyZSBjdXR0ZXJz",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To interrupt the main power grid",
-        "b": "To release insulators into the air",
-        "c": "To shut off the circuit instantly",
-        "d": "To signal an emergency",
-        "e": "To act as a power source",
-        "f": "To test the wire cutters"
+        "a": "b64:VG8gaW50ZXJydXB0IHRoZSBtYWluIHBvd2VyIGdyaWQ=",
+        "b": "b64:VG8gcmVsZWFzZSBpbnN1bGF0b3JzIGludG8gdGhlIGFpcg==",
+        "c": "b64:VG8gc2h1dCBvZmYgdGhlIGNpcmN1aXQgaW5zdGFudGx5",
+        "d": "b64:VG8gc2lnbmFsIGFuIGVtZXJnZW5jeQ==",
+        "e": "b64:VG8gYWN0IGFzIGEgcG93ZXIgc291cmNl",
+        "f": "b64:VG8gdGVzdCB0aGUgd2lyZSBjdXR0ZXJz"
     },
     {
         "question_name": "Question 15",
@@ -724,45 +724,45 @@
         "question_text": "Which of the following is considered a good insulator?",
         "url": "",
         "question_url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Copper wire",
-                "text": "Copper wire",
-                "weight": 0
+                "answer_text": "b64:Q29wcGVyIHdpcmU=",
+                "text": "b64:Q29wcGVyIHdpcmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Aluminum foil",
-                "text": "Aluminum foil",
-                "weight": 0
+                "answer_text": "b64:QWx1bWludW0gZm9pbA==",
+                "text": "b64:QWx1bWludW0gZm9pbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A metal brad",
-                "text": "A metal brad",
-                "weight": 0
+                "answer_text": "b64:QSBtZXRhbCBicmFk",
+                "text": "b64:QSBtZXRhbCBicmFk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A metal paperclip",
-                "text": "A metal paperclip",
-                "weight": 0
+                "answer_text": "b64:QSBtZXRhbCBwYXBlcmNsaXA=",
+                "text": "b64:QSBtZXRhbCBwYXBlcmNsaXA=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Glass",
-                "text": "Glass",
-                "weight": 100
+                "answer_text": "b64:R2xhc3M=",
+                "text": "b64:R2xhc3M=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A silver coin",
-                "text": "A silver coin",
-                "weight": 0
+                "answer_text": "b64:QSBzaWx2ZXIgY29pbg==",
+                "text": "b64:QSBzaWx2ZXIgY29pbg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Copper wire",
-        "b": "Aluminum foil",
-        "c": "A metal brad",
-        "d": "A metal paperclip",
-        "e": "Glass",
-        "f": "A silver coin"
+        "a": "b64:Q29wcGVyIHdpcmU=",
+        "b": "b64:QWx1bWludW0gZm9pbA==",
+        "c": "b64:QSBtZXRhbCBicmFk",
+        "d": "b64:QSBtZXRhbCBwYXBlcmNsaXA=",
+        "e": "b64:R2xhc3M=",
+        "f": "b64:QSBzaWx2ZXIgY29pbg=="
     },
     {
         "question_name": "Question 16",
@@ -775,45 +775,45 @@
         "question_text": "What must happen to a circuit for a connected light bulb to turn on?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "All parts must be wired together in a continuous, connected loop",
-                "text": "All parts must be wired together in a continuous, connected loop",
-                "weight": 100
+                "answer_text": "b64:QWxsIHBhcnRzIG11c3QgYmUgd2lyZWQgdG9nZXRoZXIgaW4gYSBjb250aW51b3VzLCBjb25uZWN0ZWQgbG9vcA==",
+                "text": "b64:QWxsIHBhcnRzIG11c3QgYmUgd2lyZWQgdG9nZXRoZXIgaW4gYSBjb250aW51b3VzLCBjb25uZWN0ZWQgbG9vcA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The wires must be separated by an insulator",
-                "text": "The wires must be separated by an insulator",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdpcmVzIG11c3QgYmUgc2VwYXJhdGVkIGJ5IGFuIGluc3VsYXRvcg==",
+                "text": "b64:VGhlIHdpcmVzIG11c3QgYmUgc2VwYXJhdGVkIGJ5IGFuIGluc3VsYXRvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The power source must be disconnected",
-                "text": "The power source must be disconnected",
-                "weight": 0
+                "answer_text": "b64:VGhlIHBvd2VyIHNvdXJjZSBtdXN0IGJlIGRpc2Nvbm5lY3RlZA==",
+                "text": "b64:VGhlIHBvd2VyIHNvdXJjZSBtdXN0IGJlIGRpc2Nvbm5lY3RlZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A switch must separate the two main wires",
-                "text": "A switch must separate the two main wires",
-                "weight": 0
+                "answer_text": "b64:QSBzd2l0Y2ggbXVzdCBzZXBhcmF0ZSB0aGUgdHdvIG1haW4gd2lyZXM=",
+                "text": "b64:QSBzd2l0Y2ggbXVzdCBzZXBhcmF0ZSB0aGUgdHdvIG1haW4gd2lyZXM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The battery must be placed outside the loop",
-                "text": "The battery must be placed outside the loop",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJhdHRlcnkgbXVzdCBiZSBwbGFjZWQgb3V0c2lkZSB0aGUgbG9vcA==",
+                "text": "b64:VGhlIGJhdHRlcnkgbXVzdCBiZSBwbGFjZWQgb3V0c2lkZSB0aGUgbG9vcA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A buzzer must be added to the wiring",
-                "text": "A buzzer must be added to the wiring",
-                "weight": 0
+                "answer_text": "b64:QSBidXp6ZXIgbXVzdCBiZSBhZGRlZCB0byB0aGUgd2lyaW5n",
+                "text": "b64:QSBidXp6ZXIgbXVzdCBiZSBhZGRlZCB0byB0aGUgd2lyaW5n",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "All parts must be wired together in a continuous, connected loop",
-        "b": "The wires must be separated by an insulator",
-        "c": "The power source must be disconnected",
-        "d": "A switch must separate the two main wires",
-        "e": "The battery must be placed outside the loop",
-        "f": "A buzzer must be added to the wiring"
+        "a": "b64:QWxsIHBhcnRzIG11c3QgYmUgd2lyZWQgdG9nZXRoZXIgaW4gYSBjb250aW51b3VzLCBjb25uZWN0ZWQgbG9vcA==",
+        "b": "b64:VGhlIHdpcmVzIG11c3QgYmUgc2VwYXJhdGVkIGJ5IGFuIGluc3VsYXRvcg==",
+        "c": "b64:VGhlIHBvd2VyIHNvdXJjZSBtdXN0IGJlIGRpc2Nvbm5lY3RlZA==",
+        "d": "b64:QSBzd2l0Y2ggbXVzdCBzZXBhcmF0ZSB0aGUgdHdvIG1haW4gd2lyZXM=",
+        "e": "b64:VGhlIGJhdHRlcnkgbXVzdCBiZSBwbGFjZWQgb3V0c2lkZSB0aGUgbG9vcA==",
+        "f": "b64:QSBidXp6ZXIgbXVzdCBiZSBhZGRlZCB0byB0aGUgd2lyaW5n"
     },
     {
         "question_name": "Question 17",
@@ -826,45 +826,45 @@
         "question_text": "What is the first step in the formal design process?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Building the final model",
-                "text": "Building the final model",
-                "weight": 0
+                "answer_text": "b64:QnVpbGRpbmcgdGhlIGZpbmFsIG1vZGVs",
+                "text": "b64:QnVpbGRpbmcgdGhlIGZpbmFsIG1vZGVs",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Testing the prototype",
-                "text": "Testing the prototype",
-                "weight": 0
+                "answer_text": "b64:VGVzdGluZyB0aGUgcHJvdG90eXBl",
+                "text": "b64:VGVzdGluZyB0aGUgcHJvdG90eXBl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Describing, drawing the design, and listing materials",
-                "text": "Describing, drawing the design, and listing materials",
-                "weight": 100
+                "answer_text": "b64:RGVzY3JpYmluZywgZHJhd2luZyB0aGUgZGVzaWduLCBhbmQgbGlzdGluZyBtYXRlcmlhbHM=",
+                "text": "b64:RGVzY3JpYmluZywgZHJhd2luZyB0aGUgZGVzaWduLCBhbmQgbGlzdGluZyBtYXRlcmlhbHM=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Evaluating the flaws",
-                "text": "Evaluating the flaws",
-                "weight": 0
+                "answer_text": "b64:RXZhbHVhdGluZyB0aGUgZmxhd3M=",
+                "text": "b64:RXZhbHVhdGluZyB0aGUgZmxhd3M=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Revising the broken components",
-                "text": "Revising the broken components",
-                "weight": 0
+                "answer_text": "b64:UmV2aXNpbmcgdGhlIGJyb2tlbiBjb21wb25lbnRz",
+                "text": "b64:UmV2aXNpbmcgdGhlIGJyb2tlbiBjb21wb25lbnRz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Triggering the alarm buzzer",
-                "text": "Triggering the alarm buzzer",
-                "weight": 0
+                "answer_text": "b64:VHJpZ2dlcmluZyB0aGUgYWxhcm0gYnV6emVy",
+                "text": "b64:VHJpZ2dlcmluZyB0aGUgYWxhcm0gYnV6emVy",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Building the final model",
-        "b": "Testing the prototype",
-        "c": "Describing, drawing the design, and listing materials",
-        "d": "Evaluating the flaws",
-        "e": "Revising the broken components",
-        "f": "Triggering the alarm buzzer"
+        "a": "b64:QnVpbGRpbmcgdGhlIGZpbmFsIG1vZGVs",
+        "b": "b64:VGVzdGluZyB0aGUgcHJvdG90eXBl",
+        "c": "b64:RGVzY3JpYmluZywgZHJhd2luZyB0aGUgZGVzaWduLCBhbmQgbGlzdGluZyBtYXRlcmlhbHM=",
+        "d": "b64:RXZhbHVhdGluZyB0aGUgZmxhd3M=",
+        "e": "b64:UmV2aXNpbmcgdGhlIGJyb2tlbiBjb21wb25lbnRz",
+        "f": "b64:VHJpZ2dlcmluZyB0aGUgYWxhcm0gYnV6emVy"
     },
     {
         "question_name": "Question 18",
@@ -877,45 +877,45 @@
         "question_text": "What can trigger a safety alarm in certain vehicles?",
         "url": "",
         "question_url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "Turning on the radio",
-                "text": "Turning on the radio",
-                "weight": 0
+                "answer_text": "b64:VHVybmluZyBvbiB0aGUgcmFkaW8=",
+                "text": "b64:VHVybmluZyBvbiB0aGUgcmFkaW8=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Disconnecting the battery",
-                "text": "Disconnecting the battery",
-                "weight": 0
+                "answer_text": "b64:RGlzY29ubmVjdGluZyB0aGUgYmF0dGVyeQ==",
+                "text": "b64:RGlzY29ubmVjdGluZyB0aGUgYmF0dGVyeQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Using the windshield wipers",
-                "text": "Using the windshield wipers",
-                "weight": 0
+                "answer_text": "b64:VXNpbmcgdGhlIHdpbmRzaGllbGQgd2lwZXJz",
+                "text": "b64:VXNpbmcgdGhlIHdpbmRzaGllbGQgd2lwZXJz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Turning on the bedroom light",
-                "text": "Turning on the bedroom light",
-                "weight": 0
+                "answer_text": "b64:VHVybmluZyBvbiB0aGUgYmVkcm9vbSBsaWdodA==",
+                "text": "b64:VHVybmluZyBvbiB0aGUgYmVkcm9vbSBsaWdodA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Keeping valuable items safe",
-                "text": "Keeping valuable items safe",
-                "weight": 0
+                "answer_text": "b64:S2VlcGluZyB2YWx1YWJsZSBpdGVtcyBzYWZl",
+                "text": "b64:S2VlcGluZyB2YWx1YWJsZSBpdGVtcyBzYWZl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Drifting into another lane by accident",
-                "text": "Drifting into another lane by accident",
-                "weight": 100
+                "answer_text": "b64:RHJpZnRpbmcgaW50byBhbm90aGVyIGxhbmUgYnkgYWNjaWRlbnQ=",
+                "text": "b64:RHJpZnRpbmcgaW50byBhbm90aGVyIGxhbmUgYnkgYWNjaWRlbnQ=",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Turning on the radio",
-        "b": "Disconnecting the battery",
-        "c": "Using the windshield wipers",
-        "d": "Turning on the bedroom light",
-        "e": "Keeping valuable items safe",
-        "f": "Drifting into another lane by accident"
+        "a": "b64:VHVybmluZyBvbiB0aGUgcmFkaW8=",
+        "b": "b64:RGlzY29ubmVjdGluZyB0aGUgYmF0dGVyeQ==",
+        "c": "b64:VXNpbmcgdGhlIHdpbmRzaGllbGQgd2lwZXJz",
+        "d": "b64:VHVybmluZyBvbiB0aGUgYmVkcm9vbSBsaWdodA==",
+        "e": "b64:S2VlcGluZyB2YWx1YWJsZSBpdGVtcyBzYWZl",
+        "f": "b64:RHJpZnRpbmcgaW50byBhbm90aGVyIGxhbmUgYnkgYWNjaWRlbnQ="
     },
     {
         "question_name": "Question 19",
@@ -928,45 +928,45 @@
         "question_text": "What do some switches insert between two wires to stop the flow of electricity?",
         "url": "",
         "question_url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Conductors",
-                "text": "Conductors",
-                "weight": 0
+                "answer_text": "b64:Q29uZHVjdG9ycw==",
+                "text": "b64:Q29uZHVjdG9ycw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Extra batteries",
-                "text": "Extra batteries",
-                "weight": 0
+                "answer_text": "b64:RXh0cmEgYmF0dGVyaWVz",
+                "text": "b64:RXh0cmEgYmF0dGVyaWVz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Connecting wires",
-                "text": "Connecting wires",
-                "weight": 0
+                "answer_text": "b64:Q29ubmVjdGluZyB3aXJlcw==",
+                "text": "b64:Q29ubmVjdGluZyB3aXJlcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Power sources",
-                "text": "Power sources",
-                "weight": 0
+                "answer_text": "b64:UG93ZXIgc291cmNlcw==",
+                "text": "b64:UG93ZXIgc291cmNlcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulators",
-                "text": "Insulators",
-                "weight": 100
+                "answer_text": "b64:SW5zdWxhdG9ycw==",
+                "text": "b64:SW5zdWxhdG9ycw==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Metal components",
-                "text": "Metal components",
-                "weight": 0
+                "answer_text": "b64:TWV0YWwgY29tcG9uZW50cw==",
+                "text": "b64:TWV0YWwgY29tcG9uZW50cw==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Conductors",
-        "b": "Extra batteries",
-        "c": "Connecting wires",
-        "d": "Power sources",
-        "e": "Insulators",
-        "f": "Metal components"
+        "a": "b64:Q29uZHVjdG9ycw==",
+        "b": "b64:RXh0cmEgYmF0dGVyaWVz",
+        "c": "b64:Q29ubmVjdGluZyB3aXJlcw==",
+        "d": "b64:UG93ZXIgc291cmNlcw==",
+        "e": "b64:SW5zdWxhdG9ycw==",
+        "f": "b64:TWV0YWwgY29tcG9uZW50cw=="
     },
     {
         "question_name": "Question 20",
@@ -1000,51 +1000,51 @@
         "consume_choices": false,
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     },
     {
         "quiz_metadata": {

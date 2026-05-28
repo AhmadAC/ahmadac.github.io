@@ -7,45 +7,45 @@
         "points": 1,
         "question text": "An element is located in Group 15 of the periodic table. How many valence electrons does it have?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "3",
-                "text": "3",
-                "weight": 0
+                "answer_text": "b64:Mw==",
+                "text": "b64:Mw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "15",
-                "text": "15",
-                "weight": 0
+                "answer_text": "b64:MTU=",
+                "text": "b64:MTU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "5",
-                "text": "5",
-                "weight": 100
+                "answer_text": "b64:NQ==",
+                "text": "b64:NQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "2",
-                "text": "2",
-                "weight": 0
+                "answer_text": "b64:Mg==",
+                "text": "b64:Mg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "6",
-                "text": "6",
-                "weight": 0
+                "answer_text": "b64:Ng==",
+                "text": "b64:Ng==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "8",
-                "text": "8",
-                "weight": 0
+                "answer_text": "b64:OA==",
+                "text": "b64:OA==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "3",
-        "b": "15",
-        "c": "5",
-        "d": "2",
-        "e": "6",
-        "f": "8"
+        "a": "b64:Mw==",
+        "b": "b64:MTU=",
+        "c": "b64:NQ==",
+        "d": "b64:Mg==",
+        "e": "b64:Ng==",
+        "f": "b64:OA=="
     },
     {
         "question_name": "Question 2",
@@ -55,45 +55,45 @@
         "points": 1,
         "question text": "According to periodic law, the number of shells corresponds to the period number. How many shells does an element in Period 4 have?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "1",
-                "text": "1",
-                "weight": 0
+                "answer_text": "b64:MQ==",
+                "text": "b64:MQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "2",
-                "text": "2",
-                "weight": 0
+                "answer_text": "b64:Mg==",
+                "text": "b64:Mg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "8",
-                "text": "8",
-                "weight": 0
+                "answer_text": "b64:OA==",
+                "text": "b64:OA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "4",
-                "text": "4",
-                "weight": 100
+                "answer_text": "b64:NA==",
+                "text": "b64:NA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "5",
-                "text": "5",
-                "weight": 0
+                "answer_text": "b64:NQ==",
+                "text": "b64:NQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "18",
-                "text": "18",
-                "weight": 0
+                "answer_text": "b64:MTg=",
+                "text": "b64:MTg=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "1",
-        "b": "2",
-        "c": "8",
-        "d": "4",
-        "e": "5",
-        "f": "18"
+        "a": "b64:MQ==",
+        "b": "b64:Mg==",
+        "c": "b64:OA==",
+        "d": "b64:NA==",
+        "e": "b64:NQ==",
+        "f": "b64:MTg="
     },
     {
         "question_name": "Question 3",
@@ -103,45 +103,45 @@
         "points": 1,
         "question text": "Which element corresponds to the electron configuration: 2, 8, 4?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Carbon",
-                "text": "Carbon",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9u",
+                "text": "b64:Q2FyYm9u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Magnesium",
-                "text": "Magnesium",
-                "weight": 0
+                "answer_text": "b64:TWFnbmVzaXVt",
+                "text": "b64:TWFnbmVzaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Sulfur",
-                "text": "Sulfur",
-                "weight": 0
+                "answer_text": "b64:U3VsZnVy",
+                "text": "b64:U3VsZnVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Argon",
-                "text": "Argon",
-                "weight": 0
+                "answer_text": "b64:QXJnb24=",
+                "text": "b64:QXJnb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Silicon",
-                "text": "Silicon",
-                "weight": 100
+                "answer_text": "b64:U2lsaWNvbg==",
+                "text": "b64:U2lsaWNvbg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Aluminum",
-                "text": "Aluminum",
-                "weight": 0
+                "answer_text": "b64:QWx1bWludW0=",
+                "text": "b64:QWx1bWludW0=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Carbon",
-        "b": "Magnesium",
-        "c": "Sulfur",
-        "d": "Argon",
-        "e": "Silicon",
-        "f": "Aluminum"
+        "a": "b64:Q2FyYm9u",
+        "b": "b64:TWFnbmVzaXVt",
+        "c": "b64:U3VsZnVy",
+        "d": "b64:QXJnb24=",
+        "e": "b64:U2lsaWNvbg==",
+        "f": "b64:QWx1bWludW0="
     },
     {
         "question_name": "Question 4",
@@ -151,45 +151,45 @@
         "points": 1,
         "question text": "An element has 2 valence electrons and is located in Period 4 (4 shells). Identify this element.",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Magnesium",
-                "text": "Magnesium",
-                "weight": 0
+                "answer_text": "b64:TWFnbmVzaXVt",
+                "text": "b64:TWFnbmVzaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Potassium",
-                "text": "Potassium",
-                "weight": 0
+                "answer_text": "b64:UG90YXNzaXVt",
+                "text": "b64:UG90YXNzaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Calcium",
-                "text": "Calcium",
-                "weight": 100
+                "answer_text": "b64:Q2FsY2l1bQ==",
+                "text": "b64:Q2FsY2l1bQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Scandium",
-                "text": "Scandium",
-                "weight": 0
+                "answer_text": "b64:U2NhbmRpdW0=",
+                "text": "b64:U2NhbmRpdW0=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Zinc",
-                "text": "Zinc",
-                "weight": 0
+                "answer_text": "b64:WmluYw==",
+                "text": "b64:WmluYw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Beryllium",
-                "text": "Beryllium",
-                "weight": 0
+                "answer_text": "b64:QmVyeWxsaXVt",
+                "text": "b64:QmVyeWxsaXVt",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Magnesium",
-        "b": "Potassium",
-        "c": "Calcium",
-        "d": "Scandium",
-        "e": "Zinc",
-        "f": "Beryllium"
+        "a": "b64:TWFnbmVzaXVt",
+        "b": "b64:UG90YXNzaXVt",
+        "c": "b64:Q2FsY2l1bQ==",
+        "d": "b64:U2NhbmRpdW0=",
+        "e": "b64:WmluYw==",
+        "f": "b64:QmVyeWxsaXVt"
     },
     {
         "question_name": "Question 5",
@@ -199,45 +199,45 @@
         "points": 1,
         "question text": "Which element is characterized by having exactly 1 valence electron and 1 electron shell?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Helium",
-                "text": "Helium",
-                "weight": 0
+                "answer_text": "b64:SGVsaXVt",
+                "text": "b64:SGVsaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Lithium",
-                "text": "Lithium",
-                "weight": 0
+                "answer_text": "b64:TGl0aGl1bQ==",
+                "text": "b64:TGl0aGl1bQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrogen",
-                "text": "Hydrogen",
-                "weight": 100
+                "answer_text": "b64:SHlkcm9nZW4=",
+                "text": "b64:SHlkcm9nZW4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Sodium",
-                "text": "Sodium",
-                "weight": 0
+                "answer_text": "b64:U29kaXVt",
+                "text": "b64:U29kaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Boron",
-                "text": "Boron",
-                "weight": 0
+                "answer_text": "b64:Qm9yb24=",
+                "text": "b64:Qm9yb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Potassium",
-                "text": "Potassium",
-                "weight": 0
+                "answer_text": "b64:UG90YXNzaXVt",
+                "text": "b64:UG90YXNzaXVt",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Helium",
-        "b": "Lithium",
-        "c": "Hydrogen",
-        "d": "Sodium",
-        "e": "Boron",
-        "f": "Potassium"
+        "a": "b64:SGVsaXVt",
+        "b": "b64:TGl0aGl1bQ==",
+        "c": "b64:SHlkcm9nZW4=",
+        "d": "b64:U29kaXVt",
+        "e": "b64:Qm9yb24=",
+        "f": "b64:UG90YXNzaXVt"
     },
     {
         "question_name": "Question 6",
@@ -247,45 +247,45 @@
         "points": 1,
         "question text": "An element possesses 6 valence electrons and has 2 electron shells. What is the element?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Carbon",
-                "text": "Carbon",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9u",
+                "text": "b64:Q2FyYm9u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Nitrogen",
-                "text": "Nitrogen",
-                "weight": 0
+                "answer_text": "b64:Tml0cm9nZW4=",
+                "text": "b64:Tml0cm9nZW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Fluorine",
-                "text": "Fluorine",
-                "weight": 0
+                "answer_text": "b64:Rmx1b3JpbmU=",
+                "text": "b64:Rmx1b3JpbmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Oxygen",
-                "text": "Oxygen",
-                "weight": 100
+                "answer_text": "b64:T3h5Z2Vu",
+                "text": "b64:T3h5Z2Vu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Sulfur",
-                "text": "Sulfur",
-                "weight": 0
+                "answer_text": "b64:U3VsZnVy",
+                "text": "b64:U3VsZnVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Neon",
-                "text": "Neon",
-                "weight": 0
+                "answer_text": "b64:TmVvbg==",
+                "text": "b64:TmVvbg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Carbon",
-        "b": "Nitrogen",
-        "c": "Fluorine",
-        "d": "Oxygen",
-        "e": "Sulfur",
-        "f": "Neon"
+        "a": "b64:Q2FyYm9u",
+        "b": "b64:Tml0cm9nZW4=",
+        "c": "b64:Rmx1b3JpbmU=",
+        "d": "b64:T3h5Z2Vu",
+        "e": "b64:U3VsZnVy",
+        "f": "b64:TmVvbg=="
     },
     {
         "question_name": "Question 7",
@@ -295,45 +295,45 @@
         "points": 1,
         "question text": "If an element is found in Group 17, how many valence electrons does it possess?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "1",
-                "text": "1",
-                "weight": 0
+                "answer_text": "b64:MQ==",
+                "text": "b64:MQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "7",
-                "text": "7",
-                "weight": 100
+                "answer_text": "b64:Nw==",
+                "text": "b64:Nw==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "17",
-                "text": "17",
-                "weight": 0
+                "answer_text": "b64:MTc=",
+                "text": "b64:MTc=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "6",
-                "text": "6",
-                "weight": 0
+                "answer_text": "b64:Ng==",
+                "text": "b64:Ng==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "8",
-                "text": "8",
-                "weight": 0
+                "answer_text": "b64:OA==",
+                "text": "b64:OA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "2",
-                "text": "2",
-                "weight": 0
+                "answer_text": "b64:Mg==",
+                "text": "b64:Mg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "1",
-        "b": "7",
-        "c": "17",
-        "d": "6",
-        "e": "8",
-        "f": "2"
+        "a": "b64:MQ==",
+        "b": "b64:Nw==",
+        "c": "b64:MTc=",
+        "d": "b64:Ng==",
+        "e": "b64:OA==",
+        "f": "b64:Mg=="
     },
     {
         "question_name": "Question 8",
@@ -343,45 +343,45 @@
         "points": 1,
         "question text": "Which element has the full electron configuration of: 2, 8?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Argon",
-                "text": "Argon",
-                "weight": 0
+                "answer_text": "b64:QXJnb24=",
+                "text": "b64:QXJnb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Oxygen",
-                "text": "Oxygen",
-                "weight": 0
+                "answer_text": "b64:T3h5Z2Vu",
+                "text": "b64:T3h5Z2Vu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Sodium",
-                "text": "Sodium",
-                "weight": 0
+                "answer_text": "b64:U29kaXVt",
+                "text": "b64:U29kaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Fluorine",
-                "text": "Fluorine",
-                "weight": 0
+                "answer_text": "b64:Rmx1b3JpbmU=",
+                "text": "b64:Rmx1b3JpbmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Neon",
-                "text": "Neon",
-                "weight": 100
+                "answer_text": "b64:TmVvbg==",
+                "text": "b64:TmVvbg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Chlorine",
-                "text": "Chlorine",
-                "weight": 0
+                "answer_text": "b64:Q2hsb3JpbmU=",
+                "text": "b64:Q2hsb3JpbmU=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Argon",
-        "b": "Oxygen",
-        "c": "Sodium",
-        "d": "Fluorine",
-        "e": "Neon",
-        "f": "Chlorine"
+        "a": "b64:QXJnb24=",
+        "b": "b64:T3h5Z2Vu",
+        "c": "b64:U29kaXVt",
+        "d": "b64:Rmx1b3JpbmU=",
+        "e": "b64:TmVvbg==",
+        "f": "b64:Q2hsb3JpbmU="
     },
     {
         "question_name": "Question 9",
@@ -391,45 +391,45 @@
         "points": 1,
         "question text": "An element has 2 valence electrons and only 1 electron shell. Which element is this?",
         "url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "Hydrogen",
-                "text": "Hydrogen",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9nZW4=",
+                "text": "b64:SHlkcm9nZW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Lithium",
-                "text": "Lithium",
-                "weight": 0
+                "answer_text": "b64:TGl0aGl1bQ==",
+                "text": "b64:TGl0aGl1bQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Beryllium",
-                "text": "Beryllium",
-                "weight": 0
+                "answer_text": "b64:QmVyeWxsaXVt",
+                "text": "b64:QmVyeWxsaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Boron",
-                "text": "Boron",
-                "weight": 0
+                "answer_text": "b64:Qm9yb24=",
+                "text": "b64:Qm9yb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Neon",
-                "text": "Neon",
-                "weight": 0
+                "answer_text": "b64:TmVvbg==",
+                "text": "b64:TmVvbg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Helium",
-                "text": "Helium",
-                "weight": 100
+                "answer_text": "b64:SGVsaXVt",
+                "text": "b64:SGVsaXVt",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Hydrogen",
-        "b": "Lithium",
-        "c": "Beryllium",
-        "d": "Boron",
-        "e": "Neon",
-        "f": "Helium"
+        "a": "b64:SHlkcm9nZW4=",
+        "b": "b64:TGl0aGl1bQ==",
+        "c": "b64:QmVyeWxsaXVt",
+        "d": "b64:Qm9yb24=",
+        "e": "b64:TmVvbg==",
+        "f": "b64:SGVsaXVt"
     },
     {
         "question_name": "Question 10",
@@ -439,45 +439,45 @@
         "points": 1,
         "question text": "Identify the element that has 2 valence electrons and 2 electron shells.",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Lithium",
-                "text": "Lithium",
-                "weight": 0
+                "answer_text": "b64:TGl0aGl1bQ==",
+                "text": "b64:TGl0aGl1bQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Boron",
-                "text": "Boron",
-                "weight": 0
+                "answer_text": "b64:Qm9yb24=",
+                "text": "b64:Qm9yb24=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Magnesium",
-                "text": "Magnesium",
-                "weight": 0
+                "answer_text": "b64:TWFnbmVzaXVt",
+                "text": "b64:TWFnbmVzaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Beryllium",
-                "text": "Beryllium",
-                "weight": 100
+                "answer_text": "b64:QmVyeWxsaXVt",
+                "text": "b64:QmVyeWxsaXVt",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Calcium",
-                "text": "Calcium",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bQ==",
+                "text": "b64:Q2FsY2l1bQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Carbon",
-                "text": "Carbon",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9u",
+                "text": "b64:Q2FyYm9u",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Lithium",
-        "b": "Boron",
-        "c": "Magnesium",
-        "d": "Beryllium",
-        "e": "Calcium",
-        "f": "Carbon"
+        "a": "b64:TGl0aGl1bQ==",
+        "b": "b64:Qm9yb24=",
+        "c": "b64:TWFnbmVzaXVt",
+        "d": "b64:QmVyeWxsaXVt",
+        "e": "b64:Q2FsY2l1bQ==",
+        "f": "b64:Q2FyYm9u"
     },
     {
         "question_name": "Question 11",
@@ -501,50 +501,50 @@
         "correct ans index": " ",
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

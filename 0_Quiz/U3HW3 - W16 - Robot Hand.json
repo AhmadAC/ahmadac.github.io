@@ -7,45 +7,45 @@
         "points": 1,
         "question text": "What component of the human hand acts like a string to pull the fingers toward the palm?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "The tendons",
-                "text": "The tendons",
-                "weight": 100
+                "answer_text": "b64:VGhlIHRlbmRvbnM=",
+                "text": "b64:VGhlIHRlbmRvbnM=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The joints",
-                "text": "The joints",
-                "weight": 0
+                "answer_text": "b64:VGhlIGpvaW50cw==",
+                "text": "b64:VGhlIGpvaW50cw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The skin",
-                "text": "The skin",
-                "weight": 0
+                "answer_text": "b64:VGhlIHNraW4=",
+                "text": "b64:VGhlIHNraW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The fulcrum",
-                "text": "The fulcrum",
-                "weight": 0
+                "answer_text": "b64:VGhlIGZ1bGNydW0=",
+                "text": "b64:VGhlIGZ1bGNydW0=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The lever",
-                "text": "The lever",
-                "weight": 0
+                "answer_text": "b64:VGhlIGxldmVy",
+                "text": "b64:VGhlIGxldmVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The wrist",
-                "text": "The wrist",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdyaXN0",
+                "text": "b64:VGhlIHdyaXN0",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The tendons",
-        "b": "The joints",
-        "c": "The skin",
-        "d": "The fulcrum",
-        "e": "The lever",
-        "f": "The wrist"
+        "a": "b64:VGhlIHRlbmRvbnM=",
+        "b": "b64:VGhlIGpvaW50cw==",
+        "c": "b64:VGhlIHNraW4=",
+        "d": "b64:VGhlIGZ1bGNydW0=",
+        "e": "b64:VGhlIGxldmVy",
+        "f": "b64:VGhlIHdyaXN0"
     },
     {
         "question_name": "Question 2",
@@ -55,45 +55,45 @@
         "points": 1,
         "question text": "Which class of lever has the load situated in the middle?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "1st class lever",
-                "text": "1st class lever",
-                "weight": 0
+                "answer_text": "b64:MXN0IGNsYXNzIGxldmVy",
+                "text": "b64:MXN0IGNsYXNzIGxldmVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "2nd class lever",
-                "text": "2nd class lever",
-                "weight": 100
+                "answer_text": "b64:Mm5kIGNsYXNzIGxldmVy",
+                "text": "b64:Mm5kIGNsYXNzIGxldmVy",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "3rd class lever",
-                "text": "3rd class lever",
-                "weight": 0
+                "answer_text": "b64:M3JkIGNsYXNzIGxldmVy",
+                "text": "b64:M3JkIGNsYXNzIGxldmVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "4th class lever",
-                "text": "4th class lever",
-                "weight": 0
+                "answer_text": "b64:NHRoIGNsYXNzIGxldmVy",
+                "text": "b64:NHRoIGNsYXNzIGxldmVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Compound lever",
-                "text": "Compound lever",
-                "weight": 0
+                "answer_text": "b64:Q29tcG91bmQgbGV2ZXI=",
+                "text": "b64:Q29tcG91bmQgbGV2ZXI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Reverse lever",
-                "text": "Reverse lever",
-                "weight": 0
+                "answer_text": "b64:UmV2ZXJzZSBsZXZlcg==",
+                "text": "b64:UmV2ZXJzZSBsZXZlcg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "1st class lever",
-        "b": "2nd class lever",
-        "c": "3rd class lever",
-        "d": "4th class lever",
-        "e": "Compound lever",
-        "f": "Reverse lever"
+        "a": "b64:MXN0IGNsYXNzIGxldmVy",
+        "b": "b64:Mm5kIGNsYXNzIGxldmVy",
+        "c": "b64:M3JkIGNsYXNzIGxldmVy",
+        "d": "b64:NHRoIGNsYXNzIGxldmVy",
+        "e": "b64:Q29tcG91bmQgbGV2ZXI=",
+        "f": "b64:UmV2ZXJzZSBsZXZlcg=="
     },
     {
         "question_name": "Question 3",
@@ -103,45 +103,45 @@
         "points": 1,
         "question text": "A lever is used to give the user which specific benefit?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Electrical conductivity",
-                "text": "Electrical conductivity",
-                "weight": 0
+                "answer_text": "b64:RWxlY3RyaWNhbCBjb25kdWN0aXZpdHk=",
+                "text": "b64:RWxlY3RyaWNhbCBjb25kdWN0aXZpdHk=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Reduced gravity",
-                "text": "Reduced gravity",
-                "weight": 0
+                "answer_text": "b64:UmVkdWNlZCBncmF2aXR5",
+                "text": "b64:UmVkdWNlZCBncmF2aXR5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Mechanical advantage",
-                "text": "Mechanical advantage",
-                "weight": 100
+                "answer_text": "b64:TWVjaGFuaWNhbCBhZHZhbnRhZ2U=",
+                "text": "b64:TWVjaGFuaWNhbCBhZHZhbnRhZ2U=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Increased friction",
-                "text": "Increased friction",
-                "weight": 0
+                "answer_text": "b64:SW5jcmVhc2VkIGZyaWN0aW9u",
+                "text": "b64:SW5jcmVhc2VkIGZyaWN0aW9u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Thermal insulation",
-                "text": "Thermal insulation",
-                "weight": 0
+                "answer_text": "b64:VGhlcm1hbCBpbnN1bGF0aW9u",
+                "text": "b64:VGhlcm1hbCBpbnN1bGF0aW9u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A lighter load",
-                "text": "A lighter load",
-                "weight": 0
+                "answer_text": "b64:QSBsaWdodGVyIGxvYWQ=",
+                "text": "b64:QSBsaWdodGVyIGxvYWQ=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Electrical conductivity",
-        "b": "Reduced gravity",
-        "c": "Mechanical advantage",
-        "d": "Increased friction",
-        "e": "Thermal insulation",
-        "f": "A lighter load"
+        "a": "b64:RWxlY3RyaWNhbCBjb25kdWN0aXZpdHk=",
+        "b": "b64:UmVkdWNlZCBncmF2aXR5",
+        "c": "b64:TWVjaGFuaWNhbCBhZHZhbnRhZ2U=",
+        "d": "b64:SW5jcmVhc2VkIGZyaWN0aW9u",
+        "e": "b64:VGhlcm1hbCBpbnN1bGF0aW9u",
+        "f": "b64:QSBsaWdodGVyIGxvYWQ="
     },
     {
         "question_name": "Question 4",
@@ -151,45 +151,45 @@
         "points": 1,
         "question text": "How long must the designed hand hold an item to meet the stated testable goals?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "30 seconds",
-                "text": "30 seconds",
-                "weight": 0
+                "answer_text": "b64:MzAgc2Vjb25kcw==",
+                "text": "b64:MzAgc2Vjb25kcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "1 minute",
-                "text": "1 minute",
-                "weight": 0
+                "answer_text": "b64:MSBtaW51dGU=",
+                "text": "b64:MSBtaW51dGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "10 seconds",
-                "text": "10 seconds",
-                "weight": 0
+                "answer_text": "b64:MTAgc2Vjb25kcw==",
+                "text": "b64:MTAgc2Vjb25kcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "5 seconds",
-                "text": "5 seconds",
-                "weight": 100
+                "answer_text": "b64:NSBzZWNvbmRz",
+                "text": "b64:NSBzZWNvbmRz",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "20 seconds",
-                "text": "20 seconds",
-                "weight": 0
+                "answer_text": "b64:MjAgc2Vjb25kcw==",
+                "text": "b64:MjAgc2Vjb25kcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "2 seconds",
-                "text": "2 seconds",
-                "weight": 0
+                "answer_text": "b64:MiBzZWNvbmRz",
+                "text": "b64:MiBzZWNvbmRz",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "30 seconds",
-        "b": "1 minute",
-        "c": "10 seconds",
-        "d": "5 seconds",
-        "e": "20 seconds",
-        "f": "2 seconds"
+        "a": "b64:MzAgc2Vjb25kcw==",
+        "b": "b64:MSBtaW51dGU=",
+        "c": "b64:MTAgc2Vjb25kcw==",
+        "d": "b64:NSBzZWNvbmRz",
+        "e": "b64:MjAgc2Vjb25kcw==",
+        "f": "b64:MiBzZWNvbmRz"
     },
     {
         "question_name": "Question 5",
@@ -199,45 +199,45 @@
         "points": 1,
         "question text": "Which part of the human hand provides enough friction so that gripped items do not slip away?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "The muscles",
-                "text": "The muscles",
-                "weight": 0
+                "answer_text": "b64:VGhlIG11c2NsZXM=",
+                "text": "b64:VGhlIG11c2NsZXM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The wrist bone",
-                "text": "The wrist bone",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdyaXN0IGJvbmU=",
+                "text": "b64:VGhlIHdyaXN0IGJvbmU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The joints",
-                "text": "The joints",
-                "weight": 0
+                "answer_text": "b64:VGhlIGpvaW50cw==",
+                "text": "b64:VGhlIGpvaW50cw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The bones",
-                "text": "The bones",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJvbmVz",
+                "text": "b64:VGhlIGJvbmVz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The skin",
-                "text": "The skin",
-                "weight": 100
+                "answer_text": "b64:VGhlIHNraW4=",
+                "text": "b64:VGhlIHNraW4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The knuckles",
-                "text": "The knuckles",
-                "weight": 0
+                "answer_text": "b64:VGhlIGtudWNrbGVz",
+                "text": "b64:VGhlIGtudWNrbGVz",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The muscles",
-        "b": "The wrist bone",
-        "c": "The joints",
-        "d": "The bones",
-        "e": "The skin",
-        "f": "The knuckles"
+        "a": "b64:VGhlIG11c2NsZXM=",
+        "b": "b64:VGhlIHdyaXN0IGJvbmU=",
+        "c": "b64:VGhlIGpvaW50cw==",
+        "d": "b64:VGhlIGJvbmVz",
+        "e": "b64:VGhlIHNraW4=",
+        "f": "b64:VGhlIGtudWNrbGVz"
     },
     {
         "question_name": "Question 6",
@@ -247,45 +247,45 @@
         "points": 1,
         "question text": "How is the \"fulcrum\" defined in relation to a lever?",
         "url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "The place where you apply force",
-                "text": "The place where you apply force",
-                "weight": 0
+                "answer_text": "b64:VGhlIHBsYWNlIHdoZXJlIHlvdSBhcHBseSBmb3JjZQ==",
+                "text": "b64:VGhlIHBsYWNlIHdoZXJlIHlvdSBhcHBseSBmb3JjZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The object being lifted or moved",
-                "text": "The object being lifted or moved",
-                "weight": 0
+                "answer_text": "b64:VGhlIG9iamVjdCBiZWluZyBsaWZ0ZWQgb3IgbW92ZWQ=",
+                "text": "b64:VGhlIG9iamVjdCBiZWluZyBsaWZ0ZWQgb3IgbW92ZWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The rigid bar connecting the parts",
-                "text": "The rigid bar connecting the parts",
-                "weight": 0
+                "answer_text": "b64:VGhlIHJpZ2lkIGJhciBjb25uZWN0aW5nIHRoZSBwYXJ0cw==",
+                "text": "b64:VGhlIHJpZ2lkIGJhciBjb25uZWN0aW5nIHRoZSBwYXJ0cw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The weight of the load",
-                "text": "The weight of the load",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdlaWdodCBvZiB0aGUgbG9hZA==",
+                "text": "b64:VGhlIHdlaWdodCBvZiB0aGUgbG9hZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The result of mechanical advantage",
-                "text": "The result of mechanical advantage",
-                "weight": 0
+                "answer_text": "b64:VGhlIHJlc3VsdCBvZiBtZWNoYW5pY2FsIGFkdmFudGFnZQ==",
+                "text": "b64:VGhlIHJlc3VsdCBvZiBtZWNoYW5pY2FsIGFkdmFudGFnZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The place where the lever or levers are free to rotate",
-                "text": "The place where the lever or levers are free to rotate",
-                "weight": 100
+                "answer_text": "b64:VGhlIHBsYWNlIHdoZXJlIHRoZSBsZXZlciBvciBsZXZlcnMgYXJlIGZyZWUgdG8gcm90YXRl",
+                "text": "b64:VGhlIHBsYWNlIHdoZXJlIHRoZSBsZXZlciBvciBsZXZlcnMgYXJlIGZyZWUgdG8gcm90YXRl",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "The place where you apply force",
-        "b": "The object being lifted or moved",
-        "c": "The rigid bar connecting the parts",
-        "d": "The weight of the load",
-        "e": "The result of mechanical advantage",
-        "f": "The place where the lever or levers are free to rotate"
+        "a": "b64:VGhlIHBsYWNlIHdoZXJlIHlvdSBhcHBseSBmb3JjZQ==",
+        "b": "b64:VGhlIG9iamVjdCBiZWluZyBsaWZ0ZWQgb3IgbW92ZWQ=",
+        "c": "b64:VGhlIHJpZ2lkIGJhciBjb25uZWN0aW5nIHRoZSBwYXJ0cw==",
+        "d": "b64:VGhlIHdlaWdodCBvZiB0aGUgbG9hZA==",
+        "e": "b64:VGhlIHJlc3VsdCBvZiBtZWNoYW5pY2FsIGFkdmFudGFnZQ==",
+        "f": "b64:VGhlIHBsYWNlIHdoZXJlIHRoZSBsZXZlciBvciBsZXZlcnMgYXJlIGZyZWUgdG8gcm90YXRl"
     },
     {
         "question_name": "Question 7",
@@ -295,45 +295,45 @@
         "points": 1,
         "question text": "Where is the effort located in a 3rd class lever?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "In the middle",
-                "text": "In the middle",
-                "weight": 100
+                "answer_text": "b64:SW4gdGhlIG1pZGRsZQ==",
+                "text": "b64:SW4gdGhlIG1pZGRsZQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "On the far left end only",
-                "text": "On the far left end only",
-                "weight": 0
+                "answer_text": "b64:T24gdGhlIGZhciBsZWZ0IGVuZCBvbmx5",
+                "text": "b64:T24gdGhlIGZhciBsZWZ0IGVuZCBvbmx5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "On the far right end only",
-                "text": "On the far right end only",
-                "weight": 0
+                "answer_text": "b64:T24gdGhlIGZhciByaWdodCBlbmQgb25seQ==",
+                "text": "b64:T24gdGhlIGZhciByaWdodCBlbmQgb25seQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Underneath the fulcrum",
-                "text": "Underneath the fulcrum",
-                "weight": 0
+                "answer_text": "b64:VW5kZXJuZWF0aCB0aGUgZnVsY3J1bQ==",
+                "text": "b64:VW5kZXJuZWF0aCB0aGUgZnVsY3J1bQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Mixed with the load",
-                "text": "Mixed with the load",
-                "weight": 0
+                "answer_text": "b64:TWl4ZWQgd2l0aCB0aGUgbG9hZA==",
+                "text": "b64:TWl4ZWQgd2l0aCB0aGUgbG9hZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Behind the pivot point",
-                "text": "Behind the pivot point",
-                "weight": 0
+                "answer_text": "b64:QmVoaW5kIHRoZSBwaXZvdCBwb2ludA==",
+                "text": "b64:QmVoaW5kIHRoZSBwaXZvdCBwb2ludA==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "In the middle",
-        "b": "On the far left end only",
-        "c": "On the far right end only",
-        "d": "Underneath the fulcrum",
-        "e": "Mixed with the load",
-        "f": "Behind the pivot point"
+        "a": "b64:SW4gdGhlIG1pZGRsZQ==",
+        "b": "b64:T24gdGhlIGZhciBsZWZ0IGVuZCBvbmx5",
+        "c": "b64:T24gdGhlIGZhciByaWdodCBlbmQgb25seQ==",
+        "d": "b64:VW5kZXJuZWF0aCB0aGUgZnVsY3J1bQ==",
+        "e": "b64:TWl4ZWQgd2l0aCB0aGUgbG9hZA==",
+        "f": "b64:QmVoaW5kIHRoZSBwaXZvdCBwb2ludA=="
     },
     {
         "question_name": "Question 8",
@@ -343,45 +343,45 @@
         "points": 1,
         "question text": "Which term refers to how the anatomy of a real human hand influences the design?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Societal Impact",
-                "text": "Societal Impact",
-                "weight": 0
+                "answer_text": "b64:U29jaWV0YWwgSW1wYWN0",
+                "text": "b64:U29jaWV0YWwgSW1wYWN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Bio-mimicry Connection",
-                "text": "Bio-mimicry Connection",
-                "weight": 100
+                "answer_text": "b64:QmlvLW1pbWljcnkgQ29ubmVjdGlvbg==",
+                "text": "b64:QmlvLW1pbWljcnkgQ29ubmVjdGlvbg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Group Dynamics",
-                "text": "Group Dynamics",
-                "weight": 0
+                "answer_text": "b64:R3JvdXAgRHluYW1pY3M=",
+                "text": "b64:R3JvdXAgRHluYW1pY3M=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Success Criteria Analysis",
-                "text": "Success Criteria Analysis",
-                "weight": 0
+                "answer_text": "b64:U3VjY2VzcyBDcml0ZXJpYSBBbmFseXNpcw==",
+                "text": "b64:U3VjY2VzcyBDcml0ZXJpYSBBbmFseXNpcw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Accessibility & Cost",
-                "text": "Accessibility & Cost",
-                "weight": 0
+                "answer_text": "b64:QWNjZXNzaWJpbGl0eSAmIENvc3Q=",
+                "text": "b64:QWNjZXNzaWJpbGl0eSAmIENvc3Q=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Critical Failures",
-                "text": "Critical Failures",
-                "weight": 0
+                "answer_text": "b64:Q3JpdGljYWwgRmFpbHVyZXM=",
+                "text": "b64:Q3JpdGljYWwgRmFpbHVyZXM=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Societal Impact",
-        "b": "Bio-mimicry Connection",
-        "c": "Group Dynamics",
-        "d": "Success Criteria Analysis",
-        "e": "Accessibility & Cost",
-        "f": "Critical Failures"
+        "a": "b64:U29jaWV0YWwgSW1wYWN0",
+        "b": "b64:QmlvLW1pbWljcnkgQ29ubmVjdGlvbg==",
+        "c": "b64:R3JvdXAgRHluYW1pY3M=",
+        "d": "b64:U3VjY2VzcyBDcml0ZXJpYSBBbmFseXNpcw==",
+        "e": "b64:QWNjZXNzaWJpbGl0eSAmIENvc3Q=",
+        "f": "b64:Q3JpdGljYWwgRmFpbHVyZXM="
     },
     {
         "question_name": "Question 9",
@@ -391,45 +391,45 @@
         "points": 1,
         "question text": "Which anatomical component connects to the tendons and powers them?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "The bones",
-                "text": "The bones",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJvbmVz",
+                "text": "b64:VGhlIGJvbmVz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The skin",
-                "text": "The skin",
-                "weight": 0
+                "answer_text": "b64:VGhlIHNraW4=",
+                "text": "b64:VGhlIHNraW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The muscle",
-                "text": "The muscle",
-                "weight": 100
+                "answer_text": "b64:VGhlIG11c2NsZQ==",
+                "text": "b64:VGhlIG11c2NsZQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The wrist",
-                "text": "The wrist",
-                "weight": 0
+                "answer_text": "b64:VGhlIHdyaXN0",
+                "text": "b64:VGhlIHdyaXN0",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The joints",
-                "text": "The joints",
-                "weight": 0
+                "answer_text": "b64:VGhlIGpvaW50cw==",
+                "text": "b64:VGhlIGpvaW50cw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The fulcrum",
-                "text": "The fulcrum",
-                "weight": 0
+                "answer_text": "b64:VGhlIGZ1bGNydW0=",
+                "text": "b64:VGhlIGZ1bGNydW0=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The bones",
-        "b": "The skin",
-        "c": "The muscle",
-        "d": "The wrist",
-        "e": "The joints",
-        "f": "The fulcrum"
+        "a": "b64:VGhlIGJvbmVz",
+        "b": "b64:VGhlIHNraW4=",
+        "c": "b64:VGhlIG11c2NsZQ==",
+        "d": "b64:VGhlIHdyaXN0",
+        "e": "b64:VGhlIGpvaW50cw==",
+        "f": "b64:VGhlIGZ1bGNydW0="
     },
     {
         "question_name": "Question 10",
@@ -439,45 +439,45 @@
         "points": 1,
         "question text": "Why is the \"Iteration & Redesign\" step of the engineering process important for students?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "To make the project take as long as possible",
-                "text": "To make the project take as long as possible",
-                "weight": 0
+                "answer_text": "b64:VG8gbWFrZSB0aGUgcHJvamVjdCB0YWtlIGFzIGxvbmcgYXMgcG9zc2libGU=",
+                "text": "b64:VG8gbWFrZSB0aGUgcHJvamVjdCB0YWtlIGFzIGxvbmcgYXMgcG9zc2libGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To use up all the remaining glue and tape",
-                "text": "To use up all the remaining glue and tape",
-                "weight": 0
+                "answer_text": "b64:VG8gdXNlIHVwIGFsbCB0aGUgcmVtYWluaW5nIGdsdWUgYW5kIHRhcGU=",
+                "text": "b64:VG8gdXNlIHVwIGFsbCB0aGUgcmVtYWluaW5nIGdsdWUgYW5kIHRhcGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To prove that the first attempt is always perfect",
-                "text": "To prove that the first attempt is always perfect",
-                "weight": 0
+                "answer_text": "b64:VG8gcHJvdmUgdGhhdCB0aGUgZmlyc3QgYXR0ZW1wdCBpcyBhbHdheXMgcGVyZmVjdA==",
+                "text": "b64:VG8gcHJvdmUgdGhhdCB0aGUgZmlyc3QgYXR0ZW1wdCBpcyBhbHdheXMgcGVyZmVjdA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To learn from failures and improve the performance of the design",
-                "text": "To learn from failures and improve the performance of the design",
-                "weight": 100
+                "answer_text": "b64:VG8gbGVhcm4gZnJvbSBmYWlsdXJlcyBhbmQgaW1wcm92ZSB0aGUgcGVyZm9ybWFuY2Ugb2YgdGhlIGRlc2lnbg==",
+                "text": "b64:VG8gbGVhcm4gZnJvbSBmYWlsdXJlcyBhbmQgaW1wcm92ZSB0aGUgcGVyZm9ybWFuY2Ugb2YgdGhlIGRlc2lnbg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To make the robotic hand look more colorful",
-                "text": "To make the robotic hand look more colorful",
-                "weight": 0
+                "answer_text": "b64:VG8gbWFrZSB0aGUgcm9ib3RpYyBoYW5kIGxvb2sgbW9yZSBjb2xvcmZ1bA==",
+                "text": "b64:VG8gbWFrZSB0aGUgcm9ib3RpYyBoYW5kIGxvb2sgbW9yZSBjb2xvcmZ1bA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To copy exactly what the teacher built",
-                "text": "To copy exactly what the teacher built",
-                "weight": 0
+                "answer_text": "b64:VG8gY29weSBleGFjdGx5IHdoYXQgdGhlIHRlYWNoZXIgYnVpbHQ=",
+                "text": "b64:VG8gY29weSBleGFjdGx5IHdoYXQgdGhlIHRlYWNoZXIgYnVpbHQ=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To make the project take as long as possible",
-        "b": "To use up all the remaining glue and tape",
-        "c": "To prove that the first attempt is always perfect",
-        "d": "To learn from failures and improve the performance of the design",
-        "e": "To make the robotic hand look more colorful",
-        "f": "To copy exactly what the teacher built"
+        "a": "b64:VG8gbWFrZSB0aGUgcHJvamVjdCB0YWtlIGFzIGxvbmcgYXMgcG9zc2libGU=",
+        "b": "b64:VG8gdXNlIHVwIGFsbCB0aGUgcmVtYWluaW5nIGdsdWUgYW5kIHRhcGU=",
+        "c": "b64:VG8gcHJvdmUgdGhhdCB0aGUgZmlyc3QgYXR0ZW1wdCBpcyBhbHdheXMgcGVyZmVjdA==",
+        "d": "b64:VG8gbGVhcm4gZnJvbSBmYWlsdXJlcyBhbmQgaW1wcm92ZSB0aGUgcGVyZm9ybWFuY2Ugb2YgdGhlIGRlc2lnbg==",
+        "e": "b64:VG8gbWFrZSB0aGUgcm9ib3RpYyBoYW5kIGxvb2sgbW9yZSBjb2xvcmZ1bA==",
+        "f": "b64:VG8gY29weSBleGFjdGx5IHdoYXQgdGhlIHRlYWNoZXIgYnVpbHQ="
     },
     {
         "question_name": "Question 11",
@@ -487,45 +487,45 @@
         "points": 1,
         "question text": "What is the primary benefit of studying \"bio-mimicry\" (how the human hand works) before building the robot?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "To learn how to draw a hand for art class",
-                "text": "To learn how to draw a hand for art class",
-                "weight": 0
+                "answer_text": "b64:VG8gbGVhcm4gaG93IHRvIGRyYXcgYSBoYW5kIGZvciBhcnQgY2xhc3M=",
+                "text": "b64:VG8gbGVhcm4gaG93IHRvIGRyYXcgYSBoYW5kIGZvciBhcnQgY2xhc3M=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To count how many bones are in the wrist",
-                "text": "To count how many bones are in the wrist",
-                "weight": 0
+                "answer_text": "b64:VG8gY291bnQgaG93IG1hbnkgYm9uZXMgYXJlIGluIHRoZSB3cmlzdA==",
+                "text": "b64:VG8gY291bnQgaG93IG1hbnkgYm9uZXMgYXJlIGluIHRoZSB3cmlzdA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To see if human skin is waterproof",
-                "text": "To see if human skin is waterproof",
-                "weight": 0
+                "answer_text": "b64:VG8gc2VlIGlmIGh1bWFuIHNraW4gaXMgd2F0ZXJwcm9vZg==",
+                "text": "b64:VG8gc2VlIGlmIGh1bWFuIHNraW4gaXMgd2F0ZXJwcm9vZg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To determine if the robot needs fingernails",
-                "text": "To determine if the robot needs fingernails",
-                "weight": 0
+                "answer_text": "b64:VG8gZGV0ZXJtaW5lIGlmIHRoZSByb2JvdCBuZWVkcyBmaW5nZXJuYWlscw==",
+                "text": "b64:VG8gZGV0ZXJtaW5lIGlmIHRoZSByb2JvdCBuZWVkcyBmaW5nZXJuYWlscw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To understand how nature creates movement and grip to solve engineering problems",
-                "text": "To understand how nature creates movement and grip to solve engineering problems",
-                "weight": 100
+                "answer_text": "b64:VG8gdW5kZXJzdGFuZCBob3cgbmF0dXJlIGNyZWF0ZXMgbW92ZW1lbnQgYW5kIGdyaXAgdG8gc29sdmUgZW5naW5lZXJpbmcgcHJvYmxlbXM=",
+                "text": "b64:VG8gdW5kZXJzdGFuZCBob3cgbmF0dXJlIGNyZWF0ZXMgbW92ZW1lbnQgYW5kIGdyaXAgdG8gc29sdmUgZW5naW5lZXJpbmcgcHJvYmxlbXM=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To prove that robots are stronger than humans",
-                "text": "To prove that robots are stronger than humans",
-                "weight": 0
+                "answer_text": "b64:VG8gcHJvdmUgdGhhdCByb2JvdHMgYXJlIHN0cm9uZ2VyIHRoYW4gaHVtYW5z",
+                "text": "b64:VG8gcHJvdmUgdGhhdCByb2JvdHMgYXJlIHN0cm9uZ2VyIHRoYW4gaHVtYW5z",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To learn how to draw a hand for art class",
-        "b": "To count how many bones are in the wrist",
-        "c": "To see if human skin is waterproof",
-        "d": "To determine if the robot needs fingernails",
-        "e": "To understand how nature creates movement and grip to solve engineering problems",
-        "f": "To prove that robots are stronger than humans"
+        "a": "b64:VG8gbGVhcm4gaG93IHRvIGRyYXcgYSBoYW5kIGZvciBhcnQgY2xhc3M=",
+        "b": "b64:VG8gY291bnQgaG93IG1hbnkgYm9uZXMgYXJlIGluIHRoZSB3cmlzdA==",
+        "c": "b64:VG8gc2VlIGlmIGh1bWFuIHNraW4gaXMgd2F0ZXJwcm9vZg==",
+        "d": "b64:VG8gZGV0ZXJtaW5lIGlmIHRoZSByb2JvdCBuZWVkcyBmaW5nZXJuYWlscw==",
+        "e": "b64:VG8gdW5kZXJzdGFuZCBob3cgbmF0dXJlIGNyZWF0ZXMgbW92ZW1lbnQgYW5kIGdyaXAgdG8gc29sdmUgZW5naW5lZXJpbmcgcHJvYmxlbXM=",
+        "f": "b64:VG8gcHJvdmUgdGhhdCByb2JvdHMgYXJlIHN0cm9uZ2VyIHRoYW4gaHVtYW5z"
     },
     {
         "question_name": "Question 12",
@@ -535,45 +535,45 @@
         "points": 1,
         "question text": "Why are robotic grippers necessary for industries like space exploration or handling hazardous waste?",
         "url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "Because robots get lonely in space",
-                "text": "Because robots get lonely in space",
-                "weight": 0
+                "answer_text": "b64:QmVjYXVzZSByb2JvdHMgZ2V0IGxvbmVseSBpbiBzcGFjZQ==",
+                "text": "b64:QmVjYXVzZSByb2JvdHMgZ2V0IGxvbmVseSBpbiBzcGFjZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To ensure the mission costs more money",
-                "text": "To ensure the mission costs more money",
-                "weight": 0
+                "answer_text": "b64:VG8gZW5zdXJlIHRoZSBtaXNzaW9uIGNvc3RzIG1vcmUgbW9uZXk=",
+                "text": "b64:VG8gZW5zdXJlIHRoZSBtaXNzaW9uIGNvc3RzIG1vcmUgbW9uZXk=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Because robots look cooler than humans in photos",
-                "text": "Because robots look cooler than humans in photos",
-                "weight": 0
+                "answer_text": "b64:QmVjYXVzZSByb2JvdHMgbG9vayBjb29sZXIgdGhhbiBodW1hbnMgaW4gcGhvdG9z",
+                "text": "b64:QmVjYXVzZSByb2JvdHMgbG9vayBjb29sZXIgdGhhbiBodW1hbnMgaW4gcGhvdG9z",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To use up extra electricity",
-                "text": "To use up extra electricity",
-                "weight": 0
+                "answer_text": "b64:VG8gdXNlIHVwIGV4dHJhIGVsZWN0cmljaXR5",
+                "text": "b64:VG8gdXNlIHVwIGV4dHJhIGVsZWN0cmljaXR5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To prevent humans from having jobs",
-                "text": "To prevent humans from having jobs",
-                "weight": 0
+                "answer_text": "b64:VG8gcHJldmVudCBodW1hbnMgZnJvbSBoYXZpbmcgam9icw==",
+                "text": "b64:VG8gcHJldmVudCBodW1hbnMgZnJvbSBoYXZpbmcgam9icw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To perform tasks that are too dangerous or deadly for humans to do directly",
-                "text": "To perform tasks that are too dangerous or deadly for humans to do directly",
-                "weight": 100
+                "answer_text": "b64:VG8gcGVyZm9ybSB0YXNrcyB0aGF0IGFyZSB0b28gZGFuZ2Vyb3VzIG9yIGRlYWRseSBmb3IgaHVtYW5zIHRvIGRvIGRpcmVjdGx5",
+                "text": "b64:VG8gcGVyZm9ybSB0YXNrcyB0aGF0IGFyZSB0b28gZGFuZ2Vyb3VzIG9yIGRlYWRseSBmb3IgaHVtYW5zIHRvIGRvIGRpcmVjdGx5",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Because robots get lonely in space",
-        "b": "To ensure the mission costs more money",
-        "c": "Because robots look cooler than humans in photos",
-        "d": "To use up extra electricity",
-        "e": "To prevent humans from having jobs",
-        "f": "To perform tasks that are too dangerous or deadly for humans to do directly"
+        "a": "b64:QmVjYXVzZSByb2JvdHMgZ2V0IGxvbmVseSBpbiBzcGFjZQ==",
+        "b": "b64:VG8gZW5zdXJlIHRoZSBtaXNzaW9uIGNvc3RzIG1vcmUgbW9uZXk=",
+        "c": "b64:QmVjYXVzZSByb2JvdHMgbG9vayBjb29sZXIgdGhhbiBodW1hbnMgaW4gcGhvdG9z",
+        "d": "b64:VG8gdXNlIHVwIGV4dHJhIGVsZWN0cmljaXR5",
+        "e": "b64:VG8gcHJldmVudCBodW1hbnMgZnJvbSBoYXZpbmcgam9icw==",
+        "f": "b64:VG8gcGVyZm9ybSB0YXNrcyB0aGF0IGFyZSB0b28gZGFuZ2Vyb3VzIG9yIGRlYWRseSBmb3IgaHVtYW5zIHRvIGRvIGRpcmVjdGx5"
     },
     {
         "question_name": "Question 13",
@@ -583,45 +583,45 @@
         "points": 1,
         "question text": "Why is it valuable for engineers to design low-cost robotic hands instead of only expensive ones?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "To decrease the quality so the hand breaks faster",
-                "text": "To decrease the quality so the hand breaks faster",
-                "weight": 0
+                "answer_text": "b64:VG8gZGVjcmVhc2UgdGhlIHF1YWxpdHkgc28gdGhlIGhhbmQgYnJlYWtzIGZhc3Rlcg==",
+                "text": "b64:VG8gZGVjcmVhc2UgdGhlIHF1YWxpdHkgc28gdGhlIGhhbmQgYnJlYWtzIGZhc3Rlcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To make sure only wealthy people can use them",
-                "text": "To make sure only wealthy people can use them",
-                "weight": 0
+                "answer_text": "b64:VG8gbWFrZSBzdXJlIG9ubHkgd2VhbHRoeSBwZW9wbGUgY2FuIHVzZSB0aGVt",
+                "text": "b64:VG8gbWFrZSBzdXJlIG9ubHkgd2VhbHRoeSBwZW9wbGUgY2FuIHVzZSB0aGVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To make helpful technology accessible to people who cannot afford thousands of dollars",
-                "text": "To make helpful technology accessible to people who cannot afford thousands of dollars",
-                "weight": 100
+                "answer_text": "b64:VG8gbWFrZSBoZWxwZnVsIHRlY2hub2xvZ3kgYWNjZXNzaWJsZSB0byBwZW9wbGUgd2hvIGNhbm5vdCBhZmZvcmQgdGhvdXNhbmRzIG9mIGRvbGxhcnM=",
+                "text": "b64:VG8gbWFrZSBoZWxwZnVsIHRlY2hub2xvZ3kgYWNjZXNzaWJsZSB0byBwZW9wbGUgd2hvIGNhbm5vdCBhZmZvcmQgdGhvdXNhbmRzIG9mIGRvbGxhcnM=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To stop people from using robotic hands",
-                "text": "To stop people from using robotic hands",
-                "weight": 0
+                "answer_text": "b64:VG8gc3RvcCBwZW9wbGUgZnJvbSB1c2luZyByb2JvdGljIGhhbmRz",
+                "text": "b64:VG8gc3RvcCBwZW9wbGUgZnJvbSB1c2luZyByb2JvdGljIGhhbmRz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To make the hands heavier and harder to use",
-                "text": "To make the hands heavier and harder to use",
-                "weight": 0
+                "answer_text": "b64:VG8gbWFrZSB0aGUgaGFuZHMgaGVhdmllciBhbmQgaGFyZGVyIHRvIHVzZQ==",
+                "text": "b64:VG8gbWFrZSB0aGUgaGFuZHMgaGVhdmllciBhbmQgaGFyZGVyIHRvIHVzZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To avoid using modern materials",
-                "text": "To avoid using modern materials",
-                "weight": 0
+                "answer_text": "b64:VG8gYXZvaWQgdXNpbmcgbW9kZXJuIG1hdGVyaWFscw==",
+                "text": "b64:VG8gYXZvaWQgdXNpbmcgbW9kZXJuIG1hdGVyaWFscw==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To decrease the quality so the hand breaks faster",
-        "b": "To make sure only wealthy people can use them",
-        "c": "To make helpful technology accessible to people who cannot afford thousands of dollars",
-        "d": "To stop people from using robotic hands",
-        "e": "To make the hands heavier and harder to use",
-        "f": "To avoid using modern materials"
+        "a": "b64:VG8gZGVjcmVhc2UgdGhlIHF1YWxpdHkgc28gdGhlIGhhbmQgYnJlYWtzIGZhc3Rlcg==",
+        "b": "b64:VG8gbWFrZSBzdXJlIG9ubHkgd2VhbHRoeSBwZW9wbGUgY2FuIHVzZSB0aGVt",
+        "c": "b64:VG8gbWFrZSBoZWxwZnVsIHRlY2hub2xvZ3kgYWNjZXNzaWJsZSB0byBwZW9wbGUgd2hvIGNhbm5vdCBhZmZvcmQgdGhvdXNhbmRzIG9mIGRvbGxhcnM=",
+        "d": "b64:VG8gc3RvcCBwZW9wbGUgZnJvbSB1c2luZyByb2JvdGljIGhhbmRz",
+        "e": "b64:VG8gbWFrZSB0aGUgaGFuZHMgaGVhdmllciBhbmQgaGFyZGVyIHRvIHVzZQ==",
+        "f": "b64:VG8gYXZvaWQgdXNpbmcgbW9kZXJuIG1hdGVyaWFscw=="
     },
     {
         "question_name": "Question 14",
@@ -631,45 +631,45 @@
         "points": 1,
         "question text": "What key skill are students practicing when they assign roles, share responsibilities, and resolve disagreements?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Advanced calculus",
-                "text": "Advanced calculus",
-                "weight": 0
+                "answer_text": "b64:QWR2YW5jZWQgY2FsY3VsdXM=",
+                "text": "b64:QWR2YW5jZWQgY2FsY3VsdXM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Silent reading",
-                "text": "Silent reading",
-                "weight": 0
+                "answer_text": "b64:U2lsZW50IHJlYWRpbmc=",
+                "text": "b64:U2lsZW50IHJlYWRpbmc=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Competitive arguing",
-                "text": "Competitive arguing",
-                "weight": 0
+                "answer_text": "b64:Q29tcGV0aXRpdmUgYXJndWluZw==",
+                "text": "b64:Q29tcGV0aXRpdmUgYXJndWluZw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Handwriting speed",
-                "text": "Handwriting speed",
-                "weight": 0
+                "answer_text": "b64:SGFuZHdyaXRpbmcgc3BlZWQ=",
+                "text": "b64:SGFuZHdyaXRpbmcgc3BlZWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Collaboration and teamwork",
-                "text": "Collaboration and teamwork",
-                "weight": 100
+                "answer_text": "b64:Q29sbGFib3JhdGlvbiBhbmQgdGVhbXdvcms=",
+                "text": "b64:Q29sbGFib3JhdGlvbiBhbmQgdGVhbXdvcms=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Memorization of facts",
-                "text": "Memorization of facts",
-                "weight": 0
+                "answer_text": "b64:TWVtb3JpemF0aW9uIG9mIGZhY3Rz",
+                "text": "b64:TWVtb3JpemF0aW9uIG9mIGZhY3Rz",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Advanced calculus",
-        "b": "Silent reading",
-        "c": "Competitive arguing",
-        "d": "Handwriting speed",
-        "e": "Collaboration and teamwork",
-        "f": "Memorization of facts"
+        "a": "b64:QWR2YW5jZWQgY2FsY3VsdXM=",
+        "b": "b64:U2lsZW50IHJlYWRpbmc=",
+        "c": "b64:Q29tcGV0aXRpdmUgYXJndWluZw==",
+        "d": "b64:SGFuZHdyaXRpbmcgc3BlZWQ=",
+        "e": "b64:Q29sbGFib3JhdGlvbiBhbmQgdGVhbXdvcms=",
+        "f": "b64:TWVtb3JpemF0aW9uIG9mIGZhY3Rz"
     },
     {
         "question_name": "Question 15",
@@ -693,50 +693,50 @@
         "correct ans index": " ",
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

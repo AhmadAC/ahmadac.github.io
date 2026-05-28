@@ -10,45 +10,45 @@
         "question_text": "Which device turns mechanical energy into electrical energy when you turn a handle?",
         "url": "",
         "question_url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "AC",
-                "text": "AC",
-                "weight": 0
+                "answer_text": "b64:QUM=",
+                "text": "b64:QUM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "DC Motor",
-                "text": "DC Motor",
-                "weight": 0
+                "answer_text": "b64:REMgTW90b3I=",
+                "text": "b64:REMgTW90b3I=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Cell",
-                "text": "Cell",
-                "weight": 0
+                "answer_text": "b64:Q2VsbA==",
+                "text": "b64:Q2VsbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulator",
-                "text": "Insulator",
-                "weight": 0
+                "answer_text": "b64:SW5zdWxhdG9y",
+                "text": "b64:SW5zdWxhdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "LED",
-                "text": "LED",
-                "weight": 0
+                "answer_text": "b64:TEVE",
+                "text": "b64:TEVE",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hand-cranked generator",
-                "text": "Hand-cranked generator",
-                "weight": 100
+                "answer_text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "AC",
-        "b": "DC Motor",
-        "c": "Cell",
-        "d": "Insulator",
-        "e": "LED",
-        "f": "Hand-cranked generator"
+        "a": "b64:QUM=",
+        "b": "b64:REMgTW90b3I=",
+        "c": "b64:Q2VsbA==",
+        "d": "b64:SW5zdWxhdG9y",
+        "e": "b64:TEVE",
+        "f": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg=="
     },
     {
         "question_name": "Question 2",
@@ -61,45 +61,45 @@
         "question_text": "A material that is usually a metal and allows electricity to flow through it easily is called a:",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Conductor",
-                "text": "Conductor",
-                "weight": 100
+                "answer_text": "b64:Q29uZHVjdG9y",
+                "text": "b64:Q29uZHVjdG9y",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Battery",
-                "text": "Battery",
-                "weight": 0
+                "answer_text": "b64:QmF0dGVyeQ==",
+                "text": "b64:QmF0dGVyeQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Switch",
-                "text": "Switch",
-                "weight": 0
+                "answer_text": "b64:U3dpdGNo",
+                "text": "b64:U3dpdGNo",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Non-metal",
-                "text": "Non-metal",
-                "weight": 0
+                "answer_text": "b64:Tm9uLW1ldGFs",
+                "text": "b64:Tm9uLW1ldGFs",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "LED",
-                "text": "LED",
-                "weight": 0
+                "answer_text": "b64:TEVE",
+                "text": "b64:TEVE",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulator",
-                "text": "Insulator",
-                "weight": 0
+                "answer_text": "b64:SW5zdWxhdG9y",
+                "text": "b64:SW5zdWxhdG9y",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Conductor",
-        "b": "Battery",
-        "c": "Switch",
-        "d": "Non-metal",
-        "e": "LED",
-        "f": "Insulator"
+        "a": "b64:Q29uZHVjdG9y",
+        "b": "b64:QmF0dGVyeQ==",
+        "c": "b64:U3dpdGNo",
+        "d": "b64:Tm9uLW1ldGFs",
+        "e": "b64:TEVE",
+        "f": "b64:SW5zdWxhdG9y"
     },
     {
         "question_name": "Question 3",
@@ -112,45 +112,45 @@
         "question_text": "A single unit that stores chemical energy and has a positive and negative terminal is called a:",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "DC Motor",
-                "text": "DC Motor",
-                "weight": 0
+                "answer_text": "b64:REMgTW90b3I=",
+                "text": "b64:REMgTW90b3I=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Conductor",
-                "text": "Conductor",
-                "weight": 0
+                "answer_text": "b64:Q29uZHVjdG9y",
+                "text": "b64:Q29uZHVjdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Light energy",
-                "text": "Light energy",
-                "weight": 0
+                "answer_text": "b64:TGlnaHQgZW5lcmd5",
+                "text": "b64:TGlnaHQgZW5lcmd5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Cell",
-                "text": "Cell",
-                "weight": 100
+                "answer_text": "b64:Q2VsbA==",
+                "text": "b64:Q2VsbA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Switch",
-                "text": "Switch",
-                "weight": 0
+                "answer_text": "b64:U3dpdGNo",
+                "text": "b64:U3dpdGNo",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hand-cranked generator",
-                "text": "Hand-cranked generator",
-                "weight": 0
+                "answer_text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "DC Motor",
-        "b": "Conductor",
-        "c": "Light energy",
-        "d": "Cell",
-        "e": "Switch",
-        "f": "Hand-cranked generator"
+        "a": "b64:REMgTW90b3I=",
+        "b": "b64:Q29uZHVjdG9y",
+        "c": "b64:TGlnaHQgZW5lcmd5",
+        "d": "b64:Q2VsbA==",
+        "e": "b64:U3dpdGNo",
+        "f": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg=="
     },
     {
         "question_name": "Question 4",
@@ -163,45 +163,45 @@
         "question_text": "What part of a circuit can you use to \"break\" the path and turn the electricity on or off?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "AC",
-                "text": "AC",
-                "weight": 0
+                "answer_text": "b64:QUM=",
+                "text": "b64:QUM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulator",
-                "text": "Insulator",
-                "weight": 0
+                "answer_text": "b64:SW5zdWxhdG9y",
+                "text": "b64:SW5zdWxhdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Switch",
-                "text": "Switch",
-                "weight": 100
+                "answer_text": "b64:U3dpdGNo",
+                "text": "b64:U3dpdGNo",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Metal",
-                "text": "Metal",
-                "weight": 0
+                "answer_text": "b64:TWV0YWw=",
+                "text": "b64:TWV0YWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "LED",
-                "text": "LED",
-                "weight": 0
+                "answer_text": "b64:TEVE",
+                "text": "b64:TEVE",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Battery",
-                "text": "Battery",
-                "weight": 0
+                "answer_text": "b64:QmF0dGVyeQ==",
+                "text": "b64:QmF0dGVyeQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "AC",
-        "b": "Insulator",
-        "c": "Switch",
-        "d": "Metal",
-        "e": "LED",
-        "f": "Battery"
+        "a": "b64:QUM=",
+        "b": "b64:SW5zdWxhdG9y",
+        "c": "b64:U3dpdGNo",
+        "d": "b64:TWV0YWw=",
+        "e": "b64:TEVE",
+        "f": "b64:QmF0dGVyeQ=="
     },
     {
         "question_name": "Question 5",
@@ -214,45 +214,45 @@
         "question_text": "In an LED, electrical energy is changed into what other type of energy?",
         "url": "",
         "question_url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Mechanical energy",
-                "text": "Mechanical energy",
-                "weight": 0
+                "answer_text": "b64:TWVjaGFuaWNhbCBlbmVyZ3k=",
+                "text": "b64:TWVjaGFuaWNhbCBlbmVyZ3k=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Conductor",
-                "text": "Conductor",
-                "weight": 0
+                "answer_text": "b64:Q29uZHVjdG9y",
+                "text": "b64:Q29uZHVjdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Cell",
-                "text": "Cell",
-                "weight": 0
+                "answer_text": "b64:Q2VsbA==",
+                "text": "b64:Q2VsbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "AC",
-                "text": "AC",
-                "weight": 0
+                "answer_text": "b64:QUM=",
+                "text": "b64:QUM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Light energy",
-                "text": "Light energy",
-                "weight": 100
+                "answer_text": "b64:TGlnaHQgZW5lcmd5",
+                "text": "b64:TGlnaHQgZW5lcmd5",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Nonmetal",
-                "text": "Nonmetal",
-                "weight": 0
+                "answer_text": "b64:Tm9ubWV0YWw=",
+                "text": "b64:Tm9ubWV0YWw=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Mechanical energy",
-        "b": "Conductor",
-        "c": "Cell",
-        "d": "AC",
-        "e": "Light energy",
-        "f": "Nonmetal"
+        "a": "b64:TWVjaGFuaWNhbCBlbmVyZ3k=",
+        "b": "b64:Q29uZHVjdG9y",
+        "c": "b64:Q2VsbA==",
+        "d": "b64:QUM=",
+        "e": "b64:TGlnaHQgZW5lcmd5",
+        "f": "b64:Tm9ubWV0YWw="
     },
     {
         "question_name": "Question 6",
@@ -265,45 +265,45 @@
         "question_text": "Which device uses electrical energy to create mechanical energy (motion) to make things spin?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Switch",
-                "text": "Switch",
-                "weight": 0
+                "answer_text": "b64:U3dpdGNo",
+                "text": "b64:U3dpdGNo",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "DC Motor",
-                "text": "DC Motor",
-                "weight": 100
+                "answer_text": "b64:REMgTW90b3I=",
+                "text": "b64:REMgTW90b3I=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Insulator",
-                "text": "Insulator",
-                "weight": 0
+                "answer_text": "b64:SW5zdWxhdG9y",
+                "text": "b64:SW5zdWxhdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Battery",
-                "text": "Battery",
-                "weight": 0
+                "answer_text": "b64:QmF0dGVyeQ==",
+                "text": "b64:QmF0dGVyeQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Light energy",
-                "text": "Light energy",
-                "weight": 0
+                "answer_text": "b64:TGlnaHQgZW5lcmd5",
+                "text": "b64:TGlnaHQgZW5lcmd5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hand-cranked generator",
-                "text": "Hand-cranked generator",
-                "weight": 0
+                "answer_text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Switch",
-        "b": "DC Motor",
-        "c": "Insulator",
-        "d": "Battery",
-        "e": "Light energy",
-        "f": "Hand-cranked generator"
+        "a": "b64:U3dpdGNo",
+        "b": "b64:REMgTW90b3I=",
+        "c": "b64:SW5zdWxhdG9y",
+        "d": "b64:QmF0dGVyeQ==",
+        "e": "b64:TGlnaHQgZW5lcmd5",
+        "f": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg=="
     },
     {
         "question_name": "Question 7",
@@ -316,45 +316,45 @@
         "question_text": "When you connect two or more cells together to get more power, you create a:",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Battery",
-                "text": "Battery",
-                "weight": 100
+                "answer_text": "b64:QmF0dGVyeQ==",
+                "text": "b64:QmF0dGVyeQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Non-metal",
-                "text": "Non-metal",
-                "weight": 0
+                "answer_text": "b64:Tm9uLW1ldGFs",
+                "text": "b64:Tm9uLW1ldGFs",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "DC Motor",
-                "text": "DC Motor",
-                "weight": 0
+                "answer_text": "b64:REMgTW90b3I=",
+                "text": "b64:REMgTW90b3I=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Negative terminal",
-                "text": "Negative terminal",
-                "weight": 0
+                "answer_text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hand-cranked generator",
-                "text": "Hand-cranked generator",
-                "weight": 0
+                "answer_text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Conductor",
-                "text": "Conductor",
-                "weight": 0
+                "answer_text": "b64:Q29uZHVjdG9y",
+                "text": "b64:Q29uZHVjdG9y",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Battery",
-        "b": "Non-metal",
-        "c": "DC Motor",
-        "d": "Negative terminal",
-        "e": "Hand-cranked generator",
-        "f": "Conductor"
+        "a": "b64:QmF0dGVyeQ==",
+        "b": "b64:Tm9uLW1ldGFs",
+        "c": "b64:REMgTW90b3I=",
+        "d": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+        "e": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+        "f": "b64:Q29uZHVjdG9y"
     },
     {
         "question_name": "Question 8",
@@ -367,45 +367,45 @@
         "question_text": "A special power source that uses magnetic fields and stored energy to provide power is called an:",
         "url": "",
         "question_url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "LED",
-                "text": "LED",
-                "weight": 0
+                "answer_text": "b64:TEVE",
+                "text": "b64:TEVE",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulator",
-                "text": "Insulator",
-                "weight": 0
+                "answer_text": "b64:SW5zdWxhdG9y",
+                "text": "b64:SW5zdWxhdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Switch",
-                "text": "Switch",
-                "weight": 0
+                "answer_text": "b64:U3dpdGNo",
+                "text": "b64:U3dpdGNo",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Metal",
-                "text": "Metal",
-                "weight": 0
+                "answer_text": "b64:TWV0YWw=",
+                "text": "b64:TWV0YWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "AC",
-                "text": "AC",
-                "weight": 0
+                "answer_text": "b64:QUM=",
+                "text": "b64:QUM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Electromagnetic battery",
-                "text": "Electromagnetic battery",
-                "weight": 100
+                "answer_text": "b64:RWxlY3Ryb21hZ25ldGljIGJhdHRlcnk=",
+                "text": "b64:RWxlY3Ryb21hZ25ldGljIGJhdHRlcnk=",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "LED",
-        "b": "Insulator",
-        "c": "Switch",
-        "d": "Metal",
-        "e": "AC",
-        "f": "Electromagnetic battery"
+        "a": "b64:TEVE",
+        "b": "b64:SW5zdWxhdG9y",
+        "c": "b64:U3dpdGNo",
+        "d": "b64:TWV0YWw=",
+        "e": "b64:QUM=",
+        "f": "b64:RWxlY3Ryb21hZ25ldGljIGJhdHRlcnk="
     },
     {
         "question_name": "Question 9",
@@ -418,45 +418,45 @@
         "question_text": "Electricity from a wall outlet that moves back and forth in different directions is called:",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "DC Motor",
-                "text": "DC Motor",
-                "weight": 0
+                "answer_text": "b64:REMgTW90b3I=",
+                "text": "b64:REMgTW90b3I=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Cell",
-                "text": "Cell",
-                "weight": 0
+                "answer_text": "b64:Q2VsbA==",
+                "text": "b64:Q2VsbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "AC",
-                "text": "AC",
-                "weight": 100
+                "answer_text": "b64:QUM=",
+                "text": "b64:QUM=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Conductor",
-                "text": "Conductor",
-                "weight": 0
+                "answer_text": "b64:Q29uZHVjdG9y",
+                "text": "b64:Q29uZHVjdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Positive terminal",
-                "text": "Positive terminal",
-                "weight": 0
+                "answer_text": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+                "text": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Battery",
-                "text": "Battery",
-                "weight": 0
+                "answer_text": "b64:QmF0dGVyeQ==",
+                "text": "b64:QmF0dGVyeQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "DC Motor",
-        "b": "Cell",
-        "c": "AC",
-        "d": "Conductor",
-        "e": "Positive terminal",
-        "f": "Battery"
+        "a": "b64:REMgTW90b3I=",
+        "b": "b64:Q2VsbA==",
+        "c": "b64:QUM=",
+        "d": "b64:Q29uZHVjdG9y",
+        "e": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+        "f": "b64:QmF0dGVyeQ=="
     },
     {
         "question_name": "Question 10",
@@ -469,45 +469,45 @@
         "question_text": "What does the term LED stand for?",
         "url": "",
         "question_url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Low Energy Device",
-                "text": "Low Energy Device",
-                "weight": 0
+                "answer_text": "b64:TG93IEVuZXJneSBEZXZpY2U=",
+                "text": "b64:TG93IEVuZXJneSBEZXZpY2U=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Long Electrical Design",
-                "text": "Long Electrical Design",
-                "weight": 0
+                "answer_text": "b64:TG9uZyBFbGVjdHJpY2FsIERlc2lnbg==",
+                "text": "b64:TG9uZyBFbGVjdHJpY2FsIERlc2lnbg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Light Every Day",
-                "text": "Light Every Day",
-                "weight": 0
+                "answer_text": "b64:TGlnaHQgRXZlcnkgRGF5",
+                "text": "b64:TGlnaHQgRXZlcnkgRGF5",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Liquid Energy Direct",
-                "text": "Liquid Energy Direct",
-                "weight": 0
+                "answer_text": "b64:TGlxdWlkIEVuZXJneSBEaXJlY3Q=",
+                "text": "b64:TGlxdWlkIEVuZXJneSBEaXJlY3Q=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Light Emitting Diode",
-                "text": "Light Emitting Diode",
-                "weight": 100
+                "answer_text": "b64:TGlnaHQgRW1pdHRpbmcgRGlvZGU=",
+                "text": "b64:TGlnaHQgRW1pdHRpbmcgRGlvZGU=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Large Electric Drain",
-                "text": "Large Electric Drain",
-                "weight": 0
+                "answer_text": "b64:TGFyZ2UgRWxlY3RyaWMgRHJhaW4=",
+                "text": "b64:TGFyZ2UgRWxlY3RyaWMgRHJhaW4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Low Energy Device",
-        "b": "Long Electrical Design",
-        "c": "Light Every Day",
-        "d": "Liquid Energy Direct",
-        "e": "Light Emitting Diode",
-        "f": "Large Electric Drain"
+        "a": "b64:TG93IEVuZXJneSBEZXZpY2U=",
+        "b": "b64:TG9uZyBFbGVjdHJpY2FsIERlc2lnbg==",
+        "c": "b64:TGlnaHQgRXZlcnkgRGF5",
+        "d": "b64:TGlxdWlkIEVuZXJneSBEaXJlY3Q=",
+        "e": "b64:TGlnaHQgRW1pdHRpbmcgRGlvZGU=",
+        "f": "b64:TGFyZ2UgRWxlY3RyaWMgRHJhaW4="
     },
     {
         "question_name": "Question 11",
@@ -520,45 +520,45 @@
         "question_text": "A material, such as plastic or rubber (non-metal), that does not let electricity pass through is an:",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "AC",
-                "text": "AC",
-                "weight": 0
+                "answer_text": "b64:QUM=",
+                "text": "b64:QUM=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Insulator",
-                "text": "Insulator",
-                "weight": 100
+                "answer_text": "b64:SW5zdWxhdG9y",
+                "text": "b64:SW5zdWxhdG9y",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Metal",
-                "text": "Metal",
-                "weight": 0
+                "answer_text": "b64:TWV0YWw=",
+                "text": "b64:TWV0YWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Switch",
-                "text": "Switch",
-                "weight": 0
+                "answer_text": "b64:U3dpdGNo",
+                "text": "b64:U3dpdGNo",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Conductor",
-                "text": "Conductor",
-                "weight": 0
+                "answer_text": "b64:Q29uZHVjdG9y",
+                "text": "b64:Q29uZHVjdG9y",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Cell",
-                "text": "Cell",
-                "weight": 0
+                "answer_text": "b64:Q2VsbA==",
+                "text": "b64:Q2VsbA==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "AC",
-        "b": "Insulator",
-        "c": "Metal",
-        "d": "Switch",
-        "e": "Conductor",
-        "f": "Cell"
+        "a": "b64:QUM=",
+        "b": "b64:SW5zdWxhdG9y",
+        "c": "b64:TWV0YWw=",
+        "d": "b64:U3dpdGNo",
+        "e": "b64:Q29uZHVjdG9y",
+        "f": "b64:Q2VsbA=="
     },
     {
         "question_name": "Question 12",
@@ -571,45 +571,45 @@
         "question_text": "Electricity flows (current) out of the positive terminal of a battery and returns through the:",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Hand-cranked generator",
-                "text": "Hand-cranked generator",
-                "weight": 0
+                "answer_text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "text": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "DC Motor",
-                "text": "DC Motor",
-                "weight": 0
+                "answer_text": "b64:REMgTW90b3I=",
+                "text": "b64:REMgTW90b3I=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "LED",
-                "text": "LED",
-                "weight": 0
+                "answer_text": "b64:TEVE",
+                "text": "b64:TEVE",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Negative terminal",
-                "text": "Negative terminal",
-                "weight": 100
+                "answer_text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Electromagnetic battery",
-                "text": "Electromagnetic battery",
-                "weight": 0
+                "answer_text": "b64:RWxlY3Ryb21hZ25ldGljIGJhdHRlcnk=",
+                "text": "b64:RWxlY3Ryb21hZ25ldGljIGJhdHRlcnk=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Light energy",
-                "text": "Light energy",
-                "weight": 0
+                "answer_text": "b64:TGlnaHQgZW5lcmd5",
+                "text": "b64:TGlnaHQgZW5lcmd5",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Hand-cranked generator",
-        "b": "DC Motor",
-        "c": "LED",
-        "d": "Negative terminal",
-        "e": "Electromagnetic battery",
-        "f": "Light energy"
+        "a": "b64:SGFuZC1jcmFua2VkIGdlbmVyYXRvcg==",
+        "b": "b64:REMgTW90b3I=",
+        "c": "b64:TEVE",
+        "d": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+        "e": "b64:RWxlY3Ryb21hZ25ldGljIGJhdHRlcnk=",
+        "f": "b64:TGlnaHQgZW5lcmd5"
     },
     {
         "question_name": "Question 13",
@@ -643,50 +643,50 @@
         "consume_choices": false,
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

@@ -9,15 +9,15 @@
         "url": "atomic structure a",
         "answers": [
             {
-                "text": "What element is depicted in the image?",
-                "answer_text": "Lithium"
+                "text": "b64:V2hhdCBlbGVtZW50IGlzIGRlcGljdGVkIGluIHRoZSBpbWFnZT8=",
+                "answer_text": "b64:TGl0aGl1bQ=="
             }
         ],
         "distractors": [
-            "Oxygen",
-            "Hydrogen",
-            "Potassium",
-            "Promium"
+            "b64:T3h5Z2Vu",
+            "b64:SHlkcm9nZW4=",
+            "b64:UG90YXNzaXVt",
+            "b64:UHJvbWl1bQ=="
         ]
     },
     {
@@ -25,12 +25,12 @@
         "question number": "Q1",
         "type": "multiple_choice_question",
         "points": 2.0,
-        "correct ans index": 4.0,
+        "correct ans index": "b64:NC4w",
         "question text": "What is correct about this image?",
-        "a": "They are different elements.",
-        "b": "Both atoms are the same element with identical properties.",
-        "c": "Both atoms are Lithium, they are the same isotope.",
-        "d": "Both atoms are Hydrogen, they are different isotopes.",
+        "a": "b64:VGhleSBhcmUgZGlmZmVyZW50IGVsZW1lbnRzLg==",
+        "b": "b64:Qm90aCBhdG9tcyBhcmUgdGhlIHNhbWUgZWxlbWVudCB3aXRoIGlkZW50aWNhbCBwcm9wZXJ0aWVzLg==",
+        "c": "b64:Qm90aCBhdG9tcyBhcmUgTGl0aGl1bSwgdGhleSBhcmUgdGhlIHNhbWUgaXNvdG9wZS4=",
+        "d": "b64:Qm90aCBhdG9tcyBhcmUgSHlkcm9nZW4sIHRoZXkgYXJlIGRpZmZlcmVudCBpc290b3Blcy4=",
         "Unnamed: 10": "",
         "Unnamed: 11": "",
         "Unnamed: 12": "",
@@ -42,12 +42,12 @@
         "question number": "Q1",
         "type": "multiple_choice_question",
         "points": 1.0,
-        "correct ans index": 3.0,
+        "correct ans index": "b64:My4w",
         "question text": "What two sub-atomic particles are located in the nucleus of the atom?",
-        "a": "Protons and electrons",
-        "b": "Neutrons and electrons",
-        "c": "Protons and neutrons",
-        "d": "Electrons and positrons",
+        "a": "b64:UHJvdG9ucyBhbmQgZWxlY3Ryb25z",
+        "b": "b64:TmV1dHJvbnMgYW5kIGVsZWN0cm9ucw==",
+        "c": "b64:UHJvdG9ucyBhbmQgbmV1dHJvbnM=",
+        "d": "b64:RWxlY3Ryb25zIGFuZCBwb3NpdHJvbnM=",
         "Unnamed: 10": "",
         "Unnamed: 11": "",
         "Unnamed: 12": "",
@@ -59,12 +59,12 @@
         "question number": "Q2",
         "type": "multiple_choice_question",
         "points": 1.0,
-        "correct ans index": 2.0,
+        "correct ans index": "b64:Mi4w",
         "question text": "What is the difference between the atomic number and the mass number of an element?",
-        "a": "The atomic number is the total number of protons and neutrons, while the mass number is only the number of protons.",
-        "b": "The atomic number is the number of protons, while the mass number is the number of protons and neutrons combined.",
-        "c": "The atomic number is the number of electrons, while the mass number is the number of protons.",
-        "d": "The atomic number is the sum of electrons and protons, while the mass number is the number of neutrons.",
+        "a": "b64:VGhlIGF0b21pYyBudW1iZXIgaXMgdGhlIHRvdGFsIG51bWJlciBvZiBwcm90b25zIGFuZCBuZXV0cm9ucywgd2hpbGUgdGhlIG1hc3MgbnVtYmVyIGlzIG9ubHkgdGhlIG51bWJlciBvZiBwcm90b25zLg==",
+        "b": "b64:VGhlIGF0b21pYyBudW1iZXIgaXMgdGhlIG51bWJlciBvZiBwcm90b25zLCB3aGlsZSB0aGUgbWFzcyBudW1iZXIgaXMgdGhlIG51bWJlciBvZiBwcm90b25zIGFuZCBuZXV0cm9ucyBjb21iaW5lZC4=",
+        "c": "b64:VGhlIGF0b21pYyBudW1iZXIgaXMgdGhlIG51bWJlciBvZiBlbGVjdHJvbnMsIHdoaWxlIHRoZSBtYXNzIG51bWJlciBpcyB0aGUgbnVtYmVyIG9mIHByb3RvbnMu",
+        "d": "b64:VGhlIGF0b21pYyBudW1iZXIgaXMgdGhlIHN1bSBvZiBlbGVjdHJvbnMgYW5kIHByb3RvbnMsIHdoaWxlIHRoZSBtYXNzIG51bWJlciBpcyB0aGUgbnVtYmVyIG9mIG5ldXRyb25zLg==",
         "Unnamed: 10": "",
         "Unnamed: 11": "",
         "Unnamed: 12": "",
@@ -76,11 +76,11 @@
         "question number": "Q3",
         "type": "multiple_choice_question",
         "points": 1.0,
-        "correct ans index": 1.0,
+        "correct ans index": "b64:MS4w",
         "question text": "Where is the majority of the mass located in an atom?",
-        "a": "In the protons and neutrons within the nucleus",
-        "b": "In the outermost energy level",
-        "c": "Distributed evenly throughout the atom",
+        "a": "b64:SW4gdGhlIHByb3RvbnMgYW5kIG5ldXRyb25zIHdpdGhpbiB0aGUgbnVjbGV1cw==",
+        "b": "b64:SW4gdGhlIG91dGVybW9zdCBlbmVyZ3kgbGV2ZWw=",
+        "c": "b64:RGlzdHJpYnV0ZWQgZXZlbmx5IHRocm91Z2hvdXQgdGhlIGF0b20=",
         "d": "",
         "Unnamed: 10": "",
         "Unnamed: 11": "",
@@ -93,12 +93,12 @@
         "question number": "Q4",
         "type": "multiple_choice_question",
         "points": 1.0,
-        "correct ans index": 1.0,
+        "correct ans index": "b64:MS4w",
         "question text": "What is the correct electron configuration of oxygen?",
-        "a": "2, 6",
-        "b": "2, 3, 4",
-        "c": "2, 8",
-        "d": "6, 2",
+        "a": "b64:MiwgNg==",
+        "b": "b64:MiwgMywgNA==",
+        "c": "b64:MiwgOA==",
+        "d": "b64:NiwgMg==",
         "Unnamed: 10": "",
         "Unnamed: 11": "",
         "Unnamed: 12": "",
@@ -115,14 +115,14 @@
         "url": "atomic structure c",
         "answers": [
             {
-                "text": "Which Bohr Structure (Planetary Model) is correct for Oxygen?",
-                "answer_text": "C"
+                "text": "b64:V2hpY2ggQm9ociBTdHJ1Y3R1cmUgKFBsYW5ldGFyeSBNb2RlbCkgaXMgY29ycmVjdCBmb3IgT3h5Z2VuPw==",
+                "answer_text": "b64:Qw=="
             }
         ],
         "distractors": [
-            "A",
-            "B",
-            "D"
+            "b64:QQ==",
+            "b64:Qg==",
+            "b64:RA=="
         ]
     },
     {
@@ -140,14 +140,14 @@
         "correct ans index": " ",
         "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
         "url": "",
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

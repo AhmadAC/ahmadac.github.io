@@ -10,45 +10,45 @@
         "question_text": "An atom or group of atoms that has gained electrons, resulting in a negative charge, is known as a(n) ______, and is typically formed from a ______ element:",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "cation, metal",
-                "text": "cation, metal",
-                "weight": 0
+                "answer_text": "b64:Y2F0aW9uLCBtZXRhbA==",
+                "text": "b64:Y2F0aW9uLCBtZXRhbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "anion, nonmetal",
-                "text": "anion, nonmetal",
-                "weight": 100
+                "answer_text": "b64:YW5pb24sIG5vbm1ldGFs",
+                "text": "b64:YW5pb24sIG5vbm1ldGFs",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "polyatomic ion, metalloid",
-                "text": "polyatomic ion, metalloid",
-                "weight": 0
+                "answer_text": "b64:cG9seWF0b21pYyBpb24sIG1ldGFsbG9pZA==",
+                "text": "b64:cG9seWF0b21pYyBpb24sIG1ldGFsbG9pZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "cation, nonmetal",
-                "text": "cation, nonmetal",
-                "weight": 0
+                "answer_text": "b64:Y2F0aW9uLCBub25tZXRhbA==",
+                "text": "b64:Y2F0aW9uLCBub25tZXRhbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "anion, metal",
-                "text": "anion, metal",
-                "weight": 0
+                "answer_text": "b64:YW5pb24sIG1ldGFs",
+                "text": "b64:YW5pb24sIG1ldGFs",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "isotope, noble gas",
-                "text": "isotope, noble gas",
-                "weight": 0
+                "answer_text": "b64:aXNvdG9wZSwgbm9ibGUgZ2Fz",
+                "text": "b64:aXNvdG9wZSwgbm9ibGUgZ2Fz",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "cation, metal",
-        "b": "anion, nonmetal",
-        "c": "polyatomic ion, metalloid",
-        "d": "cation, nonmetal",
-        "e": "anion, metal",
-        "f": "isotope, noble gas"
+        "a": "b64:Y2F0aW9uLCBtZXRhbA==",
+        "b": "b64:YW5pb24sIG5vbm1ldGFs",
+        "c": "b64:cG9seWF0b21pYyBpb24sIG1ldGFsbG9pZA==",
+        "d": "b64:Y2F0aW9uLCBub25tZXRhbA==",
+        "e": "b64:YW5pb24sIG1ldGFs",
+        "f": "b64:aXNvdG9wZSwgbm9ibGUgZ2Fz"
     },
     {
         "question_name": "Question 2",
@@ -61,45 +61,45 @@
         "question_text": "Many polyatomic ions, such as chlorate (ClO₃⁻) and phosphate (PO₄³⁻), primarily consist of which types of elements bonded together before acquiring an overall charge?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Two different metal elements",
-                "text": "Two different metal elements",
-                "weight": 0
+                "answer_text": "b64:VHdvIGRpZmZlcmVudCBtZXRhbCBlbGVtZW50cw==",
+                "text": "b64:VHdvIGRpZmZlcmVudCBtZXRhbCBlbGVtZW50cw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A metal and a nonmetal element",
-                "text": "A metal and a nonmetal element",
-                "weight": 0
+                "answer_text": "b64:QSBtZXRhbCBhbmQgYSBub25tZXRhbCBlbGVtZW50",
+                "text": "b64:QSBtZXRhbCBhbmQgYSBub25tZXRhbCBlbGVtZW50",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Multiple nonmetal elements",
-                "text": "Multiple nonmetal elements",
-                "weight": 100
+                "answer_text": "b64:TXVsdGlwbGUgbm9ubWV0YWwgZWxlbWVudHM=",
+                "text": "b64:TXVsdGlwbGUgbm9ubWV0YWwgZWxlbWVudHM=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A metalloid and a noble gas",
-                "text": "A metalloid and a noble gas",
-                "weight": 0
+                "answer_text": "b64:QSBtZXRhbGxvaWQgYW5kIGEgbm9ibGUgZ2Fz",
+                "text": "b64:QSBtZXRhbGxvaWQgYW5kIGEgbm9ibGUgZ2Fz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Only hydrogen and a metal",
-                "text": "Only hydrogen and a metal",
-                "weight": 0
+                "answer_text": "b64:T25seSBoeWRyb2dlbiBhbmQgYSBtZXRhbA==",
+                "text": "b64:T25seSBoeWRyb2dlbiBhbmQgYSBtZXRhbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A transition metal and a halogen",
-                "text": "A transition metal and a halogen",
-                "weight": 0
+                "answer_text": "b64:QSB0cmFuc2l0aW9uIG1ldGFsIGFuZCBhIGhhbG9nZW4=",
+                "text": "b64:QSB0cmFuc2l0aW9uIG1ldGFsIGFuZCBhIGhhbG9nZW4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Two different metal elements",
-        "b": "A metal and a nonmetal element",
-        "c": "Multiple nonmetal elements",
-        "d": "A metalloid and a noble gas",
-        "e": "Only hydrogen and a metal",
-        "f": "A transition metal and a halogen"
+        "a": "b64:VHdvIGRpZmZlcmVudCBtZXRhbCBlbGVtZW50cw==",
+        "b": "b64:QSBtZXRhbCBhbmQgYSBub25tZXRhbCBlbGVtZW50",
+        "c": "b64:TXVsdGlwbGUgbm9ubWV0YWwgZWxlbWVudHM=",
+        "d": "b64:QSBtZXRhbGxvaWQgYW5kIGEgbm9ibGUgZ2Fz",
+        "e": "b64:T25seSBoeWRyb2dlbiBhbmQgYSBtZXRhbA==",
+        "f": "b64:QSB0cmFuc2l0aW9uIG1ldGFsIGFuZCBhIGhhbG9nZW4="
     },
     {
         "question_name": "Question 3",
@@ -112,45 +112,45 @@
         "question_text": "A key characteristic used to initially identify a compound as a potential acid from its chemical formula is the presence of:",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Oxygen as the last element.",
-                "text": "Oxygen as the last element.",
-                "weight": 0
+                "answer_text": "b64:T3h5Z2VuIGFzIHRoZSBsYXN0IGVsZW1lbnQu",
+                "text": "b64:T3h5Z2VuIGFzIHRoZSBsYXN0IGVsZW1lbnQu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A metal as the first element.",
-                "text": "A metal as the first element.",
-                "weight": 0
+                "answer_text": "b64:QSBtZXRhbCBhcyB0aGUgZmlyc3QgZWxlbWVudC4=",
+                "text": "b64:QSBtZXRhbCBhcyB0aGUgZmlyc3QgZWxlbWVudC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrogen as the first element.",
-                "text": "Hydrogen as the first element.",
-                "weight": 100
+                "answer_text": "b64:SHlkcm9nZW4gYXMgdGhlIGZpcnN0IGVsZW1lbnQu",
+                "text": "b64:SHlkcm9nZW4gYXMgdGhlIGZpcnN0IGVsZW1lbnQu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A polyatomic ion as the only component.",
-                "text": "A polyatomic ion as the only component.",
-                "weight": 0
+                "answer_text": "b64:QSBwb2x5YXRvbWljIGlvbiBhcyB0aGUgb25seSBjb21wb25lbnQu",
+                "text": "b64:QSBwb2x5YXRvbWljIGlvbiBhcyB0aGUgb25seSBjb21wb25lbnQu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Carbon as the central atom.",
-                "text": "Carbon as the central atom.",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9uIGFzIHRoZSBjZW50cmFsIGF0b20u",
+                "text": "b64:Q2FyYm9uIGFzIHRoZSBjZW50cmFsIGF0b20u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A halogen as the first element.",
-                "text": "A halogen as the first element.",
-                "weight": 0
+                "answer_text": "b64:QSBoYWxvZ2VuIGFzIHRoZSBmaXJzdCBlbGVtZW50Lg==",
+                "text": "b64:QSBoYWxvZ2VuIGFzIHRoZSBmaXJzdCBlbGVtZW50Lg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Oxygen as the last element.",
-        "b": "A metal as the first element.",
-        "c": "Hydrogen as the first element.",
-        "d": "A polyatomic ion as the only component.",
-        "e": "Carbon as the central atom.",
-        "f": "A halogen as the first element."
+        "a": "b64:T3h5Z2VuIGFzIHRoZSBsYXN0IGVsZW1lbnQu",
+        "b": "b64:QSBtZXRhbCBhcyB0aGUgZmlyc3QgZWxlbWVudC4=",
+        "c": "b64:SHlkcm9nZW4gYXMgdGhlIGZpcnN0IGVsZW1lbnQu",
+        "d": "b64:QSBwb2x5YXRvbWljIGlvbiBhcyB0aGUgb25seSBjb21wb25lbnQu",
+        "e": "b64:Q2FyYm9uIGFzIHRoZSBjZW50cmFsIGF0b20u",
+        "f": "b64:QSBoYWxvZ2VuIGFzIHRoZSBmaXJzdCBlbGVtZW50Lg=="
     },
     {
         "question_name": "Question 4",
@@ -163,45 +163,45 @@
         "question_text": "The systematic name for a binary acid, such as H₂Se (hydroselenic acid), always includes which of the following combinations of prefix and suffix for the nonmetal part?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "No prefix, -ous acid",
-                "text": "No prefix, -ous acid",
-                "weight": 0
+                "answer_text": "b64:Tm8gcHJlZml4LCAtb3VzIGFjaWQ=",
+                "text": "b64:Tm8gcHJlZml4LCAtb3VzIGFjaWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "hydro- prefix, -ous acid",
-                "text": "hydro- prefix, -ous acid",
-                "weight": 0
+                "answer_text": "b64:aHlkcm8tIHByZWZpeCwgLW91cyBhY2lk",
+                "text": "b64:aHlkcm8tIHByZWZpeCwgLW91cyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "per- prefix, -ic acid",
-                "text": "per- prefix, -ic acid",
-                "weight": 0
+                "answer_text": "b64:cGVyLSBwcmVmaXgsIC1pYyBhY2lk",
+                "text": "b64:cGVyLSBwcmVmaXgsIC1pYyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "hydro- prefix, -ic acid",
-                "text": "hydro- prefix, -ic acid",
-                "weight": 100
+                "answer_text": "b64:aHlkcm8tIHByZWZpeCwgLWljIGFjaWQ=",
+                "text": "b64:aHlkcm8tIHByZWZpeCwgLWljIGFjaWQ=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "hypo- prefix, -ite acid",
-                "text": "hypo- prefix, -ite acid",
-                "weight": 0
+                "answer_text": "b64:aHlwby0gcHJlZml4LCAtaXRlIGFjaWQ=",
+                "text": "b64:aHlwby0gcHJlZml4LCAtaXRlIGFjaWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "No prefix, -ate acid",
-                "text": "No prefix, -ate acid",
-                "weight": 0
+                "answer_text": "b64:Tm8gcHJlZml4LCAtYXRlIGFjaWQ=",
+                "text": "b64:Tm8gcHJlZml4LCAtYXRlIGFjaWQ=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "No prefix, -ous acid",
-        "b": "hydro- prefix, -ous acid",
-        "c": "per- prefix, -ic acid",
-        "d": "hydro- prefix, -ic acid",
-        "e": "hypo- prefix, -ite acid",
-        "f": "No prefix, -ate acid"
+        "a": "b64:Tm8gcHJlZml4LCAtb3VzIGFjaWQ=",
+        "b": "b64:aHlkcm8tIHByZWZpeCwgLW91cyBhY2lk",
+        "c": "b64:cGVyLSBwcmVmaXgsIC1pYyBhY2lk",
+        "d": "b64:aHlkcm8tIHByZWZpeCwgLWljIGFjaWQ=",
+        "e": "b64:aHlwby0gcHJlZml4LCAtaXRlIGFjaWQ=",
+        "f": "b64:Tm8gcHJlZml4LCAtYXRlIGFjaWQ="
     },
     {
         "question_name": "Question 5",
@@ -214,45 +214,45 @@
         "question_text": "If an acid is formed from a polyatomic ion named \"carbonate\" (CO₃²⁻), what will be the name of the corresponding acid (H₂CO₃)?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Hydrocarbonic acid",
-                "text": "Hydrocarbonic acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9jYXJib25pYyBhY2lk",
+                "text": "b64:SHlkcm9jYXJib25pYyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Carbonous acid",
-                "text": "Carbonous acid",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9ub3VzIGFjaWQ=",
+                "text": "b64:Q2FyYm9ub3VzIGFjaWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Carbonic acid",
-                "text": "Carbonic acid",
-                "weight": 100
+                "answer_text": "b64:Q2FyYm9uaWMgYWNpZA==",
+                "text": "b64:Q2FyYm9uaWMgYWNpZA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Hydrocarbonous acid",
-                "text": "Hydrocarbonous acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9jYXJib25vdXMgYWNpZA==",
+                "text": "b64:SHlkcm9jYXJib25vdXMgYWNpZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Percarbonic acid",
-                "text": "Percarbonic acid",
-                "weight": 0
+                "answer_text": "b64:UGVyY2FyYm9uaWMgYWNpZA==",
+                "text": "b64:UGVyY2FyYm9uaWMgYWNpZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrogen carbon trioxide acid",
-                "text": "Hydrogen carbon trioxide acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9nZW4gY2FyYm9uIHRyaW94aWRlIGFjaWQ=",
+                "text": "b64:SHlkcm9nZW4gY2FyYm9uIHRyaW94aWRlIGFjaWQ=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Hydrocarbonic acid",
-        "b": "Carbonous acid",
-        "c": "Carbonic acid",
-        "d": "Hydrocarbonous acid",
-        "e": "Percarbonic acid",
-        "f": "Hydrogen carbon trioxide acid"
+        "a": "b64:SHlkcm9jYXJib25pYyBhY2lk",
+        "b": "b64:Q2FyYm9ub3VzIGFjaWQ=",
+        "c": "b64:Q2FyYm9uaWMgYWNpZA==",
+        "d": "b64:SHlkcm9jYXJib25vdXMgYWNpZA==",
+        "e": "b64:UGVyY2FyYm9uaWMgYWNpZA==",
+        "f": "b64:SHlkcm9nZW4gY2FyYm9uIHRyaW94aWRlIGFjaWQ="
     },
     {
         "question_name": "Question 6",
@@ -265,45 +265,45 @@
         "question_text": "The acid HClO₂ contains the chlorite ion (ClO₂⁻). According to the rules for naming polyatomic acids (oxyacids), what is the correct chemical name for HClO₂?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Hydrochloric acid",
-                "text": "Hydrochloric acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9jaGxvcmljIGFjaWQ=",
+                "text": "b64:SHlkcm9jaGxvcmljIGFjaWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Chloric acid",
-                "text": "Chloric acid",
-                "weight": 0
+                "answer_text": "b64:Q2hsb3JpYyBhY2lk",
+                "text": "b64:Q2hsb3JpYyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrochlorous acid",
-                "text": "Hydrochlorous acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9jaGxvcm91cyBhY2lk",
+                "text": "b64:SHlkcm9jaGxvcm91cyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Chlorous acid",
-                "text": "Chlorous acid",
-                "weight": 100
+                "answer_text": "b64:Q2hsb3JvdXMgYWNpZA==",
+                "text": "b64:Q2hsb3JvdXMgYWNpZA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Perchloric acid",
-                "text": "Perchloric acid",
-                "weight": 0
+                "answer_text": "b64:UGVyY2hsb3JpYyBhY2lk",
+                "text": "b64:UGVyY2hsb3JpYyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hypochloric acid",
-                "text": "Hypochloric acid",
-                "weight": 0
+                "answer_text": "b64:SHlwb2NobG9yaWMgYWNpZA==",
+                "text": "b64:SHlwb2NobG9yaWMgYWNpZA==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Hydrochloric acid",
-        "b": "Chloric acid",
-        "c": "Hydrochlorous acid",
-        "d": "Chlorous acid",
-        "e": "Perchloric acid",
-        "f": "Hypochloric acid"
+        "a": "b64:SHlkcm9jaGxvcmljIGFjaWQ=",
+        "b": "b64:Q2hsb3JpYyBhY2lk",
+        "c": "b64:SHlkcm9jaGxvcm91cyBhY2lk",
+        "d": "b64:Q2hsb3JvdXMgYWNpZA==",
+        "e": "b64:UGVyY2hsb3JpYyBhY2lk",
+        "f": "b64:SHlwb2NobG9yaWMgYWNpZA=="
     },
     {
         "question_name": "Question 7",
@@ -316,45 +316,45 @@
         "question_text": "In a simple ionic compound formed between a metal like Barium (Ba) and a nonmetal like Fluorine (F), what is the correct ending for the anion's name (fluorine part)?",
         "url": "",
         "question_url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "-ate",
-                "text": "-ate",
-                "weight": 0
+                "answer_text": "b64:LWF0ZQ==",
+                "text": "b64:LWF0ZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ite",
-                "text": "-ite",
-                "weight": 0
+                "answer_text": "b64:LWl0ZQ==",
+                "text": "b64:LWl0ZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ic",
-                "text": "-ic",
-                "weight": 0
+                "answer_text": "b64:LWlj",
+                "text": "b64:LWlj",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ous",
-                "text": "-ous",
-                "weight": 0
+                "answer_text": "b64:LW91cw==",
+                "text": "b64:LW91cw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ide",
-                "text": "-ide",
-                "weight": 100
+                "answer_text": "b64:LWlkZQ==",
+                "text": "b64:LWlkZQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "-ine",
-                "text": "-ine",
-                "weight": 0
+                "answer_text": "b64:LWluZQ==",
+                "text": "b64:LWluZQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "-ate",
-        "b": "-ite",
-        "c": "-ic",
-        "d": "-ous",
-        "e": "-ide",
-        "f": "-ine"
+        "a": "b64:LWF0ZQ==",
+        "b": "b64:LWl0ZQ==",
+        "c": "b64:LWlj",
+        "d": "b64:LW91cw==",
+        "e": "b64:LWlkZQ==",
+        "f": "b64:LWluZQ=="
     },
     {
         "question_name": "Question 8",
@@ -367,45 +367,45 @@
         "question_text": "What is the correct chemical name for the simple ionic compound K₂O, formed from potassium and oxygen?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Dipotassium monoxide",
-                "text": "Dipotassium monoxide",
-                "weight": 0
+                "answer_text": "b64:RGlwb3Rhc3NpdW0gbW9ub3hpZGU=",
+                "text": "b64:RGlwb3Rhc3NpdW0gbW9ub3hpZGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Potassium(I) oxide",
-                "text": "Potassium(I) oxide",
-                "weight": 0
+                "answer_text": "b64:UG90YXNzaXVtKEkpIG94aWRl",
+                "text": "b64:UG90YXNzaXVtKEkpIG94aWRl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Potassium oxide",
-                "text": "Potassium oxide",
-                "weight": 100
+                "answer_text": "b64:UG90YXNzaXVtIG94aWRl",
+                "text": "b64:UG90YXNzaXVtIG94aWRl",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Potassium(II) oxide",
-                "text": "Potassium(II) oxide",
-                "weight": 0
+                "answer_text": "b64:UG90YXNzaXVtKElJKSBveGlkZQ==",
+                "text": "b64:UG90YXNzaXVtKElJKSBveGlkZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Potassium peroxide",
-                "text": "Potassium peroxide",
-                "weight": 0
+                "answer_text": "b64:UG90YXNzaXVtIHBlcm94aWRl",
+                "text": "b64:UG90YXNzaXVtIHBlcm94aWRl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Potassic oxide",
-                "text": "Potassic oxide",
-                "weight": 0
+                "answer_text": "b64:UG90YXNzaWMgb3hpZGU=",
+                "text": "b64:UG90YXNzaWMgb3hpZGU=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Dipotassium monoxide",
-        "b": "Potassium(I) oxide",
-        "c": "Potassium oxide",
-        "d": "Potassium(II) oxide",
-        "e": "Potassium peroxide",
-        "f": "Potassic oxide"
+        "a": "b64:RGlwb3Rhc3NpdW0gbW9ub3hpZGU=",
+        "b": "b64:UG90YXNzaXVtKEkpIG94aWRl",
+        "c": "b64:UG90YXNzaXVtIG94aWRl",
+        "d": "b64:UG90YXNzaXVtKElJKSBveGlkZQ==",
+        "e": "b64:UG90YXNzaXVtIHBlcm94aWRl",
+        "f": "b64:UG90YXNzaWMgb3hpZGU="
     },
     {
         "question_name": "Question 9",
@@ -418,45 +418,45 @@
         "question_text": "When naming an ionic compound composed of a metal and a polyatomic ion, such as Na₃PO₄ (where PO₄³⁻ is phosphate), how is the polyatomic ion part named?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Its ending is changed to -ide.",
-                "text": "Its ending is changed to -ide.",
-                "weight": 0
+                "answer_text": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1pZGUu",
+                "text": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1pZGUu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Its ending is changed to -ic if it originally ended in -ate.",
-                "text": "Its ending is changed to -ic if it originally ended in -ate.",
-                "weight": 0
+                "answer_text": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1pYyBpZiBpdCBvcmlnaW5hbGx5IGVuZGVkIGluIC1hdGUu",
+                "text": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1pYyBpZiBpdCBvcmlnaW5hbGx5IGVuZGVkIGluIC1hdGUu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Its name is used as is, without alteration.",
-                "text": "Its name is used as is, without alteration.",
-                "weight": 100
+                "answer_text": "b64:SXRzIG5hbWUgaXMgdXNlZCBhcyBpcywgd2l0aG91dCBhbHRlcmF0aW9uLg==",
+                "text": "b64:SXRzIG5hbWUgaXMgdXNlZCBhcyBpcywgd2l0aG91dCBhbHRlcmF0aW9uLg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Its ending is changed to -ous if it originally ended in -ite.",
-                "text": "Its ending is changed to -ous if it originally ended in -ite.",
-                "weight": 0
+                "answer_text": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1vdXMgaWYgaXQgb3JpZ2luYWxseSBlbmRlZCBpbiAtaXRlLg==",
+                "text": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1vdXMgaWYgaXQgb3JpZ2luYWxseSBlbmRlZCBpbiAtaXRlLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A 'hydro-' prefix is added to its name.",
-                "text": "A 'hydro-' prefix is added to its name.",
-                "weight": 0
+                "answer_text": "b64:QSAnaHlkcm8tJyBwcmVmaXggaXMgYWRkZWQgdG8gaXRzIG5hbWUu",
+                "text": "b64:QSAnaHlkcm8tJyBwcmVmaXggaXMgYWRkZWQgdG8gaXRzIG5hbWUu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Numerical prefixes (di-, tri-) are added based on its implied count in the formula.",
-                "text": "Numerical prefixes (di-, tri-) are added based on its implied count in the formula.",
-                "weight": 0
+                "answer_text": "b64:TnVtZXJpY2FsIHByZWZpeGVzIChkaS0sIHRyaS0pIGFyZSBhZGRlZCBiYXNlZCBvbiBpdHMgaW1wbGllZCBjb3VudCBpbiB0aGUgZm9ybXVsYS4=",
+                "text": "b64:TnVtZXJpY2FsIHByZWZpeGVzIChkaS0sIHRyaS0pIGFyZSBhZGRlZCBiYXNlZCBvbiBpdHMgaW1wbGllZCBjb3VudCBpbiB0aGUgZm9ybXVsYS4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Its ending is changed to -ide.",
-        "b": "Its ending is changed to -ic if it originally ended in -ate.",
-        "c": "Its name is used as is, without alteration.",
-        "d": "Its ending is changed to -ous if it originally ended in -ite.",
-        "e": "A 'hydro-' prefix is added to its name.",
-        "f": "Numerical prefixes (di-, tri-) are added based on its implied count in the formula."
+        "a": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1pZGUu",
+        "b": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1pYyBpZiBpdCBvcmlnaW5hbGx5IGVuZGVkIGluIC1hdGUu",
+        "c": "b64:SXRzIG5hbWUgaXMgdXNlZCBhcyBpcywgd2l0aG91dCBhbHRlcmF0aW9uLg==",
+        "d": "b64:SXRzIGVuZGluZyBpcyBjaGFuZ2VkIHRvIC1vdXMgaWYgaXQgb3JpZ2luYWxseSBlbmRlZCBpbiAtaXRlLg==",
+        "e": "b64:QSAnaHlkcm8tJyBwcmVmaXggaXMgYWRkZWQgdG8gaXRzIG5hbWUu",
+        "f": "b64:TnVtZXJpY2FsIHByZWZpeGVzIChkaS0sIHRyaS0pIGFyZSBhZGRlZCBiYXNlZCBvbiBpdHMgaW1wbGllZCBjb3VudCBpbiB0aGUgZm9ybXVsYS4="
     },
     {
         "question_name": "Question 10",
@@ -469,45 +469,45 @@
         "question_text": "What is the correct chemical name for the compound Al(NO₃)₃ (NO₃⁻ is the nitrate ion).?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Aluminum trinitrate",
-                "text": "Aluminum trinitrate",
-                "weight": 0
+                "answer_text": "b64:QWx1bWludW0gdHJpbml0cmF0ZQ==",
+                "text": "b64:QWx1bWludW0gdHJpbml0cmF0ZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Aluminum(III) nitrate",
-                "text": "Aluminum(III) nitrate",
-                "weight": 0
+                "answer_text": "b64:QWx1bWludW0oSUlJKSBuaXRyYXRl",
+                "text": "b64:QWx1bWludW0oSUlJKSBuaXRyYXRl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Aluminum nitrite",
-                "text": "Aluminum nitrite",
-                "weight": 0
+                "answer_text": "b64:QWx1bWludW0gbml0cml0ZQ==",
+                "text": "b64:QWx1bWludW0gbml0cml0ZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Aluminum nitrate",
-                "text": "Aluminum nitrate",
-                "weight": 100
+                "answer_text": "b64:QWx1bWludW0gbml0cmF0ZQ==",
+                "text": "b64:QWx1bWludW0gbml0cmF0ZQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Aluminic trioxide nitride",
-                "text": "Aluminic trioxide nitride",
-                "weight": 0
+                "answer_text": "b64:QWx1bWluaWMgdHJpb3hpZGUgbml0cmlkZQ==",
+                "text": "b64:QWx1bWluaWMgdHJpb3hpZGUgbml0cmlkZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Nitrogen aluminate",
-                "text": "Nitrogen aluminate",
-                "weight": 0
+                "answer_text": "b64:Tml0cm9nZW4gYWx1bWluYXRl",
+                "text": "b64:Tml0cm9nZW4gYWx1bWluYXRl",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Aluminum trinitrate",
-        "b": "Aluminum(III) nitrate",
-        "c": "Aluminum nitrite",
-        "d": "Aluminum nitrate",
-        "e": "Aluminic trioxide nitride",
-        "f": "Nitrogen aluminate"
+        "a": "b64:QWx1bWludW0gdHJpbml0cmF0ZQ==",
+        "b": "b64:QWx1bWludW0oSUlJKSBuaXRyYXRl",
+        "c": "b64:QWx1bWludW0gbml0cml0ZQ==",
+        "d": "b64:QWx1bWludW0gbml0cmF0ZQ==",
+        "e": "b64:QWx1bWluaWMgdHJpb3hpZGUgbml0cmlkZQ==",
+        "f": "b64:Tml0cm9nZW4gYWx1bWluYXRl"
     },
     {
         "question_name": "Question 11",
@@ -520,45 +520,45 @@
         "question_text": "A compound is named 'Lead (IV) oxide'. What does the '(IV)' indicate about the lead in this specific compound?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "There are four lead atoms in the formula.",
-                "text": "There are four lead atoms in the formula.",
-                "weight": 0
+                "answer_text": "b64:VGhlcmUgYXJlIGZvdXIgbGVhZCBhdG9tcyBpbiB0aGUgZm9ybXVsYS4=",
+                "text": "b64:VGhlcmUgYXJlIGZvdXIgbGVhZCBhdG9tcyBpbiB0aGUgZm9ybXVsYS4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Lead is in the fourth period of the periodic table.",
-                "text": "Lead is in the fourth period of the periodic table.",
-                "weight": 0
+                "answer_text": "b64:TGVhZCBpcyBpbiB0aGUgZm91cnRoIHBlcmlvZCBvZiB0aGUgcGVyaW9kaWMgdGFibGUu",
+                "text": "b64:TGVhZCBpcyBpbiB0aGUgZm91cnRoIHBlcmlvZCBvZiB0aGUgcGVyaW9kaWMgdGFibGUu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The lead ion has a +4 charge.",
-                "text": "The lead ion has a +4 charge.",
-                "weight": 100
+                "answer_text": "b64:VGhlIGxlYWQgaW9uIGhhcyBhICs0IGNoYXJnZS4=",
+                "text": "b64:VGhlIGxlYWQgaW9uIGhhcyBhICs0IGNoYXJnZS4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The oxide ion has a -4 charge.",
-                "text": "The oxide ion has a -4 charge.",
-                "weight": 0
+                "answer_text": "b64:VGhlIG94aWRlIGlvbiBoYXMgYSAtNCBjaGFyZ2Uu",
+                "text": "b64:VGhlIG94aWRlIGlvbiBoYXMgYSAtNCBjaGFyZ2Uu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It is the fourth most common isotope of lead.",
-                "text": "It is the fourth most common isotope of lead.",
-                "weight": 0
+                "answer_text": "b64:SXQgaXMgdGhlIGZvdXJ0aCBtb3N0IGNvbW1vbiBpc290b3BlIG9mIGxlYWQu",
+                "text": "b64:SXQgaXMgdGhlIGZvdXJ0aCBtb3N0IGNvbW1vbiBpc290b3BlIG9mIGxlYWQu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "There are four oxygen atoms bonded to lead.",
-                "text": "There are four oxygen atoms bonded to lead.",
-                "weight": 0
+                "answer_text": "b64:VGhlcmUgYXJlIGZvdXIgb3h5Z2VuIGF0b21zIGJvbmRlZCB0byBsZWFkLg==",
+                "text": "b64:VGhlcmUgYXJlIGZvdXIgb3h5Z2VuIGF0b21zIGJvbmRlZCB0byBsZWFkLg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "There are four lead atoms in the formula.",
-        "b": "Lead is in the fourth period of the periodic table.",
-        "c": "The lead ion has a +4 charge.",
-        "d": "The oxide ion has a -4 charge.",
-        "e": "It is the fourth most common isotope of lead.",
-        "f": "There are four oxygen atoms bonded to lead."
+        "a": "b64:VGhlcmUgYXJlIGZvdXIgbGVhZCBhdG9tcyBpbiB0aGUgZm9ybXVsYS4=",
+        "b": "b64:TGVhZCBpcyBpbiB0aGUgZm91cnRoIHBlcmlvZCBvZiB0aGUgcGVyaW9kaWMgdGFibGUu",
+        "c": "b64:VGhlIGxlYWQgaW9uIGhhcyBhICs0IGNoYXJnZS4=",
+        "d": "b64:VGhlIG94aWRlIGlvbiBoYXMgYSAtNCBjaGFyZ2Uu",
+        "e": "b64:SXQgaXMgdGhlIGZvdXJ0aCBtb3N0IGNvbW1vbiBpc290b3BlIG9mIGxlYWQu",
+        "f": "b64:VGhlcmUgYXJlIGZvdXIgb3h5Z2VuIGF0b21zIGJvbmRlZCB0byBsZWFkLg=="
     },
     {
         "question_name": "Question 12",
@@ -571,45 +571,45 @@
         "question_text": "Given that the sulfide ion is S²⁻, what is the correct chemical name for the compound Fe₂S₃ (Iron can have multiple charges)?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Iron sulfide",
-                "text": "Iron sulfide",
-                "weight": 0
+                "answer_text": "b64:SXJvbiBzdWxmaWRl",
+                "text": "b64:SXJvbiBzdWxmaWRl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Iron(II) sulfide",
-                "text": "Iron(II) sulfide",
-                "weight": 0
+                "answer_text": "b64:SXJvbihJSSkgc3VsZmlkZQ==",
+                "text": "b64:SXJvbihJSSkgc3VsZmlkZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Diiron trisulfide",
-                "text": "Diiron trisulfide",
-                "weight": 0
+                "answer_text": "b64:RGlpcm9uIHRyaXN1bGZpZGU=",
+                "text": "b64:RGlpcm9uIHRyaXN1bGZpZGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Iron(III) sulfide",
-                "text": "Iron(III) sulfide",
-                "weight": 100
+                "answer_text": "b64:SXJvbihJSUkpIHN1bGZpZGU=",
+                "text": "b64:SXJvbihJSUkpIHN1bGZpZGU=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Ferrous(II) sulfite",
-                "text": "Ferrous(II) sulfite",
-                "weight": 0
+                "answer_text": "b64:RmVycm91cyhJSSkgc3VsZml0ZQ==",
+                "text": "b64:RmVycm91cyhJSSkgc3VsZml0ZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Iron(II) trisulfide",
-                "text": "Iron(II) trisulfide",
-                "weight": 0
+                "answer_text": "b64:SXJvbihJSSkgdHJpc3VsZmlkZQ==",
+                "text": "b64:SXJvbihJSSkgdHJpc3VsZmlkZQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Iron sulfide",
-        "b": "Iron(II) sulfide",
-        "c": "Diiron trisulfide",
-        "d": "Iron(III) sulfide",
-        "e": "Ferrous(II) sulfite",
-        "f": "Iron(II) trisulfide"
+        "a": "b64:SXJvbiBzdWxmaWRl",
+        "b": "b64:SXJvbihJSSkgc3VsZmlkZQ==",
+        "c": "b64:RGlpcm9uIHRyaXN1bGZpZGU=",
+        "d": "b64:SXJvbihJSUkpIHN1bGZpZGU=",
+        "e": "b64:RmVycm91cyhJSSkgc3VsZml0ZQ==",
+        "f": "b64:SXJvbihJSSkgdHJpc3VsZmlkZQ=="
     },
     {
         "question_name": "Question 13",
@@ -622,45 +622,45 @@
         "question_text": "In the systematic naming of binary covalent compounds like SO₂, which rule applies to the use of Greek prefixes?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "'Mono-' is always used for the first element if there is only one atom.",
-                "text": "'Mono-' is always used for the first element if there is only one atom.",
-                "weight": 0
+                "answer_text": "b64:J01vbm8tJyBpcyBhbHdheXMgdXNlZCBmb3IgdGhlIGZpcnN0IGVsZW1lbnQgaWYgdGhlcmUgaXMgb25seSBvbmUgYXRvbS4=",
+                "text": "b64:J01vbm8tJyBpcyBhbHdheXMgdXNlZCBmb3IgdGhlIGZpcnN0IGVsZW1lbnQgaWYgdGhlcmUgaXMgb25seSBvbmUgYXRvbS4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "'Mono-' is omitted for the first element, but always used for the second if there is only one atom.",
-                "text": "'Mono-' is omitted for the first element, but always used for the second if there is only one atom.",
-                "weight": 100
+                "answer_text": "b64:J01vbm8tJyBpcyBvbWl0dGVkIGZvciB0aGUgZmlyc3QgZWxlbWVudCwgYnV0IGFsd2F5cyB1c2VkIGZvciB0aGUgc2Vjb25kIGlmIHRoZXJlIGlzIG9ubHkgb25lIGF0b20u",
+                "text": "b64:J01vbm8tJyBpcyBvbWl0dGVkIGZvciB0aGUgZmlyc3QgZWxlbWVudCwgYnV0IGFsd2F5cyB1c2VkIGZvciB0aGUgc2Vjb25kIGlmIHRoZXJlIGlzIG9ubHkgb25lIGF0b20u",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Prefixes are only used if both elements have more than one atom.",
-                "text": "Prefixes are only used if both elements have more than one atom.",
-                "weight": 0
+                "answer_text": "b64:UHJlZml4ZXMgYXJlIG9ubHkgdXNlZCBpZiBib3RoIGVsZW1lbnRzIGhhdmUgbW9yZSB0aGFuIG9uZSBhdG9tLg==",
+                "text": "b64:UHJlZml4ZXMgYXJlIG9ubHkgdXNlZCBpZiBib3RoIGVsZW1lbnRzIGhhdmUgbW9yZSB0aGFuIG9uZSBhdG9tLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Prefixes are only used for the second element, never the first.",
-                "text": "Prefixes are only used for the second element, never the first.",
-                "weight": 0
+                "answer_text": "b64:UHJlZml4ZXMgYXJlIG9ubHkgdXNlZCBmb3IgdGhlIHNlY29uZCBlbGVtZW50LCBuZXZlciB0aGUgZmlyc3Qu",
+                "text": "b64:UHJlZml4ZXMgYXJlIG9ubHkgdXNlZCBmb3IgdGhlIHNlY29uZCBlbGVtZW50LCBuZXZlciB0aGUgZmlyc3Qu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The prefix 'uni-' is used instead of 'mono-' for the first element.",
-                "text": "The prefix 'uni-' is used instead of 'mono-' for the first element.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHByZWZpeCAndW5pLScgaXMgdXNlZCBpbnN0ZWFkIG9mICdtb25vLScgZm9yIHRoZSBmaXJzdCBlbGVtZW50Lg==",
+                "text": "b64:VGhlIHByZWZpeCAndW5pLScgaXMgdXNlZCBpbnN0ZWFkIG9mICdtb25vLScgZm9yIHRoZSBmaXJzdCBlbGVtZW50Lg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Roman numerals are used instead of prefixes for the first element.",
-                "text": "Roman numerals are used instead of prefixes for the first element.",
-                "weight": 0
+                "answer_text": "b64:Um9tYW4gbnVtZXJhbHMgYXJlIHVzZWQgaW5zdGVhZCBvZiBwcmVmaXhlcyBmb3IgdGhlIGZpcnN0IGVsZW1lbnQu",
+                "text": "b64:Um9tYW4gbnVtZXJhbHMgYXJlIHVzZWQgaW5zdGVhZCBvZiBwcmVmaXhlcyBmb3IgdGhlIGZpcnN0IGVsZW1lbnQu",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "'Mono-' is always used for the first element if there is only one atom.",
-        "b": "'Mono-' is omitted for the first element, but always used for the second if there is only one atom.",
-        "c": "Prefixes are only used if both elements have more than one atom.",
-        "d": "Prefixes are only used for the second element, never the first.",
-        "e": "The prefix 'uni-' is used instead of 'mono-' for the first element.",
-        "f": "Roman numerals are used instead of prefixes for the first element."
+        "a": "b64:J01vbm8tJyBpcyBhbHdheXMgdXNlZCBmb3IgdGhlIGZpcnN0IGVsZW1lbnQgaWYgdGhlcmUgaXMgb25seSBvbmUgYXRvbS4=",
+        "b": "b64:J01vbm8tJyBpcyBvbWl0dGVkIGZvciB0aGUgZmlyc3QgZWxlbWVudCwgYnV0IGFsd2F5cyB1c2VkIGZvciB0aGUgc2Vjb25kIGlmIHRoZXJlIGlzIG9ubHkgb25lIGF0b20u",
+        "c": "b64:UHJlZml4ZXMgYXJlIG9ubHkgdXNlZCBpZiBib3RoIGVsZW1lbnRzIGhhdmUgbW9yZSB0aGFuIG9uZSBhdG9tLg==",
+        "d": "b64:UHJlZml4ZXMgYXJlIG9ubHkgdXNlZCBmb3IgdGhlIHNlY29uZCBlbGVtZW50LCBuZXZlciB0aGUgZmlyc3Qu",
+        "e": "b64:VGhlIHByZWZpeCAndW5pLScgaXMgdXNlZCBpbnN0ZWFkIG9mICdtb25vLScgZm9yIHRoZSBmaXJzdCBlbGVtZW50Lg==",
+        "f": "b64:Um9tYW4gbnVtZXJhbHMgYXJlIHVzZWQgaW5zdGVhZCBvZiBwcmVmaXhlcyBmb3IgdGhlIGZpcnN0IGVsZW1lbnQu"
     },
     {
         "question_name": "Question 14",
@@ -673,45 +673,45 @@
         "question_text": "What is the correct chemical name for the binary covalent compound N₂O₄?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Nitrogen oxide",
-                "text": "Nitrogen oxide",
-                "weight": 0
+                "answer_text": "b64:Tml0cm9nZW4gb3hpZGU=",
+                "text": "b64:Tml0cm9nZW4gb3hpZGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Dinitrogen oxide",
-                "text": "Dinitrogen oxide",
-                "weight": 0
+                "answer_text": "b64:RGluaXRyb2dlbiBveGlkZQ==",
+                "text": "b64:RGluaXRyb2dlbiBveGlkZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Nitrogen(IV) oxide",
-                "text": "Nitrogen(IV) oxide",
-                "weight": 0
+                "answer_text": "b64:Tml0cm9nZW4oSVYpIG94aWRl",
+                "text": "b64:Tml0cm9nZW4oSVYpIG94aWRl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Dinitrogen tetroxide",
-                "text": "Dinitrogen tetroxide",
-                "weight": 100
+                "answer_text": "b64:RGluaXRyb2dlbiB0ZXRyb3hpZGU=",
+                "text": "b64:RGluaXRyb2dlbiB0ZXRyb3hpZGU=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Nitrogen tetraoxygen",
-                "text": "Nitrogen tetraoxygen",
-                "weight": 0
+                "answer_text": "b64:Tml0cm9nZW4gdGV0cmFveHlnZW4=",
+                "text": "b64:Tml0cm9nZW4gdGV0cmFveHlnZW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Dinittric tetroxide",
-                "text": "Dinittric tetroxide",
-                "weight": 0
+                "answer_text": "b64:RGluaXR0cmljIHRldHJveGlkZQ==",
+                "text": "b64:RGluaXR0cmljIHRldHJveGlkZQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Nitrogen oxide",
-        "b": "Dinitrogen oxide",
-        "c": "Nitrogen(IV) oxide",
-        "d": "Dinitrogen tetroxide",
-        "e": "Nitrogen tetraoxygen",
-        "f": "Dinittric tetroxide"
+        "a": "b64:Tml0cm9nZW4gb3hpZGU=",
+        "b": "b64:RGluaXRyb2dlbiBveGlkZQ==",
+        "c": "b64:Tml0cm9nZW4oSVYpIG94aWRl",
+        "d": "b64:RGluaXRyb2dlbiB0ZXRyb3hpZGU=",
+        "e": "b64:Tml0cm9nZW4gdGV0cmFveHlnZW4=",
+        "f": "b64:RGluaXR0cmljIHRldHJveGlkZQ=="
     },
     {
         "question_name": "Question 15",
@@ -724,45 +724,45 @@
         "question_text": "A compound with the formula PCl₃ consists of phosphorus and chlorine (both nonmetals). Based on its composition, how would this compound primarily be classified and named?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "As a binary acid, using the \"hydro-\" prefix.",
-                "text": "As a binary acid, using the \"hydro-\" prefix.",
-                "weight": 0
+                "answer_text": "b64:QXMgYSBiaW5hcnkgYWNpZCwgdXNpbmcgdGhlICJoeWRyby0iIHByZWZpeC4=",
+                "text": "b64:QXMgYSBiaW5hcnkgYWNpZCwgdXNpbmcgdGhlICJoeWRyby0iIHByZWZpeC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "As a covalent compound, using numerical prefixes.",
-                "text": "As a covalent compound, using numerical prefixes.",
-                "weight": 100
+                "answer_text": "b64:QXMgYSBjb3ZhbGVudCBjb21wb3VuZCwgdXNpbmcgbnVtZXJpY2FsIHByZWZpeGVzLg==",
+                "text": "b64:QXMgYSBjb3ZhbGVudCBjb21wb3VuZCwgdXNpbmcgbnVtZXJpY2FsIHByZWZpeGVzLg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "As an ionic compound, naming the cation and then the anion ending in \"-ide\".",
-                "text": "As an ionic compound, naming the cation and then the anion ending in \"-ide\".",
-                "weight": 0
+                "answer_text": "b64:QXMgYW4gaW9uaWMgY29tcG91bmQsIG5hbWluZyB0aGUgY2F0aW9uIGFuZCB0aGVuIHRoZSBhbmlvbiBlbmRpbmcgaW4gIi1pZGUiLg==",
+                "text": "b64:QXMgYW4gaW9uaWMgY29tcG91bmQsIG5hbWluZyB0aGUgY2F0aW9uIGFuZCB0aGVuIHRoZSBhbmlvbiBlbmRpbmcgaW4gIi1pZGUiLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "As a polyatomic ion, requiring a Roman numeral for phosphorus.",
-                "text": "As a polyatomic ion, requiring a Roman numeral for phosphorus.",
-                "weight": 0
+                "answer_text": "b64:QXMgYSBwb2x5YXRvbWljIGlvbiwgcmVxdWlyaW5nIGEgUm9tYW4gbnVtZXJhbCBmb3IgcGhvc3Bob3J1cy4=",
+                "text": "b64:QXMgYSBwb2x5YXRvbWljIGlvbiwgcmVxdWlyaW5nIGEgUm9tYW4gbnVtZXJhbCBmb3IgcGhvc3Bob3J1cy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "As a simple binary ionic compound, with chlorine named \"chlorate\".",
-                "text": "As a simple binary ionic compound, with chlorine named \"chlorate\".",
-                "weight": 0
+                "answer_text": "b64:QXMgYSBzaW1wbGUgYmluYXJ5IGlvbmljIGNvbXBvdW5kLCB3aXRoIGNobG9yaW5lIG5hbWVkICJjaGxvcmF0ZSIu",
+                "text": "b64:QXMgYSBzaW1wbGUgYmluYXJ5IGlvbmljIGNvbXBvdW5kLCB3aXRoIGNobG9yaW5lIG5hbWVkICJjaGxvcmF0ZSIu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "As an oxyacid, because it contains a nonmetal and chlorine.",
-                "text": "As an oxyacid, because it contains a nonmetal and chlorine.",
-                "weight": 0
+                "answer_text": "b64:QXMgYW4gb3h5YWNpZCwgYmVjYXVzZSBpdCBjb250YWlucyBhIG5vbm1ldGFsIGFuZCBjaGxvcmluZS4=",
+                "text": "b64:QXMgYW4gb3h5YWNpZCwgYmVjYXVzZSBpdCBjb250YWlucyBhIG5vbm1ldGFsIGFuZCBjaGxvcmluZS4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "As a binary acid, using the \"hydro-\" prefix.",
-        "b": "As a covalent compound, using numerical prefixes.",
-        "c": "As an ionic compound, naming the cation and then the anion ending in \"-ide\".",
-        "d": "As a polyatomic ion, requiring a Roman numeral for phosphorus.",
-        "e": "As a simple binary ionic compound, with chlorine named \"chlorate\".",
-        "f": "As an oxyacid, because it contains a nonmetal and chlorine."
+        "a": "b64:QXMgYSBiaW5hcnkgYWNpZCwgdXNpbmcgdGhlICJoeWRyby0iIHByZWZpeC4=",
+        "b": "b64:QXMgYSBjb3ZhbGVudCBjb21wb3VuZCwgdXNpbmcgbnVtZXJpY2FsIHByZWZpeGVzLg==",
+        "c": "b64:QXMgYW4gaW9uaWMgY29tcG91bmQsIG5hbWluZyB0aGUgY2F0aW9uIGFuZCB0aGVuIHRoZSBhbmlvbiBlbmRpbmcgaW4gIi1pZGUiLg==",
+        "d": "b64:QXMgYSBwb2x5YXRvbWljIGlvbiwgcmVxdWlyaW5nIGEgUm9tYW4gbnVtZXJhbCBmb3IgcGhvc3Bob3J1cy4=",
+        "e": "b64:QXMgYSBzaW1wbGUgYmluYXJ5IGlvbmljIGNvbXBvdW5kLCB3aXRoIGNobG9yaW5lIG5hbWVkICJjaGxvcmF0ZSIu",
+        "f": "b64:QXMgYW4gb3h5YWNpZCwgYmVjYXVzZSBpdCBjb250YWlucyBhIG5vbm1ldGFsIGFuZCBjaGxvcmluZS4="
     },
     {
         "question_name": "Question 16",
@@ -775,45 +775,45 @@
         "question_text": "Consider the acid H₃PO₄ (containing the phosphate ion, PO₄³⁻) and the acid HI. Which statement accurately describes a key difference in their naming conventions?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Both are named using the \"hydro-\" prefix because they start with hydrogen.",
-                "text": "Both are named using the \"hydro-\" prefix because they start with hydrogen.",
-                "weight": 0
+                "answer_text": "b64:Qm90aCBhcmUgbmFtZWQgdXNpbmcgdGhlICJoeWRyby0iIHByZWZpeCBiZWNhdXNlIHRoZXkgc3RhcnQgd2l0aCBoeWRyb2dlbi4=",
+                "text": "b64:Qm90aCBhcmUgbmFtZWQgdXNpbmcgdGhlICJoeWRyby0iIHByZWZpeCBiZWNhdXNlIHRoZXkgc3RhcnQgd2l0aCBoeWRyb2dlbi4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "H₃PO₄ is named using the \"hydro-\" prefix, while HI is not.",
-                "text": "H₃PO₄ is named using the \"hydro-\" prefix, while HI is not.",
-                "weight": 0
+                "answer_text": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHVzaW5nIHRoZSAiaHlkcm8tIiBwcmVmaXgsIHdoaWxlIEhJIGlzIG5vdC4=",
+                "text": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHVzaW5nIHRoZSAiaHlkcm8tIiBwcmVmaXgsIHdoaWxlIEhJIGlzIG5vdC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "H₃PO₄ (from phosphate) is named phosphoric acid (no \"hydro-\"), while HI is named hydroiodic acid.",
-                "text": "H₃PO₄ (from phosphate) is named phosphoric acid (no \"hydro-\"), while HI is named hydroiodic acid.",
-                "weight": 100
+                "answer_text": "b64:SOKCg1BP4oKEIChmcm9tIHBob3NwaGF0ZSkgaXMgbmFtZWQgcGhvc3Bob3JpYyBhY2lkIChubyAiaHlkcm8tIiksIHdoaWxlIEhJIGlzIG5hbWVkIGh5ZHJvaW9kaWMgYWNpZC4=",
+                "text": "b64:SOKCg1BP4oKEIChmcm9tIHBob3NwaGF0ZSkgaXMgbmFtZWQgcGhvc3Bob3JpYyBhY2lkIChubyAiaHlkcm8tIiksIHdoaWxlIEhJIGlzIG5hbWVkIGh5ZHJvaW9kaWMgYWNpZC4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "H₃PO₄ is named phosphorous acid, and HI is named iodic acid.",
-                "text": "H₃PO₄ is named phosphorous acid, and HI is named iodic acid.",
-                "weight": 0
+                "answer_text": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHBob3NwaG9yb3VzIGFjaWQsIGFuZCBISSBpcyBuYW1lZCBpb2RpYyBhY2lkLg==",
+                "text": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHBob3NwaG9yb3VzIGFjaWQsIGFuZCBISSBpcyBuYW1lZCBpb2RpYyBhY2lkLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Both are named by simply stating \"hydrogen\" followed by the anion name (e.g., hydrogen phosphate).",
-                "text": "Both are named by simply stating \"hydrogen\" followed by the anion name (e.g., hydrogen phosphate).",
-                "weight": 0
+                "answer_text": "b64:Qm90aCBhcmUgbmFtZWQgYnkgc2ltcGx5IHN0YXRpbmcgImh5ZHJvZ2VuIiBmb2xsb3dlZCBieSB0aGUgYW5pb24gbmFtZSAoZS5nLiwgaHlkcm9nZW4gcGhvc3BoYXRlKS4=",
+                "text": "b64:Qm90aCBhcmUgbmFtZWQgYnkgc2ltcGx5IHN0YXRpbmcgImh5ZHJvZ2VuIiBmb2xsb3dlZCBieSB0aGUgYW5pb24gbmFtZSAoZS5nLiwgaHlkcm9nZW4gcGhvc3BoYXRlKS4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "H₃PO₄ is named perphosphoric acid, and HI is named hypoiodous acid.",
-                "text": "H₃PO₄ is named perphosphoric acid, and HI is named hypoiodous acid.",
-                "weight": 0
+                "answer_text": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHBlcnBob3NwaG9yaWMgYWNpZCwgYW5kIEhJIGlzIG5hbWVkIGh5cG9pb2RvdXMgYWNpZC4=",
+                "text": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHBlcnBob3NwaG9yaWMgYWNpZCwgYW5kIEhJIGlzIG5hbWVkIGh5cG9pb2RvdXMgYWNpZC4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Both are named using the \"hydro-\" prefix because they start with hydrogen.",
-        "b": "H₃PO₄ is named using the \"hydro-\" prefix, while HI is not.",
-        "c": "H₃PO₄ (from phosphate) is named phosphoric acid (no \"hydro-\"), while HI is named hydroiodic acid.",
-        "d": "H₃PO₄ is named phosphorous acid, and HI is named iodic acid.",
-        "e": "Both are named by simply stating \"hydrogen\" followed by the anion name (e.g., hydrogen phosphate).",
-        "f": "H₃PO₄ is named perphosphoric acid, and HI is named hypoiodous acid."
+        "a": "b64:Qm90aCBhcmUgbmFtZWQgdXNpbmcgdGhlICJoeWRyby0iIHByZWZpeCBiZWNhdXNlIHRoZXkgc3RhcnQgd2l0aCBoeWRyb2dlbi4=",
+        "b": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHVzaW5nIHRoZSAiaHlkcm8tIiBwcmVmaXgsIHdoaWxlIEhJIGlzIG5vdC4=",
+        "c": "b64:SOKCg1BP4oKEIChmcm9tIHBob3NwaGF0ZSkgaXMgbmFtZWQgcGhvc3Bob3JpYyBhY2lkIChubyAiaHlkcm8tIiksIHdoaWxlIEhJIGlzIG5hbWVkIGh5ZHJvaW9kaWMgYWNpZC4=",
+        "d": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHBob3NwaG9yb3VzIGFjaWQsIGFuZCBISSBpcyBuYW1lZCBpb2RpYyBhY2lkLg==",
+        "e": "b64:Qm90aCBhcmUgbmFtZWQgYnkgc2ltcGx5IHN0YXRpbmcgImh5ZHJvZ2VuIiBmb2xsb3dlZCBieSB0aGUgYW5pb24gbmFtZSAoZS5nLiwgaHlkcm9nZW4gcGhvc3BoYXRlKS4=",
+        "f": "b64:SOKCg1BP4oKEIGlzIG5hbWVkIHBlcnBob3NwaG9yaWMgYWNpZCwgYW5kIEhJIGlzIG5hbWVkIGh5cG9pb2RvdXMgYWNpZC4="
     },
     {
         "question_name": "Question 17",
@@ -847,51 +847,51 @@
         "consume_choices": false,
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     },
     {
         "quiz_metadata": {

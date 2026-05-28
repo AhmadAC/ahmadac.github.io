@@ -7,17 +7,33 @@
         "points": 1,
         "question text": "What does this picture show?",
         "url": "siphon",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
-            { "answer_text": "A cow.", "text": "A cow.", "weight": 0 },
-            { "answer_text": "An explosion.", "text": "An explosion.", "weight": 0 },
-            { "answer_text": "Nothing.", "text": "Nothing.", "weight": 0 },
-            { "answer_text": "A siphon.", "text": "A siphon.", "weight": 100 }
+            {
+                "answer_text": "b64:QSBjb3cu",
+                "text": "b64:QSBjb3cu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QW4gZXhwbG9zaW9uLg==",
+                "text": "b64:QW4gZXhwbG9zaW9uLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Tm90aGluZy4=",
+                "text": "b64:Tm90aGluZy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBzaXBob24u",
+                "text": "b64:QSBzaXBob24u",
+                "weight": "b64:MTAw"
+            }
         ],
-        "a": "A cow.",
-        "b": "An explosion.",
-        "c": "Nothing.",
-        "d": "A siphon."
+        "a": "b64:QSBjb3cu",
+        "b": "b64:QW4gZXhwbG9zaW9uLg==",
+        "c": "b64:Tm90aGluZy4=",
+        "d": "b64:QSBzaXBob24u"
     },
     {
         "question_name": "Question 2",
@@ -27,17 +43,33 @@
         "points": 1,
         "question text": "Why was the lab called the \"Magic Siphon\"?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "Because the siphon took purple solution and changed two beakers from colourless solution to pink/red and green/blue.", "text": "Because the siphon took purple solution and changed two beakers from colourless solution to pink/red and green/blue.", "weight": 100 },
-            { "answer_text": "Because the liquid from the colourless solution rose and emptied into the purple solution.", "text": "Because the liquid from the colourless solution rose and emptied into the purple solution.", "weight": 0 },
-            { "answer_text": "Because nothing happened.", "text": "Because nothing happened.", "weight": 0 },
-            { "answer_text": "Because the siphon moved the colourless solution from one beaker into the other beaker.", "text": "Because the siphon moved the colourless solution from one beaker into the other beaker.", "weight": 0 }
+            {
+                "answer_text": "b64:QmVjYXVzZSB0aGUgc2lwaG9uIHRvb2sgcHVycGxlIHNvbHV0aW9uIGFuZCBjaGFuZ2VkIHR3byBiZWFrZXJzIGZyb20gY29sb3VybGVzcyBzb2x1dGlvbiB0byBwaW5rL3JlZCBhbmQgZ3JlZW4vYmx1ZS4=",
+                "text": "b64:QmVjYXVzZSB0aGUgc2lwaG9uIHRvb2sgcHVycGxlIHNvbHV0aW9uIGFuZCBjaGFuZ2VkIHR3byBiZWFrZXJzIGZyb20gY29sb3VybGVzcyBzb2x1dGlvbiB0byBwaW5rL3JlZCBhbmQgZ3JlZW4vYmx1ZS4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QmVjYXVzZSB0aGUgbGlxdWlkIGZyb20gdGhlIGNvbG91cmxlc3Mgc29sdXRpb24gcm9zZSBhbmQgZW1wdGllZCBpbnRvIHRoZSBwdXJwbGUgc29sdXRpb24u",
+                "text": "b64:QmVjYXVzZSB0aGUgbGlxdWlkIGZyb20gdGhlIGNvbG91cmxlc3Mgc29sdXRpb24gcm9zZSBhbmQgZW1wdGllZCBpbnRvIHRoZSBwdXJwbGUgc29sdXRpb24u",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QmVjYXVzZSBub3RoaW5nIGhhcHBlbmVkLg==",
+                "text": "b64:QmVjYXVzZSBub3RoaW5nIGhhcHBlbmVkLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QmVjYXVzZSB0aGUgc2lwaG9uIG1vdmVkIHRoZSBjb2xvdXJsZXNzIHNvbHV0aW9uIGZyb20gb25lIGJlYWtlciBpbnRvIHRoZSBvdGhlciBiZWFrZXIu",
+                "text": "b64:QmVjYXVzZSB0aGUgc2lwaG9uIG1vdmVkIHRoZSBjb2xvdXJsZXNzIHNvbHV0aW9uIGZyb20gb25lIGJlYWtlciBpbnRvIHRoZSBvdGhlciBiZWFrZXIu",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "Because the siphon took purple solution and changed two beakers from colourless solution to pink/red and green/blue.",
-        "b": "Because the liquid from the colourless solution rose and emptied into the purple solution.",
-        "c": "Because nothing happened.",
-        "d": "Because the siphon moved the colourless solution from one beaker into the other beaker."
+        "a": "b64:QmVjYXVzZSB0aGUgc2lwaG9uIHRvb2sgcHVycGxlIHNvbHV0aW9uIGFuZCBjaGFuZ2VkIHR3byBiZWFrZXJzIGZyb20gY29sb3VybGVzcyBzb2x1dGlvbiB0byBwaW5rL3JlZCBhbmQgZ3JlZW4vYmx1ZS4=",
+        "b": "b64:QmVjYXVzZSB0aGUgbGlxdWlkIGZyb20gdGhlIGNvbG91cmxlc3Mgc29sdXRpb24gcm9zZSBhbmQgZW1wdGllZCBpbnRvIHRoZSBwdXJwbGUgc29sdXRpb24u",
+        "c": "b64:QmVjYXVzZSBub3RoaW5nIGhhcHBlbmVkLg==",
+        "d": "b64:QmVjYXVzZSB0aGUgc2lwaG9uIG1vdmVkIHRoZSBjb2xvdXJsZXNzIHNvbHV0aW9uIGZyb20gb25lIGJlYWtlciBpbnRvIHRoZSBvdGhlciBiZWFrZXIu"
     },
     {
         "question_name": "Question 3",
@@ -47,17 +79,33 @@
         "points": 1,
         "question text": "What causes the red cabbage indicator to change colour?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "The pH level of the solution", "text": "The pH level of the solution", "weight": 100 },
-            { "answer_text": "The temperature of the solution", "text": "The temperature of the solution", "weight": 0 },
-            { "answer_text": "The amount of light absorbed by the solution", "text": "The amount of light absorbed by the solution", "weight": 0 },
-            { "answer_text": "The volume of the solution", "text": "The volume of the solution", "weight": 0 }
+            {
+                "answer_text": "b64:VGhlIHBIIGxldmVsIG9mIHRoZSBzb2x1dGlvbg==",
+                "text": "b64:VGhlIHBIIGxldmVsIG9mIHRoZSBzb2x1dGlvbg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBzb2x1dGlvbg==",
+                "text": "b64:VGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBzb2x1dGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIGFtb3VudCBvZiBsaWdodCBhYnNvcmJlZCBieSB0aGUgc29sdXRpb24=",
+                "text": "b64:VGhlIGFtb3VudCBvZiBsaWdodCBhYnNvcmJlZCBieSB0aGUgc29sdXRpb24=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHZvbHVtZSBvZiB0aGUgc29sdXRpb24=",
+                "text": "b64:VGhlIHZvbHVtZSBvZiB0aGUgc29sdXRpb24=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "The pH level of the solution",
-        "b": "The temperature of the solution",
-        "c": "The amount of light absorbed by the solution",
-        "d": "The volume of the solution"
+        "a": "b64:VGhlIHBIIGxldmVsIG9mIHRoZSBzb2x1dGlvbg==",
+        "b": "b64:VGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBzb2x1dGlvbg==",
+        "c": "b64:VGhlIGFtb3VudCBvZiBsaWdodCBhYnNvcmJlZCBieSB0aGUgc29sdXRpb24=",
+        "d": "b64:VGhlIHZvbHVtZSBvZiB0aGUgc29sdXRpb24="
     },
     {
         "question_name": "Question 4",
@@ -67,17 +115,33 @@
         "points": 1,
         "question text": "What colour does red cabbage indicator turn in a neutral solution (pH 7)?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
-            { "answer_text": "Red", "text": "Red", "weight": 0 },
-            { "answer_text": "Green", "text": "Green", "weight": 0 },
-            { "answer_text": "Blue/Purple", "text": "Blue/Purple", "weight": 100 },
-            { "answer_text": "Yellow", "text": "Yellow", "weight": 0 }
+            {
+                "answer_text": "b64:UmVk",
+                "text": "b64:UmVk",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:R3JlZW4=",
+                "text": "b64:R3JlZW4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Qmx1ZS9QdXJwbGU=",
+                "text": "b64:Qmx1ZS9QdXJwbGU=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:WWVsbG93",
+                "text": "b64:WWVsbG93",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "Red",
-        "b": "Green",
-        "c": "Blue/Purple",
-        "d": "Yellow"
+        "a": "b64:UmVk",
+        "b": "b64:R3JlZW4=",
+        "c": "b64:Qmx1ZS9QdXJwbGU=",
+        "d": "b64:WWVsbG93"
     },
     {
         "question_name": "Question 5",
@@ -87,17 +151,33 @@
         "points": 1,
         "question text": "If you add red cabbage indicator to vinegar, what colour will it turn?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
-            { "answer_text": "Blue", "text": "Blue", "weight": 0 },
-            { "answer_text": "Yellow", "text": "Yellow", "weight": 0 },
-            { "answer_text": "Green", "text": "Green", "weight": 0 },
-            { "answer_text": "Pink/Red", "text": "Pink/Red", "weight": 100 }
+            {
+                "answer_text": "b64:Qmx1ZQ==",
+                "text": "b64:Qmx1ZQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:WWVsbG93",
+                "text": "b64:WWVsbG93",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:R3JlZW4=",
+                "text": "b64:R3JlZW4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UGluay9SZWQ=",
+                "text": "b64:UGluay9SZWQ=",
+                "weight": "b64:MTAw"
+            }
         ],
-        "a": "Blue",
-        "b": "Yellow",
-        "c": "Green",
-        "d": "Pink/Red"
+        "a": "b64:Qmx1ZQ==",
+        "b": "b64:WWVsbG93",
+        "c": "b64:R3JlZW4=",
+        "d": "b64:UGluay9SZWQ="
     },
     {
         "question_name": "Question 6",
@@ -107,17 +187,33 @@
         "points": 1,
         "question text": "Which household substance would turn red cabbage indicator green or blue?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
-            { "answer_text": "Vinegar", "text": "Vinegar", "weight": 0 },
-            { "answer_text": "Baking soda (bicarbonate soda)", "text": "Baking soda (bicarbonate soda)", "weight": 100 },
-            { "answer_text": "Lemon juice", "text": "Lemon juice", "weight": 0 },
-            { "answer_text": "Milk", "text": "Milk", "weight": 0 }
+            {
+                "answer_text": "b64:VmluZWdhcg==",
+                "text": "b64:VmluZWdhcg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QmFraW5nIHNvZGEgKGJpY2FyYm9uYXRlIHNvZGEp",
+                "text": "b64:QmFraW5nIHNvZGEgKGJpY2FyYm9uYXRlIHNvZGEp",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:TGVtb24ganVpY2U=",
+                "text": "b64:TGVtb24ganVpY2U=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TWlsaw==",
+                "text": "b64:TWlsaw==",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "Vinegar",
-        "b": "Baking soda (bicarbonate soda)",
-        "c": "Lemon juice",
-        "d": "Milk"
+        "a": "b64:VmluZWdhcg==",
+        "b": "b64:QmFraW5nIHNvZGEgKGJpY2FyYm9uYXRlIHNvZGEp",
+        "c": "b64:TGVtb24ganVpY2U=",
+        "d": "b64:TWlsaw=="
     },
     {
         "question_name": "Question 7",
@@ -127,17 +223,33 @@
         "points": 1,
         "question text": "What is the primary principle behind how a siphon works?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "Gravity", "text": "Gravity", "weight": 100 },
-            { "answer_text": "Electromagnetism", "text": "Electromagnetism", "weight": 0 },
-            { "answer_text": "Thermal expansion", "text": "Thermal expansion", "weight": 0 },
-            { "answer_text": "Nuclear fusion", "text": "Nuclear fusion", "weight": 0 }
+            {
+                "answer_text": "b64:R3Jhdml0eQ==",
+                "text": "b64:R3Jhdml0eQ==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:RWxlY3Ryb21hZ25ldGlzbQ==",
+                "text": "b64:RWxlY3Ryb21hZ25ldGlzbQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlcm1hbCBleHBhbnNpb24=",
+                "text": "b64:VGhlcm1hbCBleHBhbnNpb24=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TnVjbGVhciBmdXNpb24=",
+                "text": "b64:TnVjbGVhciBmdXNpb24=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "Gravity",
-        "b": "Electromagnetism",
-        "c": "Thermal expansion",
-        "d": "Nuclear fusion"
+        "a": "b64:R3Jhdml0eQ==",
+        "b": "b64:RWxlY3Ryb21hZ25ldGlzbQ==",
+        "c": "b64:VGhlcm1hbCBleHBhbnNpb24=",
+        "d": "b64:TnVjbGVhciBmdXNpb24="
     },
     {
         "question_name": "Question 8",
@@ -147,17 +259,33 @@
         "points": 1,
         "question text": "What must be present for a siphon to function properly?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "A continuous flow of liquid", "text": "A continuous flow of liquid", "weight": 100 },
-            { "answer_text": "A vacuum pump", "text": "A vacuum pump", "weight": 0 },
-            { "answer_text": "Electrical power", "text": "Electrical power", "weight": 0 },
-            { "answer_text": "High air pressure", "text": "High air pressure", "weight": 0 }
+            {
+                "answer_text": "b64:QSBjb250aW51b3VzIGZsb3cgb2YgbGlxdWlk",
+                "text": "b64:QSBjb250aW51b3VzIGZsb3cgb2YgbGlxdWlk",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSB2YWN1dW0gcHVtcA==",
+                "text": "b64:QSB2YWN1dW0gcHVtcA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RWxlY3RyaWNhbCBwb3dlcg==",
+                "text": "b64:RWxlY3RyaWNhbCBwb3dlcg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SGlnaCBhaXIgcHJlc3N1cmU=",
+                "text": "b64:SGlnaCBhaXIgcHJlc3N1cmU=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "A continuous flow of liquid",
-        "b": "A vacuum pump",
-        "c": "Electrical power",
-        "d": "High air pressure"
+        "a": "b64:QSBjb250aW51b3VzIGZsb3cgb2YgbGlxdWlk",
+        "b": "b64:QSB2YWN1dW0gcHVtcA==",
+        "c": "b64:RWxlY3RyaWNhbCBwb3dlcg==",
+        "d": "b64:SGlnaCBhaXIgcHJlc3N1cmU="
     },
     {
         "question_name": "Question 9",
@@ -167,17 +295,33 @@
         "points": 1,
         "question text": "What is the role of atmospheric pressure in a siphon?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
-            { "answer_text": "It creates the initial vacuum needed for the siphon, generating unlimited free energy.", "text": "It creates the initial vacuum needed for the siphon, generating unlimited free energy.", "weight": 0 },
-            { "answer_text": "It has no role in the siphon process.", "text": "It has no role in the siphon process.", "weight": 0 },
-            { "answer_text": "It prevents the liquid from flowing backward.", "text": "It prevents the liquid from flowing backward.", "weight": 0 },
-            { "answer_text": "It pushes the liquid up and over the bend in the tube.", "text": "It pushes the liquid up and over the bend in the tube.", "weight": 100 }
+            {
+                "answer_text": "b64:SXQgY3JlYXRlcyB0aGUgaW5pdGlhbCB2YWN1dW0gbmVlZGVkIGZvciB0aGUgc2lwaG9uLCBnZW5lcmF0aW5nIHVubGltaXRlZCBmcmVlIGVuZXJneS4=",
+                "text": "b64:SXQgY3JlYXRlcyB0aGUgaW5pdGlhbCB2YWN1dW0gbmVlZGVkIGZvciB0aGUgc2lwaG9uLCBnZW5lcmF0aW5nIHVubGltaXRlZCBmcmVlIGVuZXJneS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgaGFzIG5vIHJvbGUgaW4gdGhlIHNpcGhvbiBwcm9jZXNzLg==",
+                "text": "b64:SXQgaGFzIG5vIHJvbGUgaW4gdGhlIHNpcGhvbiBwcm9jZXNzLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgcHJldmVudHMgdGhlIGxpcXVpZCBmcm9tIGZsb3dpbmcgYmFja3dhcmQu",
+                "text": "b64:SXQgcHJldmVudHMgdGhlIGxpcXVpZCBmcm9tIGZsb3dpbmcgYmFja3dhcmQu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgcHVzaGVzIHRoZSBsaXF1aWQgdXAgYW5kIG92ZXIgdGhlIGJlbmQgaW4gdGhlIHR1YmUu",
+                "text": "b64:SXQgcHVzaGVzIHRoZSBsaXF1aWQgdXAgYW5kIG92ZXIgdGhlIGJlbmQgaW4gdGhlIHR1YmUu",
+                "weight": "b64:MTAw"
+            }
         ],
-        "a": "It creates the initial vacuum needed for the siphon, generating unlimited free energy.",
-        "b": "It has no role in the siphon process.",
-        "c": "It prevents the liquid from flowing backward.",
-        "d": "It pushes the liquid up and over the bend in the tube."
+        "a": "b64:SXQgY3JlYXRlcyB0aGUgaW5pdGlhbCB2YWN1dW0gbmVlZGVkIGZvciB0aGUgc2lwaG9uLCBnZW5lcmF0aW5nIHVubGltaXRlZCBmcmVlIGVuZXJneS4=",
+        "b": "b64:SXQgaGFzIG5vIHJvbGUgaW4gdGhlIHNpcGhvbiBwcm9jZXNzLg==",
+        "c": "b64:SXQgcHJldmVudHMgdGhlIGxpcXVpZCBmcm9tIGZsb3dpbmcgYmFja3dhcmQu",
+        "d": "b64:SXQgcHVzaGVzIHRoZSBsaXF1aWQgdXAgYW5kIG92ZXIgdGhlIGJlbmQgaW4gdGhlIHR1YmUu"
     },
     {
         "question_name": "Question 10",
@@ -187,17 +331,33 @@
         "points": 1,
         "question text": "Which of the following is NOT required for a siphon to work?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
-            { "answer_text": "A height difference between the two ends of the tube", "text": "A height difference between the two ends of the tube", "weight": 0 },
-            { "answer_text": "A source of electricity", "text": "A source of electricity", "weight": 100 },
-            { "answer_text": "A liquid that can flow freely", "text": "A liquid that can flow freely", "weight": 0 },
-            { "answer_text": "A tube or hose", "text": "A tube or hose", "weight": 0 }
+            {
+                "answer_text": "b64:QSBoZWlnaHQgZGlmZmVyZW5jZSBiZXR3ZWVuIHRoZSB0d28gZW5kcyBvZiB0aGUgdHViZQ==",
+                "text": "b64:QSBoZWlnaHQgZGlmZmVyZW5jZSBiZXR3ZWVuIHRoZSB0d28gZW5kcyBvZiB0aGUgdHViZQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBzb3VyY2Ugb2YgZWxlY3RyaWNpdHk=",
+                "text": "b64:QSBzb3VyY2Ugb2YgZWxlY3RyaWNpdHk=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSBsaXF1aWQgdGhhdCBjYW4gZmxvdyBmcmVlbHk=",
+                "text": "b64:QSBsaXF1aWQgdGhhdCBjYW4gZmxvdyBmcmVlbHk=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSB0dWJlIG9yIGhvc2U=",
+                "text": "b64:QSB0dWJlIG9yIGhvc2U=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "A height difference between the two ends of the tube",
-        "b": "A source of electricity",
-        "c": "A liquid that can flow freely",
-        "d": "A tube or hose"
+        "a": "b64:QSBoZWlnaHQgZGlmZmVyZW5jZSBiZXR3ZWVuIHRoZSB0d28gZW5kcyBvZiB0aGUgdHViZQ==",
+        "b": "b64:QSBzb3VyY2Ugb2YgZWxlY3RyaWNpdHk=",
+        "c": "b64:QSBsaXF1aWQgdGhhdCBjYW4gZmxvdyBmcmVlbHk=",
+        "d": "b64:QSB0dWJlIG9yIGhvc2U="
     },
     {
         "question_name": "Question 11",
@@ -207,17 +367,33 @@
         "points": 1,
         "question text": "What happens if there is a break or air bubble in the siphon tube?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "The flow of liquid will stop.", "text": "The flow of liquid will stop.", "weight": 100 },
-            { "answer_text": "The flow of liquid will speed up.", "text": "The flow of liquid will speed up.", "weight": 0 },
-            { "answer_text": "The siphon will reverse direction.", "text": "The siphon will reverse direction.", "weight": 0 },
-            { "answer_text": "Nothing will happen.", "text": "Nothing will happen.", "weight": 0 }
+            {
+                "answer_text": "b64:VGhlIGZsb3cgb2YgbGlxdWlkIHdpbGwgc3RvcC4=",
+                "text": "b64:VGhlIGZsb3cgb2YgbGlxdWlkIHdpbGwgc3RvcC4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIGZsb3cgb2YgbGlxdWlkIHdpbGwgc3BlZWQgdXAu",
+                "text": "b64:VGhlIGZsb3cgb2YgbGlxdWlkIHdpbGwgc3BlZWQgdXAu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHNpcGhvbiB3aWxsIHJldmVyc2UgZGlyZWN0aW9uLg==",
+                "text": "b64:VGhlIHNpcGhvbiB3aWxsIHJldmVyc2UgZGlyZWN0aW9uLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Tm90aGluZyB3aWxsIGhhcHBlbi4=",
+                "text": "b64:Tm90aGluZyB3aWxsIGhhcHBlbi4=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "The flow of liquid will stop.",
-        "b": "The flow of liquid will speed up.",
-        "c": "The siphon will reverse direction.",
-        "d": "Nothing will happen."
+        "a": "b64:VGhlIGZsb3cgb2YgbGlxdWlkIHdpbGwgc3RvcC4=",
+        "b": "b64:VGhlIGZsb3cgb2YgbGlxdWlkIHdpbGwgc3BlZWQgdXAu",
+        "c": "b64:VGhlIHNpcGhvbiB3aWxsIHJldmVyc2UgZGlyZWN0aW9uLg==",
+        "d": "b64:Tm90aGluZyB3aWxsIGhhcHBlbi4="
     },
     {
         "question_name": "Question 12",
@@ -227,17 +403,33 @@
         "points": 1,
         "question text": "In which situation would a siphon fail to work?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
-            { "answer_text": "When the liquid is water", "text": "When the liquid is water", "weight": 0 },
-            { "answer_text": "When the tube is made of plastic", "text": "When the tube is made of plastic", "weight": 0 },
-            { "answer_text": "When the outlet end of the tube is higher than the inlet end", "text": "When the outlet end of the tube is higher than the inlet end", "weight": 100 },
-            { "answer_text": "When the liquid is cold", "text": "When the liquid is cold", "weight": 0 }
+            {
+                "answer_text": "b64:V2hlbiB0aGUgbGlxdWlkIGlzIHdhdGVy",
+                "text": "b64:V2hlbiB0aGUgbGlxdWlkIGlzIHdhdGVy",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:V2hlbiB0aGUgdHViZSBpcyBtYWRlIG9mIHBsYXN0aWM=",
+                "text": "b64:V2hlbiB0aGUgdHViZSBpcyBtYWRlIG9mIHBsYXN0aWM=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:V2hlbiB0aGUgb3V0bGV0IGVuZCBvZiB0aGUgdHViZSBpcyBoaWdoZXIgdGhhbiB0aGUgaW5sZXQgZW5k",
+                "text": "b64:V2hlbiB0aGUgb3V0bGV0IGVuZCBvZiB0aGUgdHViZSBpcyBoaWdoZXIgdGhhbiB0aGUgaW5sZXQgZW5k",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:V2hlbiB0aGUgbGlxdWlkIGlzIGNvbGQ=",
+                "text": "b64:V2hlbiB0aGUgbGlxdWlkIGlzIGNvbGQ=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "When the liquid is water",
-        "b": "When the tube is made of plastic",
-        "c": "When the outlet end of the tube is higher than the inlet end",
-        "d": "When the liquid is cold"
+        "a": "b64:V2hlbiB0aGUgbGlxdWlkIGlzIHdhdGVy",
+        "b": "b64:V2hlbiB0aGUgdHViZSBpcyBtYWRlIG9mIHBsYXN0aWM=",
+        "c": "b64:V2hlbiB0aGUgb3V0bGV0IGVuZCBvZiB0aGUgdHViZSBpcyBoaWdoZXIgdGhhbiB0aGUgaW5sZXQgZW5k",
+        "d": "b64:V2hlbiB0aGUgbGlxdWlkIGlzIGNvbGQ="
     },
     {
         "question_name": "Question 13",
@@ -247,17 +439,33 @@
         "points": 1,
         "question text": "How does gravity contribute to the operation of a siphon?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
-            { "answer_text": "It generates heat to keep the liquid moving.", "text": "It generates heat to keep the liquid moving.", "weight": 0 },
-            { "answer_text": "It increases the pressure inside the tube.", "text": "It increases the pressure inside the tube.", "weight": 0 },
-            { "answer_text": "It pulls the liquid upward.", "text": "It pulls the liquid upward.", "weight": 0 },
-            { "answer_text": "It pulls the liquid downward, creating a continuous flow.", "text": "It pulls the liquid downward, creating a continuous flow.", "weight": 100 }
+            {
+                "answer_text": "b64:SXQgZ2VuZXJhdGVzIGhlYXQgdG8ga2VlcCB0aGUgbGlxdWlkIG1vdmluZy4=",
+                "text": "b64:SXQgZ2VuZXJhdGVzIGhlYXQgdG8ga2VlcCB0aGUgbGlxdWlkIG1vdmluZy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgaW5jcmVhc2VzIHRoZSBwcmVzc3VyZSBpbnNpZGUgdGhlIHR1YmUu",
+                "text": "b64:SXQgaW5jcmVhc2VzIHRoZSBwcmVzc3VyZSBpbnNpZGUgdGhlIHR1YmUu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgcHVsbHMgdGhlIGxpcXVpZCB1cHdhcmQu",
+                "text": "b64:SXQgcHVsbHMgdGhlIGxpcXVpZCB1cHdhcmQu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgcHVsbHMgdGhlIGxpcXVpZCBkb3dud2FyZCwgY3JlYXRpbmcgYSBjb250aW51b3VzIGZsb3cu",
+                "text": "b64:SXQgcHVsbHMgdGhlIGxpcXVpZCBkb3dud2FyZCwgY3JlYXRpbmcgYSBjb250aW51b3VzIGZsb3cu",
+                "weight": "b64:MTAw"
+            }
         ],
-        "a": "It generates heat to keep the liquid moving.",
-        "b": "It increases the pressure inside the tube.",
-        "c": "It pulls the liquid upward.",
-        "d": "It pulls the liquid downward, creating a continuous flow."
+        "a": "b64:SXQgZ2VuZXJhdGVzIGhlYXQgdG8ga2VlcCB0aGUgbGlxdWlkIG1vdmluZy4=",
+        "b": "b64:SXQgaW5jcmVhc2VzIHRoZSBwcmVzc3VyZSBpbnNpZGUgdGhlIHR1YmUu",
+        "c": "b64:SXQgcHVsbHMgdGhlIGxpcXVpZCB1cHdhcmQu",
+        "d": "b64:SXQgcHVsbHMgdGhlIGxpcXVpZCBkb3dud2FyZCwgY3JlYXRpbmcgYSBjb250aW51b3VzIGZsb3cu"
     },
     {
         "question_name": "Question 14",
@@ -267,17 +475,33 @@
         "points": 1,
         "question text": "Which factor determines the maximum height a liquid can be lifted in a siphon?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
-            { "answer_text": "The colour of the liquid", "text": "The colour of the liquid", "weight": 0 },
-            { "answer_text": "The diameter of the tube", "text": "The diameter of the tube", "weight": 0 },
-            { "answer_text": "Atmospheric pressure and liquid properties", "text": "Atmospheric pressure and liquid properties", "weight": 100 },
-            { "answer_text": "The temperature of the surrounding air", "text": "The temperature of the surrounding air", "weight": 0 }
+            {
+                "answer_text": "b64:VGhlIGNvbG91ciBvZiB0aGUgbGlxdWlk",
+                "text": "b64:VGhlIGNvbG91ciBvZiB0aGUgbGlxdWlk",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIGRpYW1ldGVyIG9mIHRoZSB0dWJl",
+                "text": "b64:VGhlIGRpYW1ldGVyIG9mIHRoZSB0dWJl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QXRtb3NwaGVyaWMgcHJlc3N1cmUgYW5kIGxpcXVpZCBwcm9wZXJ0aWVz",
+                "text": "b64:QXRtb3NwaGVyaWMgcHJlc3N1cmUgYW5kIGxpcXVpZCBwcm9wZXJ0aWVz",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBzdXJyb3VuZGluZyBhaXI=",
+                "text": "b64:VGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBzdXJyb3VuZGluZyBhaXI=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "The colour of the liquid",
-        "b": "The diameter of the tube",
-        "c": "Atmospheric pressure and liquid properties",
-        "d": "The temperature of the surrounding air"
+        "a": "b64:VGhlIGNvbG91ciBvZiB0aGUgbGlxdWlk",
+        "b": "b64:VGhlIGRpYW1ldGVyIG9mIHRoZSB0dWJl",
+        "c": "b64:QXRtb3NwaGVyaWMgcHJlc3N1cmUgYW5kIGxpcXVpZCBwcm9wZXJ0aWVz",
+        "d": "b64:VGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBzdXJyb3VuZGluZyBhaXI="
     },
     {
         "question_name": "Question 15",
@@ -287,17 +511,33 @@
         "points": 1,
         "question text": "Why does a siphon require the liquid to initially flow into the tube?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "To create a vacuum at the top of the tube", "text": "To create a vacuum at the top of the tube", "weight": 100 },
-            { "answer_text": "To increase the temperature of the liquid", "text": "To increase the temperature of the liquid", "weight": 0 },
-            { "answer_text": "To generate electricity", "text": "To generate electricity", "weight": 0 },
-            { "answer_text": "To release the heart of the cards.", "text": "To release the heart of the cards.", "weight": 0 }
+            {
+                "answer_text": "b64:VG8gY3JlYXRlIGEgdmFjdXVtIGF0IHRoZSB0b3Agb2YgdGhlIHR1YmU=",
+                "text": "b64:VG8gY3JlYXRlIGEgdmFjdXVtIGF0IHRoZSB0b3Agb2YgdGhlIHR1YmU=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VG8gaW5jcmVhc2UgdGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBsaXF1aWQ=",
+                "text": "b64:VG8gaW5jcmVhc2UgdGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBsaXF1aWQ=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VG8gZ2VuZXJhdGUgZWxlY3RyaWNpdHk=",
+                "text": "b64:VG8gZ2VuZXJhdGUgZWxlY3RyaWNpdHk=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VG8gcmVsZWFzZSB0aGUgaGVhcnQgb2YgdGhlIGNhcmRzLg==",
+                "text": "b64:VG8gcmVsZWFzZSB0aGUgaGVhcnQgb2YgdGhlIGNhcmRzLg==",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "To create a vacuum at the top of the tube",
-        "b": "To increase the temperature of the liquid",
-        "c": "To generate electricity",
-        "d": "To release the heart of the cards."
+        "a": "b64:VG8gY3JlYXRlIGEgdmFjdXVtIGF0IHRoZSB0b3Agb2YgdGhlIHR1YmU=",
+        "b": "b64:VG8gaW5jcmVhc2UgdGhlIHRlbXBlcmF0dXJlIG9mIHRoZSBsaXF1aWQ=",
+        "c": "b64:VG8gZ2VuZXJhdGUgZWxlY3RyaWNpdHk=",
+        "d": "b64:VG8gcmVsZWFzZSB0aGUgaGVhcnQgb2YgdGhlIGNhcmRzLg=="
     },
     {
         "question_name": "Question 16",
@@ -307,17 +547,33 @@
         "points": 1,
         "question text": "What happens to the flow rate of a siphon as the height difference between the two ends increases?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
-            { "answer_text": "The flow rate decreases.", "text": "The flow rate decreases.", "weight": 0 },
-            { "answer_text": "The flow rate remains constant.", "text": "The flow rate remains constant.", "weight": 0 },
-            { "answer_text": "The flow rate increases.", "text": "The flow rate increases.", "weight": 100 },
-            { "answer_text": "The flow rate becomes zero.", "text": "The flow rate becomes zero.", "weight": 0 }
+            {
+                "answer_text": "b64:VGhlIGZsb3cgcmF0ZSBkZWNyZWFzZXMu",
+                "text": "b64:VGhlIGZsb3cgcmF0ZSBkZWNyZWFzZXMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIGZsb3cgcmF0ZSByZW1haW5zIGNvbnN0YW50Lg==",
+                "text": "b64:VGhlIGZsb3cgcmF0ZSByZW1haW5zIGNvbnN0YW50Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIGZsb3cgcmF0ZSBpbmNyZWFzZXMu",
+                "text": "b64:VGhlIGZsb3cgcmF0ZSBpbmNyZWFzZXMu",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIGZsb3cgcmF0ZSBiZWNvbWVzIHplcm8u",
+                "text": "b64:VGhlIGZsb3cgcmF0ZSBiZWNvbWVzIHplcm8u",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "The flow rate decreases.",
-        "b": "The flow rate remains constant.",
-        "c": "The flow rate increases.",
-        "d": "The flow rate becomes zero."
+        "a": "b64:VGhlIGZsb3cgcmF0ZSBkZWNyZWFzZXMu",
+        "b": "b64:VGhlIGZsb3cgcmF0ZSByZW1haW5zIGNvbnN0YW50Lg==",
+        "c": "b64:VGhlIGZsb3cgcmF0ZSBpbmNyZWFzZXMu",
+        "d": "b64:VGhlIGZsb3cgcmF0ZSBiZWNvbWVzIHplcm8u"
     },
     {
         "question_name": "Question 17",
@@ -340,24 +596,51 @@
         "url": "",
         "correct ans index": " ",
         "answers": [
-            { "answer_text": "G6A", "weight": 0 },
-            { "answer_text": "G6B", "weight": 0 },
-            { "answer_text": "G6C", "weight": 0 },
-            { "answer_text": "G7A", "weight": 0 },
-            { "answer_text": "G7B", "weight": 0 },
-            { "answer_text": "G7C", "weight": 0 },
-            { "answer_text": "G8A", "weight": 0 },
-            { "answer_text": "G8B", "weight": 0 },
-            { "answer_text": "G8C", "weight": 0 }
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

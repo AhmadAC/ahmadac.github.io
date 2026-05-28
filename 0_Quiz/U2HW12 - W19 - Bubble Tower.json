@@ -7,45 +7,45 @@
         "points": 1,
         "question text": "What are the two primary chemical substances required to create the reaction that generates the bubbles in this experiment?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Vegetable oil and sunflower oil",
-                "text": "Vegetable oil and sunflower oil",
-                "weight": 0
+                "answer_text": "b64:VmVnZXRhYmxlIG9pbCBhbmQgc3VuZmxvd2VyIG9pbA==",
+                "text": "b64:VmVnZXRhYmxlIG9pbCBhbmQgc3VuZmxvd2VyIG9pbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Distilled vinegar and red cabbage",
-                "text": "Distilled vinegar and red cabbage",
-                "weight": 0
+                "answer_text": "b64:RGlzdGlsbGVkIHZpbmVnYXIgYW5kIHJlZCBjYWJiYWdl",
+                "text": "b64:RGlzdGlsbGVkIHZpbmVnYXIgYW5kIHJlZCBjYWJiYWdl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Warm water and red cabbage leaves",
-                "text": "Warm water and red cabbage leaves",
-                "weight": 0
+                "answer_text": "b64:V2FybSB3YXRlciBhbmQgcmVkIGNhYmJhZ2UgbGVhdmVz",
+                "text": "b64:V2FybSB3YXRlciBhbmQgcmVkIGNhYmJhZ2UgbGVhdmVz",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Distilled vinegar and bicarbonate of soda",
-                "text": "Distilled vinegar and bicarbonate of soda",
-                "weight": 100
+                "answer_text": "b64:RGlzdGlsbGVkIHZpbmVnYXIgYW5kIGJpY2FyYm9uYXRlIG9mIHNvZGE=",
+                "text": "b64:RGlzdGlsbGVkIHZpbmVnYXIgYW5kIGJpY2FyYm9uYXRlIG9mIHNvZGE=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Bicarbonate of soda and vegetable oil",
-                "text": "Bicarbonate of soda and vegetable oil",
-                "weight": 0
+                "answer_text": "b64:QmljYXJib25hdGUgb2Ygc29kYSBhbmQgdmVnZXRhYmxlIG9pbA==",
+                "text": "b64:QmljYXJib25hdGUgb2Ygc29kYSBhbmQgdmVnZXRhYmxlIG9pbA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Liquid soap and baking powder",
-                "text": "Liquid soap and baking powder",
-                "weight": 0
+                "answer_text": "b64:TGlxdWlkIHNvYXAgYW5kIGJha2luZyBwb3dkZXI=",
+                "text": "b64:TGlxdWlkIHNvYXAgYW5kIGJha2luZyBwb3dkZXI=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Vegetable oil and sunflower oil",
-        "b": "Distilled vinegar and red cabbage",
-        "c": "Warm water and red cabbage leaves",
-        "d": "Distilled vinegar and bicarbonate of soda",
-        "e": "Bicarbonate of soda and vegetable oil",
-        "f": "Liquid soap and baking powder"
+        "a": "b64:VmVnZXRhYmxlIG9pbCBhbmQgc3VuZmxvd2VyIG9pbA==",
+        "b": "b64:RGlzdGlsbGVkIHZpbmVnYXIgYW5kIHJlZCBjYWJiYWdl",
+        "c": "b64:V2FybSB3YXRlciBhbmQgcmVkIGNhYmJhZ2UgbGVhdmVz",
+        "d": "b64:RGlzdGlsbGVkIHZpbmVnYXIgYW5kIGJpY2FyYm9uYXRlIG9mIHNvZGE=",
+        "e": "b64:QmljYXJib25hdGUgb2Ygc29kYSBhbmQgdmVnZXRhYmxlIG9pbA==",
+        "f": "b64:TGlxdWlkIHNvYXAgYW5kIGJha2luZyBwb3dkZXI="
     },
     {
         "question_name": "Question 2",
@@ -55,45 +55,45 @@
         "points": 1,
         "question text": "How is the pH indicator solution initially prepared before being used in the experiment?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "By boiling vinegar and adding food coloring",
-                "text": "By boiling vinegar and adding food coloring",
-                "weight": 0
+                "answer_text": "b64:QnkgYm9pbGluZyB2aW5lZ2FyIGFuZCBhZGRpbmcgZm9vZCBjb2xvcmluZw==",
+                "text": "b64:QnkgYm9pbGluZyB2aW5lZ2FyIGFuZCBhZGRpbmcgZm9vZCBjb2xvcmluZw==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "By mixing bicarbonate of soda with cold water",
-                "text": "By mixing bicarbonate of soda with cold water",
-                "weight": 0
+                "answer_text": "b64:QnkgbWl4aW5nIGJpY2FyYm9uYXRlIG9mIHNvZGEgd2l0aCBjb2xkIHdhdGVy",
+                "text": "b64:QnkgbWl4aW5nIGJpY2FyYm9uYXRlIG9mIHNvZGEgd2l0aCBjb2xkIHdhdGVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "By soaking thin strips of red cabbage in warm water",
-                "text": "By soaking thin strips of red cabbage in warm water",
-                "weight": 100
+                "answer_text": "b64:Qnkgc29ha2luZyB0aGluIHN0cmlwcyBvZiByZWQgY2FiYmFnZSBpbiB3YXJtIHdhdGVy",
+                "text": "b64:Qnkgc29ha2luZyB0aGluIHN0cmlwcyBvZiByZWQgY2FiYmFnZSBpbiB3YXJtIHdhdGVy",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "By blending vegetable oil with lemon juice",
-                "text": "By blending vegetable oil with lemon juice",
-                "weight": 0
+                "answer_text": "b64:QnkgYmxlbmRpbmcgdmVnZXRhYmxlIG9pbCB3aXRoIGxlbW9uIGp1aWNl",
+                "text": "b64:QnkgYmxlbmRpbmcgdmVnZXRhYmxlIG9pbCB3aXRoIGxlbW9uIGp1aWNl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "By dissolving baking powder in distilled vinegar",
-                "text": "By dissolving baking powder in distilled vinegar",
-                "weight": 0
+                "answer_text": "b64:QnkgZGlzc29sdmluZyBiYWtpbmcgcG93ZGVyIGluIGRpc3RpbGxlZCB2aW5lZ2Fy",
+                "text": "b64:QnkgZGlzc29sdmluZyBiYWtpbmcgcG93ZGVyIGluIGRpc3RpbGxlZCB2aW5lZ2Fy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "By freezing red cabbage leaves and then crushing them",
-                "text": "By freezing red cabbage leaves and then crushing them",
-                "weight": 0
+                "answer_text": "b64:QnkgZnJlZXppbmcgcmVkIGNhYmJhZ2UgbGVhdmVzIGFuZCB0aGVuIGNydXNoaW5nIHRoZW0=",
+                "text": "b64:QnkgZnJlZXppbmcgcmVkIGNhYmJhZ2UgbGVhdmVzIGFuZCB0aGVuIGNydXNoaW5nIHRoZW0=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "By boiling vinegar and adding food coloring",
-        "b": "By mixing bicarbonate of soda with cold water",
-        "c": "By soaking thin strips of red cabbage in warm water",
-        "d": "By blending vegetable oil with lemon juice",
-        "e": "By dissolving baking powder in distilled vinegar",
-        "f": "By freezing red cabbage leaves and then crushing them"
+        "a": "b64:QnkgYm9pbGluZyB2aW5lZ2FyIGFuZCBhZGRpbmcgZm9vZCBjb2xvcmluZw==",
+        "b": "b64:QnkgbWl4aW5nIGJpY2FyYm9uYXRlIG9mIHNvZGEgd2l0aCBjb2xkIHdhdGVy",
+        "c": "b64:Qnkgc29ha2luZyB0aGluIHN0cmlwcyBvZiByZWQgY2FiYmFnZSBpbiB3YXJtIHdhdGVy",
+        "d": "b64:QnkgYmxlbmRpbmcgdmVnZXRhYmxlIG9pbCB3aXRoIGxlbW9uIGp1aWNl",
+        "e": "b64:QnkgZGlzc29sdmluZyBiYWtpbmcgcG93ZGVyIGluIGRpc3RpbGxlZCB2aW5lZ2Fy",
+        "f": "b64:QnkgZnJlZXppbmcgcmVkIGNhYmJhZ2UgbGVhdmVzIGFuZCB0aGVuIGNydXNoaW5nIHRoZW0="
     },
     {
         "question_name": "Question 3",
@@ -103,45 +103,45 @@
         "points": 1,
         "question text": "When the distilled vinegar is added to the purple red cabbage solution, what color change occurs and why?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "It turns blue-green because vinegar is a base.",
-                "text": "It turns blue-green because vinegar is a base.",
-                "weight": 0
+                "answer_text": "b64:SXQgdHVybnMgYmx1ZS1ncmVlbiBiZWNhdXNlIHZpbmVnYXIgaXMgYSBiYXNlLg==",
+                "text": "b64:SXQgdHVybnMgYmx1ZS1ncmVlbiBiZWNhdXNlIHZpbmVnYXIgaXMgYSBiYXNlLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It turns bright pink because vinegar is an acid.",
-                "text": "It turns bright pink because vinegar is an acid.",
-                "weight": 100
+                "answer_text": "b64:SXQgdHVybnMgYnJpZ2h0IHBpbmsgYmVjYXVzZSB2aW5lZ2FyIGlzIGFuIGFjaWQu",
+                "text": "b64:SXQgdHVybnMgYnJpZ2h0IHBpbmsgYmVjYXVzZSB2aW5lZ2FyIGlzIGFuIGFjaWQu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It turns yellow because the mixture becomes neutral.",
-                "text": "It turns yellow because the mixture becomes neutral.",
-                "weight": 0
+                "answer_text": "b64:SXQgdHVybnMgeWVsbG93IGJlY2F1c2UgdGhlIG1peHR1cmUgYmVjb21lcyBuZXV0cmFsLg==",
+                "text": "b64:SXQgdHVybnMgeWVsbG93IGJlY2F1c2UgdGhlIG1peHR1cmUgYmVjb21lcyBuZXV0cmFsLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It turns clear because the vinegar bleaches the pigment.",
-                "text": "It turns clear because the vinegar bleaches the pigment.",
-                "weight": 0
+                "answer_text": "b64:SXQgdHVybnMgY2xlYXIgYmVjYXVzZSB0aGUgdmluZWdhciBibGVhY2hlcyB0aGUgcGlnbWVudC4=",
+                "text": "b64:SXQgdHVybnMgY2xlYXIgYmVjYXVzZSB0aGUgdmluZWdhciBibGVhY2hlcyB0aGUgcGlnbWVudC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It turns dark purple because the density increases.",
-                "text": "It turns dark purple because the density increases.",
-                "weight": 0
+                "answer_text": "b64:SXQgdHVybnMgZGFyayBwdXJwbGUgYmVjYXVzZSB0aGUgZGVuc2l0eSBpbmNyZWFzZXMu",
+                "text": "b64:SXQgdHVybnMgZGFyayBwdXJwbGUgYmVjYXVzZSB0aGUgZGVuc2l0eSBpbmNyZWFzZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It turns orange because of a reaction with oxygen.",
-                "text": "It turns orange because of a reaction with oxygen.",
-                "weight": 0
+                "answer_text": "b64:SXQgdHVybnMgb3JhbmdlIGJlY2F1c2Ugb2YgYSByZWFjdGlvbiB3aXRoIG94eWdlbi4=",
+                "text": "b64:SXQgdHVybnMgb3JhbmdlIGJlY2F1c2Ugb2YgYSByZWFjdGlvbiB3aXRoIG94eWdlbi4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It turns blue-green because vinegar is a base.",
-        "b": "It turns bright pink because vinegar is an acid.",
-        "c": "It turns yellow because the mixture becomes neutral.",
-        "d": "It turns clear because the vinegar bleaches the pigment.",
-        "e": "It turns dark purple because the density increases.",
-        "f": "It turns orange because of a reaction with oxygen."
+        "a": "b64:SXQgdHVybnMgYmx1ZS1ncmVlbiBiZWNhdXNlIHZpbmVnYXIgaXMgYSBiYXNlLg==",
+        "b": "b64:SXQgdHVybnMgYnJpZ2h0IHBpbmsgYmVjYXVzZSB2aW5lZ2FyIGlzIGFuIGFjaWQu",
+        "c": "b64:SXQgdHVybnMgeWVsbG93IGJlY2F1c2UgdGhlIG1peHR1cmUgYmVjb21lcyBuZXV0cmFsLg==",
+        "d": "b64:SXQgdHVybnMgY2xlYXIgYmVjYXVzZSB0aGUgdmluZWdhciBibGVhY2hlcyB0aGUgcGlnbWVudC4=",
+        "e": "b64:SXQgdHVybnMgZGFyayBwdXJwbGUgYmVjYXVzZSB0aGUgZGVuc2l0eSBpbmNyZWFzZXMu",
+        "f": "b64:SXQgdHVybnMgb3JhbmdlIGJlY2F1c2Ugb2YgYSByZWFjdGlvbiB3aXRoIG94eWdlbi4="
     },
     {
         "question_name": "Question 4",
@@ -151,45 +151,45 @@
         "points": 1,
         "question text": "Why does the pink vinegar solution sink to the bottom of the vase when it is poured into the oil?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "The vinegar solution is less dense than the oil.",
-                "text": "The vinegar solution is less dense than the oil.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgbGVzcyBkZW5zZSB0aGFuIHRoZSBvaWwu",
+                "text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgbGVzcyBkZW5zZSB0aGFuIHRoZSBvaWwu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The vinegar solution is more dense than the oil.",
-                "text": "The vinegar solution is more dense than the oil.",
-                "weight": 100
+                "answer_text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgbW9yZSBkZW5zZSB0aGFuIHRoZSBvaWwu",
+                "text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgbW9yZSBkZW5zZSB0aGFuIHRoZSBvaWwu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The oil is hydrophobic and repels the vinegar downwards.",
-                "text": "The oil is hydrophobic and repels the vinegar downwards.",
-                "weight": 0
+                "answer_text": "b64:VGhlIG9pbCBpcyBoeWRyb3Bob2JpYyBhbmQgcmVwZWxzIHRoZSB2aW5lZ2FyIGRvd253YXJkcy4=",
+                "text": "b64:VGhlIG9pbCBpcyBoeWRyb3Bob2JpYyBhbmQgcmVwZWxzIHRoZSB2aW5lZ2FyIGRvd253YXJkcy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The bicarbonate of soda pulls the vinegar down magnetically.",
-                "text": "The bicarbonate of soda pulls the vinegar down magnetically.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgcHVsbHMgdGhlIHZpbmVnYXIgZG93biBtYWduZXRpY2FsbHku",
+                "text": "b64:VGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgcHVsbHMgdGhlIHZpbmVnYXIgZG93biBtYWduZXRpY2FsbHku",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The vinegar solution has the exact same density as the oil.",
-                "text": "The vinegar solution has the exact same density as the oil.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaGFzIHRoZSBleGFjdCBzYW1lIGRlbnNpdHkgYXMgdGhlIG9pbC4=",
+                "text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaGFzIHRoZSBleGFjdCBzYW1lIGRlbnNpdHkgYXMgdGhlIG9pbC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The vinegar solution is heavier than the glass vase.",
-                "text": "The vinegar solution is heavier than the glass vase.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgaGVhdmllciB0aGFuIHRoZSBnbGFzcyB2YXNlLg==",
+                "text": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgaGVhdmllciB0aGFuIHRoZSBnbGFzcyB2YXNlLg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The vinegar solution is less dense than the oil.",
-        "b": "The vinegar solution is more dense than the oil.",
-        "c": "The oil is hydrophobic and repels the vinegar downwards.",
-        "d": "The bicarbonate of soda pulls the vinegar down magnetically.",
-        "e": "The vinegar solution has the exact same density as the oil.",
-        "f": "The vinegar solution is heavier than the glass vase."
+        "a": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgbGVzcyBkZW5zZSB0aGFuIHRoZSBvaWwu",
+        "b": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgbW9yZSBkZW5zZSB0aGFuIHRoZSBvaWwu",
+        "c": "b64:VGhlIG9pbCBpcyBoeWRyb3Bob2JpYyBhbmQgcmVwZWxzIHRoZSB2aW5lZ2FyIGRvd253YXJkcy4=",
+        "d": "b64:VGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgcHVsbHMgdGhlIHZpbmVnYXIgZG93biBtYWduZXRpY2FsbHku",
+        "e": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaGFzIHRoZSBleGFjdCBzYW1lIGRlbnNpdHkgYXMgdGhlIG9pbC4=",
+        "f": "b64:VGhlIHZpbmVnYXIgc29sdXRpb24gaXMgaGVhdmllciB0aGFuIHRoZSBnbGFzcyB2YXNlLg=="
     },
     {
         "question_name": "Question 5",
@@ -199,45 +199,45 @@
         "points": 1,
         "question text": "What specific gas is trapped inside the bubbles produced by the chemical reaction?",
         "url": "",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "Oxygen",
-                "text": "Oxygen",
-                "weight": 0
+                "answer_text": "b64:T3h5Z2Vu",
+                "text": "b64:T3h5Z2Vu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrogen",
-                "text": "Hydrogen",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9nZW4=",
+                "text": "b64:SHlkcm9nZW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Helium",
-                "text": "Helium",
-                "weight": 0
+                "answer_text": "b64:SGVsaXVt",
+                "text": "b64:SGVsaXVt",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Nitrogen",
-                "text": "Nitrogen",
-                "weight": 0
+                "answer_text": "b64:Tml0cm9nZW4=",
+                "text": "b64:Tml0cm9nZW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Carbon Dioxide",
-                "text": "Carbon Dioxide",
-                "weight": 100
+                "answer_text": "b64:Q2FyYm9uIERpb3hpZGU=",
+                "text": "b64:Q2FyYm9uIERpb3hpZGU=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Methane",
-                "text": "Methane",
-                "weight": 0
+                "answer_text": "b64:TWV0aGFuZQ==",
+                "text": "b64:TWV0aGFuZQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Oxygen",
-        "b": "Hydrogen",
-        "c": "Helium",
-        "d": "Nitrogen",
-        "e": "Carbon Dioxide",
-        "f": "Methane"
+        "a": "b64:T3h5Z2Vu",
+        "b": "b64:SHlkcm9nZW4=",
+        "c": "b64:SGVsaXVt",
+        "d": "b64:Tml0cm9nZW4=",
+        "e": "b64:Q2FyYm9uIERpb3hpZGU=",
+        "f": "b64:TWV0aGFuZQ=="
     },
     {
         "question_name": "Question 6",
@@ -247,45 +247,45 @@
         "points": 1,
         "question text": "Once the chemical reaction occurs at the bottom of the glass, why do the bubbles rise up through the oil?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "The gas-filled bubbles are less dense than the oil.",
-                "text": "The gas-filled bubbles are less dense than the oil.",
-                "weight": 100
+                "answer_text": "b64:VGhlIGdhcy1maWxsZWQgYnViYmxlcyBhcmUgbGVzcyBkZW5zZSB0aGFuIHRoZSBvaWwu",
+                "text": "b64:VGhlIGdhcy1maWxsZWQgYnViYmxlcyBhcmUgbGVzcyBkZW5zZSB0aGFuIHRoZSBvaWwu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The bubbles are attracted to the light at the top of the vase.",
-                "text": "The bubbles are attracted to the light at the top of the vase.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJ1YmJsZXMgYXJlIGF0dHJhY3RlZCB0byB0aGUgbGlnaHQgYXQgdGhlIHRvcCBvZiB0aGUgdmFzZS4=",
+                "text": "b64:VGhlIGJ1YmJsZXMgYXJlIGF0dHJhY3RlZCB0byB0aGUgbGlnaHQgYXQgdGhlIHRvcCBvZiB0aGUgdmFzZS4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The chemical reaction generates heat which creates convection currents.",
-                "text": "The chemical reaction generates heat which creates convection currents.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGNoZW1pY2FsIHJlYWN0aW9uIGdlbmVyYXRlcyBoZWF0IHdoaWNoIGNyZWF0ZXMgY29udmVjdGlvbiBjdXJyZW50cy4=",
+                "text": "b64:VGhlIGNoZW1pY2FsIHJlYWN0aW9uIGdlbmVyYXRlcyBoZWF0IHdoaWNoIGNyZWF0ZXMgY29udmVjdGlvbiBjdXJyZW50cy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The bicarbonate of soda pushes the bubbles upward mechanically.",
-                "text": "The bicarbonate of soda pushes the bubbles upward mechanically.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgcHVzaGVzIHRoZSBidWJibGVzIHVwd2FyZCBtZWNoYW5pY2FsbHku",
+                "text": "b64:VGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgcHVzaGVzIHRoZSBidWJibGVzIHVwd2FyZCBtZWNoYW5pY2FsbHku",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The oil is actually heavier than the glass, forcing the bubbles up.",
-                "text": "The oil is actually heavier than the glass, forcing the bubbles up.",
-                "weight": 0
+                "answer_text": "b64:VGhlIG9pbCBpcyBhY3R1YWxseSBoZWF2aWVyIHRoYW4gdGhlIGdsYXNzLCBmb3JjaW5nIHRoZSBidWJibGVzIHVwLg==",
+                "text": "b64:VGhlIG9pbCBpcyBhY3R1YWxseSBoZWF2aWVyIHRoYW4gdGhlIGdsYXNzLCBmb3JjaW5nIHRoZSBidWJibGVzIHVwLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The bubbles are magnetic and are repelled by the bottom of the glass.",
-                "text": "The bubbles are magnetic and are repelled by the bottom of the glass.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJ1YmJsZXMgYXJlIG1hZ25ldGljIGFuZCBhcmUgcmVwZWxsZWQgYnkgdGhlIGJvdHRvbSBvZiB0aGUgZ2xhc3Mu",
+                "text": "b64:VGhlIGJ1YmJsZXMgYXJlIG1hZ25ldGljIGFuZCBhcmUgcmVwZWxsZWQgYnkgdGhlIGJvdHRvbSBvZiB0aGUgZ2xhc3Mu",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The gas-filled bubbles are less dense than the oil.",
-        "b": "The bubbles are attracted to the light at the top of the vase.",
-        "c": "The chemical reaction generates heat which creates convection currents.",
-        "d": "The bicarbonate of soda pushes the bubbles upward mechanically.",
-        "e": "The oil is actually heavier than the glass, forcing the bubbles up.",
-        "f": "The bubbles are magnetic and are repelled by the bottom of the glass."
+        "a": "b64:VGhlIGdhcy1maWxsZWQgYnViYmxlcyBhcmUgbGVzcyBkZW5zZSB0aGFuIHRoZSBvaWwu",
+        "b": "b64:VGhlIGJ1YmJsZXMgYXJlIGF0dHJhY3RlZCB0byB0aGUgbGlnaHQgYXQgdGhlIHRvcCBvZiB0aGUgdmFzZS4=",
+        "c": "b64:VGhlIGNoZW1pY2FsIHJlYWN0aW9uIGdlbmVyYXRlcyBoZWF0IHdoaWNoIGNyZWF0ZXMgY29udmVjdGlvbiBjdXJyZW50cy4=",
+        "d": "b64:VGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgcHVzaGVzIHRoZSBidWJibGVzIHVwd2FyZCBtZWNoYW5pY2FsbHku",
+        "e": "b64:VGhlIG9pbCBpcyBhY3R1YWxseSBoZWF2aWVyIHRoYW4gdGhlIGdsYXNzLCBmb3JjaW5nIHRoZSBidWJibGVzIHVwLg==",
+        "f": "b64:VGhlIGJ1YmJsZXMgYXJlIG1hZ25ldGljIGFuZCBhcmUgcmVwZWxsZWQgYnkgdGhlIGJvdHRvbSBvZiB0aGUgZ2xhc3Mu"
     },
     {
         "question_name": "Question 7",
@@ -295,45 +295,45 @@
         "points": 1,
         "question text": "As the reaction proceeds and the acid in the bubbles is \"used up\" by reacting with the base, what happens to the color of the indicator inside the bubbles or at the bottom?",
         "url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "It changes from pink to blue-green.",
-                "text": "It changes from pink to blue-green.",
-                "weight": 100
+                "answer_text": "b64:SXQgY2hhbmdlcyBmcm9tIHBpbmsgdG8gYmx1ZS1ncmVlbi4=",
+                "text": "b64:SXQgY2hhbmdlcyBmcm9tIHBpbmsgdG8gYmx1ZS1ncmVlbi4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It changes from blue-green to bright red.",
-                "text": "It changes from blue-green to bright red.",
-                "weight": 0
+                "answer_text": "b64:SXQgY2hhbmdlcyBmcm9tIGJsdWUtZ3JlZW4gdG8gYnJpZ2h0IHJlZC4=",
+                "text": "b64:SXQgY2hhbmdlcyBmcm9tIGJsdWUtZ3JlZW4gdG8gYnJpZ2h0IHJlZC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It turns completely transparent.",
-                "text": "It turns completely transparent.",
-                "weight": 0
+                "answer_text": "b64:SXQgdHVybnMgY29tcGxldGVseSB0cmFuc3BhcmVudC4=",
+                "text": "b64:SXQgdHVybnMgY29tcGxldGVseSB0cmFuc3BhcmVudC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It turns a bright neon yellow.",
-                "text": "It turns a bright neon yellow.",
-                "weight": 0
+                "answer_text": "b64:SXQgdHVybnMgYSBicmlnaHQgbmVvbiB5ZWxsb3cu",
+                "text": "b64:SXQgdHVybnMgYSBicmlnaHQgbmVvbiB5ZWxsb3cu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It changes from purple to black.",
-                "text": "It changes from purple to black.",
-                "weight": 0
+                "answer_text": "b64:SXQgY2hhbmdlcyBmcm9tIHB1cnBsZSB0byBibGFjay4=",
+                "text": "b64:SXQgY2hhbmdlcyBmcm9tIHB1cnBsZSB0byBibGFjay4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It remains bright pink indefinitely.",
-                "text": "It remains bright pink indefinitely.",
-                "weight": 0
+                "answer_text": "b64:SXQgcmVtYWlucyBicmlnaHQgcGluayBpbmRlZmluaXRlbHku",
+                "text": "b64:SXQgcmVtYWlucyBicmlnaHQgcGluayBpbmRlZmluaXRlbHku",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It changes from pink to blue-green.",
-        "b": "It changes from blue-green to bright red.",
-        "c": "It turns completely transparent.",
-        "d": "It turns a bright neon yellow.",
-        "e": "It changes from purple to black.",
-        "f": "It remains bright pink indefinitely."
+        "a": "b64:SXQgY2hhbmdlcyBmcm9tIHBpbmsgdG8gYmx1ZS1ncmVlbi4=",
+        "b": "b64:SXQgY2hhbmdlcyBmcm9tIGJsdWUtZ3JlZW4gdG8gYnJpZ2h0IHJlZC4=",
+        "c": "b64:SXQgdHVybnMgY29tcGxldGVseSB0cmFuc3BhcmVudC4=",
+        "d": "b64:SXQgdHVybnMgYSBicmlnaHQgbmVvbiB5ZWxsb3cu",
+        "e": "b64:SXQgY2hhbmdlcyBmcm9tIHB1cnBsZSB0byBibGFjay4=",
+        "f": "b64:SXQgcmVtYWlucyBicmlnaHQgcGluayBpbmRlZmluaXRlbHku"
     },
     {
         "question_name": "Question 8",
@@ -343,45 +343,45 @@
         "points": 1,
         "question text": "On the pH scale described, what color does the red cabbage indicator take when placed in a \"neutral\" solution (pH 7), such as water?",
         "url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Red",
-                "text": "Red",
-                "weight": 0
+                "answer_text": "b64:UmVk",
+                "text": "b64:UmVk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Green",
-                "text": "Green",
-                "weight": 0
+                "answer_text": "b64:R3JlZW4=",
+                "text": "b64:R3JlZW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Blue-Green",
-                "text": "Blue-Green",
-                "weight": 0
+                "answer_text": "b64:Qmx1ZS1HcmVlbg==",
+                "text": "b64:Qmx1ZS1HcmVlbg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Blue-Purple",
-                "text": "Blue-Purple",
-                "weight": 100
+                "answer_text": "b64:Qmx1ZS1QdXJwbGU=",
+                "text": "b64:Qmx1ZS1QdXJwbGU=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Yellow",
-                "text": "Yellow",
-                "weight": 0
+                "answer_text": "b64:WWVsbG93",
+                "text": "b64:WWVsbG93",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Orange",
-                "text": "Orange",
-                "weight": 0
+                "answer_text": "b64:T3Jhbmdl",
+                "text": "b64:T3Jhbmdl",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Red",
-        "b": "Green",
-        "c": "Blue-Green",
-        "d": "Blue-Purple",
-        "e": "Yellow",
-        "f": "Orange"
+        "a": "b64:UmVk",
+        "b": "b64:R3JlZW4=",
+        "c": "b64:Qmx1ZS1HcmVlbg==",
+        "d": "b64:Qmx1ZS1QdXJwbGU=",
+        "e": "b64:WWVsbG93",
+        "f": "b64:T3Jhbmdl"
     },
     {
         "question_name": "Question 9",
@@ -391,45 +391,45 @@
         "points": 1,
         "question text": "When setting up the experiment, why is it important to pour the oil gently over the bicarbonate of soda?",
         "url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "To ensure the oil mixes thoroughly with the powder immediately.",
-                "text": "To ensure the oil mixes thoroughly with the powder immediately.",
-                "weight": 0
+                "answer_text": "b64:VG8gZW5zdXJlIHRoZSBvaWwgbWl4ZXMgdGhvcm91Z2hseSB3aXRoIHRoZSBwb3dkZXIgaW1tZWRpYXRlbHku",
+                "text": "b64:VG8gZW5zdXJlIHRoZSBvaWwgbWl4ZXMgdGhvcm91Z2hseSB3aXRoIHRoZSBwb3dkZXIgaW1tZWRpYXRlbHku",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To prevents the oil from touching the sides of the glass.",
-                "text": "To prevents the oil from touching the sides of the glass.",
-                "weight": 0
+                "answer_text": "b64:VG8gcHJldmVudHMgdGhlIG9pbCBmcm9tIHRvdWNoaW5nIHRoZSBzaWRlcyBvZiB0aGUgZ2xhc3Mu",
+                "text": "b64:VG8gcHJldmVudHMgdGhlIG9pbCBmcm9tIHRvdWNoaW5nIHRoZSBzaWRlcyBvZiB0aGUgZ2xhc3Mu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To avoid stirring up the bicarbonate of soda and displacing it from the base of the cup.",
-                "text": "To avoid stirring up the bicarbonate of soda and displacing it from the base of the cup.",
-                "weight": 100
+                "answer_text": "b64:VG8gYXZvaWQgc3RpcnJpbmcgdXAgdGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgYW5kIGRpc3BsYWNpbmcgaXQgZnJvbSB0aGUgYmFzZSBvZiB0aGUgY3VwLg==",
+                "text": "b64:VG8gYXZvaWQgc3RpcnJpbmcgdXAgdGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgYW5kIGRpc3BsYWNpbmcgaXQgZnJvbSB0aGUgYmFzZSBvZiB0aGUgY3VwLg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "To heat up the bicarbonate of soda via friction.",
-                "text": "To heat up the bicarbonate of soda via friction.",
-                "weight": 0
+                "answer_text": "b64:VG8gaGVhdCB1cCB0aGUgYmljYXJib25hdGUgb2Ygc29kYSB2aWEgZnJpY3Rpb24u",
+                "text": "b64:VG8gaGVhdCB1cCB0aGUgYmljYXJib25hdGUgb2Ygc29kYSB2aWEgZnJpY3Rpb24u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To ensure the oil changes color before the vinegar is added.",
-                "text": "To ensure the oil changes color before the vinegar is added.",
-                "weight": 0
+                "answer_text": "b64:VG8gZW5zdXJlIHRoZSBvaWwgY2hhbmdlcyBjb2xvciBiZWZvcmUgdGhlIHZpbmVnYXIgaXMgYWRkZWQu",
+                "text": "b64:VG8gZW5zdXJlIHRoZSBvaWwgY2hhbmdlcyBjb2xvciBiZWZvcmUgdGhlIHZpbmVnYXIgaXMgYWRkZWQu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "To dissolve the bicarbonate of soda into the oil.",
-                "text": "To dissolve the bicarbonate of soda into the oil.",
-                "weight": 0
+                "answer_text": "b64:VG8gZGlzc29sdmUgdGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgaW50byB0aGUgb2lsLg==",
+                "text": "b64:VG8gZGlzc29sdmUgdGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgaW50byB0aGUgb2lsLg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "To ensure the oil mixes thoroughly with the powder immediately.",
-        "b": "To prevents the oil from touching the sides of the glass.",
-        "c": "To avoid stirring up the bicarbonate of soda and displacing it from the base of the cup.",
-        "d": "To heat up the bicarbonate of soda via friction.",
-        "e": "To ensure the oil changes color before the vinegar is added.",
-        "f": "To dissolve the bicarbonate of soda into the oil."
+        "a": "b64:VG8gZW5zdXJlIHRoZSBvaWwgbWl4ZXMgdGhvcm91Z2hseSB3aXRoIHRoZSBwb3dkZXIgaW1tZWRpYXRlbHku",
+        "b": "b64:VG8gcHJldmVudHMgdGhlIG9pbCBmcm9tIHRvdWNoaW5nIHRoZSBzaWRlcyBvZiB0aGUgZ2xhc3Mu",
+        "c": "b64:VG8gYXZvaWQgc3RpcnJpbmcgdXAgdGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgYW5kIGRpc3BsYWNpbmcgaXQgZnJvbSB0aGUgYmFzZSBvZiB0aGUgY3VwLg==",
+        "d": "b64:VG8gaGVhdCB1cCB0aGUgYmljYXJib25hdGUgb2Ygc29kYSB2aWEgZnJpY3Rpb24u",
+        "e": "b64:VG8gZW5zdXJlIHRoZSBvaWwgY2hhbmdlcyBjb2xvciBiZWZvcmUgdGhlIHZpbmVnYXIgaXMgYWRkZWQu",
+        "f": "b64:VG8gZGlzc29sdmUgdGhlIGJpY2FyYm9uYXRlIG9mIHNvZGEgaW50byB0aGUgb2lsLg=="
     },
     {
         "question_name": "Question 10",
@@ -439,45 +439,45 @@
         "points": 1,
         "question text": "If you were to fully dissolve the bicarbonate of soda in water before pouring it into the vase (instead of leaving it as a powder at the bottom), how would this likely affect the \"Bubble Tower\" display when the acid is added?",
         "url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "The reaction would not happen at all because the base is wet.",
-                "text": "The reaction would not happen at all because the base is wet.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHJlYWN0aW9uIHdvdWxkIG5vdCBoYXBwZW4gYXQgYWxsIGJlY2F1c2UgdGhlIGJhc2UgaXMgd2V0Lg==",
+                "text": "b64:VGhlIHJlYWN0aW9uIHdvdWxkIG5vdCBoYXBwZW4gYXQgYWxsIGJlY2F1c2UgdGhlIGJhc2UgaXMgd2V0Lg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The reaction would occur very rapidly or instantly upon mixing, likely spoiling the slow, rising \"lava lamp\" bubble effect.",
-                "text": "The reaction would occur very rapidly or instantly upon mixing, likely spoiling the slow, rising \"lava lamp\" bubble effect.",
-                "weight": 100
+                "answer_text": "b64:VGhlIHJlYWN0aW9uIHdvdWxkIG9jY3VyIHZlcnkgcmFwaWRseSBvciBpbnN0YW50bHkgdXBvbiBtaXhpbmcsIGxpa2VseSBzcG9pbGluZyB0aGUgc2xvdywgcmlzaW5nICJsYXZhIGxhbXAiIGJ1YmJsZSBlZmZlY3Qu",
+                "text": "b64:VGhlIHJlYWN0aW9uIHdvdWxkIG9jY3VyIHZlcnkgcmFwaWRseSBvciBpbnN0YW50bHkgdXBvbiBtaXhpbmcsIGxpa2VseSBzcG9pbGluZyB0aGUgc2xvdywgcmlzaW5nICJsYXZhIGxhbXAiIGJ1YmJsZSBlZmZlY3Qu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The bubbles would sink instead of rise because the liquid is too heavy.",
-                "text": "The bubbles would sink instead of rise because the liquid is too heavy.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJ1YmJsZXMgd291bGQgc2luayBpbnN0ZWFkIG9mIHJpc2UgYmVjYXVzZSB0aGUgbGlxdWlkIGlzIHRvbyBoZWF2eS4=",
+                "text": "b64:VGhlIGJ1YmJsZXMgd291bGQgc2luayBpbnN0ZWFkIG9mIHJpc2UgYmVjYXVzZSB0aGUgbGlxdWlkIGlzIHRvbyBoZWF2eS4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The oil would turn solid immediately upon contact with the dissolved base.",
-                "text": "The oil would turn solid immediately upon contact with the dissolved base.",
-                "weight": 0
+                "answer_text": "b64:VGhlIG9pbCB3b3VsZCB0dXJuIHNvbGlkIGltbWVkaWF0ZWx5IHVwb24gY29udGFjdCB3aXRoIHRoZSBkaXNzb2x2ZWQgYmFzZS4=",
+                "text": "b64:VGhlIG9pbCB3b3VsZCB0dXJuIHNvbGlkIGltbWVkaWF0ZWx5IHVwb24gY29udGFjdCB3aXRoIHRoZSBkaXNzb2x2ZWQgYmFzZS4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The solution would turn yellow instead of pink or blue-green.",
-                "text": "The solution would turn yellow instead of pink or blue-green.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHNvbHV0aW9uIHdvdWxkIHR1cm4geWVsbG93IGluc3RlYWQgb2YgcGluayBvciBibHVlLWdyZWVuLg==",
+                "text": "b64:VGhlIHNvbHV0aW9uIHdvdWxkIHR1cm4geWVsbG93IGluc3RlYWQgb2YgcGluayBvciBibHVlLWdyZWVuLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The vinegar would float on top of the oil and never reach the dissolved base.",
-                "text": "The vinegar would float on top of the oil and never reach the dissolved base.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHZpbmVnYXIgd291bGQgZmxvYXQgb24gdG9wIG9mIHRoZSBvaWwgYW5kIG5ldmVyIHJlYWNoIHRoZSBkaXNzb2x2ZWQgYmFzZS4=",
+                "text": "b64:VGhlIHZpbmVnYXIgd291bGQgZmxvYXQgb24gdG9wIG9mIHRoZSBvaWwgYW5kIG5ldmVyIHJlYWNoIHRoZSBkaXNzb2x2ZWQgYmFzZS4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The reaction would not happen at all because the base is wet.",
-        "b": "The reaction would occur very rapidly or instantly upon mixing, likely spoiling the slow, rising \"lava lamp\" bubble effect.",
-        "c": "The bubbles would sink instead of rise because the liquid is too heavy.",
-        "d": "The oil would turn solid immediately upon contact with the dissolved base.",
-        "e": "The solution would turn yellow instead of pink or blue-green.",
-        "f": "The vinegar would float on top of the oil and never reach the dissolved base."
+        "a": "b64:VGhlIHJlYWN0aW9uIHdvdWxkIG5vdCBoYXBwZW4gYXQgYWxsIGJlY2F1c2UgdGhlIGJhc2UgaXMgd2V0Lg==",
+        "b": "b64:VGhlIHJlYWN0aW9uIHdvdWxkIG9jY3VyIHZlcnkgcmFwaWRseSBvciBpbnN0YW50bHkgdXBvbiBtaXhpbmcsIGxpa2VseSBzcG9pbGluZyB0aGUgc2xvdywgcmlzaW5nICJsYXZhIGxhbXAiIGJ1YmJsZSBlZmZlY3Qu",
+        "c": "b64:VGhlIGJ1YmJsZXMgd291bGQgc2luayBpbnN0ZWFkIG9mIHJpc2UgYmVjYXVzZSB0aGUgbGlxdWlkIGlzIHRvbyBoZWF2eS4=",
+        "d": "b64:VGhlIG9pbCB3b3VsZCB0dXJuIHNvbGlkIGltbWVkaWF0ZWx5IHVwb24gY29udGFjdCB3aXRoIHRoZSBkaXNzb2x2ZWQgYmFzZS4=",
+        "e": "b64:VGhlIHNvbHV0aW9uIHdvdWxkIHR1cm4geWVsbG93IGluc3RlYWQgb2YgcGluayBvciBibHVlLWdyZWVuLg==",
+        "f": "b64:VGhlIHZpbmVnYXIgd291bGQgZmxvYXQgb24gdG9wIG9mIHRoZSBvaWwgYW5kIG5ldmVyIHJlYWNoIHRoZSBkaXNzb2x2ZWQgYmFzZS4="
     },
     {
         "question_name": "Question 11",
@@ -501,50 +501,50 @@
         "correct ans index": " ",
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

@@ -1,3 +1,5 @@
+// app.js
+
 // --- GLOBAL APP MANAGEMENT ---
 let viewMode = 1;
 let quizInstances = [];
@@ -20,8 +22,11 @@ function decodeUtf8B64(b64) {
 }
 
 function recursiveDecode(data) {
-    if (typeof data === 'string' && data.startsWith("b64:")) {
-        return decodeUtf8B64(data.substring(4));
+    if (typeof data === 'string') {
+        if (data.startsWith("b64:")) {
+            return decodeUtf8B64(data.substring(4));
+        }
+        return data;
     } else if (Array.isArray(data)) {
         return data.map(item => recursiveDecode(item));
     } else if (data !== null && typeof data === 'object') {
@@ -35,7 +40,6 @@ function recursiveDecode(data) {
 }
 
 // Secret trigger for dev tools
-// Typing `results` in the console will reveal the 'View All Results' button
 Object.defineProperty(window, 'results', {
     get: function() {
         document.querySelectorAll('.btn-view-results').forEach(btn => {
@@ -103,7 +107,6 @@ async function loadCanvasData() {
         const response = await fetch('0_Quiz/canvas.json');
         if (!response.ok) throw new Error(`Could not find canvas.json (Status: ${response.status})`);
         const rawCanvas = await response.json();
-        // Decode in case canvas.json was encrypted
         canvasData = recursiveDecode(rawCanvas);
         console.log("[DEBUG] Successfully loaded canvas.json:", canvasData);
     } catch (e) {
@@ -150,6 +153,52 @@ function normalizeQuizData(raw) {
             });
         }
     }
+
+    // Safely parse any legacy stringified arrays
+    items.forEach(item => {
+        for (let key in item) {
+            let val = item[key];
+            if (typeof val === 'string' && val.trim().startsWith('[') && val.trim().endsWith(']')) {
+                try {
+                    let jsonStr = val.replace(/'/g, '"');
+                    item[key] = JSON.parse(jsonStr);
+                    
+                    // --- THE FIX ---
+                    // Decode the newly unpacked inner array!
+                    item[key] = recursiveDecode(item[key]); 
+                    // ---------------
+                    
+                } catch(e) {
+                    // Ignore parse errors, leave as string
+                }
+            }
+        }
+        
+        let shifted = false;
+        for (let i = 97; i <= 122; i++) {
+            let k = String.fromCharCode(i);
+            if (item[k] !== undefined && (Array.isArray(item[k]) || typeof item[k] === 'object')) {
+                shifted = true;
+                item['answers'] = item[k];
+                break;
+            }
+        }
+        if (shifted) {
+            let real_options = [];
+            for (let i = 97; i <= 122; i++) {
+                let k = String.fromCharCode(i);
+                if (item[k] !== undefined) {
+                    if (!Array.isArray(item[k]) && typeof item[k] !== 'object') {
+                        real_options.push(item[k]);
+                    }
+                    delete item[k];
+                }
+            }
+            real_options.forEach((opt, i) => {
+                item[String.fromCharCode(97 + i)] = opt;
+            });
+        }
+    });
     
     const filtered = items.filter(d => 
         d['question text'] || d['question_text'] || 

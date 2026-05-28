@@ -9,82 +9,82 @@
         "url": "",
         "answers": [
             {
-                "text": "Give a detailed account including reasons or causes. (See also \"Justify\".)",
-                "answer_text": "Explain"
+                "text": "b64:R2l2ZSBhIGRldGFpbGVkIGFjY291bnQgaW5jbHVkaW5nIHJlYXNvbnMgb3IgY2F1c2VzLiAoU2VlIGFsc28gIkp1c3RpZnkiLik=",
+                "answer_text": "b64:RXhwbGFpbg=="
             },
             {
-                "text": "To evolve from one's own thought or imagination, as a work or an invention.",
-                "answer_text": "Create"
+                "text": "b64:VG8gZXZvbHZlIGZyb20gb25lJ3Mgb3duIHRob3VnaHQgb3IgaW1hZ2luYXRpb24sIGFzIGEgd29yayBvciBhbiBpbnZlbnRpb24u",
+                "answer_text": "b64:Q3JlYXRl"
             },
             {
-                "text": "Give a specific name, value or other brief answer without explanation or calculation.",
-                "answer_text": "State"
+                "text": "b64:R2l2ZSBhIHNwZWNpZmljIG5hbWUsIHZhbHVlIG9yIG90aGVyIGJyaWVmIGFuc3dlciB3aXRob3V0IGV4cGxhbmF0aW9uIG9yIGNhbGN1bGF0aW9uLg==",
+                "answer_text": "b64:U3RhdGU="
             },
             {
-                "text": "Offer for display, observation, examination or consideration.",
-                "answer_text": "Present"
+                "text": "b64:T2ZmZXIgZm9yIGRpc3BsYXksIG9ic2VydmF0aW9uLCBleGFtaW5hdGlvbiBvciBjb25zaWRlcmF0aW9uLg==",
+                "answer_text": "b64:UHJlc2VudA=="
             },
             {
-                "text": "Make an appraisal by weighing up the strengths and limitations.",
-                "answer_text": "Evaluate"
+                "text": "b64:TWFrZSBhbiBhcHByYWlzYWwgYnkgd2VpZ2hpbmcgdXAgdGhlIHN0cmVuZ3RocyBhbmQgbGltaXRhdGlvbnMu",
+                "answer_text": "b64:RXZhbHVhdGU="
             },
             {
-                "text": "Give a detailed account or picture of a situation, event, pattern or process.",
-                "answer_text": "Describe"
+                "text": "b64:R2l2ZSBhIGRldGFpbGVkIGFjY291bnQgb3IgcGljdHVyZSBvZiBhIHNpdHVhdGlvbiwgZXZlbnQsIHBhdHRlcm4gb3IgcHJvY2Vzcy4=",
+                "answer_text": "b64:RGVzY3JpYmU="
             },
             {
-                "text": "Abstract a general theme or major point(s).",
-                "answer_text": "Summarize"
+                "text": "b64:QWJzdHJhY3QgYSBnZW5lcmFsIHRoZW1lIG9yIG1ham9yIHBvaW50KHMpLg==",
+                "answer_text": "b64:U3VtbWFyaXpl"
             },
             {
-                "text": "Give relative importance to, or put in an order of preference.",
-                "answer_text": "Prioritize"
+                "text": "b64:R2l2ZSByZWxhdGl2ZSBpbXBvcnRhbmNlIHRvLCBvciBwdXQgaW4gYW4gb3JkZXIgb2YgcHJlZmVyZW5jZS4=",
+                "answer_text": "b64:UHJpb3JpdGl6ZQ=="
             },
             {
-                "text": "Give the precise meaning of a word, phrase, concept or physical quantity.",
-                "answer_text": "Define"
+                "text": "b64:R2l2ZSB0aGUgcHJlY2lzZSBtZWFuaW5nIG9mIGEgd29yZCwgcGhyYXNlLCBjb25jZXB0IG9yIHBoeXNpY2FsIHF1YW50aXR5Lg==",
+                "answer_text": "b64:RGVmaW5l"
             },
             {
-                "text": "Break down in order to bring out the essential elements or structure. (To identify parts and relationships, and to interpret information to reach conclusions.)",
-                "answer_text": "Analyse"
+                "text": "b64:QnJlYWsgZG93biBpbiBvcmRlciB0byBicmluZyBvdXQgdGhlIGVzc2VudGlhbCBlbGVtZW50cyBvciBzdHJ1Y3R1cmUuIChUbyBpZGVudGlmeSBwYXJ0cyBhbmQgcmVsYXRpb25zaGlwcywgYW5kIHRvIGludGVycHJldCBpbmZvcm1hdGlvbiB0byByZWFjaCBjb25jbHVzaW9ucy4p",
+                "answer_text": "b64:QW5hbHlzZQ=="
             },
             {
-                "text": "To improve incrementally, elaborate or expand in detail. Evolve to a more advanced or effective state.",
-                "answer_text": "Develop"
+                "text": "b64:VG8gaW1wcm92ZSBpbmNyZW1lbnRhbGx5LCBlbGFib3JhdGUgb3IgZXhwYW5kIGluIGRldGFpbC4gRXZvbHZlIHRvIGEgbW9yZSBhZHZhbmNlZCBvciBlZmZlY3RpdmUgc3RhdGUu",
+                "answer_text": "b64:RGV2ZWxvcA=="
             },
             {
-                "text": "Provide an answer from a number of possibilities. Recognize and state briefly a distinguishing fact or feature.",
-                "answer_text": "Identify"
+                "text": "b64:UHJvdmlkZSBhbiBhbnN3ZXIgZnJvbSBhIG51bWJlciBvZiBwb3NzaWJpbGl0aWVzLiBSZWNvZ25pemUgYW5kIHN0YXRlIGJyaWVmbHkgYSBkaXN0aW5ndWlzaGluZyBmYWN0IG9yIGZlYXR1cmUu",
+                "answer_text": "b64:SWRlbnRpZnk="
             },
             {
-                "text": "Give a brief account or summary.",
-                "answer_text": "Outline"
+                "text": "b64:R2l2ZSBhIGJyaWVmIGFjY291bnQgb3Igc3VtbWFyeS4=",
+                "answer_text": "b64:T3V0bGluZQ=="
             },
             {
-                "text": "Display information in a diagrammatic or logical form.",
-                "answer_text": "Construct"
+                "text": "b64:RGlzcGxheSBpbmZvcm1hdGlvbiBpbiBhIGRpYWdyYW1tYXRpYyBvciBsb2dpY2FsIGZvcm0u",
+                "answer_text": "b64:Q29uc3RydWN0"
             },
             {
-                "text": "Give valid reasons or evidence to support an answer or conclusion. (See also \"Explain\".)",
-                "answer_text": "Justify"
+                "text": "b64:R2l2ZSB2YWxpZCByZWFzb25zIG9yIGV2aWRlbmNlIHRvIHN1cHBvcnQgYW4gYW5zd2VyIG9yIGNvbmNsdXNpb24uIChTZWUgYWxzbyAiRXhwbGFpbiIuKQ==",
+                "answer_text": "b64:SnVzdGlmeQ=="
             },
             {
-                "text": "Give a sequence of brief answers with no explanation.",
-                "answer_text": "List"
+                "text": "b64:R2l2ZSBhIHNlcXVlbmNlIG9mIGJyaWVmIGFuc3dlcnMgd2l0aCBubyBleHBsYW5hdGlvbi4=",
+                "answer_text": "b64:TGlzdA=="
             },
             {
-                "text": "Make clear by reasoning or evidence, illustrating with examples or practical application.",
-                "answer_text": "Demonstrate"
+                "text": "b64:TWFrZSBjbGVhciBieSByZWFzb25pbmcgb3IgZXZpZGVuY2UsIGlsbHVzdHJhdGluZyB3aXRoIGV4YW1wbGVzIG9yIHByYWN0aWNhbCBhcHBsaWNhdGlvbi4=",
+                "answer_text": "b64:RGVtb25zdHJhdGU="
             },
             {
-                "text": "Produce a plan, simulation or model.",
-                "answer_text": "Design"
+                "text": "b64:UHJvZHVjZSBhIHBsYW4sIHNpbXVsYXRpb24gb3IgbW9kZWwu",
+                "answer_text": "b64:RGVzaWdu"
             }
         ],
         "distractors": [
-            "Cheese",
-            "Cow",
-            "Fish"
+            "b64:Q2hlZXNl",
+            "b64:Q293",
+            "b64:RmlzaA=="
         ]
     },
     {
@@ -102,14 +102,14 @@
         "correct ans index": " ",
         "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
         "url": "",
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     }
 ]

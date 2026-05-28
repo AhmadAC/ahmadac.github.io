@@ -10,45 +10,45 @@
         "question_text": "The following 5 questions refer to Circuit Diagram 1, what does A represent in the circuit diagram?",
         "url": "W29G7 - circuit diagram1",
         "question_url": "W29G7 - circuit diagram1",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Negative terminal",
-                "text": "Negative terminal",
-                "weight": 0
+                "answer_text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A light bulb",
-                "text": "A light bulb",
-                "weight": 0
+                "answer_text": "b64:QSBsaWdodCBidWxi",
+                "text": "b64:QSBsaWdodCBidWxi",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Positive terminal",
-                "text": "Positive terminal",
-                "weight": 100
+                "answer_text": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+                "text": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "An open switch",
-                "text": "An open switch",
-                "weight": 0
+                "answer_text": "b64:QW4gb3BlbiBzd2l0Y2g=",
+                "text": "b64:QW4gb3BlbiBzd2l0Y2g=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A 5 Ohm resistor",
-                "text": "A 5 Ohm resistor",
-                "weight": 0
+                "answer_text": "b64:QSA1IE9obSByZXNpc3Rvcg==",
+                "text": "b64:QSA1IE9obSByZXNpc3Rvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A closed switch",
-                "text": "A closed switch",
-                "weight": 0
+                "answer_text": "b64:QSBjbG9zZWQgc3dpdGNo",
+                "text": "b64:QSBjbG9zZWQgc3dpdGNo",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Negative terminal",
-        "b": "A light bulb",
-        "c": "Positive terminal",
-        "d": "An open switch",
-        "e": "A 5 Ohm resistor",
-        "f": "A closed switch"
+        "a": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+        "b": "b64:QSBsaWdodCBidWxi",
+        "c": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+        "d": "b64:QW4gb3BlbiBzd2l0Y2g=",
+        "e": "b64:QSA1IE9obSByZXNpc3Rvcg==",
+        "f": "b64:QSBjbG9zZWQgc3dpdGNo"
     },
     {
         "question_name": "Question 2",
@@ -61,45 +61,45 @@
         "question_text": "According to Circuit Diagram 1, what does B represent in the circuit diagram?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Ammeter",
-                "text": "Ammeter",
-                "weight": 0
+                "answer_text": "b64:QW1tZXRlcg==",
+                "text": "b64:QW1tZXRlcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Negative terminal",
-                "text": "Negative terminal",
-                "weight": 100
+                "answer_text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "text": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Voltmeter",
-                "text": "Voltmeter",
-                "weight": 0
+                "answer_text": "b64:Vm9sdG1ldGVy",
+                "text": "b64:Vm9sdG1ldGVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Positive terminal",
-                "text": "Positive terminal",
-                "weight": 0
+                "answer_text": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+                "text": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Fuse",
-                "text": "Fuse",
-                "weight": 0
+                "answer_text": "b64:RnVzZQ==",
+                "text": "b64:RnVzZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Battery",
-                "text": "Battery",
-                "weight": 0
+                "answer_text": "b64:QmF0dGVyeQ==",
+                "text": "b64:QmF0dGVyeQ==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Ammeter",
-        "b": "Negative terminal",
-        "c": "Voltmeter",
-        "d": "Positive terminal",
-        "e": "Fuse",
-        "f": "Battery"
+        "a": "b64:QW1tZXRlcg==",
+        "b": "b64:TmVnYXRpdmUgdGVybWluYWw=",
+        "c": "b64:Vm9sdG1ldGVy",
+        "d": "b64:UG9zaXRpdmUgdGVybWluYWw=",
+        "e": "b64:RnVzZQ==",
+        "f": "b64:QmF0dGVyeQ=="
     },
     {
         "question_name": "Question 3",
@@ -112,45 +112,45 @@
         "question_text": "According to Circuit Diagram 1, what does C represent in the circuit diagram?",
         "url": "",
         "question_url": "",
-        "correct ans index": "6",
+        "correct ans index": "b64:Ng==",
         "answers": [
             {
-                "answer_text": "A wire",
-                "text": "A wire",
-                "weight": 0
+                "answer_text": "b64:QSB3aXJl",
+                "text": "b64:QSB3aXJl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A motor",
-                "text": "A motor",
-                "weight": 0
+                "answer_text": "b64:QSBtb3Rvcg==",
+                "text": "b64:QSBtb3Rvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A closed switch",
-                "text": "A closed switch",
-                "weight": 0
+                "answer_text": "b64:QSBjbG9zZWQgc3dpdGNo",
+                "text": "b64:QSBjbG9zZWQgc3dpdGNo",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A buzzer",
-                "text": "A buzzer",
-                "weight": 0
+                "answer_text": "b64:QSBidXp6ZXI=",
+                "text": "b64:QSBidXp6ZXI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A cell",
-                "text": "A cell",
-                "weight": 0
+                "answer_text": "b64:QSBjZWxs",
+                "text": "b64:QSBjZWxs",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "An open switch",
-                "text": "An open switch",
-                "weight": 100
+                "answer_text": "b64:QW4gb3BlbiBzd2l0Y2g=",
+                "text": "b64:QW4gb3BlbiBzd2l0Y2g=",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "A wire",
-        "b": "A motor",
-        "c": "A closed switch",
-        "d": "A buzzer",
-        "e": "A cell",
-        "f": "An open switch"
+        "a": "b64:QSB3aXJl",
+        "b": "b64:QSBtb3Rvcg==",
+        "c": "b64:QSBjbG9zZWQgc3dpdGNo",
+        "d": "b64:QSBidXp6ZXI=",
+        "e": "b64:QSBjZWxs",
+        "f": "b64:QW4gb3BlbiBzd2l0Y2g="
     },
     {
         "question_name": "Question 4",
@@ -163,45 +163,45 @@
         "question_text": "According to Circuit Diagram 1, what does D represent in the circuit diagram?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "A light bulb",
-                "text": "A light bulb",
-                "weight": 100
+                "answer_text": "b64:QSBsaWdodCBidWxi",
+                "text": "b64:QSBsaWdodCBidWxi",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A resistor",
-                "text": "A resistor",
-                "weight": 0
+                "answer_text": "b64:QSByZXNpc3Rvcg==",
+                "text": "b64:QSByZXNpc3Rvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A diode",
-                "text": "A diode",
-                "weight": 0
+                "answer_text": "b64:QSBkaW9kZQ==",
+                "text": "b64:QSBkaW9kZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A capacitor",
-                "text": "A capacitor",
-                "weight": 0
+                "answer_text": "b64:QSBjYXBhY2l0b3I=",
+                "text": "b64:QSBjYXBhY2l0b3I=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A motor",
-                "text": "A motor",
-                "weight": 0
+                "answer_text": "b64:QSBtb3Rvcg==",
+                "text": "b64:QSBtb3Rvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A switch",
-                "text": "A switch",
-                "weight": 0
+                "answer_text": "b64:QSBzd2l0Y2g=",
+                "text": "b64:QSBzd2l0Y2g=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "A light bulb",
-        "b": "A resistor",
-        "c": "A diode",
-        "d": "A capacitor",
-        "e": "A motor",
-        "f": "A switch"
+        "a": "b64:QSBsaWdodCBidWxi",
+        "b": "b64:QSByZXNpc3Rvcg==",
+        "c": "b64:QSBkaW9kZQ==",
+        "d": "b64:QSBjYXBhY2l0b3I=",
+        "e": "b64:QSBtb3Rvcg==",
+        "f": "b64:QSBzd2l0Y2g="
     },
     {
         "question_name": "Question 5",
@@ -214,45 +214,45 @@
         "question_text": "According to Circuit Diagram 1, what does E represent in the circuit diagram?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "A 5 Ohm variable resistor",
-                "text": "A 5 Ohm variable resistor",
-                "weight": 0
+                "answer_text": "b64:QSA1IE9obSB2YXJpYWJsZSByZXNpc3Rvcg==",
+                "text": "b64:QSA1IE9obSB2YXJpYWJsZSByZXNpc3Rvcg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A 5 Volt battery",
-                "text": "A 5 Volt battery",
-                "weight": 0
+                "answer_text": "b64:QSA1IFZvbHQgYmF0dGVyeQ==",
+                "text": "b64:QSA1IFZvbHQgYmF0dGVyeQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A 5 Ohm resistor",
-                "text": "A 5 Ohm resistor",
-                "weight": 100
+                "answer_text": "b64:QSA1IE9obSByZXNpc3Rvcg==",
+                "text": "b64:QSA1IE9obSByZXNpc3Rvcg==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A fuse",
-                "text": "A fuse",
-                "weight": 0
+                "answer_text": "b64:QSBmdXNl",
+                "text": "b64:QSBmdXNl",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A 5 Ohm light bulb",
-                "text": "A 5 Ohm light bulb",
-                "weight": 0
+                "answer_text": "b64:QSA1IE9obSBsaWdodCBidWxi",
+                "text": "b64:QSA1IE9obSBsaWdodCBidWxi",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "A 5 Amp ammeter",
-                "text": "A 5 Amp ammeter",
-                "weight": 0
+                "answer_text": "b64:QSA1IEFtcCBhbW1ldGVy",
+                "text": "b64:QSA1IEFtcCBhbW1ldGVy",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "A 5 Ohm variable resistor",
-        "b": "A 5 Volt battery",
-        "c": "A 5 Ohm resistor",
-        "d": "A fuse",
-        "e": "A 5 Ohm light bulb",
-        "f": "A 5 Amp ammeter"
+        "a": "b64:QSA1IE9obSB2YXJpYWJsZSByZXNpc3Rvcg==",
+        "b": "b64:QSA1IFZvbHQgYmF0dGVyeQ==",
+        "c": "b64:QSA1IE9obSByZXNpc3Rvcg==",
+        "d": "b64:QSBmdXNl",
+        "e": "b64:QSA1IE9obSBsaWdodCBidWxi",
+        "f": "b64:QSA1IEFtcCBhbW1ldGVy"
     },
     {
         "question_name": "Question 6",
@@ -265,45 +265,45 @@
         "question_text": "What is wrong with this circuit diagram?",
         "url": "W29G7 - circuit diagram2",
         "question_url": "W29G7 - circuit diagram2",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "The battery is backwards.",
-                "text": "The battery is backwards.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJhdHRlcnkgaXMgYmFja3dhcmRzLg==",
+                "text": "b64:VGhlIGJhdHRlcnkgaXMgYmFja3dhcmRzLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It is not connected, so electricity won't flow.",
-                "text": "It is not connected, so electricity won't flow.",
-                "weight": 100
+                "answer_text": "b64:SXQgaXMgbm90IGNvbm5lY3RlZCwgc28gZWxlY3RyaWNpdHkgd29uJ3QgZmxvdy4=",
+                "text": "b64:SXQgaXMgbm90IGNvbm5lY3RlZCwgc28gZWxlY3RyaWNpdHkgd29uJ3QgZmxvdy4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The bulb is broken.",
-                "text": "The bulb is broken.",
-                "weight": 0
+                "answer_text": "b64:VGhlIGJ1bGIgaXMgYnJva2VuLg==",
+                "text": "b64:VGhlIGJ1bGIgaXMgYnJva2VuLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "There is a short circuit.",
-                "text": "There is a short circuit.",
-                "weight": 0
+                "answer_text": "b64:VGhlcmUgaXMgYSBzaG9ydCBjaXJjdWl0Lg==",
+                "text": "b64:VGhlcmUgaXMgYSBzaG9ydCBjaXJjdWl0Lg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The voltage is too high for the components.",
-                "text": "The voltage is too high for the components.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHZvbHRhZ2UgaXMgdG9vIGhpZ2ggZm9yIHRoZSBjb21wb25lbnRzLg==",
+                "text": "b64:VGhlIHZvbHRhZ2UgaXMgdG9vIGhpZ2ggZm9yIHRoZSBjb21wb25lbnRzLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The switch is in the wrong position.",
-                "text": "The switch is in the wrong position.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHN3aXRjaCBpcyBpbiB0aGUgd3JvbmcgcG9zaXRpb24u",
+                "text": "b64:VGhlIHN3aXRjaCBpcyBpbiB0aGUgd3JvbmcgcG9zaXRpb24u",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The battery is backwards.",
-        "b": "It is not connected, so electricity won't flow.",
-        "c": "The bulb is broken.",
-        "d": "There is a short circuit.",
-        "e": "The voltage is too high for the components.",
-        "f": "The switch is in the wrong position."
+        "a": "b64:VGhlIGJhdHRlcnkgaXMgYmFja3dhcmRzLg==",
+        "b": "b64:SXQgaXMgbm90IGNvbm5lY3RlZCwgc28gZWxlY3RyaWNpdHkgd29uJ3QgZmxvdy4=",
+        "c": "b64:VGhlIGJ1bGIgaXMgYnJva2VuLg==",
+        "d": "b64:VGhlcmUgaXMgYSBzaG9ydCBjaXJjdWl0Lg==",
+        "e": "b64:VGhlIHZvbHRhZ2UgaXMgdG9vIGhpZ2ggZm9yIHRoZSBjb21wb25lbnRzLg==",
+        "f": "b64:VGhlIHN3aXRjaCBpcyBpbiB0aGUgd3JvbmcgcG9zaXRpb24u"
     },
     {
         "question_name": "Question 7",
@@ -316,45 +316,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram3",
         "question_url": "W29G7 - circuit diagram3",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "It shows a two-cell battery with a light bulb connected in parallel.",
-                "text": "It shows a two-cell battery with a light bulb connected in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBwYXJhbGxlbC4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBwYXJhbGxlbC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a one-cell battery with a light bulb connected in series.",
-                "text": "It shows a one-cell battery with a light bulb connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a three-cell battery with a light bulb connected in series.",
-                "text": "It shows a three-cell battery with a light bulb connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnkgd2l0aCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnkgd2l0aCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery with a light bulb connected in series.",
-                "text": "It shows a two-cell battery with a light bulb connected in series.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a two-cell battery with a fixed resistor connected in series.",
-                "text": "It shows a two-cell battery with a fixed resistor connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBmaXhlZCByZXNpc3RvciBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBmaXhlZCByZXNpc3RvciBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery with an LED connected in series.",
-                "text": "It shows a two-cell battery with an LED connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYW4gTEVEIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYW4gTEVEIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a two-cell battery with a light bulb connected in parallel.",
-        "b": "It shows a one-cell battery with a light bulb connected in series.",
-        "c": "It shows a three-cell battery with a light bulb connected in series.",
-        "d": "It shows a two-cell battery with a light bulb connected in series.",
-        "e": "It shows a two-cell battery with a fixed resistor connected in series.",
-        "f": "It shows a two-cell battery with an LED connected in series."
+        "a": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBwYXJhbGxlbC4=",
+        "b": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "c": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnkgd2l0aCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+        "d": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "e": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYSBmaXhlZCByZXNpc3RvciBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+        "f": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5IHdpdGggYW4gTEVEIGNvbm5lY3RlZCBpbiBzZXJpZXMu"
     },
     {
         "question_name": "Question 8",
@@ -367,45 +367,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram4",
         "question_url": "W29G7 - circuit diagram4",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "It shows a two-cell battery, with an open switch and a light bulb connected in series.",
-                "text": "It shows a two-cell battery, with an open switch and a light bulb connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGFuIG9wZW4gc3dpdGNoIGFuZCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGFuIG9wZW4gc3dpdGNoIGFuZCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a closed switch and a light bulb connected in series.",
-                "text": "It shows a two-cell battery, with a closed switch and a light bulb connected in series.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a two-cell battery, with a closed switch and a light bulb connected in parallel.",
-                "text": "It shows a two-cell battery, with a closed switch and a light bulb connected in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBwYXJhbGxlbC4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBwYXJhbGxlbC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a one-cell battery, with a closed switch and a light bulb connected in series.",
-                "text": "It shows a one-cell battery, with a closed switch and a light bulb connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a fuse and a light bulb connected in series.",
-                "text": "It shows a two-cell battery, with a fuse and a light bulb connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZnVzZSBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZnVzZSBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a closed switch and a fixed resistor connected in series.",
-                "text": "It shows a two-cell battery, with a closed switch and a fixed resistor connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBmaXhlZCByZXNpc3RvciBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBmaXhlZCByZXNpc3RvciBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a two-cell battery, with an open switch and a light bulb connected in series.",
-        "b": "It shows a two-cell battery, with a closed switch and a light bulb connected in series.",
-        "c": "It shows a two-cell battery, with a closed switch and a light bulb connected in parallel.",
-        "d": "It shows a one-cell battery, with a closed switch and a light bulb connected in series.",
-        "e": "It shows a two-cell battery, with a fuse and a light bulb connected in series.",
-        "f": "It shows a two-cell battery, with a closed switch and a fixed resistor connected in series."
+        "a": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGFuIG9wZW4gc3dpdGNoIGFuZCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+        "b": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "c": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBwYXJhbGxlbC4=",
+        "d": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "e": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZnVzZSBhbmQgYSBsaWdodCBidWxiIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "f": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBhbmQgYSBmaXhlZCByZXNpc3RvciBjb25uZWN0ZWQgaW4gc2VyaWVzLg=="
     },
     {
         "question_name": "Question 9",
@@ -418,45 +418,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram5",
         "question_url": "W29G7 - circuit diagram5",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "It shows a two-cell battery, with a variable resistor, and an LED connected in series.",
-                "text": "It shows a two-cell battery, with a variable resistor, and an LED connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a fixed resistor, and a light bulb connected in series.",
-                "text": "It shows a two-cell battery, with a fixed resistor, and a light bulb connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a fixed resistor, and an LED connected in series.",
-                "text": "It shows a two-cell battery, with a fixed resistor, and an LED connected in series.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a three-cell battery, with a fixed resistor, and an LED connected in series.",
-                "text": "It shows a three-cell battery, with a fixed resistor, and an LED connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggYSBmaXhlZCByZXNpc3RvciwgYW5kIGFuIExFRCBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggYSBmaXhlZCByZXNpc3RvciwgYW5kIGFuIExFRCBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a fixed resistor, and an LED connected in parallel.",
-                "text": "It shows a two-cell battery, with a fixed resistor, and an LED connected in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a diode, and an LED connected in series.",
-                "text": "It shows a two-cell battery, with a diode, and an LED connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZGlvZGUsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZGlvZGUsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a two-cell battery, with a variable resistor, and an LED connected in series.",
-        "b": "It shows a two-cell battery, with a fixed resistor, and a light bulb connected in series.",
-        "c": "It shows a two-cell battery, with a fixed resistor, and an LED connected in series.",
-        "d": "It shows a three-cell battery, with a fixed resistor, and an LED connected in series.",
-        "e": "It shows a two-cell battery, with a fixed resistor, and an LED connected in parallel.",
-        "f": "It shows a two-cell battery, with a diode, and an LED connected in series."
+        "a": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+        "b": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhIGxpZ2h0IGJ1bGIgY29ubmVjdGVkIGluIHNlcmllcy4=",
+        "c": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4=",
+        "d": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggYSBmaXhlZCByZXNpc3RvciwgYW5kIGFuIExFRCBjb25uZWN0ZWQgaW4gc2VyaWVzLg==",
+        "e": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+        "f": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZGlvZGUsIGFuZCBhbiBMRUQgY29ubmVjdGVkIGluIHNlcmllcy4="
     },
     {
         "question_name": "Question 10",
@@ -469,45 +469,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram6",
         "question_url": "W29G7 - circuit diagram6",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "It shows a three-cell battery, with three light bulbs connected in series.",
-                "text": "It shows a three-cell battery, with three light bulbs connected in series.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgbGlnaHQgYnVsYnMgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgbGlnaHQgYnVsYnMgY29ubmVjdGVkIGluIHNlcmllcy4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a two-cell battery, with three light bulbs connected in series.",
-                "text": "It shows a two-cell battery, with three light bulbs connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHRocmVlIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHRocmVlIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a three-cell battery, with three light bulbs connected in parallel.",
-                "text": "It shows a three-cell battery, with three light bulbs connected in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgbGlnaHQgYnVsYnMgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgbGlnaHQgYnVsYnMgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a three-cell battery, with two light bulbs connected in series.",
-                "text": "It shows a three-cell battery, with two light bulbs connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdHdvIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdHdvIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a single-cell battery, with three light bulbs connected in series.",
-                "text": "It shows a single-cell battery, with three light bulbs connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSBzaW5nbGUtY2VsbCBiYXR0ZXJ5LCB3aXRoIHRocmVlIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSBzaW5nbGUtY2VsbCBiYXR0ZXJ5LCB3aXRoIHRocmVlIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a three-cell battery, with three fixed resistors connected in series.",
-                "text": "It shows a three-cell battery, with three fixed resistors connected in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgZml4ZWQgcmVzaXN0b3JzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgZml4ZWQgcmVzaXN0b3JzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a three-cell battery, with three light bulbs connected in series.",
-        "b": "It shows a two-cell battery, with three light bulbs connected in series.",
-        "c": "It shows a three-cell battery, with three light bulbs connected in parallel.",
-        "d": "It shows a three-cell battery, with two light bulbs connected in series.",
-        "e": "It shows a single-cell battery, with three light bulbs connected in series.",
-        "f": "It shows a three-cell battery, with three fixed resistors connected in series."
+        "a": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgbGlnaHQgYnVsYnMgY29ubmVjdGVkIGluIHNlcmllcy4=",
+        "b": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHRocmVlIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "c": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgbGlnaHQgYnVsYnMgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+        "d": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdHdvIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "e": "b64:SXQgc2hvd3MgYSBzaW5nbGUtY2VsbCBiYXR0ZXJ5LCB3aXRoIHRocmVlIGxpZ2h0IGJ1bGJzIGNvbm5lY3RlZCBpbiBzZXJpZXMu",
+        "f": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdGhyZWUgZml4ZWQgcmVzaXN0b3JzIGNvbm5lY3RlZCBpbiBzZXJpZXMu"
     },
     {
         "question_name": "Question 11",
@@ -520,45 +520,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram7",
         "question_url": "W29G7 - circuit diagram7",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "It shows a two-cell battery, with two lamps connected in series, and one closed switch.",
-                "text": "It shows a two-cell battery, with two lamps connected in series, and one closed switch.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gc2VyaWVzLCBhbmQgb25lIGNsb3NlZCBzd2l0Y2gu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gc2VyaWVzLCBhbmQgb25lIGNsb3NlZCBzd2l0Y2gu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a three-cell battery, with two lamps connected in parallel, and one closed switch.",
-                "text": "It shows a three-cell battery, with two lamps connected in parallel, and one closed switch.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdHdvIGxhbXBzIGNvbm5lY3RlZCBpbiBwYXJhbGxlbCwgYW5kIG9uZSBjbG9zZWQgc3dpdGNoLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdHdvIGxhbXBzIGNvbm5lY3RlZCBpbiBwYXJhbGxlbCwgYW5kIG9uZSBjbG9zZWQgc3dpdGNoLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two cell battery, with two lamps connected in parallel, and one closed switch in the first path, which can switch one lamp off.",
-                "text": "It shows a two cell battery, with two lamps connected in parallel, and one closed switch in the first path, which can switch one lamp off.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28gY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBvbmUgY2xvc2VkIHN3aXRjaCBpbiB0aGUgZmlyc3QgcGF0aCwgd2hpY2ggY2FuIHN3aXRjaCBvbmUgbGFtcCBvZmYu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28gY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBvbmUgY2xvc2VkIHN3aXRjaCBpbiB0aGUgZmlyc3QgcGF0aCwgd2hpY2ggY2FuIHN3aXRjaCBvbmUgbGFtcCBvZmYu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a two-cell battery, with two lamps connected in parallel, and one open switch in the main branch.",
-                "text": "It shows a two-cell battery, with two lamps connected in parallel, and one open switch in the main branch.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBvbmUgb3BlbiBzd2l0Y2ggaW4gdGhlIG1haW4gYnJhbmNoLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBvbmUgb3BlbiBzd2l0Y2ggaW4gdGhlIG1haW4gYnJhbmNoLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with two lamps connected in parallel, and a switch for each lamp.",
-                "text": "It shows a two-cell battery, with two lamps connected in parallel, and a switch for each lamp.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBhIHN3aXRjaCBmb3IgZWFjaCBsYW1wLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBhIHN3aXRjaCBmb3IgZWFjaCBsYW1wLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with one lamp and one motor connected in parallel.",
-                "text": "It shows a two-cell battery, with one lamp and one motor connected in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIG9uZSBsYW1wIGFuZCBvbmUgbW90b3IgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIG9uZSBsYW1wIGFuZCBvbmUgbW90b3IgY29ubmVjdGVkIGluIHBhcmFsbGVsLg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a two-cell battery, with two lamps connected in series, and one closed switch.",
-        "b": "It shows a three-cell battery, with two lamps connected in parallel, and one closed switch.",
-        "c": "It shows a two cell battery, with two lamps connected in parallel, and one closed switch in the first path, which can switch one lamp off.",
-        "d": "It shows a two-cell battery, with two lamps connected in parallel, and one open switch in the main branch.",
-        "e": "It shows a two-cell battery, with two lamps connected in parallel, and a switch for each lamp.",
-        "f": "It shows a two-cell battery, with one lamp and one motor connected in parallel."
+        "a": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gc2VyaWVzLCBhbmQgb25lIGNsb3NlZCBzd2l0Y2gu",
+        "b": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIHdpdGggdHdvIGxhbXBzIGNvbm5lY3RlZCBpbiBwYXJhbGxlbCwgYW5kIG9uZSBjbG9zZWQgc3dpdGNoLg==",
+        "c": "b64:SXQgc2hvd3MgYSB0d28gY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBvbmUgY2xvc2VkIHN3aXRjaCBpbiB0aGUgZmlyc3QgcGF0aCwgd2hpY2ggY2FuIHN3aXRjaCBvbmUgbGFtcCBvZmYu",
+        "d": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBvbmUgb3BlbiBzd2l0Y2ggaW4gdGhlIG1haW4gYnJhbmNoLg==",
+        "e": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIHR3byBsYW1wcyBjb25uZWN0ZWQgaW4gcGFyYWxsZWwsIGFuZCBhIHN3aXRjaCBmb3IgZWFjaCBsYW1wLg==",
+        "f": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIG9uZSBsYW1wIGFuZCBvbmUgbW90b3IgY29ubmVjdGVkIGluIHBhcmFsbGVsLg=="
     },
     {
         "question_name": "Question 12",
@@ -571,45 +571,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram8",
         "question_url": "W29G7 - circuit diagram8",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "It shows a two-cell battery, with a lamp in series, and an ammeter in series.",
-                "text": "It shows a two-cell battery, with a lamp in series, and an ammeter in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhbiBhbW1ldGVyIGluIHNlcmllcy4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhbiBhbW1ldGVyIGluIHNlcmllcy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a lamp in series, and a voltmeter in series.",
-                "text": "It shows a two-cell battery, with a lamp in series, and a voltmeter in series.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBzZXJpZXMu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBzZXJpZXMu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a one-cell battery, with a lamp in series, and a voltmeter in parallel.",
-                "text": "It shows a one-cell battery, with a lamp in series, and a voltmeter in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBwYXJhbGxlbC4=",
+                "text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBwYXJhbGxlbC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a lamp in series, and a voltmeter in parallel measuring the voltage of the lamp.",
-                "text": "It shows a two-cell battery, with a lamp in series, and a voltmeter in parallel measuring the voltage of the lamp.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBwYXJhbGxlbCBtZWFzdXJpbmcgdGhlIHZvbHRhZ2Ugb2YgdGhlIGxhbXAu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBwYXJhbGxlbCBtZWFzdXJpbmcgdGhlIHZvbHRhZ2Ugb2YgdGhlIGxhbXAu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a two-cell battery, with a lamp in series, and an ohmmeter in parallel.",
-                "text": "It shows a two-cell battery, with a lamp in series, and an ohmmeter in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhbiBvaG1tZXRlciBpbiBwYXJhbGxlbC4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhbiBvaG1tZXRlciBpbiBwYXJhbGxlbC4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a resistor in series, and a voltmeter in parallel.",
-                "text": "It shows a two-cell battery, with a resistor in series, and a voltmeter in parallel.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgcmVzaXN0b3IgaW4gc2VyaWVzLCBhbmQgYSB2b2x0bWV0ZXIgaW4gcGFyYWxsZWwu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgcmVzaXN0b3IgaW4gc2VyaWVzLCBhbmQgYSB2b2x0bWV0ZXIgaW4gcGFyYWxsZWwu",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a two-cell battery, with a lamp in series, and an ammeter in series.",
-        "b": "It shows a two-cell battery, with a lamp in series, and a voltmeter in series.",
-        "c": "It shows a one-cell battery, with a lamp in series, and a voltmeter in parallel.",
-        "d": "It shows a two-cell battery, with a lamp in series, and a voltmeter in parallel measuring the voltage of the lamp.",
-        "e": "It shows a two-cell battery, with a lamp in series, and an ohmmeter in parallel.",
-        "f": "It shows a two-cell battery, with a resistor in series, and a voltmeter in parallel."
+        "a": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhbiBhbW1ldGVyIGluIHNlcmllcy4=",
+        "b": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBzZXJpZXMu",
+        "c": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBwYXJhbGxlbC4=",
+        "d": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhIHZvbHRtZXRlciBpbiBwYXJhbGxlbCBtZWFzdXJpbmcgdGhlIHZvbHRhZ2Ugb2YgdGhlIGxhbXAu",
+        "e": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGFtcCBpbiBzZXJpZXMsIGFuZCBhbiBvaG1tZXRlciBpbiBwYXJhbGxlbC4=",
+        "f": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgcmVzaXN0b3IgaW4gc2VyaWVzLCBhbmQgYSB2b2x0bWV0ZXIgaW4gcGFyYWxsZWwu"
     },
     {
         "question_name": "Question 13",
@@ -622,45 +622,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram9",
         "question_url": "W29G7 - circuit diagram9",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "It shows a two-cell battery, with a variable resistor and a bulb.",
-                "text": "It shows a two-cell battery, with a variable resistor and a bulb.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a two-cell battery, with a fixed resistor and a bulb.",
-                "text": "It shows a two-cell battery, with a fixed resistor and a bulb.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a potentiometer and a motor.",
-                "text": "It shows a two-cell battery, with a potentiometer and a motor.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgcG90ZW50aW9tZXRlciBhbmQgYSBtb3Rvci4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgcG90ZW50aW9tZXRlciBhbmQgYSBtb3Rvci4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a one-cell battery, with a variable resistor and a bulb.",
-                "text": "It shows a one-cell battery, with a variable resistor and a bulb.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+                "text": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a thermistor and a bulb.",
-                "text": "It shows a two-cell battery, with a thermistor and a bulb.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdGhlcm1pc3RvciBhbmQgYSBidWxiLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdGhlcm1pc3RvciBhbmQgYSBidWxiLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, with a light-dependent resistor (LDR) and a bulb.",
-                "text": "It shows a two-cell battery, with a light-dependent resistor (LDR) and a bulb.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGlnaHQtZGVwZW5kZW50IHJlc2lzdG9yIChMRFIpIGFuZCBhIGJ1bGIu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGlnaHQtZGVwZW5kZW50IHJlc2lzdG9yIChMRFIpIGFuZCBhIGJ1bGIu",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a two-cell battery, with a variable resistor and a bulb.",
-        "b": "It shows a two-cell battery, with a fixed resistor and a bulb.",
-        "c": "It shows a two-cell battery, with a potentiometer and a motor.",
-        "d": "It shows a one-cell battery, with a variable resistor and a bulb.",
-        "e": "It shows a two-cell battery, with a thermistor and a bulb.",
-        "f": "It shows a two-cell battery, with a light-dependent resistor (LDR) and a bulb."
+        "a": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+        "b": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgZml4ZWQgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+        "c": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgcG90ZW50aW9tZXRlciBhbmQgYSBtb3Rvci4=",
+        "d": "b64:SXQgc2hvd3MgYSBvbmUtY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdmFyaWFibGUgcmVzaXN0b3IgYW5kIGEgYnVsYi4=",
+        "e": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgdGhlcm1pc3RvciBhbmQgYSBidWxiLg==",
+        "f": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCB3aXRoIGEgbGlnaHQtZGVwZW5kZW50IHJlc2lzdG9yIChMRFIpIGFuZCBhIGJ1bGIu"
     },
     {
         "question_name": "Question 14",
@@ -673,45 +673,45 @@
         "question_text": "What does this circuit diagram show?",
         "url": "W29G7 - circuit diagram10",
         "question_url": "W29G7 - circuit diagram10",
-        "correct ans index": "5",
+        "correct ans index": "b64:NQ==",
         "answers": [
             {
-                "answer_text": "It shows a two-cell battery, and three bulbs all in series with a closed switch for each bulb.",
-                "text": "It shows a two-cell battery, and three bulbs all in series with a closed switch for each bulb.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHNlcmllcyB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCBidWxiLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHNlcmllcyB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCBidWxiLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a three-cell battery, and three bulbs all in parallel with a closed switch for each bulb.",
-                "text": "It shows a three-cell battery, and three bulbs all in parallel with a closed switch for each bulb.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIGFuZCB0aHJlZSBidWxicyBhbGwgaW4gcGFyYWxsZWwgd2l0aCBhIGNsb3NlZCBzd2l0Y2ggZm9yIGVhY2ggYnVsYi4=",
+                "text": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIGFuZCB0aHJlZSBidWxicyBhbGwgaW4gcGFyYWxsZWwgd2l0aCBhIGNsb3NlZCBzd2l0Y2ggZm9yIGVhY2ggYnVsYi4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, and three bulbs all in parallel with one master switch.",
-                "text": "It shows a two-cell battery, and three bulbs all in parallel with one master switch.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHBhcmFsbGVsIHdpdGggb25lIG1hc3RlciBzd2l0Y2gu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHBhcmFsbGVsIHdpdGggb25lIG1hc3RlciBzd2l0Y2gu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, and two bulbs all in parallel with a closed switch for each bulb.",
-                "text": "It shows a two-cell battery, and two bulbs all in parallel with a closed switch for each bulb.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdHdvIGJ1bGJzIGFsbCBpbiBwYXJhbGxlbCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCBidWxiLg==",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdHdvIGJ1bGJzIGFsbCBpbiBwYXJhbGxlbCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCBidWxiLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "It shows a two-cell battery, and three bulbs all in parallel with a closed switch for each bulb.",
-                "text": "It shows a two-cell battery, and three bulbs all in parallel with a closed switch for each bulb.",
-                "weight": 100
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHBhcmFsbGVsIHdpdGggYSBjbG9zZWQgc3dpdGNoIGZvciBlYWNoIGJ1bGIu",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHBhcmFsbGVsIHdpdGggYSBjbG9zZWQgc3dpdGNoIGZvciBlYWNoIGJ1bGIu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "It shows a two-cell battery, and three resistors all in parallel with a closed switch for each resistor.",
-                "text": "It shows a two-cell battery, and three resistors all in parallel with a closed switch for each resistor.",
-                "weight": 0
+                "answer_text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgcmVzaXN0b3JzIGFsbCBpbiBwYXJhbGxlbCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCByZXNpc3Rvci4=",
+                "text": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgcmVzaXN0b3JzIGFsbCBpbiBwYXJhbGxlbCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCByZXNpc3Rvci4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "It shows a two-cell battery, and three bulbs all in series with a closed switch for each bulb.",
-        "b": "It shows a three-cell battery, and three bulbs all in parallel with a closed switch for each bulb.",
-        "c": "It shows a two-cell battery, and three bulbs all in parallel with one master switch.",
-        "d": "It shows a two-cell battery, and two bulbs all in parallel with a closed switch for each bulb.",
-        "e": "It shows a two-cell battery, and three bulbs all in parallel with a closed switch for each bulb.",
-        "f": "It shows a two-cell battery, and three resistors all in parallel with a closed switch for each resistor."
+        "a": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHNlcmllcyB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCBidWxiLg==",
+        "b": "b64:SXQgc2hvd3MgYSB0aHJlZS1jZWxsIGJhdHRlcnksIGFuZCB0aHJlZSBidWxicyBhbGwgaW4gcGFyYWxsZWwgd2l0aCBhIGNsb3NlZCBzd2l0Y2ggZm9yIGVhY2ggYnVsYi4=",
+        "c": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHBhcmFsbGVsIHdpdGggb25lIG1hc3RlciBzd2l0Y2gu",
+        "d": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdHdvIGJ1bGJzIGFsbCBpbiBwYXJhbGxlbCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCBidWxiLg==",
+        "e": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgYnVsYnMgYWxsIGluIHBhcmFsbGVsIHdpdGggYSBjbG9zZWQgc3dpdGNoIGZvciBlYWNoIGJ1bGIu",
+        "f": "b64:SXQgc2hvd3MgYSB0d28tY2VsbCBiYXR0ZXJ5LCBhbmQgdGhyZWUgcmVzaXN0b3JzIGFsbCBpbiBwYXJhbGxlbCB3aXRoIGEgY2xvc2VkIHN3aXRjaCBmb3IgZWFjaCByZXNpc3Rvci4="
     },
     {
         "question_name": "Question 15",
@@ -745,51 +745,51 @@
         "consume_choices": false,
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     },
     {
         "quiz_metadata": {

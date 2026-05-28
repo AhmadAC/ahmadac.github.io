@@ -10,33 +10,33 @@
         "question_text": "Which of the following chemical formulas most likely represents an acid?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "H₂O",
-                "text": "H₂O",
-                "weight": 0
+                "answer_text": "b64:SOKCgk8=",
+                "text": "b64:SOKCgk8=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "CO₂",
-                "text": "CO₂",
-                "weight": 0
+                "answer_text": "b64:Q0/igoI=",
+                "text": "b64:Q0/igoI=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "HCl",
-                "text": "HCl",
-                "weight": 100
+                "answer_text": "b64:SENs",
+                "text": "b64:SENs",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "NaCl",
-                "text": "NaCl",
-                "weight": 0
+                "answer_text": "b64:TmFDbA==",
+                "text": "b64:TmFDbA==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "H₂O",
-        "b": "CO₂",
-        "c": "HCl",
-        "d": "NaCl"
+        "a": "b64:SOKCgk8=",
+        "b": "b64:Q0/igoI=",
+        "c": "b64:SENs",
+        "d": "b64:TmFDbA=="
     },
     {
         "question_name": "Question 2",
@@ -49,33 +49,33 @@
         "question_text": "When naming a binary acid, what prefix is typically added to the beginning of the name?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "non-",
-                "text": "non-",
-                "weight": 0
+                "answer_text": "b64:bm9uLQ==",
+                "text": "b64:bm9uLQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "poly-",
-                "text": "poly-",
-                "weight": 0
+                "answer_text": "b64:cG9seS0=",
+                "text": "b64:cG9seS0=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "per-",
-                "text": "per-",
-                "weight": 0
+                "answer_text": "b64:cGVyLQ==",
+                "text": "b64:cGVyLQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "hydro-",
-                "text": "hydro-",
-                "weight": 100
+                "answer_text": "b64:aHlkcm8t",
+                "text": "b64:aHlkcm8t",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "non-",
-        "b": "poly-",
-        "c": "per-",
-        "d": "hydro-"
+        "a": "b64:bm9uLQ==",
+        "b": "b64:cG9seS0=",
+        "c": "b64:cGVyLQ==",
+        "d": "b64:aHlkcm8t"
     },
     {
         "question_name": "Question 3",
@@ -88,33 +88,33 @@
         "question_text": "What is the correct chemical name for the binary acid HBr?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "Bromic acid",
-                "text": "Bromic acid",
-                "weight": 0
+                "answer_text": "b64:QnJvbWljIGFjaWQ=",
+                "text": "b64:QnJvbWljIGFjaWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrogen bromide acid",
-                "text": "Hydrogen bromide acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9nZW4gYnJvbWlkZSBhY2lk",
+                "text": "b64:SHlkcm9nZW4gYnJvbWlkZSBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrobromic acid",
-                "text": "Hydrobromic acid",
-                "weight": 100
+                "answer_text": "b64:SHlkcm9icm9taWMgYWNpZA==",
+                "text": "b64:SHlkcm9icm9taWMgYWNpZA==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Hydrobromous acid",
-                "text": "Hydrobromous acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9icm9tb3VzIGFjaWQ=",
+                "text": "b64:SHlkcm9icm9tb3VzIGFjaWQ=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Bromic acid",
-        "b": "Hydrogen bromide acid",
-        "c": "Hydrobromic acid",
-        "d": "Hydrobromous acid"
+        "a": "b64:QnJvbWljIGFjaWQ=",
+        "b": "b64:SHlkcm9nZW4gYnJvbWlkZSBhY2lk",
+        "c": "b64:SHlkcm9icm9taWMgYWNpZA==",
+        "d": "b64:SHlkcm9icm9tb3VzIGFjaWQ="
     },
     {
         "question_name": "Question 4",
@@ -127,33 +127,33 @@
         "question_text": "If a polyatomic acid contains a polyatomic ion whose name ends in \"-ate\" (e.g., nitrate), what will the ending of the acid's name be?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "-ide acid",
-                "text": "-ide acid",
-                "weight": 0
+                "answer_text": "b64:LWlkZSBhY2lk",
+                "text": "b64:LWlkZSBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ous acid",
-                "text": "-ous acid",
-                "weight": 0
+                "answer_text": "b64:LW91cyBhY2lk",
+                "text": "b64:LW91cyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ic acid",
-                "text": "-ic acid",
-                "weight": 100
+                "answer_text": "b64:LWljIGFjaWQ=",
+                "text": "b64:LWljIGFjaWQ=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "hydro- -ic acid",
-                "text": "hydro- -ic acid",
-                "weight": 0
+                "answer_text": "b64:aHlkcm8tIC1pYyBhY2lk",
+                "text": "b64:aHlkcm8tIC1pYyBhY2lk",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "-ide acid",
-        "b": "-ous acid",
-        "c": "-ic acid",
-        "d": "hydro- -ic acid"
+        "a": "b64:LWlkZSBhY2lk",
+        "b": "b64:LW91cyBhY2lk",
+        "c": "b64:LWljIGFjaWQ=",
+        "d": "b64:aHlkcm8tIC1pYyBhY2lk"
     },
     {
         "question_name": "Question 5",
@@ -166,33 +166,33 @@
         "question_text": "What is the correct chemical name for the acid H₂SO₄, which contains the sulfate ion (SO₄²⁻)?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "Hydrosulfuric acid",
-                "text": "Hydrosulfuric acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9zdWxmdXJpYyBhY2lk",
+                "text": "b64:SHlkcm9zdWxmdXJpYyBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Sulfurous acid",
-                "text": "Sulfurous acid",
-                "weight": 0
+                "answer_text": "b64:U3VsZnVyb3VzIGFjaWQ=",
+                "text": "b64:U3VsZnVyb3VzIGFjaWQ=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrogen sulfate acid",
-                "text": "Hydrogen sulfate acid",
-                "weight": 0
+                "answer_text": "b64:SHlkcm9nZW4gc3VsZmF0ZSBhY2lk",
+                "text": "b64:SHlkcm9nZW4gc3VsZmF0ZSBhY2lk",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Sulfuric acid",
-                "text": "Sulfuric acid",
-                "weight": 100
+                "answer_text": "b64:U3VsZnVyaWMgYWNpZA==",
+                "text": "b64:U3VsZnVyaWMgYWNpZA==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "Hydrosulfuric acid",
-        "b": "Sulfurous acid",
-        "c": "Hydrogen sulfate acid",
-        "d": "Sulfuric acid"
+        "a": "b64:SHlkcm9zdWxmdXJpYyBhY2lk",
+        "b": "b64:U3VsZnVyb3VzIGFjaWQ=",
+        "c": "b64:SHlkcm9nZW4gc3VsZmF0ZSBhY2lk",
+        "d": "b64:U3VsZnVyaWMgYWNpZA=="
     },
     {
         "question_name": "Question 6",
@@ -205,33 +205,33 @@
         "question_text": "A compound formed between a metal element and a nonmetal element is generally classified as:",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "an acid",
-                "text": "an acid",
-                "weight": 0
+                "answer_text": "b64:YW4gYWNpZA==",
+                "text": "b64:YW4gYWNpZA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "an ionic compound",
-                "text": "an ionic compound",
-                "weight": 100
+                "answer_text": "b64:YW4gaW9uaWMgY29tcG91bmQ=",
+                "text": "b64:YW4gaW9uaWMgY29tcG91bmQ=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "an element",
-                "text": "an element",
-                "weight": 0
+                "answer_text": "b64:YW4gZWxlbWVudA==",
+                "text": "b64:YW4gZWxlbWVudA==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "a covalent compound",
-                "text": "a covalent compound",
-                "weight": 0
+                "answer_text": "b64:YSBjb3ZhbGVudCBjb21wb3VuZA==",
+                "text": "b64:YSBjb3ZhbGVudCBjb21wb3VuZA==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "an acid",
-        "b": "an ionic compound",
-        "c": "an element",
-        "d": "a covalent compound"
+        "a": "b64:YW4gYWNpZA==",
+        "b": "b64:YW4gaW9uaWMgY29tcG91bmQ=",
+        "c": "b64:YW4gZWxlbWVudA==",
+        "d": "b64:YSBjb3ZhbGVudCBjb21wb3VuZA=="
     },
     {
         "question_name": "Question 7",
@@ -244,33 +244,33 @@
         "question_text": "When naming a simple ionic compound consisting of a metal and a single nonmetal element, what suffix is typically used for the nonmetal's name?",
         "url": "",
         "question_url": "",
-        "correct ans index": "4",
+        "correct ans index": "b64:NA==",
         "answers": [
             {
-                "answer_text": "-ic",
-                "text": "-ic",
-                "weight": 0
+                "answer_text": "b64:LWlj",
+                "text": "b64:LWlj",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ite",
-                "text": "-ite",
-                "weight": 0
+                "answer_text": "b64:LWl0ZQ==",
+                "text": "b64:LWl0ZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ate",
-                "text": "-ate",
-                "weight": 0
+                "answer_text": "b64:LWF0ZQ==",
+                "text": "b64:LWF0ZQ==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "-ide",
-                "text": "-ide",
-                "weight": 100
+                "answer_text": "b64:LWlkZQ==",
+                "text": "b64:LWlkZQ==",
+                "weight": "b64:MTAw"
             }
         ],
-        "a": "-ic",
-        "b": "-ite",
-        "c": "-ate",
-        "d": "-ide"
+        "a": "b64:LWlj",
+        "b": "b64:LWl0ZQ==",
+        "c": "b64:LWF0ZQ==",
+        "d": "b64:LWlkZQ=="
     },
     {
         "question_name": "Question 8",
@@ -283,33 +283,33 @@
         "question_text": "What is the correct chemical name for the simple ionic compound CaO?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Calcium oxide",
-                "text": "Calcium oxide",
-                "weight": 100
+                "answer_text": "b64:Q2FsY2l1bSBveGlkZQ==",
+                "text": "b64:Q2FsY2l1bSBveGlkZQ==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Calcium(II) oxide",
-                "text": "Calcium(II) oxide",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bShJSSkgb3hpZGU=",
+                "text": "b64:Q2FsY2l1bShJSSkgb3hpZGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Monocalcium monoxide",
-                "text": "Monocalcium monoxide",
-                "weight": 0
+                "answer_text": "b64:TW9ub2NhbGNpdW0gbW9ub3hpZGU=",
+                "text": "b64:TW9ub2NhbGNpdW0gbW9ub3hpZGU=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Calcium oxygen",
-                "text": "Calcium oxygen",
-                "weight": 0
+                "answer_text": "b64:Q2FsY2l1bSBveHlnZW4=",
+                "text": "b64:Q2FsY2l1bSBveHlnZW4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Calcium oxide",
-        "b": "Calcium(II) oxide",
-        "c": "Monocalcium monoxide",
-        "d": "Calcium oxygen"
+        "a": "b64:Q2FsY2l1bSBveGlkZQ==",
+        "b": "b64:Q2FsY2l1bShJSSkgb3hpZGU=",
+        "c": "b64:TW9ub2NhbGNpdW0gbW9ub3hpZGU=",
+        "d": "b64:Q2FsY2l1bSBveHlnZW4="
     },
     {
         "question_name": "Question 9",
@@ -322,33 +322,33 @@
         "question_text": "What does the term \"binary ionic compound\" mean?",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "An ionic compound containing two different polyatomic ions.",
-                "text": "An ionic compound containing two different polyatomic ions.",
-                "weight": 0
+                "answer_text": "b64:QW4gaW9uaWMgY29tcG91bmQgY29udGFpbmluZyB0d28gZGlmZmVyZW50IHBvbHlhdG9taWMgaW9ucy4=",
+                "text": "b64:QW4gaW9uaWMgY29tcG91bmQgY29udGFpbmluZyB0d28gZGlmZmVyZW50IHBvbHlhdG9taWMgaW9ucy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "An ionic compound containing two atoms of the same metal.",
-                "text": "An ionic compound containing two atoms of the same metal.",
-                "weight": 0
+                "answer_text": "b64:QW4gaW9uaWMgY29tcG91bmQgY29udGFpbmluZyB0d28gYXRvbXMgb2YgdGhlIHNhbWUgbWV0YWwu",
+                "text": "b64:QW4gaW9uaWMgY29tcG91bmQgY29udGFpbmluZyB0d28gYXRvbXMgb2YgdGhlIHNhbWUgbWV0YWwu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "An ionic compound made of atoms from only two different elements, one metal and one nonmetal.",
-                "text": "An ionic compound made of atoms from only two different elements, one metal and one nonmetal.",
-                "weight": 100
+                "answer_text": "b64:QW4gaW9uaWMgY29tcG91bmQgbWFkZSBvZiBhdG9tcyBmcm9tIG9ubHkgdHdvIGRpZmZlcmVudCBlbGVtZW50cywgb25lIG1ldGFsIGFuZCBvbmUgbm9ubWV0YWwu",
+                "text": "b64:QW4gaW9uaWMgY29tcG91bmQgbWFkZSBvZiBhdG9tcyBmcm9tIG9ubHkgdHdvIGRpZmZlcmVudCBlbGVtZW50cywgb25lIG1ldGFsIGFuZCBvbmUgbm9ubWV0YWwu",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "An ionic compound that is twice as strong as other ionic compounds.",
-                "text": "An ionic compound that is twice as strong as other ionic compounds.",
-                "weight": 0
+                "answer_text": "b64:QW4gaW9uaWMgY29tcG91bmQgdGhhdCBpcyB0d2ljZSBhcyBzdHJvbmcgYXMgb3RoZXIgaW9uaWMgY29tcG91bmRzLg==",
+                "text": "b64:QW4gaW9uaWMgY29tcG91bmQgdGhhdCBpcyB0d2ljZSBhcyBzdHJvbmcgYXMgb3RoZXIgaW9uaWMgY29tcG91bmRzLg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "An ionic compound containing two different polyatomic ions.",
-        "b": "An ionic compound containing two atoms of the same metal.",
-        "c": "An ionic compound made of atoms from only two different elements, one metal and one nonmetal.",
-        "d": "An ionic compound that is twice as strong as other ionic compounds."
+        "a": "b64:QW4gaW9uaWMgY29tcG91bmQgY29udGFpbmluZyB0d28gZGlmZmVyZW50IHBvbHlhdG9taWMgaW9ucy4=",
+        "b": "b64:QW4gaW9uaWMgY29tcG91bmQgY29udGFpbmluZyB0d28gYXRvbXMgb2YgdGhlIHNhbWUgbWV0YWwu",
+        "c": "b64:QW4gaW9uaWMgY29tcG91bmQgbWFkZSBvZiBhdG9tcyBmcm9tIG9ubHkgdHdvIGRpZmZlcmVudCBlbGVtZW50cywgb25lIG1ldGFsIGFuZCBvbmUgbm9ubWV0YWwu",
+        "d": "b64:QW4gaW9uaWMgY29tcG91bmQgdGhhdCBpcyB0d2ljZSBhcyBzdHJvbmcgYXMgb3RoZXIgaW9uaWMgY29tcG91bmRzLg=="
     },
     {
         "question_name": "Question 10",
@@ -361,33 +361,33 @@
         "question_text": "Roman numerals (such as I, II, III) are used in the names of some ionic compounds to indicate:",
         "url": "",
         "question_url": "",
-        "correct ans index": "3",
+        "correct ans index": "b64:Mw==",
         "answers": [
             {
-                "answer_text": "The negative charge of the anion.",
-                "text": "The negative charge of the anion.",
-                "weight": 0
+                "answer_text": "b64:VGhlIG5lZ2F0aXZlIGNoYXJnZSBvZiB0aGUgYW5pb24u",
+                "text": "b64:VGhlIG5lZ2F0aXZlIGNoYXJnZSBvZiB0aGUgYW5pb24u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The number of nonmetal atoms in the formula.",
-                "text": "The number of nonmetal atoms in the formula.",
-                "weight": 0
+                "answer_text": "b64:VGhlIG51bWJlciBvZiBub25tZXRhbCBhdG9tcyBpbiB0aGUgZm9ybXVsYS4=",
+                "text": "b64:VGhlIG51bWJlciBvZiBub25tZXRhbCBhdG9tcyBpbiB0aGUgZm9ybXVsYS4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "The positive charge of the metal cation, especially when the metal can form ions with different charges.",
-                "text": "The positive charge of the metal cation, especially when the metal can form ions with different charges.",
-                "weight": 100
+                "answer_text": "b64:VGhlIHBvc2l0aXZlIGNoYXJnZSBvZiB0aGUgbWV0YWwgY2F0aW9uLCBlc3BlY2lhbGx5IHdoZW4gdGhlIG1ldGFsIGNhbiBmb3JtIGlvbnMgd2l0aCBkaWZmZXJlbnQgY2hhcmdlcy4=",
+                "text": "b64:VGhlIHBvc2l0aXZlIGNoYXJnZSBvZiB0aGUgbWV0YWwgY2F0aW9uLCBlc3BlY2lhbGx5IHdoZW4gdGhlIG1ldGFsIGNhbiBmb3JtIGlvbnMgd2l0aCBkaWZmZXJlbnQgY2hhcmdlcy4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "The total number of atoms in one molecule of the compound.",
-                "text": "The total number of atoms in one molecule of the compound.",
-                "weight": 0
+                "answer_text": "b64:VGhlIHRvdGFsIG51bWJlciBvZiBhdG9tcyBpbiBvbmUgbW9sZWN1bGUgb2YgdGhlIGNvbXBvdW5kLg==",
+                "text": "b64:VGhlIHRvdGFsIG51bWJlciBvZiBhdG9tcyBpbiBvbmUgbW9sZWN1bGUgb2YgdGhlIGNvbXBvdW5kLg==",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "The negative charge of the anion.",
-        "b": "The number of nonmetal atoms in the formula.",
-        "c": "The positive charge of the metal cation, especially when the metal can form ions with different charges.",
-        "d": "The total number of atoms in one molecule of the compound."
+        "a": "b64:VGhlIG5lZ2F0aXZlIGNoYXJnZSBvZiB0aGUgYW5pb24u",
+        "b": "b64:VGhlIG51bWJlciBvZiBub25tZXRhbCBhdG9tcyBpbiB0aGUgZm9ybXVsYS4=",
+        "c": "b64:VGhlIHBvc2l0aXZlIGNoYXJnZSBvZiB0aGUgbWV0YWwgY2F0aW9uLCBlc3BlY2lhbGx5IHdoZW4gdGhlIG1ldGFsIGNhbiBmb3JtIGlvbnMgd2l0aCBkaWZmZXJlbnQgY2hhcmdlcy4=",
+        "d": "b64:VGhlIHRvdGFsIG51bWJlciBvZiBhdG9tcyBpbiBvbmUgbW9sZWN1bGUgb2YgdGhlIGNvbXBvdW5kLg=="
     },
     {
         "question_name": "Question 11",
@@ -400,33 +400,33 @@
         "question_text": "Prefixes such as 'mono-', 'di-', and 'tri-' are commonly used in the systematic naming of which type of compounds?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Binary covalent compounds",
-                "text": "Binary covalent compounds",
-                "weight": 100
+                "answer_text": "b64:QmluYXJ5IGNvdmFsZW50IGNvbXBvdW5kcw==",
+                "text": "b64:QmluYXJ5IGNvdmFsZW50IGNvbXBvdW5kcw==",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Polyatomic acids (Oxyacids)",
-                "text": "Polyatomic acids (Oxyacids)",
-                "weight": 0
+                "answer_text": "b64:UG9seWF0b21pYyBhY2lkcyAoT3h5YWNpZHMp",
+                "text": "b64:UG9seWF0b21pYyBhY2lkcyAoT3h5YWNpZHMp",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Ionic compounds containing polyatomic ions",
-                "text": "Ionic compounds containing polyatomic ions",
-                "weight": 0
+                "answer_text": "b64:SW9uaWMgY29tcG91bmRzIGNvbnRhaW5pbmcgcG9seWF0b21pYyBpb25z",
+                "text": "b64:SW9uaWMgY29tcG91bmRzIGNvbnRhaW5pbmcgcG9seWF0b21pYyBpb25z",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Binary acids",
-                "text": "Binary acids",
-                "weight": 0
+                "answer_text": "b64:QmluYXJ5IGFjaWRz",
+                "text": "b64:QmluYXJ5IGFjaWRz",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Binary covalent compounds",
-        "b": "Polyatomic acids (Oxyacids)",
-        "c": "Ionic compounds containing polyatomic ions",
-        "d": "Binary acids"
+        "a": "b64:QmluYXJ5IGNvdmFsZW50IGNvbXBvdW5kcw==",
+        "b": "b64:UG9seWF0b21pYyBhY2lkcyAoT3h5YWNpZHMp",
+        "c": "b64:SW9uaWMgY29tcG91bmRzIGNvbnRhaW5pbmcgcG9seWF0b21pYyBpb25z",
+        "d": "b64:QmluYXJ5IGFjaWRz"
     },
     {
         "question_name": "Question 12",
@@ -439,33 +439,33 @@
         "question_text": "Which statement best defines a \"polyatomic ion\"?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "A group of covalently bonded atoms that has an overall net electrical charge.",
-                "text": "A group of covalently bonded atoms that has an overall net electrical charge.",
-                "weight": 100
+                "answer_text": "b64:QSBncm91cCBvZiBjb3ZhbGVudGx5IGJvbmRlZCBhdG9tcyB0aGF0IGhhcyBhbiBvdmVyYWxsIG5ldCBlbGVjdHJpY2FsIGNoYXJnZS4=",
+                "text": "b64:QSBncm91cCBvZiBjb3ZhbGVudGx5IGJvbmRlZCBhdG9tcyB0aGF0IGhhcyBhbiBvdmVyYWxsIG5ldCBlbGVjdHJpY2FsIGNoYXJnZS4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "A metal atom that is part of an acid.",
-                "text": "A metal atom that is part of an acid.",
-                "weight": 0
+                "answer_text": "b64:QSBtZXRhbCBhdG9tIHRoYXQgaXMgcGFydCBvZiBhbiBhY2lkLg==",
+                "text": "b64:QSBtZXRhbCBhdG9tIHRoYXQgaXMgcGFydCBvZiBhbiBhY2lkLg==",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "An element that can exist in many different forms.",
-                "text": "An element that can exist in many different forms.",
-                "weight": 0
+                "answer_text": "b64:QW4gZWxlbWVudCB0aGF0IGNhbiBleGlzdCBpbiBtYW55IGRpZmZlcmVudCBmb3Jtcy4=",
+                "text": "b64:QW4gZWxlbWVudCB0aGF0IGNhbiBleGlzdCBpbiBtYW55IGRpZmZlcmVudCBmb3Jtcy4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "An ion formed from a single atom that has multiple possible charges.",
-                "text": "An ion formed from a single atom that has multiple possible charges.",
-                "weight": 0
+                "answer_text": "b64:QW4gaW9uIGZvcm1lZCBmcm9tIGEgc2luZ2xlIGF0b20gdGhhdCBoYXMgbXVsdGlwbGUgcG9zc2libGUgY2hhcmdlcy4=",
+                "text": "b64:QW4gaW9uIGZvcm1lZCBmcm9tIGEgc2luZ2xlIGF0b20gdGhhdCBoYXMgbXVsdGlwbGUgcG9zc2libGUgY2hhcmdlcy4=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "A group of covalently bonded atoms that has an overall net electrical charge.",
-        "b": "A metal atom that is part of an acid.",
-        "c": "An element that can exist in many different forms.",
-        "d": "An ion formed from a single atom that has multiple possible charges."
+        "a": "b64:QSBncm91cCBvZiBjb3ZhbGVudGx5IGJvbmRlZCBhdG9tcyB0aGF0IGhhcyBhbiBvdmVyYWxsIG5ldCBlbGVjdHJpY2FsIGNoYXJnZS4=",
+        "b": "b64:QSBtZXRhbCBhdG9tIHRoYXQgaXMgcGFydCBvZiBhbiBhY2lkLg==",
+        "c": "b64:QW4gZWxlbWVudCB0aGF0IGNhbiBleGlzdCBpbiBtYW55IGRpZmZlcmVudCBmb3Jtcy4=",
+        "d": "b64:QW4gaW9uIGZvcm1lZCBmcm9tIGEgc2luZ2xlIGF0b20gdGhhdCBoYXMgbXVsdGlwbGUgcG9zc2libGUgY2hhcmdlcy4="
     },
     {
         "question_name": "Question 13",
@@ -478,33 +478,33 @@
         "question_text": "In the chemical formulas of most acids, which element is typically listed first?",
         "url": "",
         "question_url": "",
-        "correct ans index": "2",
+        "correct ans index": "b64:Mg==",
         "answers": [
             {
-                "answer_text": "Nitrogen",
-                "text": "Nitrogen",
-                "weight": 0
+                "answer_text": "b64:Tml0cm9nZW4=",
+                "text": "b64:Tml0cm9nZW4=",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Hydrogen",
-                "text": "Hydrogen",
-                "weight": 100
+                "answer_text": "b64:SHlkcm9nZW4=",
+                "text": "b64:SHlkcm9nZW4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Oxygen",
-                "text": "Oxygen",
-                "weight": 0
+                "answer_text": "b64:T3h5Z2Vu",
+                "text": "b64:T3h5Z2Vu",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Carbon",
-                "text": "Carbon",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9u",
+                "text": "b64:Q2FyYm9u",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Nitrogen",
-        "b": "Hydrogen",
-        "c": "Oxygen",
-        "d": "Carbon"
+        "a": "b64:Tml0cm9nZW4=",
+        "b": "b64:SHlkcm9nZW4=",
+        "c": "b64:T3h5Z2Vu",
+        "d": "b64:Q2FyYm9u"
     },
     {
         "question_name": "Question 14",
@@ -517,33 +517,33 @@
         "question_text": "The polyatomic ions nitrate (NO₃⁻) and nitrite (NO₂⁻) are important in naming certain acids. Both of these ions contain which element in addition to oxygen?",
         "url": "",
         "question_url": "",
-        "correct ans index": "1",
+        "correct ans index": "b64:MQ==",
         "answers": [
             {
-                "answer_text": "Nitrogen",
-                "text": "Nitrogen",
-                "weight": 100
+                "answer_text": "b64:Tml0cm9nZW4=",
+                "text": "b64:Tml0cm9nZW4=",
+                "weight": "b64:MTAw"
             },
             {
-                "answer_text": "Carbon",
-                "text": "Carbon",
-                "weight": 0
+                "answer_text": "b64:Q2FyYm9u",
+                "text": "b64:Q2FyYm9u",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Sulfur",
-                "text": "Sulfur",
-                "weight": 0
+                "answer_text": "b64:U3VsZnVy",
+                "text": "b64:U3VsZnVy",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "Chlorine",
-                "text": "Chlorine",
-                "weight": 0
+                "answer_text": "b64:Q2hsb3JpbmU=",
+                "text": "b64:Q2hsb3JpbmU=",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "Nitrogen",
-        "b": "Carbon",
-        "c": "Sulfur",
-        "d": "Chlorine"
+        "a": "b64:Tml0cm9nZW4=",
+        "b": "b64:Q2FyYm9u",
+        "c": "b64:U3VsZnVy",
+        "d": "b64:Q2hsb3JpbmU="
     },
     {
         "question_name": "Question 15",
@@ -577,51 +577,51 @@
         "consume_choices": false,
         "answers": [
             {
-                "answer_text": "G6A",
-                "weight": 0
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6B",
-                "weight": 0
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G6C",
-                "weight": 0
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7A",
-                "weight": 0
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7B",
-                "weight": 0
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G7C",
-                "weight": 0
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8A",
-                "weight": 0
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8B",
-                "weight": 0
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
             },
             {
-                "answer_text": "G8C",
-                "weight": 0
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
             }
         ],
-        "a": "G6A",
-        "b": "G6B",
-        "c": "G6C",
-        "d": "G7A",
-        "e": "G7B",
-        "f": "G7C",
-        "g": "G8A",
-        "h": "G8B",
-        "i": "G8C"
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
     },
     {
         "quiz_metadata": {
