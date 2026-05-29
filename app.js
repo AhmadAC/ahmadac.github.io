@@ -228,6 +228,7 @@ class QuizInstance {
         this.finalStudentClass = null;
         this.finalScore = 0;
         this.finalTotalPossible = 0;
+        this.documentBackTarget = 'view-assignments';
 
         this.views = {
             classSelect: this.root.querySelector('.view-class-select'),
@@ -239,6 +240,8 @@ class QuizInstance {
         
         this.elements = {
             classGrid: this.root.querySelector('.class-grid'),
+            btnResources: this.root.querySelector('.btn-view-resources'),
+            btnBackFromDoc: this.root.querySelector('.btn-back-from-document'),
             assignmentsTitle: this.root.querySelector('.assignments-title'),
             assignmentList: this.root.querySelector('.assignment-list'),
             quizTitle: this.root.querySelector('.quiz-title-lbl'),
@@ -278,10 +281,17 @@ class QuizInstance {
     }
 
     addEventListeners() {
+        this.elements.btnResources?.addEventListener('click', () => this.loadResources());
+        
         this.root.querySelector('.btn-view-results')?.addEventListener('click', () => this.showResultsPage());
         this.root.querySelector('.btn-back-to-class')?.addEventListener('click', () => this.switchView('view-class-select'));
         this.root.querySelector('.btn-back-to-class-from-results')?.addEventListener('click', () => this.switchView('view-class-select'));
         
+        this.elements.btnBackFromDoc?.addEventListener('click', () => {
+            if (this.elements.documentContent) this.elements.documentContent.innerHTML = ""; 
+            this.switchView(this.documentBackTarget || 'view-assignments');
+        });
+
         this.root.querySelectorAll('.btn-back-to-assignments').forEach(btn => {
             btn.addEventListener('click', () => {
                 if (this.elements.documentContent) this.elements.documentContent.innerHTML = ""; 
@@ -424,9 +434,39 @@ class QuizInstance {
         });
     }
 
+    async loadResources() {
+        console.log(`[DEBUG][Inst ${this.instanceId}] Fetching Resources...`);
+        this.documentBackTarget = 'view-class-select';
+        
+        if (this.elements.documentTitle) this.elements.documentTitle.innerText = "Class Resources";
+        if (this.elements.documentContent) this.elements.documentContent.innerHTML = "Loading...";
+        
+        this.switchView("view-document");
+
+        try {
+            const res = await fetch(`0_Quiz/media/Resources.json`);
+            if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
+            
+            const rawDataRaw = await res.json();
+            const rawData = recursiveDecode(rawDataRaw);
+            
+            if (rawData.metadata && rawData.metadata.type === 'document') {
+                this.renderDocument("Class Resources", rawData);
+            } else {
+                throw new Error("Resources file is not a valid document format.");
+            }
+        } catch (e) {
+            console.error(`[DEBUG][Inst ${this.instanceId}] Load Error:`, e);
+            if (this.elements.documentContent) {
+                this.elements.documentContent.innerHTML = `<p style="color:red; font-weight:bold; padding:20px; text-align:center;">Failed to load resources: ${e.message}</p>`;
+            }
+        }
+    }
+
     async startQuiz(quizName) {
         console.log(`[DEBUG][Inst ${this.instanceId}] Fetching data for: ${quizName}`);
         this.currentQuizName = quizName;
+        this.documentBackTarget = 'view-assignments';
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
         this.sidebarButtons = [];
@@ -540,7 +580,7 @@ class QuizInstance {
             const iframe = document.createElement('iframe');
             iframe.className = "document-iframe";
             
-            iframe.sandbox = "allow-same-origin allow-scripts allow-downloads";
+            iframe.sandbox = "allow-same-origin allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox";
             
             let htmlContent = rawData.data || "<p style='padding:20px; text-align:center;'>No document content available.</p>";
             
@@ -549,13 +589,19 @@ class QuizInstance {
             
             htmlContent = htmlContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
                 attrs = attrs.replace(/target=["'][^"']*["']/gi, '');
-                if (!/download/i.test(attrs)) {
-                    let hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
-                    let filename = "document";
-                    if (hrefMatch && hrefMatch[1]) {
-                        filename = hrefMatch[1].split('/').pop();
+                let hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+                let isExternal = hrefMatch && hrefMatch[1] && /^https?:\/\//i.test(hrefMatch[1]);
+                
+                if (!isExternal) {
+                    if (!/download/i.test(attrs)) {
+                        let filename = "document";
+                        if (hrefMatch && hrefMatch[1]) {
+                            filename = hrefMatch[1].split('/').pop();
+                        }
+                        attrs += ` download="${filename}"`;
                     }
-                    attrs += ` download="${filename}"`;
+                } else {
+                    attrs += ` target="_blank"`;
                 }
                 return `<a ${attrs}>`;
             });
