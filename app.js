@@ -566,9 +566,34 @@ class QuizInstance {
             const infoContentDiv = this.root.querySelector('.info-content');
             if (infoSection && infoContentDiv) {
                 if (infoContent) {
-                    // Rewrite media paths so they link correctly in the browser
-                    infoContent = infoContent.replace(/href=["']media\//gi, 'href="0_Quiz/media/');
-                    infoContent = infoContent.replace(/src=["']media\//gi, 'src="0_Quiz/media/');
+                    
+                    // 1. Normalize URLs (Fix backslashes, force local files to 0_Quiz/media/)
+                    infoContent = infoContent.replace(/(href|src)=["']([^"']+)["']/gi, (match, attr, url) => {
+                        let cleanUrl = url.replace(/\\/g, '/');
+                        // If it's a local file link (not http/https/mailto)
+                        if (!/^https?:\/\//i.test(cleanUrl) && !/^mailto:/i.test(cleanUrl)) {
+                            // Extract just the filename to ensure it works on the web
+                            let filename = cleanUrl.split('/').pop();
+                            try { filename = decodeURIComponent(filename); } catch(e) {}
+                            filename = encodeURIComponent(filename);
+                            cleanUrl = `0_Quiz/media/${filename}`;
+                        }
+                        return `${attr}="${cleanUrl}"`;
+                    });
+                    
+                    // 2. Rewrite HTML/external links to open in a new tab
+                    infoContent = infoContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
+                        let hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
+                        let isHtml = hrefMatch && hrefMatch[1] && /\.html?\b/i.test(hrefMatch[1]);
+                        let isExternal = hrefMatch && hrefMatch[1] && /^https?:\/\//i.test(hrefMatch[1]);
+                        
+                        if (isHtml || isExternal) {
+                            attrs = attrs.replace(/target=["'][^"']*["']/gi, '');
+                            attrs += ' target="_blank"';
+                        }
+                        return `<a ${attrs}>`;
+                    });
+
                     infoContentDiv.innerHTML = infoContent;
                     infoSection.classList.remove('hidden');
                 } else {
@@ -666,10 +691,14 @@ class QuizInstance {
                 let isExternal = hrefMatch && hrefMatch[1] && /^https?:\/\//i.test(hrefMatch[1]);
                 
                 if (!isExternal) {
-                    if (!/download/i.test(attrs)) {
+                    let isHtml = hrefMatch && hrefMatch[1] && /\.html?\b/i.test(hrefMatch[1]);
+                    if (isHtml) {
+                        attrs += ` target="_blank"`;
+                    } else if (!/download/i.test(attrs)) {
                         let filename = "document";
                         if (hrefMatch && hrefMatch[1]) {
-                            filename = hrefMatch[1].split('/').pop();
+                            let cleanUrl = hrefMatch[1].replace(/\\/g, '/');
+                            filename = cleanUrl.split('/').pop();
                         }
                         attrs += ` download="${filename}"`;
                     }

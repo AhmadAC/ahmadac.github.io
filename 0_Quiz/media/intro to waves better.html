@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Waves</title>
+    <style>
+        :root {
+            --primary: #2980b9;
+            --secondary: #e67e22;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --bg: #f4f7f6;
+            --accent: #8e44ad;
+            --success: #27ae60;
+            --danger: #c0392b;
+
+            /* Interactive SVG Variables */
+            --svg-bg: #ffffff;
+            --svg-border: #e2e8f0;
+            --svg-grid: #cbd5e1;
+            --svg-axis: #f1f5f9;
+            --svg-text: #94a3b8;
+            --svg-swing-frame: #475569;
+            --svg-swing-text: #475569;
+            --svg-anno-purple: #8e44ad;
+            --svg-anno-orange: #d35400;
+            --svg-anno-blue: #2980b9;
+        }
+
+        /* --- Dark Mode Variables --- */
+        body.dark-mode {
+            --bg: #121212;
+            --dark: #f0f0f0;
+            --light: #2c3e50;
+            --primary: #3498db;
+
+            /* Interactive SVG Dark Mode Variables */
+            --svg-bg: #1e1e1e;
+            --svg-border: #444444;
+            --svg-grid: #475569;
+            --svg-axis: #334155;
+            --svg-text: #cbd5e1;
+            --svg-swing-frame: #94a3b8;
+            --svg-swing-text: #f8fafc;
+            --svg-anno-purple: #a855f7; 
+            --svg-anno-orange: #fb923c;
+            --svg-anno-blue: #38bdf8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* SVG Icon styling */
+        svg.icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        h1 svg.icon { width: 36px; height: 36px; }
+        
+        .theme-icon {
+            width: 18px !important;
+            height: 18px !important;
+            margin-right: 6px !important;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-mode header { background: linear-gradient(135deg, #0a0a0a, #1a252f); }
+
+        h1 { margin: 0; font-size: 2.8em; letter-spacing: 1px; display: flex; align-items: center; justify-content: center;}
+        header p { font-size: 1.2em; margin-top: 10px; opacity: 0.9; text-align: center;}
+
+        #darkModeToggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        #darkModeToggle:hover { background: rgba(255,255,255,0.3); }
+
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        h2 { border-bottom: 3px solid var(--primary); padding-bottom: 8px; color: var(--dark); display: flex; align-items: center; margin-top: 50px;}
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .explainer-grid { margin-top: 20px; display: grid; grid-template-columns: 1fr 200px; gap: 20px; align-items: start; }
+
+        /* Cards & Panels */
+        .card {
+            background: white; padding: 20px; border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; }
+        
+        .panel {
+            background: white; border-radius: 15px; padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08); margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode .card, .dark-mode .panel { background-color: #1e1e1e; box-shadow: 0 4px 6px rgba(0,0,0,0.4); }
+
+        /* Scrollable Canvas & Interactive Containers */
+        .canvas-container, .interactive-svg-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+        
+        .canvas-container::-webkit-scrollbar, .interactive-svg-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .canvas-container::-webkit-scrollbar-thumb, .interactive-svg-container::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 10px;
+        }
+
+        .canvas-container {
+            background-color: #111; border-radius: 10px;
+            border: 4px solid #333; position: relative;
+        }
+        .dark-mode .canvas-container { border-color: #555; }
+        
+        canvas { display: block; width: 100%; min-width: 600px; }
+
+        .interactive-svg-container {
+            background-color: var(--svg-bg);
+            border: 3px solid var(--svg-border);
+            border-radius: 12px;
+            padding: 10px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        /* Ensure SVGs inside interactive containers have a minimum width to prevent text squishing on mobile */
+        .svg-content-lg { min-width: 800px; }
+        .svg-content-md { min-width: 700px; }
+        .svg-content-sm { min-width: 600px; }
+
+        /* Controls */
+        .controls {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin-top: 20px; background: var(--bg); padding: 20px; border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .dark-mode .controls { background-color: #2a2a2a; }
+        .span-col { grid-column: span 3; }
+
+        label { font-weight: bold; display: block; margin-bottom: 8px; }
+        input[type="range"] { width: 100%; cursor: pointer; }
+        select, input[type="number"] { width: 100%; padding: 10px; font-size: 1.1em; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        
+        .dark-mode select, .dark-mode input[type="number"] { background-color: #333; color: white; border-color: #555; }
+
+        button {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 12px 20px; font-size: 1.1em; cursor: pointer; border: none;
+            border-radius: 8px; background-color: var(--light); color: var(--dark);
+            font-weight: bold; transition: 0.3s;
+        }
+        button:hover { background-color: #d5dbdb; }
+        button.active { background-color: var(--primary); color: white; }
+        button.action-btn { background-color: var(--success); color: white; }
+        button.action-btn:hover { background-color: #219a52; }
+        
+        button:disabled {
+            opacity: 0.4; cursor: not-allowed;
+            background-color: #95a5a6 !important; color: #ecf0f1 !important; box-shadow: none;
+        }
+
+        .play-btn { background-color: var(--success); color: white; width: 100%; font-size: 1.2em; padding: 15px; margin-top: auto; height: 100%; }
+        .play-btn.playing { background-color: var(--danger); }
+        .playing-song { background-color: var(--danger) !important; color: white !important; }
+
+        .toggle-group { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        .toggle-group button { flex: 1; padding: 10px; font-size: 0.9em; min-width: 150px; }
+
+        .music-group button { background-color: #bdc3c7; border: 1px solid #7f8c8d; min-width: 0; padding: 10px 5px; flex: 1; border-radius: 4px; }
+        .music-group button:hover { background-color: #ecf0f1; }
+        .dark-mode .music-group button { background-color: #4a5568; border-color: #2d3748; color: white; }
+        .dark-mode .music-group button:hover { background-color: #718096; }
+
+        .note { font-size: 0.95em; background: #fff3cd; padding: 15px; border-left: 5px solid #f1c40f; margin-top: 15px; border-radius: 5px; color: #333;}
+        .note-danger { background: #f8d7da; border-left-color: #e74c3c; color: #333; }
+        
+        .dark-mode .note { background-color: #332b00; color: #e0e0e0; border-left-color: #f39c12; }
+        .dark-mode .note-danger { background-color: #4a1515; border-left-color: #e74c3c; }
+
+        .math-box { background: #2c3e50; color: white; padding: 30px; border-radius: 10px; text-align: left; }
+        .dark-mode .math-box { background-color: #111; border: 1px solid #333; }
+        
+        /* Unified Math Equation Layout */
+        .math-equation { 
+            font-size: clamp(1.1em, 2.5vw, 1.8em); 
+            font-family: 'Courier New', Courier, monospace; 
+            font-weight: bold; 
+            color: #f1c40f; 
+            letter-spacing: 1px; 
+            text-align: center; 
+            margin: 20px 0;
+            white-space: normal;  /* Removed nowrap to allow natural wrapping without scrollbar */
+            word-wrap: break-word; 
+            padding-bottom: 5px; 
+            width: 100%;
+        }
+        .math-vars { font-size: 1.1em; margin-top: 15px; color: #bdc3c7; line-height: 1.8;}
+        
+        .calc-example { background: rgba(255,255,255,0.1); border-left: 4px solid var(--success); padding: 15px; margin-top: 20px; border-radius: 4px; font-family: monospace; font-size: 1.05em; color: #ecf0f1;}
+        .dark-mode .calc-example { background: rgba(255,255,255,0.05); }
+
+        .quiz-box { background: var(--bg); padding: 25px; border-radius: 10px; border: 2px dashed #bdc3c7; display: flex; flex-direction: column;}
+        .dark-mode .quiz-box { background-color: #1e1e1e; border-color: #555; }
+        
+        .quiz-question { font-size: 1.2em; font-weight: bold; margin-bottom: 15px; }
+        .quiz-input-group { display: flex; gap: 10px; }
+        .quiz-feedback { margin-top: 15px; font-weight: bold; font-size: 1.1em; }
+        
+        .dark-mode #explainer-text-box { background-color: #2a2a2a !important; border-color: #444 !important; }
+        .dark-mode #step-desc { color: #bbb !important; }
+        .dark-mode #step-analogy { background-color: #332b00 !important; color: #f1c40f !important; }
+
+        /* Spectra Lines SVG Specifics */
+        .spectra-bg { fill: url(#spectraGrad); }
+        .spectra-line { stroke: #111; stroke-width: 4px; transition: transform 0.1s linear; }
+        .dark-mode .spectra-line { stroke: #000; }
+
+        @media (max-width: 900px) {
+            .span-col { grid-column: span 1; } 
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 30px 15px; }
+            h1 { font-size: 2em; flex-direction: column; gap: 10px; text-align: center; }
+            h1 svg.icon { margin: 0; }
+            
+            #darkModeToggle { position: static; margin-bottom: 20px; }
+            .container { margin: 15px auto; padding: 0 15px; }
+            .grid-2, .explainer-grid { grid-template-columns: 1fr !important; }
+            
+            h2 { font-size: 1.3em; margin-top: 40px; }
+            .panel { padding: 15px; }
+            
+            .controls { grid-template-columns: 1fr; }
+            .controls div { grid-column: span 1 !important; }
+            
+            .toggle-group { flex-direction: column; }
+            .toggle-group button { width: 100%; min-width: unset; }
+            
+            .music-group { flex-direction: row; flex-wrap: wrap; }
+            .music-group button { flex: 1 1 22%; font-size: 0.9em; padding: 12px 5px; }
+            
+            .quiz-input-group { flex-direction: column; }
+            .quiz-input-group button { width: 100%; }
+
+            #diffractionLegend { flex-direction: column; text-align: center; }
+            #dopplerStatus { font-size: 0.95em !important; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <button id="darkModeToggle" onclick="toggleDarkMode()">
+        <svg class="icon theme-icon" viewBox="0 0 24 24" id="themeIcon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <span id="themeText">Dark Mode</span>
+    </button>
+    <h1>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M2 12 Q 7 2, 12 12 T 22 12" stroke-width="3"/></svg>
+        Intro to Waves
+    </h1>
+    <p>Properties, Behaviors, and the Mathematics of Waves</p>
+</header>
+
+<div class="container">
+
+    <!-- PANEL 1: WAVE TYPES -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V4H6.5A2.5 2.5 0 0 0 4 6.5v13z M14 9l-4 4"/></svg>
+        1. The Two Main Types of Waves
+    </h2>
+    <div class="grid-2">
+        <div class="card">
+            <h3>
+                <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Mechanical Waves (e.g., Sound)
+            </h3>
+            <p>Waves that <b>REQUIRE a medium</b> (particles like solid, liquid, or gas) to travel. They transfer energy by bumping particles into each other.</p>
+            <ul>
+                <li>Cannot travel through a vacuum (empty space).</li>
+                <li>Travel <b>fastest</b> in solids (particles are close together).</li>
+                <li>Travel <b>slowest</b> in gases (particles are spread out).</li>
+            </ul>
+        </div>
+        <div class="card" style="border-left-color: #f1c40f;">
+            <h3 style="color: #d35400;">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                Electromagnetic (EM) Waves (e.g., Light)
+            </h3>
+            <p>Waves made of vibrating electric and magnetic fields. They <b>DO NOT require a medium</b> to travel.</p>
+            <ul>
+                <li>Can travel perfectly through a complete vacuum (like outer space).</li>
+                <li>Travel at the speed of light (300,000,000 m/s in space).</li>
+                <li>Includes Visible Light, Radio Waves, X-Rays, and Microwaves.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PANEL 2: EM SPECTRUM -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+        2. The Electromagnetic Spectrum
+    </h2>
+    <div class="panel">
+        <p>The Electromagnetic Spectrum charts EM waves based on their frequency and wavelength (λ). Notice how <b>red represents lower energy (longer wavelength λ)</b>, while <b>blue and purple represent higher energy (shorter wavelength λ)</b>.</p>
+        
+        <div class="interactive-svg-container" style="padding: 0; position: relative;">
+            <svg class="svg-content-lg" viewBox="0 0 1000 360" width="100%" height="100%" style="display: block;">
+                <defs>
+                    <linearGradient id="emGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#3b1515" />   
+                        <stop offset="25%" stop-color="#7a1c1c" />  
+                        <stop offset="40%" stop-color="#c0392b" />  
+                        <stop offset="51%" stop-color="#ff0000" />  
+                        <stop offset="52%" stop-color="#ff7f00" />  
+                        <stop offset="53%" stop-color="#ffff00" />  
+                        <stop offset="54%" stop-color="#00ff00" />  
+                        <stop offset="55%" stop-color="#0000ff" />  
+                        <stop offset="56%" stop-color="#4b0082" />  
+                        <stop offset="57%" stop-color="#9400d3" />  
+                        <stop offset="65%" stop-color="#8e44ad" />  
+                        <stop offset="85%" stop-color="#2980b9" />  
+                        <stop offset="100%" stop-color="#0b1b3d" /> 
+                    </linearGradient>
+
+                    <linearGradient id="visGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ff0000" />   
+                        <stop offset="14%" stop-color="#ff7f00" />  
+                        <stop offset="28.5%" stop-color="#ffff00" /> 
+                        <stop offset="43%" stop-color="#00ff00" />  
+                        <stop offset="57%" stop-color="#0000ff" />  
+                        <stop offset="71%" stop-color="#4b0082" />  
+                        <stop offset="85%" stop-color="#9400d3" />  
+                        <stop offset="100%" stop-color="#5c0082" /> 
+                    </linearGradient>
+                </defs>
+                
+                <rect x="0" y="70" width="1000" height="70" fill="url(#emGradient)" />
+                <path id="emWavePath" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+                <g stroke="var(--svg-text)" stroke-width="2">
+                    <line x1="0" y1="140" x2="1000" y2="140" />
+                    <g id="emTicks"></g>
+                </g>
+
+                <g fill="var(--svg-text)" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">
+                    <text x="120" y="25">Radio waves</text>
+                    <path d="M 100 45 h 40 v 20 h -40 z M 105 45 v -10 m 10 10 v -5" stroke="var(--svg-text)" stroke-width="2" fill="none"/>
+                    <circle cx="112" cy="55" r="4" fill="var(--svg-text)"/>
+                    
+                    <text x="320" y="25">Microwaves</text>
+                    <rect x="300" y="35" width="40" height="25" rx="2" stroke="var(--svg-text)" stroke-width="2" fill="none"/>
+                    <rect x="305" y="40" width="20" height="15" fill="var(--svg-text)"/>
+                    
+                    <text x="450" y="25">Infrared</text>
+                    <rect x="440" y="35" width="20" height="30" rx="4" stroke="var(--svg-text)" stroke-width="2" fill="none"/>
+                    <circle cx="450" cy="42" r="2" fill="var(--svg-text)" />
+                    <circle cx="450" cy="50" r="2" fill="var(--svg-text)" />
+                    <circle cx="450" cy="58" r="2" fill="var(--svg-text)" />
+                    
+                    <text x="540" y="25">Visible light</text>
+                    <path d="M 535 45 a 5 5 0 0 1 10 0 c 0 5 -5 5 -5 10 c 0 -5 -5 -5 -5 -10 z" stroke="var(--svg-text)" stroke-width="2" fill="none"/>
+                    <line x1="540" y1="55" x2="540" y2="60" stroke="var(--svg-text)" stroke-width="2"/>
+
+                    <text x="630" y="25">Ultraviolet</text>
+                    <circle cx="630" cy="48" r="6" stroke="var(--svg-text)" stroke-width="2" fill="none"/>
+                    <path d="M 630 35 v 3 M 630 61 v 3 M 617 48 h 3 M 640 48 h 3 M 621 39 l 2 2 M 637 55 l 2 2 M 621 57 l 2 -2 M 637 41 l 2 -2" stroke="var(--svg-text)" stroke-width="2"/>
+
+                    <text x="750" y="25">X-rays</text>
+                    <path d="M 740 40 l 20 20 m 0 -20 l -20 20" stroke="var(--svg-text)" stroke-width="4" stroke-linecap="round"/>
+
+                    <text x="900" y="25">Gamma-rays</text>
+                    <circle cx="900" cy="48" r="10" stroke="var(--svg-text)" stroke-width="2" fill="none"/>
+                    <path d="M 900 48 l -5 -7 a 8 8 0 0 1 10 0 z M 900 48 l -8 3 a 8 8 0 0 0 5 8 z M 900 48 l 8 3 a 8 8 0 0 1 -5 8 z" fill="var(--svg-text)"/>
+                </g>
+                
+                <g fill="var(--svg-text)" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">
+                    <text x="10" y="165">10^3</text>
+                    <text x="170" y="165">1</text>
+                    <text x="330" y="165">10^-3</text>
+                    <text x="470" y="165">10^-5</text>
+                    <text x="590" y="165">10^-7</text>
+                    <text x="710" y="165">10^-9</text>
+                    <text x="830" y="165">10^-11</text>
+                    <text x="960" y="165">10^-13</text>
+                    <text x="960" y="180" font-size="12" font-style="italic">(meters)</text>
+                </g>
+
+                <polygon points="510,175 150,240 850,240 570,175" fill="var(--svg-text)" opacity="0.08" />
+                <line x1="510" y1="175" x2="150" y2="240" stroke="var(--svg-text)" stroke-dasharray="5,5" stroke-width="1.5" opacity="0.4" />
+                <line x1="570" y1="175" x2="850" y2="240" stroke="var(--svg-text)" stroke-dasharray="5,5" stroke-width="1.5" opacity="0.4" />
+
+                <rect x="150" y="240" width="700" height="60" fill="url(#visGradient)" rx="4" />
+
+                <g fill="var(--svg-text)" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">
+                    <text x="150" y="232">Red</text>
+                    <text x="250" y="232">Orange</text>
+                    <text x="350" y="232">Yellow</text>
+                    <text x="450" y="232">Green</text>
+                    <text x="550" y="232">Blue</text>
+                    <text x="650" y="232">Indigo</text>
+                    <text x="750" y="232">Violet</text>
+                    
+                    <line x1="150" y1="300" x2="150" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="150" y="325">700 nm</text>
+
+                    <line x1="250" y1="300" x2="250" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="250" y="325">620 nm</text>
+                    
+                    <line x1="350" y1="300" x2="350" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="350" y="325">590 nm</text>
+                    
+                    <line x1="450" y1="300" x2="450" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="450" y="325">570 nm</text>
+                    
+                    <line x1="550" y1="300" x2="550" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="550" y="325">495 nm</text>
+                    
+                    <line x1="650" y1="300" x2="650" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="650" y="325">450 nm</text>
+                    
+                    <line x1="750" y1="300" x2="750" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="750" y="325">420 nm</text>
+                    
+                    <line x1="850" y1="300" x2="850" y2="310" stroke="var(--svg-text)" stroke-width="2" />
+                    <text x="850" y="325">380 nm</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <!-- PANEL 3: INTERACTIVE WAVE ANATOMY -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24" style="color: var(--accent);"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        3. Anatomy of a Wave (Interactive Lab)
+    </h2>
+    <div class="panel">
+        <p style="margin-top: 0;">Use the step-by-step controls below to see how a single wave cycle (1 Hertz) is built.</p>
+        <div class="interactive-svg-container">
+            <svg id="interactiveWaveSvg" class="svg-content-sm" viewBox="0 0 800 360" width="100%" height="100%">
+                <line x1="50" y1="175" x2="750" y2="175" stroke="var(--svg-grid)" stroke-width="2" />
+                <line x1="80" y1="50" x2="80" y2="300" stroke="var(--svg-axis)" stroke-width="1.5" />
+                <line x1="480" y1="50" x2="480" y2="300" stroke="var(--svg-axis)" stroke-width="1.5" />
+                
+                <text x="490" y="190" font-family="sans-serif" font-size="12" fill="var(--svg-text)" font-weight="bold">Time / Distance</text>
+                <text x="85" y="65" font-family="sans-serif" font-size="12" fill="var(--svg-text)" font-weight="bold">Displacement (+)</text>
+                <text x="85" y="300" font-family="sans-serif" font-size="12" fill="var(--svg-text)" font-weight="bold">Displacement (-)</text>
+
+                <line x1="80" y1="75" x2="480" y2="75" stroke="var(--svg-axis)" stroke-width="1.5" stroke-dasharray="4,4" />
+                <line x1="80" y1="275" x2="480" y2="275" stroke="var(--svg-axis)" stroke-width="1.5" stroke-dasharray="4,4" />
+
+                <path id="interactive-wave-path" d="" fill="none" stroke="var(--success)" stroke-width="4" stroke-linecap="round" />
+
+                <line id="displacement-line" x1="80" y1="175" x2="80" y2="175" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3" opacity="0.8" />
+                <circle id="wave-particle" cx="80" cy="175" r="8" fill="#e74c3c" />
+
+                <line x1="610" y1="60" x2="690" y2="60" stroke="var(--svg-swing-frame)" stroke-width="4" stroke-linecap="round" />
+                <line x1="610" y1="60" x2="590" y2="250" stroke="var(--svg-grid)" stroke-width="2" stroke-dasharray="2,2" />
+                <line x1="690" y1="60" x2="710" y2="250" stroke="var(--svg-grid)" stroke-width="2" stroke-dasharray="2,2" />
+                
+                <text x="650" y="45" font-family="sans-serif" font-size="12" font-weight="bold" fill="var(--svg-swing-text)" text-anchor="middle">Swing Analogy</text>
+                <line x1="650" y1="60" x2="650" y2="210" stroke="var(--svg-grid)" stroke-width="1" stroke-dasharray="4,4" />
+
+                <path id="swing-arc" fill="none" stroke="#e74c3c" stroke-width="3" stroke-dasharray="3,3" opacity="0.6" d="" />
+
+                <line id="swing-rope" x1="650" y1="60" x2="650" y2="180" stroke="var(--svg-swing-frame)" stroke-width="3" />
+                <circle id="swing-seat" cx="650" cy="180" r="10" fill="#e67e22" />
+
+                <g id="anno-crest" opacity="0" style="transition: opacity 0.4s;">
+                    <circle cx="180" cy="75" r="4" fill="var(--svg-anno-purple)" />
+                    <text x="180" y="55" font-family="sans-serif" font-size="14" font-weight="bold" fill="var(--svg-anno-purple)" text-anchor="middle">1. Crest (Max +)</text>
+                </g>
+
+                <g id="anno-trough" opacity="0" style="transition: opacity 0.4s;">
+                    <circle cx="380" cy="275" r="4" fill="var(--svg-anno-purple)" />
+                    <text x="380" y="300" font-family="sans-serif" font-size="14" font-weight="bold" fill="var(--svg-anno-purple)" text-anchor="middle">3. Trough (Max -)</text>
+                </g>
+
+                <g id="anno-half" opacity="0" style="transition: opacity 0.4s;">
+                    <circle cx="280" cy="175" r="4" fill="var(--svg-anno-orange)" />
+                    <text x="280" y="155" font-family="sans-serif" font-size="13" font-weight="bold" fill="var(--svg-anno-orange)" text-anchor="middle">2. Halfway (50%)</text>
+                </g>
+
+                <g id="anno-full-bracket" opacity="0" style="transition: opacity 0.4s;">
+                    <path d="M 80 320 L 80 335 L 480 335 L 480 320" fill="none" stroke="var(--svg-anno-blue)" stroke-width="2" />
+                    <text x="280" y="353" font-family="sans-serif" font-size="14" font-weight="bold" fill="var(--svg-anno-blue)" text-anchor="middle">4. One Complete Cycle (λ)</text>
+                </g>
+            </svg>
+        </div>
+
+        <div class="explainer-grid">
+            <div id="explainer-text-box" style="background-color: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0; min-height: 160px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.3s;">
+                <div>
+                    <h4 id="step-title" style="margin-top: 0; font-size: 1.2em;">Step 1</h4>
+                    <p id="step-desc" style="margin: 10px 0 0 0; color: #475569; font-size: 1em; line-height: 1.5;"></p>
+                </div>
+                <div id="step-analogy" style="margin-top: 15px; padding: 10px; background-color: #fffbeb; border-left: 4px solid #f59e0b; font-size: 0.95em; color: #78350f; border-radius: 0 4px 4px 0; transition: 0.3s;"></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 12px; height: 100%; justify-content: space-between;">
+                <div style="display: flex; gap: 10px;">
+                    <button id="prevStepBtn" onclick="changeInteractiveStep(-1)" style="flex: 1; padding: 10px; font-size: 0.9em; background-color: #cbd5e1; color: #1e293b;">
+                        <svg class="icon" viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-right: 4px; margin-left: 0;"><path d="M15 18l-6-6 6-6"/></svg> Prev
+                    </button>
+                    <button id="nextStepBtn" onclick="changeInteractiveStep(1)" style="flex: 1; padding: 10px; font-size: 0.9em; background-color: var(--primary); color: white;">
+                        Next <svg class="icon" viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-right: 0; margin-left: 4px;"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+                <button id="loopPlayBtn" onclick="togglePlayLoop()" class="action-btn" style="background-color: var(--success); width: 100%; padding: 10px; font-size: 0.95em;">
+                    Play Continuous Loop
+                </button>
+                <div style="display: flex; justify-content: center; gap: 8px; margin-top: 10px;">
+                    <span class="step-dot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #cbd5e1; display: inline-block;"></span>
+                    <span class="step-dot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #cbd5e1; display: inline-block;"></span>
+                    <span class="step-dot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #cbd5e1; display: inline-block;"></span>
+                    <span class="step-dot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #cbd5e1; display: inline-block;"></span>
+                    <span class="step-dot" style="width: 12px; height: 12px; border-radius: 50%; background-color: #cbd5e1; display: inline-block;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL 4: RIPPLE TANK & DOPPLER (COMBINED WAVE BEHAVIORS) -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        4. Wave Behaviors: Diffraction, Refraction & Doppler
+    </h2>
+    <div class="panel">
+        <div class="toggle-group" style="margin-bottom: 15px;">
+            <button id="btnDiffraction" class="active" onclick="setRippleMode('diffraction')">Diffraction (Gap)</button>
+            <button id="btnRefraction" onclick="setRippleMode('refraction')">Refraction (New Medium)</button>
+        </div>
+        <div class="canvas-container" style="background-color: #0d1b2a;">
+            <canvas id="rippleCanvas" width="1000" height="300"></canvas>
+        </div>
+        
+        <div id="diffractionLegend" style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 15px; font-weight: bold; color: #e74c3c; background: rgba(231, 76, 60, 0.1); padding: 10px; border-radius: 8px; border: 1px dashed #e74c3c;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>Wavelength (λ)</span>
+                <span style="display: inline-block; width: 40px; height: 2px; background-color: #e74c3c; position: relative;">
+                    <span style="position: absolute; left: 0; top: -6px; height: 14px; width: 2px; background-color: #e74c3c;"></span>
+                    <span style="position: absolute; right: 0; top: -6px; height: 14px; width: 2px; background-color: #e74c3c;"></span>
+                </span>
+            </div>
+            <span style="color: var(--dark);">is exactly equal to</span>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="display: inline-block; width: 40px; height: 2px; background-color: #e74c3c; position: relative;">
+                    <span style="position: absolute; left: 0; top: -6px; height: 14px; width: 2px; background-color: #e74c3c;"></span>
+                    <span style="position: absolute; right: 0; top: -6px; height: 14px; width: 2px; background-color: #e74c3c;"></span>
+                </span>
+                <span>Gap Size</span>
+            </div>
+        </div>
+        <div class="note" id="rippleNote" style="margin-top: 15px;"></div>
+
+        <h3 style="margin-top: 30px;">The Doppler Effect (Sound)</h3>
+        <p>When a source moves towards you, the waves <b>bunch up</b> (decreasing λ, increasing frequency). When it moves away, they <b>spread out</b> (increasing λ, decreasing frequency).</p>
+        <div class="canvas-container" style="background-color: #2c3e50;">
+            <canvas id="dopplerCanvas" width="1000" height="250"></canvas>
+        </div>
+        <div class="controls" style="margin-top: 15px;">
+            <div>
+                <label>Ambulance Speed: <span id="dopplerSpeedLabel">40</span>% of Wave Speed</label>
+                <input type="range" id="dopplerSpeedSlider" min="0" max="95" value="40">
+            </div>
+            <div id="dopplerStatus" style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em; color: var(--primary);"></div>
+        </div>
+    </div>
+
+    <!-- PANEL 5: LIGHT IN THE COSMOS - REDSHIFT & EMISSION SPECTRA -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/></svg>
+        5. Light in the Cosmos: Redshift & Emission Spectra
+    </h2>
+    <div class="panel">
+        <p>The Doppler Effect applies to light too! When a star or galaxy moves <b>towards us</b>, its light waves bunch up, shifting toward the blue end of the spectrum (<b>Blueshift</b>). When it moves <b>away from us</b>, the waves stretch out, shifting toward the red end (<b>Redshift</b>).</p>
+        <p><b>How do we know?</b> Elements like Hydrogen act like fingerprints, absorbing and emitting light only at very specific wavelengths (Emission Spectra). By looking at where these "fingerprint" lines appear through a telescope, we can calculate exactly how fast the star is moving!</p>
+        
+        <div class="interactive-svg-container" style="background-color: #111; padding: 20px;">
+            <svg id="spectraSvg" class="svg-content-lg" viewBox="0 0 1000 220" width="100%" height="100%">
+                <defs>
+                    <linearGradient id="spectraGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#380052" /> 
+                        <stop offset="8%" stop-color="#4b0082" /> 
+                        <stop offset="16%" stop-color="#0000ff" /> 
+                        <stop offset="31%" stop-color="#00ff00" /> 
+                        <stop offset="54%" stop-color="#ffff00" /> 
+                        <stop offset="65%" stop-color="#ff7f00" /> 
+                        <stop offset="85%" stop-color="#ff0000" /> 
+                        <stop offset="100%" stop-color="#4a0000" /> 
+                    </linearGradient>
+                </defs>
+
+                <!-- Rest Spectrum -->
+                <text x="10" y="25" fill="#fff" font-family="sans-serif" font-weight="bold">Hydrogen at Rest (Lab Reference)</text>
+                <rect x="0" y="35" width="1000" height="40" class="spectra-bg" />
+                <g id="restLines">
+                    <line y1="35" y2="75" class="spectra-line" id="rL1"/>
+                    <line y1="35" y2="75" class="spectra-line" id="rL2"/>
+                    <line y1="35" y2="75" class="spectra-line" id="rL3"/>
+                    <line y1="35" y2="75" class="spectra-line" id="rL4"/>
+                </g>
+                <g fill="#ccc" font-family="sans-serif" font-size="12">
+                    <text x="10" y="90">380 nm</text>
+                    <text x="950" y="90">750 nm</text>
+                </g>
+
+                <!-- Observed Spectrum -->
+                <text x="10" y="130" fill="#fff" font-family="sans-serif" font-weight="bold" id="obsTitle">Observed Star Spectrum</text>
+                <rect x="0" y="140" width="1000" height="40" class="spectra-bg" />
+                <g id="obsLines">
+                    <line y1="140" y2="180" class="spectra-line" id="oL1"/>
+                    <line y1="140" y2="180" class="spectra-line" id="oL2"/>
+                    <line y1="140" y2="180" class="spectra-line" id="oL3"/>
+                    <line y1="140" y2="180" class="spectra-line" id="oL4"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="controls" style="margin-top: 15px;">
+            <div>
+                <label>Star Velocity: <span id="starVelLabel">0</span>% of Speed of Light (c)</label>
+                <input type="range" id="starVelSlider" min="-15" max="15" step="1" value="0">
+            </div>
+            <div class="math-box" style="padding: 15px;">
+                <p style="margin:0; font-size:1.1em;">Doppler Shift Formula (Light):</p>
+                <div class="math-equation">z ≈ v / c ≈ Δλ / λ<sub>rest</sub></div>
+                <div class="calc-example" id="dopplerCalcBox">
+                    Adjust the slider to see the math in action!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL 6: QUANTUM ENERGY LEVELS -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"/></svg>
+        6. Quantum Energy Levels & Emission
+    </h2>
+    <div class="panel grid-2">
+        <div>
+            <p>Why do elements only emit specific wavelengths of light? In the quantum world, electrons orbit the nucleus only at <b>specific, allowed energy levels (n)</b>. They cannot exist in between.</p>
+            <p>When an excited electron falls from a higher orbit to a lower one, it loses energy. This exact packet of energy is released as a <b>Photon</b> (a particle of light). The color (wavelength λ) of the photon depends precisely on how big the energy drop was.</p>
+            
+            <div class="math-box">
+                <p style="margin:0;">Photon Energy Equation:</p>
+                <div class="math-equation">E = (h × c) / λ</div>
+                <div class="math-vars">
+                    <b>E</b> = Energy (Joules)<br>
+                    <b>h</b> = Planck's Constant (6.626 × 10<sup>-34</sup> J·s)<br>
+                    <b>c</b> = Speed of Light (3 × 10<sup>8</sup> m/s)<br>
+                    <b>λ</b> = Wavelength (meters)
+                </div>
+                <div class="calc-example">
+                    <b>Example: Hydrogen Red Line (n=3 to n=2)</b><br>
+                    Drop Energy: ΔE ≈ 3.03 × 10<sup>-19</sup> Joules<br>
+                    λ = (h × c) / E<br>
+                    λ = (6.626×10<sup>-34</sup> × 3×10<sup>8</sup>) / 3.03×10<sup>-19</sup><br>
+                    λ ≈ 656 × 10<sup>-9</sup> m <b>(656 nm = Red!)</b>
+                </div>
+            </div>
+        </div>
+        <div class="interactive-svg-container" style="background-color: #1a202c; border-color: #2d3748; display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 400 400" width="100%" height="350">
+                <circle cx="200" cy="200" r="15" fill="#e74c3c" />
+                <text x="200" y="205" fill="#fff" font-size="12" font-family="sans-serif" text-anchor="middle" font-weight="bold">Nucleus</text>
+
+                <!-- Orbits -->
+                <circle cx="200" cy="200" r="60" fill="none" stroke="#4a5568" stroke-width="2" stroke-dasharray="4,4"/>
+                <text x="200" y="130" fill="#a0aec0" font-size="14" font-family="sans-serif" text-anchor="middle">n=1</text>
+                
+                <circle cx="200" cy="200" r="110" fill="none" stroke="#4a5568" stroke-width="2" stroke-dasharray="4,4"/>
+                <text x="200" y="80" fill="#a0aec0" font-size="14" font-family="sans-serif" text-anchor="middle">n=2</text>
+                
+                <circle cx="200" cy="200" r="160" fill="none" stroke="#4a5568" stroke-width="2" stroke-dasharray="4,4"/>
+                <text x="200" y="30" fill="#a0aec0" font-size="14" font-family="sans-serif" text-anchor="middle">n=3</text>
+
+                <!-- Incoming UV Photon (Purple) -->
+                <path d="M 10 90 Q 25 70, 40 90 T 70 90 T 100 90 T 130 90 T 160 90 T 190 90" fill="none" stroke="#a855f7" stroke-width="3" opacity="0">
+                    <animate attributeName="opacity" values="0; 1; 1; 0; 0" keyTimes="0; 0.05; 0.166; 0.167; 1" dur="6s" repeatCount="indefinite" />
+                    <animate attributeName="stroke-dasharray" values="0,250; 250,0; 250,0" keyTimes="0; 0.166; 1" dur="6s" repeatCount="indefinite" />
+                </path>
+                <text x="70" y="70" fill="#a855f7" font-size="12" font-family="sans-serif" font-weight="bold" opacity="0">
+                    <animate attributeName="opacity" values="0; 1; 1; 0; 0" keyTimes="0; 0.05; 0.166; 0.167; 1" dur="6s" repeatCount="indefinite" />
+                    Incoming UV Photon
+                </text>
+
+                <!-- Electron (starts at n=2, goes to n=3, drops to n=2) -->
+                <circle cx="200" cy="90" r="8" fill="#3498db">
+                    <animate attributeName="cy" values="90; 90; 40; 40; 90; 90" keyTimes="0; 0.166; 0.18; 0.5; 0.52; 1" dur="6s" repeatCount="indefinite" />
+                </circle>
+                
+                <!-- Emitted Photon (Red) -->
+                <path d="M 215 90 Q 230 70, 245 90 T 275 90 T 305 90 T 335 90 T 365 90 T 395 90" fill="none" stroke="#ff4757" stroke-width="3" opacity="0">
+                    <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0" keyTimes="0; 0.51; 0.52; 0.85; 0.86; 1" dur="6s" repeatCount="indefinite" />
+                    <animate attributeName="stroke-dasharray" values="0,250; 0,250; 250,0; 250,0" keyTimes="0; 0.52; 0.7; 1" dur="6s" repeatCount="indefinite" />
+                </path>
+                <text x="260" y="70" fill="#ff4757" font-size="12" font-family="sans-serif" font-weight="bold" opacity="0">
+                    <animate attributeName="opacity" values="0; 0; 1; 1; 0; 0" keyTimes="0; 0.51; 0.52; 0.85; 0.86; 1" dur="6s" repeatCount="indefinite" />
+                    Emitted Red Photon
+                </text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- PANEL 7: THERMAL RADIATION & TEMPERATURE -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><path d="M12 2A4 4 0 0 1 16 6v3a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" fill="#e74c3c"/></svg>
+        7. Thermal Radiation & Wien's Law
+    </h2>
+    <div class="panel grid-2">
+        <div>
+            <p>Absolutely everything with a temperature above absolute zero emits electromagnetic waves (Thermal Radiation). As an object gets hotter, two things happen: it emits <b>more total energy</b>, and the <b>peak wavelength (λ) shifts toward the blue end</b> (shorter wavelength).</p>
+            <p>This is why a piece of heated metal goes from glowing dull red, to orange, to bright white-blue as it gets hotter! We use <b>Wien's Displacement Law</b> to calculate the temperature of distant stars just by looking at their peak color.</p>
+        </div>
+        <div class="math-box">
+            <p style="margin:0;">Wien's Displacement Law:</p>
+            <div class="math-equation">λ<sub>peak</sub> = (2.898 × 10<sup>-3</sup>) / T</div>
+            <div class="math-vars">
+                <b>λ<sub>peak</sub></b> = Peak Wavelength (meters)<br>
+                <b>T</b> = Temperature in Kelvin (K)<br>
+                <b>b</b> = Wien's Constant (2.898 × 10<sup>-3</sup> m·K)
+            </div>
+            <div class="calc-example">
+                <b>Example: Calculating the Sun's Surface Temp</b><br>
+                We observe the Sun's peak emission at λ = 500 nm.<br>
+                T = (2.898 × 10<sup>-3</sup>) / (500 × 10<sup>-9</sup>)<br>
+                T ≈ 5,796 K
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL 8: WAVE OPTICS & YOUNG'S DOUBLE SLIT -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        8. Wave Optics: Young's Double Slit Experiment
+    </h2>
+    <div class="panel grid-2">
+        <div>
+            <p>In 1801, Thomas Young proved that light is a wave. If you shine a single color of light (like a laser) through two tiny, closely spaced slits, the light waves diffract and overlap on the other side.</p>
+            <p>Where the <i>crests</i> of both waves meet, they build each other up (<b>Constructive Interference</b> = Bright Fringes). Where a <i>crest</i> meets a <i>trough</i>, they cancel out (<b>Destructive Interference</b> = Dark Fringes).</p>
+            
+            <div class="math-box">
+                <p style="margin:0;">Fringe Position Equation:</p>
+                <div class="math-equation">y = (λ × L) / d</div>
+                <div class="math-vars">
+                    <b>y</b> = Distance from center to 1st bright fringe (m)<br>
+                    <b>λ</b> = Wavelength of light (m)<br>
+                    <b>L</b> = Distance to the screen (m)<br>
+                    <b>d</b> = Distance between the two slits (m)
+                </div>
+                <div class="calc-example">
+                    <b>Example Calculation:</b><br>
+                    Red Laser (λ = 600 nm = 6×10<sup>-7</sup> m)<br>
+                    Screen is L = 2.0 m away.<br>
+                    Slits are d = 0.5 mm (5×10<sup>-4</sup> m) apart.<br>
+                    y = (6×10<sup>-7</sup> × 2.0) / (5×10<sup>-4</sup>)<br>
+                    y = 0.0024 m <b>(2.4 mm spacing)</b>
+                </div>
+            </div>
+        </div>
+        <div class="interactive-svg-container" style="background-color: #0d1117; border-color: #30363d;">
+            <!-- Visualization of accurate wave interference -->
+            <svg viewBox="0 0 400 400" width="100%" height="100%">
+                <defs>
+                    <!-- Clip path prevents overlapping the wall backwards -->
+                    <clipPath id="waveClip">
+                        <rect x="60" y="0" width="340" height="400" />
+                    </clipPath>
+                </defs>
+                
+                <!-- Laser beam entering the slits (drawn to x=60 to pass through wall slits) -->
+                <rect x="0" y="140" width="60" height="20" fill="rgba(231, 76, 60, 0.5)" />
+                <rect x="0" y="240" width="60" height="20" fill="rgba(231, 76, 60, 0.5)" />
+                
+                <!-- The wall with two slits (y=150 and y=250 are the centers) -->
+                <rect x="50" y="0" width="10" height="140" fill="#7f8c8d" />
+                <rect x="50" y="160" width="10" height="80" fill="#7f8c8d" />
+                <rect x="50" y="260" width="10" height="140" fill="#7f8c8d" />
+                
+                <!-- Waves from Slit 1 (center 60, 150) -->
+                <g stroke="rgba(231, 76, 60, 0.6)" stroke-width="2" fill="none" clip-path="url(#waveClip)">
+                    <circle cx="60" cy="150" r="30" /> <circle cx="60" cy="150" r="60" />
+                    <circle cx="60" cy="150" r="90" /> <circle cx="60" cy="150" r="120" />
+                    <circle cx="60" cy="150" r="150" /> <circle cx="60" cy="150" r="180" />
+                    <circle cx="60" cy="150" r="210" /> <circle cx="60" cy="150" r="240" />
+                    <circle cx="60" cy="150" r="270" /> <circle cx="60" cy="150" r="300" />
+                    <circle cx="60" cy="150" r="330" /> <circle cx="60" cy="150" r="360" />
+                </g>
+
+                <!-- Waves from Slit 2 (center 60, 250) -->
+                <g stroke="rgba(231, 76, 60, 0.6)" stroke-width="2" fill="none" clip-path="url(#waveClip)">
+                    <circle cx="60" cy="250" r="30" /> <circle cx="60" cy="250" r="60" />
+                    <circle cx="60" cy="250" r="90" /> <circle cx="60" cy="250" r="120" />
+                    <circle cx="60" cy="250" r="150" /> <circle cx="60" cy="250" r="180" />
+                    <circle cx="60" cy="250" r="210" /> <circle cx="60" cy="250" r="240" />
+                    <circle cx="60" cy="250" r="270" /> <circle cx="60" cy="250" r="300" />
+                    <circle cx="60" cy="250" r="330" /> <circle cx="60" cy="250" r="360" />
+                </g>
+
+                <!-- Screen -->
+                <rect x="360" y="0" width="10" height="400" fill="#ecf0f1" />
+
+                <!-- Intensity Pattern on Screen (Mathematically mapped to crossing points) -->
+                <path d="
+                  M 365 0
+                  Q 385 20, 365 40
+                  Q 365 65, 365 90
+                  Q 405 110, 365 130
+                  Q 365 155, 365 180
+                  Q 425 200, 365 220
+                  Q 365 245, 365 270
+                  Q 405 290, 365 310
+                  Q 365 335, 365 360
+                  Q 385 380, 365 400
+                  L 360 400 L 360 0 Z
+                " fill="rgba(231, 76, 60, 0.8)" />
+                
+                <!-- Clean Legend / Labels -->
+                <rect x="220" y="10" width="135" height="45" fill="rgba(0,0,0,0.8)" rx="5"/>
+                <text x="230" y="26" fill="#ecf0f1" font-family="sans-serif" font-size="11" font-weight="bold">Interference Graph:</text>
+                <text x="230" y="44" fill="#e74c3c" font-family="sans-serif" font-size="11">Peak = Bright Fringe</text>
+
+            </svg>
+        </div>
+    </div>
+
+    <!-- PANEL 9: THE MATH LAB -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+        9. The Math Lab: Universal Wave Equation
+    </h2>
+    <div class="panel grid-2">
+        <div class="math-box">
+            <p style="margin:0; font-size:1.2em; color:#ecf0f1;">The Universal Wave Equation</p>
+            <div class="math-equation">v = f × λ</div>
+            <div class="math-vars">
+                <b>v</b> = Velocity / Speed (m/s)<br>
+                <b>f</b> = Frequency (Hz)<br>
+                <b>λ</b> = Wavelength (meters)
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; text-align: left;">
+                <i>Rule of thumb:</i> In a specific medium, speed (v) stays the same. So if Frequency goes UP, Wavelength (λ) must go DOWN to balance the equation!
+            </p>
+        </div>
+
+        <div class="quiz-box">
+            <h3 style="margin-top:0; color:var(--primary); display:flex; align-items:center;">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9l2 2 4-4"/></svg>
+                Interactive Knowledge Check
+            </h3>
+            <p style="margin-top:0;">Use the wave equation (v = f × λ) to solve the problem below.</p>
+            
+            <div class="quiz-question" id="quizQuestion">Loading question...</div>
+            
+            <div class="quiz-input-group">
+                <input type="number" id="quizAnswer" placeholder="Enter numerical answer..." step="0.01">
+                <button class="action-btn" onclick="checkAnswer()">Submit</button>
+            </div>
+            
+            <div id="quizFeedback" class="quiz-feedback"></div>
+            
+            <button onclick="generateQuiz()" style="margin-top: auto; width: 100%;">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                Generate New Question
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // ==========================================
+    // UI TOGGLES
+    // ==========================================
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        
+        const themeText = document.getElementById('themeText');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        const moonSVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+        const sunSVG = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+
+        if(document.body.classList.contains('dark-mode')) {
+            themeText.innerText = "Light Mode";
+            themeIcon.innerHTML = sunSVG;
+        } else {
+            themeText.innerText = "Dark Mode";
+            themeIcon.innerHTML = moonSVG;
+        }
+    }
+
+    // ==========================================
+    // EM SPECTRUM INIT
+    // ==========================================
+    function initEMSpectrum() {
+        const pathEl = document.getElementById('emWavePath');
+        const ticksEl = document.getElementById('emTicks');
+        
+        let pathD = "M 0 105 ";
+        let phase = 0;
+        let amp = 25; 
+        for (let x = 0; x <= 1000; x++) {
+            let freq = 0.02 * Math.pow(1.005, x);
+            phase += freq;
+            let y = 105 + amp * Math.sin(phase);
+            pathD += `L ${x} ${y} `;
+        }
+        pathEl.setAttribute('d', pathD);
+
+        let tickHTML = "";
+        for (let x = 0; x <= 1000; x += 15) {
+            let height = (x % 60 === 0) ? 15 : 8; 
+            tickHTML += `<line x1="${x}" y1="140" x2="${x}" y2="${140 + height}" />`;
+        }
+        ticksEl.innerHTML = tickHTML;
+    }
+
+    // ==========================================
+    // REDSHIFT / BLUESHIFT LOGIC
+    // ==========================================
+    // Hydrogen Balmer series resting wavelengths (nm)
+    const hRest = [410.2, 434.0, 486.1, 656.3];
+    
+    // Map wavelength (380-750nm) to SVG x coordinate (0-1000)
+    function wlToX(wl) {
+        return ((wl - 380) / (750 - 380)) * 1000;
+    }
+
+    function initRedshift() {
+        // Draw rest lines
+        for(let i=0; i<4; i++) {
+            let xPos = wlToX(hRest[i]);
+            document.getElementById(`rL${i+1}`).setAttribute('x1', xPos);
+            document.getElementById(`rL${i+1}`).setAttribute('x2', xPos);
+        }
+        updateRedshift();
+    }
+
+    function updateRedshift() {
+        let v_c = parseFloat(document.getElementById('starVelSlider').value) / 100;
+        document.getElementById('starVelLabel').innerText = (v_c * 100).toFixed(0);
+        
+        // Doppler approximation z ≈ v/c.  obs = rest * (1 + v/c)
+        let z = v_c; 
+        
+        let obsColor = "#fff";
+        let titleText = "Observed Star Spectrum (At Rest)";
+        if (v_c > 0) {
+            obsColor = "#ff7675"; // red tint
+            titleText = "Observed Star Spectrum (Redshifted - Moving Away)";
+        } else if (v_c < 0) {
+            obsColor = "#74b9ff"; // blue tint
+            titleText = "Observed Star Spectrum (Blueshifted - Moving Towards)";
+        }
+        
+        document.getElementById('obsTitle').innerText = titleText;
+        document.getElementById('obsTitle').setAttribute('fill', obsColor);
+
+        for(let i=0; i<4; i++) {
+            let obsWl = hRest[i] * (1 + z);
+            let xPos = wlToX(obsWl);
+            
+            // hide line if it shifts out of visual bounds
+            if(xPos < 0 || xPos > 1000) {
+                document.getElementById(`oL${i+1}`).style.display = 'none';
+            } else {
+                document.getElementById(`oL${i+1}`).style.display = 'block';
+                document.getElementById(`oL${i+1}`).setAttribute('x1', xPos);
+                document.getElementById(`oL${i+1}`).setAttribute('x2', xPos);
+            }
+        }
+
+        // Update Math Box
+        let calcBox = document.getElementById('dopplerCalcBox');
+        let exampleRest = hRest[3]; // Red line
+        let exampleObs = exampleRest * (1 + z);
+        
+        calcBox.innerHTML = `
+            <b>Observation of Hydrogen Alpha (Red Line):</b><br>
+            λ<sub>rest</sub> = ${exampleRest.toFixed(1)} nm<br>
+            Velocity (v) = ${(v_c * 100).toFixed(0)}% c<br>
+            λ<sub>observed</sub> = λ<sub>rest</sub> × (1 + v/c)<br>
+            λ<sub>observed</sub> = ${exampleRest.toFixed(1)} × (1 + ${v_c.toFixed(2)})<br>
+            <b>λ<sub>observed</sub> = ${exampleObs.toFixed(1)} nm</b><br>
+            Shift (Δλ) = ${(exampleObs - exampleRest).toFixed(1)} nm
+        `;
+    }
+    document.getElementById('starVelSlider').addEventListener('input', updateRedshift);
+
+    // ==========================================
+    // AUDIO & SIMULATION LOGIC
+    // ==========================================
+    let time = 0;
+    let rippleMode = 'diffraction';
+
+    const rippleCanvas = document.getElementById('rippleCanvas');
+    const ripCtx = rippleCanvas.getContext('2d');
+    
+    // Doppler variables
+    const dopplerCanvas = document.getElementById('dopplerCanvas');
+    const dopCtx = dopplerCanvas.getContext('2d');
+    const dopSpeedSlider = document.getElementById('dopplerSpeedSlider');
+    let dopplerTime = 0;
+    let dopplerPulses = [];
+    let lastDopplerPulse = 0;
+
+    dopSpeedSlider.addEventListener('input', function() {
+        document.getElementById('dopplerSpeedLabel').innerText = this.value;
+    });
+
+    function setRippleMode(mode) {
+        rippleMode = mode;
+        document.getElementById('btnDiffraction').classList.remove('active');
+        document.getElementById('btnRefraction').classList.remove('active');
+        let note = document.getElementById('rippleNote');
+        let legend = document.getElementById('diffractionLegend');
+        
+        if(mode === 'diffraction') {
+            document.getElementById('btnDiffraction').classList.add('active');
+            legend.style.display = 'flex';
+            note.innerHTML = "<b>Diffraction:</b> When a straight wave hits a small gap, it bends and spreads out into circular ripples! Notice how the red gap size exactly matches the red wavelength length (λ). <b>When the gap length and the wave length are the same, it produces optimal wave diffraction (maximum spreading)</b>.";
+        } else {
+            document.getElementById('btnRefraction').classList.add('active');
+            legend.style.display = 'none';
+            note.innerHTML = "<b>Refraction:</b> When a wave enters a denser material at an angle, it slows down. This causes the entire wave line to bend mathematically (Snell's Law), <b>reducing the physical distance (wavelength λ) between the waves</b>.";
+        }
+    }
+
+    // ==========================================
+    // MATH QUIZ LOGIC
+    // ==========================================
+    let currentQuizAnswer = 0;
+
+    function generateQuiz() {
+        const types = ['v', 'f', 'lambda'];
+        const missingVar = types[Math.floor(Math.random() * types.length)];
+        
+        let v, f, lambda;
+        let questionText = "";
+
+        if (missingVar === 'v') {
+            f = Math.floor(Math.random() * 400) + 100; 
+            lambda = (Math.random() * 2 + 0.5).toFixed(2); 
+            currentQuizAnswer = (f * lambda).toFixed(2);
+            questionText = `A wave has a frequency of <b>${f} Hz</b> and a wavelength (λ) of <b>${lambda} meters</b>. What is the velocity (speed) of the wave in <b>m/s</b>?`;
+        } else if (missingVar === 'f') {
+            v = 340; 
+            lambda = (Math.random() * 4 + 1).toFixed(2);
+            currentQuizAnswer = (v / lambda).toFixed(2);
+            questionText = `A sound wave travels through air at <b>${v} m/s</b>. Its wavelength (λ) is <b>${lambda} meters</b>. What is the frequency in <b>Hz</b>?`;
+        } else {
+            v = 340;
+            f = Math.floor(Math.random() * 600) + 200;
+            currentQuizAnswer = (v / f).toFixed(2);
+            questionText = `A wave travels at <b>${v} m/s</b> with a frequency of <b>${f} Hz</b>. What is the wavelength (λ) in <b>meters</b>?`;
+        }
+
+        document.getElementById('quizQuestion').innerHTML = questionText;
+        document.getElementById('quizAnswer').value = '';
+        document.getElementById('quizFeedback').innerHTML = '';
+        document.getElementById('quizFeedback').style.color = '';
+    }
+
+    function checkAnswer() {
+        const inputStr = document.getElementById('quizAnswer').value;
+        if (!inputStr) return;
+        
+        const userAns = parseFloat(inputStr);
+        const correctAns = parseFloat(currentQuizAnswer);
+        const feedback = document.getElementById('quizFeedback');
+
+        const errorMargin = Math.abs((userAns - correctAns) / correctAns);
+        const isCorrect = errorMargin <= 0.05 || Math.abs(userAns - correctAns) <= 0.1;
+
+        if (isCorrect) {
+            feedback.innerHTML = `Correct! Great job. (Exact calculation: ${correctAns})`;
+            feedback.style.color = "var(--success)";
+        } else {
+            feedback.innerHTML = `Incorrect. The correct calculation is closer to ${correctAns}. Check your algebra!`;
+            feedback.style.color = "var(--danger)";
+        }
+    }
+
+
+    // ==========================================
+    // MAIN ANIMATION LOOP (Wave Simulators)
+    // ==========================================
+    function animate() {
+        time += 0.05;
+
+        // ----------------------------------------
+        // 1. RIPPLE TANK CANVAS 
+        // ----------------------------------------
+        ripCtx.clearRect(0, 0, rippleCanvas.width, rippleCanvas.height);
+        
+        if (rippleMode === 'diffraction') {
+            ripCtx.fillStyle = "#0d1b2a"; 
+            ripCtx.fillRect(0, 0, rippleCanvas.width, rippleCanvas.height);
+            ripCtx.strokeStyle = "#3498db";
+            ripCtx.lineWidth = 3;
+
+            let rippleTime = time;
+            let rippleWaveSpacing = 40; 
+            let waveVel = 15; 
+            let wallX = rippleCanvas.width / 3;
+            let gapY = rippleCanvas.height / 2;
+            let gapSize = 40; 
+            
+            let visibleWaves = [];
+
+            for (let i = -5; i < 20; i++) {
+                let x = ((rippleTime * waveVel) % rippleWaveSpacing) + (i * rippleWaveSpacing);
+                if (x > 0 && x <= wallX) {
+                    visibleWaves.push(x);
+                    ripCtx.beginPath();
+                    ripCtx.moveTo(x, 0); ripCtx.lineTo(x, rippleCanvas.height);
+                    ripCtx.stroke();
+                }
+            }
+
+            for (let i = -5; i < 20; i++) {
+                let radius = ((rippleTime * waveVel) % rippleWaveSpacing) + (i * rippleWaveSpacing);
+                if (radius > 0 && radius < rippleCanvas.width - wallX + 100) {
+                    ripCtx.beginPath();
+                    ripCtx.arc(wallX, gapY, radius, -Math.PI/2.3, Math.PI/2.3);
+                    ripCtx.globalAlpha = Math.max(0, 1 - (radius / (rippleCanvas.width - wallX))); 
+                    ripCtx.stroke(); 
+                    ripCtx.globalAlpha = 1.0;
+                }
+            }
+
+            ripCtx.fillStyle = "#7f8c8d";
+            ripCtx.fillRect(wallX - 10, 0, 20, gapY - gapSize/2);
+            ripCtx.fillRect(wallX - 10, gapY + gapSize/2, 20, rippleCanvas.height);
+        } 
+        else if (rippleMode === 'refraction') {
+            let boundaryY = rippleCanvas.height / 2;
+            ripCtx.fillStyle = "#0d1b2a"; 
+            ripCtx.fillRect(0, 0, rippleCanvas.width, boundaryY);
+            ripCtx.fillStyle = "rgba(41, 128, 185, 0.3)"; 
+            ripCtx.fillRect(0, boundaryY, rippleCanvas.width, rippleCanvas.height);
+            
+            ripCtx.fillStyle = "#fff"; ripCtx.font = "18px sans-serif";
+            ripCtx.fillText("Fast Medium (Deep Water)", 20, 30);
+            ripCtx.fillText("Slow Medium (Shallow Water)", 20, boundaryY + 30);
+
+            ripCtx.strokeStyle = "#3498db";
+            ripCtx.lineWidth = 3;
+            
+            let waveSpacingX = 90; 
+            let speedX = 15;     
+            let offset = (time * speedX) % waveSpacingX;
+            let dx_top = 120; 
+            let dx_bottom = 280; 
+
+            for (let i = -10; i < 25; i++) {
+                let startX = i * waveSpacingX + offset;
+                let midX = startX - dx_top;
+                let endX = midX - dx_bottom;
+                
+                ripCtx.beginPath();
+                ripCtx.moveTo(startX, 0);
+                ripCtx.lineTo(midX, boundaryY);
+                ripCtx.lineTo(endX, rippleCanvas.height);
+                ripCtx.stroke();
+            }
+
+            let drawWavelengthIndicator = (i_line, isTop) => {
+                let dx = isTop ? dx_top : dx_bottom;
+                let startX = i_line * waveSpacingX + offset;
+                let p1_x, p1_y;
+
+                if (isTop) {
+                    p1_x = startX - dx / 2;
+                    p1_y = boundaryY / 2;
+                } else {
+                    let midX = startX - dx_top; 
+                    p1_x = midX - dx / 2;
+                    p1_y = boundaryY + boundaryY / 2;
+                }
+
+                let N_x = boundaryY;
+                let N_y = dx;
+                let len = Math.sqrt(N_x*N_x + N_y*N_y);
+                let nx = N_x / len;
+                let ny = N_y / len;
+                
+                let lambda = waveSpacingX * nx;
+
+                let p2_x = p1_x + lambda * nx;
+                let p2_y = p1_y + lambda * ny;
+
+                ripCtx.beginPath();
+                ripCtx.moveTo(p1_x, p1_y);
+                ripCtx.lineTo(p2_x, p2_y);
+                ripCtx.strokeStyle = "#ff4757"; 
+                ripCtx.lineWidth = 3;
+                ripCtx.stroke();
+
+                ripCtx.fillStyle = "#ff4757";
+                ripCtx.beginPath(); ripCtx.arc(p1_x, p1_y, 4, 0, Math.PI*2); ripCtx.fill();
+                ripCtx.beginPath(); ripCtx.arc(p2_x, p2_y, 4, 0, Math.PI*2); ripCtx.fill();
+
+                let mid_x = (p1_x + p2_x) / 2;
+                let mid_y = (p1_y + p2_y) / 2;
+                
+                ripCtx.shadowColor = "rgba(0,0,0,0.8)";
+                ripCtx.shadowBlur = 4;
+                ripCtx.fillStyle = "#fff";
+                ripCtx.font = "bold 15px sans-serif";
+                let text = isTop ? "λ 1 (Longer)" : "λ 2 (Shorter)";
+                
+                ripCtx.fillText(text, mid_x - 40, mid_y - 12);
+                ripCtx.shadowBlur = 0; 
+            };
+
+            drawWavelengthIndicator(6, true);  
+            drawWavelengthIndicator(8, false); 
+        }
+
+        // ----------------------------------------
+        // 2. DOPPLER EFFECT CANVAS
+        // ----------------------------------------
+        let dopW = dopplerCanvas.width;
+        let dopH = dopplerCanvas.height;
+        dopCtx.clearRect(0, 0, dopW, dopH);
+
+        let speedPercent = parseFloat(dopSpeedSlider.value) / 100;
+        let c = 200; 
+        let sourceVel = c * speedPercent; 
+
+        let dt = 0.016; 
+        dopplerTime += dt;
+
+        let padding = 100;
+        let trackLen = dopW - (padding * 2); 
+        let cycle = dopplerTime * sourceVel;
+        let pos = cycle % (trackLen * 2);
+        let movingRight = pos < trackLen;
+        
+        let sourceX = movingRight ? padding + pos : padding + trackLen - (pos - trackLen);
+        let sourceY = dopH / 2;
+
+        let statusEl = document.getElementById('dopplerStatus');
+        
+        let rightArrowSVG = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin:0 8px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        let leftArrowSVG = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin:0 8px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
+
+        if (movingRight) {
+            statusEl.innerHTML = `Moving RIGHT ${rightArrowSVG} Left hears LOW pitch, Right hears HIGH pitch`;
+        } else {
+            statusEl.innerHTML = `Moving LEFT ${leftArrowSVG} Left hears HIGH pitch, Right hears LOW pitch`;
+        }
+
+        if (dopplerTime - lastDopplerPulse > 0.15) { 
+            dopplerPulses.push({ x: sourceX, y: sourceY, t: dopplerTime });
+            lastDopplerPulse = dopplerTime;
+        }
+
+        dopplerPulses.forEach((p, i) => {
+            let age = dopplerTime - p.t;
+            let r = age * c;
+            
+            if (r > dopW) {
+                dopplerPulses.splice(i, 1);
+                return;
+            }
+
+            dopCtx.beginPath();
+            dopCtx.arc(p.x, p.y, r, 0, Math.PI * 2);
+            let alpha = Math.max(0, 1 - r / 600);
+            dopCtx.strokeStyle = `rgba(52, 152, 219, ${alpha})`;
+            dopCtx.lineWidth = 2;
+            dopCtx.stroke();
+        });
+
+        dopCtx.fillStyle = "#ecf0f1";
+        dopCtx.beginPath(); dopCtx.arc(padding/2, sourceY, 15, 0, Math.PI*2); dopCtx.fill();
+        dopCtx.fillStyle = "#2c3e50"; dopCtx.font = "bold 14px sans-serif"; dopCtx.fillText("A", padding/2 - 5, sourceY + 5);
+        
+        dopCtx.fillStyle = "#ecf0f1";
+        dopCtx.beginPath(); dopCtx.arc(dopW - padding/2, sourceY, 15, 0, Math.PI*2); dopCtx.fill();
+        dopCtx.fillStyle = "#2c3e50"; dopCtx.font = "bold 14px sans-serif"; dopCtx.fillText("B", dopW - padding/2 - 5, sourceY + 5);
+
+
+        dopCtx.fillStyle = "#ecf0f1";
+        dopCtx.fillRect(sourceX - 25, sourceY - 15, 50, 30); 
+        dopCtx.fillStyle = "#e74c3c";
+        dopCtx.fillRect(sourceX - 5, sourceY - 10, 10, 20); 
+        dopCtx.fillRect(sourceX - 10, sourceY - 5, 20, 10); 
+        
+        dopCtx.fillStyle = movingRight ? "#3498db" : "#e74c3c"; 
+        dopCtx.fillRect(sourceX - 15, sourceY - 20, 10, 5);
+        dopCtx.fillStyle = movingRight ? "#e74c3c" : "#3498db";
+        dopCtx.fillRect(sourceX + 5, sourceY - 20, 10, 5);
+
+        dopCtx.fillStyle = "#111111"; 
+        dopCtx.beginPath(); dopCtx.arc(sourceX - 15, sourceY + 15, 6, 0, Math.PI*2); dopCtx.fill();
+        dopCtx.beginPath(); dopCtx.arc(sourceX + 15, sourceY + 15, 6, 0, Math.PI*2); dopCtx.fill();
+
+        requestAnimationFrame(animate);
+    }
+
+    // ==========================================
+    // INTERACTIVE EXPLAINER LOGIC (Pendulum)
+    // ==========================================
+    const explanationSteps = [
+        {
+            title: "1. The Starting Position (Equilibrium)",
+            desc: "The wave process starts at the baseline (the <strong>equilibrium line</strong>). Displacement is currently zero. The medium is completely at rest, but energy is about to push it upward.",
+            analogy: "<strong>Swing Analogy:</strong> The swing hangs straight down, completely motionless, just before you push off.",
+            progress: 0.0,
+            showAnnos: []
+        },
+        {
+            title: "2. The Crest (Peak Displacement)",
+            desc: "Energy pushes the particle up to its absolute peak the <strong>Crest</strong>. This represents the maximum positive displacement from the center line.",
+            analogy: "<strong>Swing Analogy:</strong> You have swung all the way forward to the highest point in front. You momentarily pause in mid-air.",
+            progress: 0.25,
+            showAnnos: ["anno-crest"]
+        },
+        {
+            title: "3. Crossing Back (The Half-Cycle Trap)",
+            desc: "Restoring forces pull the particle back down. It crosses the equilibrium line at 0 displacement. However, because it is moving downward, <strong>it is not back to its starting state yet.</strong> The wave is only 50 percent complete.",
+            analogy: "<strong>Swing Analogy:</strong> You rush backward through the center point. You are at the bottom, but traveling backward, not forward.",
+            progress: 0.50,
+            showAnnos: ["anno-crest", "anno-half"]
+        },
+        {
+            title: "4. The Trough (Valley Displacement)",
+            desc: "Momentum carries the particle past the center down to its lowest point the <strong>Trough</strong>. This is the maximum negative displacement.",
+            analogy: "<strong>Swing Analogy:</strong> You swing all the way up to the highest point in the back and pause.",
+            progress: 0.75,
+            showAnnos: ["anno-crest", "anno-half", "anno-trough"]
+        },
+        {
+            title: "5. Return to Start (One Complete Wave / 1 Hz)",
+            desc: "Finally, the particle travels back up to the center, moving upward exactly like it began in Step 1. <strong>This is one complete wavelength (λ).</strong> If this entire sequence occurs in exactly 1 second, its frequency is <strong>1 Hertz (1 Hz)</strong>.",
+            analogy: "<strong>Swing Analogy:</strong> You swing back down to the center point, moving forward again. You are now exactly back at your starting state, ready to repeat the trip.",
+            progress: 1.0,
+            showAnnos: ["anno-crest", "anno-half", "anno-trough", "anno-full-bracket"]
+        }
+    ];
+
+    let currentStepIndex = 0;
+    let currentInterProgress = 0;
+    let targetInterProgress = 0;
+    let isLoopPlaying = false;
+    let loopTime = 0;
+
+    const wavePathEl = document.getElementById('interactive-wave-path');
+    const waveParticleEl = document.getElementById('wave-particle');
+    const dispLineEl = document.getElementById('displacement-line');
+    const swingRopeEl = document.getElementById('swing-rope');
+    const swingSeatEl = document.getElementById('swing-seat');
+    const swingArcEl = document.getElementById('swing-arc');
+
+    function updateExplainerUI() {
+        const step = explanationSteps[currentStepIndex];
+        
+        document.getElementById('step-title').innerHTML = step.title;
+        document.getElementById('step-desc').innerHTML = step.desc;
+        document.getElementById('step-analogy').innerHTML = step.analogy;
+
+        document.getElementById('prevStepBtn').disabled = (currentStepIndex === 0) || isLoopPlaying;
+        document.getElementById('nextStepBtn').disabled = (currentStepIndex === explanationSteps.length - 1) || isLoopPlaying;
+
+        const dots = document.querySelectorAll('.step-dot');
+        dots.forEach((dot, index) => {
+            if (index === currentStepIndex) {
+                dot.style.backgroundColor = 'var(--accent)';
+                dot.style.transform = 'scale(1.2)';
+            } else {
+                dot.style.backgroundColor = '#cbd5e1';
+                dot.style.transform = 'scale(1)';
+            }
+        });
+
+        if (!isLoopPlaying) {
+            targetInterProgress = step.progress;
+        }
+
+        const allAnnos = ["anno-crest", "anno-half", "anno-trough", "anno-full-bracket"];
+        allAnnos.forEach(annoId => {
+            const el = document.getElementById(annoId);
+            if (el) {
+                if (isLoopPlaying || step.showAnnos.includes(annoId)) {
+                    el.style.opacity = "1";
+                } else {
+                    el.style.opacity = "0";
+                }
+            }
+        });
+    }
+
+    function changeInteractiveStep(dir) {
+        if (isLoopPlaying) togglePlayLoop(); 
+        currentStepIndex = Math.max(0, Math.min(explanationSteps.length - 1, currentStepIndex + dir));
+        updateExplainerUI();
+    }
+
+    function togglePlayLoop() {
+        isLoopPlaying = !isLoopPlaying;
+        const playBtn = document.getElementById('loopPlayBtn');
+        if (isLoopPlaying) {
+            playBtn.innerText = "Stop Loop";
+            playBtn.style.backgroundColor = "var(--danger)";
+        } else {
+            playBtn.innerText = "Play Continuous Loop";
+            playBtn.style.backgroundColor = "var(--success)";
+            updateExplainerUI();
+        }
+    }
+
+    function renderInteractiveFrame() {
+        if (isLoopPlaying) {
+            loopTime += 0.015; 
+            currentInterProgress = (loopTime % 1.0);
+            
+            let calculatedStep = Math.floor(currentInterProgress * 4.9);
+            if (calculatedStep !== currentStepIndex) {
+                currentStepIndex = calculatedStep;
+                updateExplainerUI();
+            }
+        } else {
+            currentInterProgress += (targetInterProgress - currentInterProgress) * 0.1;
+        }
+
+        const startX = 80;
+        const waveWidth = 400;
+        const centerY = 175;
+        const amp = 100;
+
+        let pathD = `M ${startX} ${centerY}`;
+        const activeEndX = startX + (waveWidth * currentInterProgress);
+        
+        for (let x = startX; x <= activeEndX; x += 2) {
+            let theta = (2 * Math.PI * (x - startX)) / waveWidth;
+            let y = centerY - amp * Math.sin(theta);
+            pathD += ` L ${x} ${y}`;
+        }
+        if(wavePathEl) wavePathEl.setAttribute('d', pathD);
+
+        const particleX = startX + (waveWidth * currentInterProgress);
+        const particleY = centerY - amp * Math.sin(2 * Math.PI * currentInterProgress);
+        
+        if(waveParticleEl) {
+            waveParticleEl.setAttribute('cx', particleX);
+            waveParticleEl.setAttribute('cy', particleY);
+        }
+
+        if(dispLineEl) {
+            dispLineEl.setAttribute('x1', particleX);
+            dispLineEl.setAttribute('y1', centerY);
+            dispLineEl.setAttribute('x2', particleX);
+            dispLineEl.setAttribute('y2', particleY);
+        }
+
+        const swingCenterX = 650;
+        const swingCenterY = 60;
+        const ropeLength = 120;
+        const maxAngle = 0.6; 
+        const currentAngle = maxAngle * Math.sin(2 * Math.PI * currentInterProgress);
+
+        const bobX = swingCenterX + ropeLength * Math.sin(currentAngle);
+        const bobY = swingCenterY + ropeLength * Math.cos(currentAngle);
+
+        if(swingRopeEl) {
+            swingRopeEl.setAttribute('x2', bobX);
+            swingRopeEl.setAttribute('y2', bobY);
+        }
+        if(swingSeatEl) {
+            swingSeatEl.setAttribute('cx', bobX);
+            swingSeatEl.setAttribute('cy', bobY);
+        }
+
+        if(swingArcEl) {
+            let arcPathD = "";
+            if (Math.abs(currentAngle) > 0.01) {
+                let sweep = currentAngle > 0 ? 0 : 1; 
+                arcPathD = `M ${swingCenterX} ${swingCenterY + ropeLength} A ${ropeLength} ${ropeLength} 0 0 ${sweep} ${bobX} ${bobY}`;
+            }
+            swingArcEl.setAttribute('d', arcPathD);
+        }
+
+        requestAnimationFrame(renderInteractiveFrame);
+    }
+
+    // --- INITIALIZE ---
+    initEMSpectrum();
+    initRedshift();
+    setRippleMode('diffraction');
+    generateQuiz();
+    animate();
+    
+    updateExplainerUI();
+    renderInteractiveFrame();
+
+</script>
+</body>
+</html>
