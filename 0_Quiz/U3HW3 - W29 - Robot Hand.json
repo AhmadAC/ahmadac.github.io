@@ -1,5 +1,10 @@
 [
     {
+        "quiz_metadata": {
+            "info_content": "<b>Refer to the PDF or the paper version of the report, to answer the following questions:</b><a href=\"media/Robot Hand.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">📄 Robot Hand.pdf</a><b> </b>"
+        }
+    },
+    {
         "question_name": "Question 1",
         "question number": 1,
         "question_type": "multiple_choice_question",
