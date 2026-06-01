@@ -364,7 +364,7 @@
             <p>Waves made of vibrating electric and magnetic fields. They <b>DO NOT require a medium</b> to travel.</p>
             <ul>
                 <li>Can travel perfectly through a complete vacuum (like outer space).</li>
-                <li>Travel at the speed of light (300,000,000 m/s in space).</li>
+                <li>Travel at the speed of light (3 &times; 10<sup>8</sup> m/s in space).</li>
                 <li>Includes Visible Light, Radio Waves, X-Rays, and Microwaves.</li>
             </ul>
         </div>
@@ -697,8 +697,21 @@
                 <input type="range" id="starVelSlider" min="-15" max="15" step="1" value="0">
             </div>
             <div class="math-box" style="padding: 15px;">
-                <p style="margin:0; font-size:1.1em;">Doppler Shift Formula (Light):</p>
+                <p style="margin:0; font-size:1.1em; color: #f1c40f;">Doppler Shift Formula (Light):</p>
                 <div class="math-equation">z &approx; <span class="frac"><span class="num">v</span><span class="den">c</span></span> &approx; <span class="frac"><span class="num">&Delta;&lambda;</span><span class="den">&lambda;<sub>rest</sub></span></span></div>
+                
+                <p style="margin-top: 10px; font-size: 0.95em; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px;"><b>The Doppler Rule:</b></p>
+                <ul style="margin-top: 5px; font-size: 0.95em; list-style: none; padding-left: 0;">
+                    <li style="display:flex; align-items:center; margin-bottom:5px;">
+                        <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;stroke-width:3;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <b>Moving Away:</b> Waves stretch out &rarr; Wavelength gets longer (Redshift)
+                    </li>
+                    <li style="display:flex; align-items:center;">
+                        <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;stroke-width:3;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        <b>Moving Towards:</b> Waves squish together &rarr; Wavelength gets shorter (Blueshift)
+                    </li>
+                </ul>
+
                 <div class="calc-example" id="dopplerCalcBox">
                     Adjust the slider to see the math in action!
                 </div>
@@ -717,6 +730,15 @@
             <p>When an excited electron falls from a higher orbit to a lower one, it loses energy. This exact packet of energy is released as a <b>Photon</b> (a particle of light). The color (wavelength λ) of the photon depends precisely on how big the energy drop was.</p>
             
             <div class="math-box">
+                <p style="margin:0; font-size:1.2em; color: #f1c40f;">The Atom "Staircase"</p>
+                <p style="margin-top: 10px; font-size: 0.95em; line-height: 1.5;">Think of the atom like a staircase. An electron can't float halfway between steps; it has to jump from one step to another.</p>
+                <ul style="margin-top: 10px; font-size: 0.95em; line-height: 1.5;">
+                    <li><b>Small Drop (1 step):</b> Releases a small packet of energy (Lower energy waves, like Red light).</li>
+                    <li><b>Big Drop (Multiple steps):</b> Releases a large packet of energy (Higher energy waves, like Blue or UV light).</li>
+                </ul>
+                
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 15px 0;">
+                
                 <p style="margin:0;">Photon Energy Equation:</p>
                 <div class="math-equation">E = <span class="frac"><span class="num">h &times; c</span><span class="den">&lambda;</span></span></div>
                 <div class="math-vars">
@@ -792,6 +814,25 @@
             <p>This is why a piece of heated metal goes from glowing dull red, to orange, to bright white-blue as it gets hotter! We use <b>Wien's Displacement Law</b> to calculate the temperature of distant stars just by looking at their peak color.</p>
         </div>
         <div class="math-box">
+            <p style="margin:0; font-size:1.2em; color: #f1c40f;">Color = Temperature</p>
+            <p style="margin-top: 10px; font-size: 0.95em; line-height: 1.5;">Astronomers use the color of a glowing object to calculate its exact temperature! You can see this pattern in stars:</p>
+            <ul style="margin-top: 10px; font-size: 0.95em; line-height: 1.5; list-style: none; padding-left: 0;">
+                <li style="display:flex; align-items:center; margin-bottom:5px;">
+                    <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;stroke:none;"><circle cx="12" cy="12" r="8" fill="#e74c3c"/></svg> 
+                    <b>Red Stars:</b> Cooler (around 3.0 &times; 10<sup>3</sup> K)
+                </li>
+                <li style="display:flex; align-items:center; margin-bottom:5px;">
+                    <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;stroke:none;"><circle cx="12" cy="12" r="8" fill="#f1c40f"/></svg> 
+                    <b>Yellow Stars:</b> Medium (like our Sun, around 5.8 &times; 10<sup>3</sup> K)
+                </li>
+                <li style="display:flex; align-items:center;">
+                    <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;stroke:none;"><circle cx="12" cy="12" r="8" fill="#3498db"/></svg> 
+                    <b>Blue Stars:</b> Super Hot (over 1.0 &times; 10<sup>4</sup> K)
+                </li>
+            </ul>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 15px 0;">
+
             <p style="margin:0;">Wien's Displacement Law:</p>
             <div class="math-equation">&lambda;<sub>peak</sub> = <span class="frac"><span class="num">2.898 &times; 10<sup>-3</sup></span><span class="den">T</span></span></div>
             <div class="math-vars">
@@ -801,9 +842,9 @@
             </div>
             <div class="calc-example">
                 <b>Example: Calculating the Sun's Surface Temp</b><br>
-                We observe the Sun's peak emission at &lambda; = 500 nm.<br>
+                We observe the Sun's peak emission at &lambda; = 5.0 &times; 10<sup>-7</sup> m.<br>
                 <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
-                    T = <span class="frac"><span class="num">2.898 &times; 10<sup>-3</sup></span><span class="den">500 &times; 10<sup>-9</sup></span></span>
+                    T = <span class="frac"><span class="num">2.898 &times; 10<sup>-3</sup></span><span class="den">5.0 &times; 10<sup>-7</sup></span></span>
                 </div>
                 T &approx; 5,796 K
             </div>
@@ -821,6 +862,21 @@
             <p>Where the <i>crests</i> of both waves meet, they build each other up (<b>Constructive Interference</b> = Bright Fringes). Where a <i>crest</i> meets a <i>trough</i>, they cancel out (<b>Destructive Interference</b> = Dark Fringes).</p>
             
             <div class="math-box">
+                <p style="margin:0; font-size:1.2em; color: #f1c40f;">Wave Math: Adding & Canceling</p>
+                <p style="margin-top: 10px; font-size: 0.95em; line-height: 1.5;">When two waves overlap, their energies literally add together or subtract from one another:</p>
+                <ul style="margin-top: 10px; font-size: 0.95em; line-height: 1.5; list-style: none; padding-left: 0;">
+                    <li style="display:flex; align-items:center; margin-bottom:5px;">
+                        <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;color:#2ecc71;stroke-width:3;"><path d="M12 5v14M5 12h14"/></svg> 
+                        <b>Crest + Crest = Giant Wave</b><br>(Constructive Interference &rarr; Bright Spots)
+                    </li>
+                    <li style="display:flex; align-items:center;">
+                        <svg class="icon" viewBox="0 0 24 24" style="width:16px;height:16px;margin-right:8px;color:#e74c3c;stroke-width:3;"><path d="M5 12h14"/></svg> 
+                        <b style="color: #e74c3c;">Crest + Trough = Flat Water</b><br>(Destructive Interference &rarr; Dark Spots)
+                    </li>
+                </ul>
+
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 15px 0;">
+
                 <p style="margin:0;">Fringe Position Equation:</p>
                 <div class="math-equation">y = <span class="frac"><span class="num">&lambda; &times; L</span><span class="den">d</span></span></div>
                 <div class="math-vars">
@@ -831,11 +887,11 @@
                 </div>
                 <div class="calc-example">
                     <b>Example Calculation:</b><br>
-                    Red Laser (&lambda; = 600 nm = 6&times;10<sup>-7</sup> m)<br>
+                    Red Laser (&lambda; = 6.0 &times; 10<sup>-7</sup> m)<br>
                     Screen is L = 2.0 m away.<br>
-                    Slits are d = 0.5 mm (5&times;10<sup>-4</sup> m) apart.<br>
+                    Slits are d = 5.0 &times; 10<sup>-4</sup> m apart.<br>
                     <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
-                        y = <span class="frac"><span class="num">6&times;10<sup>-7</sup> &times; 2.0</span><span class="den">5&times;10<sup>-4</sup></span></span>
+                        y = <span class="frac"><span class="num">6.0 &times; 10<sup>-7</sup> &times; 2.0</span><span class="den">5.0 &times; 10<sup>-4</sup></span></span>
                     </div>
                     y = 0.0024 m <b>(2.4 mm spacing)</b>
                 </div>
@@ -1054,23 +1110,24 @@
             }
         }
 
-        // Update Math Box
+        // Update Math Box (Simplified Explanations but preserving equations & scientific reasoning)
         let calcBox = document.getElementById('dopplerCalcBox');
         let exampleRest = hRest[3]; // Red line
         let exampleObs = exampleRest * (1 + z);
+        let shiftAmt = Math.abs(exampleObs - exampleRest);
+        let shiftText = v_c > 0 ? "(Stretched/Redder)" : v_c < 0 ? "(Squished/Bluer)" : "";
         
         calcBox.innerHTML = `
             <b>Observation of Hydrogen Alpha (Red Line):</b><br>
             &lambda;<sub>rest</sub> = ${exampleRest.toFixed(1)} nm<br>
-            Velocity (v) = ${(v_c * 100).toFixed(0)}% c<br>
+            Velocity (v) = ${(Math.abs(v_c) * 100).toFixed(0)}% c<br>
             <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
                 &lambda;<sub>observed</sub> = &lambda;<sub>rest</sub> &times; (1 + <span class="frac" style="font-size:0.9em;"><span class="num">v</span><span class="den">c</span></span>)
             </div>
-            <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
-                &lambda;<sub>observed</sub> = ${exampleRest.toFixed(1)} &times; (1 + ${v_c.toFixed(2)})
-            </div>
             <b>&lambda;<sub>observed</sub> = ${exampleObs.toFixed(1)} nm</b><br>
-            Shift (&Delta;&lambda;) = ${(exampleObs - exampleRest).toFixed(1)} nm
+            <span style="color:${v_c > 0 ? '#ff7675' : v_c < 0 ? '#74b9ff' : '#ecf0f1'}">
+                Shift Amount (&Delta;&lambda;) = ${shiftAmt.toFixed(1)} nm ${shiftText}
+            </span>
         `;
     }
     document.getElementById('starVelSlider').addEventListener('input', updateRedshift);
@@ -1110,7 +1167,7 @@
         } else {
             document.getElementById('btnRefraction').classList.add('active');
             legend.style.display = 'none';
-            note.innerHTML = "<b>Refraction:</b> When a wave enters a denser material at an angle, it slows down. This causes the entire wave line to bend mathematically (Snell's Law), <b>reducing the physical distance (wavelength λ) between the waves</b>.";
+            note.innerHTML = "<b>Refraction:</b> When a wave enters a denser material at an angle, it slows down. This causes the entire wave line to bend, <b>reducing the physical distance (wavelength λ) between the waves</b>.";
         }
     }
 
