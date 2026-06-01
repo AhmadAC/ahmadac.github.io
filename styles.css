@@ -1,3 +1,6 @@
+
+/* styles.css */
+
 :root {
     --bg-main: #2d3b45;
     --bg-quiz: #f0f2f5;
@@ -296,6 +299,22 @@ body {
     color: #555;
 }
 
+/* --- INFO SECTION --- */
+.quiz-info-section {
+    background-color: #e1f0fa;
+    border: 1px solid #008ee2;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #2d3b45;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.quiz-info-section a {
+    color: #005a9e;
+    text-decoration: underline;
+    font-weight: bold;
+}
 
 .question-frame {
     background-color: #ffffff;

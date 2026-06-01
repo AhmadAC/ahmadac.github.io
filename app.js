@@ -129,7 +129,29 @@ async function checkQuizExists(quizName) {
 function normalizeQuizData(raw) {
     let items = [];
     if (Array.isArray(raw)) {
-        items = raw;
+        raw.forEach(item => {
+            // Map legacy arrays to standard objects
+            if (Array.isArray(item)) {
+                let obj = {
+                    'question_name': item[0],
+                    'id': item[1],
+                    'type': item[2],
+                    'points': item[4],
+                    'question text': item[5],
+                    'url': item[6],
+                    'correct ans index': item[7],
+                    'answers': item[8]
+                };
+                for (let i = 9; i < item.length; i++) {
+                    if (item[i] !== undefined && item[i] !== null && String(item[i]).trim() !== "") {
+                        obj[String.fromCharCode(97 + i - 9)] = item[i]; // Convert back to a, b, c, etc.
+                    }
+                }
+                items.push(obj);
+            } else {
+                items.push(item);
+            }
+        });
     } else if (raw && typeof raw === 'object') {
         if (raw.multisheet && Array.isArray(raw.sheets)) {
             raw.sheets.forEach(sheet => {
@@ -163,11 +185,8 @@ function normalizeQuizData(raw) {
                     let jsonStr = val.replace(/'/g, '"');
                     item[key] = JSON.parse(jsonStr);
                     
-                    // --- THE FIX ---
-                    // Decode the newly unpacked inner array!
+                    // Decode the newly unpacked inner array
                     item[key] = recursiveDecode(item[key]); 
-                    // ---------------
-                    
                 } catch(e) {
                     // Ignore parse errors, leave as string
                 }
@@ -350,7 +369,8 @@ class QuizInstance {
 
         const results = await Promise.all(existenceChecks);
 
-        results.sort((a, b) => a.title.localeCompare(b.title, undefined, { numeric: true, sensitivity: 'base' }));
+        // Sort previous assignments using custom logic
+        results.sort((a, b) => this.customWeekSort(a.title, b.title));
 
         const fragment = document.createDocumentFragment();
         results.forEach(result => {
@@ -361,6 +381,22 @@ class QuizInstance {
         list.insertBefore(fragment, buttonToRemove);
         buttonToRemove.remove();
         console.log(`[DEBUG][Inst ${this.instanceId}] Rendered ${results.length} previous assignments.`);
+    }
+
+    // Extracted custom sort function to accurately sort by 'W' Number
+    customWeekSort(titleA, titleB) {
+        const getWeek = (str) => {
+            const match = str.match(/- W(\d+) -/i) || str.match(/W(\d+)/i);
+            return match ? parseInt(match[1], 10) : 0;
+        };
+        const weekA = getWeek(titleA);
+        const weekB = getWeek(titleB);
+        
+        if (weekA !== weekB) {
+            return weekA - weekB; // Numerical sort by week
+        }
+        // Fallback to alphabetical sorting if week is the same or missing
+        return titleA.localeCompare(titleB, undefined, { numeric: true, sensitivity: 'base' });
     }
 
     async loadAssignments(classCode) {
@@ -395,7 +431,9 @@ class QuizInstance {
         }
 
         let validTitles = Object.keys(assignmentsDict);
-        validTitles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+        
+        // --- NEW: Custom Week-Based Sort ---
+        validTitles.sort((a, b) => this.customWeekSort(a, b));
 
         list.innerHTML = "";
 
@@ -483,7 +521,17 @@ class QuizInstance {
         this.elements.btnJumpBottom?.classList.add("hidden");
 
         const container = this.elements.quizContent;
-        if (container) container.innerHTML = "Loading...";
+        if (container) {
+            // Keep the info section around but clean out the rest
+            const infoSection = container.querySelector('.quiz-info-section');
+            container.innerHTML = "";
+            if (infoSection) {
+                infoSection.classList.add('hidden');
+                infoSection.querySelector('.info-content').innerHTML = "";
+                container.appendChild(infoSection);
+            }
+        }
+        
         if (this.elements.documentContent) this.elements.documentContent.innerHTML = "Loading...";
         
         this.switchView("view-quiz");
@@ -502,6 +550,31 @@ class QuizInstance {
             if (rawData.metadata && rawData.metadata.type === 'document') {
                 this.renderDocument(quizName, rawData);
                 return;
+            }
+
+            let infoContent = "";
+            if (Array.isArray(rawData)) {
+                const metaItem = rawData.find(item => item && item.quiz_metadata);
+                if (metaItem && metaItem.quiz_metadata.info_content) {
+                    infoContent = metaItem.quiz_metadata.info_content;
+                }
+            } else if (rawData?.quiz_metadata?.info_content) {
+                infoContent = rawData.quiz_metadata.info_content;
+            }
+
+            const infoSection = this.root.querySelector('.quiz-info-section');
+            const infoContentDiv = this.root.querySelector('.info-content');
+            if (infoSection && infoContentDiv) {
+                if (infoContent) {
+                    // Rewrite media paths so they link correctly in the browser
+                    infoContent = infoContent.replace(/href=["']media\//gi, 'href="0_Quiz/media/');
+                    infoContent = infoContent.replace(/src=["']media\//gi, 'src="0_Quiz/media/');
+                    infoContentDiv.innerHTML = infoContent;
+                    infoSection.classList.remove('hidden');
+                } else {
+                    infoSection.classList.add('hidden');
+                    infoContentDiv.innerHTML = "";
+                }
             }
 
             let randomizeQuestions = true;
@@ -565,7 +638,7 @@ class QuizInstance {
         } catch (e) {
             console.error(`[DEBUG][Inst ${this.instanceId}] Load Error:`, e);
             if (container) {
-                container.innerHTML = `<p style="color:red; font-weight:bold; padding:20px;">Failed to load data: ${e.message}</p>`;
+                container.innerHTML += `<p style="color:red; font-weight:bold; padding:20px;">Failed to load data: ${e.message}</p>`;
             }
         }
     }
@@ -623,7 +696,6 @@ class QuizInstance {
         const container = this.elements.quizContent;
         if (!container) return;
         
-        container.innerHTML = "";
         this.matchingStates = {};
         this.selectedBankWord = null;
         this.selectedSlot = null;
