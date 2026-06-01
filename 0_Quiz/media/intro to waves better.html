@@ -238,13 +238,36 @@
             letter-spacing: 1px; 
             text-align: center; 
             margin: 20px 0;
-            white-space: normal;  /* Removed nowrap to allow natural wrapping without scrollbar */
+            white-space: normal;  
             word-wrap: break-word; 
             padding-bottom: 5px; 
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .math-vars { font-size: 1.1em; margin-top: 15px; color: #bdc3c7; line-height: 1.8;}
         
+        /* Fraction Styling */
+        .frac {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+            text-align: center;
+        }
+        .frac .num {
+            border-bottom: 2px solid currentColor;
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+        .frac .den {
+            padding: 0 4px;
+            line-height: 1.2;
+        }
+
         .calc-example { background: rgba(255,255,255,0.1); border-left: 4px solid var(--success); padding: 15px; margin-top: 20px; border-radius: 4px; font-family: monospace; font-size: 1.05em; color: #ecf0f1;}
         .dark-mode .calc-example { background: rgba(255,255,255,0.05); }
 
@@ -675,7 +698,7 @@
             </div>
             <div class="math-box" style="padding: 15px;">
                 <p style="margin:0; font-size:1.1em;">Doppler Shift Formula (Light):</p>
-                <div class="math-equation">z ≈ v / c ≈ Δλ / λ<sub>rest</sub></div>
+                <div class="math-equation">z &approx; <span class="frac"><span class="num">v</span><span class="den">c</span></span> &approx; <span class="frac"><span class="num">&Delta;&lambda;</span><span class="den">&lambda;<sub>rest</sub></span></span></div>
                 <div class="calc-example" id="dopplerCalcBox">
                     Adjust the slider to see the math in action!
                 </div>
@@ -695,19 +718,23 @@
             
             <div class="math-box">
                 <p style="margin:0;">Photon Energy Equation:</p>
-                <div class="math-equation">E = (h × c) / λ</div>
+                <div class="math-equation">E = <span class="frac"><span class="num">h &times; c</span><span class="den">&lambda;</span></span></div>
                 <div class="math-vars">
                     <b>E</b> = Energy (Joules)<br>
-                    <b>h</b> = Planck's Constant (6.626 × 10<sup>-34</sup> J·s)<br>
-                    <b>c</b> = Speed of Light (3 × 10<sup>8</sup> m/s)<br>
-                    <b>λ</b> = Wavelength (meters)
+                    <b>h</b> = Planck's Constant (6.626 &times; 10<sup>-34</sup> J&middot;s)<br>
+                    <b>c</b> = Speed of Light (3 &times; 10<sup>8</sup> m/s)<br>
+                    <b>&lambda;</b> = Wavelength (meters)
                 </div>
                 <div class="calc-example">
                     <b>Example: Hydrogen Red Line (n=3 to n=2)</b><br>
-                    Drop Energy: ΔE ≈ 3.03 × 10<sup>-19</sup> Joules<br>
-                    λ = (h × c) / E<br>
-                    λ = (6.626×10<sup>-34</sup> × 3×10<sup>8</sup>) / 3.03×10<sup>-19</sup><br>
-                    λ ≈ 656 × 10<sup>-9</sup> m <b>(656 nm = Red!)</b>
+                    Drop Energy: &Delta;E &approx; 3.03 &times; 10<sup>-19</sup> Joules<br>
+                    <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
+                        &lambda; = <span class="frac"><span class="num">h &times; c</span><span class="den">E</span></span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
+                        &lambda; = <span class="frac"><span class="num">6.626&times;10<sup>-34</sup> &times; 3&times;10<sup>8</sup></span><span class="den">3.03&times;10<sup>-19</sup></span></span>
+                    </div>
+                    &lambda; &approx; 656 &times; 10<sup>-9</sup> m <b>(656 nm = Red!)</b>
                 </div>
             </div>
         </div>
@@ -766,17 +793,19 @@
         </div>
         <div class="math-box">
             <p style="margin:0;">Wien's Displacement Law:</p>
-            <div class="math-equation">λ<sub>peak</sub> = (2.898 × 10<sup>-3</sup>) / T</div>
+            <div class="math-equation">&lambda;<sub>peak</sub> = <span class="frac"><span class="num">2.898 &times; 10<sup>-3</sup></span><span class="den">T</span></span></div>
             <div class="math-vars">
-                <b>λ<sub>peak</sub></b> = Peak Wavelength (meters)<br>
+                <b>&lambda;<sub>peak</sub></b> = Peak Wavelength (meters)<br>
                 <b>T</b> = Temperature in Kelvin (K)<br>
-                <b>b</b> = Wien's Constant (2.898 × 10<sup>-3</sup> m·K)
+                <b>b</b> = Wien's Constant (2.898 &times; 10<sup>-3</sup> m&middot;K)
             </div>
             <div class="calc-example">
                 <b>Example: Calculating the Sun's Surface Temp</b><br>
-                We observe the Sun's peak emission at λ = 500 nm.<br>
-                T = (2.898 × 10<sup>-3</sup>) / (500 × 10<sup>-9</sup>)<br>
-                T ≈ 5,796 K
+                We observe the Sun's peak emission at &lambda; = 500 nm.<br>
+                <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
+                    T = <span class="frac"><span class="num">2.898 &times; 10<sup>-3</sup></span><span class="den">500 &times; 10<sup>-9</sup></span></span>
+                </div>
+                T &approx; 5,796 K
             </div>
         </div>
     </div>
@@ -793,19 +822,21 @@
             
             <div class="math-box">
                 <p style="margin:0;">Fringe Position Equation:</p>
-                <div class="math-equation">y = (λ × L) / d</div>
+                <div class="math-equation">y = <span class="frac"><span class="num">&lambda; &times; L</span><span class="den">d</span></span></div>
                 <div class="math-vars">
                     <b>y</b> = Distance from center to 1st bright fringe (m)<br>
-                    <b>λ</b> = Wavelength of light (m)<br>
+                    <b>&lambda;</b> = Wavelength of light (m)<br>
                     <b>L</b> = Distance to the screen (m)<br>
                     <b>d</b> = Distance between the two slits (m)
                 </div>
                 <div class="calc-example">
                     <b>Example Calculation:</b><br>
-                    Red Laser (λ = 600 nm = 6×10<sup>-7</sup> m)<br>
+                    Red Laser (&lambda; = 600 nm = 6&times;10<sup>-7</sup> m)<br>
                     Screen is L = 2.0 m away.<br>
-                    Slits are d = 0.5 mm (5×10<sup>-4</sup> m) apart.<br>
-                    y = (6×10<sup>-7</sup> × 2.0) / (5×10<sup>-4</sup>)<br>
+                    Slits are d = 0.5 mm (5&times;10<sup>-4</sup> m) apart.<br>
+                    <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
+                        y = <span class="frac"><span class="num">6&times;10<sup>-7</sup> &times; 2.0</span><span class="den">5&times;10<sup>-4</sup></span></span>
+                    </div>
                     y = 0.0024 m <b>(2.4 mm spacing)</b>
                 </div>
             </div>
@@ -884,14 +915,14 @@
     <div class="panel grid-2">
         <div class="math-box">
             <p style="margin:0; font-size:1.2em; color:#ecf0f1;">The Universal Wave Equation</p>
-            <div class="math-equation">v = f × λ</div>
+            <div class="math-equation">v = f &times; &lambda;</div>
             <div class="math-vars">
                 <b>v</b> = Velocity / Speed (m/s)<br>
                 <b>f</b> = Frequency (Hz)<br>
-                <b>λ</b> = Wavelength (meters)
+                <b>&lambda;</b> = Wavelength (meters)
             </div>
             <p style="margin-top: 20px; font-size: 0.9em; text-align: left;">
-                <i>Rule of thumb:</i> In a specific medium, speed (v) stays the same. So if Frequency goes UP, Wavelength (λ) must go DOWN to balance the equation!
+                <i>Rule of thumb:</i> In a specific medium, speed (v) stays the same. So if Frequency goes UP, Wavelength (&lambda;) must go DOWN to balance the equation!
             </p>
         </div>
 
@@ -900,7 +931,7 @@
                 <svg class="icon" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9l2 2 4-4"/></svg>
                 Interactive Knowledge Check
             </h3>
-            <p style="margin-top:0;">Use the wave equation (v = f × λ) to solve the problem below.</p>
+            <p style="margin-top:0;">Use the wave equation (v = f &times; &lambda;) to solve the problem below.</p>
             
             <div class="quiz-question" id="quizQuestion">Loading question...</div>
             
@@ -1030,12 +1061,16 @@
         
         calcBox.innerHTML = `
             <b>Observation of Hydrogen Alpha (Red Line):</b><br>
-            λ<sub>rest</sub> = ${exampleRest.toFixed(1)} nm<br>
+            &lambda;<sub>rest</sub> = ${exampleRest.toFixed(1)} nm<br>
             Velocity (v) = ${(v_c * 100).toFixed(0)}% c<br>
-            λ<sub>observed</sub> = λ<sub>rest</sub> × (1 + v/c)<br>
-            λ<sub>observed</sub> = ${exampleRest.toFixed(1)} × (1 + ${v_c.toFixed(2)})<br>
-            <b>λ<sub>observed</sub> = ${exampleObs.toFixed(1)} nm</b><br>
-            Shift (Δλ) = ${(exampleObs - exampleRest).toFixed(1)} nm
+            <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
+                &lambda;<sub>observed</sub> = &lambda;<sub>rest</sub> &times; (1 + <span class="frac" style="font-size:0.9em;"><span class="num">v</span><span class="den">c</span></span>)
+            </div>
+            <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
+                &lambda;<sub>observed</sub> = ${exampleRest.toFixed(1)} &times; (1 + ${v_c.toFixed(2)})
+            </div>
+            <b>&lambda;<sub>observed</sub> = ${exampleObs.toFixed(1)} nm</b><br>
+            Shift (&Delta;&lambda;) = ${(exampleObs - exampleRest).toFixed(1)} nm
         `;
     }
     document.getElementById('starVelSlider').addEventListener('input', updateRedshift);
