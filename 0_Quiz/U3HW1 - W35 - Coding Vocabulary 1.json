@@ -1,0 +1,150 @@
+[
+    {
+        "quiz_metadata": {
+            "info_content": "<b>Refer to the PDF to help answer the following questions: </b><a href=\"media/Coding Vocabulary.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">📄 Coding Vocabulary.pdf</a><b> </b>"
+        }
+    },
+    {
+        "question_name": "Question 1",
+        "question_type": "matching_question",
+        "question_text": "Match the following terms to the correct example:",
+        "points_possible": 16,
+        "matching_answer_incorrect_matches": [],
+        "answers": [
+            {
+                "text": "A window in VS Code (often near the Terminal) that shows the messages or results that come out when your code runs. It's where you see what print() shows on the screen.",
+                "answer_text": "Output Window"
+            },
+            {
+                "text": "A popular language that people use to talk to computers. It's known for being easier to read and write than some other computer languages.",
+                "answer_text": "Python"
+            },
+            {
+                "text": "Just another name for a folder on your computer, used to keep files organized.",
+                "answer_text": "Directory"
+            },
+            {
+                "text": "A website where people can save their code online, share it with others, and work together on coding projects. Think of it like Tencent Docs for code.",
+                "answer_text": "GitHub"
+            },
+            {
+                "text": "A mistake in the code that stops the program from working correctly. Sometimes called a \"bug\".",
+                "answer_text": "Error"
+            },
+            {
+                "text": "A special window, usually at the bottom of VS Code, where you can type text commands to tell the computer what to do, like run your Python code. You also see text messages back from the computer here.",
+                "answer_text": "Terminal"
+            },
+            {
+                "text": "The plan or steps the computer follows to do something. Like the rules for a game or the steps in a recipe.",
+                "answer_text": "Logic"
+            },
+            {
+                "text": "Like a big toolbox filled with ready-made code tools. You can use these tools in your Python code so you don't have to build everything from scratch.",
+                "answer_text": "Library"
+            },
+            {
+                "text": "A file containing a list of computer instructions (code) that tells the computer to do a specific job.",
+                "answer_text": "Script"
+            },
+            {
+                "text": "The instructions written in a computer language (like Python) that tell a computer exactly what to do.",
+                "answer_text": "Code"
+            },
+            {
+                "text": "Doing something over and over again in your code. Like telling the computer to draw 5 stars, it does the \"draw star\" step 5 times.",
+                "answer_text": "Iteration"
+            },
+            {
+                "text": "What kind of information is inside a file. Is it text? A picture? Sound? Code? The file extension usually tells you the type.",
+                "answer_text": "File Type"
+            },
+            {
+                "text": "Like a special notebook app on the computer where you write instructions (code) for the computer. It helps make writing code easier.",
+                "answer_text": "VS Code"
+            },
+            {
+                "text": "A set of instructions (code) that makes a computer do something useful or fun, like a game, a calculator, or a drawing app.",
+                "answer_text": "Program"
+            },
+            {
+                "text": "A command you use in Python to bring code from a library or module into your own code, so you can use its tools.",
+                "answer_text": "Import"
+            },
+            {
+                "text": "Like one specific tool from the toolbox (library). It's a file with Python code inside that does a specific job.",
+                "answer_text": "Module"
+            }
+        ],
+        "distractors": [],
+        "question_url": ""
+    },
+    {
+        "question_name": "Question 2",
+        "question number": "Q2",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "question text": "Please write your English name used in class:",
+        "url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 3",
+        "question number": "Q3",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "correct ans index": " ",
+        "answers": [
+            {
+                "answer_text": "G6A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G6C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G7C",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8A",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8B",
+                "weight": 0
+            },
+            {
+                "answer_text": "G8C",
+                "weight": 0
+            }
+        ],
+        "a": "G6A",
+        "b": "G6B",
+        "c": "G6C",
+        "d": "G7A",
+        "e": "G7B",
+        "f": "G7C",
+        "g": "G8A",
+        "h": "G8B",
+        "i": "G8C"
+    }
+]
