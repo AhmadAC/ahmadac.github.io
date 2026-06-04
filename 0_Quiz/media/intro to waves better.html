@@ -1,3 +1,11 @@
+Here is the fully merged and corrected HTML file. I have taken your latest
+version (which added the Cosmos, Quantum, and Thermal sections) and restored the
+Transverse Wave Simulator, Mediums & Particles, and Active Noise Cancellation
+panels that were accidentally removed.
+
+All interactive physics, JavaScript animations, audio logic, and panel numbers
+(1 through 12) have been seamlessly integrated.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -594,10 +602,102 @@
         </div>
     </div>
 
-    <!-- PANEL 4: RIPPLE TANK & DOPPLER (COMBINED WAVE BEHAVIORS) -->
+    <!-- PANEL 4: TRANSVERSE WAVE SIMULATOR (RESTORED) -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 12h6"/></svg>
+        4. Transverse Wave Simulator (Properties & Behaviors)
+    </h2>
+    <div class="panel">
+        <div class="canvas-container">
+            <canvas id="waveCanvas" width="1000" height="250"></canvas>
+        </div>
+
+        <div class="controls">
+            <div>
+                <label>Frequency (Pitch): <span id="freqLabel">440</span> Hz</label>
+                <input type="range" id="freqSlider" min="150" max="800" value="440">
+            </div>
+            <div>
+                <label>Amplitude (Volume/Energy): <span id="ampLabel">50</span> percent</label>
+                <input type="range" id="ampSlider" min="0" max="100" value="50">
+            </div>
+            <div>
+                <button id="playBtn" class="play-btn" onclick="toggleSound()">
+                    <svg class="icon play-icon" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+                    <span id="playBtnText">Play Sound</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="controls" style="margin-top: 10px;">
+            <div class="span-col">
+                <label>Play Musical Notes:</label>
+                <div class="toggle-group music-group">
+                    <button onclick="playMusicNote(261.63)">C4</button>
+                    <button onclick="playMusicNote(293.66)">D4</button>
+                    <button onclick="playMusicNote(329.63)">E4</button>
+                    <button onclick="playMusicNote(349.23)">F4</button>
+                    <button onclick="playMusicNote(392.00)">G4</button>
+                    <button onclick="playMusicNote(440.00)">A4</button>
+                    <button onclick="playMusicNote(493.88)">B4</button>
+                    <button onclick="playMusicNote(523.25)">C5</button>
+                </div>
+                <button id="btnTwinkle" class="action-btn" onclick="playTwinkle()" style="width: 100%; margin-top: 15px;">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 9l12-2M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
+                    Play "Twinkle Twinkle Little Star"
+                </button>
+            </div>
+        </div>
+
+        <div class="controls" style="margin-top: 10px;">
+            <div class="span-col">
+                <label>Wave Behaviors (How waves react to boundaries):</label>
+                <div class="toggle-group">
+                    <button id="btnNormal" class="active" onclick="setBehavior('normal')">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L8 8h3v6H8l4 6 4-6h-3V8h3L12 2z"/></svg>
+                        Open Air
+                    </button>
+                    <button id="btnReverb" onclick="setBehavior('reverb')">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M1 20l7-12 4 6 5-8 6 14H1z"/></svg>
+                        Hard Wall (Reflection)
+                    </button>
+                    <button id="btnAbsorb" onclick="setBehavior('absorb')">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" stroke-dasharray="2 2"/></svg>
+                        Soft Foam (Absorption)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL 5: MEDIUMS & PARTICLES (RESTORED) -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 12h18M8 4v8M16 12v8"/></svg>
+        5. Particle Propagation (Why Mediums Matter)
+    </h2>
+    <div class="panel">
+        <p>Sound is a <b>Longitudinal Wave</b>. Watch how the wave travels by compressing and expanding particles based on the material's density.</p>
+        <div class="canvas-container" style="border-color: #34495e;">
+            <canvas id="particleCanvas" width="1000" height="150"></canvas>
+        </div>
+        <div class="controls">
+            <div class="span-col">
+                <label>Select a Medium for the Mechanical Wave:</label>
+                <select id="mediumSelect" onchange="changeMedium()">
+                    <option value="solid">Solid (Steel) - Tightly Packed Particles</option>
+                    <option value="liquid">Liquid (Water) - Looser Particles</option>
+                    <option value="gas" selected>Gas (Air) - Spread Out Particles</option>
+                    <option value="vacuum">Vacuum (Space) - NO Particles</option>
+                </select>
+                <div class="note" id="mediumNote"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL 6: RIPPLE TANK & DOPPLER (COMBINED WAVE BEHAVIORS) -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        4. Wave Behaviors: Diffraction, Refraction & Doppler
+        6. Wave Behaviors: Diffraction, Refraction & Doppler
     </h2>
     <div class="panel">
         <div class="toggle-group" style="margin-bottom: 15px;">
@@ -641,10 +741,36 @@
         </div>
     </div>
 
-    <!-- PANEL 5: LIGHT IN THE COSMOS - REDSHIFT & EMISSION SPECTRA -->
+    <!-- PANEL 7: ACTIVE NOISE CANCELLATION (RESTORED) -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        7. Active Noise Cancellation (Phase Shifting)
+    </h2>
+    <div class="panel">
+        <p>Why do noise-canceling earphones work so well? They use a tiny microphone to listen to outside noise, then instantly generate an <b>anti-noise</b> wave. This anti-noise is identical to the incoming sound but shifted by <b>180 degrees (half a wavelength)</b>. When the peaks of the incoming noise meet the troughs of the anti-noise, they mathematically add up to zero! This creates silence through <b>Destructive Interference</b>.</p>
+        
+        <div class="interactive-svg-container" style="background-color: #1a1a2e; border-color: #16213e;">
+            <svg id="ancSvg" class="svg-content-md" viewBox="0 0 1000 250" width="100%" height="100%" style="display: block;">
+                <!-- Grid line -->
+                <line x1="0" y1="125" x2="1000" y2="125" stroke="#4a5568" stroke-width="2" stroke-dasharray="5,5" />
+                
+                <!-- The 3 animated waves -->
+                <path id="ancNoisePath" fill="none" stroke="#e74c3c" stroke-width="3" />
+                <path id="ancAntiPath" fill="none" stroke="#3498db" stroke-width="3" />
+                <path id="ancResultPath" fill="none" stroke="#2ecc71" stroke-width="6" />
+
+                <!-- Text labels -->
+                <text x="20" y="30" fill="#e74c3c" font-family="sans-serif" font-size="16" font-weight="bold">Original Incoming Noise Wave</text>
+                <text x="20" y="55" fill="#3498db" font-family="sans-serif" font-size="16" font-weight="bold">Generated Anti-Noise Wave (180 degrees Shifted)</text>
+                <text x="20" y="235" fill="#2ecc71" font-family="sans-serif" font-size="16" font-weight="bold">Resulting Sound = Flatline / Silence (Green)</text>
+            </svg>
+        </div>
+    </div>
+
+    <!-- PANEL 8: LIGHT IN THE COSMOS - REDSHIFT & EMISSION SPECTRA -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/></svg>
-        5. Light in the Cosmos: Redshift & Emission Spectra
+        8. Light in the Cosmos: Redshift & Emission Spectra
     </h2>
     <div class="panel">
         <p>The Doppler Effect applies to light too! When a star or galaxy moves <b>towards us</b>, its light waves bunch up, shifting toward the blue end of the spectrum (<b>Blueshift</b>). When it moves <b>away from us</b>, the waves stretch out, shifting toward the red end (<b>Redshift</b>).</p>
@@ -719,10 +845,10 @@
         </div>
     </div>
 
-    <!-- PANEL 6: QUANTUM ENERGY LEVELS -->
+    <!-- PANEL 9: QUANTUM ENERGY LEVELS -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"/></svg>
-        6. Quantum Energy Levels & Emission
+        9. Quantum Energy Levels & Emission
     </h2>
     <div class="panel grid-2">
         <div>
@@ -803,10 +929,10 @@
         </div>
     </div>
 
-    <!-- PANEL 7: THERMAL RADIATION & TEMPERATURE -->
+    <!-- PANEL 10: THERMAL RADIATION & TEMPERATURE -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><path d="M12 2A4 4 0 0 1 16 6v3a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" fill="#e74c3c"/></svg>
-        7. Thermal Radiation & Wien's Law
+        10. Thermal Radiation & Wien's Law
     </h2>
     <div class="panel grid-2">
         <div>
@@ -851,10 +977,10 @@
         </div>
     </div>
 
-    <!-- PANEL 8: WAVE OPTICS & YOUNG'S DOUBLE SLIT -->
+    <!-- PANEL 11: WAVE OPTICS & YOUNG'S DOUBLE SLIT -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-        8. Wave Optics: Young's Double Slit Experiment
+        11. Wave Optics: Young's Double Slit Experiment
     </h2>
     <div class="panel grid-2">
         <div>
@@ -963,10 +1089,10 @@
         </div>
     </div>
 
-    <!-- PANEL 9: THE MATH LAB -->
+    <!-- PANEL 12: THE MATH LAB -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
-        9. The Math Lab: Universal Wave Equation
+        12. The Math Lab: Universal Wave Equation
     </h2>
     <div class="panel grid-2">
         <div class="math-box">
@@ -1070,14 +1196,20 @@
         // Draw rest lines
         for(let i=0; i<4; i++) {
             let xPos = wlToX(hRest[i]);
-            document.getElementById(`rL${i+1}`).setAttribute('x1', xPos);
-            document.getElementById(`rL${i+1}`).setAttribute('x2', xPos);
+            let lineEl = document.getElementById(`rL${i+1}`);
+            if(lineEl) {
+                lineEl.setAttribute('x1', xPos);
+                lineEl.setAttribute('x2', xPos);
+            }
         }
         updateRedshift();
     }
 
     function updateRedshift() {
-        let v_c = parseFloat(document.getElementById('starVelSlider').value) / 100;
+        let starVelSlider = document.getElementById('starVelSlider');
+        if(!starVelSlider) return;
+
+        let v_c = parseFloat(starVelSlider.value) / 100;
         document.getElementById('starVelLabel').innerText = (v_c * 100).toFixed(0);
         
         // Doppler approximation z ≈ v/c.  obs = rest * (1 + v/c)
@@ -1099,18 +1231,21 @@
         for(let i=0; i<4; i++) {
             let obsWl = hRest[i] * (1 + z);
             let xPos = wlToX(obsWl);
+            let oLine = document.getElementById(`oL${i+1}`);
             
-            // hide line if it shifts out of visual bounds
-            if(xPos < 0 || xPos > 1000) {
-                document.getElementById(`oL${i+1}`).style.display = 'none';
-            } else {
-                document.getElementById(`oL${i+1}`).style.display = 'block';
-                document.getElementById(`oL${i+1}`).setAttribute('x1', xPos);
-                document.getElementById(`oL${i+1}`).setAttribute('x2', xPos);
+            if(oLine) {
+                // hide line if it shifts out of visual bounds
+                if(xPos < 0 || xPos > 1000) {
+                    oLine.style.display = 'none';
+                } else {
+                    oLine.style.display = 'block';
+                    oLine.setAttribute('x1', xPos);
+                    oLine.setAttribute('x2', xPos);
+                }
             }
         }
 
-        // Update Math Box (Simplified Explanations but preserving equations & scientific reasoning)
+        // Update Math Box
         let calcBox = document.getElementById('dopplerCalcBox');
         let exampleRest = hRest[3]; // Red line
         let exampleObs = exampleRest * (1 + z);
@@ -1130,44 +1265,254 @@
             </span>
         `;
     }
-    document.getElementById('starVelSlider').addEventListener('input', updateRedshift);
+    
+    const starVelSlider = document.getElementById('starVelSlider');
+    if(starVelSlider) starVelSlider.addEventListener('input', updateRedshift);
 
     // ==========================================
     // AUDIO & SIMULATION LOGIC
     // ==========================================
-    let time = 0;
-    let rippleMode = 'diffraction';
+    let audioCtx = null, oscillator = null, masterGain = null, lowPassFilter = null, delayNode = null, delayGain = null;
+    let isPlaying = false, time = 0;
+    let currentBehavior = 'normal', currentMedium = 'gas', rippleMode = 'diffraction';
+    let particles = [];
 
+    // Transverse Wave Setup
+    const freqSlider = document.getElementById('freqSlider');
+    const ampSlider = document.getElementById('ampSlider');
+    const playBtn = document.getElementById('playBtn');
+    const playBtnText = document.getElementById('playBtnText');
+    const waveCanvas = document.getElementById('waveCanvas');
+    const waveCtx = waveCanvas ? waveCanvas.getContext('2d') : null;
+
+    // Particles Setup
+    const particleCanvas = document.getElementById('particleCanvas');
+    const partCtx = particleCanvas ? particleCanvas.getContext('2d') : null;
+
+    // Ripple & Doppler Setup
     const rippleCanvas = document.getElementById('rippleCanvas');
-    const ripCtx = rippleCanvas.getContext('2d');
-    
-    // Doppler variables
+    const ripCtx = rippleCanvas ? rippleCanvas.getContext('2d') : null;
     const dopplerCanvas = document.getElementById('dopplerCanvas');
-    const dopCtx = dopplerCanvas.getContext('2d');
+    const dopCtx = dopplerCanvas ? dopplerCanvas.getContext('2d') : null;
     const dopSpeedSlider = document.getElementById('dopplerSpeedSlider');
     let dopplerTime = 0;
     let dopplerPulses = [];
     let lastDopplerPulse = 0;
 
-    dopSpeedSlider.addEventListener('input', function() {
+    // --- Audio System ---
+    function initAudio() {
+        if (audioCtx) return;
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        masterGain = audioCtx.createGain();
+        lowPassFilter = audioCtx.createBiquadFilter();
+        lowPassFilter.type = 'lowpass';
+        delayNode = audioCtx.createDelay();
+        delayNode.delayTime.value = 0.2; 
+        delayGain = audioCtx.createGain();
+        delayGain.gain.value = 0;
+        
+        lowPassFilter.connect(masterGain);
+        masterGain.connect(audioCtx.destination);
+        lowPassFilter.connect(delayNode);
+        delayNode.connect(delayGain);
+        delayGain.connect(audioCtx.destination);
+    }
+
+    function toggleSound() {
+        if (!audioCtx) initAudio();
+        
+        const playIconSVG = `<path d="M5 3l14 9-14 9V3z"/>`;
+        const stopIconSVG = `<rect x="6" y="6" width="12" height="12"/>`;
+        const iconElement = playBtn.querySelector('.icon');
+
+        if (isPlaying) {
+            oscillator.stop();
+            oscillator.disconnect();
+            isPlaying = false;
+            playBtnText.innerText = "Play Sound";
+            if(iconElement) iconElement.innerHTML = playIconSVG;
+            playBtn.classList.remove('playing');
+        } else {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            oscillator = audioCtx.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.connect(lowPassFilter);
+            updateAudioParams();
+            oscillator.start();
+            isPlaying = true;
+            playBtnText.innerText = "Stop Sound";
+            if(iconElement) iconElement.innerHTML = stopIconSVG;
+            playBtn.classList.add('playing');
+        }
+    }
+
+    function updateAudioParams() {
+        if (!audioCtx || !freqSlider || !ampSlider) return;
+        let freq = parseFloat(freqSlider.value);
+        let amp = parseFloat(ampSlider.value) / 100;
+        
+        if (oscillator && isPlaying) {
+            oscillator.frequency.setTargetAtTime(freq, audioCtx.currentTime, 0.02);
+        }
+
+        if (currentMedium === 'vacuum') {
+            masterGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.1);
+        } else {
+            let targetGain = amp * 0.3; 
+            if (currentBehavior === 'absorb') {
+                targetGain *= 0.3;
+                lowPassFilter.frequency.setTargetAtTime(500, audioCtx.currentTime, 0.1);
+                delayGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.1);
+            } else if (currentBehavior === 'reverb') {
+                lowPassFilter.frequency.setTargetAtTime(20000, audioCtx.currentTime, 0.1);
+                delayGain.gain.setTargetAtTime(targetGain * 0.6, audioCtx.currentTime, 0.1);
+            } else {
+                lowPassFilter.frequency.setTargetAtTime(20000, audioCtx.currentTime, 0.1);
+                delayGain.gain.setTargetAtTime(0, audioCtx.currentTime, 0.1);
+            }
+            masterGain.gain.setTargetAtTime(targetGain, audioCtx.currentTime, 0.1);
+        }
+        
+        let freqLabel = document.getElementById('freqLabel');
+        let ampLabel = document.getElementById('ampLabel');
+        if(freqLabel) freqLabel.innerText = freq;
+        if(ampLabel) ampLabel.innerText = parseFloat(ampSlider.value);
+    }
+
+    if(freqSlider) freqSlider.addEventListener('input', updateAudioParams);
+    if(ampSlider) ampSlider.addEventListener('input', updateAudioParams);
+    if(dopSpeedSlider) dopSpeedSlider.addEventListener('input', function() {
         document.getElementById('dopplerSpeedLabel').innerText = this.value;
     });
 
+    // --- Song / Music Note Logic ---
+    function playMusicNote(freq) {
+        if(freqSlider) freqSlider.value = freq;
+        let freqLabel = document.getElementById('freqLabel');
+        if(freqLabel) freqLabel.innerText = freq;
+        updateAudioParams();
+        if (!isPlaying) {
+            toggleSound();
+        }
+    }
+
+    let songTimeout = null;
+    function playTwinkle() {
+        if (!audioCtx) initAudio();
+        const btn = document.getElementById('btnTwinkle');
+        
+        const playMusicSVG = '<svg class="icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13M9 9l12-2M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg> Play "Twinkle Twinkle Little Star"';
+        const stopMusicSVG = '<svg class="icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg> Stop Song';
+
+        if (btn.classList.contains('playing-song')) {
+            clearTimeout(songTimeout);
+            if (isPlaying) toggleSound();
+            btn.classList.remove('playing-song');
+            btn.innerHTML = playMusicSVG;
+            return;
+        }
+
+        btn.classList.add('playing-song');
+        btn.innerHTML = stopMusicSVG;
+        
+        const melody = [
+            {f: 261.63, d: 500}, {f: 261.63, d: 500}, {f: 392.00, d: 500}, {f: 392.00, d: 500},
+            {f: 440.00, d: 500}, {f: 440.00, d: 500}, {f: 392.00, d: 1000},
+            {f: 349.23, d: 500}, {f: 349.23, d: 500}, {f: 329.63, d: 500}, {f: 329.63, d: 500},
+            {f: 293.66, d: 500}, {f: 293.66, d: 500}, {f: 261.63, d: 1000}
+        ];
+        
+        let i = 0;
+        if (!isPlaying) toggleSound();
+
+        function nextNote() {
+            if (i >= melody.length) {
+                if (isPlaying) toggleSound();
+                btn.classList.remove('playing-song');
+                btn.innerHTML = playMusicSVG;
+                return;
+            }
+            
+            if(freqSlider) freqSlider.value = melody[i].f;
+            let freqLabel = document.getElementById('freqLabel');
+            if(freqLabel) freqLabel.innerText = melody[i].f;
+            updateAudioParams();
+            
+            songTimeout = setTimeout(nextNote, melody[i].d);
+            i++;
+        }
+        nextNote();
+    }
+
+    // --- State Toggles ---
+    function setBehavior(type) {
+        currentBehavior = type;
+        document.querySelectorAll('#btnNormal, #btnReverb, #btnAbsorb').forEach(btn => btn.classList.remove('active'));
+        let btnMap = { 'normal': 'btnNormal', 'reverb': 'btnReverb', 'absorb': 'btnAbsorb' };
+        let activeBtn = document.getElementById(btnMap[type]);
+        if(activeBtn) activeBtn.classList.add('active');
+        updateAudioParams();
+    }
+
+    function changeMedium() {
+        let selectEl = document.getElementById('mediumSelect');
+        if(!selectEl) return;
+        currentMedium = selectEl.value;
+        let note = document.getElementById('mediumNote');
+        particles = []; 
+        let cols, rows, randomness;
+        
+        if(currentMedium === 'solid') {
+            cols = 40; rows = 6; randomness = 2;
+            note.innerHTML = "<b>Solid (Speed: Fast approx. 5900 m/s):</b> Particles are locked in a tight grid. Sound travels fastest here!";
+            note.className = "note";
+        } else if(currentMedium === 'liquid') {
+            cols = 30; rows = 5; randomness = 10;
+            note.innerHTML = "<b>Liquid (Speed: Medium approx. 1480 m/s):</b> Particles are close but slide around. Sound travels fairly fast.";
+            note.className = "note";
+        } else if(currentMedium === 'gas') {
+            cols = 20; rows = 4; randomness = 25;
+            note.innerHTML = "<b>Gas (Speed: Slow approx. 343 m/s):</b> Particles are floating far apart. It takes longer for them to bump into each other.";
+            note.className = "note";
+        } else if(currentMedium === 'vacuum') {
+            cols = 0; rows = 0; randomness = 0;
+            note.innerHTML = "<b>Vacuum (Speed: 0 m/s):</b> NO particles exist here. Because mechanical waves need particles to bump, sound is impossible in a vacuum!";
+            note.className = "note note-danger";
+        }
+
+        if(particleCanvas) {
+            let w = particleCanvas.width, h = particleCanvas.height;
+            for(let i=0; i<cols; i++) {
+                for(let j=0; j<rows; j++) {
+                    let baseX = (w / cols) * i + (w / cols)/2;
+                    let baseY = (h / rows) * j + (h / rows)/2;
+                    baseX += (Math.random() - 0.5) * randomness;
+                    baseY += (Math.random() - 0.5) * randomness;
+                    particles.push({ x: baseX, y: baseY, baseX: baseX, baseY: baseY });
+                }
+            }
+        }
+        updateAudioParams();
+    }
+
     function setRippleMode(mode) {
         rippleMode = mode;
-        document.getElementById('btnDiffraction').classList.remove('active');
-        document.getElementById('btnRefraction').classList.remove('active');
+        let bDiff = document.getElementById('btnDiffraction');
+        let bRef = document.getElementById('btnRefraction');
+        if(bDiff) bDiff.classList.remove('active');
+        if(bRef) bRef.classList.remove('active');
+        
         let note = document.getElementById('rippleNote');
         let legend = document.getElementById('diffractionLegend');
         
         if(mode === 'diffraction') {
-            document.getElementById('btnDiffraction').classList.add('active');
-            legend.style.display = 'flex';
-            note.innerHTML = "<b>Diffraction:</b> When a straight wave hits a small gap, it bends and spreads out into circular ripples! Notice how the red gap size exactly matches the red wavelength length (λ). <b>When the gap length and the wave length are the same, it produces optimal wave diffraction (maximum spreading)</b>.";
+            if(bDiff) bDiff.classList.add('active');
+            if(legend) legend.style.display = 'flex';
+            if(note) note.innerHTML = "<b>Diffraction:</b> When a straight wave hits a small gap, it bends and spreads out into circular ripples! Notice how the red gap size exactly matches the red wavelength length (λ). <b>When the gap length and the wave length are the same, it produces optimal wave diffraction (maximum spreading)</b>.";
         } else {
-            document.getElementById('btnRefraction').classList.add('active');
-            legend.style.display = 'none';
-            note.innerHTML = "<b>Refraction:</b> When a wave enters a denser material at an angle, it slows down. This causes the entire wave line to bend, <b>reducing the physical distance (wavelength λ) between the waves</b>.";
+            if(bRef) bRef.classList.add('active');
+            if(legend) legend.style.display = 'none';
+            if(note) note.innerHTML = "<b>Refraction:</b> When a wave enters a denser material at an angle, it slows down. This causes the entire wave line to bend, <b>reducing the physical distance (wavelength λ) between the waves</b>.";
         }
     }
 
@@ -1192,7 +1537,7 @@
             v = 340; 
             lambda = (Math.random() * 4 + 1).toFixed(2);
             currentQuizAnswer = (v / lambda).toFixed(2);
-            questionText = `A sound wave travels through air at <b>${v} m/s</b>. Its wavelength (λ) is <b>${lambda} meters</b>. What is the frequency in <b>Hz</b>?`;
+            questionText = `A wave travels at <b>${v} m/s</b>. Its wavelength (λ) is <b>${lambda} meters</b>. What is the frequency in <b>Hz</b>?`;
         } else {
             v = 340;
             f = Math.floor(Math.random() * 600) + 200;
@@ -1200,17 +1545,23 @@
             questionText = `A wave travels at <b>${v} m/s</b> with a frequency of <b>${f} Hz</b>. What is the wavelength (λ) in <b>meters</b>?`;
         }
 
-        document.getElementById('quizQuestion').innerHTML = questionText;
-        document.getElementById('quizAnswer').value = '';
-        document.getElementById('quizFeedback').innerHTML = '';
-        document.getElementById('quizFeedback').style.color = '';
+        let qEl = document.getElementById('quizQuestion');
+        let aEl = document.getElementById('quizAnswer');
+        let fEl = document.getElementById('quizFeedback');
+        
+        if(qEl) qEl.innerHTML = questionText;
+        if(aEl) aEl.value = '';
+        if(fEl) {
+            fEl.innerHTML = '';
+            fEl.style.color = '';
+        }
     }
 
     function checkAnswer() {
-        const inputStr = document.getElementById('quizAnswer').value;
-        if (!inputStr) return;
+        const inputEl = document.getElementById('quizAnswer');
+        if (!inputEl || !inputEl.value) return;
         
-        const userAns = parseFloat(inputStr);
+        const userAns = parseFloat(inputEl.value);
         const correctAns = parseFloat(currentQuizAnswer);
         const feedback = document.getElementById('quizFeedback');
 
@@ -1234,214 +1585,369 @@
         time += 0.05;
 
         // ----------------------------------------
-        // 1. RIPPLE TANK CANVAS 
+        // 1. TRANSVERSE WAVE CANVAS
         // ----------------------------------------
-        ripCtx.clearRect(0, 0, rippleCanvas.width, rippleCanvas.height);
-        
-        if (rippleMode === 'diffraction') {
-            ripCtx.fillStyle = "#0d1b2a"; 
-            ripCtx.fillRect(0, 0, rippleCanvas.width, rippleCanvas.height);
-            ripCtx.strokeStyle = "#3498db";
-            ripCtx.lineWidth = 3;
-
-            let rippleTime = time;
-            let rippleWaveSpacing = 40; 
-            let waveVel = 15; 
-            let wallX = rippleCanvas.width / 3;
-            let gapY = rippleCanvas.height / 2;
-            let gapSize = 40; 
+        if (waveCtx && freqSlider && ampSlider) {
+            let freq = parseFloat(freqSlider.value);
+            let ampPercent = parseFloat(ampSlider.value);
+            let waveNum = freq * 0.00015;
             
-            let visibleWaves = [];
+            waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+            let centerY = waveCanvas.height / 2;
+            let maxVisualAmp = centerY - 20;
+            let amplitude = (ampPercent / 100) * maxVisualAmp;
 
-            for (let i = -5; i < 20; i++) {
-                let x = ((rippleTime * waveVel) % rippleWaveSpacing) + (i * rippleWaveSpacing);
-                if (x > 0 && x <= wallX) {
-                    visibleWaves.push(x);
+            waveCtx.beginPath();
+            waveCtx.moveTo(0, centerY); waveCtx.lineTo(waveCanvas.width, centerY);
+            waveCtx.strokeStyle = "#555"; waveCtx.setLineDash([5, 5]); waveCtx.stroke();
+            waveCtx.setLineDash([]);
+
+            if (currentBehavior === 'reverb') {
+                waveCtx.fillStyle = "#7f8c8d";
+                waveCtx.fillRect(waveCanvas.width - 40, 0, 40, waveCanvas.height);
+            } else if (currentBehavior === 'absorb') {
+                waveCtx.fillStyle = "#f1c40f";
+                waveCtx.globalAlpha = 0.3;
+                waveCtx.fillRect(waveCanvas.width / 2, 0, waveCanvas.width / 2, waveCanvas.height);
+                waveCtx.globalAlpha = 1.0;
+                waveCtx.fillStyle = "#f39c12";
+                waveCtx.font = "16px sans-serif";
+                waveCtx.fillText("Soft Foam", waveCanvas.width/2 + 20, 30);
+            }
+
+            waveCtx.beginPath();
+            waveCtx.lineWidth = 4;
+            waveCtx.strokeStyle = "#00ffcc";
+            waveCtx.shadowBlur = 10;
+            waveCtx.shadowColor = "#00ffcc";
+
+            for (let x = 0; x < waveCanvas.width; x++) {
+                let actualAmp = amplitude;
+                if (currentBehavior === 'absorb' && x > waveCanvas.width / 2) {
+                    let depth = x - (waveCanvas.width / 2);
+                    actualAmp = amplitude * Math.exp(-depth * 0.01); 
+                }
+                let y = centerY - actualAmp * Math.sin((x * waveNum) - time);
+                if (currentBehavior === 'reverb' && x > waveCanvas.width - 40) break;
+                if (x === 0) waveCtx.moveTo(x, y);
+                else waveCtx.lineTo(x, y);
+            }
+            waveCtx.stroke();
+
+            if (currentBehavior === 'reverb') {
+                waveCtx.beginPath();
+                waveCtx.strokeStyle = "#e74c3c"; 
+                waveCtx.shadowColor = "#e74c3c";
+                for (let x = waveCanvas.width - 40; x >= 0; x--) {
+                    let y = centerY - (amplitude * 0.6) * Math.sin((x * waveNum) + time);
+                    if (x === waveCanvas.width - 40) waveCtx.moveTo(x, y);
+                    else waveCtx.lineTo(x, y);
+                }
+                waveCtx.stroke();
+                waveCtx.shadowBlur = 0;
+                waveCtx.fillStyle = "#e74c3c";
+                waveCtx.fillText("Reflected Wave", 20, centerY + amplitude + 30);
+            }
+            waveCtx.shadowBlur = 0;
+        }
+
+        // ----------------------------------------
+        // 2. PARTICLE MODEL CANVAS
+        // ----------------------------------------
+        if (partCtx && ampSlider) {
+            let ampPercent = parseFloat(ampSlider.value);
+            partCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            
+            let waveSpeed;
+            if(currentMedium === 'solid') waveSpeed = 4.0;
+            else if(currentMedium === 'liquid') waveSpeed = 2.0;
+            else if(currentMedium === 'gas') waveSpeed = 0.5;
+            else waveSpeed = 0;
+
+            if (currentMedium === 'vacuum') {
+                partCtx.fillStyle = "#7f8c8d";
+                partCtx.font = "20px sans-serif";
+                partCtx.textAlign = "center";
+                partCtx.fillText("Vacuum: No particles exist here.", particleCanvas.width/2, particleCanvas.height/2);
+                partCtx.textAlign = "left";
+            } else {
+                partCtx.fillStyle = "#34495e";
+                partCtx.fillRect(0, particleCanvas.height/2 - 40, 20, 80);
+                
+                let speakerDisplacement = (ampPercent/100) * 10 * Math.sin(time * 5);
+                partCtx.fillStyle = "#bdc3c7";
+                partCtx.beginPath();
+                partCtx.arc(20 + speakerDisplacement, particleCanvas.height/2, 30, -Math.PI/2, Math.PI/2);
+                partCtx.fill();
+
+                partCtx.fillStyle = "#2980b9";
+                let partAmp = (ampPercent/100) * 20; 
+                
+                particles.forEach(p => {
+                    let phase = (p.baseX * 0.02) - (time * waveSpeed * 2);
+                    let displacement = partAmp * Math.sin(phase);
+                    partCtx.beginPath();
+                    partCtx.arc(p.baseX + displacement, p.baseY, 4, 0, Math.PI*2);
+                    partCtx.fill();
+                });
+            }
+        }
+
+        // ----------------------------------------
+        // 3. RIPPLE TANK CANVAS 
+        // ----------------------------------------
+        if (ripCtx) {
+            ripCtx.clearRect(0, 0, rippleCanvas.width, rippleCanvas.height);
+            
+            if (rippleMode === 'diffraction') {
+                ripCtx.fillStyle = "#0d1b2a"; 
+                ripCtx.fillRect(0, 0, rippleCanvas.width, rippleCanvas.height);
+                ripCtx.strokeStyle = "#3498db";
+                ripCtx.lineWidth = 3;
+
+                let rippleTime = time;
+                let rippleWaveSpacing = 40; 
+                let waveVel = 15; 
+                let wallX = rippleCanvas.width / 3;
+                let gapY = rippleCanvas.height / 2;
+                let gapSize = 40; 
+                
+                let visibleWaves = [];
+
+                for (let i = -5; i < 20; i++) {
+                    let x = ((rippleTime * waveVel) % rippleWaveSpacing) + (i * rippleWaveSpacing);
+                    if (x > 0 && x <= wallX) {
+                        visibleWaves.push(x);
+                        ripCtx.beginPath();
+                        ripCtx.moveTo(x, 0); ripCtx.lineTo(x, rippleCanvas.height);
+                        ripCtx.stroke();
+                    }
+                }
+
+                for (let i = -5; i < 20; i++) {
+                    let radius = ((rippleTime * waveVel) % rippleWaveSpacing) + (i * rippleWaveSpacing);
+                    if (radius > 0 && radius < rippleCanvas.width - wallX + 100) {
+                        ripCtx.beginPath();
+                        ripCtx.arc(wallX, gapY, radius, -Math.PI/2.3, Math.PI/2.3);
+                        ripCtx.globalAlpha = Math.max(0, 1 - (radius / (rippleCanvas.width - wallX))); 
+                        ripCtx.stroke(); 
+                        ripCtx.globalAlpha = 1.0;
+                    }
+                }
+
+                ripCtx.fillStyle = "#7f8c8d";
+                ripCtx.fillRect(wallX - 10, 0, 20, gapY - gapSize/2);
+                ripCtx.fillRect(wallX - 10, gapY + gapSize/2, 20, rippleCanvas.height);
+            } 
+            else if (rippleMode === 'refraction') {
+                let boundaryY = rippleCanvas.height / 2;
+                ripCtx.fillStyle = "#0d1b2a"; 
+                ripCtx.fillRect(0, 0, rippleCanvas.width, boundaryY);
+                ripCtx.fillStyle = "rgba(41, 128, 185, 0.3)"; 
+                ripCtx.fillRect(0, boundaryY, rippleCanvas.width, rippleCanvas.height);
+                
+                ripCtx.fillStyle = "#fff"; ripCtx.font = "18px sans-serif";
+                ripCtx.fillText("Fast Medium (Deep Water)", 20, 30);
+                ripCtx.fillText("Slow Medium (Shallow Water)", 20, boundaryY + 30);
+
+                ripCtx.strokeStyle = "#3498db";
+                ripCtx.lineWidth = 3;
+                
+                let waveSpacingX = 90; 
+                let speedX = 15;     
+                let offset = (time * speedX) % waveSpacingX;
+                let dx_top = 120; 
+                let dx_bottom = 280; 
+
+                for (let i = -10; i < 25; i++) {
+                    let startX = i * waveSpacingX + offset;
+                    let midX = startX - dx_top;
+                    let endX = midX - dx_bottom;
+                    
                     ripCtx.beginPath();
-                    ripCtx.moveTo(x, 0); ripCtx.lineTo(x, rippleCanvas.height);
+                    ripCtx.moveTo(startX, 0);
+                    ripCtx.lineTo(midX, boundaryY);
+                    ripCtx.lineTo(endX, rippleCanvas.height);
                     ripCtx.stroke();
                 }
-            }
 
-            for (let i = -5; i < 20; i++) {
-                let radius = ((rippleTime * waveVel) % rippleWaveSpacing) + (i * rippleWaveSpacing);
-                if (radius > 0 && radius < rippleCanvas.width - wallX + 100) {
+                let drawWavelengthIndicator = (i_line, isTop) => {
+                    let dx = isTop ? dx_top : dx_bottom;
+                    let startX = i_line * waveSpacingX + offset;
+                    let p1_x, p1_y;
+
+                    if (isTop) {
+                        p1_x = startX - dx / 2;
+                        p1_y = boundaryY / 2;
+                    } else {
+                        let midX = startX - dx_top; 
+                        p1_x = midX - dx / 2;
+                        p1_y = boundaryY + boundaryY / 2;
+                    }
+
+                    let N_x = boundaryY;
+                    let N_y = dx;
+                    let len = Math.sqrt(N_x*N_x + N_y*N_y);
+                    let nx = N_x / len;
+                    let ny = N_y / len;
+                    
+                    let lambda = waveSpacingX * nx;
+
+                    let p2_x = p1_x + lambda * nx;
+                    let p2_y = p1_y + lambda * ny;
+
                     ripCtx.beginPath();
-                    ripCtx.arc(wallX, gapY, radius, -Math.PI/2.3, Math.PI/2.3);
-                    ripCtx.globalAlpha = Math.max(0, 1 - (radius / (rippleCanvas.width - wallX))); 
-                    ripCtx.stroke(); 
-                    ripCtx.globalAlpha = 1.0;
-                }
+                    ripCtx.moveTo(p1_x, p1_y);
+                    ripCtx.lineTo(p2_x, p2_y);
+                    ripCtx.strokeStyle = "#ff4757"; 
+                    ripCtx.lineWidth = 3;
+                    ripCtx.stroke();
+
+                    ripCtx.fillStyle = "#ff4757";
+                    ripCtx.beginPath(); ripCtx.arc(p1_x, p1_y, 4, 0, Math.PI*2); ripCtx.fill();
+                    ripCtx.beginPath(); ripCtx.arc(p2_x, p2_y, 4, 0, Math.PI*2); ripCtx.fill();
+
+                    let mid_x = (p1_x + p2_x) / 2;
+                    let mid_y = (p1_y + p2_y) / 2;
+                    
+                    ripCtx.shadowColor = "rgba(0,0,0,0.8)";
+                    ripCtx.shadowBlur = 4;
+                    ripCtx.fillStyle = "#fff";
+                    ripCtx.font = "bold 15px sans-serif";
+                    let text = isTop ? "λ 1 (Longer)" : "λ 2 (Shorter)";
+                    
+                    ripCtx.fillText(text, mid_x - 40, mid_y - 12);
+                    ripCtx.shadowBlur = 0; 
+                };
+
+                drawWavelengthIndicator(6, true);  
+                drawWavelengthIndicator(8, false); 
             }
+        }
 
-            ripCtx.fillStyle = "#7f8c8d";
-            ripCtx.fillRect(wallX - 10, 0, 20, gapY - gapSize/2);
-            ripCtx.fillRect(wallX - 10, gapY + gapSize/2, 20, rippleCanvas.height);
-        } 
-        else if (rippleMode === 'refraction') {
-            let boundaryY = rippleCanvas.height / 2;
-            ripCtx.fillStyle = "#0d1b2a"; 
-            ripCtx.fillRect(0, 0, rippleCanvas.width, boundaryY);
-            ripCtx.fillStyle = "rgba(41, 128, 185, 0.3)"; 
-            ripCtx.fillRect(0, boundaryY, rippleCanvas.width, rippleCanvas.height);
+        // ----------------------------------------
+        // 4. DOPPLER EFFECT CANVAS
+        // ----------------------------------------
+        if (dopCtx && dopSpeedSlider) {
+            let dopW = dopplerCanvas.width;
+            let dopH = dopplerCanvas.height;
+            dopCtx.clearRect(0, 0, dopW, dopH);
+
+            let speedPercent = parseFloat(dopSpeedSlider.value) / 100;
+            let c = 200; 
+            let sourceVel = c * speedPercent; 
+
+            let dt = 0.016; 
+            dopplerTime += dt;
+
+            let padding = 100;
+            let trackLen = dopW - (padding * 2); 
+            let cycle = dopplerTime * sourceVel;
+            let pos = cycle % (trackLen * 2);
+            let movingRight = pos < trackLen;
             
-            ripCtx.fillStyle = "#fff"; ripCtx.font = "18px sans-serif";
-            ripCtx.fillText("Fast Medium (Deep Water)", 20, 30);
-            ripCtx.fillText("Slow Medium (Shallow Water)", 20, boundaryY + 30);
+            let sourceX = movingRight ? padding + pos : padding + trackLen - (pos - trackLen);
+            let sourceY = dopH / 2;
 
-            ripCtx.strokeStyle = "#3498db";
-            ripCtx.lineWidth = 3;
+            let statusEl = document.getElementById('dopplerStatus');
             
-            let waveSpacingX = 90; 
-            let speedX = 15;     
-            let offset = (time * speedX) % waveSpacingX;
-            let dx_top = 120; 
-            let dx_bottom = 280; 
+            let rightArrowSVG = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin:0 8px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+            let leftArrowSVG = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin:0 8px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
 
-            for (let i = -10; i < 25; i++) {
-                let startX = i * waveSpacingX + offset;
-                let midX = startX - dx_top;
-                let endX = midX - dx_bottom;
-                
-                ripCtx.beginPath();
-                ripCtx.moveTo(startX, 0);
-                ripCtx.lineTo(midX, boundaryY);
-                ripCtx.lineTo(endX, rippleCanvas.height);
-                ripCtx.stroke();
-            }
-
-            let drawWavelengthIndicator = (i_line, isTop) => {
-                let dx = isTop ? dx_top : dx_bottom;
-                let startX = i_line * waveSpacingX + offset;
-                let p1_x, p1_y;
-
-                if (isTop) {
-                    p1_x = startX - dx / 2;
-                    p1_y = boundaryY / 2;
+            if (statusEl) {
+                if (movingRight) {
+                    statusEl.innerHTML = `Moving RIGHT ${rightArrowSVG} Left hears LOW pitch, Right hears HIGH pitch`;
                 } else {
-                    let midX = startX - dx_top; 
-                    p1_x = midX - dx / 2;
-                    p1_y = boundaryY + boundaryY / 2;
+                    statusEl.innerHTML = `Moving LEFT ${leftArrowSVG} Left hears HIGH pitch, Right hears LOW pitch`;
                 }
-
-                let N_x = boundaryY;
-                let N_y = dx;
-                let len = Math.sqrt(N_x*N_x + N_y*N_y);
-                let nx = N_x / len;
-                let ny = N_y / len;
-                
-                let lambda = waveSpacingX * nx;
-
-                let p2_x = p1_x + lambda * nx;
-                let p2_y = p1_y + lambda * ny;
-
-                ripCtx.beginPath();
-                ripCtx.moveTo(p1_x, p1_y);
-                ripCtx.lineTo(p2_x, p2_y);
-                ripCtx.strokeStyle = "#ff4757"; 
-                ripCtx.lineWidth = 3;
-                ripCtx.stroke();
-
-                ripCtx.fillStyle = "#ff4757";
-                ripCtx.beginPath(); ripCtx.arc(p1_x, p1_y, 4, 0, Math.PI*2); ripCtx.fill();
-                ripCtx.beginPath(); ripCtx.arc(p2_x, p2_y, 4, 0, Math.PI*2); ripCtx.fill();
-
-                let mid_x = (p1_x + p2_x) / 2;
-                let mid_y = (p1_y + p2_y) / 2;
-                
-                ripCtx.shadowColor = "rgba(0,0,0,0.8)";
-                ripCtx.shadowBlur = 4;
-                ripCtx.fillStyle = "#fff";
-                ripCtx.font = "bold 15px sans-serif";
-                let text = isTop ? "λ 1 (Longer)" : "λ 2 (Shorter)";
-                
-                ripCtx.fillText(text, mid_x - 40, mid_y - 12);
-                ripCtx.shadowBlur = 0; 
-            };
-
-            drawWavelengthIndicator(6, true);  
-            drawWavelengthIndicator(8, false); 
-        }
-
-        // ----------------------------------------
-        // 2. DOPPLER EFFECT CANVAS
-        // ----------------------------------------
-        let dopW = dopplerCanvas.width;
-        let dopH = dopplerCanvas.height;
-        dopCtx.clearRect(0, 0, dopW, dopH);
-
-        let speedPercent = parseFloat(dopSpeedSlider.value) / 100;
-        let c = 200; 
-        let sourceVel = c * speedPercent; 
-
-        let dt = 0.016; 
-        dopplerTime += dt;
-
-        let padding = 100;
-        let trackLen = dopW - (padding * 2); 
-        let cycle = dopplerTime * sourceVel;
-        let pos = cycle % (trackLen * 2);
-        let movingRight = pos < trackLen;
-        
-        let sourceX = movingRight ? padding + pos : padding + trackLen - (pos - trackLen);
-        let sourceY = dopH / 2;
-
-        let statusEl = document.getElementById('dopplerStatus');
-        
-        let rightArrowSVG = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin:0 8px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-        let leftArrowSVG = '<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin:0 8px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>';
-
-        if (movingRight) {
-            statusEl.innerHTML = `Moving RIGHT ${rightArrowSVG} Left hears LOW pitch, Right hears HIGH pitch`;
-        } else {
-            statusEl.innerHTML = `Moving LEFT ${leftArrowSVG} Left hears HIGH pitch, Right hears LOW pitch`;
-        }
-
-        if (dopplerTime - lastDopplerPulse > 0.15) { 
-            dopplerPulses.push({ x: sourceX, y: sourceY, t: dopplerTime });
-            lastDopplerPulse = dopplerTime;
-        }
-
-        dopplerPulses.forEach((p, i) => {
-            let age = dopplerTime - p.t;
-            let r = age * c;
-            
-            if (r > dopW) {
-                dopplerPulses.splice(i, 1);
-                return;
             }
 
-            dopCtx.beginPath();
-            dopCtx.arc(p.x, p.y, r, 0, Math.PI * 2);
-            let alpha = Math.max(0, 1 - r / 600);
-            dopCtx.strokeStyle = `rgba(52, 152, 219, ${alpha})`;
-            dopCtx.lineWidth = 2;
-            dopCtx.stroke();
-        });
+            if (dopplerTime - lastDopplerPulse > 0.15) { 
+                dopplerPulses.push({ x: sourceX, y: sourceY, t: dopplerTime });
+                lastDopplerPulse = dopplerTime;
+            }
 
-        dopCtx.fillStyle = "#ecf0f1";
-        dopCtx.beginPath(); dopCtx.arc(padding/2, sourceY, 15, 0, Math.PI*2); dopCtx.fill();
-        dopCtx.fillStyle = "#2c3e50"; dopCtx.font = "bold 14px sans-serif"; dopCtx.fillText("A", padding/2 - 5, sourceY + 5);
-        
-        dopCtx.fillStyle = "#ecf0f1";
-        dopCtx.beginPath(); dopCtx.arc(dopW - padding/2, sourceY, 15, 0, Math.PI*2); dopCtx.fill();
-        dopCtx.fillStyle = "#2c3e50"; dopCtx.font = "bold 14px sans-serif"; dopCtx.fillText("B", dopW - padding/2 - 5, sourceY + 5);
+            dopplerPulses.forEach((p, i) => {
+                let age = dopplerTime - p.t;
+                let r = age * c;
+                
+                if (r > dopW) {
+                    dopplerPulses.splice(i, 1);
+                    return;
+                }
 
+                dopCtx.beginPath();
+                dopCtx.arc(p.x, p.y, r, 0, Math.PI * 2);
+                let alpha = Math.max(0, 1 - r / 600);
+                dopCtx.strokeStyle = `rgba(52, 152, 219, ${alpha})`;
+                dopCtx.lineWidth = 2;
+                dopCtx.stroke();
+            });
 
-        dopCtx.fillStyle = "#ecf0f1";
-        dopCtx.fillRect(sourceX - 25, sourceY - 15, 50, 30); 
-        dopCtx.fillStyle = "#e74c3c";
-        dopCtx.fillRect(sourceX - 5, sourceY - 10, 10, 20); 
-        dopCtx.fillRect(sourceX - 10, sourceY - 5, 20, 10); 
-        
-        dopCtx.fillStyle = movingRight ? "#3498db" : "#e74c3c"; 
-        dopCtx.fillRect(sourceX - 15, sourceY - 20, 10, 5);
-        dopCtx.fillStyle = movingRight ? "#e74c3c" : "#3498db";
-        dopCtx.fillRect(sourceX + 5, sourceY - 20, 10, 5);
+            dopCtx.fillStyle = "#ecf0f1";
+            dopCtx.beginPath(); dopCtx.arc(padding/2, sourceY, 15, 0, Math.PI*2); dopCtx.fill();
+            dopCtx.fillStyle = "#2c3e50"; dopCtx.font = "bold 14px sans-serif"; dopCtx.fillText("A", padding/2 - 5, sourceY + 5);
+            
+            dopCtx.fillStyle = "#ecf0f1";
+            dopCtx.beginPath(); dopCtx.arc(dopW - padding/2, sourceY, 15, 0, Math.PI*2); dopCtx.fill();
+            dopCtx.fillStyle = "#2c3e50"; dopCtx.font = "bold 14px sans-serif"; dopCtx.fillText("B", dopW - padding/2 - 5, sourceY + 5);
 
-        dopCtx.fillStyle = "#111111"; 
-        dopCtx.beginPath(); dopCtx.arc(sourceX - 15, sourceY + 15, 6, 0, Math.PI*2); dopCtx.fill();
-        dopCtx.beginPath(); dopCtx.arc(sourceX + 15, sourceY + 15, 6, 0, Math.PI*2); dopCtx.fill();
+            dopCtx.fillStyle = "#ecf0f1";
+            dopCtx.fillRect(sourceX - 25, sourceY - 15, 50, 30); 
+            dopCtx.fillStyle = "#e74c3c";
+            dopCtx.fillRect(sourceX - 5, sourceY - 10, 10, 20); 
+            dopCtx.fillRect(sourceX - 10, sourceY - 5, 20, 10); 
+            
+            dopCtx.fillStyle = movingRight ? "#3498db" : "#e74c3c"; 
+            dopCtx.fillRect(sourceX - 15, sourceY - 20, 10, 5);
+            dopCtx.fillStyle = movingRight ? "#e74c3c" : "#3498db";
+            dopCtx.fillRect(sourceX + 5, sourceY - 20, 10, 5);
+
+            dopCtx.fillStyle = "#111111"; 
+            dopCtx.beginPath(); dopCtx.arc(sourceX - 15, sourceY + 15, 6, 0, Math.PI*2); dopCtx.fill();
+            dopCtx.beginPath(); dopCtx.arc(sourceX + 15, sourceY + 15, 6, 0, Math.PI*2); dopCtx.fill();
+            
+            dopCtx.fillStyle = "#bdc3c7";
+            dopCtx.beginPath(); dopCtx.arc(sourceX - 15, sourceY + 15, 2.5, 0, Math.PI*2); dopCtx.fill();
+            dopCtx.beginPath(); dopCtx.arc(sourceX + 15, sourceY + 15, 2.5, 0, Math.PI*2); dopCtx.fill();
+        }
+
+        // ----------------------------------------
+        // 5. ACTIVE NOISE CANCELLATION (SVG ANIMATION)
+        // ----------------------------------------
+        const ancNoiseEl = document.getElementById('ancNoisePath');
+        if (ancNoiseEl) {
+            let ancW = 1000;
+            let ancH = 250;
+            let ancMid = ancH / 2;
+            let ancAmp = 60;
+            let ancFreq = 0.015;
+            
+            let noiseD = `M 0 ${ancMid}`;
+            let antiD = `M 0 ${ancMid}`;
+            let resultD = `M 0 ${ancMid}`;
+
+            for (let x = 0; x <= ancW; x += 5) {
+                let phase = x * ancFreq - (time * 0.7);
+                
+                let yNoise = ancMid - ancAmp * Math.sin(phase);
+                let yAnti = ancMid - ancAmp * Math.sin(phase + Math.PI); 
+                
+                let deviationResult = (ancAmp * Math.sin(phase)) + (ancAmp * Math.sin(phase + Math.PI)); 
+                let yResult = ancMid - deviationResult; 
+
+                noiseD += ` L ${x} ${yNoise}`;
+                antiD += ` L ${x} ${yAnti}`;
+                resultD += ` L ${x} ${yResult}`;
+            }
+            
+            const ancAntiEl = document.getElementById('ancAntiPath');
+            const ancResultEl = document.getElementById('ancResultPath');
+            
+            ancNoiseEl.setAttribute('d', noiseD);
+            if (ancAntiEl) ancAntiEl.setAttribute('d', antiD);
+            if (ancResultEl) ancResultEl.setAttribute('d', resultD);
+        }
 
         requestAnimationFrame(animate);
     }
@@ -1503,12 +2009,17 @@
     function updateExplainerUI() {
         const step = explanationSteps[currentStepIndex];
         
-        document.getElementById('step-title').innerHTML = step.title;
-        document.getElementById('step-desc').innerHTML = step.desc;
-        document.getElementById('step-analogy').innerHTML = step.analogy;
+        let sTitle = document.getElementById('step-title');
+        let sDesc = document.getElementById('step-desc');
+        let sAna = document.getElementById('step-analogy');
+        if(sTitle) sTitle.innerHTML = step.title;
+        if(sDesc) sDesc.innerHTML = step.desc;
+        if(sAna) sAna.innerHTML = step.analogy;
 
-        document.getElementById('prevStepBtn').disabled = (currentStepIndex === 0) || isLoopPlaying;
-        document.getElementById('nextStepBtn').disabled = (currentStepIndex === explanationSteps.length - 1) || isLoopPlaying;
+        let prevBtn = document.getElementById('prevStepBtn');
+        let nextBtn = document.getElementById('nextStepBtn');
+        if(prevBtn) prevBtn.disabled = (currentStepIndex === 0) || isLoopPlaying;
+        if(nextBtn) nextBtn.disabled = (currentStepIndex === explanationSteps.length - 1) || isLoopPlaying;
 
         const dots = document.querySelectorAll('.step-dot');
         dots.forEach((dot, index) => {
@@ -1547,6 +2058,7 @@
     function togglePlayLoop() {
         isLoopPlaying = !isLoopPlaying;
         const playBtn = document.getElementById('loopPlayBtn');
+        if(!playBtn) return;
         if (isLoopPlaying) {
             playBtn.innerText = "Stop Loop";
             playBtn.style.backgroundColor = "var(--danger)";
@@ -1634,8 +2146,10 @@
     // --- INITIALIZE ---
     initEMSpectrum();
     initRedshift();
+    changeMedium();
     setRippleMode('diffraction');
     generateQuiz();
+    if (freqSlider && ampSlider) updateAudioParams();
     animate();
     
     updateExplainerUI();
