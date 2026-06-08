@@ -1,0 +1,632 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the main difference between mechanical waves (like sound) and electromagnetic waves (like light)?",
+        "question_text": "What is the main difference between mechanical waves (like sound) and electromagnetic waves (like light)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:MQ==",
+        "answers": [
+            {
+                "answer_text": "b64:TWVjaGFuaWNhbCB3YXZlcyByZXF1aXJlIGEgbWVkaXVtIChtYXR0ZXIpIHRvIHRyYXZlbCwgd2hpbGUgZWxlY3Ryb21hZ25ldGljIHdhdmVzIGRvIG5vdC4=",
+                "text": "b64:TWVjaGFuaWNhbCB3YXZlcyByZXF1aXJlIGEgbWVkaXVtIChtYXR0ZXIpIHRvIHRyYXZlbCwgd2hpbGUgZWxlY3Ryb21hZ25ldGljIHdhdmVzIGRvIG5vdC4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:TWVjaGFuaWNhbCB3YXZlcyB0cmF2ZWwgbXVjaCBmYXN0ZXIgdGhhbiBlbGVjdHJvbWFnbmV0aWMgd2F2ZXMu",
+                "text": "b64:TWVjaGFuaWNhbCB3YXZlcyB0cmF2ZWwgbXVjaCBmYXN0ZXIgdGhhbiBlbGVjdHJvbWFnbmV0aWMgd2F2ZXMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TWVjaGFuaWNhbCB3YXZlcyBjYW4gdHJhdmVsIHRocm91Z2ggYSB2YWN1dW0sIGJ1dCBlbGVjdHJvbWFnbmV0aWMgd2F2ZXMgY2Fubm90Lg==",
+                "text": "b64:TWVjaGFuaWNhbCB3YXZlcyBjYW4gdHJhdmVsIHRocm91Z2ggYSB2YWN1dW0sIGJ1dCBlbGVjdHJvbWFnbmV0aWMgd2F2ZXMgY2Fubm90Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlcmUgaXMgbm8gZGlmZmVyZW5jZTsgdGhleSBhcmUgY29tcGxldGVseSBpZGVudGljYWwu",
+                "text": "b64:VGhlcmUgaXMgbm8gZGlmZmVyZW5jZTsgdGhleSBhcmUgY29tcGxldGVseSBpZGVudGljYWwu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:TWVjaGFuaWNhbCB3YXZlcyByZXF1aXJlIGEgbWVkaXVtIChtYXR0ZXIpIHRvIHRyYXZlbCwgd2hpbGUgZWxlY3Ryb21hZ25ldGljIHdhdmVzIGRvIG5vdC4=",
+        "b": "b64:TWVjaGFuaWNhbCB3YXZlcyB0cmF2ZWwgbXVjaCBmYXN0ZXIgdGhhbiBlbGVjdHJvbWFnbmV0aWMgd2F2ZXMu",
+        "c": "b64:TWVjaGFuaWNhbCB3YXZlcyBjYW4gdHJhdmVsIHRocm91Z2ggYSB2YWN1dW0sIGJ1dCBlbGVjdHJvbWFnbmV0aWMgd2F2ZXMgY2Fubm90Lg==",
+        "d": "b64:VGhlcmUgaXMgbm8gZGlmZmVyZW5jZTsgdGhleSBhcmUgY29tcGxldGVseSBpZGVudGljYWwu"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In a transverse wave, what is the highest point of maximum positive displacement called?",
+        "question_text": "In a transverse wave, what is the highest point of maximum positive displacement called?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:VHJvdWdo",
+                "text": "b64:VHJvdWdo",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RXF1aWxpYnJpdW0=",
+                "text": "b64:RXF1aWxpYnJpdW0=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Q3Jlc3Q=",
+                "text": "b64:Q3Jlc3Q=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QW1wbGl0dWRl",
+                "text": "b64:QW1wbGl0dWRl",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VHJvdWdo",
+        "b": "b64:RXF1aWxpYnJpdW0=",
+        "c": "b64:Q3Jlc3Q=",
+        "d": "b64:QW1wbGl0dWRl"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In a transverse wave, what is the lowest point of maximum negative displacement called?",
+        "question_text": "In a transverse wave, what is the lowest point of maximum negative displacement called?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:Q3Jlc3Q=",
+                "text": "b64:Q3Jlc3Q=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VHJvdWdo",
+                "text": "b64:VHJvdWdo",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QmFzZWxpbmU=",
+                "text": "b64:QmFzZWxpbmU=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:V2F2ZWxlbmd0aA==",
+                "text": "b64:V2F2ZWxlbmd0aA==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:Q3Jlc3Q=",
+        "b": "b64:VHJvdWdo",
+        "c": "b64:QmFzZWxpbmU=",
+        "d": "b64:V2F2ZWxlbmd0aA=="
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which property of a sound wave determines its volume (how loud or quiet it is)?",
+        "question_text": "Which property of a sound wave determines its volume (how loud or quiet it is)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:RnJlcXVlbmN5",
+                "text": "b64:RnJlcXVlbmN5",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:V2F2ZWxlbmd0aA==",
+                "text": "b64:V2F2ZWxlbmd0aA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QW1wbGl0dWRl",
+                "text": "b64:QW1wbGl0dWRl",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:UGl0Y2g=",
+                "text": "b64:UGl0Y2g=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RnJlcXVlbmN5",
+        "b": "b64:V2F2ZWxlbmd0aA==",
+        "c": "b64:QW1wbGl0dWRl",
+        "d": "b64:UGl0Y2g="
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Active Noise Cancellation earphones create an \"anti-noise\" wave to cancel out background noise. How much is this anti-noise wave shifted compared to the original noise?",
+        "question_text": "Active Noise Cancellation earphones create an \"anti-noise\" wave to cancel out background noise. How much is this anti-noise wave shifted compared to the original noise?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:OTAgZGVncmVlcyAoYSBxdWFydGVyIG9mIGEgd2F2ZWxlbmd0aCk=",
+                "text": "b64:OTAgZGVncmVlcyAoYSBxdWFydGVyIG9mIGEgd2F2ZWxlbmd0aCk=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MTgwIGRlZ3JlZXMgKGhhbGYgYSB3YXZlbGVuZ3RoKQ==",
+                "text": "b64:MTgwIGRlZ3JlZXMgKGhhbGYgYSB3YXZlbGVuZ3RoKQ==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:MzYwIGRlZ3JlZXMgKG9uZSBmdWxsIHdhdmVsZW5ndGgp",
+                "text": "b64:MzYwIGRlZ3JlZXMgKG9uZSBmdWxsIHdhdmVsZW5ndGgp",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSBhcmUgbm90IHNoaWZ0ZWQgYXQgYWxsLg==",
+                "text": "b64:VGhleSBhcmUgbm90IHNoaWZ0ZWQgYXQgYWxsLg==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:OTAgZGVncmVlcyAoYSBxdWFydGVyIG9mIGEgd2F2ZWxlbmd0aCk=",
+        "b": "b64:MTgwIGRlZ3JlZXMgKGhhbGYgYSB3YXZlbGVuZ3RoKQ==",
+        "c": "b64:MzYwIGRlZ3JlZXMgKG9uZSBmdWxsIHdhdmVsZW5ndGgp",
+        "d": "b64:VGhleSBhcmUgbm90IHNoaWZ0ZWQgYXQgYWxsLg=="
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When a sound wave hits a soft foam wall inside a room, what wave behavior primarily occurs?",
+        "question_text": "When a sound wave hits a soft foam wall inside a room, what wave behavior primarily occurs?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:UmVmbGVjdGlvbg==",
+                "text": "b64:UmVmbGVjdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QWJzb3JwdGlvbg==",
+                "text": "b64:QWJzb3JwdGlvbg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:UmVmcmFjdGlvbg==",
+                "text": "b64:UmVmcmFjdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RGlmZnJhY3Rpb24=",
+                "text": "b64:RGlmZnJhY3Rpb24=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:UmVmbGVjdGlvbg==",
+        "b": "b64:QWJzb3JwdGlvbg==",
+        "c": "b64:UmVmcmFjdGlvbg==",
+        "d": "b64:RGlmZnJhY3Rpb24="
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When sound waves bounce off a hard flat wall, it is called a reflection. In everyday life, we hear this reflection as a(n):",
+        "question_text": "When sound waves bounce off a hard flat wall, it is called a reflection. In everyday life, we hear this reflection as a(n):",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:MQ==",
+        "answers": [
+            {
+                "answer_text": "b64:RWNobw==",
+                "text": "b64:RWNobw==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:UmFpbmJvdw==",
+                "text": "b64:UmFpbmJvdw==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U2hhZG93",
+                "text": "b64:U2hhZG93",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VmlicmF0aW9u",
+                "text": "b64:VmlicmF0aW9u",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RWNobw==",
+        "b": "b64:UmFpbmJvdw==",
+        "c": "b64:U2hhZG93",
+        "d": "b64:VmlicmF0aW9u"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Based on how the particles of the medium vibrate, what type of wave is a sound wave?",
+        "question_text": "Based on how the particles of the medium vibrate, what type of wave is a sound wave?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:VHJhbnN2ZXJzZSB3YXZl",
+                "text": "b64:VHJhbnN2ZXJzZSB3YXZl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TG9uZ2l0dWRpbmFsIHdhdmU=",
+                "text": "b64:TG9uZ2l0dWRpbmFsIHdhdmU=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:RWxlY3Ryb21hZ25ldGljIHdhdmU=",
+                "text": "b64:RWxlY3Ryb21hZ25ldGljIHdhdmU=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3VyZmFjZSB3YXZl",
+                "text": "b64:U3VyZmFjZSB3YXZl",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VHJhbnN2ZXJzZSB3YXZl",
+        "b": "b64:TG9uZ2l0dWRpbmFsIHdhdmU=",
+        "c": "b64:RWxlY3Ryb21hZ25ldGljIHdhdmU=",
+        "d": "b64:U3VyZmFjZSB3YXZl"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "According to the universal wave equation (v = f * λ), if the speed (v) of sound stays constant in a room but you increase the frequency (f), what must happen to the wavelength (λ)?",
+        "question_text": "According to the universal wave equation (v = f * λ), if the speed (v) of sound stays constant in a room but you increase the frequency (f), what must happen to the wavelength (λ)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:VGhlIHdhdmVsZW5ndGggYmVjb21lcyBsb25nZXIu",
+                "text": "b64:VGhlIHdhdmVsZW5ndGggYmVjb21lcyBsb25nZXIu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHdhdmVsZW5ndGggc3RheXMgZXhhY3RseSB0aGUgc2FtZS4=",
+                "text": "b64:VGhlIHdhdmVsZW5ndGggc3RheXMgZXhhY3RseSB0aGUgc2FtZS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHdhdmVsZW5ndGggYmVjb21lcyBzaG9ydGVyLg==",
+                "text": "b64:VGhlIHdhdmVsZW5ndGggYmVjb21lcyBzaG9ydGVyLg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIHdhdmVsZW5ndGggZHJvcHMgdG8gemVyby4=",
+                "text": "b64:VGhlIHdhdmVsZW5ndGggZHJvcHMgdG8gemVyby4=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VGhlIHdhdmVsZW5ndGggYmVjb21lcyBsb25nZXIu",
+        "b": "b64:VGhlIHdhdmVsZW5ndGggc3RheXMgZXhhY3RseSB0aGUgc2FtZS4=",
+        "c": "b64:VGhlIHdhdmVsZW5ndGggYmVjb21lcyBzaG9ydGVyLg==",
+        "d": "b64:VGhlIHdhdmVsZW5ndGggZHJvcHMgdG8gemVyby4="
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the term for the wave behavior where waves bend and spread out when they pass through a narrow gap or around an obstacle?",
+        "question_text": "What is the term for the wave behavior where waves bend and spread out when they pass through a narrow gap or around an obstacle?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:NA==",
+        "answers": [
+            {
+                "answer_text": "b64:UmVmcmFjdGlvbg==",
+                "text": "b64:UmVmcmFjdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmVmbGVjdGlvbg==",
+                "text": "b64:UmVmbGVjdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QWJzb3JwdGlvbg==",
+                "text": "b64:QWJzb3JwdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RGlmZnJhY3Rpb24=",
+                "text": "b64:RGlmZnJhY3Rpb24=",
+                "weight": "b64:MTAw"
+            }
+        ],
+        "a": "b64:UmVmcmFjdGlvbg==",
+        "b": "b64:UmVmbGVjdGlvbg==",
+        "c": "b64:QWJzb3JwdGlvbg==",
+        "d": "b64:RGlmZnJhY3Rpb24="
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If an ambulance is parked with its siren sounding, how do observers standing on opposite sides of the ambulance hear the pitch?",
+        "question_text": "If an ambulance is parked with its siren sounding, how do observers standing on opposite sides of the ambulance hear the pitch?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:MQ==",
+        "answers": [
+            {
+                "answer_text": "b64:VGhleSBib3RoIGhlYXIgdGhlIGV4YWN0IHNhbWUgcGl0Y2ggYmVjYXVzZSB0aGUgYW1idWxhbmNlIGlzIG5vdCBtb3Zpbmcu",
+                "text": "b64:VGhleSBib3RoIGhlYXIgdGhlIGV4YWN0IHNhbWUgcGl0Y2ggYmVjYXVzZSB0aGUgYW1idWxhbmNlIGlzIG5vdCBtb3Zpbmcu",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIG9ic2VydmVyIG9uIHRoZSByaWdodCBoZWFycyBhIGhpZ2hlciBwaXRjaC4=",
+                "text": "b64:VGhlIG9ic2VydmVyIG9uIHRoZSByaWdodCBoZWFycyBhIGhpZ2hlciBwaXRjaC4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIG9ic2VydmVyIG9uIHRoZSBsZWZ0IGhlYXJzIGEgbG93ZXIgcGl0Y2gu",
+                "text": "b64:VGhlIG9ic2VydmVyIG9uIHRoZSBsZWZ0IGhlYXJzIGEgbG93ZXIgcGl0Y2gu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSBoZWFyIG5vIHNvdW5kIGF0IGFsbC4=",
+                "text": "b64:VGhleSBoZWFyIG5vIHNvdW5kIGF0IGFsbC4=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VGhleSBib3RoIGhlYXIgdGhlIGV4YWN0IHNhbWUgcGl0Y2ggYmVjYXVzZSB0aGUgYW1idWxhbmNlIGlzIG5vdCBtb3Zpbmcu",
+        "b": "b64:VGhlIG9ic2VydmVyIG9uIHRoZSByaWdodCBoZWFycyBhIGhpZ2hlciBwaXRjaC4=",
+        "c": "b64:VGhlIG9ic2VydmVyIG9uIHRoZSBsZWZ0IGhlYXJzIGEgbG93ZXIgcGl0Y2gu",
+        "d": "b64:VGhleSBoZWFyIG5vIHNvdW5kIGF0IGFsbC4="
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the term for the wave behavior where waves change speed and bend as they pass from one medium to another (such as deep water into shallow water)?",
+        "question_text": "What is the term for the wave behavior where waves change speed and bend as they pass from one medium to another (such as deep water into shallow water)?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:MQ==",
+        "answers": [
+            {
+                "answer_text": "b64:UmVmcmFjdGlvbg==",
+                "text": "b64:UmVmcmFjdGlvbg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:RGlmZnJhY3Rpb24=",
+                "text": "b64:RGlmZnJhY3Rpb24=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RGVzdHJ1Y3RpdmUgSW50ZXJmZXJlbmNl",
+                "text": "b64:RGVzdHJ1Y3RpdmUgSW50ZXJmZXJlbmNl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmVmbGVjdGlvbg==",
+                "text": "b64:UmVmbGVjdGlvbg==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:UmVmcmFjdGlvbg==",
+        "b": "b64:RGlmZnJhY3Rpb24=",
+        "c": "b64:RGVzdHJ1Y3RpdmUgSW50ZXJmZXJlbmNl",
+        "d": "b64:UmVmbGVjdGlvbg=="
+    },
+    {
+        "question_name": "Question 13",
+        "question number": 13,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In Young's Double Slit experiment, what type of interference occurs when a wave crest meets another wave crest to create a bright spot of light?",
+        "question_text": "In Young's Double Slit experiment, what type of interference occurs when a wave crest meets another wave crest to create a bright spot of light?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:RGVzdHJ1Y3RpdmUgSW50ZXJmZXJlbmNl",
+                "text": "b64:RGVzdHJ1Y3RpdmUgSW50ZXJmZXJlbmNl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmVmcmFjdGlvbg==",
+                "text": "b64:UmVmcmFjdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Q29uc3RydWN0aXZlIEludGVyZmVyZW5jZQ==",
+                "text": "b64:Q29uc3RydWN0aXZlIEludGVyZmVyZW5jZQ==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QWJzb3JwdGlvbg==",
+                "text": "b64:QWJzb3JwdGlvbg==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RGVzdHJ1Y3RpdmUgSW50ZXJmZXJlbmNl",
+        "b": "b64:UmVmcmFjdGlvbg==",
+        "c": "b64:Q29uc3RydWN0aXZlIEludGVyZmVyZW5jZQ==",
+        "d": "b64:QWJzb3JwdGlvbg=="
+    },
+    {
+        "question_name": "Question 14",
+        "question number": 14,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "According to Wien's Displacement Law, what is the relative temperature of stars that glow with a bright blue-white color?",
+        "question_text": "According to Wien's Displacement Law, what is the relative temperature of stars that glow with a bright blue-white color?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:VGhleSBhcmUgdGhlIGNvb2xlc3Qgc3RhcnMu",
+                "text": "b64:VGhleSBhcmUgdGhlIGNvb2xlc3Qgc3RhcnMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSBhcmUgbWVkaXVtIHRlbXBlcmF0dXJlIHN0YXJzLCBsaWtlIG91ciBTdW4u",
+                "text": "b64:VGhleSBhcmUgbWVkaXVtIHRlbXBlcmF0dXJlIHN0YXJzLCBsaWtlIG91ciBTdW4u",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSBhcmUgc3VwZXIgaG90IHN0YXJzLg==",
+                "text": "b64:VGhleSBhcmUgc3VwZXIgaG90IHN0YXJzLg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhleSBoYXZlIGEgdGVtcGVyYXR1cmUgb2YgYWJzb2x1dGUgemVyby4=",
+                "text": "b64:VGhleSBoYXZlIGEgdGVtcGVyYXR1cmUgb2YgYWJzb2x1dGUgemVyby4=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VGhleSBhcmUgdGhlIGNvb2xlc3Qgc3RhcnMu",
+        "b": "b64:VGhleSBhcmUgbWVkaXVtIHRlbXBlcmF0dXJlIHN0YXJzLCBsaWtlIG91ciBTdW4u",
+        "c": "b64:VGhleSBhcmUgc3VwZXIgaG90IHN0YXJzLg==",
+        "d": "b64:VGhleSBoYXZlIGEgdGVtcGVyYXR1cmUgb2YgYWJzb2x1dGUgemVyby4="
+    },
+    {
+        "question_name": "Question 15",
+        "question number": "Q15",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 16",
+        "question number": "Q16",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    },
+    {
+        "quiz_metadata": {
+            "randomize_questions": true,
+            "info_content": "<b>Refer to the HTML file to help answer the questions: </b><a href=\"C:/Users/Cooper/Documents/1.0 CooperShared/2026/MrCooperSuite/0HTMLOfflineQUiz/ahmadac.github.io/0_Quiz/media/intro to waves better.html\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">Introduction to Waves</a><b> </b>"
+        }
+    }
+]
