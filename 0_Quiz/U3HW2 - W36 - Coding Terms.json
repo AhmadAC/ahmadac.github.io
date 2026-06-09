@@ -1,0 +1,595 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is a Terminal in the context of writing and running code?",
+        "question_text": "What is a Terminal in the context of writing and running code?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:QSB3ZWJzaXRlIHdoZXJlIHlvdSBzYXZlIHlvdXIgY29kZSBvbmxpbmUgdG8gc2hhcmUgd2l0aCBvdGhlcnMu",
+                "text": "b64:QSB3ZWJzaXRlIHdoZXJlIHlvdSBzYXZlIHlvdXIgY29kZSBvbmxpbmUgdG8gc2hhcmUgd2l0aCBvdGhlcnMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBzcGVjaWFsIHdpbmRvdyB3aGVyZSB5b3UgdHlwZSB0ZXh0IGNvbW1hbmRzIHRvIHRlbGwgdGhlIGNvbXB1dGVyIHdoYXQgdG8gZG8sIGxpa2UgcnVuIHlvdXIgY29kZS4=",
+                "text": "b64:QSBzcGVjaWFsIHdpbmRvdyB3aGVyZSB5b3UgdHlwZSB0ZXh0IGNvbW1hbmRzIHRvIHRlbGwgdGhlIGNvbXB1dGVyIHdoYXQgdG8gZG8sIGxpa2UgcnVuIHlvdXIgY29kZS4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSBmaWxlIHR5cGUgdXNlZCB0byBzYXZlIGhpZ2gtcmVzb2x1dGlvbiBkaWdpdGFsIHBob3RvZ3JhcGhzLg==",
+                "text": "b64:QSBmaWxlIHR5cGUgdXNlZCB0byBzYXZlIGhpZ2gtcmVzb2x1dGlvbiBkaWdpdGFsIHBob3RvZ3JhcGhzLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBiaWcgdG9vbGJveCBmaWxsZWQgd2l0aCByZWFkeS1tYWRlIGNvZGUgdG9vbHMu",
+                "text": "b64:QSBiaWcgdG9vbGJveCBmaWxsZWQgd2l0aCByZWFkeS1tYWRlIGNvZGUgdG9vbHMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIGxvZ2ljYWwgcGxhbiBvciByZWNpcGUgc3RlcHMgdGhhdCB0aGUgY29tcHV0ZXIgZm9sbG93cy4=",
+                "text": "b64:VGhlIGxvZ2ljYWwgcGxhbiBvciByZWNpcGUgc3RlcHMgdGhhdCB0aGUgY29tcHV0ZXIgZm9sbG93cy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBtaXN0YWtlIGluIHRoZSBjb2RlIHRoYXQgc3RvcHMgdGhlIHByb2dyYW0gZnJvbSBydW5uaW5nLg==",
+                "text": "b64:QSBtaXN0YWtlIGluIHRoZSBjb2RlIHRoYXQgc3RvcHMgdGhlIHByb2dyYW0gZnJvbSBydW5uaW5nLg==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:QSB3ZWJzaXRlIHdoZXJlIHlvdSBzYXZlIHlvdXIgY29kZSBvbmxpbmUgdG8gc2hhcmUgd2l0aCBvdGhlcnMu",
+        "b": "b64:QSBzcGVjaWFsIHdpbmRvdyB3aGVyZSB5b3UgdHlwZSB0ZXh0IGNvbW1hbmRzIHRvIHRlbGwgdGhlIGNvbXB1dGVyIHdoYXQgdG8gZG8sIGxpa2UgcnVuIHlvdXIgY29kZS4=",
+        "c": "b64:QSBmaWxlIHR5cGUgdXNlZCB0byBzYXZlIGhpZ2gtcmVzb2x1dGlvbiBkaWdpdGFsIHBob3RvZ3JhcGhzLg==",
+        "d": "b64:QSBiaWcgdG9vbGJveCBmaWxsZWQgd2l0aCByZWFkeS1tYWRlIGNvZGUgdG9vbHMu",
+        "e": "b64:VGhlIGxvZ2ljYWwgcGxhbiBvciByZWNpcGUgc3RlcHMgdGhhdCB0aGUgY29tcHV0ZXIgZm9sbG93cy4=",
+        "f": "b64:QSBtaXN0YWtlIGluIHRoZSBjb2RlIHRoYXQgc3RvcHMgdGhlIHByb2dyYW0gZnJvbSBydW5uaW5nLg=="
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which of the following best describes a Script?",
+        "question_text": "Which of the following best describes a Script?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:QSBmb2xkZXIgb24geW91ciBjb21wdXRlciB1c2VkIHRvIGtlZXAgZmlsZXMgb3JnYW5pemVkLg==",
+                "text": "b64:QSBmb2xkZXIgb24geW91ciBjb21wdXRlciB1c2VkIHRvIGtlZXAgZmlsZXMgb3JnYW5pemVkLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBjb21tYW5kIHVzZWQgdG8gYnJpbmcgdG9vbHMgZnJvbSBhIGxpYnJhcnkgaW50byB5b3VyIGNvZGUu",
+                "text": "b64:QSBjb21tYW5kIHVzZWQgdG8gYnJpbmcgdG9vbHMgZnJvbSBhIGxpYnJhcnkgaW50byB5b3VyIGNvZGUu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBmaWxlIGNvbnRhaW5pbmcgYSBsaXN0IG9mIGNvbXB1dGVyIGluc3RydWN0aW9ucyB0aGF0IHRlbGxzIHRoZSBjb21wdXRlciB0byBkbyBhIHNwZWNpZmljIGpvYi4=",
+                "text": "b64:QSBmaWxlIGNvbnRhaW5pbmcgYSBsaXN0IG9mIGNvbXB1dGVyIGluc3RydWN0aW9ucyB0aGF0IHRlbGxzIHRoZSBjb21wdXRlciB0byBkbyBhIHNwZWNpZmljIGpvYi4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSBzcGVjaWFsIG5vdGVib29rIGFwcCBvbiB0aGUgY29tcHV0ZXIgd2hlcmUgeW91IHdyaXRlIGNvZGUu",
+                "text": "b64:QSBzcGVjaWFsIG5vdGVib29rIGFwcCBvbiB0aGUgY29tcHV0ZXIgd2hlcmUgeW91IHdyaXRlIGNvZGUu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSB0eXBlIG9mIGltYWdlIGZpbGUgdGhhdCBzdXBwb3J0cyB0cmFuc3BhcmVudCBiYWNrZ3JvdW5kcy4=",
+                "text": "b64:QSB0eXBlIG9mIGltYWdlIGZpbGUgdGhhdCBzdXBwb3J0cyB0cmFuc3BhcmVudCBiYWNrZ3JvdW5kcy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIG91dHB1dCB3aW5kb3cgdGhhdCBzaG93cyBwcmludCgpIHJlc3VsdHMu",
+                "text": "b64:VGhlIG91dHB1dCB3aW5kb3cgdGhhdCBzaG93cyBwcmludCgpIHJlc3VsdHMu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:QSBmb2xkZXIgb24geW91ciBjb21wdXRlciB1c2VkIHRvIGtlZXAgZmlsZXMgb3JnYW5pemVkLg==",
+        "b": "b64:QSBjb21tYW5kIHVzZWQgdG8gYnJpbmcgdG9vbHMgZnJvbSBhIGxpYnJhcnkgaW50byB5b3VyIGNvZGUu",
+        "c": "b64:QSBmaWxlIGNvbnRhaW5pbmcgYSBsaXN0IG9mIGNvbXB1dGVyIGluc3RydWN0aW9ucyB0aGF0IHRlbGxzIHRoZSBjb21wdXRlciB0byBkbyBhIHNwZWNpZmljIGpvYi4=",
+        "d": "b64:QSBzcGVjaWFsIG5vdGVib29rIGFwcCBvbiB0aGUgY29tcHV0ZXIgd2hlcmUgeW91IHdyaXRlIGNvZGUu",
+        "e": "b64:QSB0eXBlIG9mIGltYWdlIGZpbGUgdGhhdCBzdXBwb3J0cyB0cmFuc3BhcmVudCBiYWNrZ3JvdW5kcy4=",
+        "f": "b64:VGhlIG91dHB1dCB3aW5kb3cgdGhhdCBzaG93cyBwcmludCgpIHJlc3VsdHMu"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If you want to bring ready-made code tools from an external library or module into your own Python code, which command should you use?",
+        "question_text": "If you want to bring ready-made code tools from an external library or module into your own Python code, which command should you use?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:NA==",
+        "answers": [
+            {
+                "answer_text": "b64:VGVybWluYWw=",
+                "text": "b64:VGVybWluYWw=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TG9naWM=",
+                "text": "b64:TG9naWM=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXRlcmF0aW9u",
+                "text": "b64:SXRlcmF0aW9u",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SW1wb3J0",
+                "text": "b64:SW1wb3J0",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:RGlyZWN0b3J5",
+                "text": "b64:RGlyZWN0b3J5",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U2NyaXB0",
+                "text": "b64:U2NyaXB0",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VGVybWluYWw=",
+        "b": "b64:TG9naWM=",
+        "c": "b64:SXRlcmF0aW9u",
+        "d": "b64:SW1wb3J0",
+        "e": "b64:RGlyZWN0b3J5",
+        "f": "b64:U2NyaXB0"
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the term for doing something over and over again in your code, such as telling the computer to draw a star five times?",
+        "question_text": "What is the term for doing something over and over again in your code, such as telling the computer to draw a star five times?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Ng==",
+        "answers": [
+            {
+                "answer_text": "b64:RGlyZWN0b3J5",
+                "text": "b64:RGlyZWN0b3J5",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RXJyb3I=",
+                "text": "b64:RXJyb3I=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SW1wb3J0",
+                "text": "b64:SW1wb3J0",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TG9naWM=",
+                "text": "b64:TG9naWM=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TW9kdWxl",
+                "text": "b64:TW9kdWxl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXRlcmF0aW9u",
+                "text": "b64:SXRlcmF0aW9u",
+                "weight": "b64:MTAw"
+            }
+        ],
+        "a": "b64:RGlyZWN0b3J5",
+        "b": "b64:RXJyb3I=",
+        "c": "b64:SW1wb3J0",
+        "d": "b64:TG9naWM=",
+        "e": "b64:TW9kdWxl",
+        "f": "b64:SXRlcmF0aW9u"
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which of the following platforms is described as a website where people can save their code online, share it, and collaborate (similar to Tencent Docs) for code?",
+        "question_text": "Which of the following platforms is described as a website where people can save their code online, share it, and collaborate (similar to Tencent Docs) for code?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:VlMgQ29kZQ==",
+                "text": "b64:VlMgQ29kZQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TGlicmFyeQ==",
+                "text": "b64:TGlicmFyeQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:R2l0SHVi",
+                "text": "b64:R2l0SHVi",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGVybWluYWw=",
+                "text": "b64:VGVybWluYWw=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UHl0aG9u",
+                "text": "b64:UHl0aG9u",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RGlyZWN0b3J5",
+                "text": "b64:RGlyZWN0b3J5",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VlMgQ29kZQ==",
+        "b": "b64:TGlicmFyeQ==",
+        "c": "b64:R2l0SHVi",
+        "d": "b64:VGVybWluYWw=",
+        "e": "b64:UHl0aG9u",
+        "f": "b64:RGlyZWN0b3J5"
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is another name for a folder on your computer used to keep your files organized?",
+        "question_text": "What is another name for a folder on your computer used to keep your files organized?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:TW9kdWxl",
+                "text": "b64:TW9kdWxl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U2NyaXB0",
+                "text": "b64:U2NyaXB0",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RGlyZWN0b3J5",
+                "text": "b64:RGlyZWN0b3J5",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:T3V0cHV0IFdpbmRvdw==",
+                "text": "b64:T3V0cHV0IFdpbmRvdw==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TG9naWM=",
+                "text": "b64:TG9naWM=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UHJvZ3JhbQ==",
+                "text": "b64:UHJvZ3JhbQ==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:TW9kdWxl",
+        "b": "b64:U2NyaXB0",
+        "c": "b64:RGlyZWN0b3J5",
+        "d": "b64:T3V0cHV0IFdpbmRvdw==",
+        "e": "b64:TG9naWM=",
+        "f": "b64:UHJvZ3JhbQ=="
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is an Error in programming?",
+        "question_text": "What is an Error in programming?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:NA==",
+        "answers": [
+            {
+                "answer_text": "b64:QSBmaWxlIGV4dGVuc2lvbiB0aGF0IGluZGljYXRlcyB0aGUgdHlwZSBvZiBjb2RlIHlvdSBhcmUgcnVubmluZy4=",
+                "text": "b64:QSBmaWxlIGV4dGVuc2lvbiB0aGF0IGluZGljYXRlcyB0aGUgdHlwZSBvZiBjb2RlIHlvdSBhcmUgcnVubmluZy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSB0b29sIGZyb20gYSBsaWJyYXJ5IHVzZWQgdG8gbWFrZSBkcmF3aW5nIHN0YXJzIGVhc2llci4=",
+                "text": "b64:QSB0b29sIGZyb20gYSBsaWJyYXJ5IHVzZWQgdG8gbWFrZSBkcmF3aW5nIHN0YXJzIGVhc2llci4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSB3ZWJzaXRlIHVzZWQgdG8gc2hhcmUgYW5kIGNvbGxhYm9yYXRlIG9uIGNvZGUgcHJvamVjdHMu",
+                "text": "b64:QSB3ZWJzaXRlIHVzZWQgdG8gc2hhcmUgYW5kIGNvbGxhYm9yYXRlIG9uIGNvZGUgcHJvamVjdHMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBtaXN0YWtlIGluIHRoZSBjb2RlIHRoYXQgc3RvcHMgdGhlIHByb2dyYW0gZnJvbSB3b3JraW5nIGNvcnJlY3RseS4=",
+                "text": "b64:QSBtaXN0YWtlIGluIHRoZSBjb2RlIHRoYXQgc3RvcHMgdGhlIHByb2dyYW0gZnJvbSB3b3JraW5nIGNvcnJlY3RseS4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSBjb21tYW5kIHVzZWQgdG8gZGlzcGxheSB0ZXh0IG1lc3NhZ2VzIGluIHRoZSBUZXJtaW5hbC4=",
+                "text": "b64:QSBjb21tYW5kIHVzZWQgdG8gZGlzcGxheSB0ZXh0IG1lc3NhZ2VzIGluIHRoZSBUZXJtaW5hbC4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHN0cnVjdHVyZWQgcGxhbiBvciByZWNpcGUgdGhlIGNvbXB1dGVyIGZvbGxvd3Mu",
+                "text": "b64:VGhlIHN0cnVjdHVyZWQgcGxhbiBvciByZWNpcGUgdGhlIGNvbXB1dGVyIGZvbGxvd3Mu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:QSBmaWxlIGV4dGVuc2lvbiB0aGF0IGluZGljYXRlcyB0aGUgdHlwZSBvZiBjb2RlIHlvdSBhcmUgcnVubmluZy4=",
+        "b": "b64:QSB0b29sIGZyb20gYSBsaWJyYXJ5IHVzZWQgdG8gbWFrZSBkcmF3aW5nIHN0YXJzIGVhc2llci4=",
+        "c": "b64:QSB3ZWJzaXRlIHVzZWQgdG8gc2hhcmUgYW5kIGNvbGxhYm9yYXRlIG9uIGNvZGUgcHJvamVjdHMu",
+        "d": "b64:QSBtaXN0YWtlIGluIHRoZSBjb2RlIHRoYXQgc3RvcHMgdGhlIHByb2dyYW0gZnJvbSB3b3JraW5nIGNvcnJlY3RseS4=",
+        "e": "b64:QSBjb21tYW5kIHVzZWQgdG8gZGlzcGxheSB0ZXh0IG1lc3NhZ2VzIGluIHRoZSBUZXJtaW5hbC4=",
+        "f": "b64:VGhlIHN0cnVjdHVyZWQgcGxhbiBvciByZWNpcGUgdGhlIGNvbXB1dGVyIGZvbGxvd3Mu"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What does the image file format acronym SVG stand for?",
+        "question_text": "What does the image file format acronym SVG stand for?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:U2ltcGxlIFZpZGVvIEdyYXBoaWNz",
+                "text": "b64:U2ltcGxlIFZpZGVvIEdyYXBoaWNz",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U2NhbGFibGUgVmVjdG9yIEdyYXBoaWNz",
+                "text": "b64:U2NhbGFibGUgVmVjdG9yIEdyYXBoaWNz",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:U3RhbmRhcmQgVmlzdWFsIEd1aWRl",
+                "text": "b64:U3RhbmRhcmQgVmlzdWFsIEd1aWRl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3lzdGVtIFZlY3RvciBHZW5lcmF0b3I=",
+                "text": "b64:U3lzdGVtIFZlY3RvciBHZW5lcmF0b3I=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U2NhbGFibGUgVmlzdWFsIEdyaWQ=",
+                "text": "b64:U2NhbGFibGUgVmlzdWFsIEdyaWQ=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3RydWN0dXJlZCBWaWRlbyBHcm91cA==",
+                "text": "b64:U3RydWN0dXJlZCBWaWRlbyBHcm91cA==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:U2ltcGxlIFZpZGVvIEdyYXBoaWNz",
+        "b": "b64:U2NhbGFibGUgVmVjdG9yIEdyYXBoaWNz",
+        "c": "b64:U3RhbmRhcmQgVmlzdWFsIEd1aWRl",
+        "d": "b64:U3lzdGVtIFZlY3RvciBHZW5lcmF0b3I=",
+        "e": "b64:U2NhbGFibGUgVmlzdWFsIEdyaWQ=",
+        "f": "b64:U3RydWN0dXJlZCBWaWRlbyBHcm91cA=="
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Why is an SVG file often more useful than a JPG file for graphics like logos and icons?",
+        "question_text": "Why is an SVG file often more useful than a JPG file for graphics like logos and icons?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:U1ZHIGZpbGVzIHN1cHBvcnQgY29tcGxleCAzRCByZW5kZXJpbmcgYW5pbWF0aW9ucyBhdXRvbWF0aWNhbGx5Lg==",
+                "text": "b64:U1ZHIGZpbGVzIHN1cHBvcnQgY29tcGxleCAzRCByZW5kZXJpbmcgYW5pbWF0aW9ucyBhdXRvbWF0aWNhbGx5Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U1ZHIGZpbGVzIGNhbm5vdCBiZSBvcGVuZWQgYnkgc3RhbmRhcmQgd2ViIGJyb3dzZXJzLCBtYWtpbmcgdGhlbSBtb3JlIHNlY3VyZS4=",
+                "text": "b64:U1ZHIGZpbGVzIGNhbm5vdCBiZSBvcGVuZWQgYnkgc3RhbmRhcmQgd2ViIGJyb3dzZXJzLCBtYWtpbmcgdGhlbSBtb3JlIHNlY3VyZS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U1ZHIGZpbGVzIGNhbiBiZSBzY2FsZWQgdG8gYW55IHNpemUgd2l0aG91dCBsb3NpbmcgcXVhbGl0eSBvciBiZWNvbWluZyBwaXhlbGF0ZWQvYmx1cnJ5Lg==",
+                "text": "b64:U1ZHIGZpbGVzIGNhbiBiZSBzY2FsZWQgdG8gYW55IHNpemUgd2l0aG91dCBsb3NpbmcgcXVhbGl0eSBvciBiZWNvbWluZyBwaXhlbGF0ZWQvYmx1cnJ5Lg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:U1ZHIGZpbGVzIGFyZSBzcGVjaWZpY2FsbHkgZGVzaWduZWQgdG8gY29tcHJlc3MgaGlnaC1yZXNvbHV0aW9uIGRpZ2l0YWwgcGhvdG9ncmFwaHMu",
+                "text": "b64:U1ZHIGZpbGVzIGFyZSBzcGVjaWZpY2FsbHkgZGVzaWduZWQgdG8gY29tcHJlc3MgaGlnaC1yZXNvbHV0aW9uIGRpZ2l0YWwgcGhvdG9ncmFwaHMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U1ZHIGZpbGVzIGNvbnRhaW4gUHl0aG9uIGNvZGUgdGhhdCBydW5zIGF1dG9tYXRpY2FsbHkgd2hlbiBjbGlja2VkLg==",
+                "text": "b64:U1ZHIGZpbGVzIGNvbnRhaW4gUHl0aG9uIGNvZGUgdGhhdCBydW5zIGF1dG9tYXRpY2FsbHkgd2hlbiBjbGlja2VkLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U1ZHIGZpbGVzIGFsd2F5cyBoYXZlIGEgbGFyZ2VyIGZpbGUgc2l6ZSB0aGFuIEpQR3MsIGVuc3VyaW5nIGJldHRlciBwcmludCBxdWFsaXR5Lg==",
+                "text": "b64:U1ZHIGZpbGVzIGFsd2F5cyBoYXZlIGEgbGFyZ2VyIGZpbGUgc2l6ZSB0aGFuIEpQR3MsIGVuc3VyaW5nIGJldHRlciBwcmludCBxdWFsaXR5Lg==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:U1ZHIGZpbGVzIHN1cHBvcnQgY29tcGxleCAzRCByZW5kZXJpbmcgYW5pbWF0aW9ucyBhdXRvbWF0aWNhbGx5Lg==",
+        "b": "b64:U1ZHIGZpbGVzIGNhbm5vdCBiZSBvcGVuZWQgYnkgc3RhbmRhcmQgd2ViIGJyb3dzZXJzLCBtYWtpbmcgdGhlbSBtb3JlIHNlY3VyZS4=",
+        "c": "b64:U1ZHIGZpbGVzIGNhbiBiZSBzY2FsZWQgdG8gYW55IHNpemUgd2l0aG91dCBsb3NpbmcgcXVhbGl0eSBvciBiZWNvbWluZyBwaXhlbGF0ZWQvYmx1cnJ5Lg==",
+        "d": "b64:U1ZHIGZpbGVzIGFyZSBzcGVjaWZpY2FsbHkgZGVzaWduZWQgdG8gY29tcHJlc3MgaGlnaC1yZXNvbHV0aW9uIGRpZ2l0YWwgcGhvdG9ncmFwaHMu",
+        "e": "b64:U1ZHIGZpbGVzIGNvbnRhaW4gUHl0aG9uIGNvZGUgdGhhdCBydW5zIGF1dG9tYXRpY2FsbHkgd2hlbiBjbGlja2VkLg==",
+        "f": "b64:U1ZHIGZpbGVzIGFsd2F5cyBoYXZlIGEgbGFyZ2VyIGZpbGUgc2l6ZSB0aGFuIEpQR3MsIGVuc3VyaW5nIGJldHRlciBwcmludCBxdWFsaXR5Lg=="
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Why are PNG files often more useful than JPG files for design work and UI elements?",
+        "question_text": "Why are PNG files often more useful than JPG files for design work and UI elements?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:UE5HIGZpbGVzIGNhbiBzdG9yZSBhdWRpbyBhbmQgdmlkZW8gY2xpcHMgYWxvbmdzaWRlIHRoZSBpbWFnZS4=",
+                "text": "b64:UE5HIGZpbGVzIGNhbiBzdG9yZSBhdWRpbyBhbmQgdmlkZW8gY2xpcHMgYWxvbmdzaWRlIHRoZSBpbWFnZS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UE5HIGZpbGVzIHN1cHBvcnQgdHJhbnNwYXJlbmN5LCBhbGxvd2luZyBmb3IgdHJhbnNwYXJlbnQgYmFja2dyb3VuZHMu",
+                "text": "b64:UE5HIGZpbGVzIHN1cHBvcnQgdHJhbnNwYXJlbmN5LCBhbGxvd2luZyBmb3IgdHJhbnNwYXJlbnQgYmFja2dyb3VuZHMu",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:UE5HIGZpbGVzIGFyZSBtdWNoIGVhc2llciB0byBlZGl0IHVzaW5nIHJhdyB0ZXh0IGNvbW1hbmRzIGluIHRoZSBUZXJtaW5hbC4=",
+                "text": "b64:UE5HIGZpbGVzIGFyZSBtdWNoIGVhc2llciB0byBlZGl0IHVzaW5nIHJhdyB0ZXh0IGNvbW1hbmRzIGluIHRoZSBUZXJtaW5hbC4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UE5HIGZpbGVzIGNhbiBzY2FsZSBpbmZpbml0ZWx5IHdpdGhvdXQgcGl4ZWxhdGlvbiwgdW5saWtlIEpQR3Mu",
+                "text": "b64:UE5HIGZpbGVzIGNhbiBzY2FsZSBpbmZpbml0ZWx5IHdpdGhvdXQgcGl4ZWxhdGlvbiwgdW5saWtlIEpQR3Mu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UE5HIGZpbGVzIGF1dG9tYXRpY2FsbHkgY29ycmVjdCBzeW50YXggZXJyb3JzIGluIHlvdXIgUHl0aG9uIHNjcmlwdC4=",
+                "text": "b64:UE5HIGZpbGVzIGF1dG9tYXRpY2FsbHkgY29ycmVjdCBzeW50YXggZXJyb3JzIGluIHlvdXIgUHl0aG9uIHNjcmlwdC4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UE5HIGZpbGVzIGRvIG5vdCByZXF1aXJlIGEgZmlsZSBleHRlbnNpb24gdG8gYmUgcmVjb2duaXplZCBieSB0aGUgY29tcHV0ZXIu",
+                "text": "b64:UE5HIGZpbGVzIGRvIG5vdCByZXF1aXJlIGEgZmlsZSBleHRlbnNpb24gdG8gYmUgcmVjb2duaXplZCBieSB0aGUgY29tcHV0ZXIu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:UE5HIGZpbGVzIGNhbiBzdG9yZSBhdWRpbyBhbmQgdmlkZW8gY2xpcHMgYWxvbmdzaWRlIHRoZSBpbWFnZS4=",
+        "b": "b64:UE5HIGZpbGVzIHN1cHBvcnQgdHJhbnNwYXJlbmN5LCBhbGxvd2luZyBmb3IgdHJhbnNwYXJlbnQgYmFja2dyb3VuZHMu",
+        "c": "b64:UE5HIGZpbGVzIGFyZSBtdWNoIGVhc2llciB0byBlZGl0IHVzaW5nIHJhdyB0ZXh0IGNvbW1hbmRzIGluIHRoZSBUZXJtaW5hbC4=",
+        "d": "b64:UE5HIGZpbGVzIGNhbiBzY2FsZSBpbmZpbml0ZWx5IHdpdGhvdXQgcGl4ZWxhdGlvbiwgdW5saWtlIEpQR3Mu",
+        "e": "b64:UE5HIGZpbGVzIGF1dG9tYXRpY2FsbHkgY29ycmVjdCBzeW50YXggZXJyb3JzIGluIHlvdXIgUHl0aG9uIHNjcmlwdC4=",
+        "f": "b64:UE5HIGZpbGVzIGRvIG5vdCByZXF1aXJlIGEgZmlsZSBleHRlbnNpb24gdG8gYmUgcmVjb2duaXplZCBieSB0aGUgY29tcHV0ZXIu"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": "Q11",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 12",
+        "question number": "Q12",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    },
+    {
+        "quiz_metadata": {
+            "randomize_questions": true
+        }
+    }
+]
