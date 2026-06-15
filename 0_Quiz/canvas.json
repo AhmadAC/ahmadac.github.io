@@ -17,7 +17,9 @@
             "U3HW3 - W29 - Robot Hand": "2026-06-02T08:30:36.082165",
             "U3HW4 - W35 - Ball Tosser 1": "2026-06-02T08:30:36.082165",
             "W34 - Science Reflection": "2026-06-02T08:30:36.082165",
-            "U3HW5 - W36 - Ball Tosser 2": "2026-06-08T10:28:52.253948"
+            "U3HW5 - W36 - Ball Tosser 2": "2026-06-08T10:28:52.253948",
+            "U3HW6 - W37 - Balancing Sculpture 1": "2026-06-15T11:00:05.011399",
+            "U3HW7 - W38 - Balancing Sculpture 2": "2026-06-15T11:00:05.011399"
         },
         "G6B": {
             "U1HW1 - W2 - Safety": "10",
@@ -59,7 +61,9 @@
             "U3HW3 - W29 - Robot Hand": "2026-06-02T08:30:36.082165",
             "U3HW4 - W35 - Ball Tosser 1": "2026-06-02T08:30:36.082165",
             "W34 - Science Reflection": "2026-06-02T08:30:36.082165",
-            "U3HW5 - W36 - Ball Tosser 2": "2026-06-08T10:28:52.253948"
+            "U3HW5 - W36 - Ball Tosser 2": "2026-06-08T10:28:52.253948",
+            "U3HW6 - W37 - Balancing Sculpture 1": "2026-06-15T11:00:05.011399",
+            "U3HW7 - W38 - Balancing Sculpture 2": "2026-06-15T11:00:05.011399"
         }
     },
     "7": {
@@ -175,7 +179,8 @@
             "U2HW8 - W15 - Oil Spill Boom 2": "10",
             "U2HW4 - W11 - Atomic Structure": "10",
             "U2HW19 - W29 - Naming Compounds 1": "2026-06-02T08:30:36.082165",
-            "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375"
+            "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375",
+            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399"
         },
         "G8B": {
             "U3HW1 - W35 - Coding Vocabulary 1": "2026-06-02T08:31:26.841232",
@@ -203,7 +208,8 @@
             "U2HW8 - W15 - Oil Spill Boom 2": "10",
             "U2HW4 - W11 - Atomic Structure": "10",
             "U2HW19 - W29 - Naming Compounds 1": "2026-06-02T08:30:36.082165",
-            "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375"
+            "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375",
+            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399"
         },
         "G8C": {
             "U3HW1 - W35 - Coding Vocabulary 1": "2026-06-02T08:31:26.841232",
@@ -231,7 +237,8 @@
             "U2HW8 - W15 - Oil Spill Boom 2": "10",
             "U2HW4 - W11 - Atomic Structure": "10",
             "U2HW19 - W29 - Naming Compounds 1": "2026-06-02T08:30:36.082165",
-            "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375"
+            "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375",
+            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399"
         }
     }
 }
