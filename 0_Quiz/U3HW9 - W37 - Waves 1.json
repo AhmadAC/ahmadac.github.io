@@ -1,0 +1,595 @@
+[
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which of the following statements most accurately describes a mechanical wave?",
+        "question_text": "Which of the following statements most accurately describes a mechanical wave?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:NQ==",
+        "answers": [
+            {
+                "answer_text": "b64:SXQgY2FuIHRyYXZlbCBwZXJmZWN0bHkgdGhyb3VnaCBhIGNvbXBsZXRlIHZhY3V1bS4=",
+                "text": "b64:SXQgY2FuIHRyYXZlbCBwZXJmZWN0bHkgdGhyb3VnaCBhIGNvbXBsZXRlIHZhY3V1bS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgY29uc2lzdHMgb2YgdmlicmF0aW5nIGVsZWN0cmljIGFuZCBtYWduZXRpYyBmaWVsZHMu",
+                "text": "b64:SXQgY29uc2lzdHMgb2YgdmlicmF0aW5nIGVsZWN0cmljIGFuZCBtYWduZXRpYyBmaWVsZHMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgdHJhdmVscyBhdCB0aGUgc3BlZWQgb2YgbGlnaHQgaW4gYWxsIG1hdGVyaWFscy4=",
+                "text": "b64:SXQgdHJhdmVscyBhdCB0aGUgc3BlZWQgb2YgbGlnaHQgaW4gYWxsIG1hdGVyaWFscy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgY2Fubm90IHRyYXZlbCB0aHJvdWdoIGRlbnNlIHNvbGlkIG1hdGVyaWFscyBsaWtlIHN0ZWVsLg==",
+                "text": "b64:SXQgY2Fubm90IHRyYXZlbCB0aHJvdWdoIGRlbnNlIHNvbGlkIG1hdGVyaWFscyBsaWtlIHN0ZWVsLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgcmVxdWlyZXMgYSBwaHlzaWNhbCBtZWRpdW0gb2YgcGFydGljbGVzIHRvIHRyYXZlbC4=",
+                "text": "b64:SXQgcmVxdWlyZXMgYSBwaHlzaWNhbCBtZWRpdW0gb2YgcGFydGljbGVzIHRvIHRyYXZlbC4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:SXQgZG9lcyBub3QgdHJhbnNmZXIgZW5lcmd5IHdoZW4gaXQgbW92ZXMu",
+                "text": "b64:SXQgZG9lcyBub3QgdHJhbnNmZXIgZW5lcmd5IHdoZW4gaXQgbW92ZXMu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:SXQgY2FuIHRyYXZlbCBwZXJmZWN0bHkgdGhyb3VnaCBhIGNvbXBsZXRlIHZhY3V1bS4=",
+        "b": "b64:SXQgY29uc2lzdHMgb2YgdmlicmF0aW5nIGVsZWN0cmljIGFuZCBtYWduZXRpYyBmaWVsZHMu",
+        "c": "b64:SXQgdHJhdmVscyBhdCB0aGUgc3BlZWQgb2YgbGlnaHQgaW4gYWxsIG1hdGVyaWFscy4=",
+        "d": "b64:SXQgY2Fubm90IHRyYXZlbCB0aHJvdWdoIGRlbnNlIHNvbGlkIG1hdGVyaWFscyBsaWtlIHN0ZWVsLg==",
+        "e": "b64:SXQgcmVxdWlyZXMgYSBwaHlzaWNhbCBtZWRpdW0gb2YgcGFydGljbGVzIHRvIHRyYXZlbC4=",
+        "f": "b64:SXQgZG9lcyBub3QgdHJhbnNmZXIgZW5lcmd5IHdoZW4gaXQgbW92ZXMu"
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In which of the following environments would a sound wave travel the fastest?",
+        "question_text": "In which of the following environments would a sound wave travel the fastest?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:SW4gZ2FzZW91cyBhaXI=",
+                "text": "b64:SW4gZ2FzZW91cyBhaXI=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SW4gc29saWQgc3RlZWw=",
+                "text": "b64:SW4gc29saWQgc3RlZWw=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:SW4gbGlxdWlkIHdhdGVy",
+                "text": "b64:SW4gbGlxdWlkIHdhdGVy",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SW4gYSBjb21wbGV0ZSB2YWN1dW0=",
+                "text": "b64:SW4gYSBjb21wbGV0ZSB2YWN1dW0=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SW4gdGhlIGVtcHR5IHNwYWNlIGJldHdlZW4gc3RhcnM=",
+                "text": "b64:SW4gdGhlIGVtcHR5IHNwYWNlIGJldHdlZW4gc3RhcnM=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U291bmQgdHJhdmVscyBhdCB0aGUgZXhhY3Qgc2FtZSBzcGVlZCBpbiBhbGwgZW52aXJvbm1lbnRz",
+                "text": "b64:U291bmQgdHJhdmVscyBhdCB0aGUgZXhhY3Qgc2FtZSBzcGVlZCBpbiBhbGwgZW52aXJvbm1lbnRz",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:SW4gZ2FzZW91cyBhaXI=",
+        "b": "b64:SW4gc29saWQgc3RlZWw=",
+        "c": "b64:SW4gbGlxdWlkIHdhdGVy",
+        "d": "b64:SW4gYSBjb21wbGV0ZSB2YWN1dW0=",
+        "e": "b64:SW4gdGhlIGVtcHR5IHNwYWNlIGJldHdlZW4gc3RhcnM=",
+        "f": "b64:U291bmQgdHJhdmVscyBhdCB0aGUgZXhhY3Qgc2FtZSBzcGVlZCBpbiBhbGwgZW52aXJvbm1lbnRz"
+    },
+    {
+        "question_name": "Question 3",
+        "question number": 3,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Electromagnetic waves (such as light) differ from mechanical waves because electromagnetic waves:",
+        "question_text": "Electromagnetic waves (such as light) differ from mechanical waves because electromagnetic waves:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Ng==",
+        "answers": [
+            {
+                "answer_text": "b64:TXVzdCBoYXZlIGEgc29saWQgbWVkaXVtIHRvIHByb3BhZ2F0ZS4=",
+                "text": "b64:TXVzdCBoYXZlIGEgc29saWQgbWVkaXVtIHRvIHByb3BhZ2F0ZS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VHJhdmVsIHNsb3dlc3QgdGhyb3VnaCBhIHZhY3V1bS4=",
+                "text": "b64:VHJhdmVsIHNsb3dlc3QgdGhyb3VnaCBhIHZhY3V1bS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:T25seSB0cmFuc2ZlciBlbmVyZ3kgYnkgcGh5c2ljYWxseSBidW1waW5nIHBhcnRpY2xlcyBpbnRvIG9uZSBhbm90aGVyLg==",
+                "text": "b64:T25seSB0cmFuc2ZlciBlbmVyZ3kgYnkgcGh5c2ljYWxseSBidW1waW5nIHBhcnRpY2xlcyBpbnRvIG9uZSBhbm90aGVyLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Q2Fubm90IHRyYXZlbCB0aHJvdWdoIGFpciBvciBnYXMu",
+                "text": "b64:Q2Fubm90IHRyYXZlbCB0aHJvdWdoIGFpciBvciBnYXMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SGF2ZSBubyBtZWFzdXJhYmxlIHdhdmVsZW5ndGgu",
+                "text": "b64:SGF2ZSBubyBtZWFzdXJhYmxlIHdhdmVsZW5ndGgu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Q2FuIHRyYXZlbCB0aHJvdWdoIGVtcHR5IHNwYWNlIHdpdGhvdXQgYW55IHBhcnRpY2xlcy4=",
+                "text": "b64:Q2FuIHRyYXZlbCB0aHJvdWdoIGVtcHR5IHNwYWNlIHdpdGhvdXQgYW55IHBhcnRpY2xlcy4=",
+                "weight": "b64:MTAw"
+            }
+        ],
+        "a": "b64:TXVzdCBoYXZlIGEgc29saWQgbWVkaXVtIHRvIHByb3BhZ2F0ZS4=",
+        "b": "b64:VHJhdmVsIHNsb3dlc3QgdGhyb3VnaCBhIHZhY3V1bS4=",
+        "c": "b64:T25seSB0cmFuc2ZlciBlbmVyZ3kgYnkgcGh5c2ljYWxseSBidW1waW5nIHBhcnRpY2xlcyBpbnRvIG9uZSBhbm90aGVyLg==",
+        "d": "b64:Q2Fubm90IHRyYXZlbCB0aHJvdWdoIGFpciBvciBnYXMu",
+        "e": "b64:SGF2ZSBubyBtZWFzdXJhYmxlIHdhdmVsZW5ndGgu",
+        "f": "b64:Q2FuIHRyYXZlbCB0aHJvdWdoIGVtcHR5IHNwYWNlIHdpdGhvdXQgYW55IHBhcnRpY2xlcy4="
+    },
+    {
+        "question_name": "Question 4",
+        "question number": 4,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which wave property is directly responsible for the loudness of a sound wave or the brightness of a light wave?",
+        "question_text": "Which wave property is directly responsible for the loudness of a sound wave or the brightness of a light wave?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:MQ==",
+        "answers": [
+            {
+                "answer_text": "b64:QW1wbGl0dWRl",
+                "text": "b64:QW1wbGl0dWRl",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:RnJlcXVlbmN5",
+                "text": "b64:RnJlcXVlbmN5",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:V2F2ZWxlbmd0aA==",
+                "text": "b64:V2F2ZWxlbmd0aA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VHJvdWdo",
+                "text": "b64:VHJvdWdo",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RXF1aWxpYnJpdW0=",
+                "text": "b64:RXF1aWxpYnJpdW0=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3BlZWQ=",
+                "text": "b64:U3BlZWQ=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:QW1wbGl0dWRl",
+        "b": "b64:RnJlcXVlbmN5",
+        "c": "b64:V2F2ZWxlbmd0aA==",
+        "d": "b64:VHJvdWdo",
+        "e": "b64:RXF1aWxpYnJpdW0=",
+        "f": "b64:U3BlZWQ="
+    },
+    {
+        "question_name": "Question 5",
+        "question number": 5,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If a wave is measured to have a frequency of 10 Hertz (Hz), what does this measurement tell us?",
+        "question_text": "If a wave is measured to have a frequency of 10 Hertz (Hz), what does this measurement tell us?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:NA==",
+        "answers": [
+            {
+                "answer_text": "b64:VGhlIHdhdmUgdHJhdmVscyAxMCBtZXRlcnMgZXZlcnkgc2Vjb25kLg==",
+                "text": "b64:VGhlIHdhdmUgdHJhdmVscyAxMCBtZXRlcnMgZXZlcnkgc2Vjb25kLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIGRpc3RhbmNlIGZyb20gb25lIGNyZXN0IHRvIHRoZSBuZXh0IGlzIDEwIG1ldGVycy4=",
+                "text": "b64:VGhlIGRpc3RhbmNlIGZyb20gb25lIGNyZXN0IHRvIHRoZSBuZXh0IGlzIDEwIG1ldGVycy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHdhdmUgaXMgMTAgdGltZXMgbG91ZGVyIHRoYW4gbm9ybWFsIHNvdW5kLg==",
+                "text": "b64:VGhlIHdhdmUgaXMgMTAgdGltZXMgbG91ZGVyIHRoYW4gbm9ybWFsIHNvdW5kLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGVuIGNvbXBsZXRlIHdhdmUgY3ljbGVzIHBhc3MgYnkgYSBwb2ludCBpbiBvbmUgc2Vjb25kLg==",
+                "text": "b64:VGVuIGNvbXBsZXRlIHdhdmUgY3ljbGVzIHBhc3MgYnkgYSBwb2ludCBpbiBvbmUgc2Vjb25kLg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIGhlaWdodCBvZiB0aGUgd2F2ZSBjcmVzdCBpcyBleGFjdGx5IDEwIG1ldGVycy4=",
+                "text": "b64:VGhlIGhlaWdodCBvZiB0aGUgd2F2ZSBjcmVzdCBpcyBleGFjdGx5IDEwIG1ldGVycy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHdhdmUgaXMgc2hpZnRlZCBieSAxMCBkZWdyZWVzIGZyb20gaXRzIG9yaWdpbmFsIHBvc2l0aW9uLg==",
+                "text": "b64:VGhlIHdhdmUgaXMgc2hpZnRlZCBieSAxMCBkZWdyZWVzIGZyb20gaXRzIG9yaWdpbmFsIHBvc2l0aW9uLg==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VGhlIHdhdmUgdHJhdmVscyAxMCBtZXRlcnMgZXZlcnkgc2Vjb25kLg==",
+        "b": "b64:VGhlIGRpc3RhbmNlIGZyb20gb25lIGNyZXN0IHRvIHRoZSBuZXh0IGlzIDEwIG1ldGVycy4=",
+        "c": "b64:VGhlIHdhdmUgaXMgMTAgdGltZXMgbG91ZGVyIHRoYW4gbm9ybWFsIHNvdW5kLg==",
+        "d": "b64:VGVuIGNvbXBsZXRlIHdhdmUgY3ljbGVzIHBhc3MgYnkgYSBwb2ludCBpbiBvbmUgc2Vjb25kLg==",
+        "e": "b64:VGhlIGhlaWdodCBvZiB0aGUgd2F2ZSBjcmVzdCBpcyBleGFjdGx5IDEwIG1ldGVycy4=",
+        "f": "b64:VGhlIHdhdmUgaXMgc2hpZnRlZCBieSAxMCBkZWdyZWVzIGZyb20gaXRzIG9yaWdpbmFsIHBvc2l0aW9uLg=="
+    },
+    {
+        "question_name": "Question 6",
+        "question number": 6,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If you cover the walls of a recording room with soft foam panels, what wave behavior are you trying to achieve?",
+        "question_text": "If you cover the walls of a recording room with soft foam panels, what wave behavior are you trying to achieve?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mw==",
+        "answers": [
+            {
+                "answer_text": "b64:UmVmbGVjdGlvbg==",
+                "text": "b64:UmVmbGVjdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmVmcmFjdGlvbg==",
+                "text": "b64:UmVmcmFjdGlvbg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QWJzb3JwdGlvbg==",
+                "text": "b64:QWJzb3JwdGlvbg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:RGlmZnJhY3Rpb24=",
+                "text": "b64:RGlmZnJhY3Rpb24=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmVkc2hpZnQ=",
+                "text": "b64:UmVkc2hpZnQ=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Q29uc3RydWN0aXZlIGludGVyZmVyZW5jZQ==",
+                "text": "b64:Q29uc3RydWN0aXZlIGludGVyZmVyZW5jZQ==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:UmVmbGVjdGlvbg==",
+        "b": "b64:UmVmcmFjdGlvbg==",
+        "c": "b64:QWJzb3JwdGlvbg==",
+        "d": "b64:RGlmZnJhY3Rpb24=",
+        "e": "b64:UmVkc2hpZnQ=",
+        "f": "b64:Q29uc3RydWN0aXZlIGludGVyZmVyZW5jZQ=="
+    },
+    {
+        "question_name": "Question 7",
+        "question number": 7,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "How do active noise-canceling headphones eliminate outside noise?",
+        "question_text": "How do active noise-canceling headphones eliminate outside noise?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Ng==",
+        "answers": [
+            {
+                "answer_text": "b64:VGhleSBwaHlzaWNhbGx5IGJsb2NrIDEwMCUgb2YgYWlyIG1vbGVjdWxlcyBmcm9tIHJlYWNoaW5nIHlvdXIgZWFyLg==",
+                "text": "b64:VGhleSBwaHlzaWNhbGx5IGJsb2NrIDEwMCUgb2YgYWlyIG1vbGVjdWxlcyBmcm9tIHJlYWNoaW5nIHlvdXIgZWFyLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSByZWZsZWN0IHRoZSBpbmNvbWluZyBzb3VuZCB3YXZlcyBiYWNrIHRvIHRoZSBzb3VyY2UgdXNpbmcgaGFyZCBwbGFzdGljIHdhbGxzLg==",
+                "text": "b64:VGhleSByZWZsZWN0IHRoZSBpbmNvbWluZyBzb3VuZCB3YXZlcyBiYWNrIHRvIHRoZSBzb3VyY2UgdXNpbmcgaGFyZCBwbGFzdGljIHdhbGxzLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSBkb3VibGUgdGhlIGZyZXF1ZW5jeSBvZiB0aGUgc291bmQgd2F2ZSB1bnRpbCBpdCBpcyB0b28gaGlnaCBmb3IgaHVtYW5zIHRvIGhlYXIu",
+                "text": "b64:VGhleSBkb3VibGUgdGhlIGZyZXF1ZW5jeSBvZiB0aGUgc291bmQgd2F2ZSB1bnRpbCBpdCBpcyB0b28gaGlnaCBmb3IgaHVtYW5zIHRvIGhlYXIu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSByZWZyYWN0IHRoZSBzb3VuZCB3YXZlcyBpbnRvIGEgZGlmZmVyZW50IG1lZGl1bSBsaWtlIGxpcXVpZC4=",
+                "text": "b64:VGhleSByZWZyYWN0IHRoZSBzb3VuZCB3YXZlcyBpbnRvIGEgZGlmZmVyZW50IG1lZGl1bSBsaWtlIGxpcXVpZC4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSB1c2UgY29uc3RydWN0aXZlIGludGVyZmVyZW5jZSB0byBhbXBsaWZ5IHRoZSBxdWlldCBwYXJ0cyBvZiB0aGUgcm9vbS4=",
+                "text": "b64:VGhleSB1c2UgY29uc3RydWN0aXZlIGludGVyZmVyZW5jZSB0byBhbXBsaWZ5IHRoZSBxdWlldCBwYXJ0cyBvZiB0aGUgcm9vbS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhleSBlbWl0IGFuIG9wcG9zaXRlIHdhdmUgc2hpZnRlZCBieSAxODAgZGVncmVlcyB0byBjYXVzZSBkZXN0cnVjdGl2ZSBpbnRlcmZlcmVuY2Uu",
+                "text": "b64:VGhleSBlbWl0IGFuIG9wcG9zaXRlIHdhdmUgc2hpZnRlZCBieSAxODAgZGVncmVlcyB0byBjYXVzZSBkZXN0cnVjdGl2ZSBpbnRlcmZlcmVuY2Uu",
+                "weight": "b64:MTAw"
+            }
+        ],
+        "a": "b64:VGhleSBwaHlzaWNhbGx5IGJsb2NrIDEwMCUgb2YgYWlyIG1vbGVjdWxlcyBmcm9tIHJlYWNoaW5nIHlvdXIgZWFyLg==",
+        "b": "b64:VGhleSByZWZsZWN0IHRoZSBpbmNvbWluZyBzb3VuZCB3YXZlcyBiYWNrIHRvIHRoZSBzb3VyY2UgdXNpbmcgaGFyZCBwbGFzdGljIHdhbGxzLg==",
+        "c": "b64:VGhleSBkb3VibGUgdGhlIGZyZXF1ZW5jeSBvZiB0aGUgc291bmQgd2F2ZSB1bnRpbCBpdCBpcyB0b28gaGlnaCBmb3IgaHVtYW5zIHRvIGhlYXIu",
+        "d": "b64:VGhleSByZWZyYWN0IHRoZSBzb3VuZCB3YXZlcyBpbnRvIGEgZGlmZmVyZW50IG1lZGl1bSBsaWtlIGxpcXVpZC4=",
+        "e": "b64:VGhleSB1c2UgY29uc3RydWN0aXZlIGludGVyZmVyZW5jZSB0byBhbXBsaWZ5IHRoZSBxdWlldCBwYXJ0cyBvZiB0aGUgcm9vbS4=",
+        "f": "b64:VGhleSBlbWl0IGFuIG9wcG9zaXRlIHdhdmUgc2hpZnRlZCBieSAxODAgZGVncmVlcyB0byBjYXVzZSBkZXN0cnVjdGl2ZSBpbnRlcmZlcmVuY2Uu"
+    },
+    {
+        "question_name": "Question 8",
+        "question number": 8,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "According to the Doppler Effect, what happens to the siren of an ambulance as it drives away from you?",
+        "question_text": "According to the Doppler Effect, what happens to the siren of an ambulance as it drives away from you?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:MQ==",
+        "answers": [
+            {
+                "answer_text": "b64:VGhlIHNvdW5kIHdhdmVzIHN0cmV0Y2ggb3V0LCBjYXVzaW5nIGEgbG93ZXIgcGl0Y2gu",
+                "text": "b64:VGhlIHNvdW5kIHdhdmVzIHN0cmV0Y2ggb3V0LCBjYXVzaW5nIGEgbG93ZXIgcGl0Y2gu",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGhlIHNvdW5kIHdhdmVzIHNxdWlzaCB0b2dldGhlciwgY2F1c2luZyBhIGhpZ2hlciBwaXRjaC4=",
+                "text": "b64:VGhlIHNvdW5kIHdhdmVzIHNxdWlzaCB0b2dldGhlciwgY2F1c2luZyBhIGhpZ2hlciBwaXRjaC4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHNvdW5kIHdhdmVzIHN0cmV0Y2ggb3V0LCBjYXVzaW5nIGEgaGlnaGVyIHBpdGNoLg==",
+                "text": "b64:VGhlIHNvdW5kIHdhdmVzIHN0cmV0Y2ggb3V0LCBjYXVzaW5nIGEgaGlnaGVyIHBpdGNoLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHNvdW5kIHdhdmVzIHNxdWlzaCB0b2dldGhlciwgY2F1c2luZyBhIGxvd2VyIHBpdGNoLg==",
+                "text": "b64:VGhlIHNvdW5kIHdhdmVzIHNxdWlzaCB0b2dldGhlciwgY2F1c2luZyBhIGxvd2VyIHBpdGNoLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIHNvdW5kIHdhdmVzIHN0b3AgbW92aW5nIGNvbXBsZXRlbHksIGNhdXNpbmcgc2lsZW5jZS4=",
+                "text": "b64:VGhlIHNvdW5kIHdhdmVzIHN0b3AgbW92aW5nIGNvbXBsZXRlbHksIGNhdXNpbmcgc2lsZW5jZS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGhlIGFtcGxpdHVkZSBvZiB0aGUgd2F2ZSBpbmNyZWFzZXMsIG1ha2luZyBpdCBzb3VuZCBsb3VkZXIu",
+                "text": "b64:VGhlIGFtcGxpdHVkZSBvZiB0aGUgd2F2ZSBpbmNyZWFzZXMsIG1ha2luZyBpdCBzb3VuZCBsb3VkZXIu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:VGhlIHNvdW5kIHdhdmVzIHN0cmV0Y2ggb3V0LCBjYXVzaW5nIGEgbG93ZXIgcGl0Y2gu",
+        "b": "b64:VGhlIHNvdW5kIHdhdmVzIHNxdWlzaCB0b2dldGhlciwgY2F1c2luZyBhIGhpZ2hlciBwaXRjaC4=",
+        "c": "b64:VGhlIHNvdW5kIHdhdmVzIHN0cmV0Y2ggb3V0LCBjYXVzaW5nIGEgaGlnaGVyIHBpdGNoLg==",
+        "d": "b64:VGhlIHNvdW5kIHdhdmVzIHNxdWlzaCB0b2dldGhlciwgY2F1c2luZyBhIGxvd2VyIHBpdGNoLg==",
+        "e": "b64:VGhlIHNvdW5kIHdhdmVzIHN0b3AgbW92aW5nIGNvbXBsZXRlbHksIGNhdXNpbmcgc2lsZW5jZS4=",
+        "f": "b64:VGhlIGFtcGxpdHVkZSBvZiB0aGUgd2F2ZSBpbmNyZWFzZXMsIG1ha2luZyBpdCBzb3VuZCBsb3VkZXIu"
+    },
+    {
+        "question_name": "Question 9",
+        "question number": 9,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Based on wave properties and star observations, why is a blue star considered hotter than a red star?",
+        "question_text": "Based on wave properties and star observations, why is a blue star considered hotter than a red star?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:NQ==",
+        "answers": [
+            {
+                "answer_text": "b64:Qmx1ZSBzdGFycyBlbWl0IGxvbmdlciB3YXZlbGVuZ3RocyB3aXRoIGxvd2VyIGVuZXJneS4=",
+                "text": "b64:Qmx1ZSBzdGFycyBlbWl0IGxvbmdlciB3YXZlbGVuZ3RocyB3aXRoIGxvd2VyIGVuZXJneS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmVkIHN0YXJzIGVtaXQgc2hvcnRlciB3YXZlbGVuZ3RocyB3aXRoIGhpZ2hlciBlbmVyZ3ku",
+                "text": "b64:UmVkIHN0YXJzIGVtaXQgc2hvcnRlciB3YXZlbGVuZ3RocyB3aXRoIGhpZ2hlciBlbmVyZ3ku",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Qmx1ZSBzdGFycyBvbmx5IGVtaXQgbWVjaGFuaWNhbCB3YXZlcy4=",
+                "text": "b64:Qmx1ZSBzdGFycyBvbmx5IGVtaXQgbWVjaGFuaWNhbCB3YXZlcy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmVkIHN0YXJzIGVtaXQgd2F2ZXMgdGhhdCB0cmF2ZWwgZmFzdGVyIHRoYW4gdGhlIHNwZWVkIG9mIGxpZ2h0Lg==",
+                "text": "b64:UmVkIHN0YXJzIGVtaXQgd2F2ZXMgdGhhdCB0cmF2ZWwgZmFzdGVyIHRoYW4gdGhlIHNwZWVkIG9mIGxpZ2h0Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Qmx1ZSBzdGFycyBlbWl0IHNob3J0ZXIgd2F2ZWxlbmd0aHMgd2l0aCBoaWdoZXIgZW5lcmd5Lg==",
+                "text": "b64:Qmx1ZSBzdGFycyBlbWl0IHNob3J0ZXIgd2F2ZWxlbmd0aHMgd2l0aCBoaWdoZXIgZW5lcmd5Lg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:Qmx1ZSBzdGFycyBoYXZlIHNtYWxsZXIgYW1wbGl0dWRlcyBidXQgaGlnaGVyIHNwZWVkcy4=",
+                "text": "b64:Qmx1ZSBzdGFycyBoYXZlIHNtYWxsZXIgYW1wbGl0dWRlcyBidXQgaGlnaGVyIHNwZWVkcy4=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:Qmx1ZSBzdGFycyBlbWl0IGxvbmdlciB3YXZlbGVuZ3RocyB3aXRoIGxvd2VyIGVuZXJneS4=",
+        "b": "b64:UmVkIHN0YXJzIGVtaXQgc2hvcnRlciB3YXZlbGVuZ3RocyB3aXRoIGhpZ2hlciBlbmVyZ3ku",
+        "c": "b64:Qmx1ZSBzdGFycyBvbmx5IGVtaXQgbWVjaGFuaWNhbCB3YXZlcy4=",
+        "d": "b64:UmVkIHN0YXJzIGVtaXQgd2F2ZXMgdGhhdCB0cmF2ZWwgZmFzdGVyIHRoYW4gdGhlIHNwZWVkIG9mIGxpZ2h0Lg==",
+        "e": "b64:Qmx1ZSBzdGFycyBlbWl0IHNob3J0ZXIgd2F2ZWxlbmd0aHMgd2l0aCBoaWdoZXIgZW5lcmd5Lg==",
+        "f": "b64:Qmx1ZSBzdGFycyBoYXZlIHNtYWxsZXIgYW1wbGl0dWRlcyBidXQgaGlnaGVyIHNwZWVkcy4="
+    },
+    {
+        "question_name": "Question 10",
+        "question number": 10,
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A wave has a frequency of 12 Hz and a wavelength of 3 meters. Using the wave equation (v= f × λ), what is the velocity of the wave?",
+        "question_text": "A wave has a frequency of 12 Hz and a wavelength of 3 meters. Using the wave equation (v= f × λ), what is the velocity of the wave?",
+        "url": "",
+        "question_url": "",
+        "correct ans index": "b64:Mg==",
+        "answers": [
+            {
+                "answer_text": "b64:NCBtL3M=",
+                "text": "b64:NCBtL3M=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MzYgbS9z",
+                "text": "b64:MzYgbS9z",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:OSBtL3M=",
+                "text": "b64:OSBtL3M=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MTUgbS9z",
+                "text": "b64:MTUgbS9z",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MTA4IG0vcw==",
+                "text": "b64:MTA4IG0vcw==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MC4yNSBtL3M=",
+                "text": "b64:MC4yNSBtL3M=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:NCBtL3M=",
+        "b": "b64:MzYgbS9z",
+        "c": "b64:OSBtL3M=",
+        "d": "b64:MTUgbS9z",
+        "e": "b64:MTA4IG0vcw==",
+        "f": "b64:MC4yNSBtL3M="
+    },
+    {
+        "question_name": "Question 11",
+        "question number": "Q11",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 12",
+        "question number": "Q12",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    },
+    {
+        "quiz_metadata": {
+            "randomize_questions": true
+        }
+    }
+]
