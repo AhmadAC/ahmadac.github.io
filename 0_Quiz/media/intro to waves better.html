@@ -370,13 +370,13 @@
         </div>
     </div>
 
-    <!-- PANEL 2: EM SPECTRUM -->
+    <!-- PANEL 2: EM SPECTRUM & VISIBLE MAGNIFICATION -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
-        2. The Electromagnetic Spectrum
+        2. The Electromagnetic Spectrum & VISIBLE MAGNIFICATION
     </h2>
     <div class="panel">
-        <p>The Electromagnetic Spectrum charts EM waves based on their frequency and wavelength (λ). Notice how <b>red represents lower energy (longer wavelength λ)</b>, while <b>blue and purple represent higher energy (shorter wavelength λ)</b>.</p>
+        <p>The Electromagnetic Spectrum charts EM waves based on their frequency and wavelength (λ). Notice how <b>red represents lower energy (longer wavelength λ)</b>, while <b>blue and purple represent higher energy (shorter wavelength λ)</b>. The visible spectrum (ROYGBIV) is just a tiny sliver magnified below!</p>
         
         <div class="interactive-svg-container" style="padding: 0; position: relative;">
             <svg class="svg-content-lg" viewBox="0 0 1000 360" width="100%" height="100%" style="display: block;">
@@ -449,14 +449,14 @@
                 </g>
                 
                 <g fill="var(--svg-text)" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">
-                    <text x="10" y="165">10^3</text>
+                    <text x="10" y="165">10³</text>
                     <text x="170" y="165">1</text>
-                    <text x="330" y="165">10^-3</text>
-                    <text x="470" y="165">10^-5</text>
-                    <text x="590" y="165">10^-7</text>
-                    <text x="710" y="165">10^-9</text>
-                    <text x="830" y="165">10^-11</text>
-                    <text x="960" y="165">10^-13</text>
+                    <text x="330" y="165">10⁻³</text>
+                    <text x="470" y="165">10⁻⁵</text>
+                    <text x="590" y="165">10⁻⁷</text>
+                    <text x="710" y="165">10⁻⁹</text>
+                    <text x="830" y="165">10⁻¹¹</text>
+                    <text x="960" y="165">10⁻¹³</text>
                     <text x="960" y="180" font-size="12" font-style="italic">(meters)</text>
                 </g>
 
@@ -509,7 +509,7 @@
         3. Anatomy of a Wave (Interactive Lab)
     </h2>
     <div class="panel">
-        <p style="margin-top: 0;">Use the step-by-step controls below to see how a single wave cycle (1 Hertz) is built.</p>
+        <p style="margin-top: 0;">Use the step-by-step controls below to see how a single wave cycle (1 Hertz) is built, and how it directly maps to the physical motion of a playground swing.</p>
         <div class="interactive-svg-container">
             <svg id="interactiveWaveSvg" class="svg-content-sm" viewBox="0 0 800 360" width="100%" height="100%">
                 <line x1="50" y1="175" x2="750" y2="175" stroke="var(--svg-grid)" stroke-width="2" />
@@ -557,7 +557,7 @@
 
                 <g id="anno-full-bracket" opacity="0" style="transition: opacity 0.4s;">
                     <path d="M 80 320 L 80 335 L 480 335 L 480 320" fill="none" stroke="var(--svg-anno-blue)" stroke-width="2" />
-                    <text x="280" y="353" font-family="sans-serif" font-size="14" font-weight="bold" fill="var(--svg-anno-blue)" text-anchor="middle">4. One Complete Cycle (λ)</text>
+                    <text x="280" y="353" font-family="sans-serif" font-size="14" font-weight="bold" fill="var(--svg-anno-blue)" text-anchor="middle">4. One Complete Cycle (1 Hz if completed in 1 sec)</text>
                 </g>
             </svg>
         </div>
@@ -594,7 +594,7 @@
         </div>
     </div>
 
-    <!-- PANEL 4: TRANSVERSE WAVE SIMULATOR (RESTORED) -->
+    <!-- PANEL 4: TRANSVERSE WAVE SIMULATOR -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><path d="M9 12h6"/></svg>
         4. Transverse Wave Simulator (Properties & Behaviors)
@@ -662,7 +662,7 @@
         </div>
     </div>
 
-    <!-- PANEL 5: MEDIUMS & PARTICLES (RESTORED) -->
+    <!-- PANEL 5: MEDIUMS & PARTICLES -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 12h18M8 4v8M16 12v8"/></svg>
         5. Particle Propagation (Why Mediums Matter)
@@ -686,15 +686,21 @@
         </div>
     </div>
 
-    <!-- PANEL 6: RIPPLE TANK & DOPPLER (COMBINED WAVE BEHAVIORS) -->
+    <!-- PANEL 6: RIPPLE TANK -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        6. Wave Behaviors: Diffraction, Refraction & Doppler
+        6. The Ripple Tank (Advanced Bending)
     </h2>
     <div class="panel">
         <div class="toggle-group" style="margin-bottom: 15px;">
-            <button id="btnDiffraction" class="active" onclick="setRippleMode('diffraction')">Diffraction (Gap)</button>
-            <button id="btnRefraction" onclick="setRippleMode('refraction')">Refraction (New Medium)</button>
+            <button id="btnDiffraction" class="active" onclick="setRippleMode('diffraction')">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 20h16 M6 20V4h12v16 M14 12v.01" /></svg>
+                Show Diffraction (Gap)
+            </button>
+            <button id="btnRefraction" onclick="setRippleMode('refraction')">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M21 21H3L21 3v18z M15 21v-4 M11 21v-4 M7 21v-4" /></svg>
+                Show Refraction (New Medium)
+            </button>
         </div>
         <div class="canvas-container" style="background-color: #0d1b2a;">
             <canvas id="rippleCanvas" width="1000" height="300"></canvas>
@@ -718,9 +724,15 @@
             </div>
         </div>
         <div class="note" id="rippleNote" style="margin-top: 15px;"></div>
+    </div>
 
-        <h3 style="margin-top: 30px;">The Doppler Effect (Sound)</h3>
-        <p>When a source moves towards you, the waves <b>bunch up</b> (decreasing λ, increasing frequency). When it moves away, they <b>spread out</b> (increasing λ, decreasing frequency).</p>
+    <!-- PANEL 7: DOPPLER EFFECT -->
+    <h2>
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h3M18 12h3M12 3v3M12 18v3M7.05 7.05l2.12 2.12M14.83 14.83l2.12 2.12M7.05 16.95l2.12-2.12M14.83 9.17l2.12-2.12"/></svg>
+        7. The Doppler Effect
+    </h2>
+    <div class="panel">
+        <p>Why does an ambulance siren pitch drop as it passes you? When a source moves towards you, the waves <b>bunch up</b> (decreasing wavelength &lambda;, increasing frequency <i>f</i> & pitch). When it moves away, they <b>spread out</b> (increasing &lambda;, decreasing frequency <i>f</i> & pitch).</p>
         <div class="canvas-container" style="background-color: #2c3e50;">
             <canvas id="dopplerCanvas" width="1000" height="250"></canvas>
         </div>
@@ -733,10 +745,10 @@
         </div>
     </div>
 
-    <!-- PANEL 7: ACTIVE NOISE CANCELLATION (RESTORED) -->
+    <!-- PANEL 8: ACTIVE NOISE CANCELLATION -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-        7. Active Noise Cancellation (Phase Shifting)
+        8. Active Noise Cancellation (Phase Shifting)
     </h2>
     <div class="panel">
         <p>Why do noise-canceling earphones work so well? They use a tiny microphone to listen to outside noise, then instantly generate an <b>anti-noise</b> wave. This anti-noise is identical to the incoming sound but shifted by <b>180 degrees (half a wavelength)</b>. When the peaks of the incoming noise meet the troughs of the anti-noise, they mathematically add up to zero! This creates silence through <b>Destructive Interference</b>.</p>
@@ -759,10 +771,10 @@
         </div>
     </div>
 
-    <!-- PANEL 8: LIGHT IN THE COSMOS - REDSHIFT & EMISSION SPECTRA -->
+    <!-- PANEL 9: LIGHT IN THE COSMOS - REDSHIFT & EMISSION SPECTRA -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/></svg>
-        8. Light in the Cosmos: Redshift & Emission Spectra
+        9. Light in the Cosmos: Redshift & Emission Spectra
     </h2>
     <div class="panel">
         <p>The Doppler Effect applies to light too! When a star or galaxy moves <b>towards us</b>, its light waves bunch up, shifting toward the blue end of the spectrum (<b>Blueshift</b>). When it moves <b>away from us</b>, the waves stretch out, shifting toward the red end (<b>Redshift</b>).</p>
@@ -837,10 +849,10 @@
         </div>
     </div>
 
-    <!-- PANEL 9: QUANTUM ENERGY LEVELS -->
+    <!-- PANEL 10: QUANTUM ENERGY LEVELS -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"/></svg>
-        9. Quantum Energy Levels & Emission
+        10. Quantum Energy Levels & Emission
     </h2>
     <div class="panel grid-2">
         <div>
@@ -921,10 +933,10 @@
         </div>
     </div>
 
-    <!-- PANEL 10: THERMAL RADIATION & TEMPERATURE -->
+    <!-- PANEL 11: THERMAL RADIATION & TEMPERATURE -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><path d="M12 2A4 4 0 0 1 16 6v3a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" fill="#e74c3c"/></svg>
-        10. Thermal Radiation & Wien's Law
+        11. Thermal Radiation & Wien's Law
     </h2>
     <div class="panel grid-2">
         <div>
@@ -969,10 +981,10 @@
         </div>
     </div>
 
-    <!-- PANEL 11: WAVE OPTICS & YOUNG'S DOUBLE SLIT -->
+    <!-- PANEL 12: WAVE OPTICS & YOUNG'S DOUBLE SLIT -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-        11. Wave Optics: Young's Double Slit Experiment
+        12. Wave Optics: Young's Double Slit Experiment
     </h2>
     <div class="panel grid-2">
         <div>
@@ -1081,10 +1093,10 @@
         </div>
     </div>
 
-    <!-- PANEL 12: THE MATH LAB -->
+    <!-- PANEL 13: THE MATH LAB -->
     <h2>
         <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
-        12. The Math Lab: Universal Wave Equation
+        13. The Math Lab: Universal Wave Equation
     </h2>
     <div class="panel grid-2">
         <div class="math-box">
@@ -1093,7 +1105,7 @@
             <div class="math-vars">
                 <b>v</b> = Velocity / Speed (m/s)<br>
                 <b>f</b> = Frequency (Hz)<br>
-                <b>&lambda;</b> = Wavelength (meters)
+                <b>&lambda;</b> (lambda) = Wavelength (meters)
             </div>
             <p style="margin-top: 20px; font-size: 0.9em; text-align: left;">
                 <i>Rule of thumb:</i> In a specific medium, speed (v) stays the same. So if Frequency goes UP, Wavelength (&lambda;) must go DOWN to balance the equation!
@@ -1105,7 +1117,7 @@
                 <svg class="icon" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9l2 2 4-4"/></svg>
                 Interactive Knowledge Check
             </h3>
-            <p style="margin-top:0;">Use the wave equation (v = f &times; &lambda;) to solve the problem below.</p>
+            <p style="margin-top:0;">Use the wave equation (v = f &times; &lambda;) to solve the problem below. Use algebra to isolate the missing variable!</p>
             
             <div class="quiz-question" id="quizQuestion">Loading question...</div>
             
@@ -1239,23 +1251,25 @@
 
         // Update Math Box
         let calcBox = document.getElementById('dopplerCalcBox');
-        let exampleRest = hRest[3]; // Red line
-        let exampleObs = exampleRest * (1 + z);
-        let shiftAmt = Math.abs(exampleObs - exampleRest);
-        let shiftText = v_c > 0 ? "(Stretched/Redder)" : v_c < 0 ? "(Squished/Bluer)" : "";
-        
-        calcBox.innerHTML = `
-            <b>Observation of Hydrogen Alpha (Red Line):</b><br>
-            &lambda;<sub>rest</sub> = ${exampleRest.toFixed(1)} nm<br>
-            Velocity (v) = ${(Math.abs(v_c) * 100).toFixed(0)}% c<br>
-            <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
-                &lambda;<sub>observed</sub> = &lambda;<sub>rest</sub> &times; (1 + <span class="frac" style="font-size:0.9em;"><span class="num">v</span><span class="den">c</span></span>)
-            </div>
-            <b>&lambda;<sub>observed</sub> = ${exampleObs.toFixed(1)} nm</b><br>
-            <span style="color:${v_c > 0 ? '#ff7675' : v_c < 0 ? '#74b9ff' : '#ecf0f1'}">
-                Shift Amount (&Delta;&lambda;) = ${shiftAmt.toFixed(1)} nm ${shiftText}
-            </span>
-        `;
+        if (calcBox) {
+            let exampleRest = hRest[3]; // Red line
+            let exampleObs = exampleRest * (1 + z);
+            let shiftAmt = Math.abs(exampleObs - exampleRest);
+            let shiftText = v_c > 0 ? "(Stretched/Redder)" : v_c < 0 ? "(Squished/Bluer)" : "";
+            
+            calcBox.innerHTML = `
+                <b>Observation of Hydrogen Alpha (Red Line):</b><br>
+                &lambda;<sub>rest</sub> = ${exampleRest.toFixed(1)} nm<br>
+                Velocity (v) = ${(Math.abs(v_c) * 100).toFixed(0)}% c<br>
+                <div style="display:flex; align-items:center; gap:5px; margin: 5px 0;">
+                    &lambda;<sub>observed</sub> = &lambda;<sub>rest</sub> &times; (1 + <span class="frac" style="font-size:0.9em;"><span class="num">v</span><span class="den">c</span></span>)
+                </div>
+                <b>&lambda;<sub>observed</sub> = ${exampleObs.toFixed(1)} nm</b><br>
+                <span style="color:${v_c > 0 ? '#ff7675' : v_c < 0 ? '#74b9ff' : '#ecf0f1'}">
+                    Shift Amount (&Delta;&lambda;) = ${shiftAmt.toFixed(1)} nm ${shiftText}
+                </span>
+            `;
+        }
     }
     
     const starVelSlider = document.getElementById('starVelSlider');
@@ -1500,11 +1514,11 @@
         if(mode === 'diffraction') {
             if(bDiff) bDiff.classList.add('active');
             if(legend) legend.style.display = 'flex';
-            if(note) note.innerHTML = "<b>Diffraction:</b> When a straight wave hits a small gap, it bends and spreads out into circular ripples! Notice how the red gap size exactly matches the red wavelength length (λ). <b>When the gap length and the wave length are the same, it produces optimal wave diffraction (maximum spreading)</b>.";
+            if(note) note.innerHTML = "<b>Diffraction:</b> When a straight wave hits a small gap, it bends and spreads out into circular ripples! Notice how the red gap size exactly matches the red wavelength length (λ). <b>When the gap length and the wave length are the same, it produces optimal wave diffraction (maximum spreading)</b> because the edges of the wave perfectly pivot around the gap corners.";
         } else {
             if(bRef) bRef.classList.add('active');
             if(legend) legend.style.display = 'none';
-            if(note) note.innerHTML = "<b>Refraction:</b> When a wave enters a denser material at an angle, it slows down. This causes the entire wave line to bend, <b>reducing the physical distance (wavelength λ) between the waves</b>.";
+            if(note) note.innerHTML = "<b>Refraction:</b> When a wave enters a denser material at an angle, it slows down. This causes the entire wave line to bend mathematically (Snell's Law), <b>reducing the physical distance (wavelength λ) between the waves</b>.";
         }
     }
 
@@ -1524,17 +1538,17 @@
             f = Math.floor(Math.random() * 400) + 100; 
             lambda = (Math.random() * 2 + 0.5).toFixed(2); 
             currentQuizAnswer = (f * lambda).toFixed(2);
-            questionText = `A wave has a frequency of <b>${f} Hz</b> and a wavelength (λ) of <b>${lambda} meters</b>. What is the velocity (speed) of the wave in <b>m/s</b>?`;
+            questionText = `A sound wave has a frequency of <b>${f} Hz</b> and a wavelength (λ) of <b>${lambda} meters</b>. What is the velocity (speed) of the wave in <b>m/s</b>?`;
         } else if (missingVar === 'f') {
             v = 340; 
             lambda = (Math.random() * 4 + 1).toFixed(2);
             currentQuizAnswer = (v / lambda).toFixed(2);
-            questionText = `A wave travels at <b>${v} m/s</b>. Its wavelength (λ) is <b>${lambda} meters</b>. What is the frequency in <b>Hz</b>?`;
+            questionText = `A sound wave travels through air at <b>${v} m/s</b>. Its wavelength (λ) is <b>${lambda} meters</b>. What is the frequency in <b>Hz</b>?`;
         } else {
             v = 340;
             f = Math.floor(Math.random() * 600) + 200;
             currentQuizAnswer = (v / f).toFixed(2);
-            questionText = `A wave travels at <b>${v} m/s</b> with a frequency of <b>${f} Hz</b>. What is the wavelength (λ) in <b>meters</b>?`;
+            questionText = `A sound wave travels at <b>${v} m/s</b> with a frequency of <b>${f} Hz</b>. What is the wavelength (λ) in <b>meters</b>?`;
         }
 
         let qEl = document.getElementById('quizQuestion');
@@ -1806,7 +1820,7 @@
                     ripCtx.shadowBlur = 4;
                     ripCtx.fillStyle = "#fff";
                     ripCtx.font = "bold 15px sans-serif";
-                    let text = isTop ? "λ 1 (Longer)" : "λ 2 (Shorter)";
+                    let text = isTop ? "λ₁ (Longer)" : "λ₂ (Shorter)";
                     
                     ripCtx.fillText(text, mid_x - 40, mid_y - 12);
                     ripCtx.shadowBlur = 0; 

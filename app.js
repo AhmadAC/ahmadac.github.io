@@ -6,6 +6,69 @@ let quizInstances = [];
 let canvasData = {}; // Shared across all instances
 const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
+// --- SETTINGS MANAGEMENT ---
+let appSettings = {
+    anchor_date: "2026-06-15", // Format YYYY-MM-DD
+    anchor_week: 37,
+    manual_week_override: null, // Set to a number to manually lock the week (e.g. 38)
+    manual_date_string: null    // Set to manually lock the date string (e.g. "22/06/2026 - 26/06/2026")
+};
+
+async function loadSettings() {
+    try {
+        console.log("[DEBUG] Fetching settings.json...");
+        const res = await fetch('0_Quiz/settings.json');
+        if (res.ok) {
+            const customSettings = await res.json();
+            appSettings = { ...appSettings, ...customSettings };
+            console.log("[DEBUG] Loaded custom settings:", appSettings);
+        }
+    } catch (e) {
+        console.log("[DEBUG] No custom settings.json found or failed to load. Using defaults.");
+    }
+}
+
+// --- DYNAMIC WEEK CALCULATION ---
+function getCurrentTeachingWeekInfo() {
+    // If a manual override is set in settings.json, use it immediately
+    if (appSettings.manual_week_override !== null && appSettings.manual_week_override !== undefined) {
+        return {
+            weekNum: appSettings.manual_week_override,
+            dateString: appSettings.manual_date_string || "Manual Override Active"
+        };
+    }
+
+    // Otherwise, parse the anchor date dynamically
+    const parts = appSettings.anchor_date.split('-');
+    const anchorDate = new Date(parts[0], parts[1] - 1, parts[2]); // Month is 0-indexed
+    const anchorWeek = appSettings.anchor_week;
+    const msPerWeek = 7 * 24 * 60 * 60 * 1000;
+    
+    const now = new Date();
+    now.setHours(0, 0, 0, 0); // Normalize to midnight to avoid timezone shift errors
+    
+    const diffMs = now.getTime() - anchorDate.getTime();
+    const weeksDiff = Math.floor(diffMs / msPerWeek);
+    
+    const currentWeekNum = anchorWeek + weeksDiff;
+    
+    // Calculate Monday and Friday of this teaching week
+    const startDate = new Date(anchorDate.getTime() + (weeksDiff * msPerWeek));
+    const endDate = new Date(startDate.getTime() + (4 * 24 * 60 * 60 * 1000)); // +4 days = Friday
+    
+    const formatDate = (dateObj) => {
+        const d = String(dateObj.getDate()).padStart(2, '0');
+        const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const y = dateObj.getFullYear();
+        return `${d}/${m}/${y}`;
+    };
+
+    return {
+        weekNum: currentWeekNum,
+        dateString: `${formatDate(startDate)} - ${formatDate(endDate)}`
+    };
+}
+
 // --- BASE64 DECODING LOGIC ---
 function decodeUtf8B64(b64) {
     try {
@@ -61,7 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const viewModeBtn = document.getElementById("view-mode-btn");
     if (viewModeBtn) viewModeBtn.addEventListener("click", cycleViewMode);
     
-    loadCanvasData().then(() => {
+    loadSettings().then(() => {
+        return loadCanvasData();
+    }).then(() => {
         console.log("[DEBUG] Canvas data loaded. Setting initial view mode to 1.");
         setViewMode(1); // Start with 1 screen
     });
@@ -262,6 +327,7 @@ class QuizInstance {
             btnResources: this.root.querySelector('.btn-view-resources'),
             btnBackFromDoc: this.root.querySelector('.btn-back-from-document'),
             assignmentsTitle: this.root.querySelector('.assignments-title'),
+            currentWeekLbl: this.root.querySelector('.current-week-lbl'),
             assignmentList: this.root.querySelector('.assignment-list'),
             quizTitle: this.root.querySelector('.quiz-title-lbl'),
             quizProgress: this.root.querySelector('.quiz-progress-lbl'),
@@ -344,6 +410,22 @@ class QuizInstance {
     createAssignmentButton(title, exists) {
         let btn = document.createElement("button");
         btn.className = "btn-assignment";
+        
+        // Highlight logic for Current and Due weeks
+        const weekInfo = getCurrentTeachingWeekInfo();
+        const currentWkNum = weekInfo.weekNum;
+        const dueWkNum = currentWkNum - 1;
+        
+        const weekMatch = title.match(/- W(\d+) -/i) || title.match(/W(\d+)/i);
+        if (weekMatch) {
+            const wk = parseInt(weekMatch[1], 10);
+            if (wk === currentWkNum) {
+                btn.classList.add('highlight-current');
+            } else if (wk === dueWkNum) {
+                btn.classList.add('highlight-due');
+            }
+        }
+        
         if (!exists) {
             btn.innerText = `${title} (File Missing)`;
             btn.disabled = true;
@@ -402,6 +484,11 @@ class QuizInstance {
     async loadAssignments(classCode) {
         this.selectedClass = classCode;
         if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Assignments for ${classCode}`;
+        
+        const weekInfo = getCurrentTeachingWeekInfo();
+        if (this.elements.currentWeekLbl) {
+            this.elements.currentWeekLbl.innerText = `Current Teaching Week: W${weekInfo.weekNum} (${weekInfo.dateString})`;
+        }
         
         const list = this.elements.assignmentList;
         if (!list) return;
@@ -824,6 +911,8 @@ class QuizInstance {
             qBtn.innerText = `Q${qNum}`;
             qBtn.dataset.answered = "false";
             qBtn.dataset.highlighted = "false";
+            qBtn.dataset.wrong = "false";
+            qBtn.dataset.correct = "false";
             qBtn.onclick = () => {
                 let scrollArea = this.elements.scrollArea;
                 if (scrollArea) {
@@ -1161,6 +1250,8 @@ class QuizInstance {
             let frame = this.root.querySelector(`[data-question-index="${idx}"]`);
             if (!frame) return;
             let type = q.type || q.question_type, pts = parseInt(q.points || q.points_possible) || 0;
+            let qIsWrong = false;
+            let qIsCorrect = false;
             
             if (type === 'matching_question' && q.answers?.[0]?.text !== undefined) {
                 totalPossible += pts;
@@ -1177,7 +1268,11 @@ class QuizInstance {
                         }
                     }
                 });
-                if (state.slots.length > 0) totalScore += Math.round((correctCount / state.slots.length) * pts);
+                if (state.slots.length > 0) {
+                    if (correctCount < state.slots.length) qIsWrong = true;
+                    else if (correctCount === state.slots.length) qIsCorrect = true;
+                    totalScore += Math.round((correctCount / state.slots.length) * pts);
+                }
             } else if (type === 'multiple_choice_question') {
                 totalPossible += pts;
                 let userIdx = q._selectedMcqIndex !== undefined ? q._selectedMcqIndex : -1;
@@ -1204,7 +1299,27 @@ class QuizInstance {
                     }
                 });
 
-                if (isCorrect) totalScore += pts;
+                if (isCorrect) {
+                    qIsCorrect = true;
+                    totalScore += pts;
+                } else {
+                    qIsWrong = true;
+                }
+            }
+
+            // Mark sidebar questions green if answered correct, red if wrong, leave non-graded as blue
+            let btn = this.sidebarButtons[idx];
+            if (btn) {
+                btn.dataset.highlighted = "false";
+                if (pts > 0) {
+                    if (qIsWrong) {
+                        btn.dataset.wrong = "true";
+                        btn.dataset.correct = "false";
+                    } else if (qIsCorrect) {
+                        btn.dataset.wrong = "false";
+                        btn.dataset.correct = "true";
+                    }
+                }
             }
         });
 
