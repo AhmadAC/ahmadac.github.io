@@ -182,7 +182,11 @@ async function loadCanvasData() {
 
 async function checkQuizExists(quizName) {
     try {
-        const res = await fetch(`0_Quiz/${quizName}.json`, { method: 'HEAD' });
+        // Encode the file name in case of spaces and use a cache buster to prevent "File Missing" bugs
+        const safeFileName = encodeURIComponent(quizName);
+        const cacheBuster = `?t=${Date.now()}`;
+        const res = await fetch(`0_Quiz/${safeFileName}.json${cacheBuster}`);
+        
         if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName}.json`);
         return res.ok;
     } catch {
@@ -1424,21 +1428,29 @@ class QuizInstance {
         if (!this.finalStudentName || !this.finalStudentClass) {
             return;
         }
+        
         const data = [
             { label: "Class", value: this.finalStudentClass },
             { label: "HW", value: this.currentQuizName },
             { label: "Name", value: this.finalStudentName },
             { label: "Score", value: `${this.finalScore} / ${this.finalTotalPossible}` }
         ];
+        
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         const font = "bold 22px sans-serif", rh = 50, pad = 20, bw = 2;
         ctx.font = font;
+        
         let lw = Math.max(...data.map(d => ctx.measureText(d.label).width));
         let vw = Math.max(...data.map(d => ctx.measureText(d.value).width));
         const cw1 = lw + pad * 2, cw2 = vw + pad * 2;
-        canvas.width = cw1 + cw2; canvas.height = rh * data.length;
-        ctx.fillStyle = "#ffffff"; ctx.fillRect(0, 0, canvas.width, canvas.height);
+        canvas.width = cw1 + cw2; 
+        canvas.height = rh * data.length;
+        
+        // --- 1. Draw Background and Details ---
+        ctx.fillStyle = "#ffffff"; 
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
         data.forEach((row, i) => {
             const y = i * rh;
             ctx.fillStyle = "#e1f0fa"; ctx.fillRect(0, y, cw1, rh);
@@ -1446,16 +1458,51 @@ class QuizInstance {
             ctx.fillStyle = "#005a9e"; ctx.fillText(row.label, cw1 / 2, y + rh / 2);
             ctx.fillStyle = "#2d3b45"; ctx.fillText(row.value, cw1 + cw2 / 2, y + rh / 2);
         });
+        
+        // --- 2. Draw Borders ---
         ctx.strokeStyle = "#999"; ctx.lineWidth = bw;
         ctx.beginPath(); ctx.moveTo(cw1, 0); ctx.lineTo(cw1, canvas.height); ctx.stroke();
         for (let i = 1; i < data.length; i++) {
             ctx.beginPath(); ctx.moveTo(0, i * rh); ctx.lineTo(canvas.width, i * rh); ctx.stroke();
         }
         ctx.strokeRect(bw/2, bw/2, canvas.width-bw, canvas.height-bw);
-        const link = document.createElement('a');
-        link.download = `${this.finalStudentClass}_${this.finalStudentName.replace(/[^a-z0-9]/gi, '_')}_${this.currentQuizName.replace(/[^a-z0-9]/gi, '_')}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+        
+        // --- Download Trigger Function ---
+        const executeDownload = () => {
+            const link = document.createElement('a');
+            link.download = `${this.finalStudentClass}_${this.finalStudentName.replace(/[^a-z0-9]/gi, '_')}_${this.currentQuizName.replace(/[^a-z0-9]/gi, '_')}.png`;
+            // toDataURL inherently flattens everything drawn onto the canvas into a single PNG image.
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        };
+
+        // --- 3. Apply Watermark Overlay ---
+        const watermark = new Image();
+        watermark.crossOrigin = "Anonymous"; // Prevents Canvas taint errors on some setups
+        watermark.src = "0_Quiz/media/coopersig.png"; // Safely pointing to relative web path
+
+        watermark.onload = () => {
+            // Apply semi-transparency so the score text remains legible behind the watermark
+            ctx.globalAlpha = 0.2; 
+            
+            // Calculate scale to comfortably fit the canvas without stretching awkwardly
+            const scale = Math.min(canvas.width / watermark.width, canvas.height / watermark.height) * 0.9;
+            const newW = watermark.width * scale;
+            const newH = watermark.height * scale;
+            const dx = (canvas.width - newW) / 2;
+            const dy = (canvas.height - newH) / 2;
+            
+            // Draw it directly onto the same canvas layer
+            ctx.drawImage(watermark, dx, dy, newW, newH);
+            ctx.globalAlpha = 1.0; // Reset alpha
+            
+            executeDownload();
+        };
+
+        watermark.onerror = () => {
+            console.warn("[DEBUG] Watermark not found at 0_Quiz/media/coopersig.png, downloading image without it.");
+            executeDownload(); // Fallback to just download the ticket normally if image isn't found
+        };
     }
 
     showResultsPage() {
