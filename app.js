@@ -412,35 +412,75 @@ class QuizInstance {
     }
 
     createAssignmentButton(title, exists) {
-        let btn = document.createElement("button");
-        btn.className = "btn-assignment";
+        let card = document.createElement("div");
+        card.className = "assignment-card";
+
+        // Extract Week String (W##)
+        let displayTitle = title;
+        let weekStr = "Start";
+        let wkNumStr = null;
+        
+        const weekMatch = title.match(/\b(W\d+[A-Za-z]?)\b/i);
+        if (weekMatch) {
+            weekStr = weekMatch[1].toUpperCase();
+            wkNumStr = weekMatch[1].replace(/[^0-9]/g, '');
+            
+            let cleanTitle = title.replace(new RegExp('\\s*-\\s*' + weekMatch[1], 'i'), '');
+            if (cleanTitle === title) cleanTitle = title.replace(new RegExp(weekMatch[1] + '\\s*-\\s*', 'i'), '');
+            if (cleanTitle === title) cleanTitle = title.replace(new RegExp('\\b' + weekMatch[1] + '\\b', 'i'), '');
+            
+            displayTitle = cleanTitle.trim();
+            if (!displayTitle) {
+                displayTitle = title;
+            }
+        }
         
         // Highlight logic for Current and Due weeks
         const weekInfo = getCurrentTeachingWeekInfo();
         const currentWkNum = weekInfo.weekNum;
         const dueWkNum = currentWkNum - 1;
         
-        const weekMatch = title.match(/- W(\d+) -/i) || title.match(/W(\d+)/i);
-        if (weekMatch) {
-            const wk = parseInt(weekMatch[1], 10);
+        if (wkNumStr) {
+            const wk = parseInt(wkNumStr, 10);
             if (wk === currentWkNum) {
-                btn.classList.add('highlight-current');
+                card.classList.add('highlight-current');
             } else if (wk === dueWkNum) {
-                btn.classList.add('highlight-due');
+                card.classList.add('highlight-due');
             }
         }
         
+        let titleLbl = document.createElement("div");
+        titleLbl.className = "assignment-title-lbl";
+        
+        let actionBtn = document.createElement("button");
+        actionBtn.className = "btn-week-action";
+        
         if (!exists) {
-            btn.innerText = `${title} (File Missing)`;
-            btn.disabled = true;
+            titleLbl.innerText = `${displayTitle} (File Missing)`;
+            titleLbl.classList.add('missing-text');
+            card.classList.add('missing-card');
+            actionBtn.innerText = weekStr;
+            actionBtn.disabled = true;
         } else {
-            btn.innerText = title;
-            btn.onclick = () => {
+            titleLbl.innerText = displayTitle;
+            actionBtn.innerText = weekStr;
+            
+            card.onclick = (e) => {
+                if(e.target !== actionBtn) {
+                    console.log(`[DEBUG][Inst ${this.instanceId}] Assignment selected: ${title}`);
+                    this.startQuiz(title);
+                }
+            };
+            actionBtn.onclick = () => {
                 console.log(`[DEBUG][Inst ${this.instanceId}] Assignment selected: ${title}`);
                 this.startQuiz(title);
             };
         }
-        return btn;
+        
+        card.appendChild(titleLbl);
+        card.appendChild(actionBtn);
+        
+        return card;
     }
 
     async renderPreviousAssignments(titles, buttonToRemove) {
@@ -460,8 +500,8 @@ class QuizInstance {
 
         const fragment = document.createDocumentFragment();
         results.forEach(result => {
-            let btn = this.createAssignmentButton(result.title, result.exists);
-            fragment.appendChild(btn);
+            let card = this.createAssignmentButton(result.title, result.exists);
+            fragment.appendChild(card);
         });
         
         list.insertBefore(fragment, buttonToRemove);
@@ -558,8 +598,8 @@ class QuizInstance {
         const results = await Promise.all(existenceChecks);
 
         results.forEach(result => {
-            let btn = this.createAssignmentButton(result.title, result.exists);
-            list.appendChild(btn);
+            let card = this.createAssignmentButton(result.title, result.exists);
+            list.appendChild(card);
         });
     }
 

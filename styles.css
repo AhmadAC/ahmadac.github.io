@@ -259,46 +259,78 @@ body {
     gap: 8px;
 }
 
-.btn-assignment {
+/* --- UPDATED: Assignment Cards --- */
+.assignment-card {
+    display: flex;
+    align-items: center;
     background-color: #ffffff;
     border: 1px solid var(--border-color);
+    border-left: 5px solid var(--border-color);
     border-radius: 4px;
-    padding: 10px;
-    color: var(--text-dark);
-    font-size: 13px;
-    text-align: left;
+    padding: 12px 15px;
     cursor: pointer;
+    transition: background-color 0.2s, border-left-color 0.2s;
 }
-.btn-assignment:nth-child(odd) { background-color: #f0f6fa; }
-.btn-assignment:hover {
+.assignment-card:nth-child(odd) { 
+    background-color: #f0f6fa; 
+}
+.assignment-card:hover {
     background-color: #e1f0fa;
     border-left: 5px solid var(--primary);
 }
-.btn-assignment:disabled {
+.assignment-card.missing-card {
+    background-color: #fdf2f2 !important;
+    border-left: 5px solid #e74c3c !important;
+    cursor: not-allowed;
+}
+
+.assignment-title-lbl {
+    flex: 1;
+    font-size: 13px;
+    color: var(--text-dark);
+    margin-right: 15px;
+    word-wrap: break-word;
+}
+.assignment-title-lbl.missing-text {
     color: #e74c3c;
     font-weight: bold;
-    border-left: 5px solid #e74c3c;
+}
+
+.btn-week-action {
+    background-color: var(--primary);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+.btn-week-action:hover {
+    background-color: var(--primary-hover);
+}
+.btn-week-action:disabled {
+    background-color: #cccccc;
     cursor: not-allowed;
-    background-color: #ffe6e6;
 }
 
 /* Added assignment dynamic highlights */
-.btn-assignment.highlight-current {
-    background-color: var(--success-bg);
-    border-left: 5px solid var(--success-border);
+.assignment-card.highlight-current {
+    background-color: var(--success-bg) !important;
+    border-left: 5px solid var(--success-border) !important;
 }
-.btn-assignment.highlight-current:hover {
-    background-color: #ccfbf1;
-    border-left: 5px solid var(--success-border);
+.assignment-card.highlight-current:hover {
+    background-color: #ccfbf1 !important;
 }
 
-.btn-assignment.highlight-due {
-    background-color: var(--warning-bg);
-    border-left: 5px solid var(--warning-border);
+.assignment-card.highlight-due {
+    background-color: var(--warning-bg) !important;
+    border-left: 5px solid var(--warning-border) !important;
 }
-.btn-assignment.highlight-due:hover {
-    background-color: #ffecb3;
-    border-left: 5px solid var(--warning-border);
+.assignment-card.highlight-due:hover {
+    background-color: #ffecb3 !important;
 }
 
 
