@@ -94,7 +94,8 @@
             "U2HW10 - W24 - Parachute 2": "2026-06-02T08:30:36.082165",
             "U1HW6 - W8 - WS1 Bridge Design Review": "10",
             "U3HW8 - W36 - Sound Waves 2": "2026-06-08T10:34:57.345804",
-            "U3HW9 - W37 - Waves 1": "2026-06-15T11:56:19.464123"
+            "U3HW9 - W37 - Waves 1": "2026-06-15T11:56:19.464123",
+            "U3HW10 - W38 - Exploring Waves Paper WS": "2026-06-24T10:42:59.317385"
         },
         "G7B": {
             "U3HW3 - W27 - Electrical Symbols": "2026-06-02T08:30:36.082165",
@@ -123,7 +124,8 @@
             "U2HW10 - W24 - Parachute 2": "2026-06-02T08:30:36.082165",
             "U1HW6 - W8 - WS1 Bridge Design Review": "10",
             "U3HW8 - W36 - Sound Waves 2": "2026-06-08T10:34:57.345804",
-            "U3HW9 - W37 - Waves 1": "2026-06-15T11:56:19.464123"
+            "U3HW9 - W37 - Waves 1": "2026-06-15T11:56:19.464123",
+            "U3HW10 - W38 - Exploring Waves Paper WS": "2026-06-24T10:42:59.317385"
         },
         "G7C": {
             "U3HW3 - W27 - Electrical Symbols": "2026-06-02T08:30:36.082165",
@@ -152,7 +154,8 @@
             "U2HW10 - W24 - Parachute 2": "2026-06-02T08:30:36.082165",
             "U1HW6 - W8 - WS1 Bridge Design Review": "10",
             "U3HW8 - W36 - Sound Waves 2": "2026-06-08T10:34:57.345804",
-            "U3HW9 - W37 - Waves 1": "2026-06-15T11:56:19.464123"
+            "U3HW9 - W37 - Waves 1": "2026-06-15T11:56:19.464123",
+            "U3HW10 - W38 - Exploring Waves Paper WS": "2026-06-24T10:42:59.317385"
         }
     },
     "8": {
@@ -183,7 +186,8 @@
             "U2HW4 - W11 - Atomic Structure": "10",
             "U2HW19 - W29 - Naming Compounds 1": "2026-06-02T08:30:36.082165",
             "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375",
-            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399"
+            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399",
+            "W38 - Computing and Python Programming Review": "2026-06-24T10:38:55.829806"
         },
         "G8B": {
             "U3HW1 - W35 - Coding Vocabulary 1": "2026-06-02T08:31:26.841232",
@@ -212,7 +216,8 @@
             "U2HW4 - W11 - Atomic Structure": "10",
             "U2HW19 - W29 - Naming Compounds 1": "2026-06-02T08:30:36.082165",
             "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375",
-            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399"
+            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399",
+            "W38 - Computing and Python Programming Review": "2026-06-24T10:38:55.829806"
         },
         "G8C": {
             "U3HW1 - W35 - Coding Vocabulary 1": "2026-06-02T08:31:26.841232",
@@ -241,7 +246,8 @@
             "U2HW4 - W11 - Atomic Structure": "10",
             "U2HW19 - W29 - Naming Compounds 1": "2026-06-02T08:30:36.082165",
             "U3HW2 - W36 - Coding Terms": "2026-06-09T08:52:39.734375",
-            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399"
+            "U3HW3 - W37 - One File HTML Simulator": "2026-06-15T11:00:05.011399",
+            "W38 - Computing and Python Programming Review": "2026-06-24T10:38:55.829806"
         }
     }
 }
