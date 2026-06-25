@@ -296,6 +296,21 @@ body {
     font-weight: bold;
 }
 
+.assignment-status-lbl {
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.current-status {
+    color: #008a00;
+}
+
+.due-status {
+    color: #e65100;
+}
+
 .btn-week-action {
     background-color: var(--primary);
     color: white;

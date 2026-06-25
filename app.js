@@ -440,12 +440,20 @@ class QuizInstance {
         const currentWkNum = weekInfo.weekNum;
         const dueWkNum = currentWkNum - 1;
         
+        let statusLbl = null;
+
         if (wkNumStr) {
             const wk = parseInt(wkNumStr, 10);
             if (wk === currentWkNum) {
                 card.classList.add('highlight-current');
+                statusLbl = document.createElement("div");
+                statusLbl.className = "assignment-status-lbl current-status";
+                statusLbl.innerText = "This weeks HW";
             } else if (wk === dueWkNum) {
                 card.classList.add('highlight-due');
+                statusLbl = document.createElement("div");
+                statusLbl.className = "assignment-status-lbl due-status";
+                statusLbl.innerText = "HW due this Monday 8:30am";
             }
         }
         
@@ -478,6 +486,9 @@ class QuizInstance {
         }
         
         card.appendChild(titleLbl);
+        if (statusLbl) {
+            card.appendChild(statusLbl);
+        }
         card.appendChild(actionBtn);
         
         return card;
