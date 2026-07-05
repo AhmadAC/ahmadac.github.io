@@ -102,7 +102,7 @@ function recursiveDecode(data) {
     return data;
 }
 
-// Secret trigger for dev tools
+// Secret trigger for dev tools (results)
 Object.defineProperty(window, 'results', {
     get: function() {
         document.querySelectorAll('.btn-view-results').forEach(btn => {
@@ -116,6 +116,23 @@ Object.defineProperty(window, 'results', {
         }
         
         return "View All Results button is now visible.";
+    }
+});
+
+// Secret trigger for dev tools (Bonus Quizzes)
+Object.defineProperty(window, 'q', {
+    get: function() {
+        document.querySelectorAll('.btn-view-bonus').forEach(btn => {
+            btn.classList.remove('hidden');
+        });
+        
+        const template = document.getElementById("quiz-instance-template");
+        if (template) {
+            const templateBtn = template.content.querySelector('.btn-view-bonus');
+            if (templateBtn) templateBtn.classList.remove('hidden');
+        }
+        
+        return "Bonus button is now visible.";
     }
 });
 
@@ -306,6 +323,7 @@ class QuizInstance {
         
         this.selectedClass = null;
         this.currentQuizName = null;
+        this.isBonus = false; 
         this.currentQuestions = [];
         this.sidebarButtons = [];
         this.matchingStates = {};
@@ -371,8 +389,8 @@ class QuizInstance {
 
     addEventListeners() {
         this.elements.btnResources?.addEventListener('click', () => this.loadResources());
-        
         this.root.querySelector('.btn-view-results')?.addEventListener('click', () => this.showResultsPage());
+        this.root.querySelector('.btn-view-bonus')?.addEventListener('click', () => this.loadBonusQuizzes());
         this.root.querySelector('.btn-back-to-class')?.addEventListener('click', () => this.switchView('view-class-select'));
         this.root.querySelector('.btn-back-to-class-from-results')?.addEventListener('click', () => this.switchView('view-class-select'));
         
@@ -537,6 +555,7 @@ class QuizInstance {
     }
 
     async loadAssignments(classCode) {
+        this.isBonus = false; 
         this.selectedClass = classCode;
         if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Assignments for ${classCode}`;
         
@@ -614,6 +633,62 @@ class QuizInstance {
         });
     }
 
+    async loadBonusQuizzes() {
+        this.selectedClass = "Bonus";
+        this.isBonus = true;
+        
+        if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Bonus Quizzes`;
+        if (this.elements.currentWeekLbl) this.elements.currentWeekLbl.innerText = `Special Bonus Quizzes!`;
+        
+        const list = this.elements.assignmentList;
+        if (!list) return;
+        list.innerHTML = "Loading bonus quizzes...";
+        
+        this.switchView("view-assignments");
+
+        try {
+            const res = await fetch('0_Quiz/bonus/bonus_list.json');
+            if (!res.ok) throw new Error("File missing");
+            const bonusList = await res.json();
+            
+            list.innerHTML = "";
+            if (bonusList.length === 0) {
+                list.innerHTML = "<p style='color:#666; font-style:italic;'>No bonus quizzes found.</p>";
+                return;
+            }
+
+            bonusList.forEach(title => {
+                let card = document.createElement("div");
+                card.className = "assignment-card highlight-current"; 
+                
+                let titleLbl = document.createElement("div");
+                titleLbl.className = "assignment-title-lbl";
+                titleLbl.innerText = title;
+                
+                let actionBtn = document.createElement("button");
+                actionBtn.className = "btn-week-action";
+                actionBtn.innerText = "Start";
+                
+                card.onclick = (e) => {
+                    if(e.target !== actionBtn) {
+                        this.startQuiz(title, true);
+                    }
+                };
+                actionBtn.onclick = () => {
+                    this.startQuiz(title, true);
+                };
+                
+                card.appendChild(titleLbl);
+                card.appendChild(actionBtn);
+                list.appendChild(card);
+            });
+
+        } catch (e) {
+            console.error(e);
+            list.innerHTML = `<p style='color:#e74c3c; font-weight:bold; padding: 20px;'>Failed to load bonus quizzes. Please create a file at <b>0_Quiz/bonus/bonus_list.json</b> containing an array of quiz names, like:<br><br><code>["Bonus_Quiz_1", "Bonus_Quiz_2"]</code></p>`;
+        }
+    }
+
     async loadResources() {
         console.log(`[DEBUG][Inst ${this.instanceId}] Fetching Resources...`);
         this.documentBackTarget = 'view-class-select';
@@ -643,7 +718,8 @@ class QuizInstance {
         }
     }
 
-    async startQuiz(quizName) {
+    async startQuiz(quizName, isBonus = false) {
+        this.isBonus = isBonus;
         console.log(`[DEBUG][Inst ${this.instanceId}] Fetching data for: ${quizName}`);
         this.currentQuizName = quizName;
         this.documentBackTarget = 'view-assignments';
@@ -680,7 +756,8 @@ class QuizInstance {
         if (this.elements.scrollArea) this.elements.scrollArea.scrollTop = 0;
 
         try {
-            const res = await fetch(`0_Quiz/${quizName}.json`);
+            const quizPath = this.isBonus ? `0_Quiz/bonus/${quizName}.json` : `0_Quiz/${quizName}.json`;
+            const res = await fetch(quizPath);
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
             
             // Decrypt the raw JSON structure
@@ -788,6 +865,12 @@ class QuizInstance {
             let quizQuestions = [], adminQuestions = [];
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
+                
+                // Completely skip and ignore the class selection if this is a Bonus quiz
+                if (this.isBonus && txt.includes('select your class')) {
+                    return; 
+                }
+
                 if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
                     adminQuestions.push(q);
                 } else {
@@ -1295,7 +1378,7 @@ class QuizInstance {
         });
 
         if (!nameAns) nameAns = "Unknown";
-        if (!classAns) classAns = "Unknown";
+        if (!classAns) classAns = this.isBonus ? "Bonus" : "Unknown";
 
         if (this.elements.errorMsg) this.elements.errorMsg.innerText = "";
         this.elements.stickyBank?.classList.add("hidden");
@@ -1404,7 +1487,7 @@ class QuizInstance {
     }
 
     resetQuiz() {
-        this.startQuiz(this.currentQuizName);
+        this.startQuiz(this.currentQuizName, this.isBonus);
     }
     
     async submitToTencentWebhook(payload) {
