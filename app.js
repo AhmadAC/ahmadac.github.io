@@ -764,7 +764,7 @@ class QuizInstance {
             const rawDataRaw = await res.json();
             const rawData = recursiveDecode(rawDataRaw);
             
-            console.log(`[DEBUG][Inst ${this.instanceId}] Raw JSON loaded & decoded successfully.`, rawData);
+            console.log(`[DEBUG][Inst ${this.instanceId}] Raw JSON loaded & decoded successfully.`); // Removed rawData to prevent dev tool leaks
 
             if (rawData.metadata && rawData.metadata.type === 'document') {
                 this.renderDocument(quizName, rawData);
@@ -1095,7 +1095,11 @@ class QuizInstance {
         }
         options.sort(() => Math.random() - 0.5);
 
-        q._correctOptionText = (options.find(o => o.is_correct) || {}).text;
+        // Security: Obfuscate the correct index in memory and scrub cleartext
+        let newCorrectIdx = options.findIndex(o => o.is_correct);
+        q._cToken = btoa(newCorrectIdx.toString());
+        delete q['correct ans index']; // Security: clear plain text answer
+
         q._mcqElements = [];
         q._selectedMcqIndex = -1;
 
@@ -1103,7 +1107,7 @@ class QuizInstance {
             let card = document.createElement('div');
             card.className = 'mcq-card';
             card.innerHTML = opt.text;
-            card.dataset.isCorrect = opt.is_correct;
+            // SECURITY: Do NOT attach card.dataset.isCorrect to the DOM to prevent element inspection
             
             card.onclick = () => {
                 q._selectedMcqIndex = i;
@@ -1147,11 +1151,27 @@ class QuizInstance {
         const uniqueWords = [...new Set(allWords)];
         const allowReuse = uniqueWords.length < allWords.length;
 
+        // Security: Obfuscate answers in memory
+        const toB64 = (str) => btoa(unescape(encodeURIComponent(str || "")));
+
         this.matchingStates[idx] = {
             words: allowReuse ? uniqueWords.sort() : allWords.sort(() => Math.random() - 0.5),
-            slots: pairs.map(p => ({ correct: p.answer_text, current: null })),
+            slots: pairs.map(p => ({ 
+                _c: toB64(p.answer_text), 
+                current: null 
+            })),
             allowReuse: allowReuse
         };
+
+        // Security scrub: remove cleartext answers from the original object
+        if (q.answers) {
+            q.answers.forEach(p => {
+                delete p.answer_text;
+                delete p.answer_match_right;
+            });
+        }
+        delete q.distractors;
+        delete q.matching_answer_incorrect_matches;
 
         pairs.forEach((pair, slotIdx) => {
             let row = document.createElement('div');
@@ -1394,15 +1414,22 @@ class QuizInstance {
             if (type === 'matching_question' && q.answers?.[0]?.text !== undefined) {
                 totalPossible += pts;
                 let state = this.matchingStates[idx], correctCount = 0;
+                
+                const fromB64 = (str) => {
+                    try { return decodeURIComponent(escape(atob(str))); }
+                    catch(e) { return ""; }
+                };
+
                 state.slots.forEach((s, sIdx) => {
                     let slotEl = frame.querySelector(`[data-slot-index="${sIdx}"]`);
                     if (slotEl) {
+                        let actualCorrect = fromB64(s._c);
                         slotEl.style.pointerEvents = 'none';
-                        if (s.current === s.correct) {
+                        if (s.current === actualCorrect) {
                             correctCount++; slotEl.className = "answer-slot correct";
                         } else {
                             slotEl.className = "answer-slot incorrect";
-                            slotEl.innerText = `${s.current || 'Empty'} (Req: ${s.correct})`;
+                            slotEl.innerText = `${s.current || 'Empty'} (Req: ${actualCorrect})`;
                         }
                     }
                 });
@@ -1415,6 +1442,11 @@ class QuizInstance {
                 totalPossible += pts;
                 let userIdx = q._selectedMcqIndex !== undefined ? q._selectedMcqIndex : -1;
                 let isCorrect = false;
+                
+                let actualCorrectIdx = -1;
+                try {
+                    actualCorrectIdx = parseInt(atob(q._cToken), 10);
+                } catch(e) {}
 
                 q._mcqElements.forEach((card, i) => {
                     card.onclick = null;
@@ -1422,7 +1454,7 @@ class QuizInstance {
 
                     if (userIdx !== -1) {
                         if (i === userIdx) {
-                            if (card.dataset.isCorrect === 'true') {
+                            if (i === actualCorrectIdx) {
                                 card.classList.add('correct');
                                 isCorrect = true;
                             } else {
@@ -1430,7 +1462,7 @@ class QuizInstance {
                             }
                         }
                         
-                        if (card.dataset.isCorrect === 'true' && i !== userIdx) {
+                        if (i === actualCorrectIdx && i !== userIdx) {
                             card.classList.add('correct');
                             card.innerHTML += " (Correct Answer)";
                         }
