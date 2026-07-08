@@ -77,6 +77,7 @@ export class QuizInstance {
     }
 
     addEventListeners() {
+        // Navigation Listeners
         this.elements.btnResources?.addEventListener('click', () => this.loadResources());
         this.root.querySelector('.btn-view-results')?.addEventListener('click', () => this.showResultsPage());
         this.root.querySelector('.btn-view-bonus')?.addEventListener('click', () => this.loadBonusQuizzes());
@@ -94,6 +95,11 @@ export class QuizInstance {
                 this.switchView('view-assignments');
             });
         });
+
+        // --- THE MISSING SUBMISSION LISTENERS ---
+        this.elements.btnSubmit?.addEventListener('click', () => this.submitQuiz());
+        this.elements.btnRedo?.addEventListener('click', () => this.resetQuiz());
+        this.elements.btnSavePic?.addEventListener('click', () => this.saveResultAsImage());
 
         // Trigger word bank sticky calculations AND sidebar focus/scrolling synchronization instantly on scroll
         this.elements.scrollArea?.addEventListener('scroll', () => {

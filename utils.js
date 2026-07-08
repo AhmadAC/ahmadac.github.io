@@ -34,17 +34,24 @@ export function recursiveDecode(data) {
     return data;
 }
 
-// Safely replaces underscores with spaces AND formats fractions (e.g. 2/3, a/b) with stacked HTML layouts, completely ignoring HTML tags
+// Safely replaces underscores with spaces AND formats fractions (e.g. 2/3, a/b, (bc)/a) with stacked HTML layouts, completely ignoring HTML tags
 export function formatDisplayString(str) {
     if (typeof str !== 'string') return str;
     
     // 1. Replace underscores with spaces, skipping HTML tags
     let formatted = str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
     
-    // 2. Format fractions (like 2/3, a/b), skipping HTML tags
-    const fractionRegex = /(<[^>]+>)|(?:\(?\b(\d+|[a-zA-Z])\/(\d+|[a-zA-Z])\b\)?)/g;
-    formatted = formatted.replace(fractionRegex, (match, tag, num, den) => {
+    // 2. Format fractions (like 2/3, a/b, (bc)/a), skipping HTML tags
+    // Matches algebraic fractions and smoothly strips wrapping parentheses if they surround the numerator/denominator
+    const fractionRegex = /(<[^>]+>)|(?:(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+))\/(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+)))/g;
+    
+    formatted = formatted.replace(fractionRegex, (match, tag, numP, numNP, denP, denNP) => {
         if (tag) return tag; // Keep HTML tags untouched
+        
+        // Use the parenthesis-wrapped match if it exists, otherwise fallback to the standard alphanumeric match
+        const num = numP !== undefined ? numP : numNP;
+        const den = denP !== undefined ? denP : denNP;
+        
         return `<span class="fraction"><span class="numerator">${num}</span><span class="denominator">${den}</span></span>`;
     });
     
