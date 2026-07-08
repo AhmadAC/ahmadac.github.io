@@ -290,6 +290,7 @@ body {
     color: var(--text-dark);
     margin-right: 15px;
     word-wrap: break-word;
+    white-space: pre-wrap;
 }
 .assignment-title-lbl.missing-text {
     color: #e74c3c;
@@ -421,7 +422,13 @@ body {
     display: flex;
     flex-direction: column;
 }
-.question-text { font-size: 13px; color: var(--text-dark); margin-bottom: 15px; }
+
+.question-text { 
+    font-size: 13px; 
+    color: var(--text-dark); 
+    margin-bottom: 15px; 
+    white-space: pre-wrap; 
+}
 
 .question-media {
     max-width: 100%;
@@ -445,6 +452,7 @@ body {
     margin-bottom: 6px;
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s;
+    white-space: pre-wrap;
 }
 .mcq-card:hover {
     background-color: #f0f6fa;
@@ -497,6 +505,7 @@ body {
     font-weight: bold;
     font-size: 12px;
     cursor: pointer;
+    white-space: pre-wrap;
 }
 .word-bank-btn:hover { background-color: #e1f0fa; }
 .word-bank-btn.selected { background-color: #bae6fd; color: black; border: 2px solid #005a9e; }
@@ -513,6 +522,7 @@ body {
     font-weight: bold;
     color: var(--text-dark);
     text-align: right;
+    white-space: pre-wrap;
 }
 
 .answer-slot {

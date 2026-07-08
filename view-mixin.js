@@ -2,7 +2,7 @@
 
 import { CLASSES, getCurrentTeachingWeekInfo } from './config.js';
 import { canvasData, checkQuizExists } from './quiz-data.js';
-import { recursiveDecode } from './utils.js';
+import { recursiveDecode, formatDisplayString } from './utils.js';
 
 export const ViewMixin = {
     initClassGrid() {
@@ -44,6 +44,8 @@ export const ViewMixin = {
             }
         }
         
+        let formattedTitle = formatDisplayString(displayTitle);
+
         // Highlight logic for Current and Due weeks
         const weekInfo = getCurrentTeachingWeekInfo();
         const currentWkNum = weekInfo.weekNum;
@@ -73,13 +75,13 @@ export const ViewMixin = {
         actionBtn.className = "btn-week-action";
         
         if (!exists) {
-            titleLbl.innerText = `${displayTitle} (File Missing)`;
+            titleLbl.innerText = `${formattedTitle} (File Missing)`;
             titleLbl.classList.add('missing-text');
             card.classList.add('missing-card');
             actionBtn.innerText = weekStr;
             actionBtn.disabled = true;
         } else {
-            titleLbl.innerText = displayTitle;
+            titleLbl.innerText = formattedTitle;
             actionBtn.innerText = weekStr;
             
             card.onclick = (e) => {
@@ -253,7 +255,7 @@ export const ViewMixin = {
                 
                 let titleLbl = document.createElement("div");
                 titleLbl.className = "assignment-title-lbl";
-                titleLbl.innerText = title;
+                titleLbl.innerText = formatDisplayString(title);
                 
                 let actionBtn = document.createElement("button");
                 actionBtn.className = "btn-week-action";
@@ -310,7 +312,7 @@ export const ViewMixin = {
 
     renderDocument(docName, rawData) {
         console.log(`[DEBUG][Inst ${this.instanceId}] Rendering Document View for: ${docName}`);
-        if (this.elements.documentTitle) this.elements.documentTitle.innerText = docName;
+        if (this.elements.documentTitle) this.elements.documentTitle.innerText = formatDisplayString(docName);
         
         const container = this.elements.documentContent;
         if (container) {
@@ -384,7 +386,7 @@ export const ViewMixin = {
         resultsFlat.forEach(res => {
             let card = document.createElement("div");
             card.className = "result-card";
-            card.innerHTML = `<div><p class="res-title">${res.name} (${res.cls})</p><p class="res-detail">${res.assignment}</p></div><div><p class="res-score">${res.best}/${res.total}</p></div>`;
+            card.innerHTML = `<div><p class="res-title">${res.name} (${res.cls})</p><p class="res-detail">${formatDisplayString(res.assignment)}</p></div><div><p class="res-score">${res.best}/${res.total}</p></div>`;
             container.appendChild(card);
         });
     }

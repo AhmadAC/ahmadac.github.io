@@ -1,6 +1,6 @@
 // submission-mixin.js
 
-import { triggerConfetti } from './utils.js';
+import { triggerConfetti, formatDisplayString } from './utils.js';
 
 export const SubmissionMixin = {
     submitQuiz() {
@@ -262,7 +262,7 @@ export const SubmissionMixin = {
         
         const data = [
             { label: "Class", value: this.finalStudentClass },
-            { label: "HW", value: this.currentQuizName },
+            { label: "HW", value: formatDisplayString(this.currentQuizName) },
             { label: "Name", value: this.finalStudentName },
             { label: "Score", value: `${this.finalScore} / ${this.finalTotalPossible}` }
         ];

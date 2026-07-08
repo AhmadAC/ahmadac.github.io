@@ -34,6 +34,12 @@ export function recursiveDecode(data) {
     return data;
 }
 
+// Safely replaces underscores with spaces while completely ignoring HTML tags
+export function formatDisplayString(str) {
+    if (typeof str !== 'string') return str;
+    return str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
+}
+
 export function applyFeatureToggles() {
     // Ensures setting visibility applies to both current UI and future instances dynamically generated
     if (appSettings.show_bonus) {

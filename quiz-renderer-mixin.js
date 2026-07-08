@@ -2,7 +2,7 @@
 
 import { CLASSES } from './config.js';
 import { normalizeQuizData } from './quiz-data.js';
-import { recursiveDecode } from './utils.js';
+import { recursiveDecode, formatDisplayString } from './utils.js';
 
 export const QuizRendererMixin = {
     async startQuiz(quizName, isBonus = false) {
@@ -14,7 +14,7 @@ export const QuizRendererMixin = {
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
         this.sidebarButtons = [];
         
-        if (this.elements.quizTitle) this.elements.quizTitle.innerText = quizName;
+        if (this.elements.quizTitle) this.elements.quizTitle.innerText = formatDisplayString(quizName);
         this.elements.resultBox?.classList.add("hidden");
         this.elements.btnSubmit?.classList.remove("hidden");
         this.elements.btnSubmit.disabled = false;
@@ -195,6 +195,9 @@ export const QuizRendererMixin = {
             let qNum = idx + 1;
             let type = q.type || q.question_type;
             let qText = q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'];
+            
+            if (qText) qText = formatDisplayString(String(qText));
+            
             let qTextLower = (qText || "").toLowerCase();
             let pts = parseInt(q.points || q.points_possible) || 0;
             let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0]?.text !== undefined;
@@ -324,7 +327,7 @@ export const QuizRendererMixin = {
         for (let i = 0; i < 26; i++) {
             let k = String.fromCharCode(97 + i);
             if (q[k] !== undefined && q[k] !== null && String(q[k]).trim() !== "") {
-                options.push({ text: String(q[k]), is_correct: i === correctIdx });
+                options.push({ text: formatDisplayString(String(q[k])), is_correct: i === correctIdx });
             }
         }
         options.sort(() => Math.random() - 0.5);
@@ -376,8 +379,12 @@ export const QuizRendererMixin = {
     },
 
     setupComplexMatchingUI(container, q, idx) {
-        let pairs = q.answers || [];
-        let distractors = q.distractors || []; 
+        let pairs = (q.answers || []).map(p => ({
+            ...p,
+            text: p.text ? formatDisplayString(String(p.text)) : p.text,
+            answer_text: p.answer_text ? formatDisplayString(String(p.answer_text)) : p.answer_text
+        }));
+        let distractors = (q.distractors || []).map(d => formatDisplayString(String(d))); 
         let allAnswers = pairs.map(p => p.answer_text);
         let allWords = [...allAnswers, ...distractors];
 
@@ -411,7 +418,7 @@ export const QuizRendererMixin = {
             row.className = 'match-row';
             row.innerHTML = `
                 <div class="match-def">${pair.text}</div>
-                <div class="answer-slot" data-slot-index="${slotIdx}">_____________</div>
+                <div class="answer-slot" data-slot-index="${slotIdx}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
             `;
             row.querySelector('.answer-slot').onclick = (e) => this.handleSlotClick(idx, slotIdx, e.target);
             container.appendChild(row);
@@ -480,7 +487,7 @@ export const QuizRendererMixin = {
                     s.current = null;
                     const otherSlotEl = this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${i}"]`);
                     if (otherSlotEl) {
-                        otherSlotEl.innerText = "_____________";
+                        otherSlotEl.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
                         otherSlotEl.className = "answer-slot";
                     }
                 }
@@ -508,7 +515,7 @@ export const QuizRendererMixin = {
 
         if (slotData.current) {
             slotData.current = null;
-            slotEl.innerText = "_____________";
+            slotEl.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
             slotEl.className = "answer-slot";
             this.updateProgress();
             this.renderStickyBank(qIdx);
