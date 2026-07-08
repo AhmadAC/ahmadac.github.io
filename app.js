@@ -29,12 +29,8 @@ function initApp() {
             const finalTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
             localStorage.setItem("app-theme", finalTheme);
             
-            // Re-render active assignments list or document view to trigger deep theme updates (like iframes)
-            quizInstances.forEach(inst => {
-                if (inst.selectedClass) {
-                    inst.loadAssignments(inst.selectedClass);
-                }
-            });
+            // Note: The forced reload/reset of active assignments has been removed.
+            // Toggling the theme will now seamlessly apply CSS variables without resetting page state or quiz progress.
         });
     }
     

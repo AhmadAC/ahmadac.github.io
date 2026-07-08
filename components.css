@@ -556,3 +556,92 @@ body.dark-theme .due-status { color: #e67e22; }
     border: none;
     background-color: transparent;
 }
+
+/* Theme Toggle Button UI */
+#theme-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 160px; /* Cohesively sits next to standard Screen toggle */
+    z-index: 10000;
+    background-color: var(--bg-main);
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+#theme-toggle-btn:hover {
+    background-color: #3f5161;
+}
+#theme-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+}
+body.dark-theme .sun-icon { display: block; }
+body.dark-theme .moon-icon { display: none; }
+body:not(.dark-theme) .sun-icon { display: none; }
+body:not(.dark-theme) .moon-icon { display: block; }
+
+/* The view mode button */
+#view-mode-btn {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    z-index: 10000;
+    background-color: var(--bg-main);
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+#view-mode-btn:hover {
+    background-color: #3f5161;
+}
+
+/* --- MATHEMATICAL FRACTION STYLING --- */
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    line-height: 1.0;
+    padding: 0 0.15em;
+}
+.fraction .numerator {
+    border-bottom: 1px solid currentColor;
+    padding: 0 0.1em 0.05em 0.1em;
+    font-size: 0.82em;
+    text-align: center;
+}
+.fraction .denominator {
+    font-size: 0.82em;
+    padding: 0.05em 0.1em 0 0.1em;
+    text-align: center;
+}
+
+/* --- MOBILE SPECIFIC HOVER & VIEW ADJUSTMENTS --- */
+@media (max-width: 600px) {
+    #theme-toggle-btn {
+        top: 12px !important;
+        right: 140px !important;
+        padding: 4px 8px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+    }
+    #view-mode-btn {
+        top: 12px !important;
+        right: 10px !important;
+        padding: 4px 8px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+    }
+}
