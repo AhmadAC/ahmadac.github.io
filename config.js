@@ -6,7 +6,9 @@ export let appSettings = {
     anchor_date: "2026-06-15", // Format YYYY-MM-DD
     anchor_week: 37,
     manual_week_override: null, // Set to a number to manually lock the week (e.g. 38)
-    manual_date_string: null    // Set to manually lock the date string (e.g. "22/06/2026 - 26/06/2026")
+    manual_date_string: null,    // Set to manually lock the date string (e.g. "22/06/2026 - 26/06/2026")
+    show_bonus: true,          // Toggle Bonus display directly via JSON
+    show_results: false         // Toggle Results display directly via JSON
 };
 
 export async function loadSettings() {

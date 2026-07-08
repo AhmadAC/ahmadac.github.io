@@ -1,5 +1,7 @@
 // utils.js
 
+import { appSettings } from './config.js';
+
 export function decodeUtf8B64(b64) {
     try {
         const binString = atob(b64);
@@ -30,6 +32,26 @@ export function recursiveDecode(data) {
         return decodedObj;
     }
     return data;
+}
+
+export function applyFeatureToggles() {
+    // Ensures setting visibility applies to both current UI and future instances dynamically generated
+    if (appSettings.show_bonus) {
+        document.querySelectorAll('.btn-view-bonus').forEach(btn => btn.classList.remove('hidden'));
+        const template = document.getElementById("quiz-instance-template");
+        if (template) {
+            const templateBtn = template.content.querySelector('.btn-view-bonus');
+            if (templateBtn) templateBtn.classList.remove('hidden');
+        }
+    }
+    if (appSettings.show_results) {
+        document.querySelectorAll('.btn-view-results').forEach(btn => btn.classList.remove('hidden'));
+        const template = document.getElementById("quiz-instance-template");
+        if (template) {
+            const templateBtn = template.content.querySelector('.btn-view-results');
+            if (templateBtn) templateBtn.classList.remove('hidden');
+        }
+    }
 }
 
 export function initDevTools() {

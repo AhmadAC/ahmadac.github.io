@@ -1,7 +1,7 @@
 // app.js
 
 import { loadSettings } from './config.js';
-import { initDevTools } from './utils.js';
+import { initDevTools, applyFeatureToggles } from './utils.js';
 import { loadCanvasData } from './quiz-data.js';
 import { QuizInstance } from './QuizInstance.js';
 
@@ -18,6 +18,7 @@ function initApp() {
     loadSettings().then(() => {
         return loadCanvasData();
     }).then(() => {
+        applyFeatureToggles();
         console.log("[DEBUG] Canvas data loaded. Setting initial view mode to 1.");
         setViewMode(1); // Start with 1 screen
     });
