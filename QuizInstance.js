@@ -100,6 +100,18 @@ export class QuizInstance {
             this.handleScrollStickyBank();
             this.handleScrollSidebarSync();
         });
+
+        // Scroll jump shortcuts logic
+        this.elements.btnJumpTop?.addEventListener('click', () => {
+            this.elements.scrollArea?.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        this.elements.btnJumpBottom?.addEventListener('click', () => {
+            const area = this.elements.scrollArea;
+            if (area) {
+                area.scrollTo({ top: area.scrollHeight, behavior: 'smooth' });
+            }
+        });
     }
 }
 

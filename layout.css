@@ -1,0 +1,187 @@
+/* layout.css */
+
+#master-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.app-instance-container {
+    flex: 1; /* Each instance grows to fill space */
+    min-width: 0; /* Prevent flex overflow */
+    min-height: 0; /* Prevent flex overflow */
+    background-color: var(--bg-quiz);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden; /* Prevent content from spilling */
+}
+
+/* Add a separator between instances */
+.app-instance-container:not(:first-child) {
+    border-left: 2px solid #999;
+}
+
+.view {
+    display: none;
+    flex-direction: column;
+    flex: 1; /* Grow to fill container */
+    height: 100%;
+    min-height: 0; /* Prevent flex overflow */
+}
+.view.active {
+    display: flex;
+}
+
+.scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    min-height: 0; /* Allow scrolling without pushing container */
+    position: relative;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--bg-quiz);
+    flex-shrink: 0; /* Prevent shrinking */
+}
+.header-row h2 {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* Assignments Dynamic Display Styles */
+.assignments-header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.assignments-title { margin: 0; }
+.current-week-lbl {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+/* Redesigned Single-Row Quiz Footer Layout */
+.footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 20px;
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent shrinking out of view */
+}
+
+.footer-left-group, 
+.footer-right-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.flex-spacer { flex: 1; }
+
+/* --- QUIZ/DOC HEADER STYLES --- */
+.quiz-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px 10px 20px;
+    background-color: var(--bg-quiz);
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0; /* Prevent shrinking */
+    gap: 15px; /* Use gap for consistent spacing */
+}
+.quiz-header .quiz-title-lbl, 
+.quiz-header .document-title-lbl {
+    flex: 1 1 auto; /* Allow grow and shrink */
+    min-width: 0; /* Critical for allowing shrinkage */
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-dark);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ... if text is too long */
+}
+.quiz-header .btn-nav, .quiz-progress-lbl {
+    flex-shrink: 0; /* Prevent back button and progress from shrinking */
+}
+.quiz-progress-lbl {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.quiz-middle-container {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.quiz-main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.quiz-scroll-area {
+    padding: 0; /* Let inner content handle padding */
+}
+
+.quiz-content {
+    padding: 25px; /* Add padding here instead */
+}
+
+.quiz-sidebar {
+    width: 50px;
+    background-color: var(--sidebar-bg);
+    border-left: 1px solid var(--border-color);
+    flex-shrink: 0;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* Custom scrollbar for the sidebar */
+.quiz-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+.quiz-sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 2px;
+}
+
+.sidebar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+}
+
+/* --- DOCUMENT / HOMEWORK PAGE STYLES --- */
+.document-scroll-area {
+    padding: 0;
+    background-color: var(--border-color);
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Let iframe inside handle scrolling to hide double scrollbars */
+}
+
+.document-content {
+    width: 100%;
+    max-width: 900px; /* Looks like a typical A4 page width */
+    background-color: var(--card-bg);
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

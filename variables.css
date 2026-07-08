@@ -1,0 +1,139 @@
+/* variables.css */
+
+:root {
+    --bg-main: #2d3b45;
+    --bg-quiz: #f0f2f5;
+    --border-color: #c7cdd1;
+    --text-dark: #2d3b45;
+    --primary: #008ee2;
+    --primary-hover: #0076bd;
+    --success-bg: #e6fffa;
+    --success-border: #008a00;
+    --warning-bg: #fff8e1;
+    --warning-border: #ffa000;
+    --fail-bg: #ffe6e6;
+    --fail-border: #ee0000;
+    
+    /* Variable card mappings for Theme control */
+    --card-bg: #ffffff;
+    --card-even-bg: #f5f7f8;
+    --card-hover-bg: #eef3f7;
+    --selected-bg: #e1f0fa;
+    --header-bg: #f5f5f5;
+    --sidebar-bg: #f0f2f5;
+    --footer-bg: #ffffff;
+    --text-muted: #666666;
+}
+
+body.dark-theme {
+    --bg-main: #182026;
+    --bg-quiz: #1a1a1a;
+    --border-color: #38454f;
+    --text-dark: #f5f8fa;
+    
+    /* Variable card mappings for Dark Theme */
+    --card-bg: #202b33;
+    --card-even-bg: #293742;
+    --card-hover-bg: #2e3e4c;
+    --selected-bg: #1d3340;
+    --header-bg: #24303b;
+    --sidebar-bg: #1a1a1a;
+    --footer-bg: #202b33;
+    --text-muted: #a7b6c2;
+    
+    --success-bg: #1a3d2e;
+    --success-border: #1d7343;
+    --warning-bg: #40301a;
+    --warning-border: #a6791e;
+    --fail-bg: #3d1a1a;
+    --fail-border: #a82222;
+}
+
+* { 
+    box-sizing: border-box; 
+    font-family: sans-serif; 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height for mobile browser UI bars */
+    overflow: hidden;
+}
+
+.hidden { 
+    display: none !important; 
+}
+
+/* Theme Toggle Button UI */
+#theme-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 160px; /* Cohesively sits next to standard Screen toggle */
+    z-index: 10000;
+    background-color: var(--bg-main);
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+#theme-toggle-btn:hover {
+    background-color: #3f5161;
+}
+#theme-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+}
+body.dark-theme .sun-icon { display: block; }
+body.dark-theme .moon-icon { display: none; }
+body:not(.dark-theme) .sun-icon { display: none; }
+body:not(.dark-theme) .moon-icon { display: block; }
+
+/* The view mode button */
+#view-mode-btn {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    z-index: 10000;
+    background-color: var(--bg-main);
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+#view-mode-btn:hover {
+    background-color: #3f5161;
+}
+
+/* --- MATHEMATICAL FRACTION STYLING --- */
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    line-height: 1.0;
+    padding: 0 0.15em;
+}
+.fraction .numerator {
+    border-bottom: 1px solid currentColor;
+    padding: 0 0.1em 0.05em 0.1em;
+    font-size: 0.82em;
+    text-align: center;
+}
+.fraction .denominator {
+    font-size: 0.82em;
+    padding: 0.05em 0.1em 0 0.1em;
+    text-align: center;
+}

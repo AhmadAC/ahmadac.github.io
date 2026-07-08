@@ -10,6 +10,7 @@ export const QuizRendererMixin = {
         console.log(`[DEBUG][Inst ${this.instanceId}] Fetching data for: ${quizName}`);
         this.currentQuizName = quizName;
         this.documentBackTarget = 'view-assignments';
+        this._lastActiveIdx = 0; // Initialize tracking for smooth sidebar scroll tracking
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
         this.sidebarButtons = [];
@@ -309,6 +310,12 @@ export const QuizRendererMixin = {
 
         this.updateProgress();
         
+        // Unhide the jump buttons now that the quiz is rendered
+        if (this.currentQuestions.length > 0) {
+            this.elements.btnJumpTop?.classList.remove("hidden");
+            this.elements.btnJumpBottom?.classList.remove("hidden");
+        }
+
         // Initial setup for the UI word bank checking & right sidebar positioning syncs
         setTimeout(() => {
             this.handleScrollStickyBank();
@@ -513,7 +520,9 @@ export const QuizRendererMixin = {
         const mainRect = mainContent.getBoundingClientRect();
         // Calculate standard viewport vertical coordinate middle reference point
         const viewportCenter = mainRect.top + (mainRect.height / 2);
-        let activeIdx = 0;
+        
+        let activeIdx = this._lastActiveIdx !== undefined ? this._lastActiveIdx : 0;
+        let found = false;
 
         // Trace and determine which exact question frame is focused on screen
         for (let idx = 0; idx < this.currentQuestions.length; idx++) {
@@ -522,9 +531,32 @@ export const QuizRendererMixin = {
             const rect = frame.getBoundingClientRect();
             if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
                 activeIdx = idx;
+                found = true;
                 break;
             }
         }
+
+        // Fix the middle jump-to-Q1 bug: 
+        // If no question directly contains the center boundary point (due to margin/gap transition),
+        // determine the question that is closest to the viewport's center to prevent resetting to index 0.
+        if (!found && this.currentQuestions.length > 0) {
+            let minDistance = Infinity;
+            let closestIdx = activeIdx;
+            for (let idx = 0; idx < this.currentQuestions.length; idx++) {
+                const frame = this.root.querySelector(`[data-question-index="${idx}"]`);
+                if (!frame) continue;
+                const rect = frame.getBoundingClientRect();
+                const frameCenter = rect.top + (rect.height / 2);
+                const distance = Math.abs(frameCenter - viewportCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestIdx = idx;
+                }
+            }
+            activeIdx = closestIdx;
+        }
+
+        this._lastActiveIdx = activeIdx;
 
         // Cycle through all sidebar navigational buttons to update active/nav focus states
         this.sidebarButtons.forEach((btn, i) => {
