@@ -7,7 +7,13 @@ export const SubmissionMixin = {
         let unansweredIndices = [];
         this.currentQuestions.forEach((q, idx) => {
             let type = q.type || q.question_type;
-            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined;
+            
+            // Check if the title text indicates the question is administrative
+            let txt = (q['question text'] || q.question_text || "").toLowerCase();
+            let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
+            
+            // Evaluates complex matching questions (ignoring class selection matches)
+            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined && !isAdmin;
             
             if (isComplexMatching) {
                 let state = this.matchingStates[idx];
@@ -78,7 +84,11 @@ export const SubmissionMixin = {
             let qIsWrong = false;
             let qIsCorrect = false;
             
-            if (type === 'matching_question' && q.answers?.[0]?.text !== undefined) {
+            let txt = (q['question text'] || q.question_text || "").toLowerCase();
+            let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
+            let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined && !isAdmin;
+            
+            if (isComplexMatching) {
                 totalPossible += pts;
                 let state = this.matchingStates[idx], correctCount = 0;
                 
@@ -87,23 +97,27 @@ export const SubmissionMixin = {
                     catch(e) { return ""; }
                 };
 
-                state.slots.forEach((s, sIdx) => {
-                    let slotEl = frame.querySelector(`[data-slot-index="${sIdx}"]`);
-                    if (slotEl) {
-                        let actualCorrect = fromB64(s._c);
-                        slotEl.style.pointerEvents = 'none';
-                        if (s.current === actualCorrect) {
-                            correctCount++; slotEl.className = "answer-slot correct";
-                        } else {
-                            slotEl.className = "answer-slot incorrect";
-                            slotEl.innerText = `${s.current || 'Empty'} (Req: ${actualCorrect})`;
+                // Safe-guard condition block checks if matching state was actively populated
+                if (state && state.slots) {
+                    state.slots.forEach((s, sIdx) => {
+                        let slotEl = frame.querySelector(`[data-slot-index="${sIdx}"]`);
+                        if (slotEl) {
+                            let actualCorrect = fromB64(s._c);
+                            slotEl.style.pointerEvents = 'none';
+                            if (s.current === actualCorrect) {
+                                correctCount++; slotEl.className = "answer-slot correct";
+                            } else {
+                                slotEl.className = "answer-slot incorrect";
+                                // Parse corrective layout values with .innerHTML so fractions render correctly in feedback
+                                slotEl.innerHTML = `${s.current || 'Empty'} (Req: ${actualCorrect})`;
+                            }
                         }
+                    });
+                    if (state.slots.length > 0) {
+                        if (correctCount < state.slots.length) qIsWrong = true;
+                        else if (correctCount === state.slots.length) qIsCorrect = true;
+                        totalScore += Math.round((correctCount / state.slots.length) * pts);
                     }
-                });
-                if (state.slots.length > 0) {
-                    if (correctCount < state.slots.length) qIsWrong = true;
-                    else if (correctCount === state.slots.length) qIsCorrect = true;
-                    totalScore += Math.round((correctCount / state.slots.length) * pts);
                 }
             } else if (type === 'multiple_choice_question') {
                 totalPossible += pts;
@@ -178,7 +192,7 @@ export const SubmissionMixin = {
         if (state === "fail") msg += "\n\nPlease Try Again";
 
         this.elements.btnSubmit?.classList.add("hidden");
-        this.elements.btnSubmit.disabled = true;
+        if (this.elements.btnSubmit) this.elements.btnSubmit.disabled = true;
         this.elements.btnRedo?.classList.remove("hidden");
         this.elements.btnSavePic?.classList.remove("hidden");
         if (this.elements.resultBox && this.elements.resultText) {

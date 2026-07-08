@@ -265,7 +265,10 @@ export const QuizRendererMixin = {
             frame.innerHTML = header;
             let contentDiv = frame.querySelector('.question-content');
 
-            if (isComplexMatching) {
+            // Explicit Priority Guard: Admin matching questions must ALWAYS render via setupClassSelectionUI
+            if (isAdmin && type === 'matching_question') {
+                this.setupClassSelectionUI(contentDiv, q, idx);
+            } else if (isComplexMatching) {
                 this.setupComplexMatchingUI(contentDiv, q, idx);
             } else if (type === 'multiple_choice_question') {
                 this.setupMultipleChoiceUI(contentDiv, q, idx);
@@ -303,19 +306,6 @@ export const QuizRendererMixin = {
             }
             this.sidebarButtons.push(qBtn);
         });
-
-        let endSpacer = document.createElement('div');
-        endSpacer.style.height = "15vh";
-        endSpacer.style.pointerEvents = "none";
-        container.appendChild(endSpacer);
-
-        if (this.currentQuestions.length > 0) {
-            if (this.elements.btnJumpBottom) {
-                this.elements.btnJumpBottom.innerText = `Q${this.currentQuestions.length}`;
-                this.elements.btnJumpBottom.classList.remove("hidden");
-            }
-            this.elements.btnJumpTop?.classList.remove("hidden");
-        }
 
         this.updateProgress();
         
@@ -569,7 +559,7 @@ export const QuizRendererMixin = {
             let btn = document.createElement('button');
             btn.className = 'word-bank-btn';
             if (this.selectedBankWord === word) btn.classList.add('selected');
-            btn.innerText = word;
+            btn.innerHTML = word; // Parse fraction structural elements via innerHTML
 
             btn.onclick = () => {
                 if (this.selectedSlot) {
@@ -604,7 +594,7 @@ export const QuizRendererMixin = {
         const targetSlotEl = providedSlotEl || this.selectedSlot?.element || this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${slotIdx}"]`);
 
         if (targetSlotEl) {
-            targetSlotEl.innerText = word;
+            targetSlotEl.innerHTML = word; // Parse matching choice structure via innerHTML
             targetSlotEl.className = "answer-slot filled";
         }
 
