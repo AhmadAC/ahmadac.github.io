@@ -42,6 +42,7 @@ export class QuizInstance {
             assignmentList: this.root.querySelector('.assignment-list'),
             quizTitle: this.root.querySelector('.quiz-title-lbl'),
             quizProgress: this.root.querySelector('.quiz-progress-lbl'),
+            quizScoreLbl: this.root.querySelector('.quiz-score-lbl'),
             stickyBank: this.root.querySelector('.sticky-word-bank'),
             scrollArea: this.root.querySelector('.quiz-scroll-area'),
             sidebarList: this.root.querySelector('.sidebar-list'),
@@ -96,7 +97,7 @@ export class QuizInstance {
             });
         });
 
-        // --- THE MISSING SUBMISSION LISTENERS ---
+        // Submission Listeners
         this.elements.btnSubmit?.addEventListener('click', () => this.submitQuiz());
         this.elements.btnRedo?.addEventListener('click', () => this.resetQuiz());
         this.elements.btnSavePic?.addEventListener('click', () => this.saveResultAsImage());

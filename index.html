@@ -80,8 +80,12 @@
             <div class="view view-quiz">
                 <div class="quiz-header">
                     <button class="btn-nav btn-back-to-assignments">← Back</button>
-                    <h2 class="quiz-title-lbl">Quiz Name</h2>
+                    <!-- Progress and Score moved here so they don't hide under the fixed top-right buttons -->
                     <span class="quiz-progress-lbl">0/0</span>
+                    <span class="quiz-score-lbl hidden"></span>
+                    
+                    <h2 class="quiz-title-lbl">Quiz Name</h2>
+                    <div style="min-width: 90px;"></div> <!-- Flex spacer to balance the left side elements -->
                 </div>
 
                 <div class="quiz-middle-container">

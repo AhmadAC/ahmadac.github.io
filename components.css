@@ -431,10 +431,22 @@ body.dark-theme .due-status { color: #e67e22; }
 .quiz-result-box[data-status="pass"] { background-color: var(--success-bg); border: 1px solid var(--success-border); }
 .quiz-result-box[data-status="warning"] { background-color: var(--warning-bg); border: 1px solid var(--warning-border); }
 .quiz-result-box[data-status="fail"] { background-color: var(--fail-bg); border: 1px solid var(--fail-border); }
-.quiz-result-box p { margin: 0; font-size: 14px; font-weight: bold; white-space: pre-wrap; }
+.quiz-result-box p { margin: 0; font-size: 14px; font-weight: bold; white-space: pre-wrap; line-height: 1.5; }
 .quiz-result-box[data-status="pass"] p { color: var(--success-border); }
 .quiz-result-box[data-status="warning"] p { color: var(--warning-border); }
 .quiz-result-box[data-status="fail"] p { color: var(--fail-border); }
+
+.quiz-score-lbl {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+.quiz-score-lbl[data-status="pass"] { background-color: var(--success-bg); color: var(--success-border); border: 1px solid var(--success-border); }
+.quiz-score-lbl[data-status="warning"] { background-color: var(--warning-bg); color: var(--warning-border); border: 1px solid var(--warning-border); }
+.quiz-score-lbl[data-status="fail"] { background-color: var(--fail-bg); color: var(--fail-border); border: 1px solid var(--fail-border); }
 
 .quiz-error-msg { 
     color: #e74c3c; 

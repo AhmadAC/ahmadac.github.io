@@ -188,17 +188,40 @@ export const SubmissionMixin = {
         
         this.saveResult(this.currentQuizName, nameAns, classAns, totalScore, totalPossible);
 
-        let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)`;
-        if (state === "fail") msg += "\n\nPlease Try Again";
+        let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)\n\n`;
+        
+        // Positive and encouraging language tiers based on percentage (Emojis removed)
+        if (perc === 100) {
+            msg += "Outstanding! Perfect score!";
+        } else if (perc >= 80) {
+            msg += "Great job! Keep up the excellent work!";
+        } else if (perc >= 60) {
+            msg += "Good effort! Review your mistakes and you'll do even better next time!";
+        } else if (perc > 0) {
+            msg += "We believe in you! Review your mistakes and try again—you've got this!";
+        } else {
+            msg += "Don't give up! Every mistake is a learning opportunity. Give it another try!";
+        }
 
         this.elements.btnSubmit?.classList.add("hidden");
         if (this.elements.btnSubmit) this.elements.btnSubmit.disabled = true;
         this.elements.btnRedo?.classList.remove("hidden");
         this.elements.btnSavePic?.classList.remove("hidden");
+        
         if (this.elements.resultBox && this.elements.resultText) {
             this.elements.resultBox.dataset.status = state;
             this.elements.resultText.innerText = msg;
             this.elements.resultBox.classList.remove("hidden");
+        }
+
+        // Show the score permanently at the top in the header
+        if (this.elements.quizScoreLbl) {
+            this.elements.quizScoreLbl.innerText = `Score: ${perc}%`;
+            this.elements.quizScoreLbl.dataset.status = state;
+            this.elements.quizScoreLbl.classList.remove("hidden");
+        }
+        if (this.elements.quizProgress) {
+            this.elements.quizProgress.classList.add("hidden");
         }
 
         // JUMP TO INCORRECT/WRONG REVIEW SYSTEM:

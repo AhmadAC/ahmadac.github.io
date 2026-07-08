@@ -17,6 +17,11 @@ export const QuizRendererMixin = {
         this.matchingStates = {};
         
         if (this.elements.quizTitle) this.elements.quizTitle.innerText = formatDisplayString(quizName);
+        
+        // Reset dynamic header UI components
+        this.elements.quizProgress?.classList.remove("hidden");
+        this.elements.quizScoreLbl?.classList.add("hidden");
+        
         this.elements.resultBox?.classList.add("hidden");
         this.elements.btnSubmit?.classList.remove("hidden");
         this.elements.btnSubmit.disabled = false;
