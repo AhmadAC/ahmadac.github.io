@@ -216,7 +216,7 @@ export const SubmissionMixin = {
 
         // Show the score permanently at the top in the header
         if (this.elements.quizScoreLbl) {
-            this.elements.quizScoreLbl.innerText = `Score: ${perc}%`;
+            this.elements.quizScoreLbl.innerText = `Name: ${nameAns}, Score: ${totalScore}/${totalPossible} (${perc}%)`;
             this.elements.quizScoreLbl.dataset.status = state;
             this.elements.quizScoreLbl.classList.remove("hidden");
         }
