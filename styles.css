@@ -13,6 +13,40 @@
     --warning-border: #ffa000;
     --fail-bg: #ffe6e6;
     --fail-border: #ee0000;
+    
+    /* Variable card mappings for Theme control */
+    --card-bg: #ffffff;
+    --card-even-bg: #f5f7f8;
+    --card-hover-bg: #eef3f7;
+    --selected-bg: #e1f0fa;
+    --header-bg: #f5f5f5;
+    --sidebar-bg: #f0f2f5;
+    --footer-bg: #ffffff;
+    --text-muted: #666666;
+}
+
+body.dark-theme {
+    --bg-main: #182026;
+    --bg-quiz: #1a1a1a;
+    --border-color: #38454f;
+    --text-dark: #f5f8fa;
+    
+    /* Variable card mappings for Dark Theme */
+    --card-bg: #202b33;
+    --card-even-bg: #293742;
+    --card-hover-bg: #2e3e4c;
+    --selected-bg: #1d3340;
+    --header-bg: #24303b;
+    --sidebar-bg: #1a1a1a;
+    --footer-bg: #202b33;
+    --text-muted: #a7b6c2;
+    
+    --success-bg: #1a3d2e;
+    --success-border: #1d7343;
+    --warning-bg: #40301a;
+    --warning-border: #a6791e;
+    --fail-bg: #3d1a1a;
+    --fail-border: #a82222;
 }
 
 * { box-sizing: border-box; font-family: sans-serif; }
@@ -47,6 +81,37 @@ body {
 .app-instance-container:not(:first-child) {
     border-left: 2px solid #999;
 }
+
+/* Theme Toggle Button UI */
+#theme-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 160px; /* Cohesively sits next to standard Screen toggle */
+    z-index: 10000;
+    background-color: var(--bg-main);
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+#theme-toggle-btn:hover {
+    background-color: #3f5161;
+}
+#theme-toggle-btn svg {
+    width: 18px;
+    height: 18px;
+}
+body.dark-theme .sun-icon { display: block; }
+body.dark-theme .moon-icon { display: none; }
+body:not(.dark-theme) .sun-icon { display: none; }
+body:not(.dark-theme) .moon-icon { display: block; }
 
 /* The view mode button */
 #view-mode-btn {
@@ -103,7 +168,7 @@ body {
 }
 
 .btn-class {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 12px;
@@ -201,7 +266,7 @@ body {
 /* Jump Buttons added to the footer */
 .btn-jump {
     background-color: transparent;
-    color: #555555;
+    color: var(--text-dark);
     font-weight: bold;
     font-size: 13px;
     padding: 6px 12px;
@@ -229,7 +294,7 @@ body {
 .btn-primary:hover { background-color: var(--primary-hover); }
 
 .btn-secondary {
-    background-color: #f5f5f5;
+    background-color: var(--header-bg);
     color: var(--text-dark);
     font-weight: bold;
     font-size: 13px;
@@ -238,7 +303,7 @@ body {
     border: 1px solid var(--border-color);
     cursor: pointer;
 }
-.btn-secondary:hover { background-color: #e2e2e2; }
+.btn-secondary:hover { background-color: var(--border-color); }
 
 .btn-tertiary {
     background-color: #1e8449;
@@ -252,7 +317,6 @@ body {
 }
 .btn-tertiary:hover { background-color: #239b56; }
 
-
 .list-container {
     display: flex;
     flex-direction: column;
@@ -263,7 +327,7 @@ body {
 .assignment-card {
     display: flex;
     align-items: center;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-left: 5px solid var(--border-color);
     border-radius: 4px;
@@ -272,16 +336,19 @@ body {
     transition: background-color 0.2s, border-left-color 0.2s;
 }
 .assignment-card:nth-child(odd) { 
-    background-color: #f0f6fa; 
+    background-color: var(--card-even-bg); 
 }
 .assignment-card:hover {
-    background-color: #e1f0fa;
+    background-color: var(--card-hover-bg);
     border-left: 5px solid var(--primary);
 }
 .assignment-card.missing-card {
     background-color: #fdf2f2 !important;
     border-left: 5px solid #e74c3c !important;
     cursor: not-allowed;
+}
+body.dark-theme .assignment-card.missing-card {
+    background-color: #2c1a1a !important;
 }
 
 .assignment-title-lbl {
@@ -307,10 +374,12 @@ body {
 .current-status {
     color: #008a00;
 }
+body.dark-theme .current-status { color: #2ecc71; }
 
 .due-status {
     color: #e65100;
 }
+body.dark-theme .due-status { color: #e67e22; }
 
 .btn-week-action {
     background-color: var(--primary);
@@ -328,7 +397,8 @@ body {
     background-color: var(--primary-hover);
 }
 .btn-week-action:disabled {
-    background-color: #cccccc;
+    background-color: var(--border-color);
+    color: var(--text-muted);
     cursor: not-allowed;
 }
 
@@ -338,7 +408,8 @@ body {
     border-left: 5px solid var(--success-border) !important;
 }
 .assignment-card.highlight-current:hover {
-    background-color: #ccfbf1 !important;
+    background-color: var(--success-bg) !important;
+    opacity: 0.9;
 }
 
 .assignment-card.highlight-due {
@@ -346,16 +417,17 @@ body {
     border-left: 5px solid var(--warning-border) !important;
 }
 .assignment-card.highlight-due:hover {
-    background-color: #ffecb3 !important;
+    background-color: var(--warning-bg) !important;
+    opacity: 0.9;
 }
-
 
 /* --- UPDATED QUIZ/DOC HEADER STYLES --- */
 .quiz-header {
     display: flex;
     align-items: center;
     padding: 15px 20px 10px 20px;
-    background-color: #f0f2f5;
+    background-color: var(--bg-quiz);
+    border-bottom: 1px solid var(--border-color);
     flex-shrink: 0; /* Prevent shrinking */
     gap: 15px; /* Use gap for consistent spacing */
 }
@@ -377,28 +449,28 @@ body {
 .quiz-progress-lbl {
     font-size: 12px;
     font-weight: bold;
-    color: #555;
+    color: var(--text-dark);
 }
 
 /* --- INFO SECTION --- */
 .quiz-info-section {
-    background-color: #e1f0fa;
-    border: 1px solid #008ee2;
+    background-color: var(--selected-bg);
+    border: 1px solid var(--primary);
     border-radius: 6px;
     padding: 15px;
     margin-bottom: 20px;
-    color: #2d3b45;
+    color: var(--text-dark);
     font-size: 14px;
     line-height: 1.5;
 }
 .quiz-info-section a {
-    color: #005a9e;
+    color: var(--primary);
     text-decoration: underline;
     font-weight: bold;
 }
 
 .question-frame {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     margin-bottom: 25px;
@@ -407,7 +479,7 @@ body {
 }
 
 .question-header {
-    background-color: #f5f5f5;
+    background-color: var(--header-bg);
     border-bottom: 1px solid var(--border-color);
     border-radius: 4px 4px 0 0;
     padding: 8px 10px;
@@ -415,7 +487,7 @@ body {
     justify-content: space-between;
 }
 .question-header-num { font-size: 13px; font-weight: bold; color: var(--text-dark); }
-.question-header-pts { font-size: 11px; color: #555; }
+.question-header-pts { font-size: 11px; color: var(--text-muted); }
 
 .question-content { 
     padding: 15px;
@@ -446,7 +518,7 @@ body {
     font-size: 13px;
     color: var(--text-dark);
     padding: 10px 14px;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 6px;
     margin-bottom: 6px;
@@ -454,14 +526,20 @@ body {
     transition: background-color 0.2s, border-color 0.2s;
     white-space: pre-wrap;
 }
+
+/* Light alternating grey shading for even rows */
+.mcq-card:nth-child(even) {
+    background-color: var(--card-even-bg);
+}
+
 .mcq-card:hover {
-    background-color: #f0f6fa;
+    background-color: var(--card-hover-bg);
     border-color: var(--primary);
 }
 .mcq-card.selected {
-    background-color: #e1f0fa;
+    background-color: var(--selected-bg);
     border: 2px solid var(--primary);
-    padding: 9px 13px; /* To maintain standard height with the 2px border */
+    padding: 9px 13px;
 }
 .mcq-card.correct {
     background-color: var(--success-bg);
@@ -482,6 +560,8 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 13px;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
 }
 
 .sticky-word-bank {
@@ -497,7 +577,7 @@ body {
     z-index: 100;
 }
 .word-bank-btn {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 1px solid var(--primary);
     color: var(--primary);
     border-radius: 8px;
@@ -507,8 +587,8 @@ body {
     cursor: pointer;
     white-space: pre-wrap;
 }
-.word-bank-btn:hover { background-color: #e1f0fa; }
-.word-bank-btn.selected { background-color: #bae6fd; color: black; border: 2px solid #005a9e; }
+.word-bank-btn:hover { background-color: var(--card-hover-bg); }
+.word-bank-btn.selected { background-color: var(--selected-bg); color: var(--text-dark); border: 2px solid var(--primary); }
 
 .match-row {
     display: flex;
@@ -526,8 +606,8 @@ body {
 }
 
 .answer-slot {
-    background-color: #ffffff;
-    border: 1px solid #6c757d;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 5px 10px;
     color: var(--text-dark);
@@ -541,11 +621,11 @@ body {
     align-items: center;
     justify-content: center;
 }
-.answer-slot:hover { border-color: var(--primary); background-color: #f0f6fa; }
-.answer-slot.selected { background-color: #f0f6fa; color: var(--primary); border: 2px dashed var(--primary); }
-.answer-slot.filled { background-color: #e1f0fa; color: var(--primary); border: 1px solid var(--primary); }
-.answer-slot.correct { background-color: var(--success-bg); color: #008a00; border: 1px solid #008a00; }
-.answer-slot.incorrect { background-color: var(--fail-bg); color: #b71c1c; border: 1px solid #b71c1c; }
+.answer-slot:hover { border-color: var(--primary); background-color: var(--card-hover-bg); }
+.answer-slot.selected { background-color: var(--card-hover-bg); color: var(--primary); border: 2px dashed var(--primary); }
+.answer-slot.filled { background-color: var(--selected-bg); color: var(--primary); border: 1px solid var(--primary); }
+.answer-slot.correct { background-color: var(--success-bg); color: var(--success-border); border: 1px solid var(--success-border); }
+.answer-slot.incorrect { background-color: var(--fail-bg); color: var(--fail-border); border: 1px solid var(--fail-border); }
 
 .class-btn-group {
     display: grid;
@@ -553,7 +633,7 @@ body {
     gap: 8px;
 }
 .class-btn-radio {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 8px;
@@ -579,9 +659,9 @@ body {
 .quiz-result-box[data-status="warning"] { background-color: var(--warning-bg); border: 1px solid var(--warning-border); }
 .quiz-result-box[data-status="fail"] { background-color: var(--fail-bg); border: 1px solid var(--fail-border); }
 .quiz-result-box p { margin: 0; font-size: 14px; font-weight: bold; white-space: pre-wrap; }
-.quiz-result-box[data-status="pass"] p { color: #004d00; }
-.quiz-result-box[data-status="warning"] p { color: #e65100; }
-.quiz-result-box[data-status="fail"] p { color: #b71c1c; }
+.quiz-result-box[data-status="pass"] p { color: var(--success-border); }
+.quiz-result-box[data-status="warning"] p { color: var(--warning-border); }
+.quiz-result-box[data-status="fail"] p { color: var(--fail-border); }
 
 .quiz-error-msg { 
     color: #e74c3c; 
@@ -599,9 +679,10 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: 10px 15px;
+    background-color: var(--card-bg);
 }
-.result-card:nth-child(odd) { background-color: #f0f6fa; }
-.result-card:nth-child(even) { background-color: #ffffff; }
+.result-card:nth-child(odd) { background-color: var(--card-even-bg); }
+.result-card:nth-child(even) { background-color: var(--card-bg); }
 .res-title { font-size: 14px; font-weight: bold; color: var(--primary); margin: 0 0 5px 0; }
 .res-detail { font-size: 12px; color: var(--text-dark); margin: 0; }
 .res-score { font-size: 16px; font-weight: bold; color: var(--text-dark); }
@@ -611,7 +692,7 @@ body {
     text-align: center;
     padding: 12px;
     margin-bottom: 10px;
-    background-color: #e9ecef;
+    background-color: var(--header-bg);
     border: 1px solid var(--border-color);
     border-radius: 4px;
     color: var(--text-dark);
@@ -621,12 +702,12 @@ body {
 }
 
 .btn-show-previous:hover {
-    background-color: #dee2e6;
+    background-color: var(--border-color);
 }
 
 .btn-show-previous:disabled {
-    background-color: #f1f3f5;
-    color: #868e96;
+    background-color: var(--header-bg);
+    color: var(--text-muted);
     cursor: not-allowed;
 }
 
@@ -653,7 +734,7 @@ body {
 
 .quiz-sidebar {
     width: 50px;
-    background-color: var(--bg-quiz);
+    background-color: var(--sidebar-bg);
     border-left: 1px solid var(--border-color);
     flex-shrink: 0;
     overflow-y: auto;
@@ -665,7 +746,7 @@ body {
     width: 4px;
 }
 .quiz-sidebar::-webkit-scrollbar-thumb {
-    background-color: #c7cdd1;
+    background-color: var(--border-color);
     border-radius: 2px;
 }
 
@@ -677,7 +758,7 @@ body {
 }
 
 .btn-sidebar-q {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 3px;
     padding: 4px 0;
@@ -688,11 +769,11 @@ body {
     min-height: 24px;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    transition: transform 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .btn-sidebar-q:hover {
-    background-color: #f0f6fa;
+    background-color: var(--card-hover-bg);
 }
 
 .btn-sidebar-q[data-answered="true"] {
@@ -705,6 +786,15 @@ body {
     background-color: #ffa000;
     color: #ffffff;
     border-color: #ff8f00;
+}
+
+/* Active indicator outlining current question position on screen */
+.btn-sidebar-q.active-nav {
+    outline: 2px solid var(--text-dark) !important;
+    outline-offset: 1px;
+    transform: scale(1.12);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 10;
 }
 
 /* Red Sidebar Buttons for wrong submitted questions */
@@ -724,7 +814,7 @@ body {
 /* --- DOCUMENT / HOMEWORK PAGE STYLES --- */
 .document-scroll-area {
     padding: 0;
-    background-color: #e4e4e4;
+    background-color: var(--border-color);
     display: flex;
     justify-content: center;
     overflow: hidden; /* We let the iframe inside handle scrolling to hide double scrollbars */
@@ -733,7 +823,7 @@ body {
 .document-content {
     width: 100%;
     max-width: 900px; /* Looks like a typical A4 page width */
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;

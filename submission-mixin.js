@@ -69,6 +69,7 @@ export const SubmissionMixin = {
         if (this.elements.errorMsg) this.elements.errorMsg.innerText = "";
         this.elements.stickyBank?.classList.add("hidden");
         let totalScore = 0, totalPossible = 0;
+        let firstWrongIndex = -1;
 
         this.currentQuestions.forEach((q, idx) => {
             let frame = this.root.querySelector(`[data-question-index="${idx}"]`);
@@ -143,6 +144,11 @@ export const SubmissionMixin = {
                 }
             }
 
+            // Record and save the index of the first wrong question containing visual point values
+            if (qIsWrong && firstWrongIndex === -1 && pts > 0) {
+                firstWrongIndex = idx;
+            }
+
             let btn = this.sidebarButtons[idx];
             if (btn) {
                 btn.dataset.highlighted = "false";
@@ -180,7 +186,19 @@ export const SubmissionMixin = {
             this.elements.resultText.innerText = msg;
             this.elements.resultBox.classList.remove("hidden");
         }
-        this.elements.scrollArea?.scrollTo({ top: this.elements.scrollArea.scrollHeight, behavior: 'smooth' });
+
+        // JUMP TO INCORRECT/WRONG REVIEW SYSTEM:
+        // Automatically scroll to first wrong question if score is less than 100%, else scroll to results box
+        if (firstWrongIndex !== -1) {
+            let targetFrame = this.root.querySelector(`[data-question-index="${firstWrongIndex}"]`);
+            if (targetFrame && this.elements.scrollArea) {
+                let scrollArea = this.elements.scrollArea;
+                let offsetTop = targetFrame.getBoundingClientRect().top - scrollArea.getBoundingClientRect().top + scrollArea.scrollTop;
+                scrollArea.scrollTo({ top: offsetTop - 10, behavior: 'smooth' });
+            }
+        } else {
+            this.elements.scrollArea?.scrollTo({ top: this.elements.scrollArea.scrollHeight, behavior: 'smooth' });
+        }
     },
 
     resetQuiz() {

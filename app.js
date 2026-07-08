@@ -15,6 +15,29 @@ function initApp() {
     const viewModeBtn = document.getElementById("view-mode-btn");
     if (viewModeBtn) viewModeBtn.addEventListener("click", cycleViewMode);
     
+    // Theme toggler switch setup
+    const themeToggleBtn = document.getElementById("theme-toggle-btn");
+    if (themeToggleBtn) {
+        // Read stored user layout theme preference or default to light/day theme
+        const savedTheme = localStorage.getItem("app-theme");
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+        
+        themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-theme");
+            const finalTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
+            localStorage.setItem("app-theme", finalTheme);
+            
+            // Re-render active assignments list or document view to trigger deep theme updates (like iframes)
+            quizInstances.forEach(inst => {
+                if (inst.selectedClass) {
+                    inst.loadAssignments(inst.selectedClass);
+                }
+            });
+        });
+    }
+    
     loadSettings().then(() => {
         return loadCanvasData();
     }).then(() => {

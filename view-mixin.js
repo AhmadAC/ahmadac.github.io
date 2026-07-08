@@ -356,6 +356,18 @@ export const ViewMixin = {
                 htmlContent = `<head><base href="0_Quiz/"></head>` + htmlContent;
             }
 
+            // Deep Injection: Force the document iframe contents to adhere to Night/Dark mode styles if parent has it active
+            if (document.body.classList.contains('dark-theme')) {
+                const darkIframeStyle = `
+                    <style>
+                        body { background-color: #1a1a1a !important; color: #f5f8fa !important; }
+                        a { color: #30a2ff !important; }
+                        table, tr, td, th { border-color: #38454f !important; color: #f5f8fa !important; }
+                    </style>
+                `;
+                htmlContent = darkIframeStyle + htmlContent;
+            }
+
             iframe.srcdoc = htmlContent;
             container.appendChild(iframe);
         }

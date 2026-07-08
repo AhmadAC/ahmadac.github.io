@@ -13,6 +13,7 @@ export const QuizRendererMixin = {
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
         this.sidebarButtons = [];
+        this.matchingStates = {};
         
         if (this.elements.quizTitle) this.elements.quizTitle.innerText = formatDisplayString(quizName);
         this.elements.resultBox?.classList.add("hidden");
@@ -288,6 +289,7 @@ export const QuizRendererMixin = {
             qBtn.dataset.highlighted = "false";
             qBtn.dataset.wrong = "false";
             qBtn.dataset.correct = "false";
+            qBtn.dataset.current = "false";
             qBtn.onclick = () => {
                 let scrollArea = this.elements.scrollArea;
                 if (scrollArea) {
@@ -317,8 +319,11 @@ export const QuizRendererMixin = {
 
         this.updateProgress();
         
-        // Ensure word bank is checked in case the top question is a matching question
-        setTimeout(() => this.handleScrollStickyBank(), 100);
+        // Initial setup for the UI word bank checking & right sidebar positioning syncs
+        setTimeout(() => {
+            this.handleScrollStickyBank();
+            this.handleScrollSidebarSync();
+        }, 100);
     },
 
     setupMultipleChoiceUI(container, q, idx) {
@@ -507,6 +512,48 @@ export const QuizRendererMixin = {
                 }
             }
         }, 25);
+    },
+
+    handleScrollSidebarSync() {
+        const area = this.elements.scrollArea;
+        const mainContent = this.root.querySelector('.quiz-main-content');
+        const sidebar = this.root.querySelector('.quiz-sidebar');
+        if (!area || !mainContent || !sidebar) return;
+
+        const mainRect = mainContent.getBoundingClientRect();
+        // Calculate standard viewport vertical coordinate middle reference point
+        const viewportCenter = mainRect.top + (mainRect.height / 2);
+        let activeIdx = 0;
+
+        // Trace and determine which exact question frame is focused on screen
+        for (let idx = 0; idx < this.currentQuestions.length; idx++) {
+            const frame = this.root.querySelector(`[data-question-index="${idx}"]`);
+            if (!frame) continue;
+            const rect = frame.getBoundingClientRect();
+            if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+                activeIdx = idx;
+                break;
+            }
+        }
+
+        // Cycle through all sidebar navigational buttons to update active/nav focus states
+        this.sidebarButtons.forEach((btn, i) => {
+            if (i === activeIdx) {
+                btn.classList.add('active-nav');
+                btn.dataset.current = "true";
+
+                // Read dimensions to identify if button is obscured/hidden inside the scrollable sidebar viewport
+                const sbRect = sidebar.getBoundingClientRect();
+                const btnRect = btn.getBoundingClientRect();
+                
+                if (btnRect.top < sbRect.top + 10 || btnRect.bottom > sbRect.bottom - 10) {
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            } else {
+                btn.classList.remove('active-nav');
+                btn.dataset.current = "false";
+            }
+        });
     },
 
     renderStickyBank(qIdx) {

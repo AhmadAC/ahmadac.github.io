@@ -95,14 +95,15 @@ export class QuizInstance {
             });
         });
 
-        this.elements.btnJumpTop?.addEventListener('click', () => this.elements.scrollArea?.scrollTo({ top: 0, behavior: 'smooth' }));
-        this.elements.btnJumpBottom?.addEventListener('click', () => this.elements.scrollArea?.scrollTo({ top: this.elements.scrollArea.scrollHeight, behavior: 'smooth' }));
-        this.elements.btnSubmit?.addEventListener('click', () => this.submitQuiz());
-        this.elements.btnRedo?.addEventListener('click', () => this.resetQuiz());
-        this.elements.btnSavePic?.addEventListener('click', () => this.saveResultAsImage());
-        this.elements.scrollArea?.addEventListener('scroll', () => this.handleScrollStickyBank());
+        // Trigger word bank sticky calculations AND sidebar focus/scrolling synchronization instantly on scroll
+        this.elements.scrollArea?.addEventListener('scroll', () => {
+            this.handleScrollStickyBank();
+            this.handleScrollSidebarSync();
+        });
     }
 }
 
-// Bind externalized module methods securely to our Class prototype
-Object.assign(QuizInstance.prototype, ViewMixin, QuizRendererMixin, SubmissionMixin);
+// Attach Mixins
+Object.assign(QuizInstance.prototype, ViewMixin);
+Object.assign(QuizInstance.prototype, QuizRendererMixin);
+Object.assign(QuizInstance.prototype, SubmissionMixin);
