@@ -167,7 +167,10 @@
         </div>
     </template>
 
-    <!-- LOAD THE ENTRY POINT AS A MODULE -->
-    <script type="module" src="app.js"></script>
+<!-- DYNAMICALLY LOAD APP.JS TO BYPASS BROWSER CACHING -->
+    <script type="module">
+        const cacheBuster = new Date().getTime();
+        import(`./app.js?v=${cacheBuster}`);
+    </script>
 </body>
 </html>
