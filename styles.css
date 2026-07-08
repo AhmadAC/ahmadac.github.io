@@ -747,3 +747,24 @@ body {
     border: none;
     background-color: transparent;
 }
+
+/* --- MATHEMATICAL FRACTION STYLING --- */
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    align-items: center;
+    line-height: 1.0;
+    padding: 0 0.15em;
+}
+.fraction .numerator {
+    border-bottom: 1px solid currentColor;
+    padding: 0 0.1em 0.05em 0.1em;
+    font-size: 0.82em;
+    text-align: center;
+}
+.fraction .denominator {
+    font-size: 0.82em;
+    padding: 0.05em 0.1em 0 0.1em;
+    text-align: center;
+}

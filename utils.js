@@ -34,10 +34,21 @@ export function recursiveDecode(data) {
     return data;
 }
 
-// Safely replaces underscores with spaces while completely ignoring HTML tags
+// Safely replaces underscores with spaces AND formats fractions (e.g. 2/3, a/b) with stacked HTML layouts, completely ignoring HTML tags
 export function formatDisplayString(str) {
     if (typeof str !== 'string') return str;
-    return str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
+    
+    // 1. Replace underscores with spaces, skipping HTML tags
+    let formatted = str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
+    
+    // 2. Format fractions (like 2/3, a/b), skipping HTML tags
+    const fractionRegex = /(<[^>]+>)|(?:\(?\b(\d+|[a-zA-Z])\/(\d+|[a-zA-Z])\b\)?)/g;
+    formatted = formatted.replace(fractionRegex, (match, tag, num, den) => {
+        if (tag) return tag; // Keep HTML tags untouched
+        return `<span class="fraction"><span class="numerator">${num}</span><span class="denominator">${den}</span></span>`;
+    });
+    
+    return formatted;
 }
 
 export function applyFeatureToggles() {

@@ -316,6 +316,9 @@ export const QuizRendererMixin = {
         }
 
         this.updateProgress();
+        
+        // Ensure word bank is checked in case the top question is a matching question
+        setTimeout(() => this.handleScrollStickyBank(), 100);
     },
 
     setupMultipleChoiceUI(container, q, idx) {
@@ -428,26 +431,82 @@ export const QuizRendererMixin = {
     handleScrollStickyBank() {
         const area = this.elements.scrollArea;
         const bank = this.elements.stickyBank;
-        if (!area || !bank) return;
+        const mainContent = this.root.querySelector('.quiz-main-content');
+        if (!area || !bank || !mainContent) return;
         
-        let foundVisible = false;
-
-        for (const idx in this.matchingStates) {
-            let el = this.root.querySelector(`[data-question-index="${idx}"]`);
-            if (!el) continue;
-            let rect = el.getBoundingClientRect();
-            let areaRect = area.getBoundingClientRect();
-
-            if (rect.bottom > areaRect.top + 50 && rect.top < areaRect.bottom - 50) {
-                if (this.activeMatchingQuestionId !== idx) {
-                    this.renderStickyBank(idx);
-                }
-                foundVisible = true;
-                break;
-            }
+        // Debounce the visibility toggle to fix layout jitter while scrolling
+        if (this._stickyBankTimer) {
+            clearTimeout(this._stickyBankTimer);
         }
-        bank.classList.toggle("hidden", !foundVisible);
-        if (!foundVisible) this.activeMatchingQuestionId = null;
+
+        this._stickyBankTimer = setTimeout(() => {
+            const mainRect = mainContent.getBoundingClientRect();
+            let bestIdx = null;
+            let maxVisibleHeight = 0;
+
+            // Determine visibility using the stable, stationary main content container.
+            // When multiple matching questions overlap, select exactly one based on maximum visible height.
+            for (const idx in this.matchingStates) {
+                let el = this.root.querySelector(`[data-question-index="${idx}"]`);
+                if (!el) continue;
+                let rect = el.getBoundingClientRect();
+
+                // Calculate the visible region of the question inside the stable main container
+                const overlapTop = Math.max(rect.top, mainRect.top);
+                const overlapBottom = Math.min(rect.bottom, mainRect.bottom);
+                const visibleHeight = overlapBottom - overlapTop;
+
+                if (visibleHeight > 50) { // Require a stable visibility threshold
+                    if (visibleHeight > maxVisibleHeight) {
+                        maxVisibleHeight = visibleHeight;
+                        bestIdx = idx;
+                    }
+                }
+            }
+
+            const foundVisible = (bestIdx !== null);
+            const wasHidden = bank.classList.contains("hidden");
+            const shouldBeHidden = !foundVisible;
+
+            if (foundVisible) {
+                if (this.activeMatchingQuestionId !== bestIdx) {
+                    if (!wasHidden) {
+                        // Already displaying a word bank, but scrolling/switching to a different matching question.
+                        // Measure layout changes dynamically to keep the scroll position perfectly stabilized.
+                        const oldHeight = bank.offsetHeight || 0;
+                        this.renderStickyBank(bestIdx);
+                        const newHeight = bank.offsetHeight || 0;
+                        const diff = newHeight - oldHeight;
+                        if (diff !== 0) {
+                            area.scrollTop = area.scrollTop + diff;
+                        }
+                    } else {
+                        // Transitioning straight from hidden to showing
+                        this.renderStickyBank(bestIdx);
+                    }
+                    this.activeMatchingQuestionId = bestIdx;
+                }
+            }
+
+            if (wasHidden !== shouldBeHidden) {
+                if (shouldBeHidden) {
+                    // Transitioning from Visible to Hidden: decrease scrollTop to keep visual positions constant
+                    const bankHeight = bank.offsetHeight || 0;
+                    bank.classList.add("hidden");
+                    if (bankHeight > 0) {
+                        area.scrollTop = Math.max(0, area.scrollTop - bankHeight);
+                    }
+                    this.activeMatchingQuestionId = null;
+                } else {
+                    // Transitioning from Hidden to Visible: increase scrollTop to counteract the layout push
+                    bank.classList.remove("hidden");
+                    const bankHeight = bank.offsetHeight || 0;
+                    if (bankHeight > 0) {
+                        area.scrollTop = area.scrollTop + bankHeight;
+                    }
+                }
+            }
+        }, 25);
     },
 
     renderStickyBank(qIdx) {
