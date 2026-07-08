@@ -29,8 +29,20 @@ function initApp() {
             const finalTheme = document.body.classList.contains("dark-theme") ? "dark" : "light";
             localStorage.setItem("app-theme", finalTheme);
             
-            // Note: The forced reload/reset of active assignments has been removed.
-            // Toggling the theme will now seamlessly apply CSS variables without resetting page state or quiz progress.
+            // Dynamically sync theme to isolated iframes without resetting the app state
+            document.querySelectorAll('.document-iframe').forEach(iframe => {
+                try {
+                    if (iframe.contentDocument && iframe.contentDocument.body) {
+                        if (finalTheme === "dark") {
+                            iframe.contentDocument.body.classList.add("dark-theme");
+                        } else {
+                            iframe.contentDocument.body.classList.remove("dark-theme");
+                        }
+                    }
+                } catch (e) {
+                    console.warn("[DEBUG] Could not update iframe theme dynamically:", e);
+                }
+            });
         });
     }
     

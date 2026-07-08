@@ -356,19 +356,27 @@ export const ViewMixin = {
                 htmlContent = `<head><base href="0_Quiz/"></head>` + htmlContent;
             }
 
-            // Deep Injection: Force the document iframe contents to adhere to Night/Dark mode styles if parent has it active
-            if (document.body.classList.contains('dark-theme')) {
-                const darkIframeStyle = `
-                    <style>
-                        body { background-color: #1a1a1a !important; color: #f5f8fa !important; }
-                        a { color: #30a2ff !important; }
-                        table, tr, td, th { border-color: #38454f !important; color: #f5f8fa !important; }
-                    </style>
-                `;
-                htmlContent = darkIframeStyle + htmlContent;
-            }
+            // Deep Injection: Add flexible classes that change automatically instead of hard-coded colors
+            const dynamicIframeStyle = `
+                <style>
+                    body.dark-theme { background-color: #1a1a1a !important; color: #f5f8fa !important; }
+                    body.dark-theme a { color: #30a2ff !important; }
+                    body.dark-theme table, body.dark-theme tr, body.dark-theme td, body.dark-theme th { border-color: #38454f !important; color: #f5f8fa !important; }
+                </style>
+            `;
+            htmlContent = dynamicIframeStyle + htmlContent;
 
             iframe.srcdoc = htmlContent;
+            
+            // Sync immediately when the iframe loads up in case Dark mode is currently active
+            iframe.onload = () => {
+                try {
+                    if (document.body.classList.contains('dark-theme') && iframe.contentDocument && iframe.contentDocument.body) {
+                        iframe.contentDocument.body.classList.add('dark-theme');
+                    }
+                } catch(e) {}
+            };
+            
             container.appendChild(iframe);
         }
         
