@@ -289,6 +289,7 @@ export const SubmissionMixin = {
     },
 
     saveResult(quizName, name, cls, score, total) {
+        // Local browser storage fallback for Web/GitHub pages
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
         if (!data[cls][name]) data[cls][name] = {};
@@ -305,9 +306,27 @@ export const SubmissionMixin = {
             totalPossible: total
         };
         
-        this.submitToTencentWebhook(payload).catch(err => {
-            console.error("[DEBUG] Failed to submit to Tencent webhook:", err);
-        });
+        // IF OFFLINE: Send to local Python Server, which writes QuizResults.json and triggers Tencent webhook safely
+        if (window.isOfflineMode) {
+            fetch('/api/save_result', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(res => {
+                if (!res.ok) {
+                    console.warn("[DEBUG] Local API failed, falling back to Webhook.");
+                    this.submitToTencentWebhook(payload).catch(err => console.error(err));
+                }
+            }).catch(err => {
+                console.warn("[DEBUG] Local API error, falling back to Webhook.", err);
+                this.submitToTencentWebhook(payload).catch(err2 => console.error(err2));
+            });
+        } else {
+            // Standard Web Mode using CORS proxy
+            this.submitToTencentWebhook(payload).catch(err => {
+                console.error("[DEBUG] Failed to submit to Tencent webhook:", err);
+            });
+        }
     },
 
     saveResultAsImage() {

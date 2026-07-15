@@ -45,6 +45,28 @@ function initApp() {
             });
         });
     }
+
+    // --- NEW: OFFLINE DESKTOP SERVER DETECTION ---
+    fetch('/api/status')
+        .then(res => res.json())
+        .then(data => {
+            if (data.is_offline_mode) {
+                console.log("[DEBUG] Running in Offline Desktop Mode!");
+                window.isOfflineMode = true; // Store globally to alter submit behaviors later
+                
+                // 1. Show an "Admin Manager" button in the corner
+                enableAdminUI();
+                
+                // 2. Alert the teacher if there are new, unmapped files in the folder!
+                if (data.unmapped_quizzes && data.unmapped_quizzes.length > 0) {
+                    showNewQuizMappingModal(data.unmapped_quizzes);
+                }
+            }
+        })
+        .catch(err => {
+            console.log("[DEBUG] Running on standard GitHub Pages web mode.");
+            window.isOfflineMode = false;
+        });
     
     loadSettings().then(() => {
         return loadCanvasData();
@@ -95,4 +117,16 @@ function setViewMode(numScreens) {
         const rootElement = masterContainer.lastElementChild;
         quizInstances.push(new QuizInstance(rootElement));
     }
+}
+
+// --- STUBS FOR OFFLINE ADMIN UI ---
+// You will build these out later as you design your HTML/CSS modals
+function enableAdminUI() {
+    console.log("[DEBUG] Admin UI enabled.");
+    // Example: document.getElementById('admin-toggle-btn').classList.remove('hidden');
+}
+
+function showNewQuizMappingModal(unmappedQuizzes) {
+    console.log("[DEBUG] Unmapped quizzes found in 0_Quiz:", unmappedQuizzes);
+    // Example: Inject unmappedQuizzes into a modal popup so you can assign classes to them
 }
