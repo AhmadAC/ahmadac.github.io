@@ -190,7 +190,7 @@ export const SubmissionMixin = {
 
         let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)\n\n`;
         
-        // Positive and encouraging language tiers based on percentage (Emojis removed)
+        // Positive and encouraging language tiers based on percentage
         if (perc === 100) {
             msg += "Outstanding! Perfect score!";
         } else if (perc >= 80) {
@@ -224,7 +224,6 @@ export const SubmissionMixin = {
             this.elements.quizProgress.classList.add("hidden");
         }
 
-        // JUMP TO INCORRECT/WRONG REVIEW SYSTEM:
         // Automatically scroll to first wrong question if score is less than 100%, else scroll to results box
         if (firstWrongIndex !== -1) {
             let targetFrame = this.root.querySelector(`[data-question-index="${firstWrongIndex}"]`);
@@ -243,8 +242,30 @@ export const SubmissionMixin = {
     },
     
     async submitToTencentWebhook(payload) {
-        const TENCENT_URL = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2";
-        const WEBHOOK_URL = "https://corsproxy.io/?" + encodeURIComponent(TENCENT_URL);
+        let isEnabled = false;
+        let webhookUrl = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2";
+        
+        try {
+            // Fetch settings directly so GitHub Pages Web Mode respects the toggle
+            const cacheBuster = `?t=${Date.now()}`;
+            const res = await fetch(`0_Quiz/autolink.json${cacheBuster}`);
+            if (res.ok) {
+                const autolink = await res.json();
+                isEnabled = autolink.enabled;
+                if (autolink.webhook_url && autolink.webhook_url.trim() !== "") {
+                    webhookUrl = autolink.webhook_url.trim();
+                }
+            }
+        } catch (e) {
+            console.warn("[DEBUG] Could not load autolink.json, defaulting to disabled for web mode.");
+        }
+
+        if (!isEnabled) {
+            console.log("[DEBUG] Autolink is toggled off. Skipping webhook submission.");
+            return true; 
+        }
+
+        const WEBHOOK_URL = "https://corsproxy.io/?" + encodeURIComponent(webhookUrl);
         
         const requestBody = {
             "add_records":[

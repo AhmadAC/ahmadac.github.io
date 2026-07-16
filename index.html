@@ -80,12 +80,11 @@
             <div class="view view-quiz">
                 <div class="quiz-header">
                     <button class="btn-nav btn-back-to-assignments">← Back</button>
-                    <!-- Progress and Score moved here so they don't hide under the fixed top-right buttons -->
                     <span class="quiz-progress-lbl">0/0</span>
                     <span class="quiz-score-lbl hidden"></span>
                     
                     <h2 class="quiz-title-lbl">Quiz Name</h2>
-                    <div style="min-width: 90px;"></div> <!-- Flex spacer to balance the left side elements -->
+                    <div style="min-width: 90px;"></div>
                 </div>
 
                 <div class="quiz-middle-container">
@@ -117,7 +116,7 @@
                     </div>
                 </div>
 
-                <!-- Quiz Footer with Controls (Optimized Single-Row Layout) -->
+                <!-- Quiz Footer with Controls -->
                 <div class="footer-row">
                     <div class="footer-left-group">
                         <button class="btn-secondary btn-back-to-assignments">Back</button>
@@ -150,12 +149,12 @@
                 </div>
             </div>
 
-            <!-- VIEW 5: Document / Homework Page (No Quiz elements) -->
+            <!-- VIEW 5: Document / Homework Page -->
             <div class="view view-document">
                 <div class="quiz-header document-header">
                     <button class="btn-nav btn-back-from-document">← Back</button>
                     <h2 class="document-title-lbl">Document Name</h2>
-                    <div style="min-width: 50px;"></div> <!-- visual spacer to balance the back button -->
+                    <div style="min-width: 50px;"></div>
                 </div>
                 <div class="scroll-area document-scroll-area">
                     <div class="document-content">
@@ -163,11 +162,67 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </template>
 
-<!-- DYNAMICALLY LOAD APP.JS TO BYPASS BROWSER CACHING -->
+    <!-- UI Overlay for Configuration Modals -->
+    <div id="modal-overlay" class="modal-overlay">
+        <!-- 1. Mapping Manager Dialog (Ctrl+0 / Ctrl+M) -->
+        <div id="mapping-modal" class="modal-container hidden">
+            <div class="modal-header">
+                <h2>Manage Canvas & Ignore Mappings (Ctrl+0)</h2>
+                <input type="text" id="mapping-search" placeholder="Search assignments...">
+            </div>
+            <div class="modal-body">
+                <div class="mapping-grid-header">
+                    <span>Quiz Name</span>
+                    <span>Points</span>
+                    <span>Assign To (Select Classes)</span>
+                    <span>Ignored?</span>
+                    <span>Actions</span>
+                </div>
+                <div id="mapping-list" class="mapping-list"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModals()">Cancel</button>
+                <button class="btn-primary" onclick="saveMappingConfig()">Save & Overwrite</button>
+            </div>
+        </div>
+
+        <!-- 2. Autolink Manager Dialog (Ctrl+9 / Ctrl+L) -->
+        <div id="autolink-modal" class="modal-container hidden" style="max-width: 600px;">
+            <div class="modal-header"><h2>Autolink to Tencent Sheets (Ctrl+9)</h2></div>
+            <div class="modal-body">
+                <label style="display:flex; align-items:center; gap:10px; font-weight:bold;">
+                    <input type="checkbox" id="autolink-enable"> Autolink to Tencent Sheets
+                </label>
+                <div style="margin-top: 20px;">
+                    <label>Webhook URL:</label>
+                    <input type="text" id="autolink-url" style="width: 100%; padding: 10px; margin-top:8px; background:var(--card-bg); color:var(--text-dark); border:1px solid var(--border-color); border-radius:4px;" placeholder="Paste Webhook URL here...">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModals()">Cancel</button>
+                <button class="btn-primary" onclick="saveAutolinkConfig()">Save Config</button>
+            </div>
+        </div>
+
+        <!-- 3. Folder Config Dialog (Ctrl+7) -->
+        <div id="folder-modal" class="modal-container hidden" style="max-width: 600px;">
+            <div class="modal-header"><h2>Change Quiz Folder (Ctrl+7)</h2></div>
+            <div class="modal-body">
+                <label>Default Quiz Folder Location:</label>
+                <input type="text" id="folder-path" style="width: 100%; padding: 10px; margin-top:8px; background:var(--card-bg); color:var(--text-dark); border:1px solid var(--border-color); border-radius:4px;">
+                <p style="color:var(--text-muted); font-size:12px; margin-top:10px;">Note: Changing this requires the application to be restarted. You can pick a local folder or an absolute path anywhere on your computer.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModals()">Cancel</button>
+                <button class="btn-primary" onclick="saveFolderConfig()">Save Config</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DYNAMICALLY LOAD APP.JS TO BYPASS BROWSER CACHING -->
     <script type="module">
         const cacheBuster = new Date().getTime();
         import(`./app.js?v=${cacheBuster}`);

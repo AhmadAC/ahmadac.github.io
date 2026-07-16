@@ -45,15 +45,16 @@ jobs:
 
       - name: Build Executable with PyInstaller
         run: |
-          # --onefile packs everything into a single executable file
+          # --onedir packs everything into a directory containing the executable and its dependencies
           # We purposefully omit --noconsole so you can see the terminal output (e.g., "Server running on port 8000") and easily close it.
-          pyinstaller --onefile --name "MrCooperServer" server.py
+          pyinstaller --onedir --name "MrCooperServer" server.py
         shell: bash
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact_name }}
-          path: dist/*
+          # Upload the specific directory created by PyInstaller
+          path: dist/MrCooperServer/
           # Retains the uploaded executables in the GitHub Actions tab for 14 days
           retention-days: 14

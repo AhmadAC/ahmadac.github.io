@@ -300,7 +300,6 @@ body.dark-theme .due-status { color: #e67e22; }
     white-space: pre-wrap;
 }
 
-/* Light alternating grey shading for even rows */
 .mcq-card:nth-child(even) {
     background-color: var(--card-even-bg);
 }
@@ -526,7 +525,6 @@ body.dark-theme .due-status { color: #e67e22; }
     border-color: #ff8f00;
 }
 
-/* Active indicator outlining current question position on screen */
 .btn-sidebar-q.active-nav {
     outline: 2px solid var(--text-dark) !important;
     outline-offset: 1px;
@@ -535,14 +533,12 @@ body.dark-theme .due-status { color: #e67e22; }
     z-index: 10;
 }
 
-/* Red Sidebar Buttons for wrong submitted questions */
 .btn-sidebar-q[data-wrong="true"] {
     background-color: #e74c3c !important;
     color: #ffffff !important;
     border-color: #c0392b !important;
 }
 
-/* Green Sidebar Buttons for correctly submitted questions */
 .btn-sidebar-q[data-correct="true"] {
     background-color: #27ae60 !important;
     color: #ffffff !important;
@@ -557,11 +553,10 @@ body.dark-theme .due-status { color: #e67e22; }
     background-color: transparent;
 }
 
-/* Theme Toggle Button UI */
 #theme-toggle-btn {
     position: fixed;
     top: 10px;
-    right: 160px; /* Cohesively sits next to standard Screen toggle */
+    right: 160px; 
     z-index: 10000;
     background-color: var(--bg-main);
     color: white;
@@ -588,7 +583,6 @@ body.dark-theme .moon-icon { display: none; }
 body:not(.dark-theme) .sun-icon { display: none; }
 body:not(.dark-theme) .moon-icon { display: block; }
 
-/* The view mode button */
 #view-mode-btn {
     position: fixed;
     top: 10px;
@@ -607,7 +601,6 @@ body:not(.dark-theme) .moon-icon { display: block; }
     background-color: #3f5161;
 }
 
-/* --- MATHEMATICAL FRACTION STYLING --- */
 .fraction {
     display: inline-flex;
     flex-direction: column;
@@ -628,7 +621,53 @@ body:not(.dark-theme) .moon-icon { display: block; }
     text-align: center;
 }
 
-/* --- MOBILE SPECIFIC HOVER & VIEW ADJUSTMENTS --- */
+/* Modals Overlay Configurations */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100000; display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.active { display: flex; }
+
+.modal-container {
+    background: var(--bg-main); color: var(--text-dark);
+    border-radius: 6px; width: 90%; max-width: 900px; max-height: 90vh;
+    display: flex; flex-direction: column; overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.5);
+}
+body.dark-theme .modal-container { color: white; }
+
+.modal-header { padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: var(--bg-main); }
+.modal-header h2 { margin: 0; font-size: 16px; color: var(--primary); }
+.modal-header input { padding: 8px; border-radius: 4px; border: 1px solid var(--primary); background: var(--card-bg); color: var(--text-dark); }
+.modal-body { padding: 20px; overflow-y: auto; flex: 1; background: var(--bg-main); color: white; }
+.modal-footer { padding: 15px 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: 10px; background: var(--bg-main); }
+
+.mapping-grid-header, .mapping-row {
+    display: grid; grid-template-columns: 2.5fr 0.8fr 3fr 0.5fr 0.5fr; gap: 10px; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid var(--border-color);
+}
+.mapping-grid-header { font-weight: bold; color: var(--primary); }
+.mapping-row { font-size: 14px; }
+.class-toggles { display: flex; flex-wrap: wrap; gap: 5px; }
+.class-toggle { 
+    background: var(--bg-main); color: var(--text-muted); border: 1px solid var(--text-muted);
+    padding: 4px 6px; border-radius: 4px; font-size: 11px; cursor: pointer; user-select: none;
+}
+.class-toggle.active { background: var(--primary); color: white; border-color: var(--primary); }
+.btn-delete { background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+.btn-delete:hover { background: #c0392b; }
+
+/* Rearrange Mode Display Overrides */
+.rearrange-controls { display: none; flex-direction: column; gap: 4px; margin-right: 15px;}
+body.rearrange-active .rearrange-controls { display: flex; flex-direction: row; align-items: center;}
+body.rearrange-active .btn-week-action, 
+body.rearrange-active .assignment-status-lbl { display: none; }
+.btn-up, .btn-down { background: var(--bg-main); color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 10px; padding: 4px 6px; }
+.btn-up:hover, .btn-down:hover { background: #4e6477; }
+
+
 @media (max-width: 600px) {
     #theme-toggle-btn {
         top: 12px !important;

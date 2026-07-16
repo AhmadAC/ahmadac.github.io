@@ -23,6 +23,7 @@ export const ViewMixin = {
     createAssignmentButton(title, exists) {
         let card = document.createElement("div");
         card.className = "assignment-card";
+        card.dataset.rawTitle = title;
 
         // Extract Week String (W##)
         let displayTitle = title;
@@ -68,6 +69,39 @@ export const ViewMixin = {
             }
         }
         
+        let rearrangeCtrl = document.createElement("div");
+        rearrangeCtrl.className = "rearrange-controls";
+        
+        let handleBtn = document.createElement("span");
+        handleBtn.innerText = "☰";
+        handleBtn.style.color = "var(--primary)";
+        handleBtn.style.fontWeight = "bold";
+        handleBtn.style.marginRight = "6px";
+        
+        let btnUp = document.createElement("button"); 
+        btnUp.className = "btn-up"; btnUp.innerText = "▲";
+        let btnDown = document.createElement("button"); 
+        btnDown.className = "btn-down"; btnDown.innerText = "▼";
+        
+        btnUp.onclick = (e) => {
+            e.stopPropagation();
+            if (card.previousElementSibling && !card.previousElementSibling.classList.contains('btn-show-previous')) {
+                card.parentNode.insertBefore(card, card.previousElementSibling);
+                this.saveCurrentOrder();
+            }
+        };
+        btnDown.onclick = (e) => {
+            e.stopPropagation();
+            if (card.nextElementSibling) {
+                card.parentNode.insertBefore(card.nextElementSibling, card);
+                this.saveCurrentOrder();
+            }
+        };
+        
+        rearrangeCtrl.appendChild(handleBtn);
+        rearrangeCtrl.appendChild(btnUp);
+        rearrangeCtrl.appendChild(btnDown);
+
         let titleLbl = document.createElement("div");
         titleLbl.className = "assignment-title-lbl";
         
@@ -85,17 +119,18 @@ export const ViewMixin = {
             actionBtn.innerText = weekStr;
             
             card.onclick = (e) => {
-                if(e.target !== actionBtn) {
-                    console.log(`[DEBUG][Inst ${this.instanceId}] Assignment selected: ${title}`);
+                if(e.target !== actionBtn && !rearrangeCtrl.contains(e.target) && !document.body.classList.contains('rearrange-active')) {
                     this.startQuiz(title);
                 }
             };
             actionBtn.onclick = () => {
-                console.log(`[DEBUG][Inst ${this.instanceId}] Assignment selected: ${title}`);
-                this.startQuiz(title);
+                if(!document.body.classList.contains('rearrange-active')) {
+                    this.startQuiz(title);
+                }
             };
         }
         
+        card.appendChild(rearrangeCtrl);
         card.appendChild(titleLbl);
         if (statusLbl) {
             card.appendChild(statusLbl);
@@ -105,8 +140,31 @@ export const ViewMixin = {
         return card;
     },
 
+    saveCurrentOrder() {
+        const list = this.elements.assignmentList;
+        if (!list) return;
+        const cards = list.querySelectorAll('.assignment-card');
+        const newOrder = [];
+        cards.forEach(c => {
+            if (c.dataset.rawTitle) {
+                newOrder.push(c.dataset.rawTitle);
+            }
+        });
+        
+        if (!window.appConfig) window.appConfig = {};
+        if (!window.appConfig.order) window.appConfig.order = {};
+        window.appConfig.order[this.selectedClass] = newOrder;
+        
+        if (window.isOfflineMode) {
+            fetch('/api/config', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ order: window.appConfig.order })
+            });
+        }
+    },
+
     async renderPreviousAssignments(titles, buttonToRemove) {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Rendering previous assignments...`);
         const list = this.elements.assignmentList;
         if (!list) return;
 
@@ -116,8 +174,6 @@ export const ViewMixin = {
         });
 
         const results = await Promise.all(existenceChecks);
-
-        // Sort previous assignments using custom logic
         results.sort((a, b) => this.customWeekSort(a.title, b.title));
 
         const fragment = document.createDocumentFragment();
@@ -128,7 +184,6 @@ export const ViewMixin = {
         
         list.insertBefore(fragment, buttonToRemove);
         buttonToRemove.remove();
-        console.log(`[DEBUG][Inst ${this.instanceId}] Rendered ${results.length} previous assignments.`);
     },
 
     customWeekSort(titleA, titleB) {
@@ -140,9 +195,8 @@ export const ViewMixin = {
         const weekB = getWeek(titleB);
         
         if (weekA !== weekB) {
-            return weekA - weekB; // Numerical sort by week
+            return weekA - weekB; 
         }
-        // Fallback to alphabetical sorting if week is the same or missing
         return titleA.localeCompare(titleB, undefined, { numeric: true, sensitivity: 'base' });
     },
 
@@ -168,14 +222,12 @@ export const ViewMixin = {
         if (canvasData[grade]) {
             let gradeData = canvasData[grade];
             
-            // 1. Collect flat assignments for the whole grade
             Object.keys(gradeData).forEach(title => {
                 if (typeof gradeData[title] !== 'object') {
                     assignmentsDict[title] = gradeData[title];
                 }
             });
             
-            // 2. Add class-specific assignments
             if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
                 Object.keys(gradeData[classCode]).forEach(title => {
                     assignmentsDict[title] = gradeData[classCode][title];
@@ -185,13 +237,19 @@ export const ViewMixin = {
 
         let validTitles = Object.keys(assignmentsDict);
         
-        // Custom Week-Based Sort
         validTitles.sort((a, b) => this.customWeekSort(a, b));
+
+        // Inject order.json configuration maps to override standard week alignments
+        if (window.appConfig && window.appConfig.order && Array.isArray(window.appConfig.order[classCode])) {
+            const customList = window.appConfig.order[classCode];
+            const existingCustom = customList.filter(t => validTitles.includes(t));
+            const remaining = validTitles.filter(t => !existingCustom.includes(t));
+            validTitles = [...existingCustom, ...remaining];
+        }
 
         list.innerHTML = "";
 
         if (validTitles.length === 0) {
-            console.warn(`[DEBUG][Inst ${this.instanceId}] No assignments found in canvas.json for class ${classCode}`);
             list.innerHTML = "<p style='color:#666; font-style:italic;'>No assignments found.</p>";
             return;
         }
@@ -211,7 +269,6 @@ export const ViewMixin = {
             list.appendChild(showMoreBtn);
         }
 
-        console.log(`[DEBUG][Inst ${this.instanceId}] Checking existence of ${latestTitles.length} latest assignments...`);
         const existenceChecks = latestTitles.map(async (title) => {
             const exists = await checkQuizExists(title);
             return { title, exists };
@@ -277,12 +334,11 @@ export const ViewMixin = {
 
         } catch (e) {
             console.error(e);
-            list.innerHTML = `<p style='color:#e74c3c; font-weight:bold; padding: 20px;'>Failed to load bonus quizzes. Please create a file at <b>0_Quiz/bonus/bonus_list.json</b> containing an array of quiz names, like:<br><br><code>["Bonus_Quiz_1", "Bonus_Quiz_2"]</code></p>`;
+            list.innerHTML = `<p style='color:#e74c3c; font-weight:bold; padding: 20px;'>Failed to load bonus quizzes.</p>`;
         }
     },
 
     async loadResources() {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Fetching Resources...`);
         this.documentBackTarget = 'view-class-select';
         
         if (this.elements.documentTitle) this.elements.documentTitle.innerText = "Class Resources";
@@ -303,7 +359,6 @@ export const ViewMixin = {
                 throw new Error("Resources file is not a valid document format.");
             }
         } catch (e) {
-            console.error(`[DEBUG][Inst ${this.instanceId}] Load Error:`, e);
             if (this.elements.documentContent) {
                 this.elements.documentContent.innerHTML = `<p style="color:red; font-weight:bold; padding:20px; text-align:center;">Failed to load resources: ${e.message}</p>`;
             }
@@ -311,7 +366,6 @@ export const ViewMixin = {
     },
 
     renderDocument(docName, rawData) {
-        console.log(`[DEBUG][Inst ${this.instanceId}] Rendering Document View for: ${docName}`);
         if (this.elements.documentTitle) this.elements.documentTitle.innerText = formatDisplayString(docName);
         
         const container = this.elements.documentContent;
@@ -356,7 +410,6 @@ export const ViewMixin = {
                 htmlContent = `<head><base href="0_Quiz/"></head>` + htmlContent;
             }
 
-            // Deep Injection: Add flexible classes that change automatically instead of hard-coded colors
             const dynamicIframeStyle = `
                 <style>
                     body.dark-theme { background-color: #1a1a1a !important; color: #f5f8fa !important; }
@@ -368,7 +421,6 @@ export const ViewMixin = {
 
             iframe.srcdoc = htmlContent;
             
-            // Sync immediately when the iframe loads up in case Dark mode is currently active
             iframe.onload = () => {
                 try {
                     if (document.body.classList.contains('dark-theme') && iframe.contentDocument && iframe.contentDocument.body) {
