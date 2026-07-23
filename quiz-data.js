@@ -2,7 +2,8 @@
 
 import { recursiveDecode } from './utils.js';
 
-export let canvasData = {}; // Shared across all instances
+export let canvasData = {}; 
+export let quizIndex = {};
 
 export async function loadCanvasData() {
     try {
@@ -18,17 +19,32 @@ export async function loadCanvasData() {
     }
 }
 
+export async function loadQuizIndex() {
+    try {
+        console.log("[DEBUG] Fetching quiz_index.json...");
+        const res = await fetch(`0_Quiz/quiz_index.json?t=${Date.now()}`);
+        if (res.ok) {
+            quizIndex = await res.json();
+            console.log("[DEBUG] Loaded quiz index dynamically:", Object.keys(quizIndex).length, "items.");
+        }
+    } catch (e) {
+        console.log("[DEBUG] No quiz_index.json found or failed to load. Defaulting to flat structure.");
+    }
+}
+
 export async function checkQuizExists(quizName) {
     try {
-        // Encode the file name in case of spaces and use a cache buster to prevent "File Missing" bugs
-        const safeFileName = encodeURIComponent(quizName);
+        // Query the dynamic index or fallback to the exact encoded name
+        const relativePath = quizIndex[quizName] || `${encodeURIComponent(quizName)}.json`;
         const cacheBuster = `?t=${Date.now()}`;
-        const res = await fetch(`0_Quiz/${safeFileName}.json${cacheBuster}`);
         
-        if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName}.json`);
+        // Use encodeURI (not Component) on relative paths so subfolders '/' are maintained correctly
+        const res = await fetch(`0_Quiz/${encodeURI(relativePath)}${cacheBuster}`);
+        
+        if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName}`);
         return res.ok;
     } catch {
-        console.warn(`[DEBUG] checkQuizExists network error for ${quizName}.json`);
+        console.warn(`[DEBUG] checkQuizExists network error for ${quizName}`);
         return false;
     }
 }
@@ -37,7 +53,6 @@ export function normalizeQuizData(raw) {
     let items = [];
     if (Array.isArray(raw)) {
         raw.forEach(item => {
-            // Map legacy arrays to standard objects
             if (Array.isArray(item)) {
                 let obj = {
                     'question_name': item[0],
@@ -51,7 +66,7 @@ export function normalizeQuizData(raw) {
                 };
                 for (let i = 9; i < item.length; i++) {
                     if (item[i] !== undefined && item[i] !== null && String(item[i]).trim() !== "") {
-                        obj[String.fromCharCode(97 + i - 9)] = item[i]; // Convert back to a, b, c, etc.
+                        obj[String.fromCharCode(97 + i - 9)] = item[i];
                     }
                 }
                 items.push(obj);
@@ -83,7 +98,6 @@ export function normalizeQuizData(raw) {
         }
     }
 
-    // Safely parse any legacy stringified arrays
     items.forEach(item => {
         for (let key in item) {
             let val = item[key];
@@ -91,12 +105,8 @@ export function normalizeQuizData(raw) {
                 try {
                     let jsonStr = val.replace(/'/g, '"');
                     item[key] = JSON.parse(jsonStr);
-                    
-                    // Decode the newly unpacked inner array
                     item[key] = recursiveDecode(item[key]); 
-                } catch(e) {
-                    // Ignore parse errors, leave as string
-                }
+                } catch(e) { }
             }
         }
         

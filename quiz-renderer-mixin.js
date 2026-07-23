@@ -1,7 +1,7 @@
 // quiz-renderer-mixin.js
 
 import { CLASSES } from './config.js';
-import { normalizeQuizData } from './quiz-data.js';
+import { normalizeQuizData, quizIndex } from './quiz-data.js';
 import { recursiveDecode, formatDisplayString } from './utils.js';
 
 export const QuizRendererMixin = {
@@ -10,7 +10,7 @@ export const QuizRendererMixin = {
         console.log(`[DEBUG][Inst ${this.instanceId}] Fetching data for: ${quizName}`);
         this.currentQuizName = quizName;
         this.documentBackTarget = 'view-assignments';
-        this._lastActiveIdx = 0; // Initialize tracking for smooth sidebar scroll tracking
+        this._lastActiveIdx = 0; 
         
         if (this.elements.sidebarList) this.elements.sidebarList.innerHTML = "";
         this.sidebarButtons = [];
@@ -34,7 +34,6 @@ export const QuizRendererMixin = {
 
         const container = this.elements.quizContent;
         if (container) {
-            // Keep the info section around but clean out the rest
             const infoSection = container.querySelector('.quiz-info-section');
             container.innerHTML = "";
             if (infoSection) {
@@ -50,11 +49,13 @@ export const QuizRendererMixin = {
         if (this.elements.scrollArea) this.elements.scrollArea.scrollTop = 0;
 
         try {
-            const quizPath = this.isBonus ? `0_Quiz/bonus/${quizName}.json` : `0_Quiz/${quizName}.json`;
+            // Apply Dynamic Indexing route
+            const relativePath = quizIndex[quizName] || `${encodeURIComponent(quizName)}.json`;
+            const quizPath = this.isBonus ? `0_Quiz/bonus/${encodeURIComponent(quizName)}.json` : `0_Quiz/${encodeURI(relativePath)}`;
+            
             const res = await fetch(quizPath);
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
             
-            // Decrypt the raw JSON structure
             const rawDataRaw = await res.json();
             const rawData = recursiveDecode(rawDataRaw);
             
@@ -79,13 +80,9 @@ export const QuizRendererMixin = {
             const infoContentDiv = this.root.querySelector('.info-content');
             if (infoSection && infoContentDiv) {
                 if (infoContent) {
-                    
-                    // 1. Normalize URLs (Fix backslashes, force local files to 0_Quiz/media/)
                     infoContent = infoContent.replace(/(href|src)=["']([^"']+)["']/gi, (match, attr, url) => {
                         let cleanUrl = url.replace(/\\/g, '/');
-                        // If it's a local file link (not http/https/mailto)
                         if (!/^https?:\/\//i.test(cleanUrl) && !/^mailto:/i.test(cleanUrl)) {
-                            // Extract just the filename to ensure it works on the web
                             let filename = cleanUrl.split('/').pop();
                             try { filename = decodeURIComponent(filename); } catch(e) {}
                             filename = encodeURIComponent(filename);
@@ -94,7 +91,6 @@ export const QuizRendererMixin = {
                         return `${attr}="${cleanUrl}"`;
                     });
                     
-                    // 2. Rewrite HTML/external links to open in a new tab
                     infoContent = infoContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
                         let hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
                         let isHtml = hrefMatch && hrefMatch[1] && /\.html?\b/i.test(hrefMatch[1]);
@@ -160,7 +156,6 @@ export const QuizRendererMixin = {
             normalized.forEach(q => {
                 let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
                 
-                // Completely skip and ignore the class selection if this is a Bonus quiz
                 if (this.isBonus && txt.includes('select your class')) {
                     return; 
                 }
@@ -271,7 +266,6 @@ export const QuizRendererMixin = {
             frame.innerHTML = header;
             let contentDiv = frame.querySelector('.question-content');
 
-            // Explicit Priority Guard: Admin matching questions must ALWAYS render via setupClassSelectionUI
             if (isAdmin && type === 'matching_question') {
                 this.setupClassSelectionUI(contentDiv, q, idx);
             } else if (isComplexMatching) {
@@ -315,13 +309,11 @@ export const QuizRendererMixin = {
 
         this.updateProgress();
         
-        // Unhide the jump buttons now that the quiz is rendered
         if (this.currentQuestions.length > 0) {
             this.elements.btnJumpTop?.classList.remove("hidden");
             this.elements.btnJumpBottom?.classList.remove("hidden");
         }
 
-        // Initial setup for the UI word bank checking & right sidebar positioning syncs
         setTimeout(() => {
             this.handleScrollStickyBank();
             this.handleScrollSidebarSync();
@@ -342,10 +334,9 @@ export const QuizRendererMixin = {
         }
         options.sort(() => Math.random() - 0.5);
 
-        // Security: Obfuscate the correct index in memory and scrub cleartext
         let newCorrectIdx = options.findIndex(o => o.is_correct);
         q._cToken = btoa(newCorrectIdx.toString());
-        delete q['correct ans index']; // Security: clear plain text answer
+        delete q['correct ans index']; 
 
         q._mcqElements = [];
         q._selectedMcqIndex = -1;
@@ -401,7 +392,6 @@ export const QuizRendererMixin = {
         const uniqueWords = [...new Set(allWords)];
         const allowReuse = uniqueWords.length < allWords.length;
 
-        // Security: Obfuscate answers in memory
         const toB64 = (str) => btoa(unescape(encodeURIComponent(str || "")));
 
         this.matchingStates[idx] = {
@@ -413,7 +403,6 @@ export const QuizRendererMixin = {
             allowReuse: allowReuse
         };
 
-        // Security scrub: remove cleartext answers from the original object
         if (q.answers) {
             q.answers.forEach(p => {
                 delete p.answer_text;
@@ -441,7 +430,6 @@ export const QuizRendererMixin = {
         const mainContent = this.root.querySelector('.quiz-main-content');
         if (!area || !bank || !mainContent) return;
         
-        // Debounce the visibility toggle to fix layout jitter while scrolling
         if (this._stickyBankTimer) {
             clearTimeout(this._stickyBankTimer);
         }
@@ -451,19 +439,16 @@ export const QuizRendererMixin = {
             let bestIdx = null;
             let maxVisibleHeight = 0;
 
-            // Determine visibility using the stable, stationary main content container.
-            // When multiple matching questions overlap, select exactly one based on maximum visible height.
             for (const idx in this.matchingStates) {
                 let el = this.root.querySelector(`[data-question-index="${idx}"]`);
                 if (!el) continue;
                 let rect = el.getBoundingClientRect();
 
-                // Calculate the visible region of the question inside the stable main container
                 const overlapTop = Math.max(rect.top, mainRect.top);
                 const overlapBottom = Math.min(rect.bottom, mainRect.bottom);
                 const visibleHeight = overlapBottom - overlapTop;
 
-                if (visibleHeight > 50) { // Require a stable visibility threshold
+                if (visibleHeight > 50) { 
                     if (visibleHeight > maxVisibleHeight) {
                         maxVisibleHeight = visibleHeight;
                         bestIdx = idx;
@@ -478,8 +463,6 @@ export const QuizRendererMixin = {
             if (foundVisible) {
                 if (this.activeMatchingQuestionId !== bestIdx) {
                     if (!wasHidden) {
-                        // Already displaying a word bank, but scrolling/switching to a different matching question.
-                        // Measure layout changes dynamically to keep the scroll position perfectly stabilized.
                         const oldHeight = bank.offsetHeight || 0;
                         this.renderStickyBank(bestIdx);
                         const newHeight = bank.offsetHeight || 0;
@@ -488,7 +471,6 @@ export const QuizRendererMixin = {
                             area.scrollTop = area.scrollTop + diff;
                         }
                     } else {
-                        // Transitioning straight from hidden to showing
                         this.renderStickyBank(bestIdx);
                     }
                     this.activeMatchingQuestionId = bestIdx;
@@ -497,7 +479,6 @@ export const QuizRendererMixin = {
 
             if (wasHidden !== shouldBeHidden) {
                 if (shouldBeHidden) {
-                    // Transitioning from Visible to Hidden: decrease scrollTop to keep visual positions constant
                     const bankHeight = bank.offsetHeight || 0;
                     bank.classList.add("hidden");
                     if (bankHeight > 0) {
@@ -505,7 +486,6 @@ export const QuizRendererMixin = {
                     }
                     this.activeMatchingQuestionId = null;
                 } else {
-                    // Transitioning from Hidden to Visible: increase scrollTop to counteract the layout push
                     bank.classList.remove("hidden");
                     const bankHeight = bank.offsetHeight || 0;
                     if (bankHeight > 0) {
@@ -523,13 +503,11 @@ export const QuizRendererMixin = {
         if (!area || !mainContent || !sidebar) return;
 
         const mainRect = mainContent.getBoundingClientRect();
-        // Calculate standard viewport vertical coordinate middle reference point
         const viewportCenter = mainRect.top + (mainRect.height / 2);
         
         let activeIdx = this._lastActiveIdx !== undefined ? this._lastActiveIdx : 0;
         let found = false;
 
-        // Trace and determine which exact question frame is focused on screen
         for (let idx = 0; idx < this.currentQuestions.length; idx++) {
             const frame = this.root.querySelector(`[data-question-index="${idx}"]`);
             if (!frame) continue;
@@ -541,9 +519,6 @@ export const QuizRendererMixin = {
             }
         }
 
-        // Fix the middle jump-to-Q1 bug: 
-        // If no question directly contains the center boundary point (due to margin/gap transition),
-        // determine the question that is closest to the viewport's center to prevent resetting to index 0.
         if (!found && this.currentQuestions.length > 0) {
             let minDistance = Infinity;
             let closestIdx = activeIdx;
@@ -563,13 +538,11 @@ export const QuizRendererMixin = {
 
         this._lastActiveIdx = activeIdx;
 
-        // Cycle through all sidebar navigational buttons to update active/nav focus states
         this.sidebarButtons.forEach((btn, i) => {
             if (i === activeIdx) {
                 btn.classList.add('active-nav');
                 btn.dataset.current = "true";
 
-                // Read dimensions to identify if button is obscured/hidden inside the scrollable sidebar viewport
                 const sbRect = sidebar.getBoundingClientRect();
                 const btnRect = btn.getBoundingClientRect();
                 
@@ -596,7 +569,7 @@ export const QuizRendererMixin = {
             let btn = document.createElement('button');
             btn.className = 'word-bank-btn';
             if (this.selectedBankWord === word) btn.classList.add('selected');
-            btn.innerHTML = word; // Parse fraction structural elements via innerHTML
+            btn.innerHTML = word; 
 
             btn.onclick = () => {
                 if (this.selectedSlot) {
@@ -631,7 +604,7 @@ export const QuizRendererMixin = {
         const targetSlotEl = providedSlotEl || this.selectedSlot?.element || this.root.querySelector(`[data-question-index="${qIdx}"] [data-slot-index="${slotIdx}"]`);
 
         if (targetSlotEl) {
-            targetSlotEl.innerHTML = word; // Parse matching choice structure via innerHTML
+            targetSlotEl.innerHTML = word; 
             targetSlotEl.className = "answer-slot filled";
         }
 

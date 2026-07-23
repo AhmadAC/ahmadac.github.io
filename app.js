@@ -2,7 +2,7 @@
 
 import { loadSettings } from './config.js';
 import { initDevTools, applyFeatureToggles } from './utils.js';
-import { loadCanvasData } from './quiz-data.js';
+import { loadCanvasData, loadQuizIndex } from './quiz-data.js';
 import { QuizInstance } from './QuizInstance.js';
 
 let viewMode = 1;
@@ -106,7 +106,10 @@ function initApp() {
             window.isOfflineMode = false;
         })
         .finally(() => {
+            // Sequence critical loaders
             loadSettings().then(() => {
+                return loadQuizIndex(); // Inject dynamic paths BEFORE checking Canvas
+            }).then(() => {
                 return loadCanvasData();
             }).then(() => {
                 applyFeatureToggles();
@@ -306,11 +309,9 @@ window.saveMappingConfig = function() {
         canvas: window.appConfig.canvas,
         delete_quizzes: quizzesToDelete 
     }).then(() => {
-        // Remove deleted quizzes safely from memory pool to prevent repopulating
         window.appConfig.quizzes = window.appConfig.quizzes.filter(q => !quizzesToDelete.includes(q.name));
         window.closeModals();
         
-        // Reload canvas maps synchronously to instances updating visuals immediately
         loadCanvasData().then(() => {
             quizInstances.forEach(inst => {
                 if(inst.selectedClass && inst.views.assignments.classList.contains('active')) {

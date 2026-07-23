@@ -8,13 +8,24 @@ import webbrowser
 import urllib.request
 import urllib.parse
 import mimetypes
+import platform
+import shutil
 from http.server import SimpleHTTPRequestHandler
 from socketserver import ThreadingTCPServer
 from datetime import datetime
 
+# --- Fedora / Wayland / Nvidia Compatibility ---
+if platform.system() == "Linux":
+    # Force Firefox to run natively under Wayland if launched via webbrowser
+    os.environ["MOZ_ENABLE_WAYLAND"] = "1"
+    # Force Qt (PySide6) to prefer Wayland, falling back to XWayland (xcb) if necessary
+    os.environ["QT_QPA_PLATFORM"] = "wayland;xcb"
+    # Disable GPU hardware acceleration in the embedded Chromium engine to prevent Nvidia black screens
+    if "--disable-gpu" not in sys.argv:
+        sys.argv.extend(["--disable-gpu"])
+
 # 1. FORCE EXPLICIT WINDOWS MIME-TYPE OVERRIDES
-# Prevents Windows registry corruption from serving .css and .js files as 'text/plain',
-# which blocks chromium from styling or executing the web interface correctly.
+# Prevents Windows registry corruption from serving .css and .js files as 'text/plain'
 mimetypes.init()
 mimetypes.add_type('text/css', '.css')
 mimetypes.add_type('application/javascript', '.js')
@@ -27,41 +38,30 @@ if getattr(sys, 'frozen', False):
 else:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Point static web assets to the directory containing this script
 WEB_DIR = BASE_DIR
 os.chdir(WEB_DIR)
 
-# Find where the student results and quiz JSON data are stored (supporting migrations)
 def get_data_dir():
-    # A. Check if folder_config.txt exists locally next to server.py
     config_path = os.path.join(BASE_DIR, "folder_config.txt")
     if os.path.exists(config_path):
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 path = f.read().strip()
             if path:
-                if os.path.isabs(path):
-                    return os.path.normpath(path)
-                else:
-                    return os.path.normpath(os.path.join(BASE_DIR, path))
-        except:
-            pass
+                if os.path.isabs(path): return os.path.normpath(path)
+                else: return os.path.normpath(os.path.join(BASE_DIR, path))
+        except: pass
 
-    # B. Sibling folder check: Fallback to old OfflineQuiz folder_config.txt to assist migration
     sibling_config = os.path.abspath(os.path.join(BASE_DIR, "..", "OfflineQuiz", "folder_config.txt"))
     if os.path.exists(sibling_config):
         try:
             with open(sibling_config, 'r', encoding='utf-8') as f:
                 path = f.read().strip()
             if path:
-                if os.path.isabs(path):
-                    return os.path.normpath(path)
-                else:
-                    return os.path.normpath(os.path.join(os.path.dirname(sibling_config), path))
-        except:
-            pass
+                if os.path.isabs(path): return os.path.normpath(path)
+                else: return os.path.normpath(os.path.join(os.path.dirname(sibling_config), path))
+        except: pass
 
-    # C. Default local fallback search inside current folder
     for folder in ["0_Quiz", "0 Quiz"]:
         candidate = os.path.join(BASE_DIR, folder)
         if os.path.exists(candidate):
@@ -70,10 +70,30 @@ def get_data_dir():
     return os.path.normpath(os.path.join(BASE_DIR, "0_Quiz"))
 
 DATA_DIR = get_data_dir()
+CONFIG_FILES = {'canvas.json', 'settings.json', 'ignore.json', 'autolink.json', 'order.json', 'QuizResults.json', 'missing.json', 'quiz_index.json'}
+
+def update_quiz_index():
+    """Recursively scans folders to build a route map for the frontend."""
+    index_data = {}
+    if not os.path.exists(DATA_DIR):
+        return index_data
+
+    for root, dirs, files in os.walk(DATA_DIR):
+        # Skip designated static asset directories
+        if "media" in root or "bonus" in root: continue
+        for f in files:
+            if f.endswith('.json') and f not in CONFIG_FILES:
+                quiz_name = f[:-5] # Strip .json
+                rel_path = os.path.relpath(os.path.join(root, f), DATA_DIR)
+                index_data[quiz_name] = rel_path.replace('\\', '/')
+    
+    with open(os.path.join(DATA_DIR, 'quiz_index.json'), 'w', encoding='utf-8') as out_f:
+        json.dump(index_data, out_f, indent=4)
+        
+    return index_data
 
 class QuizAPIHandler(SimpleHTTPRequestHandler):
     def log_message(self, format, *args):
-        # Keep the background console clean
         pass
 
     def end_headers(self):
@@ -83,15 +103,14 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_GET(self):
-        # Decode the URL and normalize it
         clean_path = urllib.parse.unquote(self.path).replace('\\', '/')
-        
-        # FIX: Discard cache-busting query strings (?t=1234567) before validating paths
         if '?' in clean_path:
             clean_path = clean_path.split('?')[0]
 
-        # 1. Unified Configuration & Sync Endpoint (Matches Desktop Feature Parity)
         if clean_path == '/api/config':
+            # Always ensure index is fresh when frontend boots
+            quiz_index = update_quiz_index()
+            
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
@@ -102,8 +121,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                     try:
                         with open(path, 'r', encoding='utf-8') as f:
                             return json.load(f)
-                    except:
-                        pass
+                    except: pass
                 return default
 
             canvas_data = safe_read('canvas.json', {"6": {}, "7": {}, "8": {}})
@@ -113,24 +131,21 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             
             all_quizzes = []
             if os.path.exists(DATA_DIR):
-                for f in os.listdir(DATA_DIR):
-                    if f.endswith('.json') and f not in ['canvas.json', 'settings.json', 'ignore.json', 'autolink.json', 'order.json', 'QuizResults.json', 'missing.json']:
-                        pts = 0
-                        try:
-                            # Parse JSON to grab point totals dynamically for the Mapping Manager UI
-                            with open(os.path.join(DATA_DIR, f), 'r', encoding='utf-8-sig') as qf:
-                                qd = json.load(qf)
-                                if isinstance(qd, list):
-                                    for item in qd:
-                                        if isinstance(item, dict):
-                                            pts += int(float(item.get('points', item.get('points_possible', 0))))
-                                elif isinstance(qd, dict) and "data" in qd:
-                                    for item in qd["data"]:
-                                        if isinstance(item, dict):
-                                            pts += int(float(item.get('points', item.get('points_possible', 0))))
-                        except:
-                            pass
-                        all_quizzes.append({"name": f.replace('.json', ''), "points": pts})
+                for quiz_name, rel_path in quiz_index.items():
+                    pts = 0
+                    try:
+                        with open(os.path.join(DATA_DIR, rel_path), 'r', encoding='utf-8-sig') as qf:
+                            qd = json.load(qf)
+                            if isinstance(qd, list):
+                                for item in qd:
+                                    if isinstance(item, dict):
+                                        pts += int(float(item.get('points', item.get('points_possible', 0))))
+                            elif isinstance(qd, dict) and "data" in qd:
+                                for item in qd["data"]:
+                                    if isinstance(item, dict):
+                                        pts += int(float(item.get('points', item.get('points_possible', 0))))
+                    except: pass
+                    all_quizzes.append({"name": quiz_name, "points": pts})
                         
             response = {
                 "is_offline_mode": True,
@@ -144,9 +159,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps(response).encode('utf-8'))
             return
 
-        # 2. Intercept and map requests for data/media files inside DATA_DIR
         custom_folder_name = os.path.basename(DATA_DIR)
-        
         for prefix in ["/0_Quiz/", "/0 Quiz/", f"/{custom_folder_name}/"]:
             if clean_path.startswith(prefix):
                 relative_file_path = clean_path[len(prefix):]
@@ -164,11 +177,9 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                     self.send_error(404, f"File {relative_file_path} not found in custom quiz folder")
                     return
 
-        # 3. Fall back to standard server for frontend assets inside WEB_DIR
         super().do_GET()
 
     def do_POST(self):
-        # Universal Configuration Updater
         if self.path == '/api/config':
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
@@ -189,10 +200,21 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                     f.write(payload['folder'])
                     
             if 'delete_quizzes' in payload:
+                index_path = os.path.join(DATA_DIR, 'quiz_index.json')
+                try:
+                    with open(index_path, 'r') as f:
+                        idx = json.load(f)
+                except: idx = {}
+                
                 for dq in payload['delete_quizzes']:
-                    fp = os.path.join(DATA_DIR, f"{dq}.json")
+                    if dq in idx:
+                        fp = os.path.join(DATA_DIR, idx[dq])
+                    else:
+                        fp = os.path.join(DATA_DIR, f"{dq}.json")
+                        
                     if os.path.exists(fp):
                         os.remove(fp)
+                update_quiz_index()
 
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
@@ -206,15 +228,12 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             try:
                 payload = json.loads(post_data.decode('utf-8'))
                 
-                # Save locally to QuizResults.json inside your specified DATA_DIR
                 results_file = os.path.join(DATA_DIR, 'QuizResults.json')
                 data = {}
                 if os.path.exists(results_file):
                     with open(results_file, 'r', encoding='utf-8') as f:
-                        try:
-                            data = json.load(f)
-                        except json.JSONDecodeError:
-                            pass
+                        try: data = json.load(f)
+                        except json.JSONDecodeError: pass
                             
                 cls = payload.get('studentClass', 'Unknown')
                 name = payload.get('studentName', 'Unknown')
@@ -237,21 +256,18 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 with open(results_file, 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=4)
                     
-                # Dynamically Trigger Tencent Webhook if Enabled
                 autolink_file = os.path.join(DATA_DIR, 'autolink.json')
                 autolink_config = {"enabled": False, "webhook_url": ""}
                 if os.path.exists(autolink_file):
                     try:
                         with open(autolink_file, 'r', encoding='utf-8') as f:
                             autolink_config = json.load(f)
-                    except json.JSONDecodeError:
-                        pass
+                    except json.JSONDecodeError: pass
                         
                 webhook_success = False
                 if autolink_config.get("enabled"):
                     webhook_url = autolink_config.get("webhook_url", "").strip()
                     if not webhook_url:
-                        # Fallback default if they toggle it on without supplying a URL
                         webhook_url = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2"
 
                     webhook_payload = {
@@ -296,7 +312,6 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             self.end_headers()
 
 def run_app():
-    # Start local server on a free port
     try:
         httpd = ThreadingTCPServer(("127.0.0.1", 0), QuizAPIHandler)
         assigned_port = httpd.server_address[1]
@@ -315,11 +330,133 @@ def run_app():
     print(f"==================================================")
 
     try:
-        # Attempt to launch with PySide6 embedded web engine
-        from PySide6.QtWidgets import QApplication, QMainWindow
+        from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QComboBox, QPushButton, QInputDialog
         from PySide6.QtWebEngineWidgets import QWebEngineView
-        from PySide6.QtCore import QUrl
+        from PySide6.QtCore import QUrl, Qt
         from PySide6.QtGui import QIcon
+        
+        app = QApplication(sys.argv)
+        
+        # --- GUI Folder Organizer Helper ---
+        unorganized_files = [f for f in os.listdir(DATA_DIR) if f.endswith('.json') and f not in CONFIG_FILES and os.path.isfile(os.path.join(DATA_DIR, f))]
+        
+        if unorganized_files:
+            class QuizOrganizerDialog(QDialog):
+                def __init__(self, unorganized, data_dir):
+                    super().__init__()
+                    self.unorganized = unorganized
+                    self.data_dir = data_dir
+                    self.setWindowTitle("Smart Folder Organizer")
+                    self.resize(550, 450)
+                    
+                    layout = QVBoxLayout(self)
+                    layout.addWidget(QLabel("<b>Unorganized quizzes detected in the root folder!</b><br>Move them into class-specific folders to keep things tidy."))
+                    
+                    # --- Selection Controls ---
+                    sel_layout = QHBoxLayout()
+                    sel_all_btn = QPushButton("Select All")
+                    sel_all_btn.clicked.connect(self.select_all)
+                    sel_none_btn = QPushButton("Select None")
+                    sel_none_btn.clicked.connect(self.select_none)
+                    
+                    sel_layout.addWidget(sel_all_btn)
+                    sel_layout.addWidget(sel_none_btn)
+                    sel_layout.addStretch()
+                    layout.addLayout(sel_layout)
+
+                    # List Widget
+                    self.list_widget = QListWidget()
+                    for f in self.unorganized:
+                        item = QListWidgetItem(f)
+                        item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+                        item.setCheckState(Qt.Checked)
+                        self.list_widget.addItem(item)
+                    layout.addWidget(self.list_widget)
+                    
+                    # Target Folder Controls
+                    ctrl_layout = QHBoxLayout()
+                    ctrl_layout.addWidget(QLabel("Move selected to:"))
+                    self.folder_combo = QComboBox()
+                    self.refresh_folders()
+                    ctrl_layout.addWidget(self.folder_combo)
+                    
+                    new_folder_btn = QPushButton("Create New Folder...")
+                    new_folder_btn.clicked.connect(self.create_new_folder)
+                    ctrl_layout.addWidget(new_folder_btn)
+                    layout.addLayout(ctrl_layout)
+                    
+                    # Main Action Buttons
+                    btn_layout = QHBoxLayout()
+                    move_btn = QPushButton("Move Selected Quizzes")
+                    move_btn.setStyleSheet("background-color: #2ECC71; color: white; font-weight: bold; border-radius: 4px; padding: 6px;")
+                    move_btn.clicked.connect(self.move_selected)
+                    
+                    skip_btn = QPushButton("Done / Skip")
+                    skip_btn.clicked.connect(self.accept)
+                    
+                    btn_layout.addWidget(skip_btn)
+                    btn_layout.addStretch()
+                    btn_layout.addWidget(move_btn)
+                    layout.addLayout(btn_layout)
+                
+                def select_all(self):
+                    for i in range(self.list_widget.count()):
+                        self.list_widget.item(i).setCheckState(Qt.Checked)
+
+                def select_none(self):
+                    for i in range(self.list_widget.count()):
+                        self.list_widget.item(i).setCheckState(Qt.Unchecked)
+
+                def refresh_folders(self):
+                    self.folder_combo.clear()
+                    folders = set(["Common", "G6", "G7", "G8"])
+                    for d in os.listdir(self.data_dir):
+                        if os.path.isdir(os.path.join(self.data_dir, d)) and d not in ["media", "bonus"]:
+                            folders.add(d)
+                    self.folder_combo.addItems(sorted(list(folders)))
+                    
+                def create_new_folder(self):
+                    name, ok = QInputDialog.getText(self, "New Folder", "Enter exact folder name:")
+                    if ok and name:
+                        os.makedirs(os.path.join(self.data_dir, name), exist_ok=True)
+                        self.refresh_folders()
+                        self.folder_combo.setCurrentText(name)
+                        
+                def move_selected(self):
+                    target_folder = self.folder_combo.currentText()
+                    if not target_folder:
+                        return
+                        
+                    target_path = os.path.join(self.data_dir, target_folder)
+                    os.makedirs(target_path, exist_ok=True)
+                    
+                    items_to_remove = []
+                    for i in range(self.list_widget.count()):
+                        item = self.list_widget.item(i)
+                        if item.checkState() == Qt.Checked:
+                            filename = item.text()
+                            src = os.path.join(self.data_dir, filename)
+                            dst = os.path.join(target_path, filename)
+                            try:
+                                shutil.move(src, dst)
+                                items_to_remove.append(item)
+                            except Exception as e:
+                                print(f"Failed to move {filename}: {e}")
+                            
+                    for item in items_to_remove:
+                        self.list_widget.takeItem(self.list_widget.row(item))
+                        
+                    update_quiz_index()
+                    
+                    # If list is empty, close the dialog. Otherwise leave it open for further organization.
+                    if self.list_widget.count() == 0:
+                        self.accept()
+
+            dialog = QuizOrganizerDialog(unorganized_files, DATA_DIR)
+            dialog.exec()
+
+        # Update index map securely before launching the main window
+        update_quiz_index()
 
         class WebQuizPlayer(QMainWindow):
             def __init__(self, port, httpd_instance):
@@ -335,30 +472,35 @@ def run_app():
 
                 self.browser = QWebEngineView()
                 self.setCentralWidget(self.browser)
-                
-                # Point to the local background server
                 self.browser.setUrl(QUrl(f"http://127.0.0.1:{port}/index.html"))
 
             def closeEvent(self, event):
-                # Shut down the daemon server cleanly on exit
                 if self.httpd:
                     threading.Thread(target=self.httpd.shutdown).start()
                 event.accept()
 
-        app = QApplication(sys.argv)
         window = WebQuizPlayer(assigned_port, httpd)
         sys.exit(app.exec())
 
     except ImportError:
-        # If PySide6 is not installed on the system, gracefully fall back
+        # Fallback if PySide6 is missing on the system
+        update_quiz_index()
         print("\n[INFO] PySide6 is not installed. Falling back to default Web Browser...")
         local_url = f"http://127.0.0.1:{assigned_port}/index.html"
-        webbrowser.open(local_url)
+        
+        if platform.system() == "Linux":
+            try:
+                # Explicitly attempt Firefox first for Fedora Wayland
+                webbrowser.get('firefox').open(local_url)
+            except webbrowser.Error:
+                webbrowser.open(local_url)
+        else:
+            webbrowser.open(local_url)
+            
         print(f"Running... Open {local_url} manually if your browser did not open.")
         print("Press Ctrl+C inside this console window to terminate the server.")
         
         try:
-            # Keep thread alive to serve files to standard browser
             while True:
                 threading.Event().wait(1.0)
         except KeyboardInterrupt:
