@@ -49,13 +49,13 @@ export function formatDisplayString(str) {
         formatted = formatted.replace(fractionRegex, (match, tag, numP, numNP, denP, denNP) => {
             if (tag) return tag; // Keep HTML tags untouched
             
-            // Safely cast captured values to a string to prevent any unexpected undefined TypeError crashes
-            const num = String(numP || numNP || "");
-            const den = String(denP || denNP || "");
+            // Safely verify existence and cast to string to prevent any unexpected undefined TypeError crashes
+            const num = String(numP !== undefined ? numP : (numNP !== undefined ? numNP : ""));
+            const den = String(denP !== undefined ? denP : (denNP !== undefined ? denNP : ""));
             
             // Exclude generic English word/word matches like "pressure/Wind"
             // If neither was explicitly wrapped in parentheses, and either side is a multi-letter string containing no digits, skip formatting.
-            if (!numP && !denP) {
+            if (numP === undefined && denP === undefined) {
                 const isNumWord = /[a-zA-Z]/.test(num) && num.length >= 2 && !/[0-9]/.test(num);
                 const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(den);
                 if (isNumWord || isDenWord) {

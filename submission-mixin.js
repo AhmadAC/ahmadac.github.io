@@ -357,7 +357,8 @@ export const SubmissionMixin = {
         
         const data = [
             { label: "Class", value: this.finalStudentClass },
-            { label: "HW", value: formatDisplayString(this.currentQuizName) },
+            // Strip any raw HTML tags before drawing to canvas since it does not support HTML strings 
+            { label: "HW", value: formatDisplayString(this.currentQuizName).replace(/<[^>]+>/g, '') },
             { label: "Name", value: this.finalStudentName },
             { label: "Score", value: `${this.finalScore} / ${this.finalTotalPossible}` }
         ];
