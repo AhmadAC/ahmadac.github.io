@@ -26,6 +26,8 @@ export async function loadQuizIndex() {
         if (res.ok) {
             quizIndex = await res.json();
             console.log("[DEBUG] Loaded quiz index dynamically:", Object.keys(quizIndex).length, "items.");
+        } else {
+            console.warn(`[DEBUG] Failed to load quiz_index.json: ${res.status}`);
         }
     } catch (e) {
         console.log("[DEBUG] No quiz_index.json found or failed to load. Defaulting to flat structure.");
@@ -34,14 +36,19 @@ export async function loadQuizIndex() {
 
 export async function checkQuizExists(quizName) {
     try {
-        // Query the dynamic index or fallback to the exact encoded name
-        const relativePath = quizIndex[quizName] || `${encodeURIComponent(quizName)}.json`;
+        let urlPath;
+        // Query the dynamic index or fallback to the exact name (Fixes double encoding bug)
+        if (quizIndex && quizIndex[quizName]) {
+            urlPath = encodeURI(quizIndex[quizName]);
+        } else {
+            urlPath = encodeURI(quizName + '.json');
+        }
+        
         const cacheBuster = `?t=${Date.now()}`;
         
-        // Use encodeURI (not Component) on relative paths so subfolders '/' are maintained correctly
-        const res = await fetch(`0_Quiz/${encodeURI(relativePath)}${cacheBuster}`);
+        const res = await fetch(`0_Quiz/${urlPath}${cacheBuster}`);
         
-        if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName}`);
+        if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName} at 0_Quiz/${urlPath}`);
         return res.ok;
     } catch {
         console.warn(`[DEBUG] checkQuizExists network error for ${quizName}`);

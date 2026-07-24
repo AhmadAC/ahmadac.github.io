@@ -38,24 +38,40 @@ export function recursiveDecode(data) {
 export function formatDisplayString(str) {
     if (typeof str !== 'string') return str;
     
-    // 1. Replace underscores with spaces, skipping HTML tags
-    let formatted = str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
-    
-    // 2. Format fractions (like 2/3, a/b, (bc)/a), skipping HTML tags
-    // Matches algebraic fractions and smoothly strips wrapping parentheses if they surround the numerator/denominator
-    const fractionRegex = /(<[^>]+>)|(?:(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+))\/(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+)))/g;
-    
-    formatted = formatted.replace(fractionRegex, (match, tag, numP, numNP, denP, denNP) => {
-        if (tag) return tag; // Keep HTML tags untouched
+    try {
+        // 1. Replace underscores with spaces, skipping HTML tags
+        let formatted = str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
         
-        // Use the parenthesis-wrapped match if it exists, otherwise fallback to the standard alphanumeric match
-        const num = numP !== undefined ? numP : numNP;
-        const den = denP !== undefined ? denP : denNP;
+        // 2. Format fractions (like 2/3, a/b, (bc)/a), skipping HTML tags
+        // Matches algebraic fractions and smoothly strips wrapping parentheses if they surround the numerator/denominator
+        const fractionRegex = /(<[^>]+>)|(?:(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+))\/(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+)))/g;
         
-        return `<span class="fraction"><span class="numerator">${num}</span><span class="denominator">${den}</span></span>`;
-    });
-    
-    return formatted;
+        formatted = formatted.replace(fractionRegex, (match, tag, numP, numNP, denP, denNP) => {
+            if (tag) return tag; // Keep HTML tags untouched
+            
+            // Safely cast captured values to a string to prevent any unexpected undefined TypeError crashes
+            const num = String(numP || numNP || "");
+            const den = String(denP || denNP || "");
+            
+            // Exclude generic English word/word matches like "pressure/Wind"
+            // If neither was explicitly wrapped in parentheses, and either side is a multi-letter string containing no digits, skip formatting.
+            if (!numP && !denP) {
+                const isNumWord = /[a-zA-Z]/.test(num) && num.length >= 2 && !/[0-9]/.test(num);
+                const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(den);
+                if (isNumWord || isDenWord) {
+                    return match;
+                }
+            }
+            
+            return `<span class="fraction"><span class="numerator">${num}</span><span class="denominator">${den}</span></span>`;
+        });
+        
+        return formatted;
+    } catch (e) {
+        // Ultimate fallback to ensure a formatting error never crashes the web page UI
+        console.error("formatDisplayString error:", e);
+        return str; 
+    }
 }
 
 export function applyFeatureToggles() {

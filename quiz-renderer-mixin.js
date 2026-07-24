@@ -16,7 +16,7 @@ export const QuizRendererMixin = {
         this.sidebarButtons = [];
         this.matchingStates = {};
         
-        if (this.elements.quizTitle) this.elements.quizTitle.innerText = formatDisplayString(quizName);
+        if (this.elements.quizTitle) this.elements.quizTitle.innerHTML = formatDisplayString(quizName);
         
         // Reset dynamic header UI components
         this.elements.quizProgress?.classList.remove("hidden");
@@ -49,9 +49,17 @@ export const QuizRendererMixin = {
         if (this.elements.scrollArea) this.elements.scrollArea.scrollTop = 0;
 
         try {
-            // Apply Dynamic Indexing route
-            const relativePath = quizIndex[quizName] || `${encodeURIComponent(quizName)}.json`;
-            const quizPath = this.isBonus ? `0_Quiz/bonus/${encodeURIComponent(quizName)}.json` : `0_Quiz/${encodeURI(relativePath)}`;
+            // Apply Dynamic Indexing route (Fixes double encoding bug)
+            let urlPath;
+            if (this.isBonus) {
+                urlPath = `bonus/${encodeURI(quizName)}.json`;
+            } else if (quizIndex && quizIndex[quizName]) {
+                urlPath = encodeURI(quizIndex[quizName]);
+            } else {
+                urlPath = encodeURI(quizName + '.json');
+            }
+            
+            const quizPath = `0_Quiz/${urlPath}`;
             
             const res = await fetch(quizPath);
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);

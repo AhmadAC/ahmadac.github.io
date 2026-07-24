@@ -109,13 +109,13 @@ export const ViewMixin = {
         actionBtn.className = "btn-week-action";
         
         if (!exists) {
-            titleLbl.innerText = `${formattedTitle} (File Missing)`;
+            titleLbl.innerHTML = `${formattedTitle} (File Missing)`;
             titleLbl.classList.add('missing-text');
             card.classList.add('missing-card');
             actionBtn.innerText = weekStr;
             actionBtn.disabled = true;
         } else {
-            titleLbl.innerText = formattedTitle;
+            titleLbl.innerHTML = formattedTitle;
             actionBtn.innerText = weekStr;
             
             card.onclick = (e) => {
@@ -312,7 +312,7 @@ export const ViewMixin = {
                 
                 let titleLbl = document.createElement("div");
                 titleLbl.className = "assignment-title-lbl";
-                titleLbl.innerText = formatDisplayString(title);
+                titleLbl.innerHTML = formatDisplayString(title);
                 
                 let actionBtn = document.createElement("button");
                 actionBtn.className = "btn-week-action";
@@ -341,7 +341,7 @@ export const ViewMixin = {
     async loadResources() {
         this.documentBackTarget = 'view-class-select';
         
-        if (this.elements.documentTitle) this.elements.documentTitle.innerText = "Class Resources";
+        if (this.elements.documentTitle) this.elements.documentTitle.innerHTML = "Class Resources";
         if (this.elements.documentContent) this.elements.documentContent.innerHTML = "Loading...";
         
         this.switchView("view-document");
@@ -366,7 +366,7 @@ export const ViewMixin = {
     },
 
     renderDocument(docName, rawData) {
-        if (this.elements.documentTitle) this.elements.documentTitle.innerText = formatDisplayString(docName);
+        if (this.elements.documentTitle) this.elements.documentTitle.innerHTML = formatDisplayString(docName);
         
         const container = this.elements.documentContent;
         if (container) {
