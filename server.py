@@ -1,3 +1,4 @@
+#################### START OF FILE: server.py ####################
 # server.py
 
 import os
@@ -330,10 +331,10 @@ def run_app():
     print(f"==================================================")
 
     try:
-        from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QComboBox, QPushButton, QInputDialog
+        from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QComboBox, QPushButton, QInputDialog, QFileDialog
         from PySide6.QtWebEngineWidgets import QWebEngineView
         from PySide6.QtCore import QUrl, Qt
-        from PySide6.QtGui import QIcon
+        from PySide6.QtGui import QIcon, QDesktopServices
         
         app = QApplication(sys.argv)
         
@@ -458,6 +459,19 @@ def run_app():
         # Update index map securely before launching the main window
         update_quiz_index()
 
+        class CustomWebEngineView(QWebEngineView):
+            def createWindow(self, _type):
+                # Creates a temporary web view to intercept target="_blank" window spawns
+                self.temp_view = QWebEngineView()
+                self.temp_view.urlChanged.connect(self.handle_new_window_url)
+                return self.temp_view
+
+            def handle_new_window_url(self, url):
+                # Safely parse the URL and open in native OS default browser (e.g. system PDF viewer)
+                QDesktopServices.openUrl(url)
+                self.temp_view.close()
+                self.temp_view.deleteLater()
+
         class WebQuizPlayer(QMainWindow):
             def __init__(self, port, httpd_instance):
                 super().__init__()
@@ -470,9 +484,25 @@ def run_app():
                     
                 self.showMaximized()
 
-                self.browser = QWebEngineView()
+                self.browser = CustomWebEngineView(self)
                 self.setCentralWidget(self.browser)
+                
+                # Intercept embedded download attribute requests safely
+                self.browser.page().profile().downloadRequested.connect(self.handle_download)
+                
                 self.browser.setUrl(QUrl(f"http://127.0.0.1:{port}/index.html"))
+
+            def handle_download(self, download):
+                suggested = download.downloadFileName()
+                default_path = os.path.join(os.path.expanduser("~"), "Downloads", suggested)
+                
+                path, _ = QFileDialog.getSaveFileName(self, "Save File", default_path)
+                if path:
+                    download.setDownloadDirectory(os.path.dirname(path))
+                    download.setDownloadFileName(os.path.basename(path))
+                    download.accept()
+                else:
+                    download.cancel()
 
             def closeEvent(self, event):
                 if self.httpd:
