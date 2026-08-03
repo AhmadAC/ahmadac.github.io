@@ -1,5 +1,4 @@
-
-// atom-builder-ui.js - Handles rendering, Multi-Select Bulk Move, and Auto-Checking for Atom Builder questions
+// atom-builder-ui.js - Handles rendering, Multi-Select Bulk Move, Mobile Scaling, and Auto-Checking for Atom Builder questions
 
 export function setupAtomBuilderUI(container, q, idx) {
     const quizInstance = this; // Capture parent class instance for updateProgress()
@@ -14,7 +13,7 @@ export function setupAtomBuilderUI(container, q, idx) {
     const widgetWrapper = document.createElement('div');
     widgetWrapper.className = 'atom-builder-widget-wrapper';
 
-    // Build the structural HTML layout
+    // Build the structural HTML layout with responsive scaling wrapper
     widgetWrapper.innerHTML = `
         <div class="atom-builder-container">
             <div class="atom-builder-left">
@@ -36,60 +35,62 @@ export function setupAtomBuilderUI(container, q, idx) {
                     <div class="ab-tracker-item">Shell 2: <span class="ab-badge ab-s2-badge pending">0/1 e⁻</span></div>
                 </div>
 
-                <div class="ab-atom-visual">
-                    <svg class="ab-svg-bg" width="550" height="380" viewBox="0 0 550 380">
-                        <!-- Shell 2 (Outer) -->
-                        <circle cx="260" cy="190" r="150" fill="none" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="8,8" />
-                        <!-- Shell 1 (Inner) -->
-                        <circle cx="260" cy="190" r="85" fill="none" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="8,8" />
-                        
-                        <!-- Pointer lines for diagram labels -->
-                        <line x1="440" y1="58" x2="330" y2="58" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
-                        <line x1="440" y1="138" x2="320" y2="138" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
-                    </svg>
+                <div class="ab-visual-wrapper">
+                    <div class="ab-atom-visual">
+                        <svg class="ab-svg-bg" width="550" height="380" viewBox="0 0 550 380">
+                            <!-- Shell 2 (Outer) -->
+                            <circle cx="260" cy="190" r="150" fill="none" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="8,8" />
+                            <!-- Shell 1 (Inner) -->
+                            <circle cx="260" cy="190" r="85" fill="none" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="8,8" />
+                            
+                            <!-- Pointer lines for diagram labels -->
+                            <line x1="440" y1="58" x2="330" y2="58" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
+                            <line x1="440" y1="138" x2="320" y2="138" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
+                        </svg>
 
-                    <div class="ab-static-key">
-                        <div class="ab-key-header">
-                            <span class="ab-key-title">Interactive Key</span>
-                            <span class="ab-badge ab-key-badge pending">0/3</span>
+                        <div class="ab-static-key">
+                            <div class="ab-key-header">
+                                <span class="ab-key-title">Interactive Key</span>
+                                <span class="ab-badge ab-key-badge pending">0/3</span>
+                            </div>
+                            <div class="ab-key-row">
+                                <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E74C3C" stroke="#C0392B" stroke-width="2"/><path d="M 7 12 H 17 M 12 7 V 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                                <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-proton"></div>
+                            </div>
+                            <div class="ab-key-row">
+                                <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#95A5A6" stroke="#7F8C8D" stroke-width="2"/></svg>
+                                <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-neutron"></div>
+                            </div>
+                            <div class="ab-key-row">
+                                <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#3498DB" stroke="#2980B9" stroke-width="2"/><path d="M 7 12 H 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                                <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-electron"></div>
+                            </div>
                         </div>
-                        <div class="ab-key-row">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E74C3C" stroke="#C0392B" stroke-width="2"/><path d="M 7 12 H 17 M 12 7 V 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                            <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-proton"></div>
+
+                        <div class="ab-drop-zone ab-nucleus" data-zone-type="nucleus">
+                            <div class="ab-nucleus-slot" data-accept="neutron" style="left:38px; top:38px;"></div>
+                            <div class="ab-nucleus-slot" data-accept="proton" style="left:38px; top:14px;"></div>
+                            <div class="ab-nucleus-slot" data-accept="neutron" style="left:59px; top:26px;"></div>
+                            <div class="ab-nucleus-slot" data-accept="proton" style="left:59px; top:50px;"></div>
+                            <div class="ab-nucleus-slot" data-accept="neutron" style="left:38px; top:62px;"></div>
+                            <div class="ab-nucleus-slot" data-accept="proton" style="left:17px; top:50px;"></div>
+                            <div class="ab-nucleus-slot" data-accept="neutron" style="left:17px; top:26px;"></div>
                         </div>
-                        <div class="ab-key-row">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#95A5A6" stroke="#7F8C8D" stroke-width="2"/></svg>
-                            <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-neutron"></div>
-                        </div>
-                        <div class="ab-key-row">
-                            <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#3498DB" stroke="#2980B9" stroke-width="2"/><path d="M 7 12 H 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                            <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-electron"></div>
-                        </div>
+
+                        <!-- Shell 1 Slots -->
+                        <div class="ab-drop-zone ab-shell-slot ab-shell1" data-zone-type="shell1" style="left:246px; top:91px;"></div>
+                        <div class="ab-drop-zone ab-shell-slot ab-shell1" data-zone-type="shell1" style="left:246px; top:261px;"></div>
+
+                        <!-- Shell 2 Slots -->
+                        <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:246px; top:26px;"></div>
+                        <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:246px; top:326px;"></div>
+                        <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:96px; top:176px;"></div>
+                        <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:396px; top:176px;"></div>
+
+                        <!-- Drop Zones for Shell Labels -->
+                        <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-shell2" style="left:440px; top:42px;"></div>
+                        <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-shell1" style="left:440px; top:122px;"></div>
                     </div>
-
-                    <div class="ab-drop-zone ab-nucleus" data-zone-type="nucleus">
-                        <div class="ab-nucleus-slot" data-accept="neutron" style="left:38px; top:38px;"></div>
-                        <div class="ab-nucleus-slot" data-accept="proton" style="left:38px; top:14px;"></div>
-                        <div class="ab-nucleus-slot" data-accept="neutron" style="left:59px; top:26px;"></div>
-                        <div class="ab-nucleus-slot" data-accept="proton" style="left:59px; top:50px;"></div>
-                        <div class="ab-nucleus-slot" data-accept="neutron" style="left:38px; top:62px;"></div>
-                        <div class="ab-nucleus-slot" data-accept="proton" style="left:17px; top:50px;"></div>
-                        <div class="ab-nucleus-slot" data-accept="neutron" style="left:17px; top:26px;"></div>
-                    </div>
-
-                    <!-- Shell 1 Slots -->
-                    <div class="ab-drop-zone ab-shell-slot ab-shell1" data-zone-type="shell1" style="left:246px; top:91px;"></div>
-                    <div class="ab-drop-zone ab-shell-slot ab-shell1" data-zone-type="shell1" style="left:246px; top:261px;"></div>
-
-                    <!-- Shell 2 Slots -->
-                    <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:246px; top:26px;"></div>
-                    <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:246px; top:326px;"></div>
-                    <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:96px; top:176px;"></div>
-                    <div class="ab-drop-zone ab-shell-slot ab-shell2" data-zone-type="shell2" style="left:396px; top:176px;"></div>
-
-                    <!-- Drop Zones for Shell Labels -->
-                    <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-shell2" style="left:440px; top:42px;"></div>
-                    <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-shell1" style="left:440px; top:122px;"></div>
                 </div>
 
                 <div class="ab-extra-tasks">
@@ -113,6 +114,32 @@ export function setupAtomBuilderUI(container, q, idx) {
     `;
 
     container.appendChild(widgetWrapper);
+
+    // Dynamic Mobile Viewport Scaling Logic
+    const visualWrapper = widgetWrapper.querySelector('.ab-visual-wrapper');
+    const visual = widgetWrapper.querySelector('.ab-atom-visual');
+
+    const fitVisual = () => {
+        if (!visualWrapper || !visual) return;
+        const containerWidth = visualWrapper.clientWidth;
+        if (containerWidth > 0 && containerWidth < 550) {
+            const scale = containerWidth / 550;
+            visual.style.transform = `scale(${scale})`;
+            visual.style.transformOrigin = 'top left';
+            visualWrapper.style.height = `${380 * scale}px`;
+        } else {
+            visual.style.transform = 'none';
+            visualWrapper.style.height = '380px';
+        }
+    };
+
+    if (window.ResizeObserver && visualWrapper) {
+        const ro = new ResizeObserver(() => fitVisual());
+        ro.observe(visualWrapper);
+    } else {
+        window.addEventListener('resize', fitVisual);
+    }
+    setTimeout(fitVisual, 50);
 
     // Initializer Data
     const pBank = widgetWrapper.querySelector('.p-bank');
