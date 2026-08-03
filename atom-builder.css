@@ -4,6 +4,7 @@
 .atom-builder-widget-wrapper {
     width: 100%;
     margin-top: 10px;
+    touch-action: pan-x pan-y pinch-zoom; /* Permits touch gestures & pinch-to-zoom */
 }
 
 .atom-builder-container {
@@ -15,6 +16,7 @@
     border-radius: 12px;
     padding: 20px;
     color: var(--text-dark);
+    touch-action: pan-x pan-y pinch-zoom;
 }
 
 .atom-builder-left {
@@ -146,6 +148,7 @@
     margin: 0 auto 15px auto;
     overflow: hidden;
     position: relative;
+    touch-action: pan-x pan-y pinch-zoom;
 }
 
 /* Fixed coordinate visualizer grid */
@@ -158,8 +161,9 @@
     border-radius: 12px;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    box-sizing: border-color;
+    box-sizing: border-box;
     transition: box-shadow 0.3s;
+    touch-action: pan-x pan-y pinch-zoom;
 }
 
 .ab-svg-bg {
@@ -168,17 +172,16 @@
     pointer-events: none;
 }
 
+/* Repositioned Standalone Interactive Key (In Left Panel) */
 .ab-static-key {
-    position: absolute;
-    top: 10px; left: 10px;
-    background: var(--card-bg);
+    position: relative;
+    background: var(--card-even-bg);
     border: 1px solid var(--border-color);
-    padding: 8px 10px;
-    border-radius: 6px;
+    padding: 10px 12px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    gap: 8px;
 }
 
 .ab-key-header {
@@ -187,11 +190,11 @@
     justify-content: space-between;
     gap: 8px;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 4px;
+    padding-bottom: 6px;
 }
 
-.ab-key-title { font-weight: bold; font-size: 11px; }
-.ab-key-row { display: flex; align-items: center; gap: 8px; }
+.ab-key-title { font-weight: bold; font-size: 12px; color: var(--text-dark); }
+.ab-key-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 
 .ab-drop-zone {
     position: absolute;

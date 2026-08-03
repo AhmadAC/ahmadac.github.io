@@ -1,3 +1,4 @@
+
 // atom-builder-ui.js - Handles rendering, Multi-Select Bulk Move, Mobile Scaling, and Auto-Checking for Atom Builder questions
 
 export function setupAtomBuilderUI(container, q, idx) {
@@ -13,7 +14,7 @@ export function setupAtomBuilderUI(container, q, idx) {
     const widgetWrapper = document.createElement('div');
     widgetWrapper.className = 'atom-builder-widget-wrapper';
 
-    // Build the structural HTML layout with responsive scaling wrapper
+    // Build the structural HTML layout with Interactive Key in left panel
     widgetWrapper.innerHTML = `
         <div class="atom-builder-container">
             <div class="atom-builder-left">
@@ -24,6 +25,27 @@ export function setupAtomBuilderUI(container, q, idx) {
                 <div>
                     <h3>Label Bank</h3>
                     <div class="ab-bank-zone l-bank" data-zone-type="bank"></div>
+                </div>
+                <div>
+                    <h3>Interactive Key</h3>
+                    <div class="ab-static-key">
+                        <div class="ab-key-header">
+                            <span class="ab-key-title">Key Legend</span>
+                            <span class="ab-badge ab-key-badge pending">0/3</span>
+                        </div>
+                        <div class="ab-key-row">
+                            <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E74C3C" stroke="#C0392B" stroke-width="2"/><path d="M 7 12 H 17 M 12 7 V 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                            <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-proton"></div>
+                        </div>
+                        <div class="ab-key-row">
+                            <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#95A5A6" stroke="#7F8C8D" stroke-width="2"/></svg>
+                            <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-neutron"></div>
+                        </div>
+                        <div class="ab-key-row">
+                            <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#3498DB" stroke="#2980B9" stroke-width="2"/><path d="M 7 12 H 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                            <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-electron"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -47,25 +69,6 @@ export function setupAtomBuilderUI(container, q, idx) {
                             <line x1="440" y1="58" x2="330" y2="58" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
                             <line x1="440" y1="138" x2="320" y2="138" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
                         </svg>
-
-                        <div class="ab-static-key">
-                            <div class="ab-key-header">
-                                <span class="ab-key-title">Interactive Key</span>
-                                <span class="ab-badge ab-key-badge pending">0/3</span>
-                            </div>
-                            <div class="ab-key-row">
-                                <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#E74C3C" stroke="#C0392B" stroke-width="2"/><path d="M 7 12 H 17 M 12 7 V 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                                <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-proton"></div>
-                            </div>
-                            <div class="ab-key-row">
-                                <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#95A5A6" stroke="#7F8C8D" stroke-width="2"/></svg>
-                                <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-neutron"></div>
-                            </div>
-                            <div class="ab-key-row">
-                                <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#3498DB" stroke="#2980B9" stroke-width="2"/><path d="M 7 12 H 17" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                                <div class="ab-drop-zone ab-label-zone" data-zone-type="label" data-accept="label-electron"></div>
-                            </div>
-                        </div>
 
                         <div class="ab-drop-zone ab-nucleus" data-zone-type="nucleus">
                             <div class="ab-nucleus-slot" data-accept="neutron" style="left:38px; top:38px;"></div>
