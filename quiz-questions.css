@@ -1,0 +1,197 @@
+/* quiz-questions.css - Question Frames, MCQ Options, Word Banks, and Inputs */
+
+.quiz-info-section {
+    background-color: var(--selected-bg);
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    font-size: 14px;
+    line-height: 1.5;
+}
+.quiz-info-section a {
+    color: var(--primary);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.question-frame {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 4px 4px 0 0;
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.question-header-num { font-size: 13px; font-weight: bold; color: var(--text-dark); }
+.question-header-pts { font-size: 11px; color: var(--text-muted); }
+
+.question-content { 
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question-text { 
+    font-size: 13px; 
+    color: var(--text-dark); 
+    margin-bottom: 15px; 
+    white-space: pre-wrap; 
+}
+
+.question-media {
+    max-width: 100%;
+    max-height: 50vh;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+/* MCQ Cards */
+.mcq-card {
+    font-size: 13px;
+    color: var(--text-dark);
+    padding: 10px 14px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    white-space: pre-wrap;
+}
+
+.mcq-card:nth-child(even) {
+    background-color: var(--card-even-bg);
+}
+
+.mcq-card:hover {
+    background-color: var(--card-hover-bg);
+    border-color: var(--primary);
+}
+.mcq-card.selected {
+    background-color: var(--selected-bg);
+    border: 2px solid var(--primary);
+    padding: 9px 13px;
+}
+.mcq-card.correct {
+    background-color: var(--success-bg);
+    border: 2px solid var(--success-border);
+    color: #008a00;
+    padding: 9px 13px;
+}
+.mcq-card.incorrect {
+    background-color: var(--fail-bg);
+    border: 2px solid var(--fail-border);
+    color: var(--fail-border);
+    padding: 9px 13px;
+}
+
+.essay-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 13px;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+}
+
+/* Sticky Word Bank for Matching Questions */
+.sticky-word-bank {
+    background-color: #fdfdfd;
+    border-bottom: 3px solid var(--primary);
+    border-top: 1px solid var(--border-color);
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.word-bank-btn {
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: pre-wrap;
+}
+.word-bank-btn:hover { background-color: var(--card-hover-bg); }
+.word-bank-btn.selected { background-color: var(--selected-bg); color: var(--text-dark); border: 2px solid var(--primary); }
+
+.match-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 15px;
+}
+.match-def {
+    flex: 1;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-dark);
+    text-align: right;
+    white-space: pre-wrap;
+}
+
+.answer-slot {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+    color: var(--text-dark);
+    font-weight: bold;
+    min-width: 120px;
+    height: 30px;
+    text-align: center;
+    font-size: 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.answer-slot:hover { border-color: var(--primary); background-color: var(--card-hover-bg); }
+.answer-slot.selected { background-color: var(--card-hover-bg); color: var(--primary); border: 2px dashed var(--primary); }
+.answer-slot.filled { background-color: var(--selected-bg); color: var(--primary); border: 1px solid var(--primary); }
+.answer-slot.correct { background-color: var(--success-bg); color: var(--success-border); border: 1px solid var(--success-border); }
+.answer-slot.incorrect { background-color: var(--fail-bg); color: var(--fail-border); border: 1px solid var(--fail-border); }
+
+.class-btn-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.class-btn-radio {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--text-dark);
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+}
+.class-btn-radio.checked {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    font-weight: bold;
+}

@@ -1,0 +1,246 @@
+/* assignments.css - Buttons, Cards, and Assignment List Styles */
+
+.view-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin: 30px 0 15px 0;
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn-class {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px;
+    height: 60px;
+    color: var(--text-dark);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-class:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.center-btn { 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+.btn-dark {
+    background-color: var(--bg-main);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px 25px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.btn-dark:hover { background-color: #3f5161; }
+
+.btn-nav {
+    background-color: var(--bg-main);
+    color: white;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.btn-nav:hover { background-color: #3f5161; }
+
+.btn-jump {
+    background-color: transparent;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-jump:hover {
+    background-color: var(--bg-quiz);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--primary);
+    cursor: pointer;
+}
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+.btn-secondary {
+    background-color: var(--header-bg);
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+.btn-secondary:hover { background-color: var(--border-color); }
+
+.btn-tertiary {
+    background-color: #1e8449;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #145a32;
+    cursor: pointer;
+}
+.btn-tertiary:hover { background-color: #239b56; }
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* --- Assignment Cards --- */
+.assignment-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-left-color 0.2s;
+}
+.assignment-card:nth-child(odd) { 
+    background-color: var(--card-even-bg); 
+}
+.assignment-card:hover {
+    background-color: var(--card-hover-bg);
+    border-left: 5px solid var(--primary);
+}
+.assignment-card.missing-card {
+    background-color: #fdf2f2 !important;
+    border-left: 5px solid #e74c3c !important;
+    cursor: not-allowed;
+}
+body.dark-theme .assignment-card.missing-card {
+    background-color: #2c1a1a !important;
+}
+
+.assignment-title-lbl {
+    flex: 1;
+    font-size: 13px;
+    color: var(--text-dark);
+    margin-right: 15px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+.assignment-title-lbl.missing-text {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.assignment-status-lbl {
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 15px;
+    white-space: nowrap;
+}
+
+.current-status {
+    color: #008a00;
+}
+body.dark-theme .current-status { color: #2ecc71; }
+
+.due-status {
+    color: #e65100;
+}
+body.dark-theme .due-status { color: #e67e22; }
+
+.btn-week-action {
+    background-color: var(--primary);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+.btn-week-action:hover {
+    background-color: var(--primary-hover);
+}
+.btn-week-action:disabled {
+    background-color: var(--border-color);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+.assignment-card.highlight-current {
+    background-color: var(--success-bg) !important;
+    border-left: 5px solid var(--success-border) !important;
+}
+.assignment-card.highlight-current:hover {
+    background-color: var(--success-bg) !important;
+    opacity: 0.9;
+}
+
+.assignment-card.highlight-due {
+    background-color: var(--warning-bg) !important;
+    border-left: 5px solid var(--warning-border) !important;
+}
+.assignment-card.highlight-due:hover {
+    background-color: var(--warning-bg) !important;
+    opacity: 0.9;
+}
+
+.btn-show-previous {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: var(--header-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btn-show-previous:hover {
+    background-color: var(--border-color);
+}
+.btn-show-previous:disabled {
+    background-color: var(--header-bg);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}

@@ -1,5 +1,6 @@
 {
     "config": "System/config.json",
+    "liatom": "liatom.json",
     "Resources": "System/Resources.json",
     "U1HW1 - W14 - Safety": "G6/U1HW1 - W14 - Safety.json",
     "U1HW1 - W2 - Safety": "Common/U1HW1 - W2 - Safety.json",

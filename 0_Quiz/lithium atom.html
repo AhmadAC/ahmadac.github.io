@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lithium Atom Builder</title>
+    <style>
+        :root {
+            --proton-color: #E74C3C;     /* Red */
+            --proton-border: #C0392B;
+            --neutron-color: #95A5A6;    /* Grey */
+            --neutron-border: #7F8C8D;
+            --electron-color: #3498DB;   /* Blue */
+            --electron-border: #2980B9;
+            --zone-border: #BDC3C7;
+            --bg-color: #ECF0F1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: #2C3E50;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .app-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1050px;
+            width: 100%;
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Left Panel - Banks */
+        .left-panel {
+            width: 340px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #34495E;
+        }
+
+        .bank-zone {
+            min-height: 80px;
+            border: 2px dashed #BDC3C7;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 10px;
+            background: #FAFAFA;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .bank-zone.drag-over {
+            background: rgba(52, 152, 219, 0.1);
+            border-color: #3498DB;
+        }
+
+        /* Draggables */
+        .particle {
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            transition: transform 0.15s, box-shadow 0.15s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .particle:hover {
+            transform: scale(1.05);
+        }
+
+        .particle:active {
+            cursor: grabbing;
+            transform: scale(1.1);
+        }
+
+        .label-item {
+            cursor: pointer;
+            background: #FFFFFF;
+            border: 2px solid #3498DB;
+            color: #3498DB;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 13px;
+            transition: transform 0.15s, box-shadow 0.15s;
+            width: 90px;
+            height: 32px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .label-item:hover {
+            transform: scale(1.03);
+        }
+
+        .label-item:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+        }
+
+        /* Selected States */
+        .selected {
+            box-shadow: 0 0 0 3px #F39C12, 0 0 15px rgba(243, 156, 18, 0.6);
+            transform: scale(1.15) !important;
+            z-index: 100;
+        }
+
+        .selected-zone {
+            background-color: rgba(52, 152, 219, 0.25) !important;
+            border-color: #3498DB !important;
+            box-shadow: 0 0 12px rgba(52, 152, 219, 0.6) !important;
+            z-index: 10;
+        }
+
+        /* Right Panel - Builder */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #2C3E50;
+        }
+
+        p.instructions {
+            color: #7F8C8D;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        /* Status Badges & Auto-Marking UI */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .status-badge.pending {
+            background-color: #F2F4F4;
+            color: #7F8C8D;
+            border: 1px solid #BDC3C7;
+        }
+
+        .status-badge.correct {
+            background-color: #D5F5E3;
+            color: #1E8449;
+            border: 1px solid #2ECC71;
+        }
+
+        .status-badge.incorrect {
+            background-color: #FADBD8;
+            color: #C0392B;
+            border: 1px solid #E74C3C;
+        }
+
+        /* Live Atom Tracker */
+        .live-tracker {
+            display: flex;
+            gap: 12px;
+            background: #F8F9F9;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #E5E8E8;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .tracker-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #34495E;
+        }
+
+        /* Drop Zone Auto-Marking States */
+        .drop-zone.correct-drop {
+            border-color: #2ECC71 !important;
+            background-color: #EAFAF1 !important;
+            box-shadow: 0 0 6px rgba(46, 204, 113, 0.4);
+        }
+
+        .drop-zone.incorrect-drop {
+            border-color: #E74C3C !important;
+            background-color: #FDEDEC !important;
+            box-shadow: 0 0 6px rgba(231, 76, 60, 0.4);
+        }
+
+        /* Task Box Headers */
+        .task-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .task-header h3 {
+            margin: 0;
+            font-size: 15px;
+            color: #34495E;
+        }
+
+        /* Atom Visuals */
+        #atom-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border-radius: 20px;
+            background: #FDFDFD;
+            border: 1px solid #EEEEEE;
+            transition: all 0.5s ease;
+            margin-bottom: 15px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
+        }
+
+        .svg-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Static Key Overlay */
+        .static-key {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #BDC3C7;
+            padding: 10px 12px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .key-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .key-title {
+            font-weight: bold;
+            font-size: 13px;
+            color: #2C3E50;
+        }
+
+        .key-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Drop Zones in Atom */
+        .drop-zone {
+            position: absolute;
+            box-sizing: border-box;
+            transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        
+        .key-row .drop-zone {
+            position: relative; 
+        }
+
+        .drop-zone.drag-over, .drop-zone:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-color: #3498DB;
+        }
+
+        .nucleus-container {
+            top: 150px;
+            left: 230px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px dashed var(--zone-border);
+            background: rgba(0,0,0,0.02);
+        }
+
+        .nucleus-slot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            pointer-events: none; 
+        }
+
+        .shell-slot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px dashed var(--zone-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.7);
+        }
+
+        .label-drop-zone {
+            width: 90px;
+            height: 32px;
+            border: 2px dashed var(--zone-border);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+        }
+
+        /* Extra Tasks Section */
+        .extra-tasks {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 20px;
+            background: #FDFDFD;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid #EEEEEE;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .task-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1;
+        }
+
+        .symbol-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Symbol Card Styles */
+        .symbol-card {
+            position: relative;
+            width: 50px;
+            height: 60px;
+            border: 2px solid #BDC3C7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #2C3E50;
+            background: #FFF;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .symbol-card:hover {
+            border-color: #3498DB;
+            background: rgba(52, 152, 219, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .symbol-card.selected-symbol {
+            border-color: #3498DB;
+            background: #EBF5FB;
+            box-shadow: 0 0 12px rgba(52, 152, 219, 0.4);
+            transform: scale(1.05);
+        }
+
+        .symbol-card.correct-card {
+            border-color: #2ECC71 !important;
+            background-color: #EAFAF1 !important;
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.4) !important;
+        }
+
+        .symbol-card.incorrect-card {
+            border-color: #E74C3C !important;
+            background-color: #FDEDEC !important;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.4) !important;
+        }
+
+        .symbol-card .mass-num {
+            position: absolute;
+            top: 3px;
+            left: 5px;
+            font-size: 11px;
+            font-weight: normal;
+        }
+
+        .symbol-card .atomic-num {
+            position: absolute;
+            bottom: 3px;
+            left: 5px;
+            font-size: 11px;
+            font-weight: normal;
+        }
+
+        /* Configuration Input */
+        #config-input {
+            padding: 10px;
+            border: 2px solid #BDC3C7;
+            border-radius: 6px;
+            font-size: 16px;
+            width: 120px;
+            text-align: center;
+            font-weight: bold;
+            color: #2C3E50;
+            outline: none;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        #config-input:focus {
+            border-color: #3498DB;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+        }
+
+        #config-input.correct-input {
+            border-color: #2ECC71 !important;
+            background-color: #EAFAF1 !important;
+            color: #1E8449 !important;
+        }
+
+        #config-input.incorrect-input {
+            border-color: #E74C3C !important;
+            background-color: #FDEDEC !important;
+            color: #C0392B !important;
+        }
+
+        /* Check & Feedback */
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #check-btn {
+            background-color: #2ECC71;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        #check-btn:hover {
+            background-color: #27AE60;
+        }
+
+        #check-btn:active {
+            transform: scale(0.95);
+        }
+
+        .message {
+            font-weight: bold;
+            font-size: 16px;
+            display: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        #success-message {
+            background-color: #D5F5E3;
+            color: #1E8449;
+        }
+
+        #error-message {
+            background-color: #FADBD8;
+            color: #C0392B;
+        }
+
+        /* Animations */
+        .success-glow {
+            box-shadow: 0 0 40px 10px rgba(46, 204, 113, 0.4) !important;
+            border-color: #2ECC71 !important;
+        }
+
+        @keyframes flashError {
+            0%, 100% { filter: drop-shadow(0 0 0px red); opacity: 1; }
+            50% { filter: drop-shadow(0 0 8px red); opacity: 0.7; }
+        }
+        @keyframes flashErrorLabel {
+            0%, 100% { border-color: #3498DB; color: #3498DB; background-color: #FFFFFF; }
+            50% { border-color: red; color: red; background-color: #FDEDEC; }
+        }
+
+        .flashing-red {
+            animation: flashError 0.3s infinite;
+            z-index: 50;
+        }
+
+        .label-item.flashing-red {
+            animation: flashErrorLabel 0.3s infinite;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div>
+            <h2>Particle Bank</h2>
+            <div id="particle-bank" class="bank-zone" data-zone-type="bank">
+                <!-- Particles generated via JS -->
+            </div>
+        </div>
+        <div>
+            <h2>Label Bank</h2>
+            <div id="label-bank" class="bank-zone" data-zone-type="bank">
+                <!-- Labels generated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <h1>Build a Lithium Atom</h1>
+        <p class="instructions">
+            <strong>Lithium Profile:</strong> Atomic Number = 3, Mass Number = 7. <br>
+            Build your atom using the items from the left. Each section will auto-mark as you work!
+        </p>
+
+        <!-- Live Particle & Shell Auto-Marking Tracker -->
+        <div class="live-tracker">
+            <div class="tracker-item">
+                <span>Protons:</span>
+                <span id="proton-badge" class="status-badge pending">0/3</span>
+            </div>
+            <div class="tracker-item">
+                <span>Neutrons:</span>
+                <span id="neutron-badge" class="status-badge pending">0/4</span>
+            </div>
+            <div class="tracker-item">
+                <span>Shell 1:</span>
+                <span id="shell1-badge" class="status-badge pending">0/2 e⁻</span>
+            </div>
+            <div class="tracker-item">
+                <span>Shell 2:</span>
+                <span id="shell2-badge" class="status-badge pending">0/1 e⁻</span>
+            </div>
+        </div>
+
+        <!-- Atom Visual Area -->
+        <div id="atom-container">
+            <svg class="svg-bg" width="600" height="400" viewBox="0 0 600 400">
+                <!-- Shell 2 (Outer) -->
+                <circle cx="280" cy="200" r="160" fill="none" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="8,8" />
+                <!-- Shell 1 (Inner) -->
+                <circle cx="280" cy="200" r="90" fill="none" stroke="#BDC3C7" stroke-width="2" stroke-dasharray="8,8" />
+                
+                <!-- Pointer lines for diagram labels -->
+                <line x1="480" y1="58" x2="354" y2="58" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
+                <line x1="480" y1="138" x2="345" y2="138" stroke="#95A5A6" stroke-width="2" stroke-dasharray="4,4" />
+            </svg>
+
+            <!-- Interactive Particle Key Box -->
+            <div class="static-key">
+                <div class="key-header">
+                    <span class="key-title">Interactive Key</span>
+                    <span id="key-badge" class="status-badge pending">0/3</span>
+                </div>
+                
+                <!-- Proton Key Row -->
+                <div class="key-row">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="11" fill="#E74C3C" stroke="#C0392B" stroke-width="2"/>
+                        <path d="M 7 12 H 17 M 12 7 V 17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div class="drop-zone label-drop-zone" data-zone-type="label" data-accept="label-proton"></div>
+                </div>
+                
+                <!-- Neutron Key Row -->
+                <div class="key-row">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="11" fill="#95A5A6" stroke="#7F8C8D" stroke-width="2"/>
+                    </svg>
+                    <div class="drop-zone label-drop-zone" data-zone-type="label" data-accept="label-neutron"></div>
+                </div>
+
+                <!-- Electron Key Row -->
+                <div class="key-row">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="11" fill="#3498DB" stroke="#2980B9" stroke-width="2"/>
+                        <path d="M 7 12 H 17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div class="drop-zone label-drop-zone" data-zone-type="label" data-accept="label-electron"></div>
+                </div>
+            </div>
+
+            <!-- Nucleus Container -->
+            <div class="drop-zone nucleus-container" data-zone-type="nucleus">
+                <!-- Center: Neutron -->
+                <div class="nucleus-slot" data-accept="neutron" style="left: 38px; top: 38px;"></div>
+                <!-- Top: Proton -->
+                <div class="nucleus-slot" data-accept="proton" style="left: 38px; top: 14px;"></div>
+                <!-- Top-Right: Neutron -->
+                <div class="nucleus-slot" data-accept="neutron" style="left: 59px; top: 26px;"></div>
+                <!-- Bottom-Right: Proton -->
+                <div class="nucleus-slot" data-accept="proton" style="left: 59px; top: 50px;"></div>
+                <!-- Bottom: Neutron -->
+                <div class="nucleus-slot" data-accept="neutron" style="left: 38px; top: 62px;"></div>
+                <!-- Bottom-Left: Proton -->
+                <div class="nucleus-slot" data-accept="proton" style="left: 17px; top: 50px;"></div>
+                <!-- Top-Left: Neutron -->
+                <div class="nucleus-slot" data-accept="neutron" style="left: 17px; top: 26px;"></div>
+            </div>
+
+            <!-- Shell 1 Slots -->
+            <div class="drop-zone shell-slot shell1-zone" data-zone-type="shell1" style="left: 266px; top: 96px;"></div>
+            <div class="drop-zone shell-slot shell1-zone" data-zone-type="shell1" style="left: 266px; top: 276px;"></div>
+
+            <!-- Shell 2 Slots -->
+            <div class="drop-zone shell-slot shell2-zone" data-zone-type="shell2" style="left: 266px; top: 26px;"></div>
+            <div class="drop-zone shell-slot shell2-zone" data-zone-type="shell2" style="left: 266px; top: 346px;"></div>
+            <div class="drop-zone shell-slot shell2-zone" data-zone-type="shell2" style="left: 106px; top: 186px;"></div>
+            <div class="drop-zone shell-slot shell2-zone" data-zone-type="shell2" style="left: 426px; top: 186px;"></div>
+
+            <!-- Drop Zones for Shell Labels -->
+            <div class="drop-zone label-drop-zone" data-zone-type="label" data-accept="label-shell2" style="left: 480px; top: 42px;"></div>
+            <div class="drop-zone label-drop-zone" data-zone-type="label" data-accept="label-shell1" style="left: 480px; top: 122px;"></div>
+        </div>
+
+        <!-- Extra Tasks -->
+        <div class="extra-tasks">
+            <div class="task-box">
+                <div class="task-header">
+                    <h3>1. Select Element Symbol</h3>
+                    <span id="symbol-badge" class="status-badge pending">Pending</span>
+                </div>
+                <div id="symbols-container" class="symbol-options">
+                    <!-- Javascript populates 4 symbols -->
+                </div>
+            </div>
+            <div class="task-box">
+                <div class="task-header">
+                    <h3>2. Electron Configuration</h3>
+                    <span id="config-badge" class="status-badge pending">Pending</span>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:5px;">
+                    <input type="text" id="config-input" placeholder="(2, 8, 1)">
+                    <span style="font-size: 11px; color: #7F8C8D;">*Type numbers only</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="check-btn">Check Atom</button>
+            <div id="success-message" class="message">Perfect! Everything is absolutely correct!</div>
+            <div id="error-message" class="message">Not quite yet. Check your atom build, labels, symbol, and electron configuration!</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const config = {
+        proton: { color: '#E74C3C', stroke: '#C0392B' },   
+        neutron: { color: '#95A5A6', stroke: '#7F8C8D' },  
+        electron: { color: '#3498DB', stroke: '#2980B9' }  
+    };
+
+    const labelsConfig = [
+        { id: 'label-proton', text: 'Protons' },
+        { id: 'label-neutron', text: 'Neutrons' },
+        { id: 'label-electron', text: 'Electrons' },
+        { id: 'label-shell1', text: 'Shell 1' },
+        { id: 'label-shell2', text: 'Shell 2' }
+    ];
+
+    const elementsList = ["H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca","Sc","Ti","V","Cr","Mn","Fe","Co","Ni","Cu","Zn","Ga","Ge","As","Se","Br","Kr","Rb","Sr","Y","Zr","Nb","Mo","Tc","Ru","Rh","Pd","Ag","Cd","In","Sn","Sb","Te","I","Xe","Cs","Ba","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Tb","Dy","Ho","Er","Tm","Yb","Lu","Hf","Ta","W","Re","Os","Ir","Pt","Au","Hg","Tl","Pb","Bi","Po","At","Rn","Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk","Cf","Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt","Ds","Rg","Cn","Nh","Fl","Mc","Lv","Ts","Og"];
+
+    let draggedItem = null;
+    let selectedItem = null; 
+    let selectedZone = null;
+
+    function init() {
+        const pBank = document.getElementById('particle-bank');
+        const lBank = document.getElementById('label-bank');
+
+        createParticles(pBank, 'proton', 6);
+        createParticles(pBank, 'neutron', 6);
+        createParticles(pBank, 'electron', 6);
+
+        labelsConfig.forEach(l => {
+            const el = document.createElement('div');
+            el.className = 'label-item';
+            el.dataset.type = l.id;
+            el.draggable = true;
+            el.innerText = l.text;
+            addInteractionListeners(el);
+            lBank.appendChild(el);
+        });
+
+        document.querySelectorAll('.drop-zone, .bank-zone').forEach(zone => {
+            zone.addEventListener('dragover', handleDragOver);
+            zone.addEventListener('dragleave', handleDragLeave);
+            zone.addEventListener('drop', handleDrop);
+            zone.addEventListener('click', handleZoneClick);
+        });
+
+        document.getElementById('check-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            checkAtom();
+        });
+
+        document.body.addEventListener('click', deselectAll);
+
+        generateSymbols();
+        setupConfigInput();
+        autoCheck(); // Initial status setup
+    }
+
+    // --- Generate 4 Random Symbols (One must be Li) ---
+    function generateSymbols() {
+        const container = document.getElementById('symbols-container');
+        let options = [{ z: 3, a: 7, sym: 'Li' }];
+
+        while(options.length < 4) {
+            let randZ = Math.floor(Math.random() * 118) + 1;
+            if (options.find(o => o.z === randZ)) continue;
+
+            let mass = randZ === 1 ? 1 : randZ === 2 ? 4 : Math.round(randZ * 2.1);
+            options.push({ z: randZ, a: mass, sym: elementsList[randZ-1] });
+        }
+
+        options.sort(() => Math.random() - 0.5);
+
+        options.forEach(opt => {
+            const card = document.createElement('div');
+            card.className = 'symbol-card';
+            card.dataset.z = opt.z;
+            
+            card.innerHTML = `
+                <div class="mass-num">${opt.a}</div>
+                <div class="atomic-num">${opt.z}</div>
+                <div class="symbol">${opt.sym}</div>
+            `;
+            
+            card.addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.querySelectorAll('.symbol-card').forEach(c => c.classList.remove('selected-symbol'));
+                this.classList.add('selected-symbol');
+                hideMessages();
+                autoCheck();
+            });
+            
+            container.appendChild(card);
+        });
+    }
+
+    // --- Auto-formatting Configuration Input Logic ---
+    function setupConfigInput() {
+        const configInput = document.getElementById('config-input');
+        let previousDigits = "";
+
+        configInput.addEventListener('keydown', function(e) {
+            hideMessages();
+            if (e.ctrlKey || e.metaKey || e.key.length > 1) return;
+            if (!/^\d$/.test(e.key)) {
+                e.preventDefault();
+            }
+        });
+
+        configInput.addEventListener('input', function(e) {
+            let currentDigits = this.value.replace(/\D/g, '');
+            
+            if (e.inputType === 'deleteContentBackward' && currentDigits === previousDigits) {
+                currentDigits = currentDigits.slice(0, -1);
+            }
+            
+            previousDigits = currentDigits;
+
+            if (currentDigits.length > 0) {
+                this.value = '(' + currentDigits.split('').join(', ') + ')';
+            } else {
+                this.value = '';
+            }
+
+            autoCheck();
+        });
+    }
+
+    function createParticles(container, type, count) {
+        for(let i = 0; i < count; i++) {
+            const el = document.createElement('div');
+            el.className = 'particle';
+            el.dataset.type = type;
+            el.draggable = true;
+            
+            const c = config[type];
+            let innerSVG = '';
+            
+            if (type === 'proton') {
+                innerSVG = `<path d="M 7 12 H 17 M 12 7 V 17" stroke="white" stroke-width="2" stroke-linecap="round"/>`;
+            } else if (type === 'electron') {
+                innerSVG = `<path d="M 7 12 H 17" stroke="white" stroke-width="2" stroke-linecap="round"/>`;
+            }
+
+            el.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="${c.color}" stroke="${c.stroke}" stroke-width="2"/>${innerSVG}</svg>`;
+            addInteractionListeners(el);
+            container.appendChild(el);
+        }
+    }
+
+    function deselectAll() {
+        if (selectedItem) {
+            selectedItem.classList.remove('selected');
+            selectedItem = null;
+        }
+        if (selectedZone) {
+            selectedZone.classList.remove('selected-zone');
+            selectedZone = null;
+        }
+    }
+
+    function addInteractionListeners(el) {
+        el.addEventListener('dragstart', handleDragStart);
+        el.addEventListener('dragend', handleDragEnd);
+        el.addEventListener('click', handleItemClick);
+    }
+
+    function hideMessages() {
+        document.getElementById('success-message').style.display = 'none';
+        document.getElementById('error-message').style.display = 'none';
+        document.getElementById('atom-container').classList.remove('success-glow');
+    }
+
+    // --- Click-to-Move Logic ---
+    function handleItemClick(e) {
+        e.stopPropagation(); 
+        hideMessages();
+
+        const isInBank = this.parentElement.classList.contains('bank-zone');
+
+        if (!isInBank) {
+            returnToBank(this);
+            deselectAll();
+            autoCheck();
+            return;
+        }
+
+        if (selectedZone) {
+            const zone = selectedZone;
+            tryPlaceItem(this, this.dataset.type, zone);
+            return;
+        }
+
+        if (selectedItem === this) {
+            deselectAll();
+        } else {
+            deselectAll();
+            selectedItem = this;
+            this.classList.add('selected');
+        }
+    }
+
+    function handleZoneClick(e) {
+        e.stopPropagation();
+        hideMessages();
+
+        if (selectedItem) {
+            tryPlaceItem(selectedItem, selectedItem.dataset.type, this);
+            return;
+        }
+
+        if (selectedZone === this) {
+            deselectAll();
+        } else {
+            deselectAll();
+            selectedZone = this;
+            this.classList.add('selected-zone');
+        }
+    }
+
+    // --- Drag-and-Drop Logic ---
+    function handleDragStart(e) {
+        deselectAll();
+        selectedItem = this;
+        this.classList.add('selected');
+        
+        draggedItem = this;
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', this.dataset.type);
+        setTimeout(() => this.style.opacity = '0.4', 0);
+        hideMessages();
+    }
+
+    function handleDragEnd(e) {
+        this.style.opacity = '1';
+        deselectAll();
+        draggedItem = null;
+    }
+
+    function handleDragOver(e) {
+        e.preventDefault(); 
+        e.dataTransfer.dropEffect = 'move';
+        this.classList.add('drag-over');
+    }
+
+    function handleDragLeave(e) {
+        this.classList.remove('drag-over');
+    }
+
+    function handleDrop(e) {
+        e.preventDefault();
+        this.classList.remove('drag-over');
+        
+        if (!draggedItem) return;
+        const type = e.dataTransfer.getData('text/plain');
+        tryPlaceItem(draggedItem, type, this);
+    }
+
+    // --- Universal Placement Engine ---
+    function tryPlaceItem(item, type, zone) {
+        if (item.parentElement === zone) {
+            deselectAll();
+            return;
+        }
+
+        let targetSlot = null;
+        let isValid = false;
+        const zType = zone.dataset.zoneType;
+
+        if (zType === 'nucleus') {
+            const emptySlots = Array.from(zone.querySelectorAll(`.nucleus-slot[data-accept="${type}"]`)).filter(s => s.children.length === 0);
+            if (emptySlots.length > 0) {
+                targetSlot = emptySlots[0];
+                isValid = true;
+            }
+        } else if (zType === 'shell1' || zType === 'shell2') {
+            if (type === 'electron' && zone.children.length === 0) {
+                targetSlot = zone;
+                isValid = true;
+            }
+        } else if (zType === 'label') {
+            if (type === zone.dataset.accept && zone.children.length === 0) {
+                targetSlot = zone;
+                isValid = true;
+            }
+        } else if (zType === 'bank') {
+            isValid = true;
+            targetSlot = type.startsWith('label') ? document.getElementById('label-bank') : document.getElementById('particle-bank');
+        }
+
+        if (isValid && targetSlot) {
+            targetSlot.appendChild(item);
+            deselectAll();
+            autoCheck();
+        } else {
+            zone.appendChild(item); 
+            item.classList.add('flashing-red');
+            item.style.pointerEvents = 'none';
+            deselectAll();
+
+            setTimeout(() => {
+                item.classList.remove('flashing-red');
+                item.style.pointerEvents = 'auto';
+                returnToBank(item);
+                autoCheck();
+            }, 2000);
+        }
+    }
+
+    function returnToBank(item) {
+        if (item.dataset.type.startsWith('label')) {
+            document.getElementById('label-bank').appendChild(item);
+        } else {
+            document.getElementById('particle-bank').appendChild(item);
+        }
+        autoCheck();
+    }
+
+    function countInZone(zoneSelector, particleType) {
+        return document.querySelectorAll(`${zoneSelector} .particle[data-type="${particleType}"]`).length;
+    }
+
+    // --- Real-Time Auto-Marking System ---
+    function autoCheck() {
+        const protons = countInZone('.nucleus-container', 'proton');
+        const neutrons = countInZone('.nucleus-container', 'neutron');
+        const s1Electrons = countInZone('.shell1-zone', 'electron');
+        const s2Electrons = countInZone('.shell2-zone', 'electron');
+
+        // 1. Protons Tracker
+        updateBadge('proton-badge', protons, 3, `${protons}/3`);
+
+        // 2. Neutrons Tracker
+        updateBadge('neutron-badge', neutrons, 4, `${neutrons}/4`);
+
+        // 3. Shell 1 Electrons Tracker
+        updateBadge('shell1-badge', s1Electrons, 2, `${s1Electrons}/2 e⁻`);
+
+        // 4. Shell 2 Electrons Tracker
+        updateBadge('shell2-badge', s2Electrons, 1, `${s2Electrons}/1 e⁻`);
+
+        // 5. Interactive Key Auto-Marking
+        let keyCorrectCount = 0;
+        document.querySelectorAll('.static-key .label-drop-zone').forEach(zone => {
+            const child = zone.children[0];
+            if (child && child.dataset.type === zone.dataset.accept) {
+                keyCorrectCount++;
+                zone.classList.add('correct-drop');
+                zone.classList.remove('incorrect-drop');
+            } else if (child) {
+                zone.classList.add('incorrect-drop');
+                zone.classList.remove('correct-drop');
+            } else {
+                zone.classList.remove('correct-drop', 'incorrect-drop');
+            }
+        });
+        updateBadge('key-badge', keyCorrectCount, 3, `${keyCorrectCount}/3`, "✓ Complete");
+
+        // 6. Diagram Shell Labels Auto-Marking
+        let diagramLabelsCorrect = 0;
+        document.querySelectorAll('#atom-container > .label-drop-zone').forEach(zone => {
+            const child = zone.children[0];
+            if (child && child.dataset.type === zone.dataset.accept) {
+                diagramLabelsCorrect++;
+                zone.classList.add('correct-drop');
+                zone.classList.remove('incorrect-drop');
+            } else if (child) {
+                zone.classList.add('incorrect-drop');
+                zone.classList.remove('correct-drop');
+            } else {
+                zone.classList.remove('correct-drop', 'incorrect-drop');
+            }
+        });
+
+        // 7. Symbol Selection Auto-Marking
+        const selectedSymbol = document.querySelector('.symbol-card.selected-symbol');
+        const symbolBadge = document.getElementById('symbol-badge');
+        let isSymbolCorrect = false;
+
+        document.querySelectorAll('.symbol-card').forEach(c => c.classList.remove('correct-card', 'incorrect-card'));
+
+        if (selectedSymbol) {
+            if (selectedSymbol.dataset.z === '3') {
+                isSymbolCorrect = true;
+                selectedSymbol.classList.add('correct-card');
+                symbolBadge.className = 'status-badge correct';
+                symbolBadge.innerText = '✓ Correct';
+            } else {
+                selectedSymbol.classList.add('incorrect-card');
+                symbolBadge.className = 'status-badge incorrect';
+                symbolBadge.innerText = '✗ Incorrect';
+            }
+        } else {
+            symbolBadge.className = 'status-badge pending';
+            symbolBadge.innerText = 'Pending';
+        }
+
+        // 8. Electron Configuration Auto-Marking
+        const configInput = document.getElementById('config-input');
+        const configBadge = document.getElementById('config-badge');
+        const configVal = configInput.value.trim();
+        let isConfigCorrect = false;
+
+        configInput.classList.remove('correct-input', 'incorrect-input');
+
+        if (configVal === '(2, 1)') {
+            isConfigCorrect = true;
+            configInput.classList.add('correct-input');
+            configBadge.className = 'status-badge correct';
+            configBadge.innerText = '✓ Correct';
+        } else if (configVal.length > 0) {
+            configInput.classList.add('incorrect-input');
+            configBadge.className = 'status-badge incorrect';
+            configBadge.innerText = '✗ Incorrect';
+        } else {
+            configBadge.className = 'status-badge pending';
+            configBadge.innerText = 'Pending';
+        }
+
+        // Overall Master Check - Triggers glow automatically when everything is correct!
+        const allCorrect = protons === 3 && 
+                           neutrons === 4 && 
+                           s1Electrons === 2 && 
+                           s2Electrons === 1 && 
+                           keyCorrectCount === 3 && 
+                           diagramLabelsCorrect === 2 && 
+                           isSymbolCorrect && 
+                           isConfigCorrect;
+
+        if (allCorrect) {
+            document.getElementById('atom-container').classList.add('success-glow');
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+        }
+
+        return allCorrect;
+    }
+
+    function updateBadge(id, current, target, textPending, textSuccess) {
+        const badge = document.getElementById(id);
+        if (!badge) return;
+
+        if (current === target) {
+            badge.className = 'status-badge correct';
+            badge.innerText = textSuccess || `${textPending} ✓`;
+        } else if (current > target) {
+            badge.className = 'status-badge incorrect';
+            badge.innerText = `${current}/${target} ✗`;
+        } else {
+            badge.className = 'status-badge pending';
+            badge.innerText = textPending;
+        }
+    }
+
+    // --- Explicit Button Check ---
+    function checkAtom() {
+        const isAllCorrect = autoCheck();
+        if (isAllCorrect) {
+            document.getElementById('atom-container').classList.add('success-glow');
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+        } else {
+            document.getElementById('atom-container').classList.remove('success-glow');
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'block';
+        }
+    }
+
+    init();
+</script>
+
+</body>
+</html>
