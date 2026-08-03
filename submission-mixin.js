@@ -7,15 +7,15 @@ export const SubmissionMixin = {
         let unansweredIndices = [];
         this.currentQuestions.forEach((q, idx) => {
             let type = q.type || q.question_type;
-            
-            // Check if the title text indicates the question is administrative
             let txt = (q['question text'] || q.question_text || "").toLowerCase();
             let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
-            
-            // Evaluates complex matching questions (ignoring class selection matches)
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined && !isAdmin;
             
-            if (isComplexMatching) {
+            if (type === 'atom_builder_question') {
+                if (!q._isCorrect) {
+                    unansweredIndices.push(idx);
+                }
+            } else if (isComplexMatching) {
                 let state = this.matchingStates[idx];
                 if (!state || state.slots.filter(s => s.current !== null).length < state.slots.length) {
                     unansweredIndices.push(idx);
@@ -54,7 +54,7 @@ export const SubmissionMixin = {
             }
             
             if (this.elements.errorMsg) {
-                this.elements.errorMsg.innerText = "Please answer all questions. Check the orange buttons on the right.";
+                this.elements.errorMsg.innerText = "You must complete all questions and build the Atom 100% correctly before submitting!";
             }
             return;
         }
@@ -88,7 +88,15 @@ export const SubmissionMixin = {
             let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined && !isAdmin;
             
-            if (isComplexMatching) {
+            if (type === 'atom_builder_question') {
+                totalPossible += pts;
+                if (q._isCorrect) {
+                    qIsCorrect = true;
+                    totalScore += pts;
+                } else {
+                    qIsWrong = true;
+                }
+            } else if (isComplexMatching) {
                 totalPossible += pts;
                 let state = this.matchingStates[idx], correctCount = 0;
                 
@@ -97,7 +105,6 @@ export const SubmissionMixin = {
                     catch(e) { return ""; }
                 };
 
-                // Safe-guard condition block checks if matching state was actively populated
                 if (state && state.slots) {
                     state.slots.forEach((s, sIdx) => {
                         let slotEl = frame.querySelector(`[data-slot-index="${sIdx}"]`);
@@ -108,7 +115,6 @@ export const SubmissionMixin = {
                                 correctCount++; slotEl.className = "answer-slot correct";
                             } else {
                                 slotEl.className = "answer-slot incorrect";
-                                // Parse corrective layout values with .innerHTML so fractions render correctly in feedback
                                 slotEl.innerHTML = `${s.current || 'Empty'} (Req: ${actualCorrect})`;
                             }
                         }
@@ -158,7 +164,6 @@ export const SubmissionMixin = {
                 }
             }
 
-            // Record and save the index of the first wrong question containing visual point values
             if (qIsWrong && firstWrongIndex === -1 && pts > 0) {
                 firstWrongIndex = idx;
             }
@@ -190,7 +195,6 @@ export const SubmissionMixin = {
 
         let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)\n\n`;
         
-        // Positive and encouraging language tiers based on percentage
         if (perc === 100) {
             msg += "Outstanding! Perfect score!";
         } else if (perc >= 80) {
@@ -214,7 +218,6 @@ export const SubmissionMixin = {
             this.elements.resultBox.classList.remove("hidden");
         }
 
-        // Show the score permanently at the top in the header
         if (this.elements.quizScoreLbl) {
             this.elements.quizScoreLbl.innerText = `Name: ${nameAns}, Score: ${totalScore}/${totalPossible} (${perc}%)`;
             this.elements.quizScoreLbl.dataset.status = state;
@@ -224,7 +227,6 @@ export const SubmissionMixin = {
             this.elements.quizProgress.classList.add("hidden");
         }
 
-        // Automatically scroll to first wrong question if score is less than 100%, else scroll to results box
         if (firstWrongIndex !== -1) {
             let targetFrame = this.root.querySelector(`[data-question-index="${firstWrongIndex}"]`);
             if (targetFrame && this.elements.scrollArea) {
@@ -246,7 +248,6 @@ export const SubmissionMixin = {
         let webhookUrl = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2";
         
         try {
-            // Fetch settings directly so GitHub Pages Web Mode respects the toggle
             const cacheBuster = `?t=${Date.now()}`;
             const res = await fetch(`0_Quiz/autolink.json${cacheBuster}`);
             if (res.ok) {
@@ -310,7 +311,6 @@ export const SubmissionMixin = {
     },
 
     saveResult(quizName, name, cls, score, total) {
-        // Local browser storage fallback for Web/GitHub pages
         let data = JSON.parse(localStorage.getItem('quiz_results') || '{}');
         if (!data[cls]) data[cls] = {};
         if (!data[cls][name]) data[cls][name] = {};
@@ -327,7 +327,6 @@ export const SubmissionMixin = {
             totalPossible: total
         };
         
-        // IF OFFLINE: Send to local Python Server, which writes QuizResults.json and triggers Tencent webhook safely
         if (window.isOfflineMode) {
             fetch('/api/save_result', {
                 method: 'POST',
@@ -343,7 +342,6 @@ export const SubmissionMixin = {
                 this.submitToTencentWebhook(payload).catch(err2 => console.error(err2));
             });
         } else {
-            // Standard Web Mode using CORS proxy
             this.submitToTencentWebhook(payload).catch(err => {
                 console.error("[DEBUG] Failed to submit to Tencent webhook:", err);
             });
@@ -357,7 +355,6 @@ export const SubmissionMixin = {
         
         const data = [
             { label: "Class", value: this.finalStudentClass },
-            // Strip any raw HTML tags before drawing to canvas since it does not support HTML strings 
             { label: "HW", value: formatDisplayString(this.currentQuizName).replace(/<[^>]+>/g, '') },
             { label: "Name", value: this.finalStudentName },
             { label: "Score", value: `${this.finalScore} / ${this.finalTotalPossible}` }
