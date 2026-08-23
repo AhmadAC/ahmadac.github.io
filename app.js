@@ -243,10 +243,11 @@ function renderMappingList() {
         row.className = 'mapping-row';
         
         const nameEl = document.createElement('span'); 
+        nameEl.className = 'mapping-quiz-name';
         nameEl.innerText = quiz.name;
-        nameEl.style.fontWeight = "bold";
         
         const ptsEl = document.createElement('span'); 
+        ptsEl.className = 'mapping-quiz-pts';
         ptsEl.innerText = `${quiz.points} pts`;
         
         const classesContainer = document.createElement('div');
@@ -282,6 +283,7 @@ function renderMappingList() {
         const hideLabel = document.createElement('span');
         hideLabel.innerText = 'Hide';
         hideLabel.style.fontSize = '12px';
+        hideLabel.style.color = '#ffffff';
         ignoreContainer.appendChild(hideLabel);
         
         const actionContainer = document.createElement('div');
