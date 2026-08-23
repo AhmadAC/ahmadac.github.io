@@ -1,4 +1,4 @@
-/* modals-ui.css - Results, Sidebar, Theme Toggles, Modals, Fractions, and Media Queries */
+/* modals-ui.css - Results, Sidebar, Theme Toggles, Modals, Fractions, QR Codes, and Media Queries */
 
 .quiz-result-box {
     margin: 10px 20px;
@@ -108,6 +108,106 @@
     height: 100%;
     border: none;
     background-color: transparent;
+}
+
+/* --- QR CODE BUTTON ON MAIN SCREEN --- */
+.view-class-select {
+    position: relative;
+}
+
+.btn-qr-trigger {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--card-bg);
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    width: 38px;
+    height: 38px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    z-index: 100;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+/* Show the QR button only in offline desktop server mode */
+body.offline-mode .btn-qr-trigger {
+    display: flex;
+}
+
+.btn-qr-trigger:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    transform: scale(1.06);
+}
+
+/* Position adjustment for the right-most container to leave room for fixed top buttons */
+.app-instance-container:last-child .btn-qr-trigger {
+    right: 220px;
+}
+
+.app-instance-container:not(:last-child) .btn-qr-trigger {
+    right: 15px;
+}
+
+/* --- EXPANDED QR CODE MODAL OVERLAY --- */
+.qr-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(2px);
+    z-index: 200000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.qr-modal-card {
+    background: #ffffff;
+    padding: 24px 28px 20px 28px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+    cursor: pointer;
+    user-select: none;
+    animation: qrPopIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes qrPopIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.qr-code-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.qr-url-caption {
+    font-size: 19px;
+    font-weight: bold;
+    color: #008ee2;
+    letter-spacing: 0.5px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+    padding-top: 12px;
 }
 
 #theme-toggle-btn {
@@ -372,5 +472,11 @@ body.rearrange-active .assignment-status-lbl { display: none; }
         padding: 4px 8px !important;
         height: 32px !important;
         font-size: 12px !important;
+    }
+    .app-instance-container:last-child .btn-qr-trigger {
+        right: 195px !important;
+        top: 12px !important;
+        width: 32px !important;
+        height: 32px !important;
     }
 }

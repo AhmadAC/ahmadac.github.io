@@ -1,7 +1,7 @@
 // app.js
 
 import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings } from './config.js';
-import { initDevTools, applyFeatureToggles } from './utils.js';
+import { initDevTools, applyFeatureToggles, generateQRCodeSVG } from './utils.js';
 import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js';
 import { QuizInstance } from './QuizInstance.js';
 
@@ -39,8 +39,22 @@ async function initApp() {
         });
     }
 
+    // QR Code Modal setup (dismisses when clicking anywhere on the overlay, card, or QR code)
+    const qrModalOverlay = document.getElementById("qr-modal-overlay");
+    if (qrModalOverlay) {
+        qrModalOverlay.addEventListener("click", () => {
+            window.closeQRCodeModal();
+        });
+    }
+
     // Capture global PySide6 Keyboard shortcuts directly inside the application bounds
     document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape") {
+            window.closeQRCodeModal();
+            window.closeModals();
+            return;
+        }
+
         if (!window.isOfflineMode) return;
 
         if (e.ctrlKey) {
@@ -71,6 +85,8 @@ async function initApp() {
             const data = await res.json();
             window.isOfflineMode = true; 
             window.appConfig = data;
+            document.body.classList.add('offline-mode');
+
             if (data.settings) updateAppSettings(data.settings);
             if (data.canvas) setCanvasData(data.canvas);
             if (data.ignore) setIgnoreData(data.ignore);
@@ -98,6 +114,7 @@ async function initApp() {
         }
     } catch (err) {
         window.isOfflineMode = false;
+        document.body.classList.remove('offline-mode');
     }
 
     // Load remaining datasets in parallel
@@ -139,6 +156,22 @@ function setViewMode(numScreens) {
         quizInstances.push(new QuizInstance(rootElement));
     }
 }
+
+// --- GLOBAL QR CODE MODAL HOOKS ---
+
+window.openQRCodeModal = function() {
+    const overlay = document.getElementById('qr-modal-overlay');
+    const display = document.getElementById('qr-code-display');
+    if (!overlay || !display) return;
+
+    display.innerHTML = generateQRCodeSVG("https://ahmadac.github.io", 260);
+    overlay.classList.remove('hidden');
+};
+
+window.closeQRCodeModal = function() {
+    const overlay = document.getElementById('qr-modal-overlay');
+    if (overlay) overlay.classList.add('hidden');
+};
 
 // --- GLOBAL MODAL AND SHORTCUT HOOKS ---
 

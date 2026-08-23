@@ -1,4 +1,3 @@
-#################### START OF FILE: server.py ####################
 # server.py
 
 import os
@@ -287,8 +286,8 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
 
 def launch_browser_app(url, profile_dir):
-    """Finds Edge or Chrome and launches with a persistent warm cache and maximized viewport."""
-    executable = None
+    """Finds Edge or Chrome on Windows/Linux/macOS (including Flatpaks) and launches with a persistent warm cache."""
+    cmd_prefix = []
     
     if platform.system() == "Windows":
         paths = [
@@ -299,26 +298,87 @@ def launch_browser_app(url, profile_dir):
         ]
         for p in paths:
             if os.path.exists(p):
-                executable = p
+                cmd_prefix = [p]
                 break
-        if not executable:
+        if not cmd_prefix:
             for b in ["chrome.exe", "msedge.exe"]:
                 path = shutil.which(b)
                 if path:
-                    executable = path
+                    cmd_prefix = [path]
                     break
-    else:
-        browsers = ["google-chrome-stable", "google-chrome", "microsoft-edge-stable", "microsoft-edge", "chromium-browser", "chromium"]
-        for b in browsers:
-            path = shutil.which(b)
-            if path:
-                executable = path
+
+    elif platform.system() == "Darwin":
+        mac_paths = [
+            "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+            "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "/Applications/Chromium.app/Contents/MacOS/Chromium",
+            "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
+        ]
+        for p in mac_paths:
+            if os.path.exists(p):
+                cmd_prefix = [p]
                 break
+
+    else:
+        # Linux Binary Search (Edge, Chrome, Chromium, Brave, Vivaldi)
+        linux_binaries = [
+            "microsoft-edge-stable", "microsoft-edge", "microsoft-edge-beta", "microsoft-edge-dev", "msedge",
+            "google-chrome-stable", "google-chrome", "google-chrome-beta", "google-chrome-unstable",
+            "chromium-browser", "chromium", "brave-browser", "brave", "vivaldi-stable", "vivaldi"
+        ]
+        
+        for b in linux_binaries:
+            found = shutil.which(b)
+            if found:
+                cmd_prefix = [found]
+                break
+
+        # Linux Direct Filesystem Paths (/opt, /usr, /snap, Flatpak exports)
+        if not cmd_prefix:
+            home_dir = os.path.expanduser("~")
+            direct_linux_paths = [
+                "/opt/microsoft/msedge/msedge",
+                "/opt/microsoft/msedge-beta/msedge",
+                "/opt/microsoft/msedge-dev/msedge",
+                "/opt/google/chrome/google-chrome",
+                "/opt/google/chrome/chrome",
+                "/usr/bin/microsoft-edge",
+                "/usr/bin/microsoft-edge-stable",
+                "/usr/bin/google-chrome",
+                "/usr/bin/google-chrome-stable",
+                "/usr/bin/chromium",
+                "/usr/bin/chromium-browser",
+                "/usr/local/bin/microsoft-edge",
+                "/usr/local/bin/google-chrome",
+                "/snap/bin/microsoft-edge",
+                "/snap/bin/chromium",
+                os.path.join(home_dir, ".local/share/flatpak/exports/bin/com.microsoft.Edge"),
+                "/var/lib/flatpak/exports/bin/com.microsoft.Edge",
+                os.path.join(home_dir, ".local/share/flatpak/exports/bin/com.google.Chrome"),
+                "/var/lib/flatpak/exports/bin/com.google.Chrome",
+                os.path.join(home_dir, ".local/share/flatpak/exports/bin/org.chromium.Chromium"),
+                "/var/lib/flatpak/exports/bin/org.chromium.Chromium"
+            ]
+            for p in direct_linux_paths:
+                if os.path.exists(p):
+                    cmd_prefix = [p]
+                    break
+
+        # Flatpak Command Fallback (e.g. SteamOS Flatpak runner)
+        if not cmd_prefix and shutil.which("flatpak"):
+            flatpak_app_ids = ["com.microsoft.Edge", "com.google.Chrome", "org.chromium.Chromium", "com.brave.Browser"]
+            try:
+                out = subprocess.check_output(["flatpak", "list", "--app"], universal_newlines=True, stderr=subprocess.DEVNULL)
+                for app_id in flatpak_app_ids:
+                    if app_id in out:
+                        cmd_prefix = ["flatpak", "run", app_id]
+                        break
+            except Exception:
+                pass
                 
-    if executable:
-        print(f"[DEBUG] Launching native browser engine in App Mode: {executable}")
-        return subprocess.Popen([
-            executable, 
+    if cmd_prefix:
+        print(f"[DEBUG] Launching native browser engine in App Mode: {' '.join(cmd_prefix)}")
+        launch_args = cmd_prefix + [
             f"--app={url}", 
             f"--user-data-dir={profile_dir}",
             "--start-maximized",
@@ -329,7 +389,8 @@ def launch_browser_app(url, profile_dir):
             "--disable-background-networking",
             "--disable-component-update",
             "--disable-features=EdgeFre,EdgeAccountConsistency,MSAWebSiteSSOUsingThisProfileAllowed,ImplicitSignin"
-        ])
+        ]
+        return subprocess.Popen(launch_args)
     else:
         print("[DEBUG] No Chromium browser found. Falling back to default system browser.")
         webbrowser.open(url)
@@ -481,4 +542,3 @@ def run_app():
 
 if __name__ == '__main__':
     run_app()
-#################### END OF FILE: server.py ####################

@@ -37,6 +37,7 @@ export class QuizInstance {
             classGrid: this.root.querySelector('.class-grid'),
             btnResources: this.root.querySelector('.btn-view-resources'),
             btnBackFromDoc: this.root.querySelector('.btn-back-from-document'),
+            btnQrTrigger: this.root.querySelector('.btn-qr-trigger'),
             assignmentsTitle: this.root.querySelector('.assignments-title'),
             currentWeekLbl: this.root.querySelector('.current-week-lbl'),
             assignmentList: this.root.querySelector('.assignment-list'),
@@ -66,6 +67,10 @@ export class QuizInstance {
     init() {
         this.initClassGrid();
         this.addEventListeners();
+
+        if (window.isOfflineMode && this.elements.btnQrTrigger) {
+            this.elements.btnQrTrigger.classList.remove('hidden');
+        }
     }
 
     switchView(viewClass) {
@@ -78,6 +83,13 @@ export class QuizInstance {
     }
 
     addEventListeners() {
+        // Main Screen QR Code Trigger Listener
+        this.elements.btnQrTrigger?.addEventListener('click', () => {
+            if (typeof window.openQRCodeModal === 'function') {
+                window.openQRCodeModal();
+            }
+        });
+
         // Navigation Listeners
         this.elements.btnResources?.addEventListener('click', () => this.loadResources());
         this.root.querySelector('.btn-view-results')?.addEventListener('click', () => this.showResultsPage());

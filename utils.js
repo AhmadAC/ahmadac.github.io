@@ -150,3 +150,194 @@ export function triggerConfetti() {
         }());
     }
 }
+
+// Generates an offline standalone SVG QR Code for URLs without any external dependencies
+export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220) {
+    const GF256_EXP = new Uint8Array(512);
+    const GF256_LOG = new Uint8Array(256);
+    let x = 1;
+    for (let i = 0; i < 255; i++) {
+        GF256_EXP[i] = x;
+        GF256_EXP[i + 255] = x;
+        GF256_LOG[x] = i;
+        x = (x << 1) ^ ((x & 0x80) ? 0x11d : 0);
+    }
+
+    const gfMul = (a, b) => (a === 0 || b === 0) ? 0 : GF256_EXP[GF256_LOG[a] + GF256_LOG[b]];
+
+    const rsGenPoly = (degree) => {
+        let poly = [1];
+        for (let i = 0; i < degree; i++) {
+            const next = [1, GF256_EXP[i]];
+            const newPoly = new Uint8Array(poly.length + 1);
+            for (let j = 0; j < poly.length; j++) {
+                newPoly[j] ^= gfMul(poly[j], next[0]);
+                newPoly[j + 1] ^= gfMul(poly[j], next[1]);
+            }
+            poly = Array.from(newPoly);
+        }
+        return poly;
+    };
+
+    const rsCalc = (data, eccLen) => {
+        const gen = rsGenPoly(eccLen);
+        const msg = new Uint8Array(data.length + eccLen);
+        msg.set(data);
+        for (let i = 0; i < data.length; i++) {
+            const coef = msg[i];
+            if (coef !== 0) {
+                for (let j = 0; j < gen.length; j++) {
+                    msg[i + j] ^= gfMul(gen[j], coef);
+                }
+            }
+        }
+        return Array.from(msg.slice(data.length));
+    };
+
+    // QR Version 2 (25x25), ECL M (28 data codewords, 16 EC codewords)
+    const textBytes = new TextEncoder().encode(text);
+    const bits = [];
+    const pushBits = (val, len) => {
+        for (let i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
+    };
+
+    pushBits(4, 4); // Byte mode indicator
+    pushBits(textBytes.length, 8); // Character count indicator
+    textBytes.forEach(b => pushBits(b, 8));
+
+    // Terminator
+    const remainingToCapacity = 28 * 8 - bits.length;
+    pushBits(0, Math.min(4, remainingToCapacity));
+    while (bits.length % 8 !== 0) bits.push(0);
+
+    const padBytes = [0xEC, 0x11];
+    let padIdx = 0;
+    while (bits.length < 28 * 8) {
+        pushBits(padBytes[padIdx % 2], 8);
+        padIdx++;
+    }
+
+    const dataCodewords = [];
+    for (let i = 0; i < bits.length; i += 8) {
+        let byte = 0;
+        for (let j = 0; j < 8; j++) byte = (byte << 1) | bits[i + j];
+        dataCodewords.push(byte);
+    }
+
+    const ecCodewords = rsCalc(dataCodewords, 16);
+    const allCodewords = [...dataCodewords, ...ecCodewords];
+
+    const N = 25;
+    const matrix = Array.from({ length: N }, () => Array(N).fill(null));
+    const reserved = Array.from({ length: N }, () => Array(N).fill(false));
+
+    const setFinder = (r0, c0) => {
+        for (let r = -1; r <= 7; r++) {
+            for (let c = -1; c <= 7; c++) {
+                const nr = r0 + r, nc = c0 + c;
+                if (nr >= 0 && nr < N && nc >= 0 && nc < N) {
+                    reserved[nr][nc] = true;
+                    if (r >= 0 && r <= 6 && c >= 0 && c <= 6) {
+                        const isBorder = r === 0 || r === 6 || c === 0 || c === 6;
+                        const isCenter = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+                        matrix[nr][nc] = isBorder || isCenter ? 1 : 0;
+                    } else {
+                        matrix[nr][nc] = 0;
+                    }
+                }
+            }
+        }
+    };
+
+    setFinder(0, 0);
+    setFinder(0, 18);
+    setFinder(18, 0);
+
+    // Alignment pattern at (18, 18)
+    for (let r = -2; r <= 2; r++) {
+        for (let c = -2; c <= 2; c++) {
+            const nr = 18 + r, nc = 18 + c;
+            reserved[nr][nc] = true;
+            matrix[nr][nc] = (Math.max(Math.abs(r), Math.abs(c)) !== 1) ? 1 : 0;
+        }
+    }
+
+    // Timing patterns
+    for (let i = 8; i <= 16; i++) {
+        if (!reserved[6][i]) { reserved[6][i] = true; matrix[6][i] = (i % 2 === 0) ? 1 : 0; }
+        if (!reserved[i][6]) { reserved[i][6] = true; matrix[i][6] = (i % 2 === 0) ? 1 : 0; }
+    }
+
+    // Dark module
+    reserved[17][8] = true;
+    matrix[17][8] = 1;
+
+    // Reserve Format info spots
+    for (let i = 0; i <= 8; i++) {
+        reserved[8][i] = true;
+        reserved[i][8] = true;
+    }
+    for (let i = 17; i < N; i++) {
+        reserved[8][i] = true;
+        reserved[i][8] = true;
+    }
+
+    // Place data bits
+    let bitIdx = 0;
+    const allBits = [];
+    allCodewords.forEach(b => {
+        for (let i = 7; i >= 0; i--) allBits.push((b >> i) & 1);
+    });
+
+    let upwards = true;
+    for (let c = N - 1; c > 0; c -= 2) {
+        if (c === 6) c--;
+        for (let step = 0; step < N; step++) {
+            const r = upwards ? (N - 1 - step) : step;
+            for (let dc = 0; dc < 2; dc++) {
+                const col = c - dc;
+                if (!reserved[r][col]) {
+                    let bit = bitIdx < allBits.length ? allBits[bitIdx++] : 0;
+                    // Apply Mask 0: (row + col) % 2 === 0
+                    if ((r + col) % 2 === 0) bit ^= 1;
+                    matrix[r][col] = bit;
+                }
+            }
+        }
+        upwards = !upwards;
+    }
+
+    // Format bits for ECL M (00), Mask 0 (000) -> 0x5412 / 101010000010010
+    const formatBits = [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0];
+    const fmtCoords1 = [
+        [8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,7],[8,8],[7,8],[5,8],[4,8],[3,8],[2,8],[1,8],[0,8]
+    ];
+    const fmtCoords2 = [
+        [24,8],[23,8],[22,8],[21,8],[20,8],[19,8],[18,8],[17,8],
+        [8,17],[8,18],[8,19],[8,20],[8,21],[8,22],[8,23],[8,24]
+    ];
+
+    formatBits.forEach((bit, i) => {
+        const [r1, c1] = fmtCoords1[i];
+        matrix[r1][c1] = bit;
+        const [r2, c2] = fmtCoords2[i];
+        matrix[r2][c2] = bit;
+    });
+
+    const margin = 2;
+    const totalDim = N + margin * 2;
+    let pathData = "";
+
+    for (let r = 0; r < N; r++) {
+        for (let c = 0; c < N; c++) {
+            if (matrix[r][c] === 1) {
+                pathData += `M${c + margin},${r + margin}h1v1h-1z `;
+            }
+        }
+    }
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${totalDim} ${totalDim}" width="${size}" height="${size}" shape-rendering="crispEdges">
+        <rect width="100%" height="100%" fill="#ffffff" rx="1"/>
+        <path d="${pathData}" fill="#000000"/>
+    </svg>`;
+}
