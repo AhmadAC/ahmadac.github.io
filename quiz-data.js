@@ -4,6 +4,7 @@ import { recursiveDecode } from './utils.js';
 
 export let canvasData = {}; 
 export let quizIndex = {};
+export let ignoreData = [];
 
 export async function loadCanvasData() {
     try {
@@ -16,6 +17,17 @@ export async function loadCanvasData() {
     } catch (e) {
         console.warn("[DEBUG] Using fallback empty canvas.json structure. Error:", e.message);
         canvasData = { "6": {}, "7": {}, "8": {} };
+    }
+}
+
+export async function loadIgnoreData() {
+    try {
+        const res = await fetch(`0_Quiz/ignore.json?t=${Date.now()}`);
+        if (res.ok) {
+            ignoreData = await res.json();
+        }
+    } catch (e) {
+        ignoreData = [];
     }
 }
 
@@ -37,7 +49,6 @@ export async function loadQuizIndex() {
 export async function checkQuizExists(quizName) {
     try {
         let urlPath;
-        // Query the dynamic index or fallback to the exact name (Fixes double encoding bug)
         if (quizIndex && quizIndex[quizName]) {
             urlPath = encodeURI(quizIndex[quizName]);
         } else {
@@ -45,7 +56,6 @@ export async function checkQuizExists(quizName) {
         }
         
         const cacheBuster = `?t=${Date.now()}`;
-        
         const res = await fetch(`0_Quiz/${urlPath}${cacheBuster}`);
         
         if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName} at 0_Quiz/${urlPath}`);

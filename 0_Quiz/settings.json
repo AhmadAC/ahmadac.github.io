@@ -2,5 +2,7 @@
     "anchor_date": "2026-08-17",
     "anchor_week": -2,
     "manual_week_override": null,
-    "manual_date_string": null
+    "manual_date_string": null,
+    "show_bonus": false,
+    "show_results": false
 }

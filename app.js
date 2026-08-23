@@ -1,8 +1,8 @@
 // app.js
 
-import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo } from './config.js';
+import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings } from './config.js';
 import { initDevTools, applyFeatureToggles } from './utils.js';
-import { loadCanvasData, loadQuizIndex } from './quiz-data.js';
+import { loadCanvasData, loadQuizIndex, loadIgnoreData } from './quiz-data.js';
 import { QuizInstance } from './QuizInstance.js';
 
 let viewMode = 1;
@@ -113,6 +113,8 @@ function initApp() {
             loadSettings().then(() => {
                 return loadQuizIndex(); // Inject dynamic paths BEFORE checking Canvas
             }).then(() => {
+                return loadIgnoreData();
+            }).then(() => {
                 return loadCanvasData();
             }).then(() => {
                 applyFeatureToggles();
@@ -164,7 +166,6 @@ window.toggleRearrangeMode = function() {
 window.openAutolinkDialog = function() {
     if (!window.appConfig) return alert("Autolink configuration requires the Desktop offline application.");
     
-    // Automatically load the default webhook URL from the submission script if it was originally empty
     const defaultWebhook = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2";
     const storedUrl = window.appConfig.autolink?.webhook_url;
     
@@ -226,6 +227,13 @@ function renderMappingList() {
     if (weekInput) {
         weekInput.value = weekInfo.weekNum;
     }
+
+    // Feature Toggles Checkboxes Setup
+    const showBonusCb = document.getElementById('toggle-show-bonus');
+    const showResultsCb = document.getElementById('toggle-show-results');
+
+    if (showBonusCb) showBonusCb.checked = !!appSettings.show_bonus;
+    if (showResultsCb) showResultsCb.checked = !!appSettings.show_results;
     
     window.appConfig.quizzes.forEach(quiz => {
         if (search && !quiz.name.toLowerCase().includes(search)) return;
@@ -245,7 +253,7 @@ function renderMappingList() {
         classesContainer.className = 'class-toggles';
         const allClasses = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
         
-        // Determine mapping assignment from memory
+        // Determine mapping assignment from canvas data
         let assigned = getQuizMapping(quiz.name, window.appConfig.canvas);
         
         allClasses.forEach(cls => {
@@ -267,16 +275,8 @@ function renderMappingList() {
         ignoreCb.checked = (window.appConfig.ignore || []).includes(quiz.name);
         
         ignoreCb.onchange = () => {
-            if (ignoreCb.checked) {
-                classesContainer.style.opacity = '0.5';
-                classesContainer.style.pointerEvents = 'none';
-            } else {
-                classesContainer.style.opacity = '1';
-                classesContainer.style.pointerEvents = 'auto';
-            }
             updateHideAllState();
         };
-        ignoreCb.onchange(); // trigger immediate evaluation
         ignoreContainer.appendChild(ignoreCb);
 
         const hideLabel = document.createElement('span');
@@ -377,16 +377,20 @@ window.saveMappingConfig = function() {
         const qname = row.dataset.quizName;
         if (row.isIgnored()) {
             newIgnore.push(qname);
-        } else {
-            const targets = row.getAssigned();
-            if (targets.length > 0) {
-                updates.push({ name: qname, targets: targets });
-            }
+        }
+        
+        // Always preserve the selected class mappings in canvas.json regardless of hide state
+        const targets = row.getAssigned();
+        if (targets.length > 0) {
+            updates.push({ name: qname, targets: targets });
         }
     });
     
-    // Save Teaching Week Configuration
+    // Save Settings (Teaching Week & Feature Toggles)
     const weekInput = document.getElementById('manual-week-input');
+    const showBonusCb = document.getElementById('toggle-show-bonus');
+    const showResultsCb = document.getElementById('toggle-show-results');
+
     if (!window.appConfig.settings) window.appConfig.settings = {};
 
     if (weekInput && weekInput.value.trim() !== "" && !isNaN(parseInt(weekInput.value.trim(), 10))) {
@@ -398,7 +402,11 @@ window.saveMappingConfig = function() {
         window.appConfig.settings.manual_week_override = null;
     }
 
+    if (showBonusCb) window.appConfig.settings.show_bonus = showBonusCb.checked;
+    if (showResultsCb) window.appConfig.settings.show_results = showResultsCb.checked;
+
     updateAppSettings(window.appConfig.settings);
+    applyFeatureToggles();
 
     window.appConfig.ignore = newIgnore;
     window.appConfig.canvas = rebuildCanvasJson(window.appConfig.canvas, updates);

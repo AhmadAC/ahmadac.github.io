@@ -197,7 +197,8 @@ body.dark-theme .modal-container { color: white; }
 .modal-header { padding: 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; background: var(--bg-main); }
 .modal-header h2 { margin: 0; font-size: 16px; color: var(--primary); }
 .modal-header input { padding: 8px; border-radius: 4px; border: 1px solid var(--primary); background: var(--card-bg); color: var(--text-dark); }
-.modal-body { padding: 20px; overflow-y: auto; flex: 1; background: var(--bg-main); color: white; }
+.modal-body { padding: 20px; overflow-y: auto; flex: 1; background: var(--bg-main); color: var(--text-dark); }
+body.dark-theme .modal-body { color: white; }
 .modal-footer { padding: 15px 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: 10px; background: var(--bg-main); }
 
 .week-config-bar {
@@ -207,13 +208,19 @@ body.dark-theme .modal-container { color: white; }
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 10px 15px;
+    padding: 12px 15px;
     margin-bottom: 15px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
+    color: var(--text-dark);
+}
+body.dark-theme .week-config-bar {
+    background: var(--card-even-bg);
+    color: white;
 }
 .week-config-info {
     font-size: 14px;
+    font-weight: bold;
     color: var(--text-dark);
 }
 body.dark-theme .week-config-info {
@@ -222,11 +229,22 @@ body.dark-theme .week-config-info {
 .week-config-controls {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: 13px;
+    color: var(--text-dark);
+}
+body.dark-theme .week-config-controls {
+    color: white;
+}
+.week-config-controls label {
+    color: var(--text-dark);
+    font-weight: bold;
+}
+body.dark-theme .week-config-controls label {
+    color: white;
 }
 .week-config-controls input[type="number"] {
-    width: 80px;
+    width: 70px;
     padding: 6px 10px;
     border-radius: 4px;
     border: 1px solid var(--border-color);
@@ -236,6 +254,29 @@ body.dark-theme .week-config-info {
     text-align: center;
 }
 body.dark-theme .week-config-controls input[type="number"] {
+    background: var(--bg-main);
+    color: white;
+}
+
+.feature-toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 10px;
+    padding-left: 15px;
+    border-left: 2px solid var(--border-color);
+}
+.feature-toggle-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-dark);
+}
+body.dark-theme .feature-toggle-group label {
     color: white;
 }
 

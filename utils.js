@@ -68,7 +68,6 @@ export function formatDisplayString(str) {
         
         return formatted;
     } catch (e) {
-        // Ultimate fallback to ensure a formatting error never crashes the web page UI
         console.error("formatDisplayString error:", e);
         return str; 
     }
@@ -76,20 +75,30 @@ export function formatDisplayString(str) {
 
 export function applyFeatureToggles() {
     // Ensures setting visibility applies to both current UI and future instances dynamically generated
-    if (appSettings.show_bonus) {
-        document.querySelectorAll('.btn-view-bonus').forEach(btn => btn.classList.remove('hidden'));
-        const template = document.getElementById("quiz-instance-template");
-        if (template) {
-            const templateBtn = template.content.querySelector('.btn-view-bonus');
-            if (templateBtn) templateBtn.classList.remove('hidden');
+    const showBonus = !!appSettings.show_bonus;
+    document.querySelectorAll('.btn-view-bonus').forEach(btn => {
+        if (showBonus) btn.classList.remove('hidden');
+        else btn.classList.add('hidden');
+    });
+    const template = document.getElementById("quiz-instance-template");
+    if (template) {
+        const templateBtn = template.content.querySelector('.btn-view-bonus');
+        if (templateBtn) {
+            if (showBonus) templateBtn.classList.remove('hidden');
+            else templateBtn.classList.add('hidden');
         }
     }
-    if (appSettings.show_results) {
-        document.querySelectorAll('.btn-view-results').forEach(btn => btn.classList.remove('hidden'));
-        const template = document.getElementById("quiz-instance-template");
-        if (template) {
-            const templateBtn = template.content.querySelector('.btn-view-results');
-            if (templateBtn) templateBtn.classList.remove('hidden');
+
+    const showResults = !!appSettings.show_results;
+    document.querySelectorAll('.btn-view-results').forEach(btn => {
+        if (showResults) btn.classList.remove('hidden');
+        else btn.classList.add('hidden');
+    });
+    if (template) {
+        const templateBtn = template.content.querySelector('.btn-view-results');
+        if (templateBtn) {
+            if (showResults) templateBtn.classList.remove('hidden');
+            else templateBtn.classList.add('hidden');
         }
     }
 }

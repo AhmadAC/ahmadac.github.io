@@ -304,11 +304,12 @@ def launch_browser_app(url, profile_dir):
                 
     if executable:
         print(f"[DEBUG] Launching native browser engine in App Mode: {executable}")
-        # Command line flags added to disable profile sync & automatic Windows account sign-in prompts
+        # Added --start-maximized to force full screen app launch
         return subprocess.Popen([
             executable, 
             f"--app={url}", 
             f"--user-data-dir={profile_dir}",
+            "--start-maximized",
             "--no-first-run", 
             "--no-default-browser-check",
             "--disable-sync",

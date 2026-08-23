@@ -1,7 +1,7 @@
 // view-mixin.js
 
 import { CLASSES, getCurrentTeachingWeekInfo } from './config.js';
-import { canvasData, checkQuizExists } from './quiz-data.js';
+import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js';
 import { recursiveDecode, formatDisplayString } from './utils.js';
 
 export const ViewMixin = {
@@ -235,7 +235,9 @@ export const ViewMixin = {
             }
         }
 
-        let validTitles = Object.keys(assignmentsDict);
+        // Filter out hidden/ignored quizzes without wiping their assignments in canvas.json
+        const ignoredList = (window.appConfig && window.appConfig.ignore) || ignoreData || [];
+        let validTitles = Object.keys(assignmentsDict).filter(t => !ignoredList.includes(t));
         
         validTitles.sort((a, b) => this.customWeekSort(a, b));
 
