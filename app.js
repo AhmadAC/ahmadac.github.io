@@ -250,8 +250,15 @@ function renderMappingList() {
         ptsEl.className = 'mapping-quiz-pts';
         ptsEl.innerText = `${quiz.points} pts`;
         
+        const classesCell = document.createElement('div');
+        classesCell.className = 'class-assignment-cell';
+
+        const quickContainer = document.createElement('div');
+        quickContainer.className = 'quick-toggles';
+
         const classesContainer = document.createElement('div');
         classesContainer.className = 'class-toggles';
+
         const allClasses = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
         
         // Determine mapping assignment from canvas data
@@ -261,9 +268,74 @@ function renderMappingList() {
             const btn = document.createElement('div');
             btn.className = `class-toggle ${assigned.includes(cls) ? 'active' : ''}`;
             btn.innerText = cls;
-            btn.onclick = () => btn.classList.toggle('active');
+            btn.dataset.cls = cls;
+            btn.dataset.grade = cls[1];
+            btn.onclick = () => {
+                btn.classList.toggle('active');
+                updateGroupToggles();
+            };
             classesContainer.appendChild(btn);
         });
+
+        // Quick Group Shortcut Buttons
+        const btnAll = document.createElement('div');
+        btnAll.className = 'quick-toggle';
+        btnAll.innerText = 'All';
+
+        const btnG6 = document.createElement('div');
+        btnG6.className = 'quick-toggle';
+        btnG6.innerText = 'G6';
+
+        const btnG7 = document.createElement('div');
+        btnG7.className = 'quick-toggle';
+        btnG7.innerText = 'G7';
+
+        const btnG8 = document.createElement('div');
+        btnG8.className = 'quick-toggle';
+        btnG8.innerText = 'G8';
+
+        function updateGroupToggles() {
+            const activeClasses = Array.from(classesContainer.querySelectorAll('.class-toggle.active')).map(b => b.dataset.cls);
+            const hasG6 = ["G6A", "G6B", "G6C"].every(c => activeClasses.includes(c));
+            const hasG7 = ["G7A", "G7B", "G7C"].every(c => activeClasses.includes(c));
+            const hasG8 = ["G8A", "G8B", "G8C"].every(c => activeClasses.includes(c));
+            const hasAll = allClasses.every(c => activeClasses.includes(c));
+
+            btnG6.classList.toggle('active', hasG6);
+            btnG7.classList.toggle('active', hasG7);
+            btnG8.classList.toggle('active', hasG8);
+            btnAll.classList.toggle('active', hasAll);
+        }
+
+        btnAll.onclick = () => {
+            const activeCount = classesContainer.querySelectorAll('.class-toggle.active').length;
+            const shouldSelect = activeCount < allClasses.length;
+            classesContainer.querySelectorAll('.class-toggle').forEach(b => b.classList.toggle('active', shouldSelect));
+            updateGroupToggles();
+        };
+
+        const setupGradeToggle = (btn, grade) => {
+            btn.onclick = () => {
+                const gradeBtns = classesContainer.querySelectorAll(`.class-toggle[data-grade="${grade}"]`);
+                const allActive = Array.from(gradeBtns).every(b => b.classList.contains('active'));
+                gradeBtns.forEach(b => b.classList.toggle('active', !allActive));
+                updateGroupToggles();
+            };
+        };
+
+        setupGradeToggle(btnG6, '6');
+        setupGradeToggle(btnG7, '7');
+        setupGradeToggle(btnG8, '8');
+
+        updateGroupToggles();
+
+        quickContainer.appendChild(btnAll);
+        quickContainer.appendChild(btnG6);
+        quickContainer.appendChild(btnG7);
+        quickContainer.appendChild(btnG8);
+
+        classesCell.appendChild(quickContainer);
+        classesCell.appendChild(classesContainer);
         
         const ignoreContainer = document.createElement('div');
         ignoreContainer.style.display = 'flex';
@@ -300,12 +372,12 @@ function renderMappingList() {
         
         row.appendChild(nameEl);
         row.appendChild(ptsEl);
-        row.appendChild(classesContainer);
+        row.appendChild(classesCell);
         row.appendChild(ignoreContainer);
         row.appendChild(actionContainer);
         
         row.dataset.quizName = quiz.name;
-        row.getAssigned = () => Array.from(classesContainer.querySelectorAll('.active')).map(b => b.innerText);
+        row.getAssigned = () => Array.from(classesContainer.querySelectorAll('.class-toggle.active')).map(b => b.dataset.cls || b.innerText);
         row.isIgnored = () => ignoreCb.checked;
         
         list.appendChild(row);
