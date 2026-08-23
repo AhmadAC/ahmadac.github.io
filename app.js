@@ -241,9 +241,15 @@ function renderMappingList() {
         });
         
         const ignoreContainer = document.createElement('div');
+        ignoreContainer.style.display = 'flex';
+        ignoreContainer.style.alignItems = 'center';
+        ignoreContainer.style.gap = '5px';
+
         const ignoreCb = document.createElement('input');
         ignoreCb.type = 'checkbox';
+        ignoreCb.className = 'hide-checkbox';
         ignoreCb.checked = (window.appConfig.ignore || []).includes(quiz.name);
+        
         ignoreCb.onchange = () => {
             if (ignoreCb.checked) {
                 classesContainer.style.opacity = '0.5';
@@ -252,9 +258,15 @@ function renderMappingList() {
                 classesContainer.style.opacity = '1';
                 classesContainer.style.pointerEvents = 'auto';
             }
+            updateHideAllState();
         };
         ignoreCb.onchange(); // trigger immediate evaluation
         ignoreContainer.appendChild(ignoreCb);
+
+        const hideLabel = document.createElement('span');
+        hideLabel.innerText = 'Hide';
+        hideLabel.style.fontSize = '12px';
+        ignoreContainer.appendChild(hideLabel);
         
         const actionContainer = document.createElement('div');
         const delBtn = document.createElement('button');
@@ -280,9 +292,45 @@ function renderMappingList() {
         
         list.appendChild(row);
     });
+
+    updateHideAllState();
+}
+
+function updateHideAllState() {
+    const hideAllCb = document.getElementById('toggle-hide-all');
+    if (!hideAllCb) return;
+    const allCbs = document.querySelectorAll('#mapping-list .hide-checkbox');
+    if (allCbs.length === 0) {
+        hideAllCb.checked = false;
+        hideAllCb.indeterminate = false;
+        return;
+    }
+    let checkedCount = 0;
+    allCbs.forEach(cb => { if (cb.checked) checkedCount++; });
+    if (checkedCount === 0) {
+        hideAllCb.checked = false;
+        hideAllCb.indeterminate = false;
+    } else if (checkedCount === allCbs.length) {
+        hideAllCb.checked = true;
+        hideAllCb.indeterminate = false;
+    } else {
+        hideAllCb.checked = false;
+        hideAllCb.indeterminate = true;
+    }
 }
 
 document.getElementById('mapping-search')?.addEventListener('input', renderMappingList);
+
+document.getElementById('toggle-hide-all')?.addEventListener('change', (e) => {
+    const checked = e.target.checked;
+    const allCbs = document.querySelectorAll('#mapping-list .hide-checkbox');
+    allCbs.forEach(cb => {
+        if (cb.checked !== checked) {
+            cb.checked = checked;
+            cb.dispatchEvent(new Event('change'));
+        }
+    });
+});
 
 window.saveMappingConfig = function() {
     const rows = document.getElementById('mapping-list').querySelectorAll('.mapping-row');

@@ -128,6 +128,14 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             ignore_data = safe_read('ignore.json', [])
             autolink_data = safe_read('autolink.json', {"enabled": False, "webhook_url": ""})
             order_data = safe_read('order.json', {})
+            settings_data = safe_read('settings.json', {
+                "anchor_date": "2026-06-15",
+                "anchor_week": 37,
+                "manual_week_override": None,
+                "manual_date_string": None,
+                "show_bonus": True,
+                "show_results": False
+            })
             
             all_quizzes = []
             if os.path.exists(DATA_DIR):
@@ -151,6 +159,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 "ignore": ignore_data,
                 "autolink": autolink_data,
                 "order": order_data,
+                "settings": settings_data,
                 "quizzes": all_quizzes,
                 "folder": DATA_DIR
             }
@@ -190,6 +199,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             if 'ignore' in payload: safe_write('ignore.json', payload['ignore'])
             if 'autolink' in payload: safe_write('autolink.json', payload['autolink'])
             if 'order' in payload: safe_write('order.json', payload['order'])
+            if 'settings' in payload: safe_write('settings.json', payload['settings'])
             if 'folder' in payload:
                 with open(os.path.join(BASE_DIR, "folder_config.txt"), 'w', encoding='utf-8') as f:
                     f.write(payload['folder'])

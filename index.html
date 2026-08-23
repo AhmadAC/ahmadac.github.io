@@ -174,15 +174,26 @@
         <!-- 1. Mapping Manager Dialog (Ctrl+0 / Ctrl+M) -->
         <div id="mapping-modal" class="modal-container hidden">
             <div class="modal-header">
-                <h2>Manage Canvas & Ignore Mappings (Ctrl+0)</h2>
+                <h2>Manage Canvas & Settings (Ctrl+0)</h2>
                 <input type="text" id="mapping-search" placeholder="Search assignments...">
             </div>
             <div class="modal-body">
+                <div class="week-config-bar">
+                    <div class="week-config-info">
+                        <span>Current Teaching Week: <strong id="current-week-display">Loading...</strong></span>
+                    </div>
+                    <div class="week-config-controls">
+                        <label for="manual-week-input">Set Week Number:</label>
+                        <input type="number" id="manual-week-input" min="1" max="100" placeholder="Auto">
+                        <button type="button" class="btn-secondary" id="btn-set-w1">Set to W1</button>
+                        <button type="button" class="btn-secondary" id="btn-reset-week-auto">Auto Calculate</button>
+                    </div>
+                </div>
                 <div class="mapping-grid-header">
                     <span>Quiz Name</span>
                     <span>Points</span>
                     <span>Assign To (Select Classes)</span>
-                    <span>Ignored?</span>
+                    <span class="hide-col-header"><input type="checkbox" id="toggle-hide-all" title="Toggle Hide All"> Hide</span>
                     <span>Actions</span>
                 </div>
                 <div id="mapping-list" class="mapping-list"></div>

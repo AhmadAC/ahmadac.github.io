@@ -11,13 +11,19 @@ export let appSettings = {
     show_results: false         // Toggle Results display directly via JSON
 };
 
+export function updateAppSettings(newSettings) {
+    if (newSettings && typeof newSettings === 'object') {
+        appSettings = { ...appSettings, ...newSettings };
+    }
+}
+
 export async function loadSettings() {
     try {
         console.log("[DEBUG] Fetching settings.json...");
         const res = await fetch('0_Quiz/settings.json');
         if (res.ok) {
             const customSettings = await res.json();
-            appSettings = { ...appSettings, ...customSettings };
+            updateAppSettings(customSettings);
             console.log("[DEBUG] Loaded custom settings:", appSettings);
         }
     } catch (e) {
