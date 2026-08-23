@@ -6,21 +6,32 @@ export let canvasData = {};
 export let quizIndex = {};
 export let ignoreData = [];
 
+export function setCanvasData(data) {
+    if (data) canvasData = recursiveDecode(data);
+}
+
+export function setIgnoreData(data) {
+    if (Array.isArray(data)) ignoreData = data;
+}
+
 export async function loadCanvasData() {
+    // If canvasData was already set via unified offline API, skip redundant network fetch
+    if (Object.keys(canvasData).length > 0 && canvasData["6"] && Object.keys(canvasData["6"]).length > 0) {
+        return;
+    }
     try {
         console.log("[DEBUG] Fetching canvas.json...");
         const response = await fetch('0_Quiz/canvas.json');
         if (!response.ok) throw new Error(`Could not find canvas.json (Status: ${response.status})`);
         const rawCanvas = await response.json();
         canvasData = recursiveDecode(rawCanvas);
-        console.log("[DEBUG] Successfully loaded canvas.json:", canvasData);
     } catch (e) {
-        console.warn("[DEBUG] Using fallback empty canvas.json structure. Error:", e.message);
         canvasData = { "6": {}, "7": {}, "8": {} };
     }
 }
 
 export async function loadIgnoreData() {
+    if (ignoreData.length > 0) return;
     try {
         const res = await fetch(`0_Quiz/ignore.json?t=${Date.now()}`);
         if (res.ok) {
@@ -37,9 +48,6 @@ export async function loadQuizIndex() {
         const res = await fetch(`0_Quiz/quiz_index.json?t=${Date.now()}`);
         if (res.ok) {
             quizIndex = await res.json();
-            console.log("[DEBUG] Loaded quiz index dynamically:", Object.keys(quizIndex).length, "items.");
-        } else {
-            console.warn(`[DEBUG] Failed to load quiz_index.json: ${res.status}`);
         }
     } catch (e) {
         console.log("[DEBUG] No quiz_index.json found or failed to load. Defaulting to flat structure.");
@@ -57,11 +65,8 @@ export async function checkQuizExists(quizName) {
         
         const cacheBuster = `?t=${Date.now()}`;
         const res = await fetch(`0_Quiz/${urlPath}${cacheBuster}`);
-        
-        if (!res.ok) console.warn(`[DEBUG] checkQuizExists failed for ${quizName} at 0_Quiz/${urlPath}`);
         return res.ok;
     } catch {
-        console.warn(`[DEBUG] checkQuizExists network error for ${quizName}`);
         return false;
     }
 }
@@ -153,11 +158,9 @@ export function normalizeQuizData(raw) {
         }
     });
     
-    const filtered = items.filter(d => 
+    return items.filter(d => 
         d['question text'] || d['question_text'] || 
         d['Question Text'] || d['Question_Text'] ||
         d.question || d.Question
     );
-    console.log(`[DEBUG] Normalized quiz data from ${raw ? 'object/array' : 'null'} into ${filtered.length} usable questions.`);
-    return filtered;
 }

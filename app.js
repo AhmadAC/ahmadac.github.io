@@ -2,7 +2,7 @@
 
 import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings } from './config.js';
 import { initDevTools, applyFeatureToggles } from './utils.js';
-import { loadCanvasData, loadQuizIndex, loadIgnoreData } from './quiz-data.js';
+import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js';
 import { QuizInstance } from './QuizInstance.js';
 
 let viewMode = 1;
@@ -10,8 +10,8 @@ export let quizInstances = [];
 window.isOfflineMode = false;
 window.appConfig = null;
 
-// The main initialization function
-function initApp() {
+// The main fast initialization function
+async function initApp() {
     initDevTools();
     console.log("[DEBUG] Initializing App");
     const viewModeBtn = document.getElementById("view-mode-btn");
@@ -41,7 +41,6 @@ function initApp() {
 
     // Capture global PySide6 Keyboard shortcuts directly inside the application bounds
     document.addEventListener('keydown', (e) => {
-        // STRICT GUARD: Only allow shortcuts if we are running from the offline Python server
         if (!window.isOfflineMode) return;
 
         if (e.ctrlKey) {
@@ -65,66 +64,55 @@ function initApp() {
         }
     });
 
-    // Detect if we are serving from the offline desktop server by hitting config unified endpoint
-    fetch('/api/config')
-        .then(res => {
-            if(res.ok) return res.json();
-            throw new Error("Not offline server.");
-        })
-        .then(data => {
-            if (data.is_offline_mode) {
-                console.log("[DEBUG] Running in Offline Desktop Mode via Unified API!");
-                window.isOfflineMode = true; 
-                window.appConfig = data;
-                if (data.settings) {
-                    updateAppSettings(data.settings);
+    // Detect offline desktop server and parallelize loader execution
+    try {
+        const res = await fetch('/api/config');
+        if (res.ok) {
+            const data = await res.json();
+            window.isOfflineMode = true; 
+            window.appConfig = data;
+            if (data.settings) updateAppSettings(data.settings);
+            if (data.canvas) setCanvasData(data.canvas);
+            if (data.ignore) setIgnoreData(data.ignore);
+            
+            // Check for new unmapped files
+            const existingNames = new Set();
+            const grades = ["6", "7", "8"];
+            grades.forEach(g => {
+                if (data.canvas && data.canvas[g]) {
+                    Object.values(data.canvas[g]).forEach(val => {
+                        if (typeof val === 'object') Object.keys(val).forEach(q => existingNames.add(q));
+                        else existingNames.add(val);
+                    });
+                    Object.keys(data.canvas[g]).forEach(k => {
+                        if(typeof data.canvas[g][k] !== 'object') existingNames.add(k);
+                    });
                 }
-                
-                // Show modal automatically if new unmapped files exist
-                const existingNames = new Set();
-                const grades = ["6", "7", "8"];
-                grades.forEach(g => {
-                    if (data.canvas[g]) {
-                        Object.values(data.canvas[g]).forEach(val => {
-                            if (typeof val === 'object') Object.keys(val).forEach(q => existingNames.add(q));
-                            else existingNames.add(val);
-                        });
-                        Object.keys(data.canvas[g]).forEach(k => {
-                            if(typeof data.canvas[g][k] !== 'object') existingNames.add(k);
-                        });
-                    }
-                });
-
-                const ignored = data.ignore || [];
-                const unmapped = data.quizzes.filter(q => !existingNames.has(q.name) && !ignored.includes(q.name));
-                
-                if (unmapped.length > 0) {
-                    // Force the mapper window open on launch if there are new unhandled quizzes
-                    window.openMappingManager();
-                }
-            }
-        })
-        .catch(err => {
-            console.log("[DEBUG] Running on standard GitHub Pages web mode.");
-            window.isOfflineMode = false;
-        })
-        .finally(() => {
-            // Sequence critical loaders
-            loadSettings().then(() => {
-                return loadQuizIndex(); // Inject dynamic paths BEFORE checking Canvas
-            }).then(() => {
-                return loadIgnoreData();
-            }).then(() => {
-                return loadCanvasData();
-            }).then(() => {
-                applyFeatureToggles();
-                console.log("[DEBUG] Data loaded. Setting initial view mode to 1.");
-                setViewMode(1);
             });
-        });
+
+            const ignored = data.ignore || [];
+            const unmapped = (data.quizzes || []).filter(q => !existingNames.has(q.name) && !ignored.includes(q.name));
+            if (unmapped.length > 0) {
+                window.openMappingManager();
+            }
+        }
+    } catch (err) {
+        window.isOfflineMode = false;
+    }
+
+    // Load remaining datasets in parallel
+    await Promise.all([
+        loadSettings(),
+        loadQuizIndex(),
+        loadIgnoreData(),
+        loadCanvasData()
+    ]);
+
+    applyFeatureToggles();
+    setViewMode(1);
 }
 
-// Safely handle the ES Module loading race condition
+// Safely handle DOM loading state
 if (document.readyState === 'loading') {
     document.addEventListener("DOMContentLoaded", initApp);
 } else {
@@ -235,7 +223,7 @@ function renderMappingList() {
     if (showBonusCb) showBonusCb.checked = !!appSettings.show_bonus;
     if (showResultsCb) showResultsCb.checked = !!appSettings.show_results;
     
-    window.appConfig.quizzes.forEach(quiz => {
+    (window.appConfig.quizzes || []).forEach(quiz => {
         if (search && !quiz.name.toLowerCase().includes(search)) return;
         if (quizzesToDelete.includes(quiz.name)) return;
 
@@ -453,7 +441,6 @@ window.saveMappingConfig = function() {
             newIgnore.push(qname);
         }
         
-        // Always preserve the selected class mappings in canvas.json regardless of hide state
         const targets = row.getAssigned();
         if (targets.length > 0) {
             updates.push({ name: qname, targets: targets });

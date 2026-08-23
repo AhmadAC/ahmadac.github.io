@@ -20,9 +20,7 @@ from datetime import datetime
 
 # --- Linux / Fedora / Wayland Compatibility ---
 if platform.system() == "Linux":
-    # Force Firefox to run natively under Wayland if launched via webbrowser fallback
     os.environ["MOZ_ENABLE_WAYLAND"] = "1"
-    # Ensure the PySide6 Quiz Organizer Dialog (if triggered) runs safely under XWayland
     os.environ["QT_QPA_PLATFORM"] = "xcb"
 
 # 1. FORCE EXPLICIT WINDOWS MIME-TYPE OVERRIDES
@@ -72,23 +70,54 @@ def get_data_dir():
 DATA_DIR = get_data_dir()
 CONFIG_FILES = {'canvas.json', 'settings.json', 'ignore.json', 'autolink.json', 'order.json', 'QuizResults.json', 'missing.json', 'quiz_index.json'}
 
+# In-memory points and index cache for instant API responses
+_QUIZ_CACHE = {}
+
+def get_quiz_points(file_path):
+    pts = 0
+    try:
+        with open(file_path, 'r', encoding='utf-8-sig') as qf:
+            qd = json.load(qf)
+            items = qd if isinstance(qd, list) else qd.get("data", []) if isinstance(qd, dict) else []
+            for item in items:
+                if isinstance(item, dict):
+                    pts += int(float(item.get('points', item.get('points_possible', 0))))
+    except: pass
+    return pts
+
 def update_quiz_index():
+    global _QUIZ_CACHE
     index_data = {}
     if not os.path.exists(DATA_DIR):
-        return index_data
+        return index_data, []
 
+    all_quizzes = []
     for root, dirs, files in os.walk(DATA_DIR):
         if "media" in root or "bonus" in root: continue
         for f in files:
             if f.endswith('.json') and f not in CONFIG_FILES:
                 quiz_name = f[:-5]
-                rel_path = os.path.relpath(os.path.join(root, f), DATA_DIR)
-                index_data[quiz_name] = rel_path.replace('\\', '/')
+                full_path = os.path.join(root, f)
+                rel_path = os.path.relpath(full_path, DATA_DIR).replace('\\', '/')
+                index_data[quiz_name] = rel_path
+                
+                # Fast caching using file modification timestamp
+                mtime = os.path.getmtime(full_path)
+                cached = _QUIZ_CACHE.get(full_path)
+                if cached and cached.get("mtime") == mtime:
+                    pts = cached.get("points", 0)
+                else:
+                    pts = get_quiz_points(full_path)
+                    _QUIZ_CACHE[full_path] = {"mtime": mtime, "points": pts}
+                    
+                all_quizzes.append({"name": quiz_name, "points": pts})
     
-    with open(os.path.join(DATA_DIR, 'quiz_index.json'), 'w', encoding='utf-8') as out_f:
-        json.dump(index_data, out_f, indent=4)
+    try:
+        with open(os.path.join(DATA_DIR, 'quiz_index.json'), 'w', encoding='utf-8') as out_f:
+            json.dump(index_data, out_f, indent=4)
+    except: pass
         
-    return index_data
+    return index_data, all_quizzes
 
 class QuizAPIHandler(SimpleHTTPRequestHandler):
     def log_message(self, format, *args):
@@ -110,7 +139,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             clean_path = clean_path.split('?')[0]
 
         if clean_path == '/api/config':
-            quiz_index = update_quiz_index()
+            _, all_quizzes = update_quiz_index()
             
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -136,22 +165,6 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 "show_bonus": True,
                 "show_results": False
             })
-            
-            all_quizzes = []
-            if os.path.exists(DATA_DIR):
-                for quiz_name, rel_path in quiz_index.items():
-                    pts = 0
-                    try:
-                        with open(os.path.join(DATA_DIR, rel_path), 'r', encoding='utf-8-sig') as qf:
-                            qd = json.load(qf)
-                            if isinstance(qd, list):
-                                for item in qd:
-                                    if isinstance(item, dict): pts += int(float(item.get('points', item.get('points_possible', 0))))
-                            elif isinstance(qd, dict) and "data" in qd:
-                                for item in qd["data"]:
-                                    if isinstance(item, dict): pts += int(float(item.get('points', item.get('points_possible', 0))))
-                    except: pass
-                    all_quizzes.append({"name": quiz_name, "points": pts})
                         
             response = {
                 "is_offline_mode": True,
@@ -274,7 +287,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
 
 def launch_browser_app(url, profile_dir):
-    """Finds Edge or Chrome and launches it as a standalone app without account sync prompts."""
+    """Finds Edge or Chrome and launches with a persistent warm cache and maximized viewport."""
     executable = None
     
     if platform.system() == "Windows":
@@ -304,7 +317,6 @@ def launch_browser_app(url, profile_dir):
                 
     if executable:
         print(f"[DEBUG] Launching native browser engine in App Mode: {executable}")
-        # Added --start-maximized to force full screen app launch
         return subprocess.Popen([
             executable, 
             f"--app={url}", 
@@ -313,6 +325,9 @@ def launch_browser_app(url, profile_dir):
             "--no-first-run", 
             "--no-default-browser-check",
             "--disable-sync",
+            "--disable-extensions",
+            "--disable-background-networking",
+            "--disable-component-update",
             "--disable-features=EdgeFre,EdgeAccountConsistency,MSAWebSiteSSOUsingThisProfileAllowed,ImplicitSignin"
         ])
     else:
@@ -338,14 +353,13 @@ def run_app():
     print(f"Background Port: {assigned_port}")
     print(f"==================================================")
 
-    # 1. OPTIONAL: Run PySide6 Organizer Dialog if needed
+    # Optional PySide6 Organizer Dialog
     try:
-        from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QComboBox, QPushButton, QInputDialog
-        from PySide6.QtCore import Qt
-        
         unorganized_files = [f for f in os.listdir(DATA_DIR) if f.endswith('.json') and f not in CONFIG_FILES and os.path.isfile(os.path.join(DATA_DIR, f))]
-        
         if unorganized_files:
+            from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QComboBox, QPushButton, QInputDialog
+            from PySide6.QtCore import Qt
+            
             app = QApplication.instance() or QApplication(sys.argv)
             
             class QuizOrganizerDialog(QDialog):
@@ -433,31 +447,25 @@ def run_app():
 
             dialog = QuizOrganizerDialog(unorganized_files, DATA_DIR)
             dialog.exec()
-            # Note: We purposely do NOT call app.exec() because we want to exit the Qt event loop here.
-    except ImportError:
-        pass # PySide6 is not strictly required anymore!
+    except:
+        pass
 
-    # Ensure index is updated before launching UI
+    # Pre-index files before browser launches
     update_quiz_index()
 
-    # 2. Launch native Chromium Window inside an isolated temporary directory
+    # Use a persistent warm profile directory in the system temp folder for instant startup
     local_url = f"http://127.0.0.1:{assigned_port}/index.html"
-    tmp_profile = tempfile.mkdtemp()
+    warm_profile = os.path.join(tempfile.gettempdir(), "MrCooperAppEdgeProfile")
+    os.makedirs(warm_profile, exist_ok=True)
     
-    proc = launch_browser_app(local_url, tmp_profile)
+    proc = launch_browser_app(local_url, warm_profile)
 
     if proc:
         print("\n[INFO] App Window is open. Use Ctrl+ and Ctrl- to zoom.")
         print("[INFO] Close the application window to automatically stop the server.")
         try:
-            proc.wait() # Block the python script until the user closes the Chromium Window
+            proc.wait()
         except KeyboardInterrupt:
-            pass
-            
-        # Clean up the temporary profile folder
-        try:
-            shutil.rmtree(tmp_profile, ignore_errors=True)
-        except:
             pass
     else:
         print(f"\n[INFO] Running... Open {local_url} manually if your browser did not open.")
