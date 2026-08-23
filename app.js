@@ -1,6 +1,6 @@
 // app.js
 
-import { loadSettings } from './config.js';
+import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo } from './config.js';
 import { initDevTools, applyFeatureToggles } from './utils.js';
 import { loadCanvasData, loadQuizIndex } from './quiz-data.js';
 import { QuizInstance } from './QuizInstance.js';
@@ -76,6 +76,9 @@ function initApp() {
                 console.log("[DEBUG] Running in Offline Desktop Mode via Unified API!");
                 window.isOfflineMode = true; 
                 window.appConfig = data;
+                if (data.settings) {
+                    updateAppSettings(data.settings);
+                }
                 
                 // Show modal automatically if new unmapped files exist
                 const existingNames = new Set();
@@ -210,6 +213,19 @@ function renderMappingList() {
     const list = document.getElementById('mapping-list');
     list.innerHTML = '';
     const search = (document.getElementById('mapping-search').value || "").toLowerCase();
+
+    // Teaching Week Control Bar setup
+    const weekDisplay = document.getElementById('current-week-display');
+    const weekInput = document.getElementById('manual-week-input');
+    const weekInfo = getCurrentTeachingWeekInfo();
+
+    if (weekDisplay) {
+        weekDisplay.innerText = `W${weekInfo.weekNum} (${weekInfo.dateString})`;
+    }
+
+    if (weekInput) {
+        weekInput.value = weekInfo.weekNum;
+    }
     
     window.appConfig.quizzes.forEach(quiz => {
         if (search && !quiz.name.toLowerCase().includes(search)) return;
@@ -319,6 +335,26 @@ function updateHideAllState() {
     }
 }
 
+document.getElementById('manual-week-input')?.addEventListener('input', (e) => {
+    const val = e.target.value.trim();
+    const weekDisplay = document.getElementById('current-week-display');
+    if (!weekDisplay) return;
+
+    if (val !== "" && !isNaN(parseInt(val, 10))) {
+        const targetWeekNum = parseInt(val, 10);
+        const tempMonday = getCurrentMondayDateStr();
+        const tempInfo = getCurrentTeachingWeekInfo({
+            anchor_date: tempMonday,
+            anchor_week: targetWeekNum,
+            manual_week_override: null
+        });
+        weekDisplay.innerText = `W${tempInfo.weekNum} (${tempInfo.dateString})`;
+    } else {
+        const weekInfo = getCurrentTeachingWeekInfo();
+        weekDisplay.innerText = `W${weekInfo.weekNum} (${weekInfo.dateString})`;
+    }
+});
+
 document.getElementById('mapping-search')?.addEventListener('input', renderMappingList);
 
 document.getElementById('toggle-hide-all')?.addEventListener('change', (e) => {
@@ -349,12 +385,28 @@ window.saveMappingConfig = function() {
         }
     });
     
+    // Save Teaching Week Configuration
+    const weekInput = document.getElementById('manual-week-input');
+    if (!window.appConfig.settings) window.appConfig.settings = {};
+
+    if (weekInput && weekInput.value.trim() !== "" && !isNaN(parseInt(weekInput.value.trim(), 10))) {
+        const newWeekNum = parseInt(weekInput.value.trim(), 10);
+        const currentMonday = getCurrentMondayDateStr();
+        
+        window.appConfig.settings.anchor_date = currentMonday;
+        window.appConfig.settings.anchor_week = newWeekNum;
+        window.appConfig.settings.manual_week_override = null;
+    }
+
+    updateAppSettings(window.appConfig.settings);
+
     window.appConfig.ignore = newIgnore;
     window.appConfig.canvas = rebuildCanvasJson(window.appConfig.canvas, updates);
     
     postConfig({ 
         ignore: newIgnore, 
         canvas: window.appConfig.canvas,
+        settings: window.appConfig.settings,
         delete_quizzes: quizzesToDelete 
     }).then(() => {
         window.appConfig.quizzes = window.appConfig.quizzes.filter(q => !quizzesToDelete.includes(q.name));

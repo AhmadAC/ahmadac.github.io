@@ -31,19 +31,34 @@ export async function loadSettings() {
     }
 }
 
-export function getCurrentTeachingWeekInfo() {
+export function getCurrentMondayDateStr() {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const day = now.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+    const diffToMonday = day === 0 ? -6 : 1 - day;
+    const monday = new Date(now.getTime() + (diffToMonday * 24 * 60 * 60 * 1000));
+    
+    const yyyy = monday.getFullYear();
+    const mm = String(monday.getMonth() + 1).padStart(2, '0');
+    const dd = String(monday.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+}
+
+export function getCurrentTeachingWeekInfo(overrideSettings) {
+    const settings = overrideSettings || appSettings;
+
     // If a manual override is set in settings.json, use it immediately
-    if (appSettings.manual_week_override !== null && appSettings.manual_week_override !== undefined) {
+    if (settings.manual_week_override !== null && settings.manual_week_override !== undefined) {
         return {
-            weekNum: appSettings.manual_week_override,
-            dateString: appSettings.manual_date_string || "Manual Override Active"
+            weekNum: settings.manual_week_override,
+            dateString: settings.manual_date_string || "Manual Override Active"
         };
     }
 
     // Otherwise, parse the anchor date dynamically
-    const parts = appSettings.anchor_date.split('-');
+    const parts = (settings.anchor_date || "2026-06-15").split('-');
     const anchorDate = new Date(parts[0], parts[1] - 1, parts[2]); // Month is 0-indexed
-    const anchorWeek = appSettings.anchor_week;
+    const anchorWeek = settings.anchor_week !== undefined ? settings.anchor_week : 1;
     const msPerWeek = 7 * 24 * 60 * 60 * 1000;
     
     const now = new Date();

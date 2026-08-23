@@ -274,15 +274,15 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
 
 def launch_browser_app(url, profile_dir):
-    """Finds Edge or Chrome and launches it as a standalone app (Supports native Ctrl+ and Ctrl-)."""
+    """Finds Edge or Chrome and launches it as a standalone app without account sync prompts."""
     executable = None
     
     if platform.system() == "Windows":
         paths = [
             r"C:\Program Files\Google\Chrome\Application\chrome.exe",
             r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
-            r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
-            r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+            r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+            r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"
         ]
         for p in paths:
             if os.path.exists(p):
@@ -304,13 +304,15 @@ def launch_browser_app(url, profile_dir):
                 
     if executable:
         print(f"[DEBUG] Launching native browser engine in App Mode: {executable}")
-        # user-data-dir forces Chromium to spawn a new process, preventing the "Opening in existing browser session" bug
+        # Command line flags added to disable profile sync & automatic Windows account sign-in prompts
         return subprocess.Popen([
             executable, 
             f"--app={url}", 
             f"--user-data-dir={profile_dir}",
             "--no-first-run", 
-            "--no-default-browser-check"
+            "--no-default-browser-check",
+            "--disable-sync",
+            "--disable-features=EdgeFre,EdgeAccountConsistency,MSAWebSiteSSOUsingThisProfileAllowed,ImplicitSignin"
         ])
     else:
         print("[DEBUG] No Chromium browser found. Falling back to default system browser.")
