@@ -1,3 +1,4 @@
+#################### START OF FILE: server.py ####################
 # server.py
 
 import os
@@ -20,7 +21,6 @@ from datetime import datetime
 # --- Linux / Fedora / Wayland Compatibility ---
 if platform.system() == "Linux":
     os.environ["MOZ_ENABLE_WAYLAND"] = "1"
-    # Allow Qt to automatically negotiate Wayland with xcb fallback
     if "QT_QPA_PLATFORM" not in os.environ:
         os.environ["QT_QPA_PLATFORM"] = "wayland;xcb"
 
@@ -70,14 +70,39 @@ if not WEB_DIR:
 
 os.chdir(WEB_DIR)
 
+def get_clean_env():
+    """Returns a clean environment dictionary for launching external host processes without AppImage library pollution."""
+    env = os.environ.copy()
+
+    # Restore original LD_LIBRARY_PATH from host system
+    if "LD_LIBRARY_PATH_ORIG" in env:
+        if env["LD_LIBRARY_PATH_ORIG"]:
+            env["LD_LIBRARY_PATH"] = env["LD_LIBRARY_PATH_ORIG"]
+        else:
+            env.pop("LD_LIBRARY_PATH", None)
+    else:
+        ld_path = env.get("LD_LIBRARY_PATH", "")
+        if ld_path:
+            cleaned_parts = [
+                p for p in ld_path.split(":")
+                if p and not p.startswith("/tmp/.mount_") and "usr/bin/_internal" not in p and (not APPDIR or not p.startswith(APPDIR))
+            ]
+            if cleaned_parts:
+                env["LD_LIBRARY_PATH"] = ":".join(cleaned_parts)
+            else:
+                env.pop("LD_LIBRARY_PATH", None)
+
+    for var in ["PYTHONPATH", "PYTHONHOME", "PYTHONEXECUTABLE"]:
+        env.pop(var, None)
+
+    return env
+
 def get_data_dir():
     search_locations = [LAUNCH_DIR]
     if APPIMAGE_DIR and APPIMAGE_DIR not in search_locations:
         search_locations.append(APPIMAGE_DIR)
-    if EXE_DIR not in search_locations:
+    if not APPDIR and EXE_DIR not in search_locations:
         search_locations.append(EXE_DIR)
-    if WEB_DIR not in search_locations:
-        search_locations.append(WEB_DIR)
 
     for loc in search_locations:
         config_path = os.path.join(loc, "folder_config.txt")
@@ -94,26 +119,25 @@ def get_data_dir():
                 pass
 
     for loc in search_locations:
-        sibling_config = os.path.abspath(os.path.join(loc, "..", "OfflineQuiz", "folder_config.txt"))
-        if os.path.exists(sibling_config):
-            try:
-                with open(sibling_config, 'r', encoding='utf-8') as f:
-                    path = f.read().strip()
-                if path:
-                    if os.path.isabs(path):
-                        return os.path.normpath(path)
-                    else:
-                        return os.path.normpath(os.path.join(os.path.dirname(sibling_config), path))
-            except Exception:
-                pass
-
-    for loc in search_locations:
         for folder in ["0_Quiz", "0 Quiz"]:
             candidate = os.path.join(loc, folder)
             if os.path.exists(candidate):
                 return os.path.normpath(candidate)
 
-    return os.path.normpath(os.path.join(LAUNCH_DIR, "0_Quiz"))
+    # Seed bundled templates to a writable directory if running from an AppImage
+    target_data_dir = os.path.normpath(os.path.join(LAUNCH_DIR, "0_Quiz"))
+    try:
+        os.makedirs(target_data_dir, exist_ok=True)
+        if APPDIR:
+            bundled_quiz = os.path.join(APPDIR, "usr", "share", "mrcooper", "0_Quiz")
+            if os.path.exists(bundled_quiz) and not os.listdir(target_data_dir):
+                shutil.copytree(bundled_quiz, target_data_dir, dirs_exist_ok=True)
+    except Exception:
+        fallback_dir = os.path.expanduser("~/.local/share/MrCooperQuiz/0_Quiz")
+        os.makedirs(fallback_dir, exist_ok=True)
+        return fallback_dir
+
+    return target_data_dir
 
 DATA_DIR = get_data_dir()
 CONFIG_FILES = {'canvas.json', 'settings.json', 'ignore.json', 'autolink.json', 'order.json', 'QuizResults.json', 'missing.json', 'quiz_index.json'}
@@ -362,6 +386,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
 def launch_browser_app(url, profile_dir):
     """Finds Chromium, Chrome, Edge, Firefox, or Flatpak browsers and launches in App or dedicated window mode."""
+    clean_env = get_clean_env()
     cmd_prefix = []
 
     if platform.system() == "Windows":
@@ -441,7 +466,7 @@ def launch_browser_app(url, profile_dir):
         if not cmd_prefix and shutil.which("flatpak"):
             flatpak_app_ids = ["com.microsoft.Edge", "com.google.Chrome", "org.chromium.Chromium", "com.brave.Browser"]
             try:
-                out = subprocess.check_output(["flatpak", "list", "--app"], universal_newlines=True, stderr=subprocess.DEVNULL)
+                out = subprocess.check_output(["flatpak", "list", "--app"], env=clean_env, universal_newlines=True, stderr=subprocess.DEVNULL)
                 for app_id in flatpak_app_ids:
                     if app_id in out:
                         cmd_prefix = ["flatpak", "run", app_id]
@@ -462,26 +487,26 @@ def launch_browser_app(url, profile_dir):
             "--disable-background-networking",
             "--disable-component-update"
         ]
-        return subprocess.Popen(launch_args)
+        return subprocess.Popen(launch_args, env=clean_env)
 
     # Firefox / Flatpak Firefox Fallback (Default browser on Fedora Kinoite)
     if platform.system() == "Linux":
         if shutil.which("flatpak"):
             try:
-                out = subprocess.check_output(["flatpak", "list", "--app"], universal_newlines=True, stderr=subprocess.DEVNULL)
+                out = subprocess.check_output(["flatpak", "list", "--app"], env=clean_env, universal_newlines=True, stderr=subprocess.DEVNULL)
                 if "org.mozilla.firefox" in out:
                     print("[DEBUG] Launching Flatpak Firefox in new window mode.")
-                    return subprocess.Popen(["flatpak", "run", "org.mozilla.firefox", "--new-window", url])
+                    return subprocess.Popen(["flatpak", "run", "org.mozilla.firefox", "--new-window", url], env=clean_env)
             except Exception:
                 pass
 
         if shutil.which("firefox"):
             print("[DEBUG] Launching native Firefox in new window mode.")
-            return subprocess.Popen(["firefox", "--new-window", url])
+            return subprocess.Popen(["firefox", "--new-window", url], env=clean_env)
 
         if shutil.which("xdg-open"):
             print("[DEBUG] Launching via xdg-open.")
-            return subprocess.Popen(["xdg-open", url])
+            return subprocess.Popen(["xdg-open", url], env=clean_env)
 
     print("[DEBUG] Falling back to default system browser.")
     webbrowser.open(url)

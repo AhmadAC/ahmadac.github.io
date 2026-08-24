@@ -1,4 +1,3 @@
-
 name: Build Desktop Executables
 
 on:
@@ -61,11 +60,13 @@ jobs:
           if [ -d "sounds" ]; then cp -r sounds AppDir/usr/share/mrcooper/; fi
           if [ -d "0_Quiz" ]; then cp -r 0_Quiz AppDir/usr/share/mrcooper/; fi
 
-          # Create AppRun entrypoint script
+          # Create AppRun entrypoint script preserving host LD_LIBRARY_PATH
           cat << 'EOF' > AppDir/AppRun
           #!/bin/sh
           HERE="$(dirname "$(readlink -f "${0}")")"
           export APPDIR="${HERE}"
+          export OWD="$(pwd)"
+          export LD_LIBRARY_PATH_ORIG="${LD_LIBRARY_PATH}"
           export PATH="${HERE}/usr/bin:${PATH}"
           exec "${HERE}/usr/bin/MrCooperServer" "$@"
           EOF
