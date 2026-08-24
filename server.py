@@ -20,56 +20,104 @@ from datetime import datetime
 # --- Linux / Fedora / Wayland Compatibility ---
 if platform.system() == "Linux":
     os.environ["MOZ_ENABLE_WAYLAND"] = "1"
-    os.environ["QT_QPA_PLATFORM"] = "xcb"
+    # Allow Qt to automatically negotiate Wayland with xcb fallback
+    if "QT_QPA_PLATFORM" not in os.environ:
+        os.environ["QT_QPA_PLATFORM"] = "wayland;xcb"
 
-# 1. FORCE EXPLICIT WINDOWS MIME-TYPE OVERRIDES
+# 1. FORCE EXPLICIT MIME-TYPE OVERRIDES
 mimetypes.init()
 mimetypes.add_type('text/css', '.css')
 mimetypes.add_type('application/javascript', '.js')
 mimetypes.add_type('text/html', '.html')
 mimetypes.add_type('image/svg+xml', '.svg')
 
-# 2. RESOLVE DIRECTORIES FOR APP PORTABILITY
+# 2. RESOLVE DIRECTORIES FOR APP PORTABILITY AND APPIMAGE
 if getattr(sys, 'frozen', False):
-    BASE_DIR = os.path.dirname(sys.executable)
+    EXE_DIR = os.path.dirname(sys.executable)
+    BUNDLE_DIR = getattr(sys, '_MEIPASS', EXE_DIR)
 else:
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    EXE_DIR = os.path.dirname(os.path.abspath(__file__))
+    BUNDLE_DIR = EXE_DIR
 
-WEB_DIR = BASE_DIR
+APPDIR = os.environ.get("APPDIR")
+LAUNCH_DIR = os.environ.get("OWD", os.getcwd())
+APPIMAGE_PATH = os.environ.get("APPIMAGE")
+APPIMAGE_DIR = os.path.dirname(APPIMAGE_PATH) if APPIMAGE_PATH else None
+
+# Find where web UI assets (index.html, JS, CSS) reside
+candidate_web_dirs = []
+if APPDIR:
+    candidate_web_dirs.extend([
+        os.path.join(APPDIR, "usr", "share", "mrcooper"),
+        os.path.join(APPDIR, "usr", "bin"),
+        APPDIR
+    ])
+candidate_web_dirs.extend([
+    BUNDLE_DIR,
+    EXE_DIR,
+    os.path.dirname(os.path.abspath(__file__)),
+    LAUNCH_DIR
+])
+
+WEB_DIR = None
+for candidate in candidate_web_dirs:
+    if candidate and os.path.exists(os.path.join(candidate, "index.html")):
+        WEB_DIR = os.path.normpath(candidate)
+        break
+
+if not WEB_DIR:
+    WEB_DIR = BUNDLE_DIR
+
 os.chdir(WEB_DIR)
 
 def get_data_dir():
-    config_path = os.path.join(BASE_DIR, "folder_config.txt")
-    if os.path.exists(config_path):
-        try:
-            with open(config_path, 'r', encoding='utf-8') as f:
-                path = f.read().strip()
-            if path:
-                if os.path.isabs(path): return os.path.normpath(path)
-                else: return os.path.normpath(os.path.join(BASE_DIR, path))
-        except: pass
+    search_locations = [LAUNCH_DIR]
+    if APPIMAGE_DIR and APPIMAGE_DIR not in search_locations:
+        search_locations.append(APPIMAGE_DIR)
+    if EXE_DIR not in search_locations:
+        search_locations.append(EXE_DIR)
+    if WEB_DIR not in search_locations:
+        search_locations.append(WEB_DIR)
 
-    sibling_config = os.path.abspath(os.path.join(BASE_DIR, "..", "OfflineQuiz", "folder_config.txt"))
-    if os.path.exists(sibling_config):
-        try:
-            with open(sibling_config, 'r', encoding='utf-8') as f:
-                path = f.read().strip()
-            if path:
-                if os.path.isabs(path): return os.path.normpath(path)
-                else: return os.path.normpath(os.path.join(os.path.dirname(sibling_config), path))
-        except: pass
+    for loc in search_locations:
+        config_path = os.path.join(loc, "folder_config.txt")
+        if os.path.exists(config_path):
+            try:
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    path = f.read().strip()
+                if path:
+                    if os.path.isabs(path):
+                        return os.path.normpath(path)
+                    else:
+                        return os.path.normpath(os.path.join(loc, path))
+            except Exception:
+                pass
 
-    for folder in ["0_Quiz", "0 Quiz"]:
-        candidate = os.path.join(BASE_DIR, folder)
-        if os.path.exists(candidate):
-            return os.path.normpath(candidate)
-            
-    return os.path.normpath(os.path.join(BASE_DIR, "0_Quiz"))
+    for loc in search_locations:
+        sibling_config = os.path.abspath(os.path.join(loc, "..", "OfflineQuiz", "folder_config.txt"))
+        if os.path.exists(sibling_config):
+            try:
+                with open(sibling_config, 'r', encoding='utf-8') as f:
+                    path = f.read().strip()
+                if path:
+                    if os.path.isabs(path):
+                        return os.path.normpath(path)
+                    else:
+                        return os.path.normpath(os.path.join(os.path.dirname(sibling_config), path))
+            except Exception:
+                pass
+
+    for loc in search_locations:
+        for folder in ["0_Quiz", "0 Quiz"]:
+            candidate = os.path.join(loc, folder)
+            if os.path.exists(candidate):
+                return os.path.normpath(candidate)
+
+    return os.path.normpath(os.path.join(LAUNCH_DIR, "0_Quiz"))
 
 DATA_DIR = get_data_dir()
 CONFIG_FILES = {'canvas.json', 'settings.json', 'ignore.json', 'autolink.json', 'order.json', 'QuizResults.json', 'missing.json', 'quiz_index.json'}
 
-# In-memory points and index cache for instant API responses
 _QUIZ_CACHE = {}
 
 def get_quiz_points(file_path):
@@ -81,7 +129,8 @@ def get_quiz_points(file_path):
             for item in items:
                 if isinstance(item, dict):
                     pts += int(float(item.get('points', item.get('points_possible', 0))))
-    except: pass
+    except Exception:
+        pass
     return pts
 
 def update_quiz_index():
@@ -92,15 +141,15 @@ def update_quiz_index():
 
     all_quizzes = []
     for root, dirs, files in os.walk(DATA_DIR):
-        if "media" in root or "bonus" in root: continue
+        if "media" in root or "bonus" in root:
+            continue
         for f in files:
             if f.endswith('.json') and f not in CONFIG_FILES:
                 quiz_name = f[:-5]
                 full_path = os.path.join(root, f)
                 rel_path = os.path.relpath(full_path, DATA_DIR).replace('\\', '/')
                 index_data[quiz_name] = rel_path
-                
-                # Fast caching using file modification timestamp
+
                 mtime = os.path.getmtime(full_path)
                 cached = _QUIZ_CACHE.get(full_path)
                 if cached and cached.get("mtime") == mtime:
@@ -108,23 +157,28 @@ def update_quiz_index():
                 else:
                     pts = get_quiz_points(full_path)
                     _QUIZ_CACHE[full_path] = {"mtime": mtime, "points": pts}
-                    
+
                 all_quizzes.append({"name": quiz_name, "points": pts})
-    
+
     try:
         with open(os.path.join(DATA_DIR, 'quiz_index.json'), 'w', encoding='utf-8') as out_f:
             json.dump(index_data, out_f, indent=4)
-    except: pass
-        
+    except Exception:
+        pass
+
     return index_data, all_quizzes
 
 class QuizAPIHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=WEB_DIR, **kwargs)
+
     def log_message(self, format, *args):
         try:
             msg = format % args
             if not ('" 200 ' in msg or '" 304 ' in msg):
                 print(f"[SERVER LOG]: {self.address_string()} - {msg}")
-        except: pass
+        except Exception:
+            pass
 
     def end_headers(self):
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
@@ -139,17 +193,19 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
         if clean_path == '/api/config':
             _, all_quizzes = update_quiz_index()
-            
+
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            
+
             def safe_read(fname, default):
                 path = os.path.join(DATA_DIR, fname)
                 if os.path.exists(path):
                     try:
-                        with open(path, 'r', encoding='utf-8') as f: return json.load(f)
-                    except: pass
+                        with open(path, 'r', encoding='utf-8') as f:
+                            return json.load(f)
+                    except Exception:
+                        pass
                 return default
 
             canvas_data = safe_read('canvas.json', {"6": {}, "7": {}, "8": {}})
@@ -164,7 +220,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 "show_bonus": True,
                 "show_results": False
             })
-                        
+
             response = {
                 "is_offline_mode": True,
                 "canvas": canvas_data,
@@ -192,7 +248,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                         self.wfile.write(f.read())
                     return
                 else:
-                    self.send_error(404, f"File {relative_file_path} not found in custom quiz folder")
+                    self.send_error(404, f"File {relative_file_path} not found in quiz folder")
                     return
 
         super().do_GET()
@@ -202,28 +258,38 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             content_length = int(self.headers['Content-Length'])
             post_data = self.rfile.read(content_length)
             payload = json.loads(post_data.decode('utf-8'))
-            
+
             def safe_write(fname, data):
                 path = os.path.join(DATA_DIR, fname)
-                with open(path, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
-                    
-            if 'canvas' in payload: safe_write('canvas.json', payload['canvas'])
-            if 'ignore' in payload: safe_write('ignore.json', payload['ignore'])
-            if 'autolink' in payload: safe_write('autolink.json', payload['autolink'])
-            if 'order' in payload: safe_write('order.json', payload['order'])
-            if 'settings' in payload: safe_write('settings.json', payload['settings'])
+                with open(path, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=4)
+
+            if 'canvas' in payload:
+                safe_write('canvas.json', payload['canvas'])
+            if 'ignore' in payload:
+                safe_write('ignore.json', payload['ignore'])
+            if 'autolink' in payload:
+                safe_write('autolink.json', payload['autolink'])
+            if 'order' in payload:
+                safe_write('order.json', payload['order'])
+            if 'settings' in payload:
+                safe_write('settings.json', payload['settings'])
             if 'folder' in payload:
-                with open(os.path.join(BASE_DIR, "folder_config.txt"), 'w', encoding='utf-8') as f:
+                save_cfg_loc = LAUNCH_DIR if os.path.exists(LAUNCH_DIR) else EXE_DIR
+                with open(os.path.join(save_cfg_loc, "folder_config.txt"), 'w', encoding='utf-8') as f:
                     f.write(payload['folder'])
-                    
+
             if 'delete_quizzes' in payload:
                 index_path = os.path.join(DATA_DIR, 'quiz_index.json')
                 try:
-                    with open(index_path, 'r') as f: idx = json.load(f)
-                except: idx = {}
+                    with open(index_path, 'r') as f:
+                        idx = json.load(f)
+                except Exception:
+                    idx = {}
                 for dq in payload['delete_quizzes']:
                     fp = os.path.join(DATA_DIR, idx[dq]) if dq in idx else os.path.join(DATA_DIR, f"{dq}.json")
-                    if os.path.exists(fp): os.remove(fp)
+                    if os.path.exists(fp):
+                        os.remove(fp)
                 update_quiz_index()
 
             self.send_response(200)
@@ -241,27 +307,36 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 data = {}
                 if os.path.exists(results_file):
                     with open(results_file, 'r', encoding='utf-8') as f:
-                        try: data = json.load(f)
-                        except: pass
-                            
+                        try:
+                            data = json.load(f)
+                        except Exception:
+                            pass
+
                 cls, name = payload.get('studentClass', 'Unknown'), payload.get('studentName', 'Unknown')
                 quizName, score, total = payload.get('quizName', 'Unknown'), payload.get('score', 0), payload.get('totalPossible', 0)
-                
-                if cls not in data: data[cls] = {}
-                if name not in data[cls]: data[cls][name] = {}
-                if quizName not in data[cls][name]: data[cls][name][quizName] = {"best": 0, "attempts": []}
-                
+
+                if cls not in data:
+                    data[cls] = {}
+                if name not in data[cls]:
+                    data[cls][name] = {}
+                if quizName not in data[cls][name]:
+                    data[cls][name][quizName] = {"best": 0, "attempts": []}
+
                 data[cls][name][quizName]["attempts"].append({"s": score, "t": total, "ts": datetime.now().isoformat()})
-                if score > data[cls][name][quizName]["best"]: data[cls][name][quizName]["best"] = score
-                    
-                with open(results_file, 'w', encoding='utf-8') as f: json.dump(data, f, indent=4)
-                    
+                if score > data[cls][name][quizName]["best"]:
+                    data[cls][name][quizName]["best"] = score
+
+                with open(results_file, 'w', encoding='utf-8') as f:
+                    json.dump(data, f, indent=4)
+
                 autolink_config, webhook_success = {"enabled": False, "webhook_url": ""}, False
                 if os.path.exists(os.path.join(DATA_DIR, 'autolink.json')):
                     try:
-                        with open(os.path.join(DATA_DIR, 'autolink.json'), 'r') as f: autolink_config = json.load(f)
-                    except: pass
-                        
+                        with open(os.path.join(DATA_DIR, 'autolink.json'), 'r') as f:
+                            autolink_config = json.load(f)
+                    except Exception:
+                        pass
+
                 if autolink_config.get("enabled"):
                     webhook_url = autolink_config.get("webhook_url", "").strip() or "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2"
                     webhook_payload = {"add_records": [{"values": {"f04Gwj": str(name), "ftQMc5": str(cls), "ftk5Tx": str(quizName), "ffFwIh": int(score), "fn8TJd": int(total)}}]}
@@ -269,8 +344,9 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                     try:
                         urllib.request.urlopen(req, timeout=5)
                         webhook_success = True
-                    except Exception as we: print(f"Webhook error: {we}")
-                        
+                    except Exception as we:
+                        print(f"Webhook error: {we}")
+
                 self.send_response(200)
                 self.send_header('Content-Type', 'application/json')
                 self.end_headers()
@@ -284,11 +360,10 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
 
-
 def launch_browser_app(url, profile_dir):
-    """Finds Edge or Chrome on Windows/Linux/macOS (including Flatpaks) and launches with a persistent warm cache."""
+    """Finds Chromium, Chrome, Edge, Firefox, or Flatpak browsers and launches in App or dedicated window mode."""
     cmd_prefix = []
-    
+
     if platform.system() == "Windows":
         paths = [
             r"C:\Program Files\Google\Chrome\Application\chrome.exe",
@@ -326,20 +401,18 @@ def launch_browser_app(url, profile_dir):
             "google-chrome-stable", "google-chrome", "google-chrome-beta", "google-chrome-unstable",
             "chromium-browser", "chromium", "brave-browser", "brave", "vivaldi-stable", "vivaldi"
         ]
-        
+
         for b in linux_binaries:
             found = shutil.which(b)
             if found:
                 cmd_prefix = [found]
                 break
 
-        # Linux Direct Filesystem Paths (/opt, /usr, /snap, Flatpak exports)
+        # Linux Direct Filesystem Paths (/opt, /usr, /var/lib/flatpak, ~/.local/share/flatpak)
         if not cmd_prefix:
             home_dir = os.path.expanduser("~")
             direct_linux_paths = [
                 "/opt/microsoft/msedge/msedge",
-                "/opt/microsoft/msedge-beta/msedge",
-                "/opt/microsoft/msedge-dev/msedge",
                 "/opt/google/chrome/google-chrome",
                 "/opt/google/chrome/chrome",
                 "/usr/bin/microsoft-edge",
@@ -364,7 +437,7 @@ def launch_browser_app(url, profile_dir):
                     cmd_prefix = [p]
                     break
 
-        # Flatpak Command Fallback (e.g. SteamOS Flatpak runner)
+        # Flatpak CLI Runner Search (Standard on Fedora Kinoite / Silverblue)
         if not cmd_prefix and shutil.which("flatpak"):
             flatpak_app_ids = ["com.microsoft.Edge", "com.google.Chrome", "org.chromium.Chromium", "com.brave.Browser"]
             try:
@@ -375,26 +448,44 @@ def launch_browser_app(url, profile_dir):
                         break
             except Exception:
                 pass
-                
+
     if cmd_prefix:
-        print(f"[DEBUG] Launching native browser engine in App Mode: {' '.join(cmd_prefix)}")
+        print(f"[DEBUG] Launching native Chromium engine in App Mode: {' '.join(cmd_prefix)}")
         launch_args = cmd_prefix + [
-            f"--app={url}", 
+            f"--app={url}",
             f"--user-data-dir={profile_dir}",
             "--start-maximized",
-            "--no-first-run", 
+            "--no-first-run",
             "--no-default-browser-check",
             "--disable-sync",
             "--disable-extensions",
             "--disable-background-networking",
-            "--disable-component-update",
-            "--disable-features=EdgeFre,EdgeAccountConsistency,MSAWebSiteSSOUsingThisProfileAllowed,ImplicitSignin"
+            "--disable-component-update"
         ]
         return subprocess.Popen(launch_args)
-    else:
-        print("[DEBUG] No Chromium browser found. Falling back to default system browser.")
-        webbrowser.open(url)
-        return None
+
+    # Firefox / Flatpak Firefox Fallback (Default browser on Fedora Kinoite)
+    if platform.system() == "Linux":
+        if shutil.which("flatpak"):
+            try:
+                out = subprocess.check_output(["flatpak", "list", "--app"], universal_newlines=True, stderr=subprocess.DEVNULL)
+                if "org.mozilla.firefox" in out:
+                    print("[DEBUG] Launching Flatpak Firefox in new window mode.")
+                    return subprocess.Popen(["flatpak", "run", "org.mozilla.firefox", "--new-window", url])
+            except Exception:
+                pass
+
+        if shutil.which("firefox"):
+            print("[DEBUG] Launching native Firefox in new window mode.")
+            return subprocess.Popen(["firefox", "--new-window", url])
+
+        if shutil.which("xdg-open"):
+            print("[DEBUG] Launching via xdg-open.")
+            return subprocess.Popen(["xdg-open", url])
+
+    print("[DEBUG] Falling back to default system browser.")
+    webbrowser.open(url)
+    return None
 
 def run_app():
     try:
@@ -403,26 +494,26 @@ def run_app():
     except OSError as e:
         print(f"Failed to bind local server address: {e}")
         sys.exit(1)
-        
+
     server_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
     server_thread.start()
-    
-    print(f"==================================================")
-    print(f"Mr. Cooper's Quiz Server is running locally!")
+
+    print("==================================================")
+    print("Mr. Cooper's Quiz Server is running locally!")
     print(f"Serving Web Files from: {WEB_DIR}")
     print(f"Serving Quiz Data from: {DATA_DIR}")
     print(f"Background Port: {assigned_port}")
-    print(f"==================================================")
+    print("==================================================")
 
-    # Optional PySide6 Organizer Dialog
+    # Optional PySide6 Smart Organizer Dialog
     try:
         unorganized_files = [f for f in os.listdir(DATA_DIR) if f.endswith('.json') and f not in CONFIG_FILES and os.path.isfile(os.path.join(DATA_DIR, f))]
         if unorganized_files:
             from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QComboBox, QPushButton, QInputDialog
             from PySide6.QtCore import Qt
-            
+
             app = QApplication.instance() or QApplication(sys.argv)
-            
+
             class QuizOrganizerDialog(QDialog):
                 def __init__(self, unorganized, data_dir):
                     super().__init__()
@@ -430,10 +521,10 @@ def run_app():
                     self.data_dir = data_dir
                     self.setWindowTitle("Smart Folder Organizer")
                     self.resize(550, 450)
-                    
+
                     layout = QVBoxLayout(self)
                     layout.addWidget(QLabel("<b>Unorganized quizzes detected in the root folder!</b><br>Move them into class-specific folders to keep things tidy."))
-                    
+
                     sel_layout = QHBoxLayout()
                     sel_all_btn = QPushButton("Select All")
                     sel_all_btn.clicked.connect(self.select_all)
@@ -451,7 +542,7 @@ def run_app():
                         item.setCheckState(Qt.Checked)
                         self.list_widget.addItem(item)
                     layout.addWidget(self.list_widget)
-                    
+
                     ctrl_layout = QHBoxLayout()
                     ctrl_layout.addWidget(QLabel("Move selected to:"))
                     self.folder_combo = QComboBox()
@@ -461,7 +552,7 @@ def run_app():
                     new_folder_btn.clicked.connect(self.create_new_folder)
                     ctrl_layout.addWidget(new_folder_btn)
                     layout.addLayout(ctrl_layout)
-                    
+
                     btn_layout = QHBoxLayout()
                     move_btn = QPushButton("Move Selected Quizzes")
                     move_btn.setStyleSheet("background-color: #2ECC71; color: white; font-weight: bold; border-radius: 4px; padding: 6px;")
@@ -472,26 +563,34 @@ def run_app():
                     btn_layout.addStretch()
                     btn_layout.addWidget(move_btn)
                     layout.addLayout(btn_layout)
-                
+
                 def select_all(self):
-                    for i in range(self.list_widget.count()): self.list_widget.item(i).setCheckState(Qt.Checked)
+                    for i in range(self.list_widget.count()):
+                        self.list_widget.item(i).setCheckState(Qt.Checked)
+
                 def select_none(self):
-                    for i in range(self.list_widget.count()): self.list_widget.item(i).setCheckState(Qt.Unchecked)
+                    for i in range(self.list_widget.count()):
+                        self.list_widget.item(i).setCheckState(Qt.Unchecked)
+
                 def refresh_folders(self):
                     self.folder_combo.clear()
                     folders = set(["Common", "G6", "G7", "G8"])
                     for d in os.listdir(self.data_dir):
-                        if os.path.isdir(os.path.join(self.data_dir, d)) and d not in ["media", "bonus"]: folders.add(d)
+                        if os.path.isdir(os.path.join(self.data_dir, d)) and d not in ["media", "bonus"]:
+                            folders.add(d)
                     self.folder_combo.addItems(sorted(list(folders)))
+
                 def create_new_folder(self):
                     name, ok = QInputDialog.getText(self, "New Folder", "Enter exact folder name:")
                     if ok and name:
                         os.makedirs(os.path.join(self.data_dir, name), exist_ok=True)
                         self.refresh_folders()
                         self.folder_combo.setCurrentText(name)
+
                 def move_selected(self):
                     target_folder = self.folder_combo.currentText()
-                    if not target_folder: return
+                    if not target_folder:
+                        return
                     target_path = os.path.join(self.data_dir, target_folder)
                     os.makedirs(target_path, exist_ok=True)
                     items_to_remove = []
@@ -502,23 +601,24 @@ def run_app():
                             try:
                                 shutil.move(src, dst)
                                 items_to_remove.append(item)
-                            except Exception as e: print(f"Failed to move: {e}")
-                    for item in items_to_remove: self.list_widget.takeItem(self.list_widget.row(item))
-                    if self.list_widget.count() == 0: self.accept()
+                            except Exception as e:
+                                print(f"Failed to move: {e}")
+                    for item in items_to_remove:
+                        self.list_widget.takeItem(self.list_widget.row(item))
+                    if self.list_widget.count() == 0:
+                        self.accept()
 
             dialog = QuizOrganizerDialog(unorganized_files, DATA_DIR)
             dialog.exec()
-    except:
+    except Exception:
         pass
 
-    # Pre-index files before browser launches
     update_quiz_index()
 
-    # Use a persistent warm profile directory in the system temp folder for instant startup
     local_url = f"http://127.0.0.1:{assigned_port}/index.html"
     warm_profile = os.path.join(tempfile.gettempdir(), "MrCooperAppEdgeProfile")
     os.makedirs(warm_profile, exist_ok=True)
-    
+
     proc = launch_browser_app(local_url, warm_profile)
 
     if proc:
@@ -536,7 +636,7 @@ def run_app():
                 time.sleep(1)
         except KeyboardInterrupt:
             pass
-            
+
     print("\nServer shutting down cleanly...")
     httpd.shutdown()
 
