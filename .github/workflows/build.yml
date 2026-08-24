@@ -1,3 +1,4 @@
+
 name: Build Desktop Executables
 
 on:
@@ -5,7 +6,6 @@ on:
     branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
@@ -14,17 +14,14 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # This matrix runs the job in parallel on the specified Operating Systems.
-        # macOS is commented out due to Apple Gatekeeper/Signing restrictions on unsigned executables.
-        # os: [ubuntu-latest, macos-latest, windows-latest]
         os: [ubuntu-latest, windows-latest]
         include:
           - os: ubuntu-latest
-            artifact_name: MrCooperServer-Linux
-          # - os: macos-latest
-          #   artifact_name: MrCooperServer-MacOS
+            artifact_name: MrCooperServer-Linux-AppImage
+            artifact_path: dist/MrCooperServer-x86_64.AppImage
           - os: windows-latest
             artifact_name: MrCooperServer-Windows
+            artifact_path: dist/MrCooperServer/
 
     steps:
       - name: Checkout Repository
@@ -33,28 +30,78 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # Use standard recent python version
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pyinstaller
-          # Automatically install any dependencies required by server.py if a requirements.txt is present
           if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
         shell: bash
 
       - name: Build Executable with PyInstaller
         run: |
-          # --onedir packs everything into a directory containing the executable and its dependencies
-          # We purposefully omit --noconsole so you can see the terminal output (e.g., "Server running on port 8000") and easily close it.
           pyinstaller --onedir --name "MrCooperServer" server.py
+          # Copy web assets into the distribution directory
+          cp -r index.html *.js *.css dist/MrCooperServer/ 2>/dev/null || true
+          if [ -d "sounds" ]; then cp -r sounds dist/MrCooperServer/; fi
+          if [ -d "0_Quiz" ]; then cp -r 0_Quiz dist/MrCooperServer/; fi
+        shell: bash
+
+      - name: Package Linux AppImage
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          mkdir -p AppDir/usr/bin
+          mkdir -p AppDir/usr/share/icons/hicolor/scalable/apps
+          mkdir -p AppDir/usr/share/mrcooper
+
+          # Copy PyInstaller binary distribution into AppDir
+          cp -r dist/MrCooperServer/* AppDir/usr/bin/
+          cp -r index.html *.js *.css AppDir/usr/share/mrcooper/ 2>/dev/null || true
+          if [ -d "sounds" ]; then cp -r sounds AppDir/usr/share/mrcooper/; fi
+          if [ -d "0_Quiz" ]; then cp -r 0_Quiz AppDir/usr/share/mrcooper/; fi
+
+          # Create AppRun entrypoint script
+          cat << 'EOF' > AppDir/AppRun
+          #!/bin/sh
+          HERE="$(dirname "$(readlink -f "${0}")")"
+          export APPDIR="${HERE}"
+          export PATH="${HERE}/usr/bin:${PATH}"
+          exec "${HERE}/usr/bin/MrCooperServer" "$@"
+          EOF
+          chmod +x AppDir/AppRun
+
+          # Create Desktop Entry
+          cat << 'EOF' > AppDir/MrCooperServer.desktop
+          [Desktop Entry]
+          Type=Application
+          Name=Mr. Cooper's Quiz Server
+          Exec=MrCooperServer
+          Icon=mrcooper
+          Categories=Education;
+          Terminal=true
+          StartupNotify=true
+          EOF
+
+          # Create SVG Icon
+          cat << 'EOF' > AppDir/mrcooper.svg
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <rect width="100" height="100" rx="20" fill="#008ee2"/>
+            <text x="50" y="65" font-size="50" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="bold">Q</text>
+          </svg>
+          EOF
+          cp AppDir/mrcooper.svg AppDir/usr/share/icons/hicolor/scalable/apps/mrcooper.svg
+          cp AppDir/mrcooper.svg AppDir/.DirIcon
+
+          # Download appimagetool and generate AppImage
+          wget -q https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage -O appimagetool
+          chmod +x appimagetool
+          ARCH=x86_64 ./appimagetool --appimage-extract-and-run AppDir dist/MrCooperServer-x86_64.AppImage
         shell: bash
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact_name }}
-          # Upload the specific directory created by PyInstaller
-          path: dist/MrCooperServer/
-          # Retains the uploaded executables in the GitHub Actions tab for 14 days
+          path: ${{ matrix.artifact_path }}
           retention-days: 14
