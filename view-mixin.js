@@ -1,6 +1,7 @@
+
 // view-mixin.js
 
-import { CLASSES, getCurrentTeachingWeekInfo } from './config.js';
+import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings } from './config.js';
 import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js';
 import { recursiveDecode, formatDisplayString } from './utils.js';
 
@@ -14,10 +15,44 @@ export const ViewMixin = {
             btn.innerText = cls;
             btn.onclick = () => {
                 console.log(`[DEBUG][Inst ${this.instanceId}] Class selected: ${cls}`);
-                this.loadAssignments(cls);
+                this.selectedClass = cls;
+                const subjects = getSubjectsForClass(cls);
+                if (subjects && subjects.length > 1) {
+                    this.showSubjectSelection(cls);
+                } else {
+                    const singleSub = (subjects && subjects.length === 1) ? subjects[0] : null;
+                    this.loadAssignments(cls, singleSub);
+                }
             };
             this.elements.classGrid.appendChild(btn);
         });
+    },
+
+    showSubjectSelection(classCode) {
+        this.selectedClass = classCode;
+        this.selectedSubject = null;
+        
+        const subjects = getSubjectsForClass(classCode);
+        if (this.elements.subjectViewTitle) {
+            this.elements.subjectViewTitle.innerText = `Select Subject for ${classCode}`;
+        }
+        
+        const grid = this.elements.subjectGrid;
+        if (!grid) return;
+        grid.innerHTML = "";
+
+        subjects.forEach(subject => {
+            const btn = document.createElement("button");
+            btn.className = "btn-subject";
+            btn.innerText = subject;
+            btn.onclick = () => {
+                console.log(`[DEBUG][Inst ${this.instanceId}] Subject selected: ${subject} for ${classCode}`);
+                this.loadAssignments(classCode, subject);
+            };
+            grid.appendChild(btn);
+        });
+
+        this.switchView("view-subject-select");
     },
 
     createAssignmentButton(title, exists) {
@@ -151,9 +186,11 @@ export const ViewMixin = {
             }
         });
         
+        const orderKey = this.selectedSubject ? `${this.selectedClass}__${this.selectedSubject}` : this.selectedClass;
+
         if (!window.appConfig) window.appConfig = {};
         if (!window.appConfig.order) window.appConfig.order = {};
-        window.appConfig.order[this.selectedClass] = newOrder;
+        window.appConfig.order[orderKey] = newOrder;
         
         if (window.isOfflineMode) {
             fetch('/api/config', {
@@ -200,10 +237,15 @@ export const ViewMixin = {
         return titleA.localeCompare(titleB, undefined, { numeric: true, sensitivity: 'base' });
     },
 
-    async loadAssignments(classCode) {
+    async loadAssignments(classCode, subject = null) {
         this.isBonus = false; 
         this.selectedClass = classCode;
-        if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Assignments for ${classCode}`;
+        this.selectedSubject = subject;
+
+        const subjectLabel = subject ? ` - ${subject}` : '';
+        if (this.elements.assignmentsTitle) {
+            this.elements.assignmentsTitle.innerText = `Assignments for ${classCode}${subjectLabel}`;
+        }
         
         const weekInfo = getCurrentTeachingWeekInfo();
         if (this.elements.currentWeekLbl) {
@@ -221,17 +263,47 @@ export const ViewMixin = {
 
         if (canvasData[grade]) {
             let gradeData = canvasData[grade];
-            
-            Object.keys(gradeData).forEach(title => {
-                if (typeof gradeData[title] !== 'object') {
-                    assignmentsDict[title] = gradeData[title];
+
+            // 1. Check nested subject structure: canvas[grade][subject][classCode]
+            if (subject && gradeData[subject] && typeof gradeData[subject] === 'object') {
+                const subData = gradeData[subject];
+                if (subData[classCode] && typeof subData[classCode] === 'object') {
+                    Object.keys(subData[classCode]).forEach(title => {
+                        assignmentsDict[title] = subData[classCode][title];
+                    });
                 }
-            });
-            
-            if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
-                Object.keys(gradeData[classCode]).forEach(title => {
-                    assignmentsDict[title] = gradeData[classCode][title];
+                Object.keys(subData).forEach(title => {
+                    if (typeof subData[title] !== 'object') {
+                        assignmentsDict[title] = subData[title];
+                    }
                 });
+            }
+
+            // 2. Check nested subject structure: canvas[grade][classCode][subject]
+            if (subject && gradeData[classCode] && typeof gradeData[classCode] === 'object' && gradeData[classCode][subject]) {
+                const subClassData = gradeData[classCode][subject];
+                if (typeof subClassData === 'object') {
+                    Object.keys(subClassData).forEach(title => {
+                        assignmentsDict[title] = subClassData[title];
+                    });
+                }
+            }
+
+            // 3. Fallback: If no subject was selected or no subject-specific tree exists, read general class assignments
+            if (!subject || Object.keys(assignmentsDict).length === 0) {
+                Object.keys(gradeData).forEach(title => {
+                    if (typeof gradeData[title] !== 'object') {
+                        assignmentsDict[title] = gradeData[title];
+                    }
+                });
+                
+                if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
+                    Object.keys(gradeData[classCode]).forEach(title => {
+                        if (typeof gradeData[classCode][title] !== 'object') {
+                            assignmentsDict[title] = gradeData[classCode][title];
+                        }
+                    });
+                }
             }
         }
 
@@ -242,17 +314,20 @@ export const ViewMixin = {
         validTitles.sort((a, b) => this.customWeekSort(a, b));
 
         // Inject order.json configuration maps to override standard week alignments
-        if (window.appConfig && window.appConfig.order && Array.isArray(window.appConfig.order[classCode])) {
-            const customList = window.appConfig.order[classCode];
-            const existingCustom = customList.filter(t => validTitles.includes(t));
-            const remaining = validTitles.filter(t => !existingCustom.includes(t));
-            validTitles = [...existingCustom, ...remaining];
+        const orderKey = subject ? `${classCode}__${subject}` : classCode;
+        if (window.appConfig && window.appConfig.order) {
+            const customList = window.appConfig.order[orderKey] || window.appConfig.order[classCode];
+            if (Array.isArray(customList)) {
+                const existingCustom = customList.filter(t => validTitles.includes(t));
+                const remaining = validTitles.filter(t => !existingCustom.includes(t));
+                validTitles = [...existingCustom, ...remaining];
+            }
         }
 
         list.innerHTML = "";
 
         if (validTitles.length === 0) {
-            list.innerHTML = "<p style='color:#666; font-style:italic;'>No assignments found.</p>";
+            list.innerHTML = `<p style='color:var(--text-muted); font-style:italic; padding: 20px; text-align:center;'>No assignments found for ${classCode}${subjectLabel}.</p>`;
             return;
         }
 
@@ -286,6 +361,7 @@ export const ViewMixin = {
 
     async loadBonusQuizzes() {
         this.selectedClass = "Bonus";
+        this.selectedSubject = null;
         this.isBonus = true;
         
         if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Bonus Quizzes`;
@@ -465,3 +541,4 @@ export const ViewMixin = {
         });
     }
 };
+

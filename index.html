@@ -59,7 +59,7 @@
                         <rect x="14" y="14" width="7" height="7"></rect>
                         <rect x="3" y="14" width="7" height="7"></rect>
                         <line x1="7" y1="7" x2="7.01" y2="7"></line>
-                        <line x1="17" y1="7" x2="17.01" y2="7"></line>
+                        <line x1="17" y1="17" x2="17.01" y2="17"></line>
                         <line x1="7" y1="17" x2="7.01" y2="17"></line>
                         <line x1="17" y1="17" x2="17.01" y2="17"></line>
                     </svg>
@@ -73,6 +73,20 @@
                     <button class="btn-primary btn-view-resources" style="font-size: 16px; padding: 12px 30px; border-radius: 6px;">Class Resources</button>
                     <button class="btn-dark btn-view-results hidden">View All Results</button>
                     <button class="btn-dark btn-view-bonus hidden">Bonus</button>
+                </div>
+            </div>
+
+            <!-- VIEW 1.5: Subject Selection (For classes with multiple subjects like G7 CS & STEAM) -->
+            <div class="view view-subject-select">
+                <div class="header-row">
+                    <button class="btn-nav btn-back-from-subject">← Classes</button>
+                    <div class="flex-spacer"></div>
+                    <h2 class="subject-select-title">Select Subject</h2>
+                    <div class="flex-spacer"></div>
+                </div>
+                <div class="view-title subject-view-title">Select Subject</div>
+                <div class="subject-grid">
+                    <!-- Subject Buttons generated dynamically -->
                 </div>
             </div>
 
@@ -196,7 +210,7 @@
         <!-- 1. Mapping Manager Dialog (Ctrl+0 / Ctrl+M) -->
         <div id="mapping-modal" class="modal-container hidden">
             <div class="modal-header">
-                <h2>Manage Canvas & Settings (Ctrl+0)</h2>
+                <h2>Manage Canvas & Subjects (Ctrl+0)</h2>
                 <input type="text" id="mapping-search" placeholder="Search assignments...">
             </div>
             <div class="modal-body">
@@ -213,10 +227,19 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Subject Configuration Management Section -->
+                <div class="subject-manager-box">
+                    <div class="subject-manager-title">
+                        <span>Subject Management (Configure multiple subjects per grade)</span>
+                    </div>
+                    <div id="subject-manager-container" class="subject-manager-grid"></div>
+                </div>
+
                 <div class="mapping-grid-header">
                     <span>Quiz Name</span>
                     <span>Points</span>
-                    <span>Assign To (Select Classes)</span>
+                    <span>Assign To (Subjects / Classes)</span>
                     <span class="hide-col-header"><input type="checkbox" id="toggle-hide-all" title="Toggle Hide All"> Hide</span>
                     <span>Actions</span>
                 </div>

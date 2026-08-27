@@ -1,3 +1,4 @@
+
 // QuizInstance.js
 
 import { ViewMixin } from './view-mixin.js';
@@ -11,6 +12,7 @@ export class QuizInstance {
         console.log(`[DEBUG] Initializing QuizInstance ID: ${this.instanceId}`);
         
         this.selectedClass = null;
+        this.selectedSubject = null;
         this.currentQuizName = null;
         this.isBonus = false; 
         this.currentQuestions = [];
@@ -27,6 +29,7 @@ export class QuizInstance {
 
         this.views = {
             classSelect: this.root.querySelector('.view-class-select'),
+            subjectSelect: this.root.querySelector('.view-subject-select'),
             assignments: this.root.querySelector('.view-assignments'),
             quiz: this.root.querySelector('.view-quiz'),
             results: this.root.querySelector('.view-results'),
@@ -35,6 +38,9 @@ export class QuizInstance {
         
         this.elements = {
             classGrid: this.root.querySelector('.class-grid'),
+            subjectGrid: this.root.querySelector('.subject-grid'),
+            subjectViewTitle: this.root.querySelector('.subject-view-title'),
+            btnBackFromSubject: this.root.querySelector('.btn-back-from-subject'),
             btnResources: this.root.querySelector('.btn-view-resources'),
             btnBackFromDoc: this.root.querySelector('.btn-back-from-document'),
             btnQrTrigger: this.root.querySelector('.btn-qr-trigger'),
@@ -94,7 +100,24 @@ export class QuizInstance {
         this.elements.btnResources?.addEventListener('click', () => this.loadResources());
         this.root.querySelector('.btn-view-results')?.addEventListener('click', () => this.showResultsPage());
         this.root.querySelector('.btn-view-bonus')?.addEventListener('click', () => this.loadBonusQuizzes());
-        this.root.querySelector('.btn-back-to-class')?.addEventListener('click', () => this.switchView('view-class-select'));
+        
+        // Subject View Back Button
+        this.elements.btnBackFromSubject?.addEventListener('click', () => {
+            this.selectedSubject = null;
+            this.switchView('view-class-select');
+        });
+
+        // Assignments Back Button
+        this.root.querySelector('.btn-back-to-class')?.addEventListener('click', () => {
+            if (this.selectedSubject && this.selectedClass) {
+                this.showSubjectSelection(this.selectedClass);
+            } else {
+                this.selectedClass = null;
+                this.selectedSubject = null;
+                this.switchView('view-class-select');
+            }
+        });
+
         this.root.querySelector('.btn-back-to-class-from-results')?.addEventListener('click', () => this.switchView('view-class-select'));
         
         this.elements.btnBackFromDoc?.addEventListener('click', () => {
@@ -138,3 +161,4 @@ export class QuizInstance {
 Object.assign(QuizInstance.prototype, ViewMixin);
 Object.assign(QuizInstance.prototype, QuizRendererMixin);
 Object.assign(QuizInstance.prototype, SubmissionMixin);
+

@@ -1,3 +1,4 @@
+
 // config.js
 
 export const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
@@ -8,13 +9,37 @@ export let appSettings = {
     manual_week_override: null, // Set to a number to manually lock the week (e.g. 38)
     manual_date_string: null,    // Set to manually lock the date string (e.g. "22/06/2026 - 26/06/2026")
     show_bonus: true,          // Toggle Bonus display directly via JSON
-    show_results: false         // Toggle Results display directly via JSON
+    show_results: false,        // Toggle Results display directly via JSON
+    subjects: {
+        "6": [],
+        "7": ["Computer Science (CS)", "STEAM"],
+        "8": []
+    }
 };
 
 export function updateAppSettings(newSettings) {
     if (newSettings && typeof newSettings === 'object') {
-        appSettings = { ...appSettings, ...newSettings };
+        appSettings = { 
+            ...appSettings, 
+            ...newSettings,
+            subjects: {
+                "6": (newSettings.subjects && Array.isArray(newSettings.subjects["6"])) ? newSettings.subjects["6"] : (appSettings.subjects?.["6"] || []),
+                "7": (newSettings.subjects && Array.isArray(newSettings.subjects["7"])) ? newSettings.subjects["7"] : (appSettings.subjects?.["7"] || ["Computer Science (CS)", "STEAM"]),
+                "8": (newSettings.subjects && Array.isArray(newSettings.subjects["8"])) ? newSettings.subjects["8"] : (appSettings.subjects?.["8"] || [])
+            }
+        };
     }
+}
+
+export function getSubjectsForGrade(grade) {
+    if (!appSettings.subjects) return [];
+    return appSettings.subjects[String(grade)] || [];
+}
+
+export function getSubjectsForClass(classCode) {
+    if (!classCode || classCode.length < 2) return [];
+    const grade = classCode[1];
+    return getSubjectsForGrade(grade);
 }
 
 export async function loadSettings() {
@@ -85,3 +110,4 @@ export function getCurrentTeachingWeekInfo(overrideSettings) {
         dateString: `${formatDate(startDate)} - ${formatDate(endDate)}`
     };
 }
+

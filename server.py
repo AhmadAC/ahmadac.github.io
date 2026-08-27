@@ -1,4 +1,3 @@
-#################### START OF FILE: server.py ####################
 # server.py
 
 import os
@@ -242,7 +241,12 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 "manual_week_override": None,
                 "manual_date_string": None,
                 "show_bonus": True,
-                "show_results": False
+                "show_results": False,
+                "subjects": {
+                    "6": [],
+                    "7": ["Computer Science (CS)", "STEAM"],
+                    "8": []
+                }
             })
 
             response = {

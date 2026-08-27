@@ -1,3 +1,4 @@
+
 /* modals-ui.css - Results, Sidebar, Theme Toggles, Modals, Fractions, QR Codes, and Media Queries */
 
 .quiz-result-box {
@@ -287,7 +288,7 @@ body:not(.dark-theme) .moon-icon { display: block; }
 
 .modal-container {
     background: var(--bg-main); color: #ffffff;
-    border-radius: 6px; width: 90%; max-width: 900px; max-height: 90vh;
+    border-radius: 6px; width: 90%; max-width: 950px; max-height: 92vh;
     display: flex; flex-direction: column; overflow: hidden;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 25px rgba(0,0,0,0.5);
@@ -380,8 +381,104 @@ body.dark-theme .feature-toggle-group label {
     color: white;
 }
 
+/* --- SUBJECT MANAGER GUI STYLES --- */
+.subject-manager-box {
+    background: #25333f;
+    border: 1px solid #3e5060;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+}
+.subject-manager-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+.subject-manager-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.subject-grade-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    background: #1c2730;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.subject-grade-header {
+    font-size: 12px;
+    color: #b0bec5;
+    min-width: 120px;
+}
+.subject-pills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    flex: 1;
+}
+.no-subjects-label {
+    font-size: 11px;
+    color: #78909c;
+    font-style: italic;
+}
+.subject-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.btn-pill-action {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 0 2px;
+    line-height: 1;
+}
+.btn-pill-action:hover {
+    color: #ffcdd2;
+}
+.subject-add-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.subject-add-input {
+    padding: 4px 8px;
+    font-size: 11px;
+    border-radius: 3px;
+    border: 1px solid #546e7a;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    width: 150px;
+}
+.btn-add-subject {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-add-subject:hover { background: #388e3c; }
+
+/* Mapping Table Layout */
 .mapping-grid-header, .mapping-row {
-    display: grid; grid-template-columns: 2.2fr 0.7fr 3.4fr 0.9fr 0.5fr; gap: 10px; align-items: center;
+    display: grid; grid-template-columns: 2.0fr 0.6fr 3.8fr 0.8fr 0.5fr; gap: 10px; align-items: center;
     padding: 10px 0; border-bottom: 1px solid var(--border-color);
 }
 .mapping-grid-header { font-weight: bold; color: var(--primary); }
@@ -393,20 +490,36 @@ body.dark-theme .feature-toggle-group label {
 .class-assignment-cell {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
-.quick-toggles {
+.grade-subject-group {
     display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-left: 2px solid #37474f;
+    padding-left: 6px;
+}
+
+.subject-toggle-row {
+    display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 4px;
+}
+
+.subject-tag-label {
+    font-size: 10px;
+    font-weight: bold;
+    color: #90caf9;
+    margin-right: 2px;
 }
 
 .quick-toggle {
     background: #25333f;
     color: #90a4ae;
     border: 1px dashed #546e7a;
-    padding: 2px 7px;
+    padding: 2px 6px;
     border-radius: 3px;
     font-size: 10px;
     font-weight: bold;
@@ -426,14 +539,13 @@ body.dark-theme .feature-toggle-group label {
     border-color: #0288d1 !important;
 }
 
-.class-toggles { display: flex; flex-wrap: wrap; gap: 4px; }
 .class-toggle { 
     background: #394b59; 
     color: #e0e6ed; 
     border: 1px solid #5c7080;
-    padding: 3px 5px; 
+    padding: 2px 5px; 
     border-radius: 3px; 
-    font-size: 11px; 
+    font-size: 10px; 
     font-weight: 600;
     cursor: pointer; 
     user-select: none;

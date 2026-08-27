@@ -1,6 +1,7 @@
+
 // app.js
 
-import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings } from './config.js';
+import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings, getSubjectsForGrade } from './config.js';
 import { initDevTools, applyFeatureToggles, generateQRCodeSVG } from './utils.js';
 import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js';
 import { QuizInstance } from './QuizInstance.js';
@@ -96,12 +97,19 @@ async function initApp() {
             const grades = ["6", "7", "8"];
             grades.forEach(g => {
                 if (data.canvas && data.canvas[g]) {
-                    Object.values(data.canvas[g]).forEach(val => {
-                        if (typeof val === 'object') Object.keys(val).forEach(q => existingNames.add(q));
-                        else existingNames.add(val);
-                    });
-                    Object.keys(data.canvas[g]).forEach(k => {
-                        if(typeof data.canvas[g][k] !== 'object') existingNames.add(k);
+                    const gradeObj = data.canvas[g];
+                    Object.entries(gradeObj).forEach(([k, val]) => {
+                        if (typeof val === 'object' && val !== null) {
+                            Object.entries(val).forEach(([subK, subVal]) => {
+                                if (typeof subVal === 'object' && subVal !== null) {
+                                    Object.keys(subVal).forEach(q => existingNames.add(q));
+                                } else {
+                                    existingNames.add(subK);
+                                }
+                            });
+                        } else {
+                            existingNames.add(k);
+                        }
                     });
                 }
             });
@@ -226,13 +234,122 @@ let quizzesToDelete = [];
 window.openMappingManager = function() {
     if (!window.appConfig) return alert("Mapping manager requires the Desktop offline application.");
     quizzesToDelete = [];
+    renderSubjectManager();
     renderMappingList();
     document.getElementById('modal-overlay').classList.add('active');
     document.getElementById('mapping-modal').classList.remove('hidden');
 };
 
+// --- SUBJECT MANAGEMENT GUI (Add, Rename, Remove, Toggle) ---
+function renderSubjectManager() {
+    const container = document.getElementById('subject-manager-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const currentSubjects = appSettings.subjects || { "6": [], "7": ["Computer Science (CS)", "STEAM"], "8": [] };
+    const grades = ["6", "7", "8"];
+
+    grades.forEach(grade => {
+        const gradeSec = document.createElement('div');
+        gradeSec.className = 'subject-grade-section';
+
+        const gradeHeader = document.createElement('div');
+        gradeHeader.className = 'subject-grade-header';
+        gradeHeader.innerHTML = `<strong>Grade ${grade} Subjects:</strong>`;
+
+        const subList = document.createElement('div');
+        subList.className = 'subject-pills-list';
+
+        const subs = currentSubjects[grade] || [];
+
+        if (subs.length === 0) {
+            const noSub = document.createElement('span');
+            noSub.className = 'no-subjects-label';
+            noSub.innerText = 'No separate subjects (Single Class)';
+            subList.appendChild(noSub);
+        } else {
+            subs.forEach((subName, subIdx) => {
+                const pill = document.createElement('div');
+                pill.className = 'subject-pill';
+
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'subject-name-text';
+                nameSpan.innerText = subName;
+
+                const editBtn = document.createElement('button');
+                editBtn.className = 'btn-pill-action btn-rename';
+                editBtn.title = 'Rename Subject';
+                editBtn.innerText = '✎';
+                editBtn.onclick = () => {
+                    const newName = prompt(`Rename subject "${subName}" for Grade ${grade}:`, subName);
+                    if (newName && newName.trim() && newName.trim() !== subName) {
+                        currentSubjects[grade][subIdx] = newName.trim();
+                        renderSubjectManager();
+                        renderMappingList();
+                    }
+                };
+
+                const delBtn = document.createElement('button');
+                delBtn.className = 'btn-pill-action btn-del';
+                delBtn.title = 'Delete Subject';
+                delBtn.innerText = '×';
+                delBtn.onclick = () => {
+                    if (confirm(`Remove subject "${subName}" from Grade ${grade}?`)) {
+                        currentSubjects[grade].splice(subIdx, 1);
+                        renderSubjectManager();
+                        renderMappingList();
+                    }
+                };
+
+                pill.appendChild(nameSpan);
+                pill.appendChild(editBtn);
+                pill.appendChild(delBtn);
+                subList.appendChild(pill);
+            });
+        }
+
+        const addRow = document.createElement('div');
+        addRow.className = 'subject-add-row';
+
+        const addInput = document.createElement('input');
+        addInput.type = 'text';
+        addInput.placeholder = `Add subject to Grade ${grade}...`;
+        addInput.className = 'subject-add-input';
+
+        const addBtn = document.createElement('button');
+        addBtn.className = 'btn-add-subject';
+        addBtn.innerText = '+ Add';
+        addBtn.onclick = () => {
+            const val = addInput.value.trim();
+            if (!val) return;
+            if (!currentSubjects[grade]) currentSubjects[grade] = [];
+            if (!currentSubjects[grade].includes(val)) {
+                currentSubjects[grade].push(val);
+                addInput.value = '';
+                renderSubjectManager();
+                renderMappingList();
+            } else {
+                alert("This subject already exists for Grade " + grade);
+            }
+        };
+
+        addInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') addBtn.click();
+        });
+
+        addRow.appendChild(addInput);
+        addRow.appendChild(addBtn);
+
+        gradeSec.appendChild(gradeHeader);
+        gradeSec.appendChild(subList);
+        gradeSec.appendChild(addRow);
+        container.appendChild(gradeSec);
+    });
+}
+
 function renderMappingList() {
     const list = document.getElementById('mapping-list');
+    if (!list) return;
     list.innerHTML = '';
     const search = (document.getElementById('mapping-search').value || "").toLowerCase();
 
@@ -255,6 +372,9 @@ function renderMappingList() {
 
     if (showBonusCb) showBonusCb.checked = !!appSettings.show_bonus;
     if (showResultsCb) showResultsCb.checked = !!appSettings.show_results;
+
+    const grades = ["6", "7", "8"];
+    const currentSubjects = appSettings.subjects || {};
     
     (window.appConfig.quizzes || []).forEach(quiz => {
         if (search && !quiz.name.toLowerCase().includes(search)) return;
@@ -274,89 +394,120 @@ function renderMappingList() {
         const classesCell = document.createElement('div');
         classesCell.className = 'class-assignment-cell';
 
-        const quickContainer = document.createElement('div');
-        quickContainer.className = 'quick-toggles';
-
-        const classesContainer = document.createElement('div');
-        classesContainer.className = 'class-toggles';
-
-        const allClasses = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
-        
-        // Determine mapping assignment from canvas data
+        // Extract assigned targets: supports both simple ["G6A"] and subject-specific ["G7A::Computer Science (CS)"]
         let assigned = getQuizMapping(quiz.name, window.appConfig.canvas);
-        
-        allClasses.forEach(cls => {
-            const btn = document.createElement('div');
-            btn.className = `class-toggle ${assigned.includes(cls) ? 'active' : ''}`;
-            btn.innerText = cls;
-            btn.dataset.cls = cls;
-            btn.dataset.grade = cls[1];
-            btn.onclick = () => {
-                btn.classList.toggle('active');
-                updateGroupToggles();
-            };
-            classesContainer.appendChild(btn);
+
+        const allToggleButtons = [];
+
+        grades.forEach(grade => {
+            const subs = currentSubjects[grade] || [];
+            const clsList = [`G${grade}A`, `G${grade}B`, `G${grade}C`];
+
+            if (subs.length > 0) {
+                // Render grade section with subjects
+                const gradeGroup = document.createElement('div');
+                gradeGroup.className = 'grade-subject-group';
+
+                subs.forEach(sub => {
+                    const subRow = document.createElement('div');
+                    subRow.className = 'subject-toggle-row';
+
+                    const subTag = document.createElement('span');
+                    subTag.className = 'subject-tag-label';
+                    subTag.innerText = `G${grade} [${sub}]:`;
+                    subRow.appendChild(subTag);
+
+                    const subAllBtn = document.createElement('div');
+                    subAllBtn.className = 'quick-toggle';
+                    subAllBtn.innerText = 'All';
+
+                    const subClassBtns = [];
+                    clsList.forEach(cls => {
+                        const targetKey = `${cls}::${sub}`;
+                        const isAct = assigned.includes(targetKey) || assigned.includes(cls);
+                        const btn = document.createElement('div');
+                        btn.className = `class-toggle ${isAct ? 'active' : ''}`;
+                        btn.innerText = cls;
+                        btn.dataset.target = targetKey;
+                        btn.dataset.cls = cls;
+                        btn.dataset.subject = sub;
+                        btn.dataset.grade = grade;
+                        btn.onclick = () => {
+                            btn.classList.toggle('active');
+                            updateSubAllState();
+                        };
+                        subClassBtns.push(btn);
+                        allToggleButtons.push(btn);
+                    });
+
+                    function updateSubAllState() {
+                        const allActive = subClassBtns.every(b => b.classList.contains('active'));
+                        subAllBtn.classList.toggle('active', allActive);
+                    }
+
+                    subAllBtn.onclick = () => {
+                        const allActive = subClassBtns.every(b => b.classList.contains('active'));
+                        subClassBtns.forEach(b => b.classList.toggle('active', !allActive));
+                        updateSubAllState();
+                    };
+
+                    updateSubAllState();
+
+                    subRow.appendChild(subAllBtn);
+                    subClassBtns.forEach(b => subRow.appendChild(b));
+                    gradeGroup.appendChild(subRow);
+                });
+
+                classesCell.appendChild(gradeGroup);
+            } else {
+                // Render standard grade toggle row
+                const stdRow = document.createElement('div');
+                stdRow.className = 'subject-toggle-row';
+
+                const gradeTag = document.createElement('span');
+                gradeTag.className = 'subject-tag-label';
+                gradeTag.innerText = `G${grade}:`;
+                stdRow.appendChild(gradeTag);
+
+                const gradeAllBtn = document.createElement('div');
+                gradeAllBtn.className = 'quick-toggle';
+                gradeAllBtn.innerText = 'All';
+
+                const clsBtns = [];
+                clsList.forEach(cls => {
+                    const isAct = assigned.includes(cls);
+                    const btn = document.createElement('div');
+                    btn.className = `class-toggle ${isAct ? 'active' : ''}`;
+                    btn.innerText = cls;
+                    btn.dataset.target = cls;
+                    btn.dataset.cls = cls;
+                    btn.dataset.grade = grade;
+                    btn.onclick = () => {
+                        btn.classList.toggle('active');
+                        updateGradeAllState();
+                    };
+                    clsBtns.push(btn);
+                    allToggleButtons.push(btn);
+                });
+
+                function updateGradeAllState() {
+                    const allActive = clsBtns.every(b => b.classList.contains('active'));
+                    gradeAllBtn.classList.toggle('active', allActive);
+                }
+
+                gradeAllBtn.onclick = () => {
+                    const allActive = clsBtns.every(b => b.classList.contains('active'));
+                    clsBtns.forEach(b => b.classList.toggle('active', !allActive));
+                    updateGradeAllState();
+                };
+
+                updateGradeAllState();
+
+                stdRow.appendChild(gradeAllBtn);
+                clsBtns.forEach(b => stdRow.appendChild(b));
+                classesCell.appendChild(stdRow);
+            }
         });
-
-        // Quick Group Shortcut Buttons
-        const btnAll = document.createElement('div');
-        btnAll.className = 'quick-toggle';
-        btnAll.innerText = 'All';
-
-        const btnG6 = document.createElement('div');
-        btnG6.className = 'quick-toggle';
-        btnG6.innerText = 'G6';
-
-        const btnG7 = document.createElement('div');
-        btnG7.className = 'quick-toggle';
-        btnG7.innerText = 'G7';
-
-        const btnG8 = document.createElement('div');
-        btnG8.className = 'quick-toggle';
-        btnG8.innerText = 'G8';
-
-        function updateGroupToggles() {
-            const activeClasses = Array.from(classesContainer.querySelectorAll('.class-toggle.active')).map(b => b.dataset.cls);
-            const hasG6 = ["G6A", "G6B", "G6C"].every(c => activeClasses.includes(c));
-            const hasG7 = ["G7A", "G7B", "G7C"].every(c => activeClasses.includes(c));
-            const hasG8 = ["G8A", "G8B", "G8C"].every(c => activeClasses.includes(c));
-            const hasAll = allClasses.every(c => activeClasses.includes(c));
-
-            btnG6.classList.toggle('active', hasG6);
-            btnG7.classList.toggle('active', hasG7);
-            btnG8.classList.toggle('active', hasG8);
-            btnAll.classList.toggle('active', hasAll);
-        }
-
-        btnAll.onclick = () => {
-            const activeCount = classesContainer.querySelectorAll('.class-toggle.active').length;
-            const shouldSelect = activeCount < allClasses.length;
-            classesContainer.querySelectorAll('.class-toggle').forEach(b => b.classList.toggle('active', shouldSelect));
-            updateGroupToggles();
-        };
-
-        const setupGradeToggle = (btn, grade) => {
-            btn.onclick = () => {
-                const gradeBtns = classesContainer.querySelectorAll(`.class-toggle[data-grade="${grade}"]`);
-                const allActive = Array.from(gradeBtns).every(b => b.classList.contains('active'));
-                gradeBtns.forEach(b => b.classList.toggle('active', !allActive));
-                updateGroupToggles();
-            };
-        };
-
-        setupGradeToggle(btnG6, '6');
-        setupGradeToggle(btnG7, '7');
-        setupGradeToggle(btnG8, '8');
-
-        updateGroupToggles();
-
-        quickContainer.appendChild(btnAll);
-        quickContainer.appendChild(btnG6);
-        quickContainer.appendChild(btnG7);
-        quickContainer.appendChild(btnG8);
-
-        classesCell.appendChild(quickContainer);
-        classesCell.appendChild(classesContainer);
         
         const ignoreContainer = document.createElement('div');
         ignoreContainer.style.display = 'flex';
@@ -398,7 +549,7 @@ function renderMappingList() {
         row.appendChild(actionContainer);
         
         row.dataset.quizName = quiz.name;
-        row.getAssigned = () => Array.from(classesContainer.querySelectorAll('.class-toggle.active')).map(b => b.dataset.cls || b.innerText);
+        row.getAssigned = () => allToggleButtons.filter(b => b.classList.contains('active')).map(b => b.dataset.target);
         row.isIgnored = () => ignoreCb.checked;
         
         list.appendChild(row);
@@ -480,7 +631,7 @@ window.saveMappingConfig = function() {
         }
     });
     
-    // Save Settings (Teaching Week & Feature Toggles)
+    // Save Settings (Teaching Week, Feature Toggles, & Subjects)
     const weekInput = document.getElementById('manual-week-input');
     const showBonusCb = document.getElementById('toggle-show-bonus');
     const showResultsCb = document.getElementById('toggle-show-results');
@@ -498,6 +649,7 @@ window.saveMappingConfig = function() {
 
     if (showBonusCb) window.appConfig.settings.show_bonus = showBonusCb.checked;
     if (showResultsCb) window.appConfig.settings.show_results = showResultsCb.checked;
+    window.appConfig.settings.subjects = appSettings.subjects;
 
     updateAppSettings(window.appConfig.settings);
     applyFeatureToggles();
@@ -516,8 +668,9 @@ window.saveMappingConfig = function() {
         
         loadCanvasData().then(() => {
             quizInstances.forEach(inst => {
-                if(inst.selectedClass && inst.views.assignments.classList.contains('active')) {
-                    inst.loadAssignments(inst.selectedClass);
+                inst.initClassGrid();
+                if (inst.selectedClass && inst.views.assignments.classList.contains('active')) {
+                    inst.loadAssignments(inst.selectedClass, inst.selectedSubject);
                 }
             });
         });
@@ -539,59 +692,95 @@ function getQuizMapping(q_name, data) {
     ["6", "7", "8"].forEach(grade => {
         if (data[grade]) {
             const gradeData = data[grade];
+            
+            // Check top-level quiz mapping (All classes in grade)
             if (gradeData[q_name] !== undefined && typeof gradeData[q_name] !== 'object') {
                 assigned.push(`G${grade}A`, `G${grade}B`, `G${grade}C`);
-            } else {
-                [`G${grade}A`, `G${grade}B`, `G${grade}C`].forEach(cls => {
-                    if (gradeData[cls] && gradeData[cls][q_name] !== undefined) {
-                        assigned.push(cls);
-                    }
-                });
             }
+
+            // Check class or subject level mappings
+            Object.entries(gradeData).forEach(([k, val]) => {
+                if (typeof val === 'object' && val !== null) {
+                    // Check if k is class (G7A) or Subject (Computer Science (CS))
+                    if (k.startsWith(`G${grade}`)) {
+                        const cls = k;
+                        // Subkeys could be quiz names or subjects
+                        Object.entries(val).forEach(([subK, subVal]) => {
+                            if (typeof subVal === 'object' && subVal !== null) {
+                                // subK is subject
+                                if (subVal[q_name] !== undefined) {
+                                    assigned.push(`${cls}::${subK}`);
+                                }
+                            } else if (subK === q_name) {
+                                assigned.push(cls);
+                            }
+                        });
+                    } else {
+                        // k is subject
+                        const subName = k;
+                        Object.entries(val).forEach(([subK, subVal]) => {
+                            if (typeof subVal === 'object' && subVal !== null) {
+                                if (subVal[q_name] !== undefined) {
+                                    assigned.push(`${subK}::${subName}`);
+                                }
+                            } else if (subK === q_name) {
+                                [`G${grade}A`, `G${grade}B`, `G${grade}C`].forEach(cls => {
+                                    assigned.push(`${cls}::${subName}`);
+                                });
+                            }
+                        });
+                    }
+                }
+            });
         }
     });
     return [...new Set(assigned)];
 }
 
 function rebuildCanvasJson(oldData, updates) {
-    let temp = { "6": { "G6A": {}, "G6B": {}, "G6C": {} }, "7": { "G7A": {}, "G7B": {}, "G7C": {} }, "8": { "G8A": {}, "G8B": {}, "G8C": {} } };
+    let finalData = { "6": {}, "7": {}, "8": {} };
     let nowStr = new Date().toISOString();
     
     updates.forEach(u => {
         if (!u.name || !u.targets) return;
-        u.targets.forEach(cls => {
+        u.targets.forEach(target => {
+            let cls = target;
+            let subject = null;
+
+            if (target.includes('::')) {
+                const parts = target.split('::');
+                cls = parts[0];
+                subject = parts[1];
+            }
+
             const grade = cls[1];
-            if (temp[grade] && temp[grade][cls]) {
+            if (!finalData[grade]) finalData[grade] = {};
+
+            if (subject) {
+                if (!finalData[grade][subject]) finalData[grade][subject] = {};
+                if (!finalData[grade][subject][cls]) finalData[grade][subject][cls] = {};
+
                 let ts = nowStr;
-                if (oldData[grade] && oldData[grade][cls] && oldData[grade][cls][u.name]) ts = oldData[grade][cls][u.name];
-                else if (oldData[grade] && oldData[grade][u.name]) ts = oldData[grade][u.name];
-                temp[grade][cls][u.name] = ts;
+                try {
+                    if (oldData?.[grade]?.[subject]?.[cls]?.[u.name]) ts = oldData[grade][subject][cls][u.name];
+                    else if (oldData?.[grade]?.[cls]?.[subject]?.[u.name]) ts = oldData[grade][cls][subject][u.name];
+                    else if (oldData?.[grade]?.[cls]?.[u.name]) ts = oldData[grade][cls][u.name];
+                } catch(e) {}
+
+                finalData[grade][subject][cls][u.name] = ts;
+            } else {
+                if (!finalData[grade][cls]) finalData[grade][cls] = {};
+
+                let ts = nowStr;
+                try {
+                    if (oldData?.[grade]?.[cls]?.[u.name]) ts = oldData[grade][cls][u.name];
+                    else if (oldData?.[grade]?.[u.name]) ts = oldData[grade][u.name];
+                } catch(e) {}
+
+                finalData[grade][cls][u.name] = ts;
             }
         });
     });
-    
-    let finalData = { "6": {}, "7": {}, "8": {} };
-    ["6", "7", "8"].forEach(grade => {
-        const classes = [`G${grade}A`, `G${grade}B`, `G${grade}C`];
-        let allQuizzes = new Set();
-        classes.forEach(c => Object.keys(temp[grade][c]).forEach(q => allQuizzes.add(q)));
-        
-        let canBeFlat = true;
-        allQuizzes.forEach(q => {
-            if (!temp[grade][classes[0]][q] || !temp[grade][classes[1]][q] || !temp[grade][classes[2]][q]) {
-                canBeFlat = false;
-            }
-        });
-        
-        if (canBeFlat) {
-            allQuizzes.forEach(q => finalData[grade][q] = temp[grade][classes[0]][q]);
-        } else {
-            classes.forEach(c => {
-                if (Object.keys(temp[grade][c]).length > 0) {
-                    finalData[grade][c] = temp[grade][c];
-                }
-            });
-        }
-    });
+
     return finalData;
 }
