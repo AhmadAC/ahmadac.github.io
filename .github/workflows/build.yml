@@ -40,7 +40,7 @@ jobs:
 
       - name: Build Executable with PyInstaller
         run: |
-          pyinstaller --onedir --name "MrCooperServer" server.py
+          pyinstaller --onedir --windowed --name "MrCooperServer" server.py
           # Copy web assets into the distribution directory
           cp -r index.html *.js *.css dist/MrCooperServer/ 2>/dev/null || true
           if [ -d "sounds" ]; then cp -r sounds dist/MrCooperServer/; fi
@@ -80,7 +80,7 @@ jobs:
           Exec=MrCooperServer
           Icon=mrcooper
           Categories=Education;
-          Terminal=true
+          Terminal=false
           StartupNotify=true
           EOF
 

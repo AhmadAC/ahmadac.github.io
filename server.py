@@ -1,3 +1,5 @@
+#################### START OF FILE: server.py ####################
+
 # server.py
 
 import os
@@ -16,6 +18,23 @@ import tempfile
 from http.server import SimpleHTTPRequestHandler
 from socketserver import ThreadingTCPServer
 from datetime import datetime
+
+# --- Hide Windows Console window automatically if running directly or as compiled exe ---
+if platform.system() == "Windows":
+    try:
+        import ctypes
+        hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+        if hwnd:
+            # SW_HIDE = 0
+            ctypes.windll.user32.ShowWindow(hwnd, 0)
+    except Exception:
+        pass
+
+# Ensure standard output / error do not fail if running in noconsole/windowed mode
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, 'w', encoding='utf-8', errors='ignore')
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, 'w', encoding='utf-8', errors='ignore')
 
 # --- Linux / Fedora / Wayland Compatibility ---
 if platform.system() == "Linux":
@@ -52,8 +71,8 @@ if APPDIR:
         APPDIR
     ])
 candidate_web_dirs.extend([
-    BUNDLE_DIR,
     EXE_DIR,
+    BUNDLE_DIR,
     os.path.dirname(os.path.abspath(__file__)),
     LAUNCH_DIR
 ])
@@ -97,11 +116,13 @@ def get_clean_env():
     return env
 
 def get_data_dir():
-    search_locations = [LAUNCH_DIR]
+    search_locations = []
+    if EXE_DIR and EXE_DIR not in search_locations:
+        search_locations.append(EXE_DIR)
+    if LAUNCH_DIR and LAUNCH_DIR not in search_locations:
+        search_locations.append(LAUNCH_DIR)
     if APPIMAGE_DIR and APPIMAGE_DIR not in search_locations:
         search_locations.append(APPIMAGE_DIR)
-    if not APPDIR and EXE_DIR not in search_locations:
-        search_locations.append(EXE_DIR)
 
     for loc in search_locations:
         config_path = os.path.join(loc, "folder_config.txt")
@@ -123,8 +144,9 @@ def get_data_dir():
             if os.path.exists(candidate):
                 return os.path.normpath(candidate)
 
-    # Seed bundled templates to a writable directory if running from an AppImage
-    target_data_dir = os.path.normpath(os.path.join(LAUNCH_DIR, "0_Quiz"))
+    # Seed bundled templates to a writable directory if running from an AppImage or executable
+    target_base = EXE_DIR if os.path.exists(EXE_DIR) else LAUNCH_DIR
+    target_data_dir = os.path.normpath(os.path.join(target_base, "0_Quiz"))
     try:
         os.makedirs(target_data_dir, exist_ok=True)
         if APPDIR:
@@ -282,15 +304,27 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_POST(self):
-        if self.path == '/api/config':
-            content_length = int(self.headers['Content-Length'])
+        clean_path = urllib.parse.unquote(self.path).replace('\\', '/')
+        if '?' in clean_path:
+            clean_path = clean_path.split('?')[0]
+
+        if clean_path == '/api/config':
+            content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length)
             payload = json.loads(post_data.decode('utf-8'))
 
             def safe_write(fname, data):
                 path = os.path.join(DATA_DIR, fname)
-                with open(path, 'w', encoding='utf-8') as f:
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+                tmp_path = path + ".tmp"
+                with open(tmp_path, 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=4)
+                if os.path.exists(path):
+                    try:
+                        os.remove(path)
+                    except Exception:
+                        pass
+                shutil.move(tmp_path, path)
 
             if 'canvas' in payload:
                 safe_write('canvas.json', payload['canvas'])
@@ -303,22 +337,29 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             if 'settings' in payload:
                 safe_write('settings.json', payload['settings'])
             if 'folder' in payload:
-                save_cfg_loc = LAUNCH_DIR if os.path.exists(LAUNCH_DIR) else EXE_DIR
-                with open(os.path.join(save_cfg_loc, "folder_config.txt"), 'w', encoding='utf-8') as f:
-                    f.write(payload['folder'])
+                save_cfg_loc = EXE_DIR if os.path.exists(EXE_DIR) else LAUNCH_DIR
+                try:
+                    with open(os.path.join(save_cfg_loc, "folder_config.txt"), 'w', encoding='utf-8') as f:
+                        f.write(payload['folder'])
+                except Exception:
+                    pass
 
-            if 'delete_quizzes' in payload:
+            if 'delete_quizzes' in payload and payload['delete_quizzes']:
                 index_path = os.path.join(DATA_DIR, 'quiz_index.json')
                 try:
-                    with open(index_path, 'r') as f:
+                    with open(index_path, 'r', encoding='utf-8') as f:
                         idx = json.load(f)
                 except Exception:
                     idx = {}
                 for dq in payload['delete_quizzes']:
                     fp = os.path.join(DATA_DIR, idx[dq]) if dq in idx else os.path.join(DATA_DIR, f"{dq}.json")
                     if os.path.exists(fp):
-                        os.remove(fp)
-                update_quiz_index()
+                        try:
+                            os.remove(fp)
+                        except Exception:
+                            pass
+
+            update_quiz_index()
 
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
@@ -326,8 +367,8 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             self.wfile.write(json.dumps({"success": True}).encode('utf-8'))
             return
 
-        elif self.path == '/api/save_result':
-            content_length = int(self.headers['Content-Length'])
+        elif clean_path == '/api/save_result':
+            content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length)
             try:
                 payload = json.loads(post_data.decode('utf-8'))
@@ -534,114 +575,6 @@ def run_app():
     print(f"Background Port: {assigned_port}")
     print("==================================================")
 
-    # Optional PySide6 Smart Organizer Dialog
-    try:
-        unorganized_files = [f for f in os.listdir(DATA_DIR) if f.endswith('.json') and f not in CONFIG_FILES and os.path.isfile(os.path.join(DATA_DIR, f))]
-        if unorganized_files:
-            from PySide6.QtWidgets import QApplication, QDialog, QVBoxLayout, QHBoxLayout, QLabel, QListWidget, QListWidgetItem, QComboBox, QPushButton, QInputDialog
-            from PySide6.QtCore import Qt
-
-            app = QApplication.instance() or QApplication(sys.argv)
-
-            class QuizOrganizerDialog(QDialog):
-                def __init__(self, unorganized, data_dir):
-                    super().__init__()
-                    self.unorganized = unorganized
-                    self.data_dir = data_dir
-                    self.setWindowTitle("Smart Folder Organizer")
-                    self.resize(550, 450)
-
-                    layout = QVBoxLayout(self)
-                    layout.addWidget(QLabel("<b>Unorganized quizzes detected in the root folder!</b><br>Move them into class-specific folders to keep things tidy."))
-
-                    sel_layout = QHBoxLayout()
-                    sel_all_btn = QPushButton("Select All")
-                    sel_all_btn.clicked.connect(self.select_all)
-                    sel_none_btn = QPushButton("Select None")
-                    sel_none_btn.clicked.connect(self.select_none)
-                    sel_layout.addWidget(sel_all_btn)
-                    sel_layout.addWidget(sel_none_btn)
-                    sel_layout.addStretch()
-                    layout.addLayout(sel_layout)
-
-                    self.list_widget = QListWidget()
-                    for f in self.unorganized:
-                        item = QListWidgetItem(f)
-                        item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
-                        item.setCheckState(Qt.Checked)
-                        self.list_widget.addItem(item)
-                    layout.addWidget(self.list_widget)
-
-                    ctrl_layout = QHBoxLayout()
-                    ctrl_layout.addWidget(QLabel("Move selected to:"))
-                    self.folder_combo = QComboBox()
-                    self.refresh_folders()
-                    ctrl_layout.addWidget(self.folder_combo)
-                    new_folder_btn = QPushButton("Create New Folder...")
-                    new_folder_btn.clicked.connect(self.create_new_folder)
-                    ctrl_layout.addWidget(new_folder_btn)
-                    layout.addLayout(ctrl_layout)
-
-                    btn_layout = QHBoxLayout()
-                    move_btn = QPushButton("Move Selected Quizzes")
-                    move_btn.setStyleSheet("background-color: #2ECC71; color: white; font-weight: bold; border-radius: 4px; padding: 6px;")
-                    move_btn.clicked.connect(self.move_selected)
-                    skip_btn = QPushButton("Done / Skip")
-                    skip_btn.clicked.connect(self.accept)
-                    btn_layout.addWidget(skip_btn)
-                    btn_layout.addStretch()
-                    btn_layout.addWidget(move_btn)
-                    layout.addLayout(btn_layout)
-
-                def select_all(self):
-                    for i in range(self.list_widget.count()):
-                        self.list_widget.item(i).setCheckState(Qt.Checked)
-
-                def select_none(self):
-                    for i in range(self.list_widget.count()):
-                        self.list_widget.item(i).setCheckState(Qt.Unchecked)
-
-                def refresh_folders(self):
-                    self.folder_combo.clear()
-                    folders = set(["Common", "G6", "G7", "G8"])
-                    for d in os.listdir(self.data_dir):
-                        if os.path.isdir(os.path.join(self.data_dir, d)) and d not in ["media", "bonus"]:
-                            folders.add(d)
-                    self.folder_combo.addItems(sorted(list(folders)))
-
-                def create_new_folder(self):
-                    name, ok = QInputDialog.getText(self, "New Folder", "Enter exact folder name:")
-                    if ok and name:
-                        os.makedirs(os.path.join(self.data_dir, name), exist_ok=True)
-                        self.refresh_folders()
-                        self.folder_combo.setCurrentText(name)
-
-                def move_selected(self):
-                    target_folder = self.folder_combo.currentText()
-                    if not target_folder:
-                        return
-                    target_path = os.path.join(self.data_dir, target_folder)
-                    os.makedirs(target_path, exist_ok=True)
-                    items_to_remove = []
-                    for i in range(self.list_widget.count()):
-                        item = self.list_widget.item(i)
-                        if item.checkState() == Qt.Checked:
-                            src, dst = os.path.join(self.data_dir, item.text()), os.path.join(target_path, item.text())
-                            try:
-                                shutil.move(src, dst)
-                                items_to_remove.append(item)
-                            except Exception as e:
-                                print(f"Failed to move: {e}")
-                    for item in items_to_remove:
-                        self.list_widget.takeItem(self.list_widget.row(item))
-                    if self.list_widget.count() == 0:
-                        self.accept()
-
-            dialog = QuizOrganizerDialog(unorganized_files, DATA_DIR)
-            dialog.exec()
-    except Exception:
-        pass
-
     update_quiz_index()
 
     local_url = f"http://127.0.0.1:{assigned_port}/index.html"
@@ -651,15 +584,21 @@ def run_app():
     proc = launch_browser_app(local_url, warm_profile)
 
     if proc:
-        print("\n[INFO] App Window is open. Use Ctrl+ and Ctrl- to zoom.")
-        print("[INFO] Close the application window to automatically stop the server.")
+        t0 = time.time()
         try:
             proc.wait()
         except KeyboardInterrupt:
             pass
+
+        # If the browser process delegated to an existing browser instance and exited in < 5 seconds,
+        # keep the server alive so that user interactions and saves continue working properly.
+        if time.time() - t0 < 5:
+            try:
+                while True:
+                    time.sleep(1)
+            except KeyboardInterrupt:
+                pass
     else:
-        print(f"\n[INFO] Running... Open {local_url} manually if your browser did not open.")
-        print("Press Ctrl+C inside this console window to terminate the server.")
         try:
             while True:
                 time.sleep(1)

@@ -1,4 +1,3 @@
-
 // app.js
 
 import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings, getSubjectsForGrade } from './config.js';
@@ -10,6 +9,9 @@ let viewMode = 1;
 export let quizInstances = [];
 window.isOfflineMode = false;
 window.appConfig = null;
+
+// Global mapping editor state to avoid losing un-rendered rows during search filtering
+let mappingState = {};
 
 // The main fast initialization function
 async function initApp() {
@@ -79,7 +81,7 @@ async function initApp() {
         }
     });
 
-    // Detect offline desktop server and parallelize loader execution
+    // Detect offline desktop server and initialize data
     try {
         const res = await fetch('/api/config');
         if (res.ok) {
@@ -125,13 +127,17 @@ async function initApp() {
         document.body.classList.remove('offline-mode');
     }
 
-    // Load remaining datasets in parallel
-    await Promise.all([
-        loadSettings(),
-        loadQuizIndex(),
-        loadIgnoreData(),
-        loadCanvasData()
-    ]);
+    // In online mode or fallback mode, load independent static datasets
+    if (!window.isOfflineMode) {
+        await Promise.all([
+            loadSettings(),
+            loadQuizIndex(),
+            loadIgnoreData(),
+            loadCanvasData()
+        ]);
+    } else {
+        await loadQuizIndex();
+    }
 
     applyFeatureToggles();
     setViewMode(1);
@@ -206,12 +212,14 @@ window.openAutolinkDialog = function() {
 };
 
 window.saveAutolinkConfig = function() {
+    if (!window.appConfig) window.appConfig = {};
     window.appConfig.autolink = {
         enabled: document.getElementById('autolink-enable').checked,
         webhook_url: document.getElementById('autolink-url').value.trim()
     };
-    postConfig({ autolink: window.appConfig.autolink });
-    window.closeModals();
+    postConfig({ autolink: window.appConfig.autolink })
+        .then(() => window.closeModals())
+        .catch(err => alert("Failed to save Autolink configuration: " + err.message));
 };
 
 window.openFolderConfigDialog = function() {
@@ -223,10 +231,14 @@ window.openFolderConfigDialog = function() {
 };
 
 window.saveFolderConfig = function() {
+    if (!window.appConfig) window.appConfig = {};
     window.appConfig.folder = document.getElementById('folder-path').value.trim();
-    postConfig({ folder: window.appConfig.folder });
-    alert("Folder configuration saved.\nPlease restart the application for changes to take effect.");
-    window.closeModals();
+    postConfig({ folder: window.appConfig.folder })
+        .then(() => {
+            alert("Folder configuration saved.\nPlease restart the application for changes to take effect.");
+            window.closeModals();
+        })
+        .catch(err => alert("Failed to save folder configuration: " + err.message));
 };
 
 let quizzesToDelete = [];
@@ -234,6 +246,17 @@ let quizzesToDelete = [];
 window.openMappingManager = function() {
     if (!window.appConfig) return alert("Mapping manager requires the Desktop offline application.");
     quizzesToDelete = [];
+    
+    // Initialize full mappingState for all quizzes so searching doesn't drop quizzes
+    mappingState = {};
+    const ignoredList = window.appConfig.ignore || [];
+    (window.appConfig.quizzes || []).forEach(quiz => {
+        mappingState[quiz.name] = {
+            isIgnored: ignoredList.includes(quiz.name),
+            targets: getQuizMapping(quiz.name, window.appConfig.canvas)
+        };
+    });
+
     renderSubjectManager();
     renderMappingList();
     document.getElementById('modal-overlay').classList.add('active');
@@ -376,9 +399,18 @@ function renderMappingList() {
     const grades = ["6", "7", "8"];
     const currentSubjects = appSettings.subjects || {};
     
-    (window.appConfig.quizzes || []).forEach(quiz => {
+    (window.appConfig?.quizzes || []).forEach(quiz => {
         if (search && !quiz.name.toLowerCase().includes(search)) return;
         if (quizzesToDelete.includes(quiz.name)) return;
+
+        if (!mappingState[quiz.name]) {
+            mappingState[quiz.name] = {
+                isIgnored: (window.appConfig.ignore || []).includes(quiz.name),
+                targets: getQuizMapping(quiz.name, window.appConfig.canvas)
+            };
+        }
+
+        const currentAssigned = mappingState[quiz.name].targets || [];
 
         const row = document.createElement('div');
         row.className = 'mapping-row';
@@ -394,17 +426,19 @@ function renderMappingList() {
         const classesCell = document.createElement('div');
         classesCell.className = 'class-assignment-cell';
 
-        // Extract assigned targets: supports both simple ["G6A"] and subject-specific ["G7A::Computer Science (CS)"]
-        let assigned = getQuizMapping(quiz.name, window.appConfig.canvas);
-
         const allToggleButtons = [];
+
+        const syncStateFromButtons = () => {
+            mappingState[quiz.name].targets = allToggleButtons
+                .filter(b => b.classList.contains('active'))
+                .map(b => b.dataset.target);
+        };
 
         grades.forEach(grade => {
             const subs = currentSubjects[grade] || [];
             const clsList = [`G${grade}A`, `G${grade}B`, `G${grade}C`];
 
             if (subs.length > 0) {
-                // Render grade section with subjects
                 const gradeGroup = document.createElement('div');
                 gradeGroup.className = 'grade-subject-group';
 
@@ -424,7 +458,7 @@ function renderMappingList() {
                     const subClassBtns = [];
                     clsList.forEach(cls => {
                         const targetKey = `${cls}::${sub}`;
-                        const isAct = assigned.includes(targetKey) || assigned.includes(cls);
+                        const isAct = currentAssigned.includes(targetKey) || currentAssigned.includes(cls);
                         const btn = document.createElement('div');
                         btn.className = `class-toggle ${isAct ? 'active' : ''}`;
                         btn.innerText = cls;
@@ -435,6 +469,7 @@ function renderMappingList() {
                         btn.onclick = () => {
                             btn.classList.toggle('active');
                             updateSubAllState();
+                            syncStateFromButtons();
                         };
                         subClassBtns.push(btn);
                         allToggleButtons.push(btn);
@@ -449,6 +484,7 @@ function renderMappingList() {
                         const allActive = subClassBtns.every(b => b.classList.contains('active'));
                         subClassBtns.forEach(b => b.classList.toggle('active', !allActive));
                         updateSubAllState();
+                        syncStateFromButtons();
                     };
 
                     updateSubAllState();
@@ -460,7 +496,6 @@ function renderMappingList() {
 
                 classesCell.appendChild(gradeGroup);
             } else {
-                // Render standard grade toggle row
                 const stdRow = document.createElement('div');
                 stdRow.className = 'subject-toggle-row';
 
@@ -475,7 +510,7 @@ function renderMappingList() {
 
                 const clsBtns = [];
                 clsList.forEach(cls => {
-                    const isAct = assigned.includes(cls);
+                    const isAct = currentAssigned.includes(cls);
                     const btn = document.createElement('div');
                     btn.className = `class-toggle ${isAct ? 'active' : ''}`;
                     btn.innerText = cls;
@@ -485,6 +520,7 @@ function renderMappingList() {
                     btn.onclick = () => {
                         btn.classList.toggle('active');
                         updateGradeAllState();
+                        syncStateFromButtons();
                     };
                     clsBtns.push(btn);
                     allToggleButtons.push(btn);
@@ -499,6 +535,7 @@ function renderMappingList() {
                     const allActive = clsBtns.every(b => b.classList.contains('active'));
                     clsBtns.forEach(b => b.classList.toggle('active', !allActive));
                     updateGradeAllState();
+                    syncStateFromButtons();
                 };
 
                 updateGradeAllState();
@@ -517,9 +554,10 @@ function renderMappingList() {
         const ignoreCb = document.createElement('input');
         ignoreCb.type = 'checkbox';
         ignoreCb.className = 'hide-checkbox';
-        ignoreCb.checked = (window.appConfig.ignore || []).includes(quiz.name);
+        ignoreCb.checked = mappingState[quiz.name].isIgnored;
         
         ignoreCb.onchange = () => {
+            mappingState[quiz.name].isIgnored = ignoreCb.checked;
             updateHideAllState();
         };
         ignoreContainer.appendChild(ignoreCb);
@@ -537,6 +575,7 @@ function renderMappingList() {
         delBtn.onclick = () => {
             if (confirm(`Are you sure you want to remove '${quiz.name}'?\nWARNING: This will also PHYSICALLY DELETE the JSON file from your folder on disk!`)) {
                 quizzesToDelete.push(quiz.name);
+                delete mappingState[quiz.name];
                 renderMappingList();
             }
         };
@@ -547,10 +586,6 @@ function renderMappingList() {
         row.appendChild(classesCell);
         row.appendChild(ignoreContainer);
         row.appendChild(actionContainer);
-        
-        row.dataset.quizName = quiz.name;
-        row.getAssigned = () => allToggleButtons.filter(b => b.classList.contains('active')).map(b => b.dataset.target);
-        row.isIgnored = () => ignoreCb.checked;
         
         list.appendChild(row);
     });
@@ -615,19 +650,18 @@ document.getElementById('toggle-hide-all')?.addEventListener('change', (e) => {
 });
 
 window.saveMappingConfig = function() {
-    const rows = document.getElementById('mapping-list').querySelectorAll('.mapping-row');
     let newIgnore = [];
     let updates = [];
-    
-    rows.forEach(row => {
-        const qname = row.dataset.quizName;
-        if (row.isIgnored()) {
+
+    // Read from mappingState directly to ensure un-rendered/searched items are never lost
+    Object.entries(mappingState).forEach(([qname, state]) => {
+        if (quizzesToDelete.includes(qname)) return;
+
+        if (state.isIgnored) {
             newIgnore.push(qname);
         }
-        
-        const targets = row.getAssigned();
-        if (targets.length > 0) {
-            updates.push({ name: qname, targets: targets });
+        if (state.targets && state.targets.length > 0) {
+            updates.push({ name: qname, targets: state.targets });
         }
     });
     
@@ -636,6 +670,7 @@ window.saveMappingConfig = function() {
     const showBonusCb = document.getElementById('toggle-show-bonus');
     const showResultsCb = document.getElementById('toggle-show-results');
 
+    if (!window.appConfig) window.appConfig = {};
     if (!window.appConfig.settings) window.appConfig.settings = {};
 
     if (weekInput && weekInput.value.trim() !== "" && !isNaN(parseInt(weekInput.value.trim(), 10))) {
@@ -657,23 +692,28 @@ window.saveMappingConfig = function() {
     window.appConfig.ignore = newIgnore;
     window.appConfig.canvas = rebuildCanvasJson(window.appConfig.canvas, updates);
     
+    // Synchronize global in-memory state immediately
+    setCanvasData(window.appConfig.canvas);
+    setIgnoreData(newIgnore);
+
     postConfig({ 
         ignore: newIgnore, 
         canvas: window.appConfig.canvas,
         settings: window.appConfig.settings,
         delete_quizzes: quizzesToDelete 
     }).then(() => {
-        window.appConfig.quizzes = window.appConfig.quizzes.filter(q => !quizzesToDelete.includes(q.name));
+        window.appConfig.quizzes = (window.appConfig.quizzes || []).filter(q => !quizzesToDelete.includes(q.name));
+        quizzesToDelete = [];
         window.closeModals();
         
-        loadCanvasData().then(() => {
-            quizInstances.forEach(inst => {
-                inst.initClassGrid();
-                if (inst.selectedClass && inst.views.assignments.classList.contains('active')) {
-                    inst.loadAssignments(inst.selectedClass, inst.selectedSubject);
-                }
-            });
+        quizInstances.forEach(inst => {
+            inst.initClassGrid();
+            if (inst.selectedClass && inst.views.assignments.classList.contains('active')) {
+                inst.loadAssignments(inst.selectedClass, inst.selectedSubject);
+            }
         });
+    }).catch(err => {
+        alert("Failed to save changes to server: " + err.message);
     });
 };
 
@@ -683,6 +723,9 @@ function postConfig(payload) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
+    }).then(res => {
+        if (!res.ok) throw new Error(`HTTP Server Error (${res.status})`);
+        return res.json();
     });
 }
 

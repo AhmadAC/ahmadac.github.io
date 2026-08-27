@@ -26,19 +26,23 @@ export async function loadCanvasData() {
         const rawCanvas = await response.json();
         canvasData = recursiveDecode(rawCanvas);
     } catch (e) {
-        canvasData = { "6": {}, "7": {}, "8": {} };
+        if (!canvasData || Object.keys(canvasData).length === 0) {
+            canvasData = { "6": {}, "7": {}, "8": {} };
+        }
     }
 }
 
 export async function loadIgnoreData() {
-    if (ignoreData.length > 0) return;
+    if (ignoreData && ignoreData.length > 0) return;
     try {
         const res = await fetch(`0_Quiz/ignore.json?t=${Date.now()}`);
         if (res.ok) {
             ignoreData = await res.json();
         }
     } catch (e) {
-        ignoreData = [];
+        if (!Array.isArray(ignoreData)) {
+            ignoreData = [];
+        }
     }
 }
 

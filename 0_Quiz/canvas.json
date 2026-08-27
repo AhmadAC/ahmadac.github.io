@@ -1,13 +1,57 @@
 {
     "6": {
-        "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z"
+        "G6A": {
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z"
+        },
+        "G6B": {
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z"
+        },
+        "G6C": {
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z"
+        }
     },
     "7": {
-        "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
-        "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+        "Computer Science (CS)": {
+            "G7A": {
+                "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
+                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+            },
+            "G7B": {
+                "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
+                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+            },
+            "G7C": {
+                "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
+                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+            }
+        },
+        "STEAM": {
+            "G7A": {
+                "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
+                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+            },
+            "G7B": {
+                "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
+                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+            },
+            "G7C": {
+                "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
+                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+            }
+        }
     },
     "8": {
-        "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
-        "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+        "G8A": {
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
+            "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+        },
+        "G8B": {
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
+            "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+        },
+        "G8C": {
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
+            "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+        }
     }
 }
