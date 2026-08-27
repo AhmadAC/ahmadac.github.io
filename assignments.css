@@ -16,6 +16,17 @@
     margin-bottom: 30px;
 }
 
+.subject-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    max-width: 550px;
+    margin: 10px auto 30px auto;
+    padding: 0 15px;
+}
+
 .btn-class {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -29,6 +40,30 @@
     transition: 0.2s;
 }
 .btn-class:hover {
+    background-color: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+.btn-subject {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px 24px;
+    height: 60px;
+    min-width: 150px;
+    color: var(--text-dark);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+.btn-subject:hover {
     background-color: var(--primary);
     color: #ffffff;
     border-color: var(--primary);
