@@ -530,7 +530,8 @@ def launch_browser_app(url, profile_dir):
             "--disable-sync",
             "--disable-extensions",
             "--disable-background-networking",
-            "--disable-component-update"
+            "--disable-component-update",
+            "--disable-pinch"
         ]
         return subprocess.Popen(launch_args, env=clean_env)
 

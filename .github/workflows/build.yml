@@ -40,9 +40,14 @@ jobs:
 
       - name: Build Executable with PyInstaller
         run: |
-          pyinstaller --onedir --windowed --name "MrCooperServer" server.py
+          ICON_ARG=""
+          if [ -f "icon.ico" ]; then
+            ICON_ARG="--icon=icon.ico"
+          fi
+          pyinstaller --onedir --windowed $ICON_ARG --name "MrCooperServer" server.py
           # Copy web assets into the distribution directory
           cp -r index.html *.js *.css dist/MrCooperServer/ 2>/dev/null || true
+          if [ -f "icon.ico" ]; then cp icon.ico dist/MrCooperServer/; fi
           if [ -d "sounds" ]; then cp -r sounds dist/MrCooperServer/; fi
           if [ -d "0_Quiz" ]; then cp -r 0_Quiz dist/MrCooperServer/; fi
         shell: bash
@@ -57,6 +62,7 @@ jobs:
           # Copy PyInstaller binary distribution into AppDir
           cp -r dist/MrCooperServer/* AppDir/usr/bin/
           cp -r index.html *.js *.css AppDir/usr/share/mrcooper/ 2>/dev/null || true
+          if [ -f "icon.ico" ]; then cp icon.ico AppDir/usr/share/mrcooper/; fi
           if [ -d "sounds" ]; then cp -r sounds AppDir/usr/share/mrcooper/; fi
           if [ -d "0_Quiz" ]; then cp -r 0_Quiz AppDir/usr/share/mrcooper/; fi
 

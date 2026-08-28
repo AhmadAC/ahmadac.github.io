@@ -13,10 +13,34 @@ window.appConfig = null;
 // Global mapping editor state to avoid losing un-rendered rows during search filtering
 let mappingState = {};
 
+function applyOfflineZoomRestrictions() {
+    // Lock viewport scaling for offline desktop executable mode
+    const viewportMeta = document.getElementById('app-viewport');
+    if (viewportMeta) {
+        viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+
+    // Intercept and prevent touch and gesture pinch-to-zoom exclusively in offline mode
+    document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('gesturechange', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('gestureend', (e) => e.preventDefault(), { passive: false });
+    document.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    document.addEventListener('wheel', (e) => {
+        if (e.ctrlKey) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+}
+
 // The main fast initialization function
 async function initApp() {
     initDevTools();
     console.log("[DEBUG] Initializing App");
+
     const viewModeBtn = document.getElementById("view-mode-btn");
     if (viewModeBtn) viewModeBtn.addEventListener("click", cycleViewMode);
     
@@ -89,6 +113,9 @@ async function initApp() {
             window.isOfflineMode = true; 
             window.appConfig = data;
             document.body.classList.add('offline-mode');
+
+            // Apply pinch-to-zoom block ONLY for the offline executable mode
+            applyOfflineZoomRestrictions();
 
             if (data.settings) updateAppSettings(data.settings);
             if (data.canvas) setCanvasData(data.canvas);

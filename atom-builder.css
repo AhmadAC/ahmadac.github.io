@@ -1,10 +1,13 @@
-
 /* atom-builder.css - Interactive Atom Builder Widget Component Styles */
 
 .atom-builder-widget-wrapper {
     width: 100%;
     margin-top: 10px;
-    touch-action: pan-x pan-y pinch-zoom; /* Permits touch gestures & pinch-to-zoom */
+    touch-action: pan-x pan-y pinch-zoom;
+}
+
+body.offline-mode .atom-builder-widget-wrapper {
+    touch-action: pan-y;
 }
 
 .atom-builder-container {
@@ -17,6 +20,10 @@
     padding: 20px;
     color: var(--text-dark);
     touch-action: pan-x pan-y pinch-zoom;
+}
+
+body.offline-mode .atom-builder-container {
+    touch-action: pan-y;
 }
 
 .atom-builder-left {
@@ -45,6 +52,7 @@
     background: var(--card-even-bg);
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s;
+    touch-action: manipulation;
 }
 
 .ab-particle {
@@ -151,6 +159,10 @@
     touch-action: pan-x pan-y pinch-zoom;
 }
 
+body.offline-mode .ab-visual-wrapper {
+    touch-action: pan-y;
+}
+
 /* Fixed coordinate visualizer grid */
 .ab-atom-visual {
     position: relative;
@@ -164,6 +176,10 @@
     box-sizing: border-box;
     transition: box-shadow 0.3s;
     touch-action: pan-x pan-y pinch-zoom;
+}
+
+body.offline-mode .ab-atom-visual {
+    touch-action: pan-y;
 }
 
 .ab-svg-bg {
