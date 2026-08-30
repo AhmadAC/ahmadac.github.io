@@ -1,6 +1,6 @@
 // view-mixin.js
 
-import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings } from './config.js';
+import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings, getClassColor, hexToRgba } from './config.js';
 import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js';
 import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js';
 
@@ -12,6 +12,22 @@ export const ViewMixin = {
             const btn = document.createElement("button");
             btn.className = "btn-class";
             btn.innerText = cls;
+
+            const colorHex = getClassColor(cls);
+            if (colorHex) {
+                const overlayColor = hexToRgba(colorHex, 0.2);
+                btn.style.background = `linear-gradient(${overlayColor}, ${overlayColor}), var(--card-bg)`;
+                btn.style.borderColor = colorHex;
+                btn.onmouseenter = () => {
+                    btn.style.background = colorHex;
+                    btn.style.color = "#ffffff";
+                };
+                btn.onmouseleave = () => {
+                    btn.style.background = `linear-gradient(${overlayColor}, ${overlayColor}), var(--card-bg)`;
+                    btn.style.color = "var(--text-dark)";
+                };
+            }
+
             btn.onclick = () => {
                 console.log(`[DEBUG][Inst ${this.instanceId}] Class selected: ${cls}`);
                 this.selectedClass = cls;
@@ -44,6 +60,22 @@ export const ViewMixin = {
             const btn = document.createElement("button");
             btn.className = "btn-subject";
             btn.innerText = subject;
+
+            const colorHex = getClassColor(classCode, subject);
+            if (colorHex) {
+                const overlayColor = hexToRgba(colorHex, 0.2);
+                btn.style.background = `linear-gradient(${overlayColor}, ${overlayColor}), var(--card-bg)`;
+                btn.style.borderColor = colorHex;
+                btn.onmouseenter = () => {
+                    btn.style.background = colorHex;
+                    btn.style.color = "#ffffff";
+                };
+                btn.onmouseleave = () => {
+                    btn.style.background = `linear-gradient(${overlayColor}, ${overlayColor}), var(--card-bg)`;
+                    btn.style.color = "var(--text-dark)";
+                };
+            }
+
             btn.onclick = () => {
                 console.log(`[DEBUG][Inst ${this.instanceId}] Subject selected: ${subject} for ${classCode}`);
                 this.loadAssignments(classCode, subject);
@@ -248,6 +280,17 @@ export const ViewMixin = {
         if (!list) return;
         list.innerHTML = "Loading...";
         
+        // Apply 20% opacity color shade overlay to the assignments view
+        const colorHex = getClassColor(classCode, subject);
+        if (this.views.assignments) {
+            if (colorHex) {
+                const overlayColor = hexToRgba(colorHex, 0.2);
+                this.views.assignments.style.background = `linear-gradient(${overlayColor}, ${overlayColor}), var(--bg-quiz)`;
+            } else {
+                this.views.assignments.style.background = "";
+            }
+        }
+
         this.switchView("view-assignments");
 
         let grade = classCode[1];
@@ -356,6 +399,10 @@ export const ViewMixin = {
         this.selectedSubject = null;
         this.isBonus = true;
         
+        if (this.views.assignments) {
+            this.views.assignments.style.background = "";
+        }
+
         if (this.elements.assignmentsTitle) this.elements.assignmentsTitle.innerText = `Bonus Quizzes`;
         if (this.elements.currentWeekLbl) this.elements.currentWeekLbl.innerText = `Special Bonus Quizzes!`;
         

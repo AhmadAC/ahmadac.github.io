@@ -1,5 +1,18 @@
 /* assignments.css - Buttons, Cards, and Assignment List Styles */
 
+.view-assignments {
+    transition: background 0.3s;
+}
+
+.view-assignments .header-row {
+    background-color: transparent;
+}
+
+.view-assignments .assignments-footer {
+    background-color: transparent;
+    border-top: 1px solid var(--border-color);
+}
+
 .view-title {
     text-align: center;
     font-size: 24px;
@@ -37,7 +50,8 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+    box-sizing: border-box;
 }
 .btn-class:hover {
     background-color: var(--primary);
@@ -56,7 +70,7 @@
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
     display: flex;
     justify-content: center;
     align-items: center;

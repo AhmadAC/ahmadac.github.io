@@ -1,4 +1,3 @@
-
 // QuizInstance.js
 
 import { ViewMixin } from './view-mixin.js';
@@ -107,15 +106,17 @@ export class QuizInstance {
             this.switchView('view-class-select');
         });
 
-        // Assignments Back Button
-        this.root.querySelector('.btn-back-to-class')?.addEventListener('click', () => {
-            if (this.selectedSubject && this.selectedClass) {
-                this.showSubjectSelection(this.selectedClass);
-            } else {
-                this.selectedClass = null;
-                this.selectedSubject = null;
-                this.switchView('view-class-select');
-            }
+        // Assignments Back Buttons (Top & Bottom Left)
+        this.root.querySelectorAll('.btn-back-to-class').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (this.selectedSubject && this.selectedClass) {
+                    this.showSubjectSelection(this.selectedClass);
+                } else {
+                    this.selectedClass = null;
+                    this.selectedSubject = null;
+                    this.switchView('view-class-select');
+                }
+            });
         });
 
         this.root.querySelector('.btn-back-to-class-from-results')?.addEventListener('click', () => this.switchView('view-class-select'));
@@ -161,4 +162,3 @@ export class QuizInstance {
 Object.assign(QuizInstance.prototype, ViewMixin);
 Object.assign(QuizInstance.prototype, QuizRendererMixin);
 Object.assign(QuizInstance.prototype, SubmissionMixin);
-

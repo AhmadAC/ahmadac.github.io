@@ -1,7 +1,52 @@
-
 // config.js
 
 export const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
+
+export const CLASS_COLORS = {
+    "G6A": "#A569BD", "G6B": "#8B4513", "G6C": "#8B1389",
+    "6A": "#A569BD", "6B": "#8B4513", "6C": "#8B1389",
+    
+    // Grade 7 Computer Science
+    "G7A-CS": "#3498DB", "G7B-CS": "#2980B9", "G7C-CS": "#1F618D",
+    "7A-CS": "#3498DB", "7B-CS": "#2980B9", "7C-CS": "#1F618D",
+    
+    // Grade 7 STEAM
+    "G7A-STEAM": "#E67E22", "G7B-STEAM": "#D35400", "G7C-STEAM": "#A04000",
+    "7A-STEAM": "#E67E22", "7B-STEAM": "#D35400", "7C-STEAM": "#A04000",
+    
+    // Fallbacks for generic G7
+    "G7A": "#3498DB", "G7B": "#2980B9", "G7C": "#1F618D",
+    "7A": "#3498DB", "7B": "#2980B9", "7C": "#1F618D",
+    
+    // Grade 8
+    "G8A": "#1ABC9C", "G8B": "#FFB6C1", "G8C": "#D4AC0D",
+    "8A": "#1ABC9C", "8B": "#FFB6C1", "8C": "#D4AC0D"
+};
+
+export function getClassColor(classCode, subject = null) {
+    if (!classCode) return null;
+    if (subject) {
+        let subKey = subject;
+        if (/computer\s*science|cs/i.test(subject)) subKey = "CS";
+        else if (/steam/i.test(subject)) subKey = "STEAM";
+        const combinedKey = `${classCode}-${subKey}`;
+        if (CLASS_COLORS[combinedKey]) return CLASS_COLORS[combinedKey];
+    }
+    return CLASS_COLORS[classCode] || null;
+}
+
+export function hexToRgba(hex, alpha = 0.2) {
+    if (!hex) return `rgba(0, 142, 226, ${alpha})`;
+    let c = hex.replace('#', '');
+    if (c.length === 3) {
+        c = c.split('').map(x => x + x).join('');
+    }
+    const num = parseInt(c, 16);
+    const r = (num >> 16) & 255;
+    const g = (num >> 8) & 255;
+    const b = num & 255;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
 
 export let appSettings = {
     anchor_date: "2026-06-15", // Format YYYY-MM-DD
@@ -110,4 +155,3 @@ export function getCurrentTeachingWeekInfo(overrideSettings) {
         dateString: `${formatDate(startDate)} - ${formatDate(endDate)}`
     };
 }
-
