@@ -34,6 +34,18 @@ export function recursiveDecode(data) {
     return data;
 }
 
+// Strips class, subject, and week code prefixes/suffixes (e.g., "G7_CS_W05_", "G7 CS W01 ", "W01_") for clean user display
+export function cleanQuizTitle(title) {
+    if (typeof title !== 'string') return title;
+    let clean = title.replace(/^G\d+[_ \-]*(?:[A-Za-z0-9()]+[_ \-]+)?W\d+[A-Za-z]?[_ \-]*/i, '');
+    clean = clean.replace(/^W\d+[A-Za-z]?[_ \-]*/i, '');
+    clean = clean.replace(/\s*-\s*W\d+[A-Za-z]?\s*$/i, '');
+    clean = clean.replace(/[_ \-]+W\d+[A-Za-z]?$/i, '');
+    clean = clean.trim();
+    if (!clean) return title;
+    return clean;
+}
+
 // Safely replaces underscores with spaces AND formats fractions (e.g. 2/3, a/b, (bc)/a) with stacked HTML layouts, completely ignoring HTML tags
 export function formatDisplayString(str) {
     if (typeof str !== 'string') return str;

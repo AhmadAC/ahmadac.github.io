@@ -1,9 +1,8 @@
-
 // view-mixin.js
 
 import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings } from './config.js';
 import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js';
-import { recursiveDecode, formatDisplayString } from './utils.js';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js';
 
 export const ViewMixin = {
     initClassGrid() {
@@ -60,26 +59,19 @@ export const ViewMixin = {
         card.className = "assignment-card";
         card.dataset.rawTitle = title;
 
-        // Extract Week String (W##)
-        let displayTitle = title;
+        // Extract Week String (normalize e.g. W05 -> W5, W01 -> W1)
         let weekStr = "Start";
         let wkNumStr = null;
         
-        const weekMatch = title.match(/\b(W\d+[A-Za-z]?)\b/i);
+        const weekMatch = title.match(/\bW(\d+)([A-Za-z]?)\b/i) || title.match(/_W(\d+)([A-Za-z]?)_/i) || title.match(/W(\d+)([A-Za-z]?)/i);
         if (weekMatch) {
-            weekStr = weekMatch[1].toUpperCase();
-            wkNumStr = weekMatch[1].replace(/[^0-9]/g, '');
-            
-            let cleanTitle = title.replace(new RegExp('\\s*-\\s*' + weekMatch[1], 'i'), '');
-            if (cleanTitle === title) cleanTitle = title.replace(new RegExp(weekMatch[1] + '\\s*-\\s*', 'i'), '');
-            if (cleanTitle === title) cleanTitle = title.replace(new RegExp('\\b' + weekMatch[1] + '\\b', 'i'), '');
-            
-            displayTitle = cleanTitle.trim();
-            if (!displayTitle) {
-                displayTitle = title;
-            }
+            const wkNum = parseInt(weekMatch[1], 10);
+            const suffix = (weekMatch[2] || "").toUpperCase();
+            weekStr = `W${wkNum}${suffix}`;
+            wkNumStr = String(wkNum);
         }
         
+        let displayTitle = cleanQuizTitle(title);
         let formattedTitle = formatDisplayString(displayTitle);
 
         // Highlight logic for Current and Due weeks
@@ -225,7 +217,7 @@ export const ViewMixin = {
 
     customWeekSort(titleA, titleB) {
         const getWeek = (str) => {
-            const match = str.match(/- W(\d+) -/i) || str.match(/W(\d+)/i);
+            const match = str.match(/- W(\d+) -/i) || str.match(/_W(\d+)_/i) || str.match(/W(\d+)/i);
             return match ? parseInt(match[1], 10) : 0;
         };
         const weekA = getWeek(titleA);
@@ -390,7 +382,7 @@ export const ViewMixin = {
                 
                 let titleLbl = document.createElement("div");
                 titleLbl.className = "assignment-title-lbl";
-                titleLbl.innerHTML = formatDisplayString(title);
+                titleLbl.innerHTML = formatDisplayString(cleanQuizTitle(title));
                 
                 let actionBtn = document.createElement("button");
                 actionBtn.className = "btn-week-action";
@@ -444,7 +436,7 @@ export const ViewMixin = {
     },
 
     renderDocument(docName, rawData) {
-        if (this.elements.documentTitle) this.elements.documentTitle.innerHTML = formatDisplayString(docName);
+        if (this.elements.documentTitle) this.elements.documentTitle.innerHTML = formatDisplayString(cleanQuizTitle(docName));
         
         const container = this.elements.documentContent;
         if (container) {
@@ -536,9 +528,8 @@ export const ViewMixin = {
         resultsFlat.forEach(res => {
             let card = document.createElement("div");
             card.className = "result-card";
-            card.innerHTML = `<div><p class="res-title">${res.name} (${res.cls})</p><p class="res-detail">${formatDisplayString(res.assignment)}</p></div><div><p class="res-score">${res.best}/${res.total}</p></div>`;
+            card.innerHTML = `<div><p class="res-title">${res.name} (${res.cls})</p><p class="res-detail">${formatDisplayString(cleanQuizTitle(res.assignment))}</p></div><div><p class="res-score">${res.best}/${res.total}</p></div>`;
             container.appendChild(card);
         });
     }
 };
-

@@ -1,7 +1,7 @@
 // quiz-renderer-mixin.js - Main Quiz Renderer Mixin Orchestrator
 
 import { normalizeQuizData, quizIndex } from './quiz-data.js';
-import { recursiveDecode, formatDisplayString } from './utils.js';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js';
 import { setupAtomBuilderUI } from './atom-builder-ui.js';
 import { setupMultipleChoiceUI, setupClassSelectionUI, setupComplexMatchingUI } from './question-renderers.js';
 import { handleScrollStickyBank, renderStickyBank, fillSlotWithWord, handleSlotClick } from './matching-bank-handler.js';
@@ -18,7 +18,7 @@ export const QuizRendererMixin = {
         this.sidebarButtons = [];
         this.matchingStates = {};
         
-        if (this.elements.quizTitle) this.elements.quizTitle.innerHTML = formatDisplayString(quizName);
+        if (this.elements.quizTitle) this.elements.quizTitle.innerHTML = formatDisplayString(cleanQuizTitle(quizName));
         
         this.elements.quizProgress?.classList.remove("hidden");
         this.elements.quizScoreLbl?.classList.add("hidden");
