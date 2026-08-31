@@ -1,8 +1,8 @@
 // QuizInstance.js
 
-import { ViewMixin } from './view-mixin.js';
-import { QuizRendererMixin } from './quiz-renderer-mixin.js';
-import { SubmissionMixin } from './submission-mixin.js';
+import { ViewMixin } from './view-mixin.js?v=2.1';
+import { QuizRendererMixin } from './quiz-renderer-mixin.js?v=2.1';
+import { SubmissionMixin } from './submission-mixin.js?v=2.1';
 
 export class QuizInstance {
     constructor(rootElement) {

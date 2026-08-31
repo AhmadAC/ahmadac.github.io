@@ -1,9 +1,9 @@
 // app.js
 
-import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings, getSubjectsForGrade } from './config.js';
-import { initDevTools, applyFeatureToggles, generateQRCodeSVG } from './utils.js';
-import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js';
-import { QuizInstance } from './QuizInstance.js';
+import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings, getSubjectsForGrade } from './config.js?v=2.1';
+import { initDevTools, applyFeatureToggles, generateQRCodeSVG } from './utils.js?v=2.1';
+import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js?v=2.1';
+import { QuizInstance } from './QuizInstance.js?v=2.1';
 
 let viewMode = 1;
 export let quizInstances = [];

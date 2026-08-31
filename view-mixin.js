@@ -1,8 +1,8 @@
 // view-mixin.js
 
-import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings, getClassColor, hexToRgba } from './config.js';
-import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js';
+import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings, getClassColor, hexToRgba } from './config.js?v=2.1';
+import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js?v=2.1';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js?v=2.1';
 
 export const ViewMixin = {
     initClassGrid() {
@@ -152,7 +152,7 @@ export const ViewMixin = {
         btnDown.onclick = (e) => {
             e.stopPropagation();
             if (card.nextElementSibling) {
-                card.parentNode.insertBefore(card, card.nextElementSibling, card);
+                card.parentNode.insertBefore(card.nextElementSibling, card);
                 this.saveCurrentOrder();
             }
         };
@@ -497,36 +497,6 @@ export const ViewMixin = {
             
             htmlContent = htmlContent.replace(/color:\s*#e0e0e0;?/gi, '');
             htmlContent = htmlContent.replace(/color:\s*#ffffff;?/gi, '');
-            
-            // Clean up and standardize <a> tags without breaking on apostrophes in href
-            htmlContent = htmlContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
-                attrs = attrs.replace(/target=["'][^"']*["']/gi, '');
-                let hrefMatch = attrs.match(/href="([^"]*)"/i) || attrs.match(/href='([^']*)'/i) || attrs.match(/href=([^\s>]+)/i);
-                let hrefVal = hrefMatch ? (hrefMatch[1] || hrefMatch[2] || hrefMatch[3] || "") : "";
-                let isExternal = hrefVal && /^https?:\/\//i.test(hrefVal);
-                
-                if (!isExternal) {
-                    let isHtml = hrefVal && /\.html?\b/i.test(hrefVal);
-                    if (isHtml) {
-                        attrs += ` target="_blank"`;
-                    } else if (!/download/i.test(attrs)) {
-                        let filename = "document.pdf";
-                        if (hrefVal) {
-                            let cleanUrl = hrefVal.replace(/\\/g, '/');
-                            filename = cleanUrl.split('/').pop() || "document.pdf";
-                            try { filename = decodeURIComponent(filename); } catch(_) {}
-                        }
-                        if (!filename.includes('.')) {
-                            filename += ".pdf";
-                        }
-                        const escapedFilename = filename.replace(/"/g, '&quot;');
-                        attrs += ` download="${escapedFilename}"`;
-                    }
-                } else {
-                    attrs += ` target="_blank"`;
-                }
-                return `<a ${attrs}>`;
-            });
 
             if (htmlContent.toLowerCase().includes('<head>')) {
                 htmlContent = htmlContent.replace(/<head>/i, '<head><base href="0_Quiz/">');
@@ -553,7 +523,7 @@ export const ViewMixin = {
                         doc.body.classList.add('dark-theme');
                     }
 
-                    // Attach robust client-side blob download handlers for all document/media links
+                    // Direct DOM-based link processing that never truncates on apostrophes or special characters
                     doc.querySelectorAll('a').forEach(a => {
                         const rawHref = a.getAttribute('href');
                         if (!rawHref) return;
@@ -571,16 +541,25 @@ export const ViewMixin = {
                             return;
                         }
 
+                        // Determine the full filename and extension safely
+                        let cleanPath = rawHref.replace(/\\/g, '/');
+                        let rawFilename = cleanPath.split('/').pop() || "document.pdf";
+                        try { rawFilename = decodeURIComponent(rawFilename); } catch(_) {}
+
+                        let filename = rawFilename;
+                        if (cleanPath.toLowerCase().endsWith('.pdf') && !filename.toLowerCase().endsWith('.pdf')) {
+                            filename += '.pdf';
+                        } else if (!filename.includes('.')) {
+                            filename += '.pdf';
+                        }
+
+                        // Set the download attribute on the anchor tag itself in DOM
+                        a.setAttribute('download', filename);
+
+                        // Attach a top-window blob download handler that guarantees .pdf extension preservation
                         a.addEventListener('click', async (e) => {
                             e.preventDefault();
-                            let cleanPath = rawHref.replace(/\\/g, '/');
                             let targetUrl = cleanPath.startsWith('0_Quiz/') ? cleanPath : `0_Quiz/${cleanPath}`;
-                            let filename = cleanPath.split('/').pop() || "document.pdf";
-                            try { filename = decodeURIComponent(filename); } catch(_) {}
-
-                            if (!filename.includes('.')) {
-                                filename += ".pdf";
-                            }
 
                             try {
                                 const response = await fetch(encodeURI(targetUrl));
@@ -595,7 +574,7 @@ export const ViewMixin = {
                                 document.body.removeChild(downloadLink);
                                 setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
                             } catch (err) {
-                                console.warn("[DEBUG] Direct blob download failed, opening in new window", err);
+                                console.warn("[DEBUG] Blob download failed, falling back to window.open", err);
                                 window.open(encodeURI(targetUrl), '_blank');
                             }
                         });
