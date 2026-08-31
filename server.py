@@ -1,5 +1,3 @@
-#################### START OF FILE: server.py ####################
-
 # server.py
 
 import os
@@ -48,6 +46,9 @@ mimetypes.add_type('text/css', '.css')
 mimetypes.add_type('application/javascript', '.js')
 mimetypes.add_type('text/html', '.html')
 mimetypes.add_type('image/svg+xml', '.svg')
+mimetypes.add_type('application/pdf', '.pdf')
+mimetypes.add_type('application/json', '.json')
+mimetypes.add_type('audio/mpeg', '.mp3')
 
 # 2. RESOLVE DIRECTORIES FOR APP PORTABILITY AND APPIMAGE
 if getattr(sys, 'frozen', False):
@@ -291,8 +292,13 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 target_file = os.path.join(DATA_DIR, relative_file_path)
                 if os.path.exists(target_file) and os.path.isfile(target_file):
                     self.send_response(200)
-                    ctype = self.guess_type(target_file)
+                    ctype = self.guess_type(target_file) or 'application/octet-stream'
+                    if target_file.lower().endswith('.pdf'):
+                        ctype = 'application/pdf'
                     self.send_header("Content-type", ctype)
+                    filename = os.path.basename(target_file)
+                    quoted_filename = urllib.parse.quote(filename)
+                    self.send_header("Content-Disposition", f'inline; filename="{filename}"; filename*=UTF-8\'\'{quoted_filename}')
                     self.end_headers()
                     with open(target_file, 'rb') as f:
                         self.wfile.write(f.read())

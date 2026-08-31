@@ -508,10 +508,11 @@ export const ViewMixin = {
                     if (isHtml) {
                         attrs += ` target="_blank"`;
                     } else if (!/download/i.test(attrs)) {
-                        let filename = "document";
+                        let filename = "document.pdf";
                         if (hrefMatch && hrefMatch[1]) {
                             let cleanUrl = hrefMatch[1].replace(/\\/g, '/');
                             filename = cleanUrl.split('/').pop();
+                            try { filename = decodeURIComponent(filename); } catch(_) {}
                         }
                         attrs += ` download="${filename}"`;
                     }
@@ -540,10 +541,58 @@ export const ViewMixin = {
             
             iframe.onload = () => {
                 try {
-                    if (document.body.classList.contains('dark-theme') && iframe.contentDocument && iframe.contentDocument.body) {
-                        iframe.contentDocument.body.classList.add('dark-theme');
+                    const doc = iframe.contentDocument;
+                    if (!doc) return;
+                    if (document.body.classList.contains('dark-theme') && doc.body) {
+                        doc.body.classList.add('dark-theme');
                     }
-                } catch(e) {}
+
+                    // Attach robust client-side blob download handlers for all document/media links
+                    doc.querySelectorAll('a').forEach(a => {
+                        const rawHref = a.getAttribute('href');
+                        if (!rawHref) return;
+
+                        const isExternal = /^https?:\/\//i.test(rawHref) || /^mailto:/i.test(rawHref);
+                        if (isExternal) {
+                            a.target = "_blank";
+                            a.rel = "noopener noreferrer";
+                            return;
+                        }
+
+                        const isHtml = /\.html?\b/i.test(rawHref);
+                        if (isHtml) {
+                            a.target = "_blank";
+                            return;
+                        }
+
+                        a.addEventListener('click', async (e) => {
+                            e.preventDefault();
+                            let cleanPath = rawHref.replace(/\\/g, '/');
+                            let targetUrl = cleanPath.startsWith('0_Quiz/') ? cleanPath : `0_Quiz/${cleanPath}`;
+                            let filename = cleanPath.split('/').pop() || "document.pdf";
+                            try { filename = decodeURIComponent(filename); } catch(_) {}
+
+                            try {
+                                const response = await fetch(targetUrl);
+                                if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+                                const blob = await response.blob();
+                                const blobUrl = URL.createObjectURL(blob);
+                                const downloadLink = document.createElement('a');
+                                downloadLink.href = blobUrl;
+                                downloadLink.download = filename;
+                                document.body.appendChild(downloadLink);
+                                downloadLink.click();
+                                document.body.removeChild(downloadLink);
+                                setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+                            } catch (err) {
+                                console.warn("[DEBUG] Direct blob download failed, falling back to window.open", err);
+                                window.open(targetUrl, '_blank');
+                            }
+                        });
+                    });
+                } catch(e) {
+                    console.error("[DEBUG] Error configuring iframe links:", e);
+                }
             };
             
             container.appendChild(iframe);
