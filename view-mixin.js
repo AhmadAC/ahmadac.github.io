@@ -152,7 +152,7 @@ export const ViewMixin = {
         btnDown.onclick = (e) => {
             e.stopPropagation();
             if (card.nextElementSibling) {
-                card.parentNode.insertBefore(card.nextElementSibling, card);
+                card.parentNode.insertBefore(card, card.nextElementSibling, card);
                 this.saveCurrentOrder();
             }
         };
@@ -498,23 +498,29 @@ export const ViewMixin = {
             htmlContent = htmlContent.replace(/color:\s*#e0e0e0;?/gi, '');
             htmlContent = htmlContent.replace(/color:\s*#ffffff;?/gi, '');
             
+            // Clean up and standardize <a> tags without breaking on apostrophes in href
             htmlContent = htmlContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
                 attrs = attrs.replace(/target=["'][^"']*["']/gi, '');
-                let hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
-                let isExternal = hrefMatch && hrefMatch[1] && /^https?:\/\//i.test(hrefMatch[1]);
+                let hrefMatch = attrs.match(/href="([^"]*)"/i) || attrs.match(/href='([^']*)'/i) || attrs.match(/href=([^\s>]+)/i);
+                let hrefVal = hrefMatch ? (hrefMatch[1] || hrefMatch[2] || hrefMatch[3] || "") : "";
+                let isExternal = hrefVal && /^https?:\/\//i.test(hrefVal);
                 
                 if (!isExternal) {
-                    let isHtml = hrefMatch && hrefMatch[1] && /\.html?\b/i.test(hrefMatch[1]);
+                    let isHtml = hrefVal && /\.html?\b/i.test(hrefVal);
                     if (isHtml) {
                         attrs += ` target="_blank"`;
                     } else if (!/download/i.test(attrs)) {
                         let filename = "document.pdf";
-                        if (hrefMatch && hrefMatch[1]) {
-                            let cleanUrl = hrefMatch[1].replace(/\\/g, '/');
-                            filename = cleanUrl.split('/').pop();
+                        if (hrefVal) {
+                            let cleanUrl = hrefVal.replace(/\\/g, '/');
+                            filename = cleanUrl.split('/').pop() || "document.pdf";
                             try { filename = decodeURIComponent(filename); } catch(_) {}
                         }
-                        attrs += ` download="${filename}"`;
+                        if (!filename.includes('.')) {
+                            filename += ".pdf";
+                        }
+                        const escapedFilename = filename.replace(/"/g, '&quot;');
+                        attrs += ` download="${escapedFilename}"`;
                     }
                 } else {
                     attrs += ` target="_blank"`;
@@ -572,8 +578,12 @@ export const ViewMixin = {
                             let filename = cleanPath.split('/').pop() || "document.pdf";
                             try { filename = decodeURIComponent(filename); } catch(_) {}
 
+                            if (!filename.includes('.')) {
+                                filename += ".pdf";
+                            }
+
                             try {
-                                const response = await fetch(targetUrl);
+                                const response = await fetch(encodeURI(targetUrl));
                                 if (!response.ok) throw new Error(`HTTP error ${response.status}`);
                                 const blob = await response.blob();
                                 const blobUrl = URL.createObjectURL(blob);
@@ -585,8 +595,8 @@ export const ViewMixin = {
                                 document.body.removeChild(downloadLink);
                                 setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
                             } catch (err) {
-                                console.warn("[DEBUG] Direct blob download failed, falling back to window.open", err);
-                                window.open(targetUrl, '_blank');
+                                console.warn("[DEBUG] Direct blob download failed, opening in new window", err);
+                                window.open(encodeURI(targetUrl), '_blank');
                             }
                         });
                     });

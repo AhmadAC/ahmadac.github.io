@@ -1,4 +1,3 @@
-$ cat .gitignore
 #ignore folder: /folder/
 #ignore file: /FILE.FILE
 
@@ -7,10 +6,3 @@ $ cat .gitignore
 /Ignore/
 /.git/
 /1.0 - Push Github Repo.bat
-.docx
-.doc
-.pdf
-.xlsx
-.pptx
-.ppt
-.txt

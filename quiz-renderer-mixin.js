@@ -88,7 +88,8 @@ export const QuizRendererMixin = {
             const infoContentDiv = this.root.querySelector('.info-content');
             if (infoSection && infoContentDiv) {
                 if (infoContent) {
-                    infoContent = infoContent.replace(/(href|src)=["']([^"']+)["']/gi, (match, attr, url) => {
+                    infoContent = infoContent.replace(/(href|src)=("([^"]*)"|'([^']*)'|([^\s>]+))/gi, (match, attr, fullVal, dqVal, sqVal, unqVal) => {
+                        let url = dqVal !== undefined ? dqVal : (sqVal !== undefined ? sqVal : unqVal);
                         let cleanUrl = url.replace(/\\/g, '/');
                         if (!/^https?:\/\//i.test(cleanUrl) && !/^mailto:/i.test(cleanUrl)) {
                             let filename = cleanUrl.split('/').pop();
@@ -100,9 +101,10 @@ export const QuizRendererMixin = {
                     });
                     
                     infoContent = infoContent.replace(/<a\b([^>]*)>/gi, (match, attrs) => {
-                        let hrefMatch = attrs.match(/href=["']([^"']+)["']/i);
-                        let isHtml = hrefMatch && hrefMatch[1] && /\.html?\b/i.test(hrefMatch[1]);
-                        let isExternal = hrefMatch && hrefMatch[1] && /^https?:\/\//i.test(hrefMatch[1]);
+                        let hrefMatch = attrs.match(/href="([^"]*)"/i) || attrs.match(/href='([^']*)'/i) || attrs.match(/href=([^\s>]+)/i);
+                        let hrefVal = hrefMatch ? (hrefMatch[1] || hrefMatch[2] || hrefMatch[3] || "") : "";
+                        let isHtml = hrefVal && /\.html?\b/i.test(hrefVal);
+                        let isExternal = hrefVal && /^https?:\/\//i.test(hrefVal);
                         
                         if (isHtml || isExternal) {
                             attrs = attrs.replace(/target=["'][^"']*["']/gi, '');
