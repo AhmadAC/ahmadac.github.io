@@ -64,9 +64,19 @@ export let appSettings = {
 
 export function updateAppSettings(newSettings) {
     if (newSettings && typeof newSettings === 'object') {
+        const parsedBonus = (newSettings.show_bonus !== undefined)
+            ? (newSettings.show_bonus === true || newSettings.show_bonus === 'true' || newSettings.show_bonus === 1 || newSettings.show_bonus === '1')
+            : appSettings.show_bonus;
+
+        const parsedResults = (newSettings.show_results !== undefined)
+            ? (newSettings.show_results === true || newSettings.show_results === 'true' || newSettings.show_results === 1 || newSettings.show_results === '1')
+            : appSettings.show_results;
+
         appSettings = { 
             ...appSettings, 
             ...newSettings,
+            show_bonus: parsedBonus,
+            show_results: parsedResults,
             subjects: {
                 "6": (newSettings.subjects && Array.isArray(newSettings.subjects["6"])) ? newSettings.subjects["6"] : (appSettings.subjects?.["6"] || []),
                 "7": (newSettings.subjects && Array.isArray(newSettings.subjects["7"])) ? newSettings.subjects["7"] : (appSettings.subjects?.["7"] || ["Computer Science (CS)", "STEAM"]),
@@ -90,7 +100,7 @@ export function getSubjectsForClass(classCode) {
 export async function loadSettings() {
     try {
         console.log("[DEBUG] Fetching settings.json...");
-        const res = await fetch('0_Quiz/settings.json');
+        const res = await fetch(`0_Quiz/settings.json?t=${Date.now()}`);
         if (res.ok) {
             const customSettings = await res.json();
             updateAppSettings(customSettings);

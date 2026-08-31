@@ -1,8 +1,9 @@
 // QuizInstance.js
 
-import { ViewMixin } from './view-mixin.js?v=2.1';
-import { QuizRendererMixin } from './quiz-renderer-mixin.js?v=2.1';
-import { SubmissionMixin } from './submission-mixin.js?v=2.1';
+import { ViewMixin } from './view-mixin.js?v=2.2';
+import { QuizRendererMixin } from './quiz-renderer-mixin.js?v=2.2';
+import { SubmissionMixin } from './submission-mixin.js?v=2.2';
+import { applyFeatureToggles } from './utils.js?v=2.2';
 
 export class QuizInstance {
     constructor(rootElement) {
@@ -72,6 +73,7 @@ export class QuizInstance {
     init() {
         this.initClassGrid();
         this.addEventListeners();
+        applyFeatureToggles();
 
         if (window.isOfflineMode && this.elements.btnQrTrigger) {
             this.elements.btnQrTrigger.classList.remove('hidden');

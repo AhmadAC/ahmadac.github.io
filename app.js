@@ -1,9 +1,9 @@
 // app.js
 
-import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings, getSubjectsForGrade } from './config.js?v=2.1';
-import { initDevTools, applyFeatureToggles, generateQRCodeSVG } from './utils.js?v=2.1';
-import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js?v=2.1';
-import { QuizInstance } from './QuizInstance.js?v=2.1';
+import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings, getSubjectsForGrade } from './config.js?v=2.2';
+import { initDevTools, applyFeatureToggles, generateQRCodeSVG } from './utils.js?v=2.2';
+import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js?v=2.2';
+import { QuizInstance } from './QuizInstance.js?v=2.2';
 
 let viewMode = 1;
 export let quizInstances = [];
@@ -166,8 +166,8 @@ async function initApp() {
         await loadQuizIndex();
     }
 
-    applyFeatureToggles();
     setViewMode(1);
+    applyFeatureToggles();
 }
 
 // Safely handle DOM loading state
@@ -196,6 +196,7 @@ function setViewMode(numScreens) {
         const rootElement = masterContainer.lastElementChild;
         quizInstances.push(new QuizInstance(rootElement));
     }
+    applyFeatureToggles();
 }
 
 // --- GLOBAL QR CODE MODAL HOOKS ---

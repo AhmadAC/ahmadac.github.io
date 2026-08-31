@@ -1,6 +1,6 @@
 // utils.js
 
-import { appSettings } from './config.js';
+import { appSettings } from './config.js?v=2.2';
 
 export function decodeUtf8B64(b64) {
     try {
@@ -69,7 +69,7 @@ export function formatDisplayString(str) {
             // If neither was explicitly wrapped in parentheses, and either side is a multi-letter string containing no digits, skip formatting.
             if (numP === undefined && denP === undefined) {
                 const isNumWord = /[a-zA-Z]/.test(num) && num.length >= 2 && !/[0-9]/.test(num);
-                const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(den);
+                const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(num);
                 if (isNumWord || isDenWord) {
                     return match;
                 }
@@ -86,12 +86,14 @@ export function formatDisplayString(str) {
 }
 
 export function applyFeatureToggles() {
-    // Ensures setting visibility applies to both current UI and future instances dynamically generated
-    const showBonus = !!appSettings.show_bonus;
+    // Ensures setting visibility applies strictly to both current UI and future instances dynamically generated
+    const showBonus = appSettings.show_bonus === true || appSettings.show_bonus === 'true' || appSettings.show_bonus === 1 || appSettings.show_bonus === '1';
+    
     document.querySelectorAll('.btn-view-bonus').forEach(btn => {
         if (showBonus) btn.classList.remove('hidden');
         else btn.classList.add('hidden');
     });
+
     const template = document.getElementById("quiz-instance-template");
     if (template) {
         const templateBtn = template.content.querySelector('.btn-view-bonus');
@@ -101,11 +103,13 @@ export function applyFeatureToggles() {
         }
     }
 
-    const showResults = !!appSettings.show_results;
+    const showResults = appSettings.show_results === true || appSettings.show_results === 'true' || appSettings.show_results === 1 || appSettings.show_results === '1';
+    
     document.querySelectorAll('.btn-view-results').forEach(btn => {
         if (showResults) btn.classList.remove('hidden');
         else btn.classList.add('hidden');
     });
+
     if (template) {
         const templateBtn = template.content.querySelector('.btn-view-results');
         if (templateBtn) {
