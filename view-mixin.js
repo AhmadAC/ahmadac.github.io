@@ -1,8 +1,8 @@
 // view-mixin.js
 
-import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings, getClassColor, hexToRgba } from './config.js?v=2.1';
-import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js?v=2.1';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js?v=2.1';
+import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings, getClassColor, hexToRgba } from './config.js?v=2.2';
+import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js?v=2.2';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js?v=2.2';
 
 export const ViewMixin = {
     initClassGrid() {
@@ -296,46 +296,49 @@ export const ViewMixin = {
         let grade = classCode[1];
         let assignmentsDict = {};
 
-        if (canvasData[grade]) {
+        if (canvasData && canvasData[grade]) {
             let gradeData = canvasData[grade];
 
-            // 1. Check nested subject structure: canvas[grade][subject][classCode]
-            if (subject && gradeData[subject] && typeof gradeData[subject] === 'object') {
-                const subData = gradeData[subject];
-                if (subData[classCode] && typeof subData[classCode] === 'object') {
-                    Object.keys(subData[classCode]).forEach(title => {
-                        assignmentsDict[title] = subData[classCode][title];
-                    });
+            // 1. Check grade-level direct assignments
+            Object.keys(gradeData).forEach(title => {
+                if (typeof gradeData[title] !== 'object' && gradeData[title] !== null) {
+                    assignmentsDict[title] = gradeData[title];
                 }
-                Object.keys(subData).forEach(title => {
-                    if (typeof subData[title] !== 'object') {
-                        assignmentsDict[title] = subData[title];
+            });
+
+            // 2. Check class-level direct assignments
+            if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
+                Object.keys(gradeData[classCode]).forEach(title => {
+                    if (typeof gradeData[classCode][title] !== 'object' && gradeData[classCode][title] !== null) {
+                        assignmentsDict[title] = gradeData[classCode][title];
                     }
                 });
             }
 
-            // 2. Check nested subject structure: canvas[grade][classCode][subject]
-            if (subject && gradeData[classCode] && typeof gradeData[classCode] === 'object' && gradeData[classCode][subject]) {
-                const subClassData = gradeData[classCode][subject];
-                if (typeof subClassData === 'object') {
-                    Object.keys(subClassData).forEach(title => {
-                        assignmentsDict[title] = subClassData[title];
+            // 3. Check subject-level structures
+            if (subject) {
+                // canvas[grade][subject]
+                if (gradeData[subject] && typeof gradeData[subject] === 'object') {
+                    Object.keys(gradeData[subject]).forEach(title => {
+                        if (typeof gradeData[subject][title] !== 'object' && gradeData[subject][title] !== null) {
+                            assignmentsDict[title] = gradeData[subject][title];
+                        }
                     });
-                }
-            }
-
-            // 3. Fallback: If no subject was selected or no subject-specific tree exists, read general class assignments
-            if (!subject || Object.keys(assignmentsDict).length === 0) {
-                Object.keys(gradeData).forEach(title => {
-                    if (typeof gradeData[title] !== 'object') {
-                        assignmentsDict[title] = gradeData[title];
+                    // canvas[grade][subject][classCode]
+                    if (gradeData[subject][classCode] && typeof gradeData[subject][classCode] === 'object') {
+                        Object.keys(gradeData[subject][classCode]).forEach(title => {
+                            if (typeof gradeData[subject][classCode][title] !== 'object' && gradeData[subject][classCode][title] !== null) {
+                                assignmentsDict[title] = gradeData[subject][classCode][title];
+                            }
+                        });
                     }
-                });
-                
-                if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
-                    Object.keys(gradeData[classCode]).forEach(title => {
-                        if (typeof gradeData[classCode][title] !== 'object') {
-                            assignmentsDict[title] = gradeData[classCode][title];
+                }
+
+                // canvas[grade][classCode][subject]
+                if (gradeData[classCode] && typeof gradeData[classCode] === 'object' && gradeData[classCode][subject] && typeof gradeData[classCode][subject] === 'object') {
+                    Object.keys(gradeData[classCode][subject]).forEach(title => {
+                        if (typeof gradeData[classCode][subject][title] !== 'object' && gradeData[classCode][subject][title] !== null) {
+                            assignmentsDict[title] = gradeData[classCode][subject][title];
                         }
                     });
                 }
@@ -343,7 +346,10 @@ export const ViewMixin = {
         }
 
         // Filter out hidden/ignored quizzes without wiping their assignments in canvas.json
-        const ignoredList = (window.appConfig && window.appConfig.ignore) || ignoreData || [];
+        const ignoredList = (window.appConfig && Array.isArray(window.appConfig.ignore)) 
+            ? window.appConfig.ignore 
+            : (Array.isArray(ignoreData) ? ignoreData : []);
+            
         let validTitles = Object.keys(assignmentsDict).filter(t => !ignoredList.includes(t));
         
         validTitles.sort((a, b) => this.customWeekSort(a, b));
@@ -366,22 +372,7 @@ export const ViewMixin = {
             return;
         }
 
-        const latestTitles = validTitles.slice(-5);
-        const previousTitles = validTitles.slice(0, -5);
-
-        if (previousTitles.length > 0) {
-            const showMoreBtn = document.createElement("button");
-            showMoreBtn.className = "btn-show-previous";
-            showMoreBtn.innerText = `Show ${previousTitles.length} previous assignments...`;
-            showMoreBtn.onclick = () => {
-                showMoreBtn.innerText = "Loading...";
-                showMoreBtn.disabled = true;
-                this.renderPreviousAssignments(previousTitles, showMoreBtn);
-            };
-            list.appendChild(showMoreBtn);
-        }
-
-        const existenceChecks = latestTitles.map(async (title) => {
+        const existenceChecks = validTitles.map(async (title) => {
             const exists = await checkQuizExists(title);
             return { title, exists };
         });

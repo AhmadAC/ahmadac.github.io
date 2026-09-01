@@ -1,10 +1,10 @@
 // quiz-renderer-mixin.js - Main Quiz Renderer Mixin Orchestrator
 
-import { normalizeQuizData, quizIndex } from './quiz-data.js?v=2.1';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js?v=2.1';
-import { setupAtomBuilderUI } from './atom-builder-ui.js?v=2.1';
-import { setupMultipleChoiceUI, setupClassSelectionUI, setupComplexMatchingUI } from './question-renderers.js?v=2.1';
-import { handleScrollStickyBank, renderStickyBank, fillSlotWithWord, handleSlotClick } from './matching-bank-handler.js?v=2.1';
+import { normalizeQuizData, quizIndex } from './quiz-data.js?v=2.2';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js?v=2.2';
+import { setupAtomBuilderUI } from './atom-builder-ui.js?v=2.2';
+import { setupMultipleChoiceUI, setupClassSelectionUI, setupComplexMatchingUI } from './question-renderers.js?v=2.2';
+import { handleScrollStickyBank, renderStickyBank, fillSlotWithWord, handleSlotClick } from './matching-bank-handler.js?v=2.2';
 
 export const QuizRendererMixin = {
     async startQuiz(quizName, isBonus = false) {
