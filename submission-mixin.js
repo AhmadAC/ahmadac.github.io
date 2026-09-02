@@ -269,7 +269,7 @@ export const SubmissionMixin = {
         }
 
         const requestBody = {
-            "add_records":[
+            "add_records": [
                 {
                     "values": {
                         "f04Gwj": String(payload.studentName || "Unknown"),
@@ -282,68 +282,40 @@ export const SubmissionMixin = {
             ]
         };
 
-        // Comprehensive array of active free CORS proxies that support POST to ensure maximum delivery probability
-        const proxyEndpoints = [
-            `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(webhookUrl)}`,
-            `https://corsproxy.io/?url=${encodeURIComponent(webhookUrl)}`,
-            `https://cors.x2u.in/?url=${encodeURIComponent(webhookUrl)}`,
-            `https://api.cors.lol/?url=${encodeURIComponent(webhookUrl)}`,
-            `https://thingproxy.freeboard.io/fetch/${webhookUrl}`,
-            webhookUrl // Direct connection attempt
-        ];
+        const jsonString = JSON.stringify(requestBody);
+        const textBlob = new Blob([jsonString], { type: 'text/plain;charset=UTF-8' });
 
-        let lastError = null;
-        for (const targetUrl of proxyEndpoints) {
+        let dispatched = false;
+
+        // Strategy 1: Direct CORS-simple POST request (mode: 'no-cors' with text/plain body)
+        // By avoiding custom JSON headers, the browser skips sending the blocked OPTIONS preflight.
+        try {
+            await fetch(webhookUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
+                body: textBlob
+            });
+            console.log("[DEBUG] Direct no-cors webhook dispatched successfully to Tencent.");
+            dispatched = true;
+        } catch (e) {
+            console.warn("[DEBUG] Direct no-cors fetch attempt failed:", e);
+        }
+
+        // Strategy 2: navigator.sendBeacon (Standard browser beaconing, no OPTIONS preflight)
+        if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon === 'function') {
             try {
-                const response = await fetch(targetUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(requestBody)
-                });
-
-                if (response.ok) {
-                    let result;
-                    try {
-                        result = await response.json();
-                    } catch (e) {
-                        // Some CORS proxies return an HTML captcha or block page with a 200 OK status.
-                        // We must parse the JSON to confirm Tencent actually received it.
-                        throw new Error(`Proxy ${targetUrl} returned a non-JSON response (likely blocked).`);
-                    }
-                    
-                    // Tencent specific error check
-                    if (result && result.errcode !== undefined && result.errcode !== 0) {
-                        throw new Error("Tencent rejected the payload: " + JSON.stringify(result));
-                    }
-                    
-                    console.log("[DEBUG] Webhook successfully submitted to Tencent Sheets via:", targetUrl);
-                    return true;
-                } else {
-                    throw new Error(`Proxy ${targetUrl} returned HTTP ${response.status}`);
+                const beaconSent = navigator.sendBeacon(webhookUrl, textBlob);
+                if (beaconSent) {
+                    console.log("[DEBUG] Webhook dispatched via navigator.sendBeacon.");
+                    dispatched = true;
                 }
-            } catch (err) {
-                lastError = err;
-                console.warn(`[DEBUG] Webhook attempt via ${targetUrl} failed:`, err.message);
+            } catch (e) {
+                console.warn("[DEBUG] sendBeacon attempt failed:", e);
             }
         }
 
-        // Final fallback: If all CORS proxies failed or blocked us, we dispatch a raw fire-and-forget request.
-        // Even though it's technically sent as text/plain (because browsers strip JSON content-type in no-cors),
-        // some webhooks will still ingest it. We cannot read the response though.
-        try {
-            fetch(webhookUrl, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(requestBody)
-            });
-            console.log("[DEBUG] Dispatched fire-and-forget no-cors fallback directly to Tencent.");
-        } catch (e) {}
-
-        if (lastError) {
-            console.error("[DEBUG] All webhook attempts failed.");
-            throw lastError;
-        }
-        return false;
+        return dispatched;
     },
 
     saveResult(quizName, name, cls, score, total) {
