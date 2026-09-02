@@ -1,5 +1,7 @@
 // config.js
 
+export const APP_VERSION = "v1.0.0.1";
+
 export const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
 export const CLASS_COLORS = {

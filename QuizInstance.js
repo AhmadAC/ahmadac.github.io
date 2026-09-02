@@ -4,6 +4,7 @@ import { ViewMixin } from './view-mixin.js?v=2.2';
 import { QuizRendererMixin } from './quiz-renderer-mixin.js?v=2.2';
 import { SubmissionMixin } from './submission-mixin.js?v=2.2';
 import { applyFeatureToggles } from './utils.js?v=2.2';
+import { APP_VERSION } from './config.js?v=2.2';
 
 export class QuizInstance {
     constructor(rootElement) {
@@ -44,6 +45,7 @@ export class QuizInstance {
             btnResources: this.root.querySelector('.btn-view-resources'),
             btnBackFromDoc: this.root.querySelector('.btn-back-from-document'),
             btnQrTrigger: this.root.querySelector('.btn-qr-trigger'),
+            appVersionLbl: this.root.querySelector('.app-version-lbl'),
             assignmentsTitle: this.root.querySelector('.assignments-title'),
             currentWeekLbl: this.root.querySelector('.current-week-lbl'),
             assignmentList: this.root.querySelector('.assignment-list'),
@@ -71,6 +73,9 @@ export class QuizInstance {
     }
 
     init() {
+        if (this.elements.appVersionLbl) {
+            this.elements.appVersionLbl.innerText = APP_VERSION;
+        }
         this.initClassGrid();
         this.addEventListeners();
         applyFeatureToggles();
