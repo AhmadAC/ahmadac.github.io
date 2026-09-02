@@ -285,10 +285,20 @@ export const SubmissionMixin = {
         const jsonString = JSON.stringify(requestBody);
         const textBlob = new Blob([jsonString], { type: 'text/plain;charset=UTF-8' });
 
-        let dispatched = false;
+        // Primary Strategy: navigator.sendBeacon (avoid duplicate transmissions)
+        if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon === 'function') {
+            try {
+                const beaconSent = navigator.sendBeacon(webhookUrl, textBlob);
+                if (beaconSent) {
+                    console.log("[DEBUG] Webhook dispatched via navigator.sendBeacon.");
+                    return true;
+                }
+            } catch (e) {
+                console.warn("[DEBUG] sendBeacon attempt failed, falling back to fetch:", e);
+            }
+        }
 
-        // Strategy 1: Direct CORS-simple POST request (mode: 'no-cors' with text/plain body)
-        // By avoiding custom JSON headers, the browser skips sending the blocked OPTIONS preflight.
+        // Fallback Strategy: Direct no-cors simple fetch
         try {
             await fetch(webhookUrl, {
                 method: 'POST',
@@ -297,25 +307,12 @@ export const SubmissionMixin = {
                 body: textBlob
             });
             console.log("[DEBUG] Direct no-cors webhook dispatched successfully to Tencent.");
-            dispatched = true;
+            return true;
         } catch (e) {
             console.warn("[DEBUG] Direct no-cors fetch attempt failed:", e);
         }
 
-        // Strategy 2: navigator.sendBeacon (Standard browser beaconing, no OPTIONS preflight)
-        if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon === 'function') {
-            try {
-                const beaconSent = navigator.sendBeacon(webhookUrl, textBlob);
-                if (beaconSent) {
-                    console.log("[DEBUG] Webhook dispatched via navigator.sendBeacon.");
-                    dispatched = true;
-                }
-            } catch (e) {
-                console.warn("[DEBUG] sendBeacon attempt failed:", e);
-            }
-        }
-
-        return dispatched;
+        return false;
     },
 
     saveResult(quizName, name, cls, score, total) {
