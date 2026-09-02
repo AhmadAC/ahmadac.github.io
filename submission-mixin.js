@@ -244,7 +244,7 @@ export const SubmissionMixin = {
     },
     
     async submitToTencentWebhook(payload) {
-        let isEnabled = false;
+        let isEnabled = true;
         let webhookUrl = "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2";
         
         try {
@@ -252,13 +252,15 @@ export const SubmissionMixin = {
             const res = await fetch(`0_Quiz/autolink.json${cacheBuster}`);
             if (res.ok) {
                 const autolink = await res.json();
-                isEnabled = autolink.enabled;
+                if (autolink.enabled !== undefined) {
+                    isEnabled = autolink.enabled === true || autolink.enabled === 'true' || autolink.enabled === 1 || autolink.enabled === '1';
+                }
                 if (autolink.webhook_url && autolink.webhook_url.trim() !== "") {
                     webhookUrl = autolink.webhook_url.trim();
                 }
             }
         } catch (e) {
-            console.warn("[DEBUG] Could not load autolink.json, defaulting to disabled for web mode.");
+            console.log("[DEBUG] autolink.json not found on web, defaulting to active default webhook.");
         }
 
         if (!isEnabled) {
@@ -266,8 +268,6 @@ export const SubmissionMixin = {
             return true; 
         }
 
-        const WEBHOOK_URL = "https://corsproxy.io/?" + encodeURIComponent(webhookUrl);
-        
         const requestBody = {
             "add_records":[
                 {
@@ -282,32 +282,40 @@ export const SubmissionMixin = {
             ]
         };
 
-        try {
-            const response = await fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(requestBody)
-            });
+        const proxyEndpoints = [
+            `https://corsproxy.io/?url=${encodeURIComponent(webhookUrl)}`,
+            `https://corsproxy.io/?${encodeURIComponent(webhookUrl)}`,
+            `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(webhookUrl)}`,
+            webhookUrl
+        ];
 
-            const result = await response.json();
-            let successfullyCreated = false;
-            if (result.add_records && result.add_records.length > 0) {
-                if (result.add_records[0].record_id) {
-                    successfullyCreated = true;
+        let lastError = null;
+        for (const targetUrl of proxyEndpoints) {
+            try {
+                const response = await fetch(targetUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.ret === 0 || result.errcode === 0 || (result.add_records && result.add_records.length > 0)) {
+                        console.log("[DEBUG] Webhook successfully submitted to Tencent Sheets via:", targetUrl);
+                        return true;
+                    }
                 }
+            } catch (err) {
+                lastError = err;
+                console.warn(`[DEBUG] Attempt via ${targetUrl} failed:`, err);
             }
-
-            if (result.ret === 0 || result.errcode === 0 || response.ok) {
-                return true;
-            } else {
-                throw new Error(result.errmsg || result.msg || "Failed to submit to Tencent Smartsheet");
-            }
-        } catch (error) {
-            throw error;
         }
+
+        if (lastError) throw lastError;
+        return false;
     },
 
     saveResult(quizName, name, cls, score, total) {
