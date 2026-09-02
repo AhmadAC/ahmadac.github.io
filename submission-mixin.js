@@ -282,49 +282,68 @@ export const SubmissionMixin = {
             ]
         };
 
-        const encodedUrl = encodeURIComponent(webhookUrl);
-        
-        // 5-Step Proxy Fallback Chain
+        // Comprehensive array of active free CORS proxies that support POST to ensure maximum delivery probability
         const proxyEndpoints = [
-            `https://corsproxy.org/?${encodedUrl}`,
-            `https://corsproxy.io/?url=${encodedUrl}`,
-            `https://api.codetabs.com/v1/proxy?quest=${encodedUrl}`,
-            `https://thingproxy.freeboard.io/fetch/${webhookUrl}`
+            `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(webhookUrl)}`,
+            `https://corsproxy.io/?url=${encodeURIComponent(webhookUrl)}`,
+            `https://cors.x2u.in/?url=${encodeURIComponent(webhookUrl)}`,
+            `https://api.cors.lol/?url=${encodeURIComponent(webhookUrl)}`,
+            `https://thingproxy.freeboard.io/fetch/${webhookUrl}`,
+            webhookUrl // Direct connection attempt
         ];
 
-        for (const proxyUrl of proxyEndpoints) {
+        let lastError = null;
+        for (const targetUrl of proxyEndpoints) {
             try {
-                const response = await fetch(proxyUrl, {
+                const response = await fetch(targetUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(requestBody)
                 });
 
                 if (response.ok) {
-                    console.log(`[DEBUG] Webhook successfully submitted via ${proxyUrl}`);
+                    let result;
+                    try {
+                        result = await response.json();
+                    } catch (e) {
+                        // Some CORS proxies return an HTML captcha or block page with a 200 OK status.
+                        // We must parse the JSON to confirm Tencent actually received it.
+                        throw new Error(`Proxy ${targetUrl} returned a non-JSON response (likely blocked).`);
+                    }
+                    
+                    // Tencent specific error check
+                    if (result && result.errcode !== undefined && result.errcode !== 0) {
+                        throw new Error("Tencent rejected the payload: " + JSON.stringify(result));
+                    }
+                    
+                    console.log("[DEBUG] Webhook successfully submitted to Tencent Sheets via:", targetUrl);
                     return true;
+                } else {
+                    throw new Error(`Proxy ${targetUrl} returned HTTP ${response.status}`);
                 }
             } catch (err) {
-                console.warn(`[DEBUG] Proxy attempt via ${proxyUrl} failed. Trying next proxy...`);
+                lastError = err;
+                console.warn(`[DEBUG] Webhook attempt via ${targetUrl} failed:`, err.message);
             }
         }
 
-        // Final Fallback: Direct Blind POST
-        // If all standard proxies fail (often blocked by regional firewalls like the Great Firewall),
-        // we forcefully submit directly to Tencent using 'no-cors' mode. The browser blocks us from reading
-        // the response (showing a CORS error in the console), but the data payload successfully hits the server.
+        // Final fallback: If all CORS proxies failed or blocked us, we dispatch a raw fire-and-forget request.
+        // Even though it's technically sent as text/plain (because browsers strip JSON content-type in no-cors),
+        // some webhooks will still ingest it. We cannot read the response though.
         try {
-            console.log("[DEBUG] All proxies failed. Executing blind dispatch (no-cors) direct to Tencent.");
             fetch(webhookUrl, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' }, // Using text/plain bypasses the preflight OPTIONS request
                 body: JSON.stringify(requestBody)
-            }).catch(() => {}); // Safely ignore network trace errors
-            return true;
-        } catch (e) {
-            throw new Error("Failed to send data to Tencent.");
+            });
+            console.log("[DEBUG] Dispatched fire-and-forget no-cors fallback directly to Tencent.");
+        } catch (e) {}
+
+        if (lastError) {
+            console.error("[DEBUG] All webhook attempts failed.");
+            throw lastError;
         }
+        return false;
     },
 
     saveResult(quizName, name, cls, score, total) {
