@@ -54,7 +54,12 @@ export const SubmissionMixin = {
             }
             
             if (this.elements.errorMsg) {
-                this.elements.errorMsg.innerText = "You must complete all questions and build the Atom 100% correctly before submitting!";
+                const hasAtomBuilder = this.currentQuestions.some(q => (q.type || q.question_type) === 'atom_builder_question');
+                if (hasAtomBuilder) {
+                    this.elements.errorMsg.innerText = "You must complete all questions and build the Atom 100% correctly before submitting!";
+                } else {
+                    this.elements.errorMsg.innerText = "You must complete all questions before submitting!";
+                }
             }
             return;
         }
