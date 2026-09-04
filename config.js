@@ -1,6 +1,6 @@
 // config.js
 
-export const APP_VERSION = "v1.0.0.5";
+export const APP_VERSION = "v1.0.0.6";
 
 export const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
