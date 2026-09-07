@@ -175,7 +175,95 @@
     gap: 8px;
 }
 
-/* --- Assignment Cards --- */
+/* --- Split layout for dual subjects (G7) --- */
+.assignment-list.split-container {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    align-items: stretch;
+}
+
+.split-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.split-col.split-left {
+    border-right: 2px solid var(--border-color);
+    padding-right: 15px;
+}
+
+.split-col.split-right {
+    padding-left: 15px;
+}
+
+.split-title {
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Specific CSS rule to gracefully stack narrow cards in split columns and prevent overlap */
+.split-col .assignment-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 12px;
+    gap: 6px;
+}
+
+.split-col .assignment-title-lbl {
+    margin-right: 0;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.split-col .assignment-status-lbl {
+    margin-right: 0;
+    white-space: normal; /* Permits wrapping if status text is long */
+    font-size: 11px;
+}
+
+.split-col .btn-week-action {
+    width: 100%; /* Spreads button uniformly across the bottom */
+    margin-top: 4px;
+    padding: 8px 10px;
+}
+
+.split-col .rearrange-controls {
+    flex-direction: row;
+    margin-right: 0;
+    margin-bottom: 4px;
+}
+
+/* --- Mobile specific stacked layout for dual subjects --- */
+@media (max-width: 600px) {
+    .assignment-list.split-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .split-col.split-left {
+        border-right: none;
+        border-bottom: 2px dashed var(--border-color); /* Visual dashed break */
+        padding-right: 0;
+        padding-bottom: 25px;
+        margin-bottom: 10px;
+    }
+    .split-col.split-right {
+        padding-left: 0;
+    }
+    .split-title {
+        font-size: 18px; /* Slightly larger for touch readability */
+        margin-bottom: 12px;
+    }
+}
+
+/* --- Assignment Cards (General) --- */
 .assignment-card {
     display: flex;
     align-items: center;

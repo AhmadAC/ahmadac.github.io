@@ -33,7 +33,7 @@ export const ViewMixin = {
                 this.selectedClass = cls;
                 const subjects = getSubjectsForClass(cls);
                 if (subjects && subjects.length > 1) {
-                    this.showSubjectSelection(cls);
+                    this.loadAssignmentsSplit(cls, subjects);
                 } else {
                     const singleSub = (subjects && subjects.length === 1) ? subjects[0] : null;
                     this.loadAssignments(cls, singleSub);
@@ -202,19 +202,36 @@ export const ViewMixin = {
     saveCurrentOrder() {
         const list = this.elements.assignmentList;
         if (!list) return;
-        const cards = list.querySelectorAll('.assignment-card');
-        const newOrder = [];
-        cards.forEach(c => {
-            if (c.dataset.rawTitle) {
-                newOrder.push(c.dataset.rawTitle);
-            }
-        });
-        
-        const orderKey = this.selectedSubject ? `${this.selectedClass}__${this.selectedSubject}` : this.selectedClass;
 
         if (!window.appConfig) window.appConfig = {};
         if (!window.appConfig.order) window.appConfig.order = {};
-        window.appConfig.order[orderKey] = newOrder;
+
+        if (list.classList.contains('split-container')) {
+            const cols = list.querySelectorAll('.split-col');
+            cols.forEach(col => {
+                const subTitle = col.querySelector('.split-title').innerText;
+                const orderKey = `${this.selectedClass}__${subTitle}`;
+                const cards = col.querySelectorAll('.assignment-card');
+                const newOrder = [];
+                cards.forEach(c => {
+                    if (c.dataset.rawTitle) {
+                        newOrder.push(c.dataset.rawTitle);
+                    }
+                });
+                window.appConfig.order[orderKey] = newOrder;
+            });
+        } else {
+            const cards = list.querySelectorAll('.assignment-card');
+            const newOrder = [];
+            cards.forEach(c => {
+                if (c.dataset.rawTitle) {
+                    newOrder.push(c.dataset.rawTitle);
+                }
+            });
+            
+            const orderKey = this.selectedSubject ? `${this.selectedClass}__${this.selectedSubject}` : this.selectedClass;
+            window.appConfig.order[orderKey] = newOrder;
+        }
         
         if (window.isOfflineMode) {
             fetch('/api/config', {
@@ -261,6 +278,162 @@ export const ViewMixin = {
         return titleA.localeCompare(titleB, undefined, { numeric: true, sensitivity: 'base' });
     },
 
+    async loadAssignmentsSplit(classCode, subjects) {
+        this.isBonus = false; 
+        this.selectedClass = classCode;
+        this.selectedSubject = null; 
+
+        if (this.elements.assignmentsTitle) {
+            this.elements.assignmentsTitle.innerText = `Assignments for ${classCode}`;
+        }
+        
+        const weekInfo = getCurrentTeachingWeekInfo();
+        if (this.elements.currentWeekLbl) {
+            this.elements.currentWeekLbl.innerText = `Current Teaching Week: W${weekInfo.weekNum} (${weekInfo.dateString})`;
+        }
+        
+        const list = this.elements.assignmentList;
+        if (!list) return;
+        list.innerHTML = "Loading...";
+        list.className = "assignment-list split-container"; 
+        
+        const colorHex = getClassColor(classCode);
+        if (this.views.assignments) {
+            if (colorHex) {
+                const overlayColor = hexToRgba(colorHex, 0.15);
+                this.views.assignments.style.background = `linear-gradient(${overlayColor}, ${overlayColor}), var(--bg-quiz)`;
+            } else {
+                this.views.assignments.style.background = "";
+            }
+        }
+
+        this.switchView("view-assignments");
+
+        list.innerHTML = "";
+
+        const cols = {};
+        
+        let sortedSubjects = [...subjects];
+        sortedSubjects.sort((a, b) => {
+            let aIsSteam = /steam/i.test(a);
+            let bIsSteam = /steam/i.test(b);
+            let aIsCS = /cs|computer/i.test(a);
+            let bIsCS = /cs|computer/i.test(b);
+            
+            if (aIsSteam && !bIsSteam) return -1;
+            if (!aIsSteam && bIsSteam) return 1;
+            if (aIsCS && !bIsCS) return 1; 
+            if (!aIsCS && bIsCS) return -1;
+            return 0;
+        });
+
+        sortedSubjects.forEach((sub, i) => {
+            let col = document.createElement("div");
+            col.className = "split-col";
+            if (i < sortedSubjects.length - 1) {
+                col.classList.add("split-left");
+            } else {
+                col.classList.add("split-right");
+            }
+            
+            let title = document.createElement("h3");
+            title.className = "split-title";
+            title.innerText = sub;
+            col.appendChild(title);
+            
+            let subList = document.createElement("div");
+            subList.className = "split-list list-container";
+            col.appendChild(subList);
+            
+            cols[sub] = subList;
+            list.appendChild(col);
+        });
+
+        let grade = classCode[1];
+
+        for (const subject of sortedSubjects) {
+            let assignmentsDict = {};
+            if (canvasData && canvasData[grade]) {
+                let gradeData = canvasData[grade];
+
+                // 1. Check grade-level direct assignments
+                Object.keys(gradeData).forEach(title => {
+                    if (typeof gradeData[title] !== 'object' && gradeData[title] !== null) {
+                        assignmentsDict[title] = gradeData[title];
+                    }
+                });
+
+                // 2. Check class-level direct assignments
+                if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
+                    Object.keys(gradeData[classCode]).forEach(title => {
+                        if (typeof gradeData[classCode][title] !== 'object' && gradeData[classCode][title] !== null) {
+                            assignmentsDict[title] = gradeData[classCode][title];
+                        }
+                    });
+                }
+
+                // 3. Check subject-level structures
+                if (gradeData[subject] && typeof gradeData[subject] === 'object') {
+                    Object.keys(gradeData[subject]).forEach(title => {
+                        if (typeof gradeData[subject][title] !== 'object' && gradeData[subject][title] !== null) {
+                            assignmentsDict[title] = gradeData[subject][title];
+                        }
+                    });
+                    if (gradeData[subject][classCode] && typeof gradeData[subject][classCode] === 'object') {
+                        Object.keys(gradeData[subject][classCode]).forEach(title => {
+                            if (typeof gradeData[subject][classCode][title] !== 'object' && gradeData[subject][classCode][title] !== null) {
+                                assignmentsDict[title] = gradeData[subject][classCode][title];
+                            }
+                        });
+                    }
+                }
+
+                if (gradeData[classCode] && typeof gradeData[classCode] === 'object' && gradeData[classCode][subject] && typeof gradeData[classCode][subject] === 'object') {
+                    Object.keys(gradeData[classCode][subject]).forEach(title => {
+                        if (typeof gradeData[classCode][subject][title] !== 'object' && gradeData[classCode][subject][title] !== null) {
+                            assignmentsDict[title] = gradeData[classCode][subject][title];
+                        }
+                    });
+                }
+            }
+
+            const ignoredList = (window.appConfig && Array.isArray(window.appConfig.ignore)) 
+                ? window.appConfig.ignore 
+                : (Array.isArray(ignoreData) ? ignoreData : []);
+                
+            let validTitles = Object.keys(assignmentsDict).filter(t => !ignoredList.includes(t));
+            validTitles.sort((a, b) => this.customWeekSort(a, b));
+
+            const orderKey = `${classCode}__${subject}`;
+            if (window.appConfig && window.appConfig.order) {
+                const customList = window.appConfig.order[orderKey];
+                if (Array.isArray(customList)) {
+                    const existingCustom = customList.filter(t => validTitles.includes(t));
+                    const remaining = validTitles.filter(t => !existingCustom.includes(t));
+                    validTitles = [...existingCustom, ...remaining];
+                }
+            }
+
+            const subListElement = cols[subject];
+
+            if (validTitles.length === 0) {
+                subListElement.innerHTML = `<p style='color:var(--text-muted); font-style:italic; padding: 20px; text-align:center;'>No assignments found for ${subject}.</p>`;
+                continue;
+            }
+
+            const existenceChecks = validTitles.map(async (title) => {
+                const exists = await checkQuizExists(title);
+                return { title, exists };
+            });
+
+            const results = await Promise.all(existenceChecks);
+            results.forEach(result => {
+                let card = this.createAssignmentButton(result.title, result.exists);
+                subListElement.appendChild(card);
+            });
+        }
+    },
+
     async loadAssignments(classCode, subject = null) {
         this.isBonus = false; 
         this.selectedClass = classCode;
@@ -279,6 +452,7 @@ export const ViewMixin = {
         const list = this.elements.assignmentList;
         if (!list) return;
         list.innerHTML = "Loading...";
+        list.className = "assignment-list list-container";
         
         // Apply 20% opacity color shade overlay to the assignments view
         const colorHex = getClassColor(classCode, subject);
@@ -400,6 +574,7 @@ export const ViewMixin = {
         const list = this.elements.assignmentList;
         if (!list) return;
         list.innerHTML = "Loading bonus quizzes...";
+        list.className = "assignment-list list-container";
         
         this.switchView("view-assignments");
 
