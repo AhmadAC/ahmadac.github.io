@@ -6,8 +6,11 @@ import { formatDisplayString } from './utils.js';
 export function setupMultipleChoiceUI(container, q, idx) {
     let options = [];
     let correctIdx = q['correct ans index'];
-    if (typeof correctIdx === 'string' && !isNaN(correctIdx)) correctIdx = parseInt(correctIdx, 10) - 1;
-    else if (typeof correctIdx === 'number') correctIdx = correctIdx - 1;
+    if (typeof correctIdx === 'string' && !isNaN(parseFloat(correctIdx))) {
+        correctIdx = parseInt(parseFloat(correctIdx), 10) - 1;
+    } else if (typeof correctIdx === 'number') {
+        correctIdx = Math.floor(correctIdx) - 1;
+    }
 
     for (let i = 0; i < 26; i++) {
         let k = String.fromCharCode(97 + i);

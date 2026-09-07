@@ -11,6 +11,18 @@
                     }
                 ]
             }
+        },
+        "test": {
+            "U1HW1 - CS - W2 - Computer Keyboard Shortcuts": {
+                "best": 4,
+                "attempts": [
+                    {
+                        "s": 4,
+                        "t": 10,
+                        "ts": "2026-09-07T17:12:16.714641"
+                    }
+                ]
+            }
         }
     },
     "G6A": {

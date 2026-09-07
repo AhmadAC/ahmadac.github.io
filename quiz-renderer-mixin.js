@@ -65,13 +65,46 @@ export const QuizRendererMixin = {
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
             
             const rawDataRaw = await res.json();
-            const rawData = recursiveDecode(rawDataRaw);
+            let rawData = recursiveDecode(rawDataRaw);
             
             console.log(`[DEBUG][Inst ${this.instanceId}] Raw JSON loaded & decoded successfully.`); 
 
-            if (rawData.metadata && rawData.metadata.type === 'document') {
-                this.renderDocument(quizName, rawData);
-                return;
+            // Auto-detect and unpack if a document-wrapped JSON actually contains quiz data
+            if (rawData && rawData.metadata && rawData.metadata.type === 'document') {
+                let docData = rawData.data;
+                let parsedQuiz = null;
+
+                if (typeof docData === 'string') {
+                    let cleanStr = docData.replace(/<br\s*\/?>/gi, '\n')
+                                         .replace(/<\/?p[^>]*>/gi, '\n')
+                                         .replace(/&quot;/g, '"')
+                                         .replace(/&amp;/g, '&')
+                                         .replace(/&lt;/g, '<')
+                                         .replace(/&gt;/g, '>')
+                                         .trim();
+                    if (cleanStr.startsWith('[') || cleanStr.startsWith('{')) {
+                        try {
+                            let parsed = JSON.parse(cleanStr);
+                            parsed = recursiveDecode(parsed);
+                            let items = Array.isArray(parsed) ? parsed : (parsed.data || [parsed]);
+                            if (Array.isArray(items) && items.some(item => item && (item['question text'] || item['question_text'] || item['type'] || item['question_type'] || item['question number']))) {
+                                parsedQuiz = items;
+                            }
+                        } catch (e) {}
+                    }
+                } else if (Array.isArray(docData)) {
+                    let decodedData = recursiveDecode(docData);
+                    if (decodedData.some(item => item && (item['question text'] || item['question_text'] || item['type'] || item['question_type'] || item['question number']))) {
+                        parsedQuiz = decodedData;
+                    }
+                }
+
+                if (parsedQuiz) {
+                    rawData = parsedQuiz;
+                } else {
+                    this.renderDocument(quizName, rawData);
+                    return;
+                }
             }
 
             let infoContent = "";
