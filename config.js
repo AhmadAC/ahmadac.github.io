@@ -1,6 +1,8 @@
 // config.js
 
-export const APP_VERSION = "v1.0.0.7";
+import { safeJsonParse } from './utils.js?v=2.2';
+
+export const APP_VERSION = "v1.0.0.8";
 
 export const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 
@@ -51,12 +53,12 @@ export function hexToRgba(hex, alpha = 0.2) {
 }
 
 export let appSettings = {
-    anchor_date: "2026-06-15", // Format YYYY-MM-DD
+    anchor_date: "2026-06-15",
     anchor_week: 37,
-    manual_week_override: null, // Set to a number to manually lock the week (e.g. 38)
-    manual_date_string: null,    // Set to manually lock the date string (e.g. "22/06/2026 - 26/06/2026")
-    show_bonus: true,          // Toggle Bonus display directly via JSON
-    show_results: false,        // Toggle Results display directly via JSON
+    manual_week_override: null,
+    manual_date_string: null,
+    show_bonus: true,
+    show_results: false,
     subjects: {
         "6": [],
         "7": ["Computer Science (CS)", "STEAM"],
@@ -104,9 +106,12 @@ export async function loadSettings() {
         console.log("[DEBUG] Fetching settings.json...");
         const res = await fetch(`0_Quiz/settings.json?t=${Date.now()}`);
         if (res.ok) {
-            const customSettings = await res.json();
-            updateAppSettings(customSettings);
-            console.log("[DEBUG] Loaded custom settings:", appSettings);
+            const text = await res.text();
+            const customSettings = safeJsonParse(text);
+            if (customSettings) {
+                updateAppSettings(customSettings);
+                console.log("[DEBUG] Loaded custom settings:", appSettings);
+            }
         }
     } catch (e) {
         console.log("[DEBUG] No custom settings.json found or failed to load. Using defaults.");
@@ -116,7 +121,7 @@ export async function loadSettings() {
 export function getCurrentMondayDateStr() {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
-    const day = now.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+    const day = now.getDay();
     const diffToMonday = day === 0 ? -6 : 1 - day;
     const monday = new Date(now.getTime() + (diffToMonday * 24 * 60 * 60 * 1000));
     
@@ -129,7 +134,6 @@ export function getCurrentMondayDateStr() {
 export function getCurrentTeachingWeekInfo(overrideSettings) {
     const settings = overrideSettings || appSettings;
 
-    // If a manual override is set in settings.json, use it immediately
     if (settings.manual_week_override !== null && settings.manual_week_override !== undefined) {
         return {
             weekNum: settings.manual_week_override,
@@ -137,23 +141,21 @@ export function getCurrentTeachingWeekInfo(overrideSettings) {
         };
     }
 
-    // Otherwise, parse the anchor date dynamically
     const parts = (settings.anchor_date || "2026-06-15").split('-');
-    const anchorDate = new Date(parts[0], parts[1] - 1, parts[2]); // Month is 0-indexed
+    const anchorDate = new Date(parts[0], parts[1] - 1, parts[2]);
     const anchorWeek = settings.anchor_week !== undefined ? settings.anchor_week : 1;
     const msPerWeek = 7 * 24 * 60 * 60 * 1000;
     
     const now = new Date();
-    now.setHours(0, 0, 0, 0); // Normalize to midnight to avoid timezone shift errors
+    now.setHours(0, 0, 0, 0);
     
     const diffMs = now.getTime() - anchorDate.getTime();
     const weeksDiff = Math.floor(diffMs / msPerWeek);
     
     const currentWeekNum = anchorWeek + weeksDiff;
     
-    // Calculate Monday and Friday of this teaching week
     const startDate = new Date(anchorDate.getTime() + (weeksDiff * msPerWeek));
-    const endDate = new Date(startDate.getTime() + (4 * 24 * 60 * 60 * 1000)); // +4 days = Friday
+    const endDate = new Date(startDate.getTime() + (4 * 24 * 60 * 60 * 1000));
     
     const formatDate = (dateObj) => {
         const d = String(dateObj.getDate()).padStart(2, '0');

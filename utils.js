@@ -2,6 +2,84 @@
 
 import { appSettings } from './config.js?v=2.2';
 
+export function safeJsonParse(text) {
+    if (!text || typeof text !== 'string') return null;
+    let clean = text.trim();
+    if (!clean) return null;
+
+    // 1. Fast path: Standard native parse
+    try {
+        return JSON.parse(clean);
+    } catch (e) {
+        // Fall through to sanitize invalid control characters and backslashes
+    }
+
+    // 2. Character-by-character scanner to escape control characters & fix invalid escape sequences inside strings
+    try {
+        let inString = false;
+        let escaped = false;
+        let result = '';
+
+        for (let i = 0; i < clean.length; i++) {
+            let ch = clean[i];
+
+            if (escaped) {
+                if (inString) {
+                    // If the character following a backslash is not a valid JSON escape, escape the backslash itself
+                    if (!/["\\/bfnrtu]/.test(ch)) {
+                        result += '\\\\' + ch;
+                    } else {
+                        result += '\\' + ch;
+                    }
+                } else {
+                    result += '\\' + ch;
+                }
+                escaped = false;
+                continue;
+            }
+
+            if (ch === '\\') {
+                escaped = true;
+                continue;
+            }
+
+            if (ch === '"') {
+                inString = !inString;
+                result += ch;
+                continue;
+            }
+
+            if (inString) {
+                if (ch === '\n') {
+                    result += '\\n';
+                } else if (ch === '\r') {
+                    result += '\\r';
+                } else if (ch === '\t') {
+                    result += '\\t';
+                } else if (ch.charCodeAt(0) < 0x20) {
+                    result += '\\u' + ('0000' + ch.charCodeAt(0).toString(16)).slice(-4);
+                } else {
+                    result += ch;
+                }
+            } else {
+                result += ch;
+            }
+        }
+
+        // Handle trailing escape
+        if (escaped) {
+            result += '\\\\';
+        }
+
+        // Strip trailing commas before closing braces/brackets
+        result = result.replace(/,\s*([}\]])/g, '$1');
+        return JSON.parse(result);
+    } catch (err) {
+        console.error("safeJsonParse error:", err);
+        throw err;
+    }
+}
+
 export function decodeUtf8B64(b64) {
     try {
         const binString = atob(b64);
@@ -34,7 +112,7 @@ export function recursiveDecode(data) {
     return data;
 }
 
-// Strips class, subject, and week code prefixes/suffixes (e.g., "G7_CS_W05_", "G7 CS W01 ", "W01_") for clean user display
+// Strips class, subject, and week code prefixes/suffixes for clean user display
 export function cleanQuizTitle(title) {
     if (typeof title !== 'string') return title;
     let clean = title.replace(/^G\d+[_ \-]*(?:[A-Za-z0-9()]+[_ \-]+)?W\d+[A-Za-z]?[_ \-]*/i, '');
@@ -46,27 +124,20 @@ export function cleanQuizTitle(title) {
     return clean;
 }
 
-// Safely replaces underscores with spaces AND formats fractions (e.g. 2/3, a/b, (bc)/a) with stacked HTML layouts, completely ignoring HTML tags
+// Safely replaces underscores with spaces AND formats fractions with stacked HTML layouts, ignoring HTML tags
 export function formatDisplayString(str) {
     if (typeof str !== 'string') return str;
     
     try {
-        // 1. Replace underscores with spaces, skipping HTML tags
         let formatted = str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
-        
-        // 2. Format fractions (like 2/3, a/b, (bc)/a), skipping HTML tags
-        // Matches algebraic fractions and smoothly strips wrapping parentheses if they surround the numerator/denominator
         const fractionRegex = /(<[^>]+>)|(?:(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+))\/(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+)))/g;
         
         formatted = formatted.replace(fractionRegex, (match, tag, numP, numNP, denP, denNP) => {
-            if (tag) return tag; // Keep HTML tags untouched
+            if (tag) return tag;
             
-            // Safely verify existence and cast to string to prevent any unexpected undefined TypeError crashes
             const num = String(numP !== undefined ? numP : (numNP !== undefined ? numNP : ""));
             const den = String(denP !== undefined ? denP : (denNP !== undefined ? denNP : ""));
             
-            // Exclude generic English word/word matches like "pressure/Wind"
-            // If neither was explicitly wrapped in parentheses, and either side is a multi-letter string containing no digits, skip formatting.
             if (numP === undefined && denP === undefined) {
                 const isNumWord = /[a-zA-Z]/.test(num) && num.length >= 2 && !/[0-9]/.test(num);
                 const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(num);
@@ -86,7 +157,6 @@ export function formatDisplayString(str) {
 }
 
 export function applyFeatureToggles() {
-    // Ensures setting visibility applies strictly to both current UI and future instances dynamically generated
     const showBonus = appSettings.show_bonus === true || appSettings.show_bonus === 'true' || appSettings.show_bonus === 1 || appSettings.show_bonus === '1';
     
     document.querySelectorAll('.btn-view-bonus').forEach(btn => {
@@ -120,7 +190,6 @@ export function applyFeatureToggles() {
 }
 
 export function initDevTools() {
-    // Secret trigger for dev tools (results)
     Object.defineProperty(window, 'results', {
         get: function() {
             document.querySelectorAll('.btn-view-results').forEach(btn => {
@@ -137,7 +206,6 @@ export function initDevTools() {
         }
     });
 
-    // Secret trigger for dev tools (Bonus Quizzes)
     Object.defineProperty(window, 'q', {
         get: function() {
             document.querySelectorAll('.btn-view-bonus').forEach(btn => {
@@ -167,7 +235,6 @@ export function triggerConfetti() {
     }
 }
 
-// Generates an offline standalone SVG QR Code for URLs without any external dependencies
 export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220) {
     const GF256_EXP = new Uint8Array(512);
     const GF256_LOG = new Uint8Array(256);
@@ -210,18 +277,16 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
         return Array.from(msg.slice(data.length));
     };
 
-    // QR Version 2 (25x25), ECL M (28 data codewords, 16 EC codewords)
     const textBytes = new TextEncoder().encode(text);
     const bits = [];
     const pushBits = (val, len) => {
         for (let i = len - 1; i >= 0; i--) bits.push((val >> i) & 1);
     };
 
-    pushBits(4, 4); // Byte mode indicator
-    pushBits(textBytes.length, 8); // Character count indicator
+    pushBits(4, 4);
+    pushBits(textBytes.length, 8);
     textBytes.forEach(b => pushBits(b, 8));
 
-    // Terminator
     const remainingToCapacity = 28 * 8 - bits.length;
     pushBits(0, Math.min(4, remainingToCapacity));
     while (bits.length % 8 !== 0) bits.push(0);
@@ -269,7 +334,6 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
     setFinder(0, 18);
     setFinder(18, 0);
 
-    // Alignment pattern at (18, 18)
     for (let r = -2; r <= 2; r++) {
         for (let c = -2; c <= 2; c++) {
             const nr = 18 + r, nc = 18 + c;
@@ -278,17 +342,14 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
         }
     }
 
-    // Timing patterns
     for (let i = 8; i <= 16; i++) {
         if (!reserved[6][i]) { reserved[6][i] = true; matrix[6][i] = (i % 2 === 0) ? 1 : 0; }
         if (!reserved[i][6]) { reserved[i][6] = true; matrix[i][6] = (i % 2 === 0) ? 1 : 0; }
     }
 
-    // Dark module
     reserved[17][8] = true;
     matrix[17][8] = 1;
 
-    // Reserve Format info spots
     for (let i = 0; i <= 8; i++) {
         reserved[8][i] = true;
         reserved[i][8] = true;
@@ -298,7 +359,6 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
         reserved[i][8] = true;
     }
 
-    // Place data bits
     let bitIdx = 0;
     const allBits = [];
     allCodewords.forEach(b => {
@@ -314,7 +374,6 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
                 const col = c - dc;
                 if (!reserved[r][col]) {
                     let bit = bitIdx < allBits.length ? allBits[bitIdx++] : 0;
-                    // Apply Mask 0: (row + col) % 2 === 0
                     if ((r + col) % 2 === 0) bit ^= 1;
                     matrix[r][col] = bit;
                 }
@@ -323,7 +382,6 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
         upwards = !upwards;
     }
 
-    // Format bits for ECL M (00), Mask 0 (000) -> 0x5412 / 101010000010010
     const formatBits = [1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0];
     const fmtCoords1 = [
         [8,0],[8,1],[8,2],[8,3],[8,4],[8,5],[8,7],[8,8],[7,8],[5,8],[4,8],[3,8],[2,8],[1,8],[0,8]

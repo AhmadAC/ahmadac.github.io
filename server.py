@@ -3,6 +3,7 @@
 import os
 import sys
 import json
+import re
 import threading
 import webbrowser
 import urllib.request
@@ -23,24 +24,20 @@ if platform.system() == "Windows":
         import ctypes
         hwnd = ctypes.windll.kernel32.GetConsoleWindow()
         if hwnd:
-            # SW_HIDE = 0
             ctypes.windll.user32.ShowWindow(hwnd, 0)
     except Exception:
         pass
 
-# Ensure standard output / error do not fail if running in noconsole/windowed mode
 if sys.stdout is None:
     sys.stdout = open(os.devnull, 'w', encoding='utf-8', errors='ignore')
 if sys.stderr is None:
     sys.stderr = open(os.devnull, 'w', encoding='utf-8', errors='ignore')
 
-# --- Linux / Fedora / Wayland Compatibility ---
 if platform.system() == "Linux":
     os.environ["MOZ_ENABLE_WAYLAND"] = "1"
     if "QT_QPA_PLATFORM" not in os.environ:
         os.environ["QT_QPA_PLATFORM"] = "wayland;xcb"
 
-# 1. FORCE EXPLICIT MIME-TYPE OVERRIDES
 mimetypes.init()
 mimetypes.add_type('text/css', '.css')
 mimetypes.add_type('application/javascript', '.js')
@@ -51,7 +48,6 @@ mimetypes.add_type('application/json', '.json')
 mimetypes.add_type('audio/mpeg', '.mp3')
 mimetypes.add_type('image/x-icon', '.ico')
 
-# 2. RESOLVE DIRECTORIES FOR APP PORTABILITY AND APPIMAGE
 if getattr(sys, 'frozen', False):
     EXE_DIR = os.path.dirname(sys.executable)
     BUNDLE_DIR = getattr(sys, '_MEIPASS', EXE_DIR)
@@ -64,7 +60,6 @@ LAUNCH_DIR = os.environ.get("OWD", os.getcwd())
 APPIMAGE_PATH = os.environ.get("APPIMAGE")
 APPIMAGE_DIR = os.path.dirname(APPIMAGE_PATH) if APPIMAGE_PATH else None
 
-# Find where web UI assets (index.html, JS, CSS) reside
 candidate_web_dirs = []
 if APPDIR:
     candidate_web_dirs.extend([
@@ -91,10 +86,8 @@ if not WEB_DIR:
 os.chdir(WEB_DIR)
 
 def get_clean_env():
-    """Returns a clean environment dictionary for launching external host processes without AppImage library pollution."""
     env = os.environ.copy()
 
-    # Restore original LD_LIBRARY_PATH from host system
     if "LD_LIBRARY_PATH_ORIG" in env:
         if env["LD_LIBRARY_PATH_ORIG"]:
             env["LD_LIBRARY_PATH"] = env["LD_LIBRARY_PATH_ORIG"]
@@ -146,7 +139,6 @@ def get_data_dir():
             if os.path.exists(candidate):
                 return os.path.normpath(candidate)
 
-    # Seed bundled templates to a writable directory if running from an AppImage or executable
     target_base = EXE_DIR if os.path.exists(EXE_DIR) else LAUNCH_DIR
     target_data_dir = os.path.normpath(os.path.join(target_base, "0_Quiz"))
     try:
@@ -167,17 +159,33 @@ CONFIG_FILES = {'canvas.json', 'settings.json', 'ignore.json', 'autolink.json', 
 
 _QUIZ_CACHE = {}
 
+def robust_json_load_file(file_path):
+    if not os.path.exists(file_path):
+        return None
+    try:
+        with open(file_path, 'r', encoding='utf-8-sig') as f:
+            content = f.read()
+        try:
+            return json.loads(content, strict=False)
+        except Exception:
+            sanitized = re.sub(r'\\(?![/"\\bfnrtu]|u[0-9a-fA-F]{4})', r'\\\\', content)
+            no_trailing = re.sub(r',\s*([}\]])', r'\1', sanitized)
+            return json.loads(no_trailing, strict=False)
+    except Exception:
+        return None
+
 def get_quiz_points(file_path):
     pts = 0
-    try:
-        with open(file_path, 'r', encoding='utf-8-sig') as qf:
-            qd = json.load(qf)
-            items = qd if isinstance(qd, list) else qd.get("data", []) if isinstance(qd, dict) else []
-            for item in items:
-                if isinstance(item, dict):
-                    pts += int(float(item.get('points', item.get('points_possible', 0))))
-    except Exception:
-        pass
+    qd = robust_json_load_file(file_path)
+    if qd:
+        items = qd if isinstance(qd, list) else qd.get("data", []) if isinstance(qd, dict) else []
+        for item in items:
+            if isinstance(item, dict):
+                try:
+                    raw_pts = item.get('points', item.get('points_possible', 0))
+                    pts += int(float(raw_pts))
+                except Exception:
+                    pass
     return pts
 
 def update_quiz_index():
@@ -238,7 +246,6 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
         if '?' in clean_path:
             clean_path = clean_path.split('?')[0]
 
-        # Handle direct favicon requests from browsers
         if clean_path in ['/favicon.ico', '/favicon', '/icon.ico']:
             possible_icon_paths = [
                 os.path.join(WEB_DIR, 'icon.ico'),
@@ -264,13 +271,8 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
             def safe_read(fname, default):
                 path = os.path.join(DATA_DIR, fname)
-                if os.path.exists(path):
-                    try:
-                        with open(path, 'r', encoding='utf-8') as f:
-                            return json.load(f)
-                    except Exception:
-                        pass
-                return default
+                loaded = robust_json_load_file(path)
+                return loaded if loaded is not None else default
 
             canvas_data = safe_read('canvas.json', {"6": {}, "7": {}, "8": {}})
             ignore_data = safe_read('ignore.json', [])
@@ -335,7 +337,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
         if clean_path == '/api/config':
             content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length)
-            payload = json.loads(post_data.decode('utf-8'))
+            payload = json.loads(post_data.decode('utf-8'), strict=False)
 
             def safe_write(fname, data):
                 path = os.path.join(DATA_DIR, fname)
@@ -370,11 +372,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
             if 'delete_quizzes' in payload and payload['delete_quizzes']:
                 index_path = os.path.join(DATA_DIR, 'quiz_index.json')
-                try:
-                    with open(index_path, 'r', encoding='utf-8') as f:
-                        idx = json.load(f)
-                except Exception:
-                    idx = {}
+                idx = robust_json_load_file(index_path) or {}
                 for dq in payload['delete_quizzes']:
                     fp = os.path.join(DATA_DIR, idx[dq]) if dq in idx else os.path.join(DATA_DIR, f"{dq}.json")
                     if os.path.exists(fp):
@@ -395,15 +393,9 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             content_length = int(self.headers.get('Content-Length', 0))
             post_data = self.rfile.read(content_length)
             try:
-                payload = json.loads(post_data.decode('utf-8'))
+                payload = json.loads(post_data.decode('utf-8'), strict=False)
                 results_file = os.path.join(DATA_DIR, 'QuizResults.json')
-                data = {}
-                if os.path.exists(results_file):
-                    with open(results_file, 'r', encoding='utf-8') as f:
-                        try:
-                            data = json.load(f)
-                        except Exception:
-                            pass
+                data = robust_json_load_file(results_file) or {}
 
                 cls, name = payload.get('studentClass', 'Unknown'), payload.get('studentName', 'Unknown')
                 quizName, score, total = payload.get('quizName', 'Unknown'), payload.get('score', 0), payload.get('totalPossible', 0)
@@ -422,13 +414,8 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 with open(results_file, 'w', encoding='utf-8') as f:
                     json.dump(data, f, indent=4)
 
-                autolink_config, webhook_success = {"enabled": False, "webhook_url": ""}, False
-                if os.path.exists(os.path.join(DATA_DIR, 'autolink.json')):
-                    try:
-                        with open(os.path.join(DATA_DIR, 'autolink.json'), 'r') as f:
-                            autolink_config = json.load(f)
-                    except Exception:
-                        pass
+                autolink_config = robust_json_load_file(os.path.join(DATA_DIR, 'autolink.json')) or {"enabled": False, "webhook_url": ""}
+                webhook_success = False
 
                 if autolink_config.get("enabled"):
                     webhook_url = autolink_config.get("webhook_url", "").strip() or "https://qyapi.weixin.qq.com/cgi-bin/wedoc/smartsheet/webhook?key=2cGDgH4Pcdag3rgX3j1BCgZ82ePKwD5S9Kcw84c7G6733Py3AHQnhgBnrqfcqYBu0e8mEpuBTkJj3HgqUstHB3zNoJdadg0y4A2TGOqElbp2"
@@ -454,7 +441,6 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             self.end_headers()
 
 def launch_browser_app(url, profile_dir):
-    """Finds Chromium, Chrome, Edge, Firefox, or Flatpak browsers and launches in App or dedicated window mode."""
     clean_env = get_clean_env()
     cmd_prefix = []
 
@@ -489,7 +475,6 @@ def launch_browser_app(url, profile_dir):
                 break
 
     else:
-        # Linux Binary Search (Edge, Chrome, Chromium, Brave, Vivaldi)
         linux_binaries = [
             "microsoft-edge-stable", "microsoft-edge", "microsoft-edge-beta", "microsoft-edge-dev", "msedge",
             "google-chrome-stable", "google-chrome", "google-chrome-beta", "google-chrome-unstable",
@@ -502,7 +487,6 @@ def launch_browser_app(url, profile_dir):
                 cmd_prefix = [found]
                 break
 
-        # Linux Direct Filesystem Paths (/opt, /usr, /var/lib/flatpak, ~/.local/share/flatpak)
         if not cmd_prefix:
             home_dir = os.path.expanduser("~")
             direct_linux_paths = [
@@ -531,7 +515,6 @@ def launch_browser_app(url, profile_dir):
                     cmd_prefix = [p]
                     break
 
-        # Flatpak CLI Runner Search (Standard on Fedora Kinoite / Silverblue)
         if not cmd_prefix and shutil.which("flatpak"):
             flatpak_app_ids = ["com.microsoft.Edge", "com.google.Chrome", "org.chromium.Chromium", "com.brave.Browser"]
             try:
@@ -559,7 +542,6 @@ def launch_browser_app(url, profile_dir):
         ]
         return subprocess.Popen(launch_args, env=clean_env)
 
-    # Firefox / Flatpak Firefox Fallback (Default browser on Fedora Kinoite)
     if platform.system() == "Linux":
         if shutil.which("flatpak"):
             try:
@@ -615,8 +597,6 @@ def run_app():
         except KeyboardInterrupt:
             pass
 
-        # If the browser process delegated to an existing browser instance and exited in < 5 seconds,
-        # keep the server alive so that user interactions and saves continue working properly.
         if time.time() - t0 < 5:
             try:
                 while True:

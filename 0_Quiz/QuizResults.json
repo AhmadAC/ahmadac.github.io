@@ -64,5 +64,19 @@
                 ]
             }
         }
+    },
+    "G6B": {
+        "test": {
+            "U1HW1 - CS - W2 - Computer Keyboard Shortcuts": {
+                "best": 1,
+                "attempts": [
+                    {
+                        "s": 1,
+                        "t": 10,
+                        "ts": "2026-09-08T09:00:17.657801"
+                    }
+                ]
+            }
+        }
     }
 }

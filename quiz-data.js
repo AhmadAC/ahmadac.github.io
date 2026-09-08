@@ -1,6 +1,6 @@
 // quiz-data.js
 
-import { recursiveDecode } from './utils.js';
+import { recursiveDecode, safeJsonParse } from './utils.js?v=2.2';
 
 export let canvasData = {}; 
 export let quizIndex = {};
@@ -15,7 +15,6 @@ export function setIgnoreData(data) {
 }
 
 export async function loadCanvasData() {
-    // If canvasData was already set via unified offline API, skip redundant network fetch
     if (Object.keys(canvasData).length > 0 && canvasData["6"] && Object.keys(canvasData["6"]).length > 0) {
         return;
     }
@@ -23,7 +22,8 @@ export async function loadCanvasData() {
         console.log("[DEBUG] Fetching canvas.json...");
         const response = await fetch('0_Quiz/canvas.json');
         if (!response.ok) throw new Error(`Could not find canvas.json (Status: ${response.status})`);
-        const rawCanvas = await response.json();
+        const text = await response.text();
+        const rawCanvas = safeJsonParse(text);
         canvasData = recursiveDecode(rawCanvas);
     } catch (e) {
         if (!canvasData || Object.keys(canvasData).length === 0) {
@@ -37,7 +37,8 @@ export async function loadIgnoreData() {
     try {
         const res = await fetch(`0_Quiz/ignore.json?t=${Date.now()}`);
         if (res.ok) {
-            ignoreData = await res.json();
+            const text = await res.text();
+            ignoreData = safeJsonParse(text) || [];
         }
     } catch (e) {
         if (!Array.isArray(ignoreData)) {
@@ -51,7 +52,8 @@ export async function loadQuizIndex() {
         console.log("[DEBUG] Fetching quiz_index.json...");
         const res = await fetch(`0_Quiz/quiz_index.json?t=${Date.now()}`);
         if (res.ok) {
-            quizIndex = await res.json();
+            const text = await res.text();
+            quizIndex = safeJsonParse(text) || {};
         }
     } catch (e) {
         console.log("[DEBUG] No quiz_index.json found or failed to load. Defaulting to flat structure.");
@@ -130,7 +132,7 @@ export function normalizeQuizData(raw) {
             if (typeof val === 'string' && val.trim().startsWith('[') && val.trim().endsWith(']')) {
                 try {
                     let jsonStr = val.replace(/'/g, '"');
-                    item[key] = JSON.parse(jsonStr);
+                    item[key] = safeJsonParse(jsonStr);
                     item[key] = recursiveDecode(item[key]); 
                 } catch(e) { }
             }
@@ -163,8 +165,9 @@ export function normalizeQuizData(raw) {
     });
     
     return items.filter(d => 
-        d['question text'] || d['question_text'] || 
+        d && typeof d === 'object' && !d.quiz_metadata &&
+        (d['question text'] || d['question_text'] || 
         d['Question Text'] || d['Question_Text'] ||
-        d.question || d.Question
+        d.question || d.Question)
     );
 }

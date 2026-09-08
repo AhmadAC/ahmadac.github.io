@@ -2,7 +2,7 @@
 
 import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings, getClassColor, hexToRgba } from './config.js?v=2.2';
 import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js?v=2.2';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js?v=2.2';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse } from './utils.js?v=2.2';
 
 export const ViewMixin = {
     initClassGrid() {
@@ -91,7 +91,6 @@ export const ViewMixin = {
         card.className = "assignment-card";
         card.dataset.rawTitle = title;
 
-        // Extract Week String (normalize e.g. W05 -> W5, W01 -> W1)
         let weekStr = "Start";
         let wkNumStr = null;
         
@@ -106,7 +105,6 @@ export const ViewMixin = {
         let displayTitle = cleanQuizTitle(title);
         let formattedTitle = formatDisplayString(displayTitle);
 
-        // Highlight logic for Current and Due weeks
         const weekInfo = getCurrentTeachingWeekInfo();
         const currentWkNum = weekInfo.weekNum;
         const dueWkNum = currentWkNum - 1;
@@ -356,14 +354,12 @@ export const ViewMixin = {
             if (canvasData && canvasData[grade]) {
                 let gradeData = canvasData[grade];
 
-                // 1. Check grade-level direct assignments
                 Object.keys(gradeData).forEach(title => {
                     if (typeof gradeData[title] !== 'object' && gradeData[title] !== null) {
                         assignmentsDict[title] = gradeData[title];
                     }
                 });
 
-                // 2. Check class-level direct assignments
                 if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
                     Object.keys(gradeData[classCode]).forEach(title => {
                         if (typeof gradeData[classCode][title] !== 'object' && gradeData[classCode][title] !== null) {
@@ -372,7 +368,6 @@ export const ViewMixin = {
                     });
                 }
 
-                // 3. Check subject-level structures
                 if (gradeData[subject] && typeof gradeData[subject] === 'object') {
                     Object.keys(gradeData[subject]).forEach(title => {
                         if (typeof gradeData[subject][title] !== 'object' && gradeData[subject][title] !== null) {
@@ -454,7 +449,6 @@ export const ViewMixin = {
         list.innerHTML = "Loading...";
         list.className = "assignment-list list-container";
         
-        // Apply 20% opacity color shade overlay to the assignments view
         const colorHex = getClassColor(classCode, subject);
         if (this.views.assignments) {
             if (colorHex) {
@@ -473,14 +467,12 @@ export const ViewMixin = {
         if (canvasData && canvasData[grade]) {
             let gradeData = canvasData[grade];
 
-            // 1. Check grade-level direct assignments
             Object.keys(gradeData).forEach(title => {
                 if (typeof gradeData[title] !== 'object' && gradeData[title] !== null) {
                     assignmentsDict[title] = gradeData[title];
                 }
             });
 
-            // 2. Check class-level direct assignments
             if (gradeData[classCode] && typeof gradeData[classCode] === 'object') {
                 Object.keys(gradeData[classCode]).forEach(title => {
                     if (typeof gradeData[classCode][title] !== 'object' && gradeData[classCode][title] !== null) {
@@ -489,16 +481,13 @@ export const ViewMixin = {
                 });
             }
 
-            // 3. Check subject-level structures
             if (subject) {
-                // canvas[grade][subject]
                 if (gradeData[subject] && typeof gradeData[subject] === 'object') {
                     Object.keys(gradeData[subject]).forEach(title => {
                         if (typeof gradeData[subject][title] !== 'object' && gradeData[subject][title] !== null) {
                             assignmentsDict[title] = gradeData[subject][title];
                         }
                     });
-                    // canvas[grade][subject][classCode]
                     if (gradeData[subject][classCode] && typeof gradeData[subject][classCode] === 'object') {
                         Object.keys(gradeData[subject][classCode]).forEach(title => {
                             if (typeof gradeData[subject][classCode][title] !== 'object' && gradeData[subject][classCode][title] !== null) {
@@ -508,7 +497,6 @@ export const ViewMixin = {
                     }
                 }
 
-                // canvas[grade][classCode][subject]
                 if (gradeData[classCode] && typeof gradeData[classCode] === 'object' && gradeData[classCode][subject] && typeof gradeData[classCode][subject] === 'object') {
                     Object.keys(gradeData[classCode][subject]).forEach(title => {
                         if (typeof gradeData[classCode][subject][title] !== 'object' && gradeData[classCode][subject][title] !== null) {
@@ -519,16 +507,13 @@ export const ViewMixin = {
             }
         }
 
-        // Filter out hidden/ignored quizzes without wiping their assignments in canvas.json
         const ignoredList = (window.appConfig && Array.isArray(window.appConfig.ignore)) 
             ? window.appConfig.ignore 
             : (Array.isArray(ignoreData) ? ignoreData : []);
             
         let validTitles = Object.keys(assignmentsDict).filter(t => !ignoredList.includes(t));
-        
         validTitles.sort((a, b) => this.customWeekSort(a, b));
 
-        // Inject order.json configuration maps to override standard week alignments
         const orderKey = subject ? `${classCode}__${subject}` : classCode;
         if (window.appConfig && window.appConfig.order) {
             const customList = window.appConfig.order[orderKey] || window.appConfig.order[classCode];
@@ -552,7 +537,6 @@ export const ViewMixin = {
         });
 
         const results = await Promise.all(existenceChecks);
-
         results.forEach(result => {
             let card = this.createAssignmentButton(result.title, result.exists);
             list.appendChild(card);
@@ -581,7 +565,8 @@ export const ViewMixin = {
         try {
             const res = await fetch('0_Quiz/bonus/bonus_list.json');
             if (!res.ok) throw new Error("File missing");
-            const bonusList = await res.json();
+            const text = await res.text();
+            const bonusList = safeJsonParse(text) || [];
             
             list.innerHTML = "";
             if (bonusList.length === 0) {
@@ -633,7 +618,8 @@ export const ViewMixin = {
             const res = await fetch(`0_Quiz/media/Resources.json`);
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
             
-            const rawDataRaw = await res.json();
+            const text = await res.text();
+            const rawDataRaw = safeJsonParse(text);
             const rawData = recursiveDecode(rawDataRaw);
             
             if (rawData.metadata && rawData.metadata.type === 'document') {
@@ -689,7 +675,6 @@ export const ViewMixin = {
                         doc.body.classList.add('dark-theme');
                     }
 
-                    // Direct DOM-based link processing that never truncates on apostrophes or special characters
                     doc.querySelectorAll('a').forEach(a => {
                         const rawHref = a.getAttribute('href');
                         if (!rawHref) return;
@@ -707,7 +692,6 @@ export const ViewMixin = {
                             return;
                         }
 
-                        // Determine the full filename and extension safely
                         let cleanPath = rawHref.replace(/\\/g, '/');
                         let rawFilename = cleanPath.split('/').pop() || "document.pdf";
                         try { rawFilename = decodeURIComponent(rawFilename); } catch(_) {}
@@ -719,10 +703,8 @@ export const ViewMixin = {
                             filename += '.pdf';
                         }
 
-                        // Set the download attribute on the anchor tag itself in DOM
                         a.setAttribute('download', filename);
 
-                        // Attach a top-window blob download handler that guarantees .pdf extension preservation
                         a.addEventListener('click', async (e) => {
                             e.preventDefault();
                             let targetUrl = cleanPath.startsWith('0_Quiz/') ? cleanPath : `0_Quiz/${cleanPath}`;

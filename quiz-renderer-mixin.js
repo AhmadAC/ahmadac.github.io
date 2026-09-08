@@ -1,7 +1,7 @@
 // quiz-renderer-mixin.js - Main Quiz Renderer Mixin Orchestrator
 
 import { normalizeQuizData, quizIndex } from './quiz-data.js?v=2.2';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle } from './utils.js?v=2.2';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse } from './utils.js?v=2.2';
 import { setupAtomBuilderUI } from './atom-builder-ui.js?v=2.2';
 import { setupMultipleChoiceUI, setupClassSelectionUI, setupComplexMatchingUI } from './question-renderers.js?v=2.2';
 import { handleScrollStickyBank, renderStickyBank, fillSlotWithWord, handleSlotClick } from './matching-bank-handler.js?v=2.2';
@@ -64,7 +64,8 @@ export const QuizRendererMixin = {
             const res = await fetch(quizPath);
             if (!res.ok) throw new Error(`File missing or server error (${res.status})`);
             
-            const rawDataRaw = await res.json();
+            const textContent = await res.text();
+            const rawDataRaw = safeJsonParse(textContent);
             let rawData = recursiveDecode(rawDataRaw);
             
             console.log(`[DEBUG][Inst ${this.instanceId}] Raw JSON loaded & decoded successfully.`); 
@@ -84,7 +85,7 @@ export const QuizRendererMixin = {
                                          .trim();
                     if (cleanStr.startsWith('[') || cleanStr.startsWith('{')) {
                         try {
-                            let parsed = JSON.parse(cleanStr);
+                            let parsed = safeJsonParse(cleanStr);
                             parsed = recursiveDecode(parsed);
                             let items = Array.isArray(parsed) ? parsed : (parsed.data || [parsed]);
                             if (Array.isArray(items) && items.some(item => item && (item['question text'] || item['question_text'] || item['type'] || item['question_type'] || item['question number']))) {
