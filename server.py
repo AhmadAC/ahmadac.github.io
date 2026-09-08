@@ -49,6 +49,7 @@ mimetypes.add_type('image/svg+xml', '.svg')
 mimetypes.add_type('application/pdf', '.pdf')
 mimetypes.add_type('application/json', '.json')
 mimetypes.add_type('audio/mpeg', '.mp3')
+mimetypes.add_type('image/x-icon', '.ico')
 
 # 2. RESOLVE DIRECTORIES FOR APP PORTABILITY AND APPIMAGE
 if getattr(sys, 'frozen', False):
@@ -236,6 +237,23 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
         clean_path = urllib.parse.unquote(self.path).replace('\\', '/')
         if '?' in clean_path:
             clean_path = clean_path.split('?')[0]
+
+        # Handle direct favicon requests from browsers
+        if clean_path in ['/favicon.ico', '/favicon', '/icon.ico']:
+            possible_icon_paths = [
+                os.path.join(WEB_DIR, 'icon.ico'),
+                os.path.join(DATA_DIR, 'icon.ico'),
+                os.path.join(EXE_DIR, 'icon.ico'),
+                os.path.join(LAUNCH_DIR, 'icon.ico')
+            ]
+            for ico_path in possible_icon_paths:
+                if os.path.exists(ico_path):
+                    self.send_response(200)
+                    self.send_header('Content-type', 'image/x-icon')
+                    self.end_headers()
+                    with open(ico_path, 'rb') as f:
+                        self.wfile.write(f.read())
+                    return
 
         if clean_path == '/api/config':
             _, all_quizzes = update_quiz_index()
