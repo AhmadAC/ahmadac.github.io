@@ -26,27 +26,28 @@
 }
 
 body.dark-theme {
-    --bg-main: #182026;
-    --bg-quiz: #1a1a1a;
-    --border-color: #38454f;
-    --text-dark: #f5f8fa;
+    /* Elevated medium-slate shades for daytime legibility without harsh eye strain */
+    --bg-main: #24303a;
+    --bg-quiz: #26323c;
+    --border-color: #4a5b6a;
+    --text-dark: #f8fafc;
     
     /* Variable card mappings for Dark Theme */
-    --card-bg: #202b33;
-    --card-even-bg: #293742;
-    --card-hover-bg: #2e3e4c;
-    --selected-bg: #1d3340;
-    --header-bg: #24303b;
-    --sidebar-bg: #1a1a1a;
-    --footer-bg: #202b33;
-    --text-muted: #a7b6c2;
+    --card-bg: #2d3b46;
+    --card-even-bg: #344450;
+    --card-hover-bg: #3c4f5e;
+    --selected-bg: #2b475e;
+    --header-bg: #303e4b;
+    --sidebar-bg: #26323c;
+    --footer-bg: #2d3b46;
+    --text-muted: #cbd5e1;
     
-    --success-bg: #1a3d2e;
-    --success-border: #1d7343;
-    --warning-bg: #40301a;
-    --warning-border: #a6791e;
-    --fail-bg: #3d1a1a;
-    --fail-border: #a82222;
+    --success-bg: #1e4736;
+    --success-border: #2ecc71;
+    --warning-bg: #4d3d20;
+    --warning-border: #f39c12;
+    --fail-bg: #4d2626;
+    --fail-border: #e74c3c;
 }
 
 * { 

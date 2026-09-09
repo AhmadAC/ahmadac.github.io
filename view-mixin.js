@@ -658,9 +658,9 @@ export const ViewMixin = {
 
             const dynamicIframeStyle = `
                 <style>
-                    body.dark-theme { background-color: #1a1a1a !important; color: #f5f8fa !important; }
-                    body.dark-theme a { color: #30a2ff !important; }
-                    body.dark-theme table, body.dark-theme tr, body.dark-theme td, body.dark-theme th { border-color: #38454f !important; color: #f5f8fa !important; }
+                    body.dark-theme { background-color: #26323c !important; color: #f8fafc !important; }
+                    body.dark-theme a { color: #42a5f5 !important; }
+                    body.dark-theme table, body.dark-theme tr, body.dark-theme td, body.dark-theme th { border-color: #4a5b6a !important; color: #f8fafc !important; }
                 </style>
             `;
             htmlContent = dynamicIframeStyle + htmlContent;
