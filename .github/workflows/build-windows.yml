@@ -1,0 +1,50 @@
+name: Build Windows Executable
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    name: Build Windows Executable
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
+        shell: bash
+
+      - name: Build Executable with PyInstaller
+        run: |
+          ICON_ARG=""
+          if [ -f "icon.ico" ]; then
+            ICON_ARG="--icon=icon.ico"
+          fi
+          pyinstaller --onedir --windowed $ICON_ARG --name "MrCooperServer" server.py
+          # Copy web assets into the distribution directory
+          cp -r index.html *.js *.css dist/MrCooperServer/ 2>/dev/null || true
+          if [ -f "icon.ico" ]; then cp icon.ico dist/MrCooperServer/; fi
+          if [ -d "sounds" ]; then cp -r sounds dist/MrCooperServer/; fi
+          if [ -d "0_Quiz" ]; then cp -r 0_Quiz dist/MrCooperServer/; fi
+        shell: bash
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MrCooperServer-Windows
+          path: dist/MrCooperServer/
+          retention-days: 14
