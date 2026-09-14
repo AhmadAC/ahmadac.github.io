@@ -120,34 +120,6 @@ async function initApp() {
             if (data.settings) updateAppSettings(data.settings);
             if (data.canvas) setCanvasData(data.canvas);
             if (data.ignore) setIgnoreData(data.ignore);
-            
-            // Check for new unmapped files
-            const existingNames = new Set();
-            const grades = ["6", "7", "8"];
-            grades.forEach(g => {
-                if (data.canvas && data.canvas[g]) {
-                    const gradeObj = data.canvas[g];
-                    Object.entries(gradeObj).forEach(([k, val]) => {
-                        if (typeof val === 'object' && val !== null) {
-                            Object.entries(val).forEach(([subK, subVal]) => {
-                                if (typeof subVal === 'object' && subVal !== null) {
-                                    Object.keys(subVal).forEach(q => existingNames.add(q));
-                                } else {
-                                    existingNames.add(subK);
-                                }
-                            });
-                        } else {
-                            existingNames.add(k);
-                        }
-                    });
-                }
-            });
-
-            const ignored = data.ignore || [];
-            const unmapped = (data.quizzes || []).filter(q => !existingNames.has(q.name) && !ignored.includes(q.name));
-            if (unmapped.length > 0) {
-                window.openMappingManager();
-            }
         }
     } catch (err) {
         window.isOfflineMode = false;
