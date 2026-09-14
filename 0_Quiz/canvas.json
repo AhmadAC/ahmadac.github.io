@@ -1,39 +1,41 @@
 {
     "6": {
         "G6A": {
-            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z"
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
+            "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z",
+            "U1HW3 - W16 - Scientific Method": "2026-09-14T02:39:47.244Z"
         },
         "G6B": {
-            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z"
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
+            "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z",
+            "U1HW3 - W16 - Scientific Method": "2026-09-14T02:39:47.244Z"
         },
         "G6C": {
-            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z"
+            "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
+            "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z",
+            "U1HW3 - W16 - Scientific Method": "2026-09-14T02:39:47.244Z"
         }
     },
     "7": {
         "STEAM": {
             "G7A": {
                 "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
-                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+                "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z"
             },
             "G7B": {
                 "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
-                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+                "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z"
             },
             "G7C": {
                 "U1HW1 - W2 - Safety": "2026-08-27T23:52:44.036Z",
-                "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-27T23:52:44.036Z"
+                "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z"
             }
         },
         "Computer Science (CS)": {
             "G7A": {
                 "U1HW1 - CS - W2 - Computer Keyboard Shortcuts": "2026-09-07T08:55:26.150Z",
-                "G7_CS_W01_3D_Graphics_Basics": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W02_Cartesian_Transforms": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W03_Reference_Blocking": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W04_Edit_Mode_Extrusions": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W05_Cursor_Alignment": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W06_Symmetry_Accessories": "2026-08-30T04:15:04.869Z",
+                "G7_CS_W19_Gallery_Walk_Critique": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W07_Materials_Shading": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W08_Lighting_Composition": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W09_Final_Render_Export": "2026-08-30T04:18:00.815Z",
@@ -46,7 +48,6 @@
                 "G7_CS_W16_Scene_Composition_Staging": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W17_Final_Evaluation_Report": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W18_Portfolio_Compilation": "2026-08-30T05:40:20.371Z",
-                "G7_CS_W19_Gallery_Walk_Critique": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W20_Digital_Logic_States": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W21_Binary_Conversions": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W22_Data_Units_Parity": "2026-08-30T06:12:13.732Z",
@@ -63,16 +64,17 @@
                 "G7_CS_W37_Iterative_Refinement": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W38_Portfolio_Archival": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W39_CS_Theory_Review": "2026-08-30T06:12:13.732Z",
-                "G7_CS_W40_End_of_Year_Challenge": "2026-09-03T05:11:43.643Z"
+                "G7_CS_W40_End_of_Year_Challenge": "2026-09-03T05:11:43.643Z",
+                "G7_CS_W01_3D_Graphics_Basics": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W02_Cartesian_Transforms": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W03_Reference_Blocking": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W04_Edit_Mode_Extrusions": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W05_Cursor_Alignment": "2026-08-30T04:15:04.869Z"
             },
             "G7B": {
                 "U1HW1 - CS - W2 - Computer Keyboard Shortcuts": "2026-09-07T08:55:26.150Z",
-                "G7_CS_W01_3D_Graphics_Basics": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W02_Cartesian_Transforms": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W03_Reference_Blocking": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W04_Edit_Mode_Extrusions": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W05_Cursor_Alignment": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W06_Symmetry_Accessories": "2026-08-30T04:15:04.869Z",
+                "G7_CS_W19_Gallery_Walk_Critique": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W07_Materials_Shading": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W08_Lighting_Composition": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W09_Final_Render_Export": "2026-08-30T04:18:00.815Z",
@@ -85,7 +87,6 @@
                 "G7_CS_W16_Scene_Composition_Staging": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W17_Final_Evaluation_Report": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W18_Portfolio_Compilation": "2026-08-30T05:40:20.371Z",
-                "G7_CS_W19_Gallery_Walk_Critique": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W20_Digital_Logic_States": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W21_Binary_Conversions": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W22_Data_Units_Parity": "2026-08-30T06:12:13.732Z",
@@ -102,16 +103,17 @@
                 "G7_CS_W37_Iterative_Refinement": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W38_Portfolio_Archival": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W39_CS_Theory_Review": "2026-08-30T06:12:13.732Z",
-                "G7_CS_W40_End_of_Year_Challenge": "2026-09-03T05:11:43.643Z"
+                "G7_CS_W40_End_of_Year_Challenge": "2026-09-03T05:11:43.643Z",
+                "G7_CS_W01_3D_Graphics_Basics": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W02_Cartesian_Transforms": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W03_Reference_Blocking": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W04_Edit_Mode_Extrusions": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W05_Cursor_Alignment": "2026-08-30T04:15:04.869Z"
             },
             "G7C": {
                 "U1HW1 - CS - W2 - Computer Keyboard Shortcuts": "2026-09-07T08:55:26.150Z",
-                "G7_CS_W01_3D_Graphics_Basics": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W02_Cartesian_Transforms": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W03_Reference_Blocking": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W04_Edit_Mode_Extrusions": "2026-08-30T04:05:24.397Z",
-                "G7_CS_W05_Cursor_Alignment": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W06_Symmetry_Accessories": "2026-08-30T04:15:04.869Z",
+                "G7_CS_W19_Gallery_Walk_Critique": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W07_Materials_Shading": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W08_Lighting_Composition": "2026-08-30T04:15:04.869Z",
                 "G7_CS_W09_Final_Render_Export": "2026-08-30T04:18:00.815Z",
@@ -124,7 +126,6 @@
                 "G7_CS_W16_Scene_Composition_Staging": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W17_Final_Evaluation_Report": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W18_Portfolio_Compilation": "2026-08-30T05:40:20.371Z",
-                "G7_CS_W19_Gallery_Walk_Critique": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W20_Digital_Logic_States": "2026-08-30T05:40:20.371Z",
                 "G7_CS_W21_Binary_Conversions": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W22_Data_Units_Parity": "2026-08-30T06:12:13.732Z",
@@ -141,22 +142,27 @@
                 "G7_CS_W37_Iterative_Refinement": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W38_Portfolio_Archival": "2026-08-30T06:12:13.732Z",
                 "G7_CS_W39_CS_Theory_Review": "2026-08-30T06:12:13.732Z",
-                "G7_CS_W40_End_of_Year_Challenge": "2026-09-03T05:11:43.643Z"
+                "G7_CS_W40_End_of_Year_Challenge": "2026-09-03T05:11:43.643Z",
+                "G7_CS_W01_3D_Graphics_Basics": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W02_Cartesian_Transforms": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W03_Reference_Blocking": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W04_Edit_Mode_Extrusions": "2026-08-30T04:05:24.397Z",
+                "G7_CS_W05_Cursor_Alignment": "2026-08-30T04:15:04.869Z"
             }
         }
     },
     "8": {
         "G8A": {
             "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
-            "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+            "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z"
         },
         "G8B": {
             "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
-            "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+            "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z"
         },
         "G8C": {
             "U1HW1 - W2 - Safety": "2026-08-23T07:17:30.919Z",
-            "U1HW2 - W3 - IB MYP Design Command Words": "2026-08-23T07:17:30.919Z"
+            "U1HW2 - W3 - Scientific Method": "2026-09-14T02:48:44.630Z"
         }
     }
 }
