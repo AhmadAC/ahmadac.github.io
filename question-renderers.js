@@ -1,7 +1,7 @@
 // question-renderers.js - Renderers for MCQ, Class Select, and Complex Matching
 
-import { CLASSES } from './config.js';
-import { formatDisplayString, decodeUtf8B64 } from './utils.js';
+import { CLASSES } from './config.js?v=2.2';
+import { formatDisplayString, decodeUtf8B64 } from './utils.js?v=2.2';
 
 export function setupMultipleChoiceUI(container, q, idx) {
     let options = [];
@@ -12,7 +12,7 @@ export function setupMultipleChoiceUI(container, q, idx) {
         correctIdx = Math.floor(correctIdx) - 1;
     }
 
-    // Load from direct properties: a, b, c, d, e, f, ... (1-6 options)
+    // Load from direct properties: a, b, c, d, e, f, ... (1-26 options)
     for (let i = 0; i < 26; i++) {
         let k = String.fromCharCode(97 + i);
         if (q[k] !== undefined && q[k] !== null && String(q[k]).trim() !== "") {
@@ -69,7 +69,9 @@ export function setupMultipleChoiceUI(container, q, idx) {
             q._mcqElements.forEach(c => c.classList.remove('selected'));
             card.classList.add('selected');
             
-            this.updateProgress();
+            if (typeof this.updateProgress === 'function') {
+                this.updateProgress();
+            }
         };
 
         q._mcqElements.push(card);
@@ -88,7 +90,9 @@ export function setupClassSelectionUI(container, q, idx) {
             Array.from(grid.children).forEach(c => c.classList.remove('checked'));
             btn.classList.add('checked');
             q._userAnswer = opt;
-            this.updateProgress();
+            if (typeof this.updateProgress === 'function') {
+                this.updateProgress();
+            }
         };
         grid.appendChild(btn);
     });
@@ -135,7 +139,11 @@ export function setupComplexMatchingUI(container, q, idx) {
             <div class="match-def">${pair.text}</div>
             <div class="answer-slot" data-slot-index="${slotIdx}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
         `;
-        row.querySelector('.answer-slot').onclick = (e) => this.handleSlotClick(idx, slotIdx, e.target);
+        row.querySelector('.answer-slot').onclick = (e) => {
+            if (typeof this.handleSlotClick === 'function') {
+                this.handleSlotClick(idx, slotIdx, e.target);
+            }
+        };
         container.appendChild(row);
     });
 }

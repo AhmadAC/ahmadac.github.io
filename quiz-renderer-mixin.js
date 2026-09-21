@@ -25,7 +25,7 @@ export const QuizRendererMixin = {
         
         this.elements.resultBox?.classList.add("hidden");
         this.elements.btnSubmit?.classList.remove("hidden");
-        this.elements.btnSubmit.disabled = false;
+        if (this.elements.btnSubmit) this.elements.btnSubmit.disabled = false;
         this.elements.btnRedo?.classList.add("hidden");
         this.elements.btnSavePic?.classList.add("hidden");
         if (this.elements.errorMsg) this.elements.errorMsg.innerText = "";
@@ -325,7 +325,9 @@ export const QuizRendererMixin = {
             frame.innerHTML = header;
             let contentDiv = frame.querySelector('.question-content');
 
-            if (isAdmin && type === 'matching_question') {
+            if (isAdmin && qTextLower.includes('select your class')) {
+                this.setupClassSelectionUI(contentDiv, q, idx);
+            } else if (isAdmin && type === 'matching_question') {
                 this.setupClassSelectionUI(contentDiv, q, idx);
             } else if (type === 'atom_builder_question') {
                 this.setupAtomBuilderUI(contentDiv, q, idx);
@@ -339,7 +341,7 @@ export const QuizRendererMixin = {
                 inp.className = "essay-input";
                 inp.oninput = () => {
                     this.updateProgress();
-                }
+                };
                 contentDiv.appendChild(inp);
             } else if (type === 'matching_question') {
                 this.setupClassSelectionUI(contentDiv, q, idx);

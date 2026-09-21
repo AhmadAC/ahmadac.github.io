@@ -2,7 +2,7 @@
 
 import { safeJsonParse } from './utils.js?v=2.2';
 
-export const APP_VERSION = "v1.0.0.8";
+export const APP_VERSION = "v1.0.0.9";
 
 export const CLASSES = ["G6A", "G6B", "G6C", "G7A", "G7B", "G7C", "G8A", "G8B", "G8C"];
 

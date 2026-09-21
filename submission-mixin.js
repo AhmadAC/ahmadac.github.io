@@ -1,6 +1,6 @@
 // submission-mixin.js
 
-import { triggerConfetti, formatDisplayString, cleanQuizTitle } from './utils.js';
+import { triggerConfetti, formatDisplayString, cleanQuizTitle, hideFloatingTextPopup } from './utils.js?v=2.2';
 
 export const SubmissionMixin = {
     submitQuiz() {
@@ -55,11 +55,13 @@ export const SubmissionMixin = {
             
             if (this.elements.errorMsg) {
                 const hasAtomBuilder = this.currentQuestions.some(q => (q.type || q.question_type) === 'atom_builder_question');
-                if (hasAtomBuilder) {
-                    this.elements.errorMsg.innerText = "You must complete all questions and build the Atom 100% correctly before submitting!";
-                } else {
-                    this.elements.errorMsg.innerText = "You must complete all questions before submitting!";
-                }
+                const fullMsg = hasAtomBuilder
+                    ? "You must complete all questions and build the Atom 100% correctly before submitting!"
+                    : "You must complete all questions before submitting!";
+                
+                this.elements.errorMsg.innerText = fullMsg;
+                this.elements.errorMsg.title = fullMsg;
+                this.elements.errorMsg.dataset.fullText = fullMsg;
             }
             return;
         }
@@ -69,7 +71,7 @@ export const SubmissionMixin = {
             const txt = (q['question text'] || q.question_text || "").toLowerCase();
             if (q.type === 'essay_question' && txt.includes('name')) {
                 nameAns = this.root.querySelector(`[data-question-index="${idx}"] .essay-input`)?.value.trim();
-            } else if (q.type === 'matching_question' && txt.includes('class')) {
+            } else if (txt.includes('class')) {
                 classAns = q._userAnswer;
             }
         });
@@ -77,7 +79,13 @@ export const SubmissionMixin = {
         if (!nameAns) nameAns = "Unknown";
         if (!classAns) classAns = this.isBonus ? "Bonus" : "Unknown";
 
-        if (this.elements.errorMsg) this.elements.errorMsg.innerText = "";
+        if (this.elements.errorMsg) {
+            this.elements.errorMsg.innerText = "";
+            this.elements.errorMsg.title = "";
+            this.elements.errorMsg.dataset.fullText = "";
+        }
+        hideFloatingTextPopup();
+
         this.elements.stickyBank?.classList.add("hidden");
         let totalScore = 0, totalPossible = 0;
         let firstWrongIndex = -1;
@@ -245,6 +253,7 @@ export const SubmissionMixin = {
     },
 
     resetQuiz() {
+        hideFloatingTextPopup();
         this.startQuiz(this.currentQuizName, this.isBonus);
     },
     
@@ -290,7 +299,6 @@ export const SubmissionMixin = {
         const jsonString = JSON.stringify(requestBody);
         const textBlob = new Blob([jsonString], { type: 'text/plain;charset=UTF-8' });
 
-        // Primary Strategy: navigator.sendBeacon (avoid duplicate transmissions)
         if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon === 'function') {
             try {
                 const beaconSent = navigator.sendBeacon(webhookUrl, textBlob);
@@ -303,7 +311,6 @@ export const SubmissionMixin = {
             }
         }
 
-        // Fallback Strategy: Direct no-cors simple fetch
         try {
             await fetch(webhookUrl, {
                 method: 'POST',

@@ -78,6 +78,7 @@
     background-color: var(--footer-bg);
     border-top: 1px solid var(--border-color);
     flex-shrink: 0; /* Prevent shrinking out of view */
+    position: relative;
 }
 
 .footer-left-group, 
@@ -94,26 +95,27 @@
 .quiz-header {
     display: flex;
     align-items: center;
-    padding: 15px 20px 10px 20px;
+    padding: 15px 225px 10px 20px; /* Leaves room on the right for fixed theme & toggle buttons */
     background-color: var(--bg-quiz);
     border-bottom: 1px solid var(--border-color);
-    flex-shrink: 0; /* Prevent shrinking */
-    gap: 15px; /* Use gap for consistent spacing */
+    flex-shrink: 0;
+    gap: 15px;
 }
 .quiz-header .quiz-title-lbl, 
 .quiz-header .document-title-lbl {
-    flex: 1 1 auto; /* Allow grow and shrink */
-    min-width: 0; /* Critical for allowing shrinkage */
+    flex: 1 1 auto;
+    min-width: 0;
     margin: 0;
     font-size: 14px;
     color: var(--text-dark);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Add ... if text is too long */
+    text-overflow: ellipsis;
+    cursor: pointer;
 }
 .quiz-header .btn-nav, .quiz-progress-lbl {
-    flex-shrink: 0; /* Prevent back button and progress from shrinking */
+    flex-shrink: 0;
 }
 .quiz-progress-lbl {
     font-size: 12px;
@@ -135,11 +137,11 @@
 }
 
 .quiz-scroll-area {
-    padding: 0; /* Let inner content handle padding */
+    padding: 0;
 }
 
 .quiz-content {
-    padding: 25px; /* Add padding here instead */
+    padding: 25px;
 }
 
 .quiz-sidebar {
@@ -151,7 +153,6 @@
     padding: 20px 0;
 }
 
-/* Custom scrollbar for the sidebar */
 .quiz-sidebar::-webkit-scrollbar {
     width: 4px;
 }
@@ -173,12 +174,12 @@
     background-color: var(--border-color);
     display: flex;
     justify-content: center;
-    overflow: hidden; /* Let iframe inside handle scrolling to hide double scrollbars */
+    overflow: hidden;
 }
 
 .document-content {
     width: 100%;
-    max-width: 900px; /* Looks like a typical A4 page width */
+    max-width: 900px;
     background-color: var(--card-bg);
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     display: flex;

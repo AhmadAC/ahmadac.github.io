@@ -3,7 +3,7 @@
 import { ViewMixin } from './view-mixin.js?v=2.2';
 import { QuizRendererMixin } from './quiz-renderer-mixin.js?v=2.2';
 import { SubmissionMixin } from './submission-mixin.js?v=2.2';
-import { applyFeatureToggles } from './utils.js?v=2.2';
+import { applyFeatureToggles, showFloatingTextPopup, hideFloatingTextPopup } from './utils.js?v=2.2';
 import { APP_VERSION } from './config.js?v=2.2';
 
 export class QuizInstance {
@@ -86,6 +86,7 @@ export class QuizInstance {
     }
 
     switchView(viewClass) {
+        hideFloatingTextPopup();
         console.log(`[DEBUG][Inst ${this.instanceId}] Switching view to ${viewClass}`);
         Object.values(this.views).forEach(v => {
             if (v) v.classList.remove('active');
@@ -149,6 +150,7 @@ export class QuizInstance {
         this.elements.scrollArea?.addEventListener('scroll', () => {
             this.handleScrollStickyBank();
             this.handleScrollSidebarSync();
+            hideFloatingTextPopup();
         });
 
         // Scroll jump shortcuts logic
@@ -161,6 +163,38 @@ export class QuizInstance {
             if (area) {
                 area.scrollTo({ top: area.scrollHeight, behavior: 'smooth' });
             }
+        });
+
+        // Interactive Tooltip Popups for Truncated Elements (Click + Hover)
+        const setupEllipsisInteractions = (el, textGetter) => {
+            if (!el) return;
+            
+            el.addEventListener('mouseenter', () => {
+                const fullText = textGetter();
+                if (fullText && fullText.trim()) {
+                    showFloatingTextPopup(el, fullText);
+                }
+            });
+
+            el.addEventListener('mouseleave', () => {
+                hideFloatingTextPopup();
+            });
+
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const fullText = textGetter();
+                if (fullText && fullText.trim()) {
+                    showFloatingTextPopup(el, fullText);
+                }
+            });
+        };
+
+        setupEllipsisInteractions(this.elements.errorMsg, () => {
+            return this.elements.errorMsg?.dataset?.fullText || this.elements.errorMsg?.innerText || "";
+        });
+
+        setupEllipsisInteractions(this.elements.quizTitle, () => {
+            return this.elements.quizTitle?.dataset?.fullText || this.currentQuizName || this.elements.quizTitle?.innerText || "";
         });
     }
 }

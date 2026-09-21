@@ -25,7 +25,6 @@ export function safeJsonParse(text) {
 
             if (escaped) {
                 if (inString) {
-                    // If the character following a backslash is not a valid JSON escape, escape the backslash itself
                     if (!/["\\/bfnrtu]/.test(ch)) {
                         result += '\\\\' + ch;
                     } else {
@@ -66,12 +65,10 @@ export function safeJsonParse(text) {
             }
         }
 
-        // Handle trailing escape
         if (escaped) {
             result += '\\\\';
         }
 
-        // Strip trailing commas before closing braces/brackets
         result = result.replace(/,\s*([}\]])/g, '$1');
         return JSON.parse(result);
     } catch (err) {
@@ -140,7 +137,7 @@ export function formatDisplayString(str) {
             
             if (numP === undefined && denP === undefined) {
                 const isNumWord = /[a-zA-Z]/.test(num) && num.length >= 2 && !/[0-9]/.test(num);
-                const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(num);
+                const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(den);
                 if (isNumWord || isDenWord) {
                     return match;
                 }
@@ -416,10 +413,6 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
     </svg>`;
 }
 
-/**
- * Built-in SVG Chart Engine for Science Quizzes
- * Generates responsive, high-contrast SVG charts for line, bar, scatter, and pie charts.
- */
 export function createSvgChart(cfg) {
     if (!cfg || typeof cfg !== 'object') return "";
 
@@ -481,7 +474,6 @@ export function createSvgChart(cfg) {
         `;
     }
 
-    // Coordinate space for Line, Bar, and Scatter graphs
     const padLeft = 70;
     const padRight = 30;
     const padTop = 50;
@@ -526,11 +518,9 @@ export function createSvgChart(cfg) {
             <svg class="quiz-svg-chart" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
                 <text x="${width / 2}" y="28" text-anchor="middle" font-size="15" font-weight="bold" class="chart-title">${title}</text>
                 ${gridSvg}
-                <!-- Axes -->
                 <line x1="${padLeft}" y1="${padTop}" x2="${padLeft}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
                 <line x1="${padLeft}" y1="${padTop + plotH}" x2="${padLeft + plotW}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
                 ${barsSvg}
-                <!-- Axis Labels -->
                 <text x="${padLeft + plotW / 2}" y="${height - 10}" text-anchor="middle" font-size="12" font-weight="bold" class="chart-axis-label">${xLabel}</text>
                 <text x="18" y="${padTop + plotH / 2}" text-anchor="middle" font-size="12" font-weight="bold" transform="rotate(-90 18 ${padTop + plotH / 2})" class="chart-axis-label">${yLabel}</text>
             </svg>
@@ -592,11 +582,9 @@ export function createSvgChart(cfg) {
             <svg class="quiz-svg-chart" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
                 <text x="${width / 2}" y="28" text-anchor="middle" font-size="15" font-weight="bold" class="chart-title">${title}</text>
                 ${gridSvg}
-                <!-- Axes -->
                 <line x1="${padLeft}" y1="${padTop}" x2="${padLeft}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
                 <line x1="${padLeft}" y1="${padTop + plotH}" x2="${padLeft + plotW}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
                 ${dataSvg}
-                <!-- Axis Labels -->
                 <text x="${padLeft + plotW / 2}" y="${height - 12}" text-anchor="middle" font-size="12" font-weight="bold" class="chart-axis-label">${xLabel}</text>
                 <text x="18" y="${padTop + plotH / 2}" text-anchor="middle" font-size="12" font-weight="bold" transform="rotate(-90 18 ${padTop + plotH / 2})" class="chart-axis-label">${yLabel}</text>
             </svg>
@@ -605,3 +593,63 @@ export function createSvgChart(cfg) {
 
     return "";
 }
+
+// --- Dynamic Floating Popup for Truncated Sentences (Hover + Touch Tap) ---
+
+export function showFloatingTextPopup(targetEl, text) {
+    if (!targetEl || !text || !String(text).trim()) return;
+    
+    let popup = document.getElementById('global-text-popup');
+    if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'global-text-popup';
+        popup.className = 'text-popup-bubble';
+        document.body.appendChild(popup);
+        
+        popup.addEventListener('click', (e) => {
+            e.stopPropagation();
+            hideFloatingTextPopup();
+        });
+    }
+
+    popup.innerText = String(text).trim();
+    popup.style.display = 'block';
+    popup.classList.remove('hidden');
+
+    const rect = targetEl.getBoundingClientRect();
+    const popupWidth = popup.offsetWidth || 280;
+    const popupHeight = popup.offsetHeight || 50;
+
+    let top = rect.top - popupHeight - 10;
+    if (top < 15) {
+        top = rect.bottom + 10;
+    }
+
+    let left = rect.left + (rect.width / 2) - (popupWidth / 2);
+    const maxLeft = window.innerWidth - popupWidth - 15;
+    if (left < 15) left = 15;
+    if (left > maxLeft) left = maxLeft;
+
+    popup.style.top = `${Math.max(12, top)}px`;
+    popup.style.left = `${Math.max(12, left)}px`;
+}
+
+export function hideFloatingTextPopup() {
+    const popup = document.getElementById('global-text-popup');
+    if (popup) {
+        popup.style.display = 'none';
+        popup.classList.add('hidden');
+    }
+}
+
+// Global listener to dismiss floating popup when tapping or clicking outside
+document.addEventListener('click', (e) => {
+    const popup = document.getElementById('global-text-popup');
+    if (popup && popup.style.display !== 'none') {
+        if (!e.target.closest('.text-popup-bubble') && !e.target.closest('.quiz-error-msg') && !e.target.closest('.quiz-title-lbl')) {
+            hideFloatingTextPopup();
+        }
+    }
+});
+
+window.addEventListener('scroll', () => hideFloatingTextPopup(), { passive: true });
