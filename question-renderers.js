@@ -1,7 +1,7 @@
 // question-renderers.js - Renderers for MCQ, Class Select, and Complex Matching
 
 import { CLASSES } from './config.js';
-import { formatDisplayString } from './utils.js';
+import { formatDisplayString, decodeUtf8B64 } from './utils.js';
 
 export function setupMultipleChoiceUI(container, q, idx) {
     let options = [];
@@ -12,12 +12,41 @@ export function setupMultipleChoiceUI(container, q, idx) {
         correctIdx = Math.floor(correctIdx) - 1;
     }
 
+    // Load from direct properties: a, b, c, d, e, f, ... (1-6 options)
     for (let i = 0; i < 26; i++) {
         let k = String.fromCharCode(97 + i);
         if (q[k] !== undefined && q[k] !== null && String(q[k]).trim() !== "") {
-            options.push({ text: formatDisplayString(String(q[k])), is_correct: i === correctIdx });
+            let optStr = String(q[k]);
+            if (optStr.startsWith("b64:")) {
+                optStr = decodeUtf8B64(optStr.substring(4));
+            }
+            options.push({ text: formatDisplayString(optStr), is_correct: i === correctIdx });
         }
     }
+
+    // Fallback: Load from answers array if provided in JSON
+    if (options.length === 0 && Array.isArray(q.answers)) {
+        q.answers.forEach((ans, i) => {
+            let optText = "";
+            let isCorr = false;
+            if (typeof ans === 'string') {
+                optText = ans;
+                isCorr = (i === correctIdx);
+            } else if (ans && typeof ans === 'object') {
+                optText = ans.text || ans.answer_text || "";
+                let weight = ans.weight !== undefined ? parseFloat(ans.weight) : 0;
+                isCorr = (ans.is_correct === true) || (weight > 0) || (i === correctIdx);
+            }
+            if (optText.startsWith("b64:")) {
+                optText = decodeUtf8B64(optText.substring(4));
+            }
+            if (optText.trim() !== "") {
+                options.push({ text: formatDisplayString(optText), is_correct: isCorr });
+            }
+        });
+    }
+
+    // Randomize option order for fairness while maintaining correct answer tracking
     options.sort(() => Math.random() - 0.5);
 
     let newCorrectIdx = options.findIndex(o => o.is_correct);
@@ -27,6 +56,7 @@ export function setupMultipleChoiceUI(container, q, idx) {
     q._mcqElements = [];
     q._selectedMcqIndex = -1;
 
+    // Display options without letters (a, b, c) or numbers (1, 2, 3)
     options.forEach((opt, i) => {
         let card = document.createElement('div');
         card.className = 'mcq-card';

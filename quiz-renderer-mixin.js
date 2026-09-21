@@ -1,7 +1,7 @@
 // quiz-renderer-mixin.js - Main Quiz Renderer Mixin Orchestrator
 
 import { normalizeQuizData, quizIndex } from './quiz-data.js?v=2.2';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse } from './utils.js?v=2.2';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse, decodeUtf8B64, createSvgChart } from './utils.js?v=2.2';
 import { setupAtomBuilderUI } from './atom-builder-ui.js?v=2.2';
 import { setupMultipleChoiceUI, setupClassSelectionUI, setupComplexMatchingUI } from './question-renderers.js?v=2.2';
 import { handleScrollStickyBank, renderStickyBank, fillSlotWithWord, handleSlotClick } from './matching-bank-handler.js?v=2.2';
@@ -305,6 +305,21 @@ export const QuizRendererMixin = {
                 let cleanUrl = url.trim();
                 let exts = cleanUrl.includes('.') ? [''] : ['.png', '.jpg', '.gif'];
                 header += `<img class="question-media" src="0_Quiz/media/${cleanUrl}${exts[0]}" onerror="this.onerror=null; this.src='0_Quiz/media/${cleanUrl}${exts[1] || ''}';">`;
+            }
+
+            // Native SVG Chart & Vector Drawing Integration
+            let svgMarkup = "";
+            if (q.svg || q.question_svg || q.chart_svg) {
+                let rawSvg = q.svg || q.question_svg || q.chart_svg;
+                if (typeof rawSvg === 'string') {
+                    svgMarkup = rawSvg.startsWith('b64:') ? decodeUtf8B64(rawSvg.substring(4)) : rawSvg;
+                }
+            } else if (q.chart && typeof q.chart === 'object') {
+                svgMarkup = createSvgChart(q.chart);
+            }
+
+            if (svgMarkup) {
+                header += `<div class="question-svg-wrapper">${svgMarkup}</div>`;
             }
             
             frame.innerHTML = header;

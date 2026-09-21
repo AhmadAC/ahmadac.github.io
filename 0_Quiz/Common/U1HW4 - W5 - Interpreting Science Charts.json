@@ -1,0 +1,240 @@
+[
+    {
+        "question_name": "Question 1 - Line Graph",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 5,
+        "question text": "A student conducted a home chemistry experiment investigating how water temperature affects the dissolving time of sugar. In each trial, 5 grams (1 teaspoon) of granulated sugar was stirred into 100 mL of water at different temperatures (20°C, 40°C, 60°C, 80°C, and 100°C), and the time until the sugar completely dissolved was recorded in seconds.\n\nExamine the line graph below:\n1. Identify the independent variable and dependent variable.\n2. Determine which statement correctly analyzes the relationship shown by the graph.",
+        "chart": {
+            "type": "line",
+            "title": "Water Temperature vs. Sugar Dissolving Time",
+            "xLabel": "Water Temperature (°C)",
+            "yLabel": "Dissolving Time (seconds)",
+            "xMin": 0,
+            "xMax": 100,
+            "yMin": 0,
+            "yMax": 70,
+            "lineColor": "#008ee2",
+            "data": [
+                {
+                    "x": 20,
+                    "y": 65
+                },
+                {
+                    "x": 40,
+                    "y": 42
+                },
+                {
+                    "x": 60,
+                    "y": 24
+                },
+                {
+                    "x": 80,
+                    "y": 14
+                },
+                {
+                    "x": 100,
+                    "y": 6
+                }
+            ]
+        },
+        "correct ans index": "b64:MQ==",
+        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFRlbXBlcmF0dXJlICjCsEMpOyBEZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBBcyB3YXRlciB0ZW1wZXJhdHVyZSBpbmNyZWFzZXMsIGRpc3NvbHZpbmcgdGltZSBkZWNyZWFzZXMgc2lnbmlmaWNhbnRseSBiZWNhdXNlIGhpZ2hlciB0aGVybWFsIGVuZXJneSBjYXVzZXMgd2F0ZXIgbW9sZWN1bGVzIHRvIG1vdmUgZmFzdGVyIGFuZCBicmVhayBzdWdhciBjcnlzdGFsIGJvbmRzIG1vcmUgcmFwaWRseS4=",
+        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcyk7IERlcGVuZGVudCBWYXJpYWJsZTogV2F0ZXIgVGVtcGVyYXR1cmUgKMKwQykuIEFuYWx5c2lzOiBTbG93ZXIgZGlzc29sdmluZyB0aW1lcyBjYXVzZSB0aGUgdGVtcGVyYXR1cmUgb2YgdGhlIHdhdGVyIHRvIHJpc2UgdG93YXJkIGJvaWxpbmcgcG9pbnQu",
+        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFRlbXBlcmF0dXJlICjCsEMpOyBEZXBlbmRlbnQgVmFyaWFibGU6IE1hc3Mgb2YgU3VnYXIgKGdyYW1zKS4gQW5hbHlzaXM6IFRoZSBkaXNzb2x2aW5nIHRpbWUgcmVtYWlucyB1bmNoYW5nZWQgYmVjYXVzZSBzdWdhciBjcnlzdGFscyBoYXZlIGEgZml4ZWQgZGlzc29sdmluZyByYXRlIHJlZ2FyZGxlc3Mgb2YgdGVtcGVyYXR1cmUu",
+        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFZvbHVtZSAobUwpOyBEZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBIZWF0aW5nIHdhdGVyIGluY3JlYXNlcyBkaXNzb2x2aW5nIHRpbWUgYmVjYXVzZSBob3Qgd2F0ZXIgbW9sZWN1bGVzIHB1c2ggc3VnYXIgZ3JhaW5zIGF3YXkgZnJvbSBlYWNoIG90aGVyLg==",
+        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFRlbXBlcmF0dXJlICjCsEMpOyBEZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBBdCAxMDDCsEMgdGhlIGRpc3NvbHZpbmcgdGltZSBpbmNyZWFzZXMgdG8gbWF4aW11bSBiZWNhdXNlIGJvaWxpbmcgd2F0ZXIgZXZhcG9yYXRlcyBiZWZvcmUgc3VnYXIgY2FuIGRpc3NvbHZlLg==",
+        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFR5cGUgb2YgU3RpcnJpbmcgU3Bvb247IERlcGVuZGVudCBWYXJpYWJsZTogV2F0ZXIgVGVtcGVyYXR1cmUgKMKwQykuIEFuYWx5c2lzOiBUaGVyZSBpcyBubyBjb3JyZWxhdGlvbiBiZXR3ZWVuIHRlbXBlcmF0dXJlIGFuZCBkaXNzb2x2aW5nIHJhdGUgaW4gdGhpcyBleHBlcmltZW50Lg=="
+    },
+    {
+        "question_name": "Question 2 - Bar Graph",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 5,
+        "question text": "A student tested how different household floor surfaces affect the bounce of a tennis ball. The ball was dropped from an exact height of 100 cm onto ceramic tile, hardwood, thin carpet, and a foam play mat. The rebound height was measured in centimeters using a slow-motion video recording against a meter ruler.\n\nReview the bar graph below:\n1. Identify the independent and dependent variables.\n2. Select the accurate scientific analysis of the results.",
+        "chart": {
+            "type": "bar",
+            "title": "Rebound Bounce Height on Different Floor Surfaces (Drop: 100 cm)",
+            "xLabel": "Floor Surface Type",
+            "yLabel": "Bounce Height (cm)",
+            "max": 90,
+            "data": [
+                {
+                    "label": "Ceramic Tile",
+                    "value": 75,
+                    "color": "#008ee2"
+                },
+                {
+                    "label": "Hardwood",
+                    "value": 62,
+                    "color": "#3498db"
+                },
+                {
+                    "label": "Thin Carpet",
+                    "value": 34,
+                    "color": "#f39c12"
+                },
+                {
+                    "label": "Foam Mat",
+                    "value": 16,
+                    "color": "#e74c3c"
+                }
+            ]
+        },
+        "correct ans index": "b64:Mw==",
+        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IERyb3AgSGVpZ2h0ICgxMDAgY20pOyBEZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZS4gQW5hbHlzaXM6IFRoZSBiYWxsIGFic29yYnMgbW9yZSBlbmVyZ3kgd2hlbiBib3VuY2luZyBvbiBjZXJhbWljIHRpbGUgdGhhbiBvbiBhIGZvYW0gbWF0Lg==",
+        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEJvdW5jZSBIZWlnaHQgKGNtKTsgRGVwZW5kZW50IFZhcmlhYmxlOiBGbG9vciBTdXJmYWNlIFR5cGUuIEFuYWx5c2lzOiBTb2Z0ZXIgc3VyZmFjZXMgcHVzaCB1cHdhcmQgd2l0aCBncmVhdGVyIGZvcmNlLCByZXN1bHRpbmcgaW4gaGlnaGVyIHJlYm91bmRzIG9uIGNhcnBldCBhbmQgZm9hbS4=",
+        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZTsgRGVwZW5kZW50IFZhcmlhYmxlOiBCb3VuY2UgSGVpZ2h0IChjbSkuIEFuYWx5c2lzOiBIYXJkLCByaWdpZCBzdXJmYWNlcyAoY2VyYW1pYyB0aWxlIGFuZCBoYXJkd29vZCkgcHJvZHVjZSBzdWJzdGFudGlhbGx5IGhpZ2hlciBib3VuY2VzIGJlY2F1c2UgdGhleSBkZWZvcm0gdmVyeSBsaXR0bGUgYW5kIGFic29yYiBtaW5pbWFsIGtpbmV0aWMgZW5lcmd5LCB3aGVyZWFzIGNvbXByZXNzaWJsZSBzdXJmYWNlcyAoY2FycGV0IGFuZCBmb2FtKSBhYnNvcmIgYW5kIGRpc3NpcGF0ZSBpbXBhY3QgZW5lcmd5IGFzIGhlYXQgYW5kIHNvdW5kLg==",
+        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZTsgRGVwZW5kZW50IFZhcmlhYmxlOiBCYWxsIE1hc3MgKGdyYW1zKS4gQW5hbHlzaXM6IEZvYW0gbWF0cyBwcm92aWRlIHRoZSBtb3N0IGVsYXN0aWMgY29sbGlzaW9uIGJlY2F1c2UgdGhlIGJhbGwgcmVib3VuZGVkIHdpdGggb3ZlciA5MCUgb2YgaXRzIGluaXRpYWwgaGVpZ2h0Lg==",
+        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEJhbGwgRGlhbWV0ZXI7IERlcGVuZGVudCBWYXJpYWJsZTogQm91bmNlIEhlaWdodCAoY20pLiBBbmFseXNpczogSGFyZHdvb2QgcHJvZHVjZWQgYSBsb3dlciBib3VuY2UgdGhhbiBmb2FtIGJlY2F1c2Ugd29vZCBmaWJlcnMgcGVybWFuZW50bHkgZGVmb3JtIGR1cmluZyBiYWxsIGltcGFjdC4=",
+        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZTsgRGVwZW5kZW50IFZhcmlhYmxlOiBCb3VuY2UgSGVpZ2h0IChjbSkuIEFuYWx5c2lzOiBBbGwgZm91ciBob3VzZWhvbGQgc3VyZmFjZXMgcmV0dXJuZWQgaWRlbnRpY2FsIGJvdW5jZSBoZWlnaHRzIHdpdGhpbiBleHBlcmltZW50YWwgZXJyb3Iu"
+    },
+    {
+        "question_name": "Question 3 - Scatter Graph",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 5,
+        "question text": "In a home aerodynamics experiment, a student built six model parachutes from plastic bags with canopy surface areas ranging from 100 cm² to 600 cm². An identical 20g metal washer was attached to each canopy using equal lengths of thread. Each parachute was dropped from a height of 2.5 meters, and the fall time was recorded with a digital stopwatch.\n\nAnalyze the scatter plot and trend line below:\n1. Identify the independent variable and dependent variable.\n2. What does the trend line demonstrate in your analysis?",
+        "chart": {
+            "type": "scatter",
+            "title": "Parachute Canopy Area vs. Fall Time from 2.5 Meters",
+            "xLabel": "Canopy Surface Area (cm²)",
+            "yLabel": "Fall Time (seconds)",
+            "xMin": 0,
+            "xMax": 700,
+            "yMin": 0,
+            "yMax": 5,
+            "trendLine": {
+                "y1": 0.6,
+                "y2": 4.5
+            },
+            "data": [
+                {
+                    "x": 100,
+                    "y": 1.2
+                },
+                {
+                    "x": 200,
+                    "y": 1.7
+                },
+                {
+                    "x": 300,
+                    "y": 2.3
+                },
+                {
+                    "x": 400,
+                    "y": 2.8
+                },
+                {
+                    "x": 500,
+                    "y": 3.3
+                },
+                {
+                    "x": 600,
+                    "y": 3.9
+                }
+            ]
+        },
+        "correct ans index": "b64:Mg==",
+        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZhbGwgVGltZSAoc2Vjb25kcyk7IERlcGVuZGVudCBWYXJpYWJsZTogQ2Fub3B5IFN1cmZhY2UgQXJlYSAoY23CsikuIEFuYWx5c2lzOiBGYWxsaW5nIGZvciBhIGxvbmdlciB0aW1lIGNhdXNlcyB0aGUgcGxhc3RpYyBjYW5vcHkgdG8gc3RyZXRjaCBhbmQgZXhwYW5kIGluIHN1cmZhY2UgYXJlYS4=",
+        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IENhbm9weSBTdXJmYWNlIEFyZWEgKGNtwrIpOyBEZXBlbmRlbnQgVmFyaWFibGU6IEZhbGwgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBUaGVyZSBpcyBhIHN0cm9uZyBwb3NpdGl2ZSBjb3JyZWxhdGlvbjsgaW5jcmVhc2luZyB0aGUgY2Fub3B5IHN1cmZhY2UgYXJlYSBpbmNyZWFzZXMgYWlyIHJlc2lzdGFuY2UgKGFlcm9keW5hbWljIGRyYWcpLCB3aGljaCBzbG93cyB0aGUgZGVzY2VudCBhbmQgcmVzdWx0cyBpbiBsb25nZXIgZmFsbCB0aW1lcy4=",
+        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IENhbm9weSBTdXJmYWNlIEFyZWEgKGNtwrIpOyBEZXBlbmRlbnQgVmFyaWFibGU6IEZhbGwgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBUaGUgc2NhdHRlciBncmFwaCBkaXNwbGF5cyBhIG5lZ2F0aXZlIGNvcnJlbGF0aW9uIHByb3ZpbmcgdGhhdCBsYXJnZXIgcGFyYWNodXRlcyBhY2NlbGVyYXRlIGZhc3RlciBkdWUgdG8gZ3JlYXRlciB0b3RhbCB3ZWlnaHQu",
+        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IERyb3AgSGVpZ2h0ICgyLjUgbWV0ZXJzKTsgRGVwZW5kZW50IFZhcmlhYmxlOiBXYXNoZXIgTWFzcyAoMjBnKS4gQW5hbHlzaXM6IEFpciByZXNpc3RhbmNlIGhhcyBubyBlZmZlY3Qgb24gZmFsbGluZyBvYmplY3RzIGJlY2F1c2UgZ3Jhdml0eSBhY3RzIGVxdWFsbHkgb24gYWxsIHBhcmFjaHV0ZSBzaXplcy4=",
+        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IExlbmd0aCBvZiBUaHJlYWQ7IERlcGVuZGVudCBWYXJpYWJsZTogRmFsbCBUaW1lIChzZWNvbmRzKS4gQW5hbHlzaXM6IFRoZSA2MDAgY23CsiBjYW5vcHkgZmVsbCBmb3VyIHRpbWVzIGZhc3RlciB0aGFuIHRoZSAxMDAgY23CsiBjYW5vcHkgYmVjYXVzZSBpdCBjcmVhdGVkIGEgdmFjdXVtIGFib3ZlIHRoZSB3YXNoZXIu",
+        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IENhbm9weSBTdXJmYWNlIEFyZWEgKGNtwrIpOyBEZXBlbmRlbnQgVmFyaWFibGU6IFdpbmQgU3BlZWQgKGttL2gpLiBBbmFseXNpczogVGhlIGRhdGEgcG9pbnRzIGFyZSBjb21wbGV0ZWx5IHJhbmRvbSBhbmQgc2hvdyBubyBjb25zaXN0ZW50IG1hdGhlbWF0aWNhbCByZWxhdGlvbnNoaXAgYmV0d2VlbiBjYW5vcHkgc2l6ZSBhbmQgZGVzY2VudCB0aW1lLg=="
+    },
+    {
+        "question_name": "Question 4 - Pie Chart",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 5,
+        "question text": "A student conducted a 7-day seed germination audit at home. Exactly 100 mung bean seeds were placed inside moist paper towels within sealed zip bags at room temperature (21°C). On Day 7, the student opened the bags and classified every seed into one of four distinct developmental outcome categories.\n\nExamine the pie chart showing the distribution of the 100 seeds:\n1. Identify the independent variable (tested outcome categories) and dependent variable (measured proportion of seeds).\n2. What does this distribution indicate in your scientific analysis?",
+        "chart": {
+            "type": "pie",
+            "title": "Seed Germination Outcomes After 7 Days (Sample Size: 100 Seeds)",
+            "unit": "seeds",
+            "data": [
+                {
+                    "label": "Fully Germinated (Roots & Shoots)",
+                    "value": 65,
+                    "color": "#2ecc71"
+                },
+                {
+                    "label": "Early Sprouting (Radicle Only)",
+                    "value": 18,
+                    "color": "#f39c12"
+                },
+                {
+                    "label": "Dormant (Ungerminated)",
+                    "value": 12,
+                    "color": "#3498db"
+                },
+                {
+                    "label": "Molded / Decayed",
+                    "value": 5,
+                    "color": "#e74c3c"
+                }
+            ]
+        },
+        "correct ans index": "b64:NA==",
+        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFJvb20gVGVtcGVyYXR1cmUgKDIxwrBDKTsgRGVwZW5kZW50IFZhcmlhYmxlOiBTZWVkIFZhcmlldHkuIEFuYWx5c2lzOiBPdmVyIDgwJSBvZiB0aGUgc2VlZHMgZGllZCBiZWNhdXNlIHBhcGVyIHRvd2VscyBkbyBub3QgY29udGFpbiBuYXR1cmFsIHNvaWwgbnV0cmllbnRzLg==",
+        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFBlcmNlbnRhZ2Ugb2YgU2VlZHM7IERlcGVuZGVudCBWYXJpYWJsZTogRGF5cyBvZiBPYnNlcnZhdGlvbi4gQW5hbHlzaXM6IERvcm1hbmN5IHdhcyB0aGUgbW9zdCBjb21tb24gcmVzdWx0LCBwcm92aW5nIHRoYXQgc2VlZHMgcmVxdWlyZSBkaXJlY3Qgc3VubGlnaHQgdG8gY3JhY2sgdGhlaXIgc2VlZCBjb2F0Lg==",
+        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IE51bWJlciBvZiBNb2xkIFNwb3JlczsgRGVwZW5kZW50IFZhcmlhYmxlOiBTZWVkIE1hc3MuIEFuYWx5c2lzOiBNb2xkIGNvbnRhbWluYXRpb24gd2FzIHRoZSBkb21pbmFudCBvdXRjb21lIGFuZCBwcmV2ZW50ZWQgYW55IHZpYWJsZSByb290IGdyb3d0aC4=",
+        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEdlcm1pbmF0aW9uIE91dGNvbWUgQ2F0ZWdvcnk7IERlcGVuZGVudCBWYXJpYWJsZTogUHJvcG9ydGlvbiAvIENvdW50IG9mIFNlZWRzLiBBbmFseXNpczogT3ZlciA4MyUgb2YgdGhlIHNlZWRzIGV4aGliaXRlZCBhY3RpdmUgZ2VybWluYXRpb24gKDY1JSBmdWxseSBnZXJtaW5hdGVkICsgMTglIGVhcmx5IHNwcm91dGluZyksIGRlbW9uc3RyYXRpbmcgdGhhdCBtb2lzdHVyZSBhbmQgcm9vbSB0ZW1wZXJhdHVyZSBwcm92aWRlZCBoaWdobHkgZmF2b3JhYmxlIGNvbmRpdGlvbnMsIHdoaWxlIG1vbGQgcmVtYWluZWQgbG93IGF0IG9ubHkgNSUu",
+        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEJyYW5kIG9mIFBhcGVyIFRvd2VsOyBEZXBlbmRlbnQgVmFyaWFibGU6IFNlZWQgR2VybWluYXRpb24gT3V0Y29tZS4gQW5hbHlzaXM6IFRoZSBwaWUgY2hhcnQgc2hvd3MgdGhhdCBleGFjdGx5IDUwJSBvZiB0aGUgc2VlZHMgZ2VybWluYXRlZCBhbmQgNTAlIHJlbWFpbmVkIGRvcm1hbnQu",
+        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFNlZWQgQ291bnQgKDEwMCk7IERlcGVuZGVudCBWYXJpYWJsZTogU2VlZCBPdXRjb21lIENhdGVnb3J5LiBBbmFseXNpczogQSBwaWUgY2hhcnQgY2Fubm90IHNob3cgcGFydHMgb2YgYSB3aG9sZSBvciBwcm9wb3J0aW9ucyBvZiBjYXRlZ29yaWNhbCBkYXRhIGluIGEgc2NpZW5jZSBleHBlcmltZW50Lg=="
+    },
+    {
+        "question_name": "Question 5 - Student Name",
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "question text": "Please write your English name used in class:",
+        "answers": []
+    },
+    {
+        "question_name": "Question 6 - Student Class",
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "question text": "Please select your class:",
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ]
+    }
+]

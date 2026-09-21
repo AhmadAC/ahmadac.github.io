@@ -415,3 +415,193 @@ export function generateQRCodeSVG(text = "https://ahmadac.github.io", size = 220
         <path d="${pathData}" fill="#000000"/>
     </svg>`;
 }
+
+/**
+ * Built-in SVG Chart Engine for Science Quizzes
+ * Generates responsive, high-contrast SVG charts for line, bar, scatter, and pie charts.
+ */
+export function createSvgChart(cfg) {
+    if (!cfg || typeof cfg !== 'object') return "";
+
+    const type = (cfg.type || "bar").toLowerCase();
+    const width = cfg.width || 560;
+    const height = cfg.height || 320;
+    const title = cfg.title || "";
+    const xLabel = cfg.xLabel || cfg.x_label || "";
+    const yLabel = cfg.yLabel || cfg.y_label || "";
+
+    if (type === 'pie') {
+        const items = Array.isArray(cfg.data) ? cfg.data : [];
+        const total = items.reduce((sum, item) => sum + (Number(item.value) || 0), 0) || 1;
+        const cx = 170, cy = 165, r = 110;
+        let startAngle = -Math.PI / 2;
+
+        const defaultColors = ["#2ecc71", "#f39c12", "#3498db", "#e74c3c", "#9b59b6", "#1abc9c"];
+        let slicesSvg = "";
+        let legendSvg = "";
+
+        items.forEach((item, idx) => {
+            const val = Number(item.value) || 0;
+            const fraction = val / total;
+            const sliceAngle = fraction * 2 * Math.PI;
+            const endAngle = startAngle + sliceAngle;
+            const color = item.color || defaultColors[idx % defaultColors.length];
+
+            const x1 = cx + r * Math.cos(startAngle);
+            const y1 = cy + r * Math.sin(startAngle);
+            const x2 = cx + r * Math.cos(endAngle);
+            const y2 = cy + r * Math.sin(endAngle);
+            const largeArc = fraction > 0.5 ? 1 : 0;
+
+            const pathData = fraction >= 0.9999
+                ? `M ${cx} ${cy - r} A ${r} ${r} 0 1 1 ${cx - 0.01} ${cy - r} Z`
+                : `M ${cx} ${cy} L ${x1.toFixed(2)} ${y1.toFixed(2)} A ${r} ${r} 0 ${largeArc} 1 ${x2.toFixed(2)} ${y2.toFixed(2)} Z`;
+
+            slicesSvg += `<path d="${pathData}" fill="${color}" stroke="#ffffff" stroke-width="2" class="chart-slice"/>`;
+
+            const percStr = `${Math.round(fraction * 100)}%`;
+            const legY = 70 + idx * 36;
+            legendSvg += `
+                <g class="chart-legend-item">
+                    <rect x="320" y="${legY}" width="16" height="16" rx="3" fill="${color}"/>
+                    <text x="345" y="${legY + 13}" font-size="12" font-weight="600" class="chart-text">${item.label || ''} (${val}${cfg.unit ? ' ' + cfg.unit : ''} - ${percStr})</text>
+                </g>
+            `;
+
+            startAngle = endAngle;
+        });
+
+        return `
+            <svg class="quiz-svg-chart" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
+                <rect width="100%" height="100%" fill="none"/>
+                <text x="${width / 2}" y="30" text-anchor="middle" font-size="15" font-weight="bold" class="chart-title">${title}</text>
+                ${slicesSvg}
+                ${legendSvg}
+            </svg>
+        `;
+    }
+
+    // Coordinate space for Line, Bar, and Scatter graphs
+    const padLeft = 70;
+    const padRight = 30;
+    const padTop = 50;
+    const padBottom = 55;
+    const plotW = width - padLeft - padRight;
+    const plotH = height - padTop - padBottom;
+
+    if (type === 'bar') {
+        const items = Array.isArray(cfg.data) ? cfg.data : [];
+        const maxVal = cfg.max || Math.max(...items.map(d => Number(d.value) || 0), 10);
+        const yTicksCount = 5;
+        let gridSvg = "";
+
+        for (let i = 0; i <= yTicksCount; i++) {
+            const v = Math.round((maxVal / yTicksCount) * i);
+            const y = padTop + plotH - (i / yTicksCount) * plotH;
+            gridSvg += `
+                <line x1="${padLeft}" y1="${y}" x2="${padLeft + plotW}" y2="${y}" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3" class="chart-grid"/>
+                <text x="${padLeft - 10}" y="${y + 4}" font-size="11" text-anchor="end" class="chart-tick-label">${v}</text>
+            `;
+        }
+
+        const barWidth = Math.min(65, (plotW / (items.length || 1)) * 0.65);
+        const step = plotW / (items.length || 1);
+        let barsSvg = "";
+
+        items.forEach((d, idx) => {
+            const val = Number(d.value) || 0;
+            const barH = (val / maxVal) * plotH;
+            const bx = padLeft + idx * step + (step - barWidth) / 2;
+            const by = padTop + plotH - barH;
+            const barColor = d.color || "#008ee2";
+
+            barsSvg += `
+                <rect x="${bx.toFixed(1)}" y="${by.toFixed(1)}" width="${barWidth.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="${barColor}" class="chart-bar"/>
+                <text x="${(bx + barWidth / 2).toFixed(1)}" y="${(by - 6).toFixed(1)}" text-anchor="middle" font-size="11" font-weight="bold" class="chart-val-label">${val}</text>
+                <text x="${(bx + barWidth / 2).toFixed(1)}" y="${padTop + plotH + 18}" text-anchor="middle" font-size="11" font-weight="600" class="chart-cat-label">${d.label || ''}</text>
+            `;
+        });
+
+        return `
+            <svg class="quiz-svg-chart" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
+                <text x="${width / 2}" y="28" text-anchor="middle" font-size="15" font-weight="bold" class="chart-title">${title}</text>
+                ${gridSvg}
+                <!-- Axes -->
+                <line x1="${padLeft}" y1="${padTop}" x2="${padLeft}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
+                <line x1="${padLeft}" y1="${padTop + plotH}" x2="${padLeft + plotW}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
+                ${barsSvg}
+                <!-- Axis Labels -->
+                <text x="${padLeft + plotW / 2}" y="${height - 10}" text-anchor="middle" font-size="12" font-weight="bold" class="chart-axis-label">${xLabel}</text>
+                <text x="18" y="${padTop + plotH / 2}" text-anchor="middle" font-size="12" font-weight="bold" transform="rotate(-90 18 ${padTop + plotH / 2})" class="chart-axis-label">${yLabel}</text>
+            </svg>
+        `;
+    }
+
+    if (type === 'line' || type === 'scatter') {
+        const points = Array.isArray(cfg.data) ? cfg.data : [];
+        const xMin = cfg.xMin !== undefined ? cfg.xMin : 0;
+        const xMax = cfg.xMax || Math.max(...points.map(p => Number(p.x) || 0), 10);
+        const yMin = cfg.yMin !== undefined ? cfg.yMin : 0;
+        const yMax = cfg.yMax || Math.max(...points.map(p => Number(p.y) || 0), 10);
+
+        const mapX = (vx) => padLeft + ((vx - xMin) / ((xMax - xMin) || 1)) * plotW;
+        const mapY = (vy) => padTop + plotH - ((vy - yMin) / ((yMax - yMin) || 1)) * plotH;
+
+        let gridSvg = "";
+        const yTicks = 5;
+        for (let i = 0; i <= yTicks; i++) {
+            const v = Math.round(yMin + (i / yTicks) * (yMax - yMin));
+            const y = padTop + plotH - (i / yTicks) * plotH;
+            gridSvg += `
+                <line x1="${padLeft}" y1="${y}" x2="${padLeft + plotW}" y2="${y}" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="3,3" class="chart-grid"/>
+                <text x="${padLeft - 10}" y="${y + 4}" font-size="11" text-anchor="end" class="chart-tick-label">${v}</text>
+            `;
+        }
+
+        const xTicks = cfg.xTicks || 5;
+        for (let i = 0; i <= xTicks; i++) {
+            const v = Math.round(xMin + (i / xTicks) * (xMax - xMin));
+            const x = padLeft + (i / xTicks) * plotW;
+            gridSvg += `
+                <line x1="${x}" y1="${padTop}" x2="${x}" y2="${padTop + plotH}" stroke="#f0f0f0" stroke-width="1" class="chart-grid"/>
+                <text x="${x}" y="${padTop + plotH + 18}" font-size="11" text-anchor="middle" class="chart-tick-label">${v}</text>
+            `;
+        }
+
+        let dataSvg = "";
+        if (type === 'line') {
+            const polyPoints = points.map(p => `${mapX(p.x).toFixed(1)},${mapY(p.y).toFixed(1)}`).join(" ");
+            dataSvg += `<polyline fill="none" stroke="${cfg.lineColor || '#008ee2'}" stroke-width="3" points="${polyPoints}" class="chart-line"/>`;
+        } else if (type === 'scatter' && cfg.trendLine) {
+            const x1 = mapX(xMin), y1 = mapY(cfg.trendLine.y1 || yMin);
+            const x2 = mapX(xMax), y2 = mapY(cfg.trendLine.y2 || yMax);
+            dataSvg += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" class="chart-trendline"/>`;
+        }
+
+        points.forEach(p => {
+            const cx = mapX(p.x);
+            const cy = mapY(p.y);
+            const pointColor = p.color || (type === 'scatter' ? '#e67e22' : '#008ee2');
+            dataSvg += `
+                <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="5.5" fill="${pointColor}" stroke="#ffffff" stroke-width="1.5" class="chart-dot"/>
+                <text x="${cx.toFixed(1)}" y="${(cy - 8).toFixed(1)}" font-size="10" font-weight="bold" text-anchor="middle" class="chart-val-label">${p.y}</text>
+            `;
+        });
+
+        return `
+            <svg class="quiz-svg-chart" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${title}">
+                <text x="${width / 2}" y="28" text-anchor="middle" font-size="15" font-weight="bold" class="chart-title">${title}</text>
+                ${gridSvg}
+                <!-- Axes -->
+                <line x1="${padLeft}" y1="${padTop}" x2="${padLeft}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
+                <line x1="${padLeft}" y1="${padTop + plotH}" x2="${padLeft + plotW}" y2="${padTop + plotH}" stroke="#333333" stroke-width="2" class="chart-axis"/>
+                ${dataSvg}
+                <!-- Axis Labels -->
+                <text x="${padLeft + plotW / 2}" y="${height - 12}" text-anchor="middle" font-size="12" font-weight="bold" class="chart-axis-label">${xLabel}</text>
+                <text x="18" y="${padTop + plotH / 2}" text-anchor="middle" font-size="12" font-weight="bold" transform="rotate(-90 18 ${padTop + plotH / 2})" class="chart-axis-label">${yLabel}</text>
+            </svg>
+        `;
+    }
+
+    return "";
+}

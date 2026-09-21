@@ -60,6 +60,74 @@
     object-fit: contain;
 }
 
+/* SVG Drawing & Chart Wrapper Styles */
+.question-svg-wrapper {
+    width: 100%;
+    max-width: 580px;
+    margin: 10px auto 20px auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.question-svg-wrapper svg,
+.quiz-svg-chart {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    display: block;
+    user-select: none;
+}
+
+.chart-title {
+    fill: var(--text-dark);
+}
+
+.chart-axis-label,
+.chart-cat-label,
+.chart-tick-label,
+.chart-text,
+.chart-val-label {
+    fill: var(--text-dark);
+}
+
+.chart-axis {
+    stroke: var(--text-dark);
+}
+
+.chart-grid {
+    stroke: var(--border-color);
+}
+
+/* Dark Theme Adaptations for SVG Charts */
+body.dark-theme .question-svg-wrapper {
+    background-color: var(--card-even-bg);
+    border-color: var(--border-color);
+}
+
+body.dark-theme .chart-title,
+body.dark-theme .chart-axis-label,
+body.dark-theme .chart-cat-label,
+body.dark-theme .chart-tick-label,
+body.dark-theme .chart-text,
+body.dark-theme .chart-val-label {
+    fill: #f8fafc;
+}
+
+body.dark-theme .chart-axis {
+    stroke: #cbd5e1;
+}
+
+body.dark-theme .chart-grid {
+    stroke: #475569;
+}
+
 /* MCQ Cards */
 .mcq-card {
     font-size: 13px;
