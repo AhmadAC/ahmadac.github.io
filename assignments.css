@@ -120,12 +120,14 @@
     background-color: transparent;
     color: var(--text-dark);
     font-weight: bold;
-    font-size: 13px;
-    padding: 6px 12px;
+    font-size: 12px;
+    padding: 6px 10px;
     border-radius: 4px;
     border: 1px solid var(--border-color);
     cursor: pointer;
     transition: 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 .btn-jump:hover {
     background-color: var(--bg-quiz);
@@ -208,39 +210,6 @@
     font-weight: bold;
 }
 
-/* Specific CSS rule to gracefully stack narrow cards in split columns and prevent overlap */
-.split-col .assignment-card {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 12px;
-    gap: 6px;
-}
-
-.split-col .assignment-title-lbl {
-    margin-right: 0;
-    width: 100%;
-    font-size: 12px;
-    line-height: 1.4;
-}
-
-.split-col .assignment-status-lbl {
-    margin-right: 0;
-    white-space: normal; /* Permits wrapping if status text is long */
-    font-size: 11px;
-}
-
-.split-col .btn-week-action {
-    width: 100%; /* Spreads button uniformly across the bottom */
-    margin-top: 4px;
-    padding: 8px 10px;
-}
-
-.split-col .rearrange-controls {
-    flex-direction: row;
-    margin-right: 0;
-    margin-bottom: 4px;
-}
-
 /* --- Mobile specific stacked layout for dual subjects --- */
 @media (max-width: 600px) {
     .assignment-list.split-container {
@@ -249,7 +218,7 @@
     }
     .split-col.split-left {
         border-right: none;
-        border-bottom: 2px dashed var(--border-color); /* Visual dashed break */
+        border-bottom: 2px dashed var(--border-color);
         padding-right: 0;
         padding-bottom: 25px;
         margin-bottom: 10px;
@@ -258,14 +227,15 @@
         padding-left: 0;
     }
     .split-title {
-        font-size: 18px; /* Slightly larger for touch readability */
+        font-size: 18px;
         margin-bottom: 12px;
     }
 }
 
-/* --- Assignment Cards (General) --- */
+/* --- Compact Assignment Cards (Small Blue Buttons on the Right Side) --- */
 .assignment-card {
     display: flex;
+    flex-direction: row;
     align-items: center;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -274,6 +244,12 @@
     padding: 12px 15px;
     cursor: pointer;
     transition: background-color 0.2s, border-left-color 0.2s;
+    gap: 12px;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: auto;
+    min-height: unset;
 }
 .assignment-card:nth-child(odd) { 
     background-color: var(--card-even-bg); 
@@ -291,13 +267,25 @@ body.dark-theme .assignment-card.missing-card {
     background-color: #3b2424 !important;
 }
 
+/* Middle info container: keeps title and status badge neatly paired */
+.assignment-info-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 12px;
+}
+
 .assignment-title-lbl {
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 120px;
     font-size: 13px;
     color: var(--text-dark);
-    margin-right: 15px;
     word-wrap: break-word;
     white-space: pre-wrap;
+    line-height: 1.4;
 }
 .assignment-title-lbl.missing-text {
     color: #e74c3c;
@@ -305,10 +293,10 @@ body.dark-theme .assignment-card.missing-card {
 }
 
 .assignment-status-lbl {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
-    margin-right: 15px;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .current-status {
@@ -321,10 +309,11 @@ body.dark-theme .current-status { color: #2ecc71; }
 }
 body.dark-theme .due-status { color: #f39c12; }
 
+/* Small blue week action buttons anchored on the right side */
 .btn-week-action {
     background-color: var(--primary);
     color: white;
-    padding: 6px 15px;
+    padding: 6px 14px;
     border-radius: 4px;
     font-weight: bold;
     font-size: 13px;
@@ -332,6 +321,10 @@ body.dark-theme .due-status { color: #f39c12; }
     cursor: pointer;
     transition: background-color 0.2s;
     white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: auto;
+    width: auto !important;
+    height: auto;
 }
 .btn-week-action:hover {
     background-color: var(--primary-hover);
@@ -380,4 +373,32 @@ body.dark-theme .due-status { color: #f39c12; }
     background-color: var(--header-bg);
     color: var(--text-muted);
     cursor: not-allowed;
+}
+
+.rearrange-controls { 
+    display: none; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 4px; 
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+body.rearrange-active .rearrange-controls { 
+    display: flex; 
+}
+body.rearrange-active .btn-week-action, 
+body.rearrange-active .assignment-status-lbl { 
+    display: none; 
+}
+.btn-up, .btn-down { 
+    background: var(--bg-main); 
+    color: white; 
+    border: none; 
+    border-radius: 3px; 
+    cursor: pointer; 
+    font-size: 10px; 
+    padding: 4px 6px; 
+}
+.btn-up:hover, .btn-down:hover { 
+    background: #4e6477; 
 }

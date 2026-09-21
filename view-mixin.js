@@ -159,6 +159,9 @@ export const ViewMixin = {
         rearrangeCtrl.appendChild(btnUp);
         rearrangeCtrl.appendChild(btnDown);
 
+        let infoWrap = document.createElement("div");
+        infoWrap.className = "assignment-info-wrap";
+
         let titleLbl = document.createElement("div");
         titleLbl.className = "assignment-title-lbl";
         
@@ -187,11 +190,13 @@ export const ViewMixin = {
             };
         }
         
-        card.appendChild(rearrangeCtrl);
-        card.appendChild(titleLbl);
+        infoWrap.appendChild(titleLbl);
         if (statusLbl) {
-            card.appendChild(statusLbl);
+            infoWrap.appendChild(statusLbl);
         }
+
+        card.appendChild(rearrangeCtrl);
+        card.appendChild(infoWrap);
         card.appendChild(actionBtn);
         
         return card;
@@ -578,9 +583,13 @@ export const ViewMixin = {
                 let card = document.createElement("div");
                 card.className = "assignment-card highlight-current"; 
                 
+                let infoWrap = document.createElement("div");
+                infoWrap.className = "assignment-info-wrap";
+
                 let titleLbl = document.createElement("div");
                 titleLbl.className = "assignment-title-lbl";
                 titleLbl.innerHTML = formatDisplayString(cleanQuizTitle(title));
+                infoWrap.appendChild(titleLbl);
                 
                 let actionBtn = document.createElement("button");
                 actionBtn.className = "btn-week-action";
@@ -595,7 +604,7 @@ export const ViewMixin = {
                     this.startQuiz(title, true);
                 };
                 
-                card.appendChild(titleLbl);
+                card.appendChild(infoWrap);
                 card.appendChild(actionBtn);
                 list.appendChild(card);
             });

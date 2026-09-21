@@ -206,7 +206,8 @@ export const SubmissionMixin = {
         
         this.saveResult(this.currentQuizName, nameAns, classAns, totalScore, totalPossible);
 
-        let msg = `Student: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)\n\n`;
+        const assignmentNameStr = formatDisplayString(cleanQuizTitle(this.currentQuizName)).replace(/<[^>]+>/g, '');
+        let msg = `Assignment: ${assignmentNameStr}\nStudent: ${nameAns} | Class: ${classAns}\nScore: ${totalScore}/${totalPossible} (${perc}%)\n\n`;
         
         if (perc === 100) {
             msg += "Outstanding! Perfect score!";
