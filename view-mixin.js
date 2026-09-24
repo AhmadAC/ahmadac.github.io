@@ -2,7 +2,7 @@
 
 import { CLASSES, getCurrentTeachingWeekInfo, getSubjectsForClass, appSettings, getClassColor, hexToRgba } from './config.js?v=2.2';
 import { canvasData, checkQuizExists, ignoreData } from './quiz-data.js?v=2.2';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse } from './utils.js?v=2.2';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse, isHeaderAssignment } from './utils.js?v=2.2';
 
 export const ViewMixin = {
     initClassGrid() {
@@ -91,6 +91,8 @@ export const ViewMixin = {
         card.className = "assignment-card";
         card.dataset.rawTitle = title;
 
+        const isHeader = isHeaderAssignment(title);
+
         let weekStr = "Start";
         let wkNumStr = null;
         
@@ -100,6 +102,8 @@ export const ViewMixin = {
             const suffix = (weekMatch[2] || "").toUpperCase();
             weekStr = `W${wkNum}${suffix}`;
             wkNumStr = String(wkNum);
+        } else if (isHeader) {
+            weekStr = "Notice";
         }
         
         let displayTitle = cleanQuizTitle(title);
@@ -111,7 +115,7 @@ export const ViewMixin = {
         
         let statusLbl = null;
 
-        if (wkNumStr) {
+        if (!isHeader && wkNumStr) {
             const wk = parseInt(wkNumStr, 10);
             if (wk === currentWkNum) {
                 card.classList.add('highlight-current');
@@ -168,7 +172,14 @@ export const ViewMixin = {
         let actionBtn = document.createElement("button");
         actionBtn.className = "btn-week-action";
         
-        if (!exists) {
+        if (isHeader) {
+            card.classList.add("header-card");
+            titleLbl.innerHTML = formattedTitle;
+            titleLbl.classList.add("header-text");
+            actionBtn.innerText = weekStr;
+            actionBtn.classList.add("header-week-btn");
+            actionBtn.disabled = true;
+        } else if (!exists) {
             titleLbl.innerHTML = `${formattedTitle} (File Missing)`;
             titleLbl.classList.add('missing-text');
             card.classList.add('missing-card');
@@ -250,6 +261,7 @@ export const ViewMixin = {
         if (!list) return;
 
         const existenceChecks = titles.map(async (title) => {
+            if (isHeaderAssignment(title)) return { title, exists: true };
             const exists = await checkQuizExists(title);
             return { title, exists };
         });
@@ -269,7 +281,7 @@ export const ViewMixin = {
 
     customWeekSort(titleA, titleB) {
         const getWeek = (str) => {
-            const match = str.match(/- W(\d+) -/i) || str.match(/_W(\d+)_/i) || str.match(/W(\d+)/i);
+            const match = str.match(/- W(\d+) -/i) || str.match(/_W(\d+)_/i) || str.match(/\bW(\d+)\b/i) || str.match(/W(\d+)/i);
             return match ? parseInt(match[1], 10) : 0;
         };
         const weekA = getWeek(titleA);
@@ -422,6 +434,7 @@ export const ViewMixin = {
             }
 
             const existenceChecks = validTitles.map(async (title) => {
+                if (isHeaderAssignment(title)) return { title, exists: true };
                 const exists = await checkQuizExists(title);
                 return { title, exists };
             });
@@ -537,6 +550,7 @@ export const ViewMixin = {
         }
 
         const existenceChecks = validTitles.map(async (title) => {
+            if (isHeaderAssignment(title)) return { title, exists: true };
             const exists = await checkQuizExists(title);
             return { title, exists };
         });

@@ -1,8 +1,8 @@
 // app.js
 
 import { loadSettings, updateAppSettings, getCurrentMondayDateStr, getCurrentTeachingWeekInfo, appSettings, getSubjectsForGrade } from './config.js?v=2.2';
-import { initDevTools, applyFeatureToggles, generateQRCodeSVG } from './utils.js?v=2.2';
-import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData } from './quiz-data.js?v=2.2';
+import { initDevTools, applyFeatureToggles, generateQRCodeSVG, isHeaderAssignment, cleanQuizTitle } from './utils.js?v=2.2';
+import { loadCanvasData, loadQuizIndex, loadIgnoreData, setCanvasData, setIgnoreData, canvasData } from './quiz-data.js?v=2.2';
 import { QuizInstance } from './QuizInstance.js?v=2.2';
 
 let viewMode = 1;
@@ -12,6 +12,8 @@ window.appConfig = null;
 
 // Global mapping editor state to avoid losing un-rendered rows during search filtering
 let mappingState = {};
+let quizzesToRename = {}; // Map of { originalNameOnDisk: newName }
+let quizzesToDelete = [];
 
 function applyOfflineZoomRestrictions() {
     // Lock viewport scaling for offline desktop executable mode
@@ -74,7 +76,7 @@ async function initApp() {
         });
     }
 
-    // Capture global PySide6 Keyboard shortcuts directly inside the application bounds
+    // Capture global keyboard shortcuts directly inside the application bounds
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape") {
             window.closeQRCodeModal();
@@ -241,23 +243,41 @@ window.saveFolderConfig = function() {
         .catch(err => alert("Failed to save folder configuration: " + err.message));
 };
 
-let quizzesToDelete = [];
-
 window.openMappingManager = function() {
     if (!window.appConfig) return alert("Mapping manager requires the Desktop offline application.");
     quizzesToDelete = [];
+    quizzesToRename = {};
     
     // Initialize full mappingState for all quizzes so searching doesn't drop quizzes
     mappingState = {};
     const ignoredList = window.appConfig.ignore || [];
+    if (!window.appConfig.quizzes) window.appConfig.quizzes = [];
+    
+    // Harvest any virtual header items from canvas data so they appear in editor
+    const harvestHeaders = (node) => {
+        if (!node || typeof node !== 'object') return;
+        Object.entries(node).forEach(([k, v]) => {
+            if (isHeaderAssignment(k)) {
+                if (!window.appConfig.quizzes.some(q => q.name === k)) {
+                    window.appConfig.quizzes.push({ name: k, points: 0, isHeader: true });
+                }
+            } else if (typeof v === 'object') {
+                harvestHeaders(v);
+            }
+        });
+    };
+    harvestHeaders(window.appConfig.canvas);
+
     (window.appConfig.quizzes || []).forEach(quiz => {
         mappingState[quiz.name] = {
             isIgnored: ignoredList.includes(quiz.name),
-            targets: getQuizMapping(quiz.name, window.appConfig.canvas)
+            targets: getQuizMapping(quiz.name, window.appConfig.canvas),
+            isHeader: isHeaderAssignment(quiz.name) || !!quiz.isHeader
         };
     });
 
     renderSubjectManager();
+    renderHeaderBuilder();
     renderMappingList();
     document.getElementById('modal-overlay').classList.add('active');
     document.getElementById('mapping-modal').classList.remove('hidden');
@@ -308,6 +328,7 @@ function renderSubjectManager() {
                     if (newName && newName.trim() && newName.trim() !== subName) {
                         currentSubjects[grade][subIdx] = newName.trim();
                         renderSubjectManager();
+                        renderHeaderBuilder();
                         renderMappingList();
                     }
                 };
@@ -320,6 +341,7 @@ function renderSubjectManager() {
                     if (confirm(`Remove subject "${subName}" from Grade ${grade}?`)) {
                         currentSubjects[grade].splice(subIdx, 1);
                         renderSubjectManager();
+                        renderHeaderBuilder();
                         renderMappingList();
                     }
                 };
@@ -350,6 +372,7 @@ function renderSubjectManager() {
                 currentSubjects[grade].push(val);
                 addInput.value = '';
                 renderSubjectManager();
+                renderHeaderBuilder();
                 renderMappingList();
             } else {
                 alert("This subject already exists for Grade " + grade);
@@ -369,6 +392,238 @@ function renderSubjectManager() {
         container.appendChild(gradeSec);
     });
 }
+
+// --- ASSIGNMENT HEADER / NOTICE BUILDER GUI ---
+function renderHeaderBuilder() {
+    const container = document.getElementById('header-class-selector');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const currentSubjects = appSettings.subjects || {};
+    const grades = ["6", "7", "8"];
+
+    grades.forEach(grade => {
+        const subs = currentSubjects[grade] || [];
+        const clsList = [`G${grade}A`, `G${grade}B`, `G${grade}C`];
+
+        if (subs.length > 0) {
+            subs.forEach(sub => {
+                clsList.forEach(cls => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'header-class-toggle';
+                    btn.innerText = `${cls} [${sub}]`;
+                    btn.dataset.target = `${cls}::${sub}`;
+                    btn.dataset.grade = grade;
+                    btn.dataset.subject = sub;
+                    btn.dataset.cls = cls;
+                    btn.onclick = () => btn.classList.toggle('active');
+                    container.appendChild(btn);
+                });
+            });
+        } else {
+            clsList.forEach(cls => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'header-class-toggle';
+                btn.innerText = cls;
+                btn.dataset.target = cls;
+                btn.dataset.grade = grade;
+                btn.dataset.cls = cls;
+                btn.onclick = () => btn.classList.toggle('active');
+                container.appendChild(btn);
+            });
+        }
+    });
+}
+
+window.handleHeaderPreset = function(preset) {
+    const container = document.getElementById('header-class-selector');
+    if (!container) return;
+    const toggles = container.querySelectorAll('.header-class-toggle');
+
+    // Update active highlight on preset buttons
+    document.querySelectorAll('.header-target-presets .btn-preset').forEach(btn => {
+        if (btn.getAttribute('onclick')?.includes(`'${preset}'`)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    if (preset === 'clear') {
+        toggles.forEach(t => t.classList.remove('active'));
+    } else if (preset === 'all') {
+        toggles.forEach(t => t.classList.add('active'));
+    } else if (preset === 'cs') {
+        toggles.forEach(t => {
+            const sub = (t.dataset.subject || "").toLowerCase();
+            const cls = (t.dataset.cls || "").toLowerCase();
+            if (sub.includes('cs') || sub.includes('computer') || cls.includes('cs')) {
+                t.classList.add('active');
+            } else {
+                t.classList.remove('active');
+            }
+        });
+    } else if (preset === 'steam') {
+        toggles.forEach(t => {
+            const sub = (t.dataset.subject || "").toLowerCase();
+            if (sub.includes('steam')) {
+                t.classList.add('active');
+            } else {
+                t.classList.remove('active');
+            }
+        });
+    } else if (['g6', 'g7', 'g8'].includes(preset)) {
+        const gNum = preset[1];
+        toggles.forEach(t => {
+            if (t.dataset.grade === gNum) {
+                t.classList.add('active');
+            } else {
+                t.classList.remove('active');
+            }
+        });
+    }
+};
+
+window.addNewAssignmentHeader = function() {
+    const textInput = document.getElementById('new-header-text');
+    const weekInput = document.getElementById('new-header-week');
+    if (!textInput || !weekInput) return;
+
+    const labelText = textInput.value.trim();
+    if (!labelText) {
+        alert("Please enter header text (e.g. 'No HW' or 'Midterm Review').");
+        textInput.focus();
+        return;
+    }
+
+    let weekVal = weekInput.value.trim();
+    let weekTag = "Notice";
+    if (weekVal) {
+        weekVal = weekVal.toUpperCase();
+        weekTag = weekVal.startsWith('W') ? weekVal : `W${weekVal}`;
+    }
+
+    const selectedToggles = document.querySelectorAll('#header-class-selector .header-class-toggle.active');
+    const chosenTargets = Array.from(selectedToggles).map(t => t.dataset.target);
+
+    if (chosenTargets.length === 0) {
+        alert("Please select at least one class or subject for this header.");
+        return;
+    }
+
+    const fullHeaderName = `[HEADER] ${labelText} - ${weekTag}`;
+
+    if (mappingState[fullHeaderName]) {
+        alert(`A header named "${fullHeaderName}" already exists.`);
+        return;
+    }
+
+    mappingState[fullHeaderName] = {
+        isIgnored: false,
+        targets: chosenTargets,
+        isHeader: true
+    };
+
+    if (!window.appConfig.quizzes) window.appConfig.quizzes = [];
+    window.appConfig.quizzes.unshift({
+        name: fullHeaderName,
+        points: 0,
+        isHeader: true
+    });
+
+    textInput.value = '';
+    weekInput.value = '';
+    document.querySelectorAll('#header-class-selector .header-class-toggle').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.header-target-presets .btn-preset').forEach(b => b.classList.remove('active'));
+
+    renderMappingList();
+};
+
+window.renameQuizPrompt = function(oldName) {
+    const isHeader = isHeaderAssignment(oldName);
+    
+    let promptMsg = isHeader 
+        ? `Rename header text:\n(Currently: "${oldName}")`
+        : `Rename assignment:\n(WARNING: This will also rename the original .json file on disk!)\n\nEnter new assignment name:`;
+        
+    const newNameRaw = prompt(promptMsg, oldName);
+    if (newNameRaw === null) return;
+    
+    let newName = newNameRaw.trim();
+    if (!newName) {
+        alert("Assignment name cannot be empty.");
+        return;
+    }
+    
+    if (newName === oldName) return;
+
+    if (!isHeader && /[\\/:*?"<>|]/.test(newName)) {
+        alert("Assignment name cannot contain invalid filename characters: \\ / : * ? \" < > |");
+        return;
+    }
+
+    if (isHeader && !isHeaderAssignment(newName)) {
+        newName = `[HEADER] ${newName}`;
+    }
+
+    if (mappingState[newName] && newName !== oldName) {
+        alert(`An assignment named "${newName}" already exists in the list.`);
+        return;
+    }
+
+    // Track rename for disk file renaming on server save
+    if (!isHeader) {
+        let rootOldName = oldName;
+        for (const [orig, curr] of Object.entries(quizzesToRename)) {
+            if (curr === oldName) {
+                rootOldName = orig;
+                break;
+            }
+        }
+        quizzesToRename[rootOldName] = newName;
+    }
+
+    // Update mappingState
+    if (mappingState[oldName]) {
+        mappingState[newName] = mappingState[oldName];
+        delete mappingState[oldName];
+    } else {
+        mappingState[newName] = {
+            isIgnored: (window.appConfig?.ignore || []).includes(oldName),
+            targets: getQuizMapping(oldName, window.appConfig?.canvas),
+            isHeader: isHeader
+        };
+    }
+
+    // Update in window.appConfig.quizzes
+    if (window.appConfig && Array.isArray(window.appConfig.quizzes)) {
+        const qObj = window.appConfig.quizzes.find(q => q.name === oldName);
+        if (qObj) {
+            qObj.name = newName;
+        }
+    }
+
+    // Update order.json in-memory so position is preserved
+    if (window.appConfig && window.appConfig.order) {
+        Object.keys(window.appConfig.order).forEach(k => {
+            if (Array.isArray(window.appConfig.order[k])) {
+                window.appConfig.order[k] = window.appConfig.order[k].map(item => item === oldName ? newName : item);
+            }
+        });
+    }
+
+    // Update ignore array if present
+    if (window.appConfig && Array.isArray(window.appConfig.ignore)) {
+        const ignIdx = window.appConfig.ignore.indexOf(oldName);
+        if (ignIdx > -1) {
+            window.appConfig.ignore[ignIdx] = newName;
+        }
+    }
+
+    renderMappingList();
+};
 
 function renderMappingList() {
     const list = document.getElementById('mapping-list');
@@ -403,10 +658,13 @@ function renderMappingList() {
         if (search && !quiz.name.toLowerCase().includes(search)) return;
         if (quizzesToDelete.includes(quiz.name)) return;
 
+        const isHeader = isHeaderAssignment(quiz.name) || !!quiz.isHeader;
+
         if (!mappingState[quiz.name]) {
             mappingState[quiz.name] = {
                 isIgnored: (window.appConfig.ignore || []).includes(quiz.name),
-                targets: getQuizMapping(quiz.name, window.appConfig.canvas)
+                targets: getQuizMapping(quiz.name, window.appConfig.canvas),
+                isHeader: isHeader
             };
         }
 
@@ -415,13 +673,33 @@ function renderMappingList() {
         const row = document.createElement('div');
         row.className = 'mapping-row';
         
+        // Editable Name Element with Pencil Icon
         const nameEl = document.createElement('span'); 
-        nameEl.className = 'mapping-quiz-name';
-        nameEl.innerText = quiz.name;
+        nameEl.className = 'mapping-quiz-name editable-quiz-name';
+        nameEl.title = isHeader ? 'Click to rename header' : 'Click to rename assignment and file';
+
+        if (isHeader) {
+            const badge = document.createElement('span');
+            badge.className = 'header-item-badge';
+            badge.innerText = 'Header';
+            nameEl.appendChild(badge);
+        }
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'quiz-name-text';
+        textSpan.innerText = isHeader ? cleanQuizTitle(quiz.name) : quiz.name;
+        nameEl.appendChild(textSpan);
+
+        const editIcon = document.createElement('span');
+        editIcon.className = 'edit-pencil-icon';
+        editIcon.innerHTML = '&#9998;';
+        nameEl.appendChild(editIcon);
+
+        nameEl.onclick = () => window.renameQuizPrompt(quiz.name);
         
         const ptsEl = document.createElement('span'); 
         ptsEl.className = 'mapping-quiz-pts';
-        ptsEl.innerText = `${quiz.points} pts`;
+        ptsEl.innerText = isHeader ? '0 pts' : `${quiz.points} pts`;
         
         const classesCell = document.createElement('div');
         classesCell.className = 'class-assignment-cell';
@@ -573,7 +851,10 @@ function renderMappingList() {
         delBtn.className = 'btn-delete';
         delBtn.innerText = 'Delete';
         delBtn.onclick = () => {
-            if (confirm(`Are you sure you want to remove '${quiz.name}'?\nWARNING: This will also PHYSICALLY DELETE the JSON file from your folder on disk!`)) {
+            const confirmMsg = isHeader
+                ? `Remove header '${cleanQuizTitle(quiz.name)}'?`
+                : `Are you sure you want to remove '${quiz.name}'?\nWARNING: This will also PHYSICALLY DELETE the JSON file from your folder on disk!`;
+            if (confirm(confirmMsg)) {
                 quizzesToDelete.push(quiz.name);
                 delete mappingState[quiz.name];
                 renderMappingList();
@@ -689,8 +970,10 @@ window.saveMappingConfig = function() {
     updateAppSettings(window.appConfig.settings);
     applyFeatureToggles();
 
+    const renameList = Object.entries(quizzesToRename).map(([old_name, new_name]) => ({ old_name, new_name }));
+
     window.appConfig.ignore = newIgnore;
-    window.appConfig.canvas = rebuildCanvasJson(window.appConfig.canvas, updates);
+    window.appConfig.canvas = rebuildCanvasJson(window.appConfig.canvas, updates, quizzesToRename);
     
     // Synchronize global in-memory state immediately
     setCanvasData(window.appConfig.canvas);
@@ -700,10 +983,13 @@ window.saveMappingConfig = function() {
         ignore: newIgnore, 
         canvas: window.appConfig.canvas,
         settings: window.appConfig.settings,
-        delete_quizzes: quizzesToDelete 
+        order: window.appConfig.order || {},
+        delete_quizzes: quizzesToDelete,
+        rename_quizzes: renameList
     }).then(() => {
         window.appConfig.quizzes = (window.appConfig.quizzes || []).filter(q => !quizzesToDelete.includes(q.name));
         quizzesToDelete = [];
+        quizzesToRename = {};
         window.closeModals();
         
         quizInstances.forEach(inst => {
@@ -744,13 +1030,10 @@ function getQuizMapping(q_name, data) {
             // Check class or subject level mappings
             Object.entries(gradeData).forEach(([k, val]) => {
                 if (typeof val === 'object' && val !== null) {
-                    // Check if k is class (G7A) or Subject (Computer Science (CS))
                     if (k.startsWith(`G${grade}`)) {
                         const cls = k;
-                        // Subkeys could be quiz names or subjects
                         Object.entries(val).forEach(([subK, subVal]) => {
                             if (typeof subVal === 'object' && subVal !== null) {
-                                // subK is subject
                                 if (subVal[q_name] !== undefined) {
                                     assigned.push(`${cls}::${subK}`);
                                 }
@@ -759,7 +1042,6 @@ function getQuizMapping(q_name, data) {
                             }
                         });
                     } else {
-                        // k is subject
                         const subName = k;
                         Object.entries(val).forEach(([subK, subVal]) => {
                             if (typeof subVal === 'object' && subVal !== null) {
@@ -780,12 +1062,22 @@ function getQuizMapping(q_name, data) {
     return [...new Set(assigned)];
 }
 
-function rebuildCanvasJson(oldData, updates) {
+function rebuildCanvasJson(oldData, updates, renamesMap = {}) {
     let finalData = { "6": {}, "7": {}, "8": {} };
     let nowStr = new Date().toISOString();
     
+    // Build reverse map to look up previous timestamps if an item was renamed
+    const revRenames = {};
+    if (renamesMap) {
+        Object.entries(renamesMap).forEach(([oldN, newN]) => {
+            revRenames[newN] = oldN;
+        });
+    }
+
     updates.forEach(u => {
         if (!u.name || !u.targets) return;
+        const lookupName = revRenames[u.name] || u.name;
+
         u.targets.forEach(target => {
             let cls = target;
             let subject = null;
@@ -805,9 +1097,10 @@ function rebuildCanvasJson(oldData, updates) {
 
                 let ts = nowStr;
                 try {
-                    if (oldData?.[grade]?.[subject]?.[cls]?.[u.name]) ts = oldData[grade][subject][cls][u.name];
-                    else if (oldData?.[grade]?.[cls]?.[subject]?.[u.name]) ts = oldData[grade][cls][subject][u.name];
-                    else if (oldData?.[grade]?.[cls]?.[u.name]) ts = oldData[grade][cls][u.name];
+                    if (oldData?.[grade]?.[subject]?.[cls]?.[lookupName]) ts = oldData[grade][subject][cls][lookupName];
+                    else if (oldData?.[grade]?.[cls]?.[subject]?.[lookupName]) ts = oldData[grade][cls][subject][lookupName];
+                    else if (oldData?.[grade]?.[cls]?.[lookupName]) ts = oldData[grade][cls][lookupName];
+                    else if (oldData?.[grade]?.[subject]?.[cls]?.[u.name]) ts = oldData[grade][subject][cls][u.name];
                 } catch(e) {}
 
                 finalData[grade][subject][cls][u.name] = ts;
@@ -816,8 +1109,9 @@ function rebuildCanvasJson(oldData, updates) {
 
                 let ts = nowStr;
                 try {
-                    if (oldData?.[grade]?.[cls]?.[u.name]) ts = oldData[grade][cls][u.name];
-                    else if (oldData?.[grade]?.[u.name]) ts = oldData[grade][u.name];
+                    if (oldData?.[grade]?.[cls]?.[lookupName]) ts = oldData[grade][cls][lookupName];
+                    else if (oldData?.[grade]?.[lookupName]) ts = oldData[grade][lookupName];
+                    else if (oldData?.[grade]?.[cls]?.[u.name]) ts = oldData[grade][cls][u.name];
                 } catch(e) {}
 
                 finalData[grade][cls][u.name] = ts;

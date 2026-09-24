@@ -109,13 +109,20 @@ export function recursiveDecode(data) {
     return data;
 }
 
-// Strips class, subject, and week code prefixes/suffixes for clean user display
+export function isHeaderAssignment(title) {
+    if (!title || typeof title !== 'string') return false;
+    return /^\[(?:HEADER|NOTICE)\]/i.test(title.trim());
+}
+
+// Strips class, subject, header markers, and week code prefixes/suffixes for clean user display
 export function cleanQuizTitle(title) {
     if (typeof title !== 'string') return title;
-    let clean = title.replace(/^G\d+[_ \-]*(?:[A-Za-z0-9()]+[_ \-]+)?W\d+[A-Za-z]?[_ \-]*/i, '');
+    let clean = title.replace(/^\[(?:HEADER|NOTICE)\]\s*/i, '');
+    clean = clean.replace(/^G\d+[_ \-]*(?:[A-Za-z0-9()]+[_ \-]+)?W\d+[A-Za-z]?[_ \-]*/i, '');
     clean = clean.replace(/^W\d+[A-Za-z]?[_ \-]*/i, '');
     clean = clean.replace(/\s*-\s*W\d+[A-Za-z]?\s*$/i, '');
     clean = clean.replace(/[_ \-]+W\d+[A-Za-z]?$/i, '');
+    clean = clean.replace(/\s*\[(?:HEADER|NOTICE)\]$/i, '');
     clean = clean.trim();
     if (!clean) return title;
     return clean;

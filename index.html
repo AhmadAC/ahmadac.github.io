@@ -24,7 +24,7 @@
 </head>
 <body>
 
-    <!-- Theme Toggle Toggle Switch -->
+    <!-- Theme Toggle Switch -->
     <button id="theme-toggle-btn" aria-label="Toggle Theme">
         <!-- Sun Icon -->
         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -225,7 +225,7 @@
         <!-- 1. Mapping Manager Dialog (Ctrl+0 / Ctrl+M) -->
         <div id="mapping-modal" class="modal-container hidden">
             <div class="modal-header">
-                <h2>Manage Canvas & Subjects (Ctrl+0)</h2>
+                <h2>Manage Canvas & Assignments (Ctrl+0)</h2>
                 <input type="text" id="mapping-search" placeholder="Search assignments...">
             </div>
             <div class="modal-body">
@@ -251,8 +251,35 @@
                     <div id="subject-manager-container" class="subject-manager-grid"></div>
                 </div>
 
+                <!-- Assignment Header / Notice Creator Section -->
+                <div class="header-builder-box">
+                    <div class="header-builder-title">
+                        <span>Add Assignment Header / Notice (e.g. "No HW", "Exam Week", "Holiday")</span>
+                    </div>
+                    <div class="header-builder-controls">
+                        <div class="header-builder-inputs">
+                            <input type="text" id="new-header-text" class="header-input-text" placeholder="Header Text (e.g. No HW)">
+                            <input type="text" id="new-header-week" class="header-input-week" placeholder="Week (e.g. W4)">
+                        </div>
+                        <div class="header-target-presets">
+                            <span class="preset-label">Quick Select:</span>
+                            <button type="button" class="btn-preset" onclick="handleHeaderPreset('all')">All Classes</button>
+                            <button type="button" class="btn-preset" onclick="handleHeaderPreset('cs')">All CS</button>
+                            <button type="button" class="btn-preset" onclick="handleHeaderPreset('steam')">All STEAM</button>
+                            <button type="button" class="btn-preset" onclick="handleHeaderPreset('g6')">Grade 6</button>
+                            <button type="button" class="btn-preset" onclick="handleHeaderPreset('g7')">Grade 7</button>
+                            <button type="button" class="btn-preset" onclick="handleHeaderPreset('g8')">Grade 8</button>
+                            <button type="button" class="btn-preset btn-clear-preset" onclick="handleHeaderPreset('clear')">Clear</button>
+                        </div>
+                        <div id="header-class-selector" class="header-class-selector"></div>
+                        <div class="header-builder-actions">
+                            <button type="button" class="btn-add-header" onclick="addNewAssignmentHeader()">+ Add Header</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mapping-grid-header">
-                    <span>Quiz Name</span>
+                    <span>Assignment Name (Click to Rename)</span>
                     <span>Points</span>
                     <span>Assign To (Subjects / Classes)</span>
                     <span class="hide-col-header"><input type="checkbox" id="toggle-hide-all" title="Toggle Hide All"> Hide</span>

@@ -265,10 +265,6 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
         if clean_path == '/api/config':
             _, all_quizzes = update_quiz_index()
 
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-
             def safe_read(fname, default):
                 path = os.path.join(DATA_DIR, fname)
                 loaded = robust_json_load_file(path)
@@ -291,6 +287,24 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                     "8": []
                 }
             })
+
+            # Harvest any virtual header items from canvas_data so they appear in config and mapping list
+            header_items = set()
+            def harvest_headers(node):
+                if isinstance(node, dict):
+                    for k, v in node.items():
+                        if isinstance(v, (str, int, float)) and (k.startswith('[HEADER]') or k.startswith('[NOTICE]')):
+                            header_items.add(k)
+                        elif isinstance(v, dict):
+                            harvest_headers(v)
+            harvest_headers(canvas_data)
+            for h in header_items:
+                if not any(q.get('name') == h for q in all_quizzes):
+                    all_quizzes.append({"name": h, "points": 0, "isHeader": True})
+
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
 
             response = {
                 "is_offline_mode": True,
@@ -352,6 +366,39 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                         pass
                 shutil.move(tmp_path, path)
 
+            # Handle renaming assignment files on disk
+            if 'rename_quizzes' in payload and payload['rename_quizzes']:
+                index_path = os.path.join(DATA_DIR, 'quiz_index.json')
+                idx = robust_json_load_file(index_path) or {}
+                for r in payload['rename_quizzes']:
+                    old_name = r.get('old_name')
+                    new_name = r.get('new_name')
+                    if not old_name or not new_name or old_name == new_name:
+                        continue
+                    
+                    # Virtual headers have no file on disk to rename
+                    if old_name.startswith('[HEADER]') or old_name.startswith('[NOTICE]'):
+                        continue
+
+                    old_rel = idx.get(old_name)
+                    if old_rel:
+                        old_path = os.path.join(DATA_DIR, old_rel)
+                    else:
+                        old_path = os.path.join(DATA_DIR, f"{old_name}.json")
+
+                    if os.path.exists(old_path):
+                        dir_name = os.path.dirname(old_path)
+                        new_path = os.path.join(dir_name, f"{new_name}.json")
+                        try:
+                            if os.path.exists(new_path) and os.path.normpath(old_path).lower() != os.path.normpath(new_path).lower():
+                                os.remove(new_path)
+                            os.rename(old_path, new_path)
+                            if old_path in _QUIZ_CACHE:
+                                _QUIZ_CACHE[new_path] = _QUIZ_CACHE.pop(old_path)
+                            print(f"[SUCCESS] Renamed quiz file from '{old_path}' to '{new_path}'")
+                        except Exception as e:
+                            print(f"[ERROR] Failed to rename quiz file '{old_path}' to '{new_path}': {e}")
+
             if 'canvas' in payload:
                 safe_write('canvas.json', payload['canvas'])
             if 'ignore' in payload:
@@ -374,6 +421,8 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 index_path = os.path.join(DATA_DIR, 'quiz_index.json')
                 idx = robust_json_load_file(index_path) or {}
                 for dq in payload['delete_quizzes']:
+                    if dq.startswith('[HEADER]') or dq.startswith('[NOTICE]'):
+                        continue
                     fp = os.path.join(DATA_DIR, idx[dq]) if dq in idx else os.path.join(DATA_DIR, f"{dq}.json")
                     if os.path.exists(fp):
                         try:
