@@ -1,10 +1,19 @@
 [
     {
-        "question_name": "Question 1 - Line Graph",
+        "quiz_metadata": {
+            "title": "Interpreting Science Charts & Variables Audit",
+            "info_content": "<b>Instructions:</b> Carefully inspect each chart to identify the independent variable, dependent variable, and accurate scientific conclusion.",
+            "randomize_questions": true
+        }
+    },
+    {
+        "group_id": "chart_1",
+        "question_name": "Question 1 - Water Temperature & Sugar",
         "question_type": "multiple_choice_question",
         "type": "multiple_choice_question",
-        "points": 5,
-        "question text": "A student conducted a home chemistry experiment investigating how water temperature affects the dissolving time of sugar. In each trial, 5 grams (1 teaspoon) of granulated sugar was stirred into 100 mL of water at different temperatures (20°C, 40°C, 60°C, 80°C, and 100°C), and the time until the sugar completely dissolved was recorded in seconds.\n\nExamine the line graph below:\n1. Identify the independent variable and dependent variable.\n2. Determine which statement correctly analyzes the relationship shown by the graph.",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student conducted a home chemistry experiment investigating how water temperature affects the dissolving time of sugar. In each trial, 5 grams (1 teaspoon) of granulated sugar was stirred into 100 mL of water at different temperatures (20°C, 40°C, 60°C, 80°C, and 100°C), and the time until the sugar completely dissolved was recorded in seconds.<br><br>Examine the line graph below:<br><b>What is the independent variable in this experiment?</b>",
         "chart": {
             "type": "line",
             "title": "Water Temperature vs. Sugar Dissolving Time",
@@ -39,19 +48,209 @@
             ]
         },
         "correct ans index": "b64:MQ==",
-        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFRlbXBlcmF0dXJlICjCsEMpOyBEZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBBcyB3YXRlciB0ZW1wZXJhdHVyZSBpbmNyZWFzZXMsIGRpc3NvbHZpbmcgdGltZSBkZWNyZWFzZXMgc2lnbmlmaWNhbnRseSBiZWNhdXNlIGhpZ2hlciB0aGVybWFsIGVuZXJneSBjYXVzZXMgd2F0ZXIgbW9sZWN1bGVzIHRvIG1vdmUgZmFzdGVyIGFuZCBicmVhayBzdWdhciBjcnlzdGFsIGJvbmRzIG1vcmUgcmFwaWRseS4=",
-        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcyk7IERlcGVuZGVudCBWYXJpYWJsZTogV2F0ZXIgVGVtcGVyYXR1cmUgKMKwQykuIEFuYWx5c2lzOiBTbG93ZXIgZGlzc29sdmluZyB0aW1lcyBjYXVzZSB0aGUgdGVtcGVyYXR1cmUgb2YgdGhlIHdhdGVyIHRvIHJpc2UgdG93YXJkIGJvaWxpbmcgcG9pbnQu",
-        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFRlbXBlcmF0dXJlICjCsEMpOyBEZXBlbmRlbnQgVmFyaWFibGU6IE1hc3Mgb2YgU3VnYXIgKGdyYW1zKS4gQW5hbHlzaXM6IFRoZSBkaXNzb2x2aW5nIHRpbWUgcmVtYWlucyB1bmNoYW5nZWQgYmVjYXVzZSBzdWdhciBjcnlzdGFscyBoYXZlIGEgZml4ZWQgZGlzc29sdmluZyByYXRlIHJlZ2FyZGxlc3Mgb2YgdGVtcGVyYXR1cmUu",
-        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFZvbHVtZSAobUwpOyBEZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBIZWF0aW5nIHdhdGVyIGluY3JlYXNlcyBkaXNzb2x2aW5nIHRpbWUgYmVjYXVzZSBob3Qgd2F0ZXIgbW9sZWN1bGVzIHB1c2ggc3VnYXIgZ3JhaW5zIGF3YXkgZnJvbSBlYWNoIG90aGVyLg==",
-        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFdhdGVyIFRlbXBlcmF0dXJlICjCsEMpOyBEZXBlbmRlbnQgVmFyaWFibGU6IERpc3NvbHZpbmcgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBBdCAxMDDCsEMgdGhlIGRpc3NvbHZpbmcgdGltZSBpbmNyZWFzZXMgdG8gbWF4aW11bSBiZWNhdXNlIGJvaWxpbmcgd2F0ZXIgZXZhcG9yYXRlcyBiZWZvcmUgc3VnYXIgY2FuIGRpc3NvbHZlLg==",
-        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFR5cGUgb2YgU3RpcnJpbmcgU3Bvb247IERlcGVuZGVudCBWYXJpYWJsZTogV2F0ZXIgVGVtcGVyYXR1cmUgKMKwQykuIEFuYWx5c2lzOiBUaGVyZSBpcyBubyBjb3JyZWxhdGlvbiBiZXR3ZWVuIHRlbXBlcmF0dXJlIGFuZCBkaXNzb2x2aW5nIHJhdGUgaW4gdGhpcyBleHBlcmltZW50Lg=="
+        "a": "b64:V2F0ZXIgVGVtcGVyYXR1cmUgKMKwQyk=",
+        "b": "b64:RGlzc29sdmluZyBUaW1lIChzZWNvbmRzKQ==",
+        "c": "b64:TWFzcyBvZiBHcmFudWxhdGVkIFN1Z2FyICg1IGdyYW1zKQ==",
+        "d": "b64:SW5pdGlhbCBXYXRlciBWb2x1bWUgKDEwMCBtTCk=",
+        "e": "b64:VHlwZSBvZiBTdGlycmluZyBTcG9vbiBVc2Vk",
+        "f": "b64:QXRtb3NwaGVyaWMgUm9vbSBQcmVzc3VyZQ=="
     },
     {
-        "question_name": "Question 2 - Bar Graph",
+        "group_id": "chart_1",
+        "question_name": "Question 2 - Water Temperature & Sugar",
         "question_type": "multiple_choice_question",
         "type": "multiple_choice_question",
-        "points": 5,
-        "question text": "A student tested how different household floor surfaces affect the bounce of a tennis ball. The ball was dropped from an exact height of 100 cm onto ceramic tile, hardwood, thin carpet, and a foam play mat. The rebound height was measured in centimeters using a slow-motion video recording against a meter ruler.\n\nReview the bar graph below:\n1. Identify the independent and dependent variables.\n2. Select the accurate scientific analysis of the results.",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student conducted a home chemistry experiment investigating how water temperature affects the dissolving time of sugar. In each trial, 5 grams (1 teaspoon) of granulated sugar was stirred into 100 mL of water at different temperatures (20°C, 40°C, 60°C, 80°C, and 100°C), and the time until the sugar completely dissolved was recorded in seconds.<br><br>Examine the line graph below:<br><b>What is the dependent variable in this experiment?</b>",
+        "chart": {
+            "type": "line",
+            "title": "Water Temperature vs. Sugar Dissolving Time",
+            "xLabel": "Water Temperature (°C)",
+            "yLabel": "Dissolving Time (seconds)",
+            "xMin": 0,
+            "xMax": 100,
+            "yMin": 0,
+            "yMax": 70,
+            "lineColor": "#008ee2",
+            "data": [
+                {
+                    "x": 20,
+                    "y": 65
+                },
+                {
+                    "x": 40,
+                    "y": 42
+                },
+                {
+                    "x": 60,
+                    "y": 24
+                },
+                {
+                    "x": 80,
+                    "y": 14
+                },
+                {
+                    "x": 100,
+                    "y": 6
+                }
+            ]
+        },
+        "correct ans index": "b64:Mg==",
+        "a": "b64:V2F0ZXIgVGVtcGVyYXR1cmUgKMKwQyk=",
+        "b": "b64:RGlzc29sdmluZyBUaW1lIChzZWNvbmRzKQ==",
+        "c": "b64:QnJhbmQgb2YgU3VnYXIgVGVzdGVk",
+        "d": "b64:Vm9sdW1lIG9mIFNvbHV0aW9uICgxMDAgbUwp",
+        "e": "b64:U2hhcGUgb2YgdGhlIEdsYXNzIEJlYWtlcg==",
+        "f": "b64:TnVtYmVyIG9mIFN0aXJyaW5nIFJvdGF0aW9ucw=="
+    },
+    {
+        "group_id": "chart_1",
+        "question_name": "Question 3 - Water Temperature & Sugar",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student conducted a home chemistry experiment investigating how water temperature affects the dissolving time of sugar. In each trial, 5 grams (1 teaspoon) of granulated sugar was stirred into 100 mL of water at different temperatures (20°C, 40°C, 60°C, 80°C, and 100°C), and the time until the sugar completely dissolved was recorded in seconds.<br><br>Examine the line graph below:<br><b>Which statement provides the correct scientific analysis of the relationship shown by the graph?</b>",
+        "chart": {
+            "type": "line",
+            "title": "Water Temperature vs. Sugar Dissolving Time",
+            "xLabel": "Water Temperature (°C)",
+            "yLabel": "Dissolving Time (seconds)",
+            "xMin": 0,
+            "xMax": 100,
+            "yMin": 0,
+            "yMax": 70,
+            "lineColor": "#008ee2",
+            "data": [
+                {
+                    "x": 20,
+                    "y": 65
+                },
+                {
+                    "x": 40,
+                    "y": 42
+                },
+                {
+                    "x": 60,
+                    "y": 24
+                },
+                {
+                    "x": 80,
+                    "y": 14
+                },
+                {
+                    "x": 100,
+                    "y": 6
+                }
+            ]
+        },
+        "correct ans index": "b64:Mw==",
+        "a": "b64:U2xvd2VyIGRpc3NvbHZpbmcgdGltZXMgY2F1c2UgdGhlIHRlbXBlcmF0dXJlIG9mIHRoZSB3YXRlciB0byByaXNlIHRvd2FyZCBib2lsaW5nIHBvaW50Lg==",
+        "b": "b64:VGhlIGRpc3NvbHZpbmcgdGltZSByZW1haW5zIHVuY2hhbmdlZCBiZWNhdXNlIHN1Z2FyIGNyeXN0YWxzIGhhdmUgYSBmaXhlZCBkaXNzb2x2aW5nIHJhdGUgcmVnYXJkbGVzcyBvZiB0ZW1wZXJhdHVyZS4=",
+        "c": "b64:QXMgd2F0ZXIgdGVtcGVyYXR1cmUgaW5jcmVhc2VzLCBkaXNzb2x2aW5nIHRpbWUgZGVjcmVhc2VzIHNpZ25pZmljYW50bHkgYmVjYXVzZSBoaWdoZXIgdGhlcm1hbCBlbmVyZ3kgY2F1c2VzIHdhdGVyIG1vbGVjdWxlcyB0byBtb3ZlIGZhc3RlciBhbmQgYnJlYWsgc3VnYXIgY3J5c3RhbCBib25kcyBtb3JlIHJhcGlkbHku",
+        "d": "b64:SGVhdGluZyB3YXRlciBpbmNyZWFzZXMgZGlzc29sdmluZyB0aW1lIGJlY2F1c2UgaG90IHdhdGVyIG1vbGVjdWxlcyBwdXNoIHN1Z2FyIGdyYWlucyBhd2F5IGZyb20gZWFjaCBvdGhlci4=",
+        "e": "b64:QXQgMTAwwrBDIHRoZSBkaXNzb2x2aW5nIHRpbWUgaW5jcmVhc2VzIHRvIG1heGltdW0gYmVjYXVzZSBib2lsaW5nIHdhdGVyIGV2YXBvcmF0ZXMgYmVmb3JlIHN1Z2FyIGNhbiBkaXNzb2x2ZS4=",
+        "f": "b64:VGhlcmUgaXMgbm8gY29ycmVsYXRpb24gYmV0d2VlbiB0ZW1wZXJhdHVyZSBhbmQgZGlzc29sdmluZyByYXRlIGluIHRoaXMgZXhwZXJpbWVudC4="
+    },
+    {
+        "group_id": "chart_2",
+        "question_name": "Question 4 - Floor Surfaces & Ball Bounce",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student tested how different household floor surfaces affect the bounce of a tennis ball. The ball was dropped from an exact height of 100 cm onto ceramic tile, hardwood, thin carpet, and a foam play mat. The rebound height was measured in centimeters using a slow-motion video recording against a meter ruler.<br><br>Review the bar graph below:<br><b>What is the independent variable in this experiment?</b>",
+        "chart": {
+            "type": "bar",
+            "title": "Rebound Bounce Height on Different Floor Surfaces (Drop: 100 cm)",
+            "xLabel": "Floor Surface Type",
+            "yLabel": "Bounce Height (cm)",
+            "max": 90,
+            "data": [
+                {
+                    "label": "Ceramic Tile",
+                    "value": 75,
+                    "color": "#008ee2"
+                },
+                {
+                    "label": "Hardwood",
+                    "value": 62,
+                    "color": "#3498db"
+                },
+                {
+                    "label": "Thin Carpet",
+                    "value": 34,
+                    "color": "#f39c12"
+                },
+                {
+                    "label": "Foam Mat",
+                    "value": 16,
+                    "color": "#e74c3c"
+                }
+            ]
+        },
+        "correct ans index": "b64:MQ==",
+        "a": "b64:Rmxvb3IgU3VyZmFjZSBUeXBl",
+        "b": "b64:UmVib3VuZCBCb3VuY2UgSGVpZ2h0IChjbSk=",
+        "c": "b64:RHJvcCBIZWlnaHQgKDEwMCBjbSk=",
+        "d": "b64:TWFzcyBvZiB0aGUgVGVubmlzIEJhbGw=",
+        "e": "b64:VmlkZW8gQ2FtZXJhIEZyYW1lIFJhdGU=",
+        "f": "b64:RGlhbWV0ZXIgb2YgdGhlIFRlbm5pcyBCYWxs"
+    },
+    {
+        "group_id": "chart_2",
+        "question_name": "Question 5 - Floor Surfaces & Ball Bounce",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student tested how different household floor surfaces affect the bounce of a tennis ball. The ball was dropped from an exact height of 100 cm onto ceramic tile, hardwood, thin carpet, and a foam play mat. The rebound height was measured in centimeters using a slow-motion video recording against a meter ruler.<br><br>Review the bar graph below:<br><b>What is the dependent variable in this experiment?</b>",
+        "chart": {
+            "type": "bar",
+            "title": "Rebound Bounce Height on Different Floor Surfaces (Drop: 100 cm)",
+            "xLabel": "Floor Surface Type",
+            "yLabel": "Bounce Height (cm)",
+            "max": 90,
+            "data": [
+                {
+                    "label": "Ceramic Tile",
+                    "value": 75,
+                    "color": "#008ee2"
+                },
+                {
+                    "label": "Hardwood",
+                    "value": 62,
+                    "color": "#3498db"
+                },
+                {
+                    "label": "Thin Carpet",
+                    "value": 34,
+                    "color": "#f39c12"
+                },
+                {
+                    "label": "Foam Mat",
+                    "value": 16,
+                    "color": "#e74c3c"
+                }
+            ]
+        },
+        "correct ans index": "b64:Mg==",
+        "a": "b64:Rmxvb3IgU3VyZmFjZSBUeXBl",
+        "b": "b64:UmVib3VuZCBCb3VuY2UgSGVpZ2h0IChjbSk=",
+        "c": "b64:RHJvcCBIZWlnaHQgKDEwMCBjbSk=",
+        "d": "b64:Q29sb3Igb2YgdGhlIFRlbm5pcyBCYWxs",
+        "e": "b64:QW5nbGUgb2YgdGhlIE1ldGVyIFJ1bGVy",
+        "f": "b64:Um9vbSBBaXIgVGVtcGVyYXR1cmU="
+    },
+    {
+        "group_id": "chart_2",
+        "question_name": "Question 6 - Floor Surfaces & Ball Bounce",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student tested how different household floor surfaces affect the bounce of a tennis ball. The ball was dropped from an exact height of 100 cm onto ceramic tile, hardwood, thin carpet, and a foam play mat. The rebound height was measured in centimeters using a slow-motion video recording against a meter ruler.<br><br>Review the bar graph below:<br><b>Select the accurate scientific analysis of the results shown in the graph:</b>",
         "chart": {
             "type": "bar",
             "title": "Rebound Bounce Height on Different Floor Surfaces (Drop: 100 cm)",
@@ -82,19 +281,77 @@
             ]
         },
         "correct ans index": "b64:Mw==",
-        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IERyb3AgSGVpZ2h0ICgxMDAgY20pOyBEZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZS4gQW5hbHlzaXM6IFRoZSBiYWxsIGFic29yYnMgbW9yZSBlbmVyZ3kgd2hlbiBib3VuY2luZyBvbiBjZXJhbWljIHRpbGUgdGhhbiBvbiBhIGZvYW0gbWF0Lg==",
-        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEJvdW5jZSBIZWlnaHQgKGNtKTsgRGVwZW5kZW50IFZhcmlhYmxlOiBGbG9vciBTdXJmYWNlIFR5cGUuIEFuYWx5c2lzOiBTb2Z0ZXIgc3VyZmFjZXMgcHVzaCB1cHdhcmQgd2l0aCBncmVhdGVyIGZvcmNlLCByZXN1bHRpbmcgaW4gaGlnaGVyIHJlYm91bmRzIG9uIGNhcnBldCBhbmQgZm9hbS4=",
-        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZTsgRGVwZW5kZW50IFZhcmlhYmxlOiBCb3VuY2UgSGVpZ2h0IChjbSkuIEFuYWx5c2lzOiBIYXJkLCByaWdpZCBzdXJmYWNlcyAoY2VyYW1pYyB0aWxlIGFuZCBoYXJkd29vZCkgcHJvZHVjZSBzdWJzdGFudGlhbGx5IGhpZ2hlciBib3VuY2VzIGJlY2F1c2UgdGhleSBkZWZvcm0gdmVyeSBsaXR0bGUgYW5kIGFic29yYiBtaW5pbWFsIGtpbmV0aWMgZW5lcmd5LCB3aGVyZWFzIGNvbXByZXNzaWJsZSBzdXJmYWNlcyAoY2FycGV0IGFuZCBmb2FtKSBhYnNvcmIgYW5kIGRpc3NpcGF0ZSBpbXBhY3QgZW5lcmd5IGFzIGhlYXQgYW5kIHNvdW5kLg==",
-        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZTsgRGVwZW5kZW50IFZhcmlhYmxlOiBCYWxsIE1hc3MgKGdyYW1zKS4gQW5hbHlzaXM6IEZvYW0gbWF0cyBwcm92aWRlIHRoZSBtb3N0IGVsYXN0aWMgY29sbGlzaW9uIGJlY2F1c2UgdGhlIGJhbGwgcmVib3VuZGVkIHdpdGggb3ZlciA5MCUgb2YgaXRzIGluaXRpYWwgaGVpZ2h0Lg==",
-        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEJhbGwgRGlhbWV0ZXI7IERlcGVuZGVudCBWYXJpYWJsZTogQm91bmNlIEhlaWdodCAoY20pLiBBbmFseXNpczogSGFyZHdvb2QgcHJvZHVjZWQgYSBsb3dlciBib3VuY2UgdGhhbiBmb2FtIGJlY2F1c2Ugd29vZCBmaWJlcnMgcGVybWFuZW50bHkgZGVmb3JtIGR1cmluZyBiYWxsIGltcGFjdC4=",
-        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZsb29yIFN1cmZhY2UgVHlwZTsgRGVwZW5kZW50IFZhcmlhYmxlOiBCb3VuY2UgSGVpZ2h0IChjbSkuIEFuYWx5c2lzOiBBbGwgZm91ciBob3VzZWhvbGQgc3VyZmFjZXMgcmV0dXJuZWQgaWRlbnRpY2FsIGJvdW5jZSBoZWlnaHRzIHdpdGhpbiBleHBlcmltZW50YWwgZXJyb3Iu"
+        "a": "b64:VGhlIGJhbGwgYWJzb3JicyBtb3JlIGVuZXJneSB3aGVuIGJvdW5jaW5nIG9uIGNlcmFtaWMgdGlsZSB0aGFuIG9uIGEgZm9hbSBtYXQu",
+        "b": "b64:U29mdGVyIHN1cmZhY2VzIHB1c2ggdXB3YXJkIHdpdGggZ3JlYXRlciBmb3JjZSwgcmVzdWx0aW5nIGluIGhpZ2hlciByZWJvdW5kcyBvbiBjYXJwZXQgYW5kIGZvYW0u",
+        "c": "b64:SGFyZCwgcmlnaWQgc3VyZmFjZXMgKGNlcmFtaWMgdGlsZSBhbmQgaGFyZHdvb2QpIHByb2R1Y2Ugc3Vic3RhbnRpYWxseSBoaWdoZXIgYm91bmNlcyBiZWNhdXNlIHRoZXkgZGVmb3JtIHZlcnkgbGl0dGxlIGFuZCBhYnNvcmIgbWluaW1hbCBraW5ldGljIGVuZXJneSwgd2hlcmVhcyBjb21wcmVzc2libGUgc3VyZmFjZXMgKGNhcnBldCBhbmQgZm9hbSkgYWJzb3JiIGFuZCBkaXNzaXBhdGUgaW1wYWN0IGVuZXJneSBhcyBoZWF0IGFuZCBzb3VuZC4=",
+        "d": "b64:Rm9hbSBtYXRzIHByb3ZpZGUgdGhlIG1vc3QgZWxhc3RpYyBjb2xsaXNpb24gYmVjYXVzZSB0aGUgYmFsbCByZWJvdW5kZWQgd2l0aCBvdmVyIDkwJSBvZiBpdHMgaW5pdGlhbCBoZWlnaHQu",
+        "e": "b64:SGFyZHdvb2QgcHJvZHVjZWQgYSBsb3dlciBib3VuY2UgdGhhbiBmb2FtIGJlY2F1c2Ugd29vZCBmaWJlcnMgcGVybWFuZW50bHkgZGVmb3JtIGR1cmluZyBiYWxsIGltcGFjdC4=",
+        "f": "b64:QWxsIGZvdXIgaG91c2Vob2xkIHN1cmZhY2VzIHJldHVybmVkIGlkZW50aWNhbCBib3VuY2UgaGVpZ2h0cyB3aXRoaW4gZXhwZXJpbWVudGFsIGVycm9yLg=="
     },
     {
-        "question_name": "Question 3 - Scatter Graph",
+        "group_id": "chart_3",
+        "question_name": "Question 7 - Parachute Area & Fall Time",
         "question_type": "multiple_choice_question",
         "type": "multiple_choice_question",
-        "points": 5,
-        "question text": "In a home aerodynamics experiment, a student built six model parachutes from plastic bags with canopy surface areas ranging from 100 cm² to 600 cm². An identical 20g metal washer was attached to each canopy using equal lengths of thread. Each parachute was dropped from a height of 2.5 meters, and the fall time was recorded with a digital stopwatch.\n\nAnalyze the scatter plot and trend line below:\n1. Identify the independent variable and dependent variable.\n2. What does the trend line demonstrate in your analysis?",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In a home aerodynamics experiment, a student built six model parachutes from plastic bags with canopy surface areas ranging from 100 cm² to 600 cm². An identical 20g metal washer was attached to each canopy using equal lengths of thread. Each parachute was dropped from a height of 2.5 meters, and the fall time was recorded with a digital stopwatch.<br><br>Analyze the scatter plot and trend line below:<br><b>What is the independent variable in this experiment?</b>",
+        "chart": {
+            "type": "scatter",
+            "title": "Parachute Canopy Area vs. Fall Time from 2.5 Meters",
+            "xLabel": "Canopy Surface Area (cm²)",
+            "yLabel": "Fall Time (seconds)",
+            "xMin": 0,
+            "xMax": 700,
+            "yMin": 0,
+            "yMax": 5,
+            "trendLine": {
+                "y1": 0.6,
+                "y2": 4.5
+            },
+            "data": [
+                {
+                    "x": 100,
+                    "y": 1.2
+                },
+                {
+                    "x": 200,
+                    "y": 1.7
+                },
+                {
+                    "x": 300,
+                    "y": 2.3
+                },
+                {
+                    "x": 400,
+                    "y": 2.8
+                },
+                {
+                    "x": 500,
+                    "y": 3.3
+                },
+                {
+                    "x": 600,
+                    "y": 3.9
+                }
+            ]
+        },
+        "correct ans index": "b64:MQ==",
+        "a": "b64:Q2Fub3B5IFN1cmZhY2UgQXJlYSAoY23Csik=",
+        "b": "b64:RmFsbCBUaW1lIChzZWNvbmRzKQ==",
+        "c": "b64:RHJvcCBIZWlnaHQgKDIuNSBtZXRlcnMp",
+        "d": "b64:V2FzaGVyIE1hc3MgKDIwZyk=",
+        "e": "b64:TGVuZ3RoIG9mIFN1c3BlbnNpb24gVGhyZWFk",
+        "f": "b64:Q29sb3Igb2YgdGhlIFBsYXN0aWMgQ2Fub3B5"
+    },
+    {
+        "group_id": "chart_3",
+        "question_name": "Question 8 - Parachute Area & Fall Time",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In a home aerodynamics experiment, a student built six model parachutes from plastic bags with canopy surface areas ranging from 100 cm² to 600 cm². An identical 20g metal washer was attached to each canopy using equal lengths of thread. Each parachute was dropped from a height of 2.5 meters, and the fall time was recorded with a digital stopwatch.<br><br>Analyze the scatter plot and trend line below:<br><b>What is the dependent variable in this experiment?</b>",
         "chart": {
             "type": "scatter",
             "title": "Parachute Canopy Area vs. Fall Time from 2.5 Meters",
@@ -136,19 +393,77 @@
             ]
         },
         "correct ans index": "b64:Mg==",
-        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEZhbGwgVGltZSAoc2Vjb25kcyk7IERlcGVuZGVudCBWYXJpYWJsZTogQ2Fub3B5IFN1cmZhY2UgQXJlYSAoY23CsikuIEFuYWx5c2lzOiBGYWxsaW5nIGZvciBhIGxvbmdlciB0aW1lIGNhdXNlcyB0aGUgcGxhc3RpYyBjYW5vcHkgdG8gc3RyZXRjaCBhbmQgZXhwYW5kIGluIHN1cmZhY2UgYXJlYS4=",
-        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IENhbm9weSBTdXJmYWNlIEFyZWEgKGNtwrIpOyBEZXBlbmRlbnQgVmFyaWFibGU6IEZhbGwgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBUaGVyZSBpcyBhIHN0cm9uZyBwb3NpdGl2ZSBjb3JyZWxhdGlvbjsgaW5jcmVhc2luZyB0aGUgY2Fub3B5IHN1cmZhY2UgYXJlYSBpbmNyZWFzZXMgYWlyIHJlc2lzdGFuY2UgKGFlcm9keW5hbWljIGRyYWcpLCB3aGljaCBzbG93cyB0aGUgZGVzY2VudCBhbmQgcmVzdWx0cyBpbiBsb25nZXIgZmFsbCB0aW1lcy4=",
-        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IENhbm9weSBTdXJmYWNlIEFyZWEgKGNtwrIpOyBEZXBlbmRlbnQgVmFyaWFibGU6IEZhbGwgVGltZSAoc2Vjb25kcykuIEFuYWx5c2lzOiBUaGUgc2NhdHRlciBncmFwaCBkaXNwbGF5cyBhIG5lZ2F0aXZlIGNvcnJlbGF0aW9uIHByb3ZpbmcgdGhhdCBsYXJnZXIgcGFyYWNodXRlcyBhY2NlbGVyYXRlIGZhc3RlciBkdWUgdG8gZ3JlYXRlciB0b3RhbCB3ZWlnaHQu",
-        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IERyb3AgSGVpZ2h0ICgyLjUgbWV0ZXJzKTsgRGVwZW5kZW50IFZhcmlhYmxlOiBXYXNoZXIgTWFzcyAoMjBnKS4gQW5hbHlzaXM6IEFpciByZXNpc3RhbmNlIGhhcyBubyBlZmZlY3Qgb24gZmFsbGluZyBvYmplY3RzIGJlY2F1c2UgZ3Jhdml0eSBhY3RzIGVxdWFsbHkgb24gYWxsIHBhcmFjaHV0ZSBzaXplcy4=",
-        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IExlbmd0aCBvZiBUaHJlYWQ7IERlcGVuZGVudCBWYXJpYWJsZTogRmFsbCBUaW1lIChzZWNvbmRzKS4gQW5hbHlzaXM6IFRoZSA2MDAgY23CsiBjYW5vcHkgZmVsbCBmb3VyIHRpbWVzIGZhc3RlciB0aGFuIHRoZSAxMDAgY23CsiBjYW5vcHkgYmVjYXVzZSBpdCBjcmVhdGVkIGEgdmFjdXVtIGFib3ZlIHRoZSB3YXNoZXIu",
-        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IENhbm9weSBTdXJmYWNlIEFyZWEgKGNtwrIpOyBEZXBlbmRlbnQgVmFyaWFibGU6IFdpbmQgU3BlZWQgKGttL2gpLiBBbmFseXNpczogVGhlIGRhdGEgcG9pbnRzIGFyZSBjb21wbGV0ZWx5IHJhbmRvbSBhbmQgc2hvdyBubyBjb25zaXN0ZW50IG1hdGhlbWF0aWNhbCByZWxhdGlvbnNoaXAgYmV0d2VlbiBjYW5vcHkgc2l6ZSBhbmQgZGVzY2VudCB0aW1lLg=="
+        "a": "b64:Q2Fub3B5IFN1cmZhY2UgQXJlYSAoY23Csik=",
+        "b": "b64:RmFsbCBUaW1lIChzZWNvbmRzKQ==",
+        "c": "b64:TWFzcyBvZiB0aGUgUGF5bG9hZCBXYXNoZXIgKDIwZyk=",
+        "d": "b64:UmVsZWFzZSBFbGV2YXRpb24gKDIuNSBtZXRlcnMp",
+        "e": "b64:QnJhbmQgb2YgRGlnaXRhbCBTdG9wd2F0Y2g=",
+        "f": "b64:VGhyZWFkIEF0dGFjaG1lbnQgS25vdCBUeXBl"
     },
     {
-        "question_name": "Question 4 - Pie Chart",
+        "group_id": "chart_3",
+        "question_name": "Question 9 - Parachute Area & Fall Time",
         "question_type": "multiple_choice_question",
         "type": "multiple_choice_question",
-        "points": 5,
-        "question text": "A student conducted a 7-day seed germination audit at home. Exactly 100 mung bean seeds were placed inside moist paper towels within sealed zip bags at room temperature (21°C). On Day 7, the student opened the bags and classified every seed into one of four distinct developmental outcome categories.\n\nExamine the pie chart showing the distribution of the 100 seeds:\n1. Identify the independent variable (tested outcome categories) and dependent variable (measured proportion of seeds).\n2. What does this distribution indicate in your scientific analysis?",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In a home aerodynamics experiment, a student built six model parachutes from plastic bags with canopy surface areas ranging from 100 cm² to 600 cm². An identical 20g metal washer was attached to each canopy using equal lengths of thread. Each parachute was dropped from a height of 2.5 meters, and the fall time was recorded with a digital stopwatch.<br><br>Analyze the scatter plot and trend line below:<br><b>What does the trend line demonstrate in your scientific analysis?</b>",
+        "chart": {
+            "type": "scatter",
+            "title": "Parachute Canopy Area vs. Fall Time from 2.5 Meters",
+            "xLabel": "Canopy Surface Area (cm²)",
+            "yLabel": "Fall Time (seconds)",
+            "xMin": 0,
+            "xMax": 700,
+            "yMin": 0,
+            "yMax": 5,
+            "trendLine": {
+                "y1": 0.6,
+                "y2": 4.5
+            },
+            "data": [
+                {
+                    "x": 100,
+                    "y": 1.2
+                },
+                {
+                    "x": 200,
+                    "y": 1.7
+                },
+                {
+                    "x": 300,
+                    "y": 2.3
+                },
+                {
+                    "x": 400,
+                    "y": 2.8
+                },
+                {
+                    "x": 500,
+                    "y": 3.3
+                },
+                {
+                    "x": 600,
+                    "y": 3.9
+                }
+            ]
+        },
+        "correct ans index": "b64:Mw==",
+        "a": "b64:RmFsbGluZyBmb3IgYSBsb25nZXIgdGltZSBjYXVzZXMgdGhlIHBsYXN0aWMgY2Fub3B5IHRvIHN0cmV0Y2ggYW5kIGV4cGFuZCBpbiBzdXJmYWNlIGFyZWEu",
+        "b": "b64:VGhlIHNjYXR0ZXIgZ3JhcGggZGlzcGxheXMgYSBuZWdhdGl2ZSBjb3JyZWxhdGlvbiBwcm92aW5nIHRoYXQgbGFyZ2VyIHBhcmFjaHV0ZXMgYWNjZWxlcmF0ZSBmYXN0ZXIgZHVlIHRvIGdyZWF0ZXIgdG90YWwgd2VpZ2h0Lg==",
+        "c": "b64:VGhlcmUgaXMgYSBzdHJvbmcgcG9zaXRpdmUgY29ycmVsYXRpb247IGluY3JlYXNpbmcgdGhlIGNhbm9weSBzdXJmYWNlIGFyZWEgaW5jcmVhc2VzIGFpciByZXNpc3RhbmNlIChhZXJvZHluYW1pYyBkcmFnKSwgd2hpY2ggc2xvd3MgdGhlIGRlc2NlbnQgYW5kIHJlc3VsdHMgaW4gbG9uZ2VyIGZhbGwgdGltZXMu",
+        "d": "b64:QWlyIHJlc2lzdGFuY2UgaGFzIG5vIGVmZmVjdCBvbiBmYWxsaW5nIG9iamVjdHMgYmVjYXVzZSBncmF2aXR5IGFjdHMgZXF1YWxseSBvbiBhbGwgcGFyYWNodXRlIHNpemVzLg==",
+        "e": "b64:VGhlIDYwMCBjbcKyIGNhbm9weSBmZWxsIGZvdXIgdGltZXMgZmFzdGVyIHRoYW4gdGhlIDEwMCBjbcKyIGNhbm9weSBiZWNhdXNlIGl0IGNyZWF0ZWQgYSB2YWN1dW0gYWJvdmUgdGhlIHdhc2hlci4=",
+        "f": "b64:VGhlIGRhdGEgcG9pbnRzIGFyZSBjb21wbGV0ZWx5IHJhbmRvbSBhbmQgc2hvdyBubyBjb25zaXN0ZW50IG1hdGhlbWF0aWNhbCByZWxhdGlvbnNoaXAgYmV0d2VlbiBjYW5vcHkgc2l6ZSBhbmQgZGVzY2VudCB0aW1lLg=="
+    },
+    {
+        "group_id": "chart_4",
+        "question_name": "Question 10 - Seed Germination Audit",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student conducted a 7-day seed germination audit at home. Exactly 100 mung bean seeds were placed inside moist paper towels within sealed zip bags at room temperature (21°C). On Day 7, the student opened the bags and classified every seed into one of four distinct developmental outcome categories.<br><br>Examine the pie chart showing the distribution of the 100 seeds:<br><b>What is the independent variable (tested categorical outcomes) in this investigation?</b>",
         "chart": {
             "type": "pie",
             "title": "Seed Germination Outcomes After 7 Days (Sample Size: 100 Seeds)",
@@ -176,16 +491,273 @@
                 }
             ]
         },
-        "correct ans index": "b64:NA==",
-        "a": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFJvb20gVGVtcGVyYXR1cmUgKDIxwrBDKTsgRGVwZW5kZW50IFZhcmlhYmxlOiBTZWVkIFZhcmlldHkuIEFuYWx5c2lzOiBPdmVyIDgwJSBvZiB0aGUgc2VlZHMgZGllZCBiZWNhdXNlIHBhcGVyIHRvd2VscyBkbyBub3QgY29udGFpbiBuYXR1cmFsIHNvaWwgbnV0cmllbnRzLg==",
-        "b": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFBlcmNlbnRhZ2Ugb2YgU2VlZHM7IERlcGVuZGVudCBWYXJpYWJsZTogRGF5cyBvZiBPYnNlcnZhdGlvbi4gQW5hbHlzaXM6IERvcm1hbmN5IHdhcyB0aGUgbW9zdCBjb21tb24gcmVzdWx0LCBwcm92aW5nIHRoYXQgc2VlZHMgcmVxdWlyZSBkaXJlY3Qgc3VubGlnaHQgdG8gY3JhY2sgdGhlaXIgc2VlZCBjb2F0Lg==",
-        "c": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IE51bWJlciBvZiBNb2xkIFNwb3JlczsgRGVwZW5kZW50IFZhcmlhYmxlOiBTZWVkIE1hc3MuIEFuYWx5c2lzOiBNb2xkIGNvbnRhbWluYXRpb24gd2FzIHRoZSBkb21pbmFudCBvdXRjb21lIGFuZCBwcmV2ZW50ZWQgYW55IHZpYWJsZSByb290IGdyb3d0aC4=",
-        "d": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEdlcm1pbmF0aW9uIE91dGNvbWUgQ2F0ZWdvcnk7IERlcGVuZGVudCBWYXJpYWJsZTogUHJvcG9ydGlvbiAvIENvdW50IG9mIFNlZWRzLiBBbmFseXNpczogT3ZlciA4MyUgb2YgdGhlIHNlZWRzIGV4aGliaXRlZCBhY3RpdmUgZ2VybWluYXRpb24gKDY1JSBmdWxseSBnZXJtaW5hdGVkICsgMTglIGVhcmx5IHNwcm91dGluZyksIGRlbW9uc3RyYXRpbmcgdGhhdCBtb2lzdHVyZSBhbmQgcm9vbSB0ZW1wZXJhdHVyZSBwcm92aWRlZCBoaWdobHkgZmF2b3JhYmxlIGNvbmRpdGlvbnMsIHdoaWxlIG1vbGQgcmVtYWluZWQgbG93IGF0IG9ubHkgNSUu",
-        "e": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IEJyYW5kIG9mIFBhcGVyIFRvd2VsOyBEZXBlbmRlbnQgVmFyaWFibGU6IFNlZWQgR2VybWluYXRpb24gT3V0Y29tZS4gQW5hbHlzaXM6IFRoZSBwaWUgY2hhcnQgc2hvd3MgdGhhdCBleGFjdGx5IDUwJSBvZiB0aGUgc2VlZHMgZ2VybWluYXRlZCBhbmQgNTAlIHJlbWFpbmVkIGRvcm1hbnQu",
-        "f": "b64:SW5kZXBlbmRlbnQgVmFyaWFibGU6IFNlZWQgQ291bnQgKDEwMCk7IERlcGVuZGVudCBWYXJpYWJsZTogU2VlZCBPdXRjb21lIENhdGVnb3J5LiBBbmFseXNpczogQSBwaWUgY2hhcnQgY2Fubm90IHNob3cgcGFydHMgb2YgYSB3aG9sZSBvciBwcm9wb3J0aW9ucyBvZiBjYXRlZ29yaWNhbCBkYXRhIGluIGEgc2NpZW5jZSBleHBlcmltZW50Lg=="
+        "correct ans index": "b64:MQ==",
+        "a": "b64:R2VybWluYXRpb24gT3V0Y29tZSBDYXRlZ29yeQ==",
+        "b": "b64:UHJvcG9ydGlvbiAvIENvdW50IG9mIFNlZWRz",
+        "c": "b64:Um9vbSBUZW1wZXJhdHVyZSAoMjHCsEMp",
+        "d": "b64:RHVyYXRpb24gb2YgT2JzZXJ2YXRpb24gKDcgRGF5cyk=",
+        "e": "b64:QnJhbmQgb2YgUGFwZXIgVG93ZWwgVXNlZA==",
+        "f": "b64:Vm9sdW1lIG9mIFdhdGVyIEFkZGVkIHRvIFRvd2Vscw=="
     },
     {
-        "question_name": "Question 5 - Student Name",
+        "group_id": "chart_4",
+        "question_name": "Question 11 - Seed Germination Audit",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student conducted a 7-day seed germination audit at home. Exactly 100 mung bean seeds were placed inside moist paper towels within sealed zip bags at room temperature (21°C). On Day 7, the student opened the bags and classified every seed into one of four distinct developmental outcome categories.<br><br>Examine the pie chart showing the distribution of the 100 seeds:<br><b>What is the dependent variable (measured response) in this investigation?</b>",
+        "chart": {
+            "type": "pie",
+            "title": "Seed Germination Outcomes After 7 Days (Sample Size: 100 Seeds)",
+            "unit": "seeds",
+            "data": [
+                {
+                    "label": "Fully Germinated (Roots & Shoots)",
+                    "value": 65,
+                    "color": "#2ecc71"
+                },
+                {
+                    "label": "Early Sprouting (Radicle Only)",
+                    "value": 18,
+                    "color": "#f39c12"
+                },
+                {
+                    "label": "Dormant (Ungerminated)",
+                    "value": 12,
+                    "color": "#3498db"
+                },
+                {
+                    "label": "Molded / Decayed",
+                    "value": 5,
+                    "color": "#e74c3c"
+                }
+            ]
+        },
+        "correct ans index": "b64:Mg==",
+        "a": "b64:R2VybWluYXRpb24gT3V0Y29tZSBDYXRlZ29yeQ==",
+        "b": "b64:UHJvcG9ydGlvbiAvIENvdW50IG9mIFNlZWRzIGluIGVhY2ggY2F0ZWdvcnk=",
+        "c": "b64:QW1iaWVudCBBaXIgVGVtcGVyYXR1cmUgKDIxwrBDKQ==",
+        "d": "b64:U2l6ZSBvZiBaaXAgUGxhc3RpYyBCYWdz",
+        "e": "b64:VHlwZSBvZiBMaWdodGluZyBpbiB0aGUgUm9vbQ==",
+        "f": "b64:VG90YWwgU3RhcnRpbmcgU2VlZCBQb3B1bGF0aW9uICgxMDAgU2VlZHMp"
+    },
+    {
+        "group_id": "chart_4",
+        "question_name": "Question 12 - Seed Germination Audit",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A student conducted a 7-day seed germination audit at home. Exactly 100 mung bean seeds were placed inside moist paper towels within sealed zip bags at room temperature (21°C). On Day 7, the student opened the bags and classified every seed into one of four distinct developmental outcome categories.<br><br>Examine the pie chart showing the distribution of the 100 seeds:<br><b>What does this distribution indicate in your scientific analysis?</b>",
+        "chart": {
+            "type": "pie",
+            "title": "Seed Germination Outcomes After 7 Days (Sample Size: 100 Seeds)",
+            "unit": "seeds",
+            "data": [
+                {
+                    "label": "Fully Germinated (Roots & Shoots)",
+                    "value": 65,
+                    "color": "#2ecc71"
+                },
+                {
+                    "label": "Early Sprouting (Radicle Only)",
+                    "value": 18,
+                    "color": "#f39c12"
+                },
+                {
+                    "label": "Dormant (Ungerminated)",
+                    "value": 12,
+                    "color": "#3498db"
+                },
+                {
+                    "label": "Molded / Decayed",
+                    "value": 5,
+                    "color": "#e74c3c"
+                }
+            ]
+        },
+        "correct ans index": "b64:Mw==",
+        "a": "b64:T3ZlciA4MCUgb2YgdGhlIHNlZWRzIGRpZWQgYmVjYXVzZSBwYXBlciB0b3dlbHMgZG8gbm90IGNvbnRhaW4gbmF0dXJhbCBzb2lsIG51dHJpZW50cy4=",
+        "b": "b64:RG9ybWFuY3kgd2FzIHRoZSBtb3N0IGNvbW1vbiByZXN1bHQsIHByb3ZpbmcgdGhhdCBzZWVkcyByZXF1aXJlIGRpcmVjdCBzdW5saWdodCB0byBjcmFjayB0aGVpciBzZWVkIGNvYXQu",
+        "c": "b64:T3ZlciA4MyUgb2YgdGhlIHNlZWRzIGV4aGliaXRlZCBhY3RpdmUgZ2VybWluYXRpb24gKDY1JSBmdWxseSBnZXJtaW5hdGVkICsgMTglIGVhcmx5IHNwcm91dGluZyksIGRlbW9uc3RyYXRpbmcgdGhhdCBtb2lzdHVyZSBhbmQgcm9vbSB0ZW1wZXJhdHVyZSBwcm92aWRlZCBoaWdobHkgZmF2b3JhYmxlIGNvbmRpdGlvbnMsIHdoaWxlIG1vbGQgcmVtYWluZWQgbG93IGF0IG9ubHkgNSUu",
+        "d": "b64:TW9sZCBjb250YW1pbmF0aW9uIHdhcyB0aGUgZG9taW5hbnQgb3V0Y29tZSBhbmQgcHJldmVudGVkIGFueSB2aWFibGUgcm9vdCBncm93dGgu",
+        "e": "b64:VGhlIHBpZSBjaGFydCBzaG93cyB0aGF0IGV4YWN0bHkgNTAlIG9mIHRoZSBzZWVkcyBnZXJtaW5hdGVkIGFuZCA1MCUgcmVtYWluZWQgZG9ybWFudC4=",
+        "f": "b64:QSBwaWUgY2hhcnQgY2Fubm90IGRpc3BsYXkgcGFydHMgb2YgYSB3aG9sZSBvciBwcm9wb3J0aW9ucyBvZiBjYXRlZ29yaWNhbCBkYXRhIGluIGEgc2NpZW5jZSBleHBlcmltZW50Lg=="
+    },
+    {
+        "group_id": "chart_5",
+        "question_name": "Question 13 - Solar Panel Tilt Angle",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In an environmental physics experiment, a student measured the electrical power output (in Watts) of a photovoltaic solar panel tilted at various angles (0°, 15°, 30°, 45°, 60°, 75°, and 90°) relative to the horizontal ground. All measurements were recorded under cloudless skies at solar noon using a digital multimeter.<br><br>Examine the line graph below:<br><b>What is the independent variable in this experiment?</b>",
+        "chart": {
+            "type": "line",
+            "title": "Solar Panel Tilt Angle vs. Power Output at Solar Noon",
+            "xLabel": "Panel Angle relative to Ground (degrees)",
+            "yLabel": "Power Output (Watts)",
+            "xMin": 0,
+            "xMax": 90,
+            "yMin": 0,
+            "yMax": 50,
+            "lineColor": "#f39c12",
+            "data": [
+                {
+                    "x": 0,
+                    "y": 18
+                },
+                {
+                    "x": 15,
+                    "y": 31
+                },
+                {
+                    "x": 30,
+                    "y": 44
+                },
+                {
+                    "x": 45,
+                    "y": 46
+                },
+                {
+                    "x": 60,
+                    "y": 38
+                },
+                {
+                    "x": 75,
+                    "y": 24
+                },
+                {
+                    "x": 90,
+                    "y": 9
+                }
+            ]
+        },
+        "correct ans index": "b64:MQ==",
+        "a": "b64:U29sYXIgUGFuZWwgVGlsdCBBbmdsZSAoZGVncmVlcyk=",
+        "b": "b64:RWxlY3RyaWNhbCBQb3dlciBPdXRwdXQgKFdhdHRzKQ==",
+        "c": "b64:U3VubGlnaHQgSW50ZW5zaXR5IChMdXgp",
+        "d": "b64:U3VyZmFjZSBBcmVhIG9mIHRoZSBQaG90b3ZvbHRhaWMgUGFuZWw=",
+        "e": "b64:QW1iaWVudCBBaXIgVGVtcGVyYXR1cmUgKMKwQyk=",
+        "f": "b64:TGVuZ3RoIG9mIE11bHRpbWV0ZXIgUHJvYmUgV2lyZXM="
+    },
+    {
+        "group_id": "chart_5",
+        "question_name": "Question 14 - Solar Panel Tilt Angle",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In an environmental physics experiment, a student measured the electrical power output (in Watts) of a photovoltaic solar panel tilted at various angles (0°, 15°, 30°, 45°, 60°, 75°, and 90°) relative to the horizontal ground. All measurements were recorded under cloudless skies at solar noon using a digital multimeter.<br><br>Examine the line graph below:<br><b>What is the dependent variable in this experiment?</b>",
+        "chart": {
+            "type": "line",
+            "title": "Solar Panel Tilt Angle vs. Power Output at Solar Noon",
+            "xLabel": "Panel Angle relative to Ground (degrees)",
+            "yLabel": "Power Output (Watts)",
+            "xMin": 0,
+            "xMax": 90,
+            "yMin": 0,
+            "yMax": 50,
+            "lineColor": "#f39c12",
+            "data": [
+                {
+                    "x": 0,
+                    "y": 18
+                },
+                {
+                    "x": 15,
+                    "y": 31
+                },
+                {
+                    "x": 30,
+                    "y": 44
+                },
+                {
+                    "x": 45,
+                    "y": 46
+                },
+                {
+                    "x": 60,
+                    "y": 38
+                },
+                {
+                    "x": 75,
+                    "y": 24
+                },
+                {
+                    "x": 90,
+                    "y": 9
+                }
+            ]
+        },
+        "correct ans index": "b64:Mg==",
+        "a": "b64:U29sYXIgUGFuZWwgVGlsdCBBbmdsZSAoZGVncmVlcyk=",
+        "b": "b64:RWxlY3RyaWNhbCBQb3dlciBPdXRwdXQgKFdhdHRzKQ==",
+        "c": "b64:VGltZSBvZiBEYXkgKFNvbGFyIE5vb24p",
+        "d": "b64:TGF0aXR1ZGUgb2YgdGhlIE9ic2VydmF0aW9uIExvY2F0aW9u",
+        "e": "b64:RGlnaXRhbCBNdWx0aW1ldGVyIEJyYW5k",
+        "f": "b64:Q2xvdWQgQ292ZXIgUGVyY2VudGFnZQ=="
+    },
+    {
+        "group_id": "chart_5",
+        "question_name": "Question 15 - Solar Panel Tilt Angle",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In an environmental physics experiment, a student measured the electrical power output (in Watts) of a photovoltaic solar panel tilted at various angles (0°, 15°, 30°, 45°, 60°, 75°, and 90°) relative to the horizontal ground. All measurements were recorded under cloudless skies at solar noon using a digital multimeter.<br><br>Examine the line graph below:<br><b>Which statement provides the accurate scientific analysis of the relationship shown in the graph?</b>",
+        "chart": {
+            "type": "line",
+            "title": "Solar Panel Tilt Angle vs. Power Output at Solar Noon",
+            "xLabel": "Panel Angle relative to Ground (degrees)",
+            "yLabel": "Power Output (Watts)",
+            "xMin": 0,
+            "xMax": 90,
+            "yMin": 0,
+            "yMax": 50,
+            "lineColor": "#f39c12",
+            "data": [
+                {
+                    "x": 0,
+                    "y": 18
+                },
+                {
+                    "x": 15,
+                    "y": 31
+                },
+                {
+                    "x": 30,
+                    "y": 44
+                },
+                {
+                    "x": 45,
+                    "y": 46
+                },
+                {
+                    "x": 60,
+                    "y": 38
+                },
+                {
+                    "x": 75,
+                    "y": 24
+                },
+                {
+                    "x": 90,
+                    "y": 9
+                }
+            ]
+        },
+        "correct ans index": "b64:Mw==",
+        "a": "b64:UG93ZXIgb3V0cHV0IGNvbnRpbnVvdXNseSBkZWNyZWFzZXMgYXMgcGFuZWwgYW5nbGUgaW5jcmVhc2VzIGZyb20gMMKwIHRvIDkwwrAu",
+        "b": "b64:QSB2ZXJ0aWNhbCBwYW5lbCAoOTDCsCkgcHJvZHVjZXMgdGhlIGhpZ2hlc3QgcG93ZXIgYmVjYXVzZSBpdCBjYXRjaGVzIHJpc2luZyB0aGVybWFsIGFpciBjdXJyZW50cy4=",
+        "c": "b64:UG93ZXIgb3V0cHV0IGluY3JlYXNlcyB3aXRoIHRpbHQgYW5nbGUgdXAgdG8gYW4gb3B0aW11bSBhcm91bmQgNDDCsOKAkzQ1wrAgKHBlYWtpbmcgYXQgNDYgVykgd2hlcmUgc3VubGlnaHQgc3RyaWtlcyB0aGUgcGFuZWwgbW9zdCBwZXJwZW5kaWN1bGFybHksIGFuZCB0aGVuIGRyb3BzIGFzIHRoZSBhbmdsZSBiZWNvbWVzIHRvbyBzdGVlcCB0b3dhcmQgOTDCsC4=",
+        "d": "b64:QSBmbGF0IHBhbmVsICgwwrApIGdlbmVyYXRlcyB6ZXJvIGVsZWN0cmljaXR5IGJlY2F1c2UgbGlnaHQgcmVmbGVjdHMgY29tcGxldGVseSBvZmYgdGhlIHByb3RlY3RpdmUgZ2xhc3MgY292ZXIu",
+        "e": "b64:VGhlIHRpbHQgYW5nbGUgaGFzIG5vIG9ic2VydmFibGUgbWF0aGVtYXRpY2FsIGVmZmVjdCBvbiBzb2xhciBwb3dlciBnZW5lcmF0aW9uIHVuZGVyIGNsb3VkbGVzcyBza2llcy4=",
+        "f": "b64:UG93ZXIgb3V0cHV0IGRvdWJsZXMgZXZlcnkgMTUgZGVncmVlcyB3aXRob3V0IHJlYWNoaW5nIGFueSB1cHBlciBzYXR1cmF0aW9uIGxpbWl0Lg=="
+    },
+    {
+        "question_name": "Question 16 - Student Name",
         "question_type": "essay_question",
         "type": "essay_question",
         "points": 0,
@@ -193,7 +765,7 @@
         "answers": []
     },
     {
-        "question_name": "Question 6 - Student Class",
+        "question_name": "Question 17 - Student Class",
         "question_type": "matching_question",
         "type": "matching_question",
         "points": 0,

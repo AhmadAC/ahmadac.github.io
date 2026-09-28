@@ -212,7 +212,49 @@ export const QuizRendererMixin = {
             });
 
             if (randomizeQuestions) {
-                quizQuestions.sort(() => Math.random() - 0.5);
+                // Group questions that belong together (e.g. sharing identical charts, group_id, or svg)
+                const groupOrder = [];
+                const groupsMap = new Map();
+
+                quizQuestions.forEach((q, idx) => {
+                    let gKey = q.group_id || q.group;
+                    if (!gKey && q.chart && typeof q.chart === 'object') {
+                        gKey = q.chart.title || JSON.stringify(q.chart);
+                    } else if (!gKey && (q.svg || q.question_svg || q.chart_svg)) {
+                        gKey = q.svg || q.question_svg || q.chart_svg;
+                    }
+
+                    if (gKey) {
+                        if (!groupsMap.has(gKey)) {
+                            groupsMap.set(gKey, []);
+                            groupOrder.push(gKey);
+                        }
+                        groupsMap.get(gKey).push(q);
+                    } else {
+                        const uKey = `__single_${idx}`;
+                        groupsMap.set(uKey, [q]);
+                        groupOrder.push(uKey);
+                    }
+                });
+
+                // Fisher-Yates array shuffling helper
+                const shuffleArray = (arr) => {
+                    for (let i = arr.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [arr[i], arr[j]] = [arr[j], arr[i]];
+                    }
+                    return arr;
+                };
+
+                // 1. Shuffle the cluster groups across the quiz
+                shuffleArray(groupOrder);
+
+                // 2. Shuffle the questions within each group cluster so they stay together
+                groupOrder.forEach(key => {
+                    shuffleArray(groupsMap.get(key));
+                });
+
+                quizQuestions = groupOrder.flatMap(key => groupsMap.get(key));
             }
 
             this.currentQuestions = [...quizQuestions, ...adminQuestions];
