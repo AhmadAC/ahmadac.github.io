@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="540" height="360">
+<rect width="540" height="360" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="8"/>
+<text x="270.0" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0f172a">Rebound Bounce Height on Different Floor Surfaces (Drop: 100 cm)</text>
+<line x1="75" y1="295.0" x2="500" y2="295.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="299.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">0</text>
+<line x1="75" y1="247.0" x2="500" y2="247.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="251.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">18</text>
+<line x1="75" y1="199.0" x2="500" y2="199.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="203.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">36</text>
+<line x1="75" y1="151.0" x2="500" y2="151.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="155.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">54</text>
+<line x1="75" y1="103.0" x2="500" y2="103.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="107.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">72</text>
+<line x1="75" y1="55.0" x2="500" y2="55.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="59.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">90</text>
+<line x1="75" y1="55" x2="75" y2="295" stroke="#475569" stroke-width="1.5"/>
+<line x1="75" y1="295" x2="500" y2="295" stroke="#475569" stroke-width="1.5"/>
+<text x="287.5" y="337" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#334155">Floor Surface Type</text>
+<text x="-175.0" y="24" transform="rotate(-90)" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#334155">Bounce Height (cm)</text>
+<rect x="98.1" y="95.0" width="60.0" height="200.0" fill="#008ee2" rx="3"/>
+<text x="128.1" y="89.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">75</text>
+<text x="128.1" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#334155">Ceramic Tile</text>
+<rect x="204.4" y="129.7" width="60.0" height="165.3" fill="#3498db" rx="3"/>
+<text x="234.4" y="123.7" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">62</text>
+<text x="234.4" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#334155">Hardwood</text>
+<rect x="310.6" y="204.3" width="60.0" height="90.7" fill="#f39c12" rx="3"/>
+<text x="340.6" y="198.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">34</text>
+<text x="340.6" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#334155">Thin Carpet</text>
+<rect x="416.9" y="252.3" width="60.0" height="42.7" fill="#e74c3c" rx="3"/>
+<text x="446.9" y="246.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#0f172a">16</text>
+<text x="446.9" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#334155">Foam Mat</text>
+</svg>

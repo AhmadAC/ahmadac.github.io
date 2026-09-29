@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="540" height="360">
+<rect width="540" height="360" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="8"/>
+<text x="270.0" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0f172a">Parachute Canopy Area vs. Fall Time from 2.5 Meters</text>
+<line x1="75" y1="295.0" x2="500" y2="295.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="299.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">0</text>
+<line x1="75" y1="247.0" x2="500" y2="247.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="251.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">1</text>
+<line x1="75" y1="199.0" x2="500" y2="199.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="203.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">2</text>
+<line x1="75" y1="151.0" x2="500" y2="151.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="155.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">3</text>
+<line x1="75" y1="103.0" x2="500" y2="103.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="107.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">4</text>
+<line x1="75" y1="55.0" x2="500" y2="55.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="67" y="59.0" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#64748b">5</text>
+<line x1="75.0" y1="55" x2="75.0" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="75.0" y1="295" x2="75.0" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="75.0" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">0</text>
+<line x1="135.7" y1="55" x2="135.7" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="135.7" y1="295" x2="135.7" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="135.7" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">100</text>
+<line x1="196.4" y1="55" x2="196.4" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="196.4" y1="295" x2="196.4" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="196.4" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">200</text>
+<line x1="257.1" y1="55" x2="257.1" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="257.1" y1="295" x2="257.1" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="257.1" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">300</text>
+<line x1="317.9" y1="55" x2="317.9" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="317.9" y1="295" x2="317.9" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="317.9" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">400</text>
+<line x1="378.6" y1="55" x2="378.6" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="378.6" y1="295" x2="378.6" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="378.6" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">500</text>
+<line x1="439.3" y1="55" x2="439.3" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="439.3" y1="295" x2="439.3" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="439.3" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">600</text>
+<line x1="500.0" y1="55" x2="500.0" y2="295" stroke="#f1f5f9" stroke-width="1"/>
+<line x1="500.0" y1="295" x2="500.0" y2="300" stroke="#94a3b8" stroke-width="1"/>
+<text x="500.0" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">700</text>
+<line x1="75" y1="55" x2="75" y2="295" stroke="#475569" stroke-width="1.5"/>
+<line x1="75" y1="295" x2="500" y2="295" stroke="#475569" stroke-width="1.5"/>
+<text x="287.5" y="337" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#334155">Canopy Surface Area (cm²)</text>
+<text x="-175.0" y="24" transform="rotate(-90)" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#334155">Fall Time (seconds)</text>
+<line x1="75.0" y1="266.2" x2="500.0" y2="79.0" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="6,4" stroke-linecap="round"/>
+<text x="495" y="71" text-anchor="end" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e74c3c">Trend Line</text>
+<circle cx="135.7" cy="237.4" r="5" fill="#008ee2" stroke="#ffffff" stroke-width="2"/>
+<text x="135.7" y="229.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#008ee2">1.2</text>
+<circle cx="196.4" cy="213.4" r="5" fill="#008ee2" stroke="#ffffff" stroke-width="2"/>
+<text x="196.4" y="205.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#008ee2">1.7</text>
+<circle cx="257.1" cy="184.6" r="5" fill="#008ee2" stroke="#ffffff" stroke-width="2"/>
+<text x="257.1" y="176.6" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#008ee2">2.3</text>
+<circle cx="317.9" cy="160.6" r="5" fill="#008ee2" stroke="#ffffff" stroke-width="2"/>
+<text x="317.9" y="152.6" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#008ee2">2.8</text>
+<circle cx="378.6" cy="136.6" r="5" fill="#008ee2" stroke="#ffffff" stroke-width="2"/>
+<text x="378.6" y="128.6" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#008ee2">3.3</text>
+<circle cx="439.3" cy="107.8" r="5" fill="#008ee2" stroke="#ffffff" stroke-width="2"/>
+<text x="439.3" y="99.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#008ee2">3.9</text>
+</svg>

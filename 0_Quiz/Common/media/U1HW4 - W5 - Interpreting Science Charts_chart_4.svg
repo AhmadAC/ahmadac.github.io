@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="540" height="360">
+<rect width="540" height="360" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="8"/>
+<text x="270.0" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0f172a">Seed Germination Outcomes After 7 Days (Sample Size: 100 Seeds)</text>
+<path d="M 155 195 L 155.00 90.00 A 105 105 0 1 1 70.05 256.72 Z" fill="#2ecc71" stroke="#ffffff" stroke-width="2"/>
+<text x="215.8" y="230.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">65%</text>
+<path d="M 155 195 L 70.05 256.72 A 105 105 0 0 1 62.99 144.42 Z" fill="#f39c12" stroke="#ffffff" stroke-width="2"/>
+<text x="86.9" y="203.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">18%</text>
+<path d="M 155 195 L 62.99 144.42 A 105 105 0 0 1 122.55 95.14 Z" fill="#3498db" stroke="#ffffff" stroke-width="2"/>
+<text x="111.5" y="146.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff">12%</text>
+<path d="M 155 195 L 122.55 95.14 A 105 105 0 0 1 155.00 90.00 Z" fill="#e74c3c" stroke="#ffffff" stroke-width="2"/>
+<rect x="295" y="111.0" width="14" height="14" rx="3" fill="#2ecc71" stroke="#cbd5e1" stroke-width="1"/>
+<text x="317" y="122.0" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#1e293b">Fully Germinated (Roots &amp; Shoots)</text>
+<text x="317" y="135.0" font-family="Arial, sans-serif" font-size="10" fill="#64748b">65 seeds (65%)</text>
+<rect x="295" y="157.0" width="14" height="14" rx="3" fill="#f39c12" stroke="#cbd5e1" stroke-width="1"/>
+<text x="317" y="168.0" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#1e293b">Early Sprouting (Radicle Only)</text>
+<text x="317" y="181.0" font-family="Arial, sans-serif" font-size="10" fill="#64748b">18 seeds (18%)</text>
+<rect x="295" y="203.0" width="14" height="14" rx="3" fill="#3498db" stroke="#cbd5e1" stroke-width="1"/>
+<text x="317" y="214.0" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#1e293b">Dormant (Ungerminated)</text>
+<text x="317" y="227.0" font-family="Arial, sans-serif" font-size="10" fill="#64748b">12 seeds (12%)</text>
+<rect x="295" y="249.0" width="14" height="14" rx="3" fill="#e74c3c" stroke="#cbd5e1" stroke-width="1"/>
+<text x="317" y="260.0" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#1e293b">Molded / Decayed</text>
+<text x="317" y="273.0" font-family="Arial, sans-serif" font-size="10" fill="#64748b">5 seeds (5%)</text>
+</svg>
