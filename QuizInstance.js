@@ -27,6 +27,8 @@ export class QuizInstance {
         this.finalScore = 0;
         this.finalTotalPossible = 0;
         this.documentBackTarget = 'view-assignments';
+        this._resultsPollTimer = null;
+        this._lastResultsSignature = null;
 
         this.views = {
             classSelect: this.root.querySelector('.view-class-select'),
@@ -87,6 +89,9 @@ export class QuizInstance {
 
     switchView(viewClass) {
         hideFloatingTextPopup();
+        if (viewClass !== 'view-results' && typeof this.stopResultsPolling === 'function') {
+            this.stopResultsPolling();
+        }
         console.log(`[DEBUG][Inst ${this.instanceId}] Switching view to ${viewClass}`);
         Object.values(this.views).forEach(v => {
             if (v) v.classList.remove('active');
@@ -127,7 +132,28 @@ export class QuizInstance {
             });
         });
 
-        this.root.querySelector('.btn-back-to-class-from-results')?.addEventListener('click', () => this.switchView('view-class-select'));
+        // Results View Back / Menu Buttons (Top Header & Bottom Left Footer)
+        this.root.querySelectorAll('.btn-back-to-class-from-results').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (typeof this.stopResultsPolling === 'function') {
+                    this.stopResultsPolling();
+                }
+                this.switchView('view-class-select');
+            });
+        });
+
+        // Dynamic live-update listener for real-time quiz results across instances and tabs
+        window.addEventListener('quiz-result-updated', () => {
+            if (this.views.results?.classList.contains('active') && typeof this.fetchAndRenderResults === 'function') {
+                this.fetchAndRenderResults();
+            }
+        });
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'quiz_results' && this.views.results?.classList.contains('active') && typeof this.fetchAndRenderResults === 'function') {
+                this.fetchAndRenderResults();
+            }
+        });
         
         this.elements.btnBackFromDoc?.addEventListener('click', () => {
             if (this.elements.documentContent) this.elements.documentContent.innerHTML = ""; 

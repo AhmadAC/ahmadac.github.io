@@ -262,6 +262,15 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                         self.wfile.write(f.read())
                     return
 
+        if clean_path == '/api/results':
+            results_file = os.path.join(DATA_DIR, 'QuizResults.json')
+            data = robust_json_load_file(results_file) or {}
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(data).encode('utf-8'))
+            return
+
         if clean_path == '/api/config':
             _, all_quizzes = update_quiz_index()
 

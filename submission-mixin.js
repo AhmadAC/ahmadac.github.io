@@ -344,6 +344,11 @@ export const SubmissionMixin = {
             score: score,
             totalPossible: total
         };
+
+        // Notify active Results view and other quiz instances in the current window immediately
+        try {
+            window.dispatchEvent(new CustomEvent('quiz-result-updated', { detail: payload }));
+        } catch (_) {}
         
         if (window.isOfflineMode) {
             fetch('/api/save_result', {

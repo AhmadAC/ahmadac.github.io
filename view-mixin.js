@@ -761,31 +761,133 @@ export const ViewMixin = {
         this.switchView("view-document");
     },
 
-    showResultsPage() {
-        this.switchView("view-results");
+    stopResultsPolling() {
+        if (this._resultsPollTimer) {
+            clearInterval(this._resultsPollTimer);
+            this._resultsPollTimer = null;
+        }
+    },
+
+    async fetchAndRenderResults() {
         const container = this.elements.resultsList;
         if (!container) return;
-        container.innerHTML = "";
-        let raw = JSON.parse(localStorage.getItem('quiz_results') || '{}');
+
+        let localData = {};
+        try {
+            localData = JSON.parse(localStorage.getItem('quiz_results') || '{}');
+        } catch (e) {
+            localData = {};
+        }
+
+        // Fetch latest server results from active endpoint or static fallback file
+        try {
+            let fetchedData = null;
+            const res = await fetch(`/api/results?t=${Date.now()}`);
+            if (res.ok) {
+                fetchedData = await res.json();
+            } else {
+                const resFallback = await fetch(`0_Quiz/QuizResults.json?t=${Date.now()}`);
+                if (resFallback.ok) {
+                    fetchedData = await resFallback.json();
+                }
+            }
+
+            if (fetchedData && typeof fetchedData === 'object') {
+                // Two-way non-destructive merge of server records into local memory
+                Object.entries(fetchedData).forEach(([cls, students]) => {
+                    if (typeof students !== 'object' || !students) return;
+                    if (!localData[cls]) localData[cls] = {};
+                    Object.entries(students).forEach(([name, quizzes]) => {
+                        if (typeof quizzes !== 'object' || !quizzes) return;
+                        if (!localData[cls][name]) localData[cls][name] = {};
+                        Object.entries(quizzes).forEach(([qName, qData]) => {
+                            if (!qData || typeof qData !== 'object') return;
+                            if (!localData[cls][name][qName]) {
+                                localData[cls][name][qName] = qData;
+                            } else {
+                                const target = localData[cls][name][qName];
+                                target.best = Math.max(target.best || 0, qData.best || 0);
+                                const existingAttempts = target.attempts || [];
+                                const newAttempts = qData.attempts || [];
+                                newAttempts.forEach(na => {
+                                    if (!existingAttempts.some(ea => ea.ts === na.ts && ea.s === na.s)) {
+                                        existingAttempts.push(na);
+                                    }
+                                });
+                                target.attempts = existingAttempts;
+                            }
+                        });
+                    });
+                });
+                try {
+                    localStorage.setItem('quiz_results', JSON.stringify(localData));
+                } catch (_) {}
+            }
+        } catch (_) {
+            // Server fetch unreached, proceed with existing local memory state
+        }
+
         let resultsFlat = [];
-        Object.entries(raw).forEach(([cls, students]) => {
+        Object.entries(localData).forEach(([cls, students]) => {
+            if (!students || typeof students !== 'object') return;
             Object.entries(students).forEach(([name, quizzes]) => {
+                if (!quizzes || typeof quizzes !== 'object') return;
                 Object.entries(quizzes).forEach(([qName, data]) => {
-                    let last = data.attempts.at(-1);
-                    resultsFlat.push({ cls, name, assignment: qName, best: data.best, total: last?.t || 0 });
+                    if (!data) return;
+                    let last = Array.isArray(data.attempts) ? data.attempts.at(-1) : null;
+                    resultsFlat.push({
+                        cls,
+                        name,
+                        assignment: qName,
+                        best: data.best !== undefined ? data.best : 0,
+                        total: last?.t || 0,
+                        ts: last?.ts || ''
+                    });
                 });
             });
         });
+
+        const stateSignature = JSON.stringify(resultsFlat);
+        if (this._lastResultsSignature === stateSignature) {
+            return; // Data has not changed; skip redundant DOM re-renders to prevent flickering
+        }
+        this._lastResultsSignature = stateSignature;
+
         if (resultsFlat.length === 0) {
             container.innerHTML = "<p style='color:#666; font-style:italic;'>No results found yet.</p>";
             return;
         }
-        resultsFlat.sort((a,b) => a.cls.localeCompare(b.cls) || a.name.localeCompare(b.name));
+
+        resultsFlat.sort((a, b) => a.cls.localeCompare(b.cls) || a.name.localeCompare(b.name) || a.assignment.localeCompare(b.assignment));
+
+        const scrollParent = container.closest('.scroll-area');
+        const prevScrollTop = scrollParent ? scrollParent.scrollTop : 0;
+
+        container.innerHTML = "";
         resultsFlat.forEach(res => {
             let card = document.createElement("div");
             card.className = "result-card";
             card.innerHTML = `<div><p class="res-title">${res.name} (${res.cls})</p><p class="res-detail">${formatDisplayString(cleanQuizTitle(res.assignment))}</p></div><div><p class="res-score">${res.best}/${res.total}</p></div>`;
             container.appendChild(card);
         });
+
+        if (scrollParent) {
+            scrollParent.scrollTop = prevScrollTop;
+        }
+    },
+
+    showResultsPage() {
+        this.switchView("view-results");
+        this._lastResultsSignature = null;
+        this.fetchAndRenderResults();
+
+        this.stopResultsPolling();
+        this._resultsPollTimer = setInterval(() => {
+            if (this.views.results?.classList.contains('active')) {
+                this.fetchAndRenderResults();
+            } else {
+                this.stopResultsPolling();
+            }
+        }, 2500);
     }
 };
