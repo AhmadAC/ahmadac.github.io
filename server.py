@@ -317,6 +317,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
 
             response = {
                 "is_offline_mode": True,
+                "show_save_image": False,
                 "canvas": canvas_data,
                 "ignore": ignore_data,
                 "autolink": autolink_data,

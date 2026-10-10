@@ -98,6 +98,11 @@ export class QuizInstance {
         });
         const targetView = this.root.querySelector(`.${viewClass}`);
         if (targetView) targetView.classList.add('active');
+
+        // Dynamically update visibility of Toggle Screens buttons (visible only on main page)
+        if (typeof window.updateToggleScreensVisibility === 'function') {
+            window.updateToggleScreensVisibility();
+        }
     }
 
     addEventListeners() {

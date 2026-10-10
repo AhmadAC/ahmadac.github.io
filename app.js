@@ -15,6 +15,37 @@ let mappingState = {};
 let quizzesToRename = {}; // Map of { originalNameOnDisk: newName }
 let quizzesToDelete = [];
 
+export function updateToggleScreensVisibility() {
+    const topBtn = document.getElementById("view-mode-btn");
+    const bottomBtn = document.getElementById("view-mode-btn-bottom");
+    if (!topBtn && !bottomBtn) return;
+
+    if (!window.isOfflineMode) {
+        if (topBtn) topBtn.style.display = 'none';
+        if (bottomBtn) bottomBtn.style.display = 'none';
+        document.body.classList.remove('non-main-page');
+        return;
+    }
+
+    // Check if any instance has navigated away from the main view (view-class-select)
+    const nonMainActiveViews = document.querySelectorAll(
+        '.app-instance-container .view.active:not(.view-class-select)'
+    );
+
+    const isMainPage = nonMainActiveViews.length === 0;
+
+    if (isMainPage) {
+        document.body.classList.remove('non-main-page');
+        if (topBtn) topBtn.style.display = 'flex';
+        if (bottomBtn) bottomBtn.style.display = 'flex';
+    } else {
+        document.body.classList.add('non-main-page');
+        if (topBtn) topBtn.style.display = 'none';
+        if (bottomBtn) bottomBtn.style.display = 'none';
+    }
+}
+window.updateToggleScreensVisibility = updateToggleScreensVisibility;
+
 function applyOfflineZoomRestrictions() {
     // Lock viewport scaling for offline desktop executable mode
     const viewportMeta = document.getElementById('app-viewport');
@@ -43,8 +74,12 @@ async function initApp() {
     initDevTools();
     console.log("[DEBUG] Initializing App");
 
+    // Top-Right and Bottom-Right Toggle Screens Buttons setup
     const viewModeBtn = document.getElementById("view-mode-btn");
     if (viewModeBtn) viewModeBtn.addEventListener("click", cycleViewMode);
+
+    const viewModeBtnBottom = document.getElementById("view-mode-btn-bottom");
+    if (viewModeBtnBottom) viewModeBtnBottom.addEventListener("click", cycleViewMode);
     
     // Theme toggler switch setup
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
@@ -142,6 +177,7 @@ async function initApp() {
 
     setViewMode(1);
     applyFeatureToggles();
+    updateToggleScreensVisibility();
 }
 
 // Safely handle DOM loading state
@@ -171,6 +207,7 @@ function setViewMode(numScreens) {
         quizInstances.push(new QuizInstance(rootElement));
     }
     applyFeatureToggles();
+    updateToggleScreensVisibility();
 }
 
 // --- GLOBAL QR CODE MODAL HOOKS ---
@@ -1110,7 +1147,7 @@ function rebuildCanvasJson(oldData, updates, renamesMap = {}) {
                 let ts = nowStr;
                 try {
                     if (oldData?.[grade]?.[cls]?.[lookupName]) ts = oldData[grade][cls][lookupName];
-                    else if (oldData?.[grade]?.[lookupName]) ts = oldData[grade][lookupName];
+                    else if (oldData?.[grade]?.[lookupName]) ts = oldData[grade][cls][lookupName];
                     else if (oldData?.[grade]?.[cls]?.[u.name]) ts = oldData[grade][cls][u.name];
                 } catch(e) {}
 

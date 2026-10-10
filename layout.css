@@ -22,6 +22,12 @@
     border-left: 2px solid #999;
 }
 
+/* Hide website main title when screens are toggled to > 1 split */
+.app-instance-container:not(:only-child) .site-title,
+.app-instance-container:not(:only-child) .view-class-select .site-title {
+    display: none !important;
+}
+
 .view {
     display: none;
     flex-direction: column;
@@ -105,9 +111,9 @@
     min-width: 0;
 }
 
-/* Only reserve right space on the final window container where fixed buttons reside in single-screen view */
+/* Reserve space on the right for fixed theme button in single-screen view */
 .app-instance-container:only-child .quiz-header {
-    padding-right: 215px;
+    padding-right: 70px;
 }
 
 .quiz-header-row-top {

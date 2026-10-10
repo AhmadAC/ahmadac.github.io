@@ -224,7 +224,13 @@ export const SubmissionMixin = {
         this.elements.btnSubmit?.classList.add("hidden");
         if (this.elements.btnSubmit) this.elements.btnSubmit.disabled = true;
         this.elements.btnRedo?.classList.remove("hidden");
-        this.elements.btnSavePic?.classList.remove("hidden");
+        
+        // Save Picture button is exclusively available in the online deployment
+        if (!window.isOfflineMode) {
+            this.elements.btnSavePic?.classList.remove("hidden");
+        } else {
+            this.elements.btnSavePic?.classList.add("hidden");
+        }
         
         if (this.elements.resultBox && this.elements.resultText) {
             this.elements.resultBox.dataset.status = state;
