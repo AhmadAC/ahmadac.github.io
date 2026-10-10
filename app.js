@@ -20,13 +20,6 @@ export function updateToggleScreensVisibility() {
     const bottomBtn = document.getElementById("view-mode-btn-bottom");
     if (!topBtn && !bottomBtn) return;
 
-    if (!window.isOfflineMode) {
-        if (topBtn) topBtn.style.display = 'none';
-        if (bottomBtn) bottomBtn.style.display = 'none';
-        document.body.classList.remove('non-main-page');
-        return;
-    }
-
     // Check if any instance has navigated away from the main view (view-class-select)
     const nonMainActiveViews = document.querySelectorAll(
         '.app-instance-container .view.active:not(.view-class-select)'
@@ -36,8 +29,10 @@ export function updateToggleScreensVisibility() {
 
     if (isMainPage) {
         document.body.classList.remove('non-main-page');
+        // Keep the top Toggle Screens button visible on the main page for both online and offline
         if (topBtn) topBtn.style.display = 'flex';
-        if (bottomBtn) bottomBtn.style.display = 'flex';
+        // Bottom toggle button is only enabled for the offline desktop kiosk
+        if (bottomBtn) bottomBtn.style.display = window.isOfflineMode ? 'flex' : 'none';
     } else {
         document.body.classList.add('non-main-page');
         if (topBtn) topBtn.style.display = 'none';

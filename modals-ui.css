@@ -172,7 +172,7 @@ body.offline-mode .btn-qr-trigger {
     letter-spacing: 0.5px;
 }
 
-/* Shift version badge to the left on the main page to avoid colliding with bottom-right toggle button */
+/* Shift version badge to the left in offline mode on the main page to avoid colliding with bottom-right toggle button */
 body.offline-mode .app-instance-container:last-child .app-version-lbl {
     right: 165px;
 }
@@ -236,7 +236,7 @@ body.offline-mode .app-instance-container:last-child .app-version-lbl {
 #theme-toggle-btn {
     position: fixed;
     top: 10px;
-    right: 15px; 
+    right: 160px; /* Positioned to the left of the top-right Toggle Screens button */
     z-index: 10000;
     background-color: var(--bg-main);
     color: white;
@@ -252,14 +252,9 @@ body.offline-mode .app-instance-container:last-child .app-version-lbl {
     transition: 0.2s;
 }
 
-/* Offset theme toggle to make room for the top-right toggle screens button on the offline main page */
-body.offline-mode #theme-toggle-btn {
-    right: 160px;
-}
-
-/* When not on the main page in offline mode, return theme toggle to the top right */
-body.offline-mode:has(.app-instance-container .view.active:not(.view-class-select)) #theme-toggle-btn,
-body.offline-mode.non-main-page #theme-toggle-btn {
+/* When not on the main page, move theme toggle to top-right corner since Toggle Screens is hidden */
+body:has(.app-instance-container .view.active:not(.view-class-select)) #theme-toggle-btn,
+body.non-main-page #theme-toggle-btn {
     right: 15px;
 }
 
@@ -275,10 +270,14 @@ body.dark-theme .moon-icon { display: none; }
 body:not(.dark-theme) .sun-icon { display: none; }
 body:not(.dark-theme) .moon-icon { display: block; }
 
-/* --- TOGGLE SCREENS BUTTONS (ONLY ON MAIN PAGE FOR OFFLINE SERVER) --- */
-#view-mode-btn,
-#view-mode-btn-bottom {
-    display: none;
+/* --- TOGGLE SCREENS BUTTONS --- */
+#view-mode-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 10px;
+    right: 15px;
     z-index: 10000;
     background-color: var(--bg-main);
     color: white;
@@ -292,31 +291,34 @@ body:not(.dark-theme) .moon-icon { display: block; }
     user-select: none;
 }
 
-/* Position top-right toggle screens button */
-#view-mode-btn {
-    position: fixed;
-    top: 10px;
-    right: 15px;
-}
-
-/* Position bottom-right toggle screens button */
 #view-mode-btn-bottom {
+    display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     bottom: 10px;
     right: 15px;
+    z-index: 10000;
+    background-color: var(--bg-main);
+    color: white;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.2s, transform 0.15s;
+    user-select: none;
 }
 
-/* Show buttons on offline server by default (on main page) */
-body.offline-mode #view-mode-btn,
+/* Bottom toggle screens button is only displayed on the offline server main page */
 body.offline-mode #view-mode-btn-bottom {
     display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Strictly hide Toggle Screens buttons on any other pages than the main class selection page */
-body.offline-mode:has(.app-instance-container .view.active:not(.view-class-select)) #view-mode-btn,
-body.offline-mode:has(.app-instance-container .view.active:not(.view-class-select)) #view-mode-btn-bottom,
+/* Strictly hide Toggle Screens buttons on any pages other than the main class selection page */
+body:has(.app-instance-container .view.active:not(.view-class-select)) #view-mode-btn,
+body:has(.app-instance-container .view.active:not(.view-class-select)) #view-mode-btn-bottom,
 body.non-main-page #view-mode-btn,
 body.non-main-page #view-mode-btn-bottom {
     display: none !important;
@@ -846,25 +848,18 @@ body.rearrange-active .assignment-status-lbl { display: none; }
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 600px) {
-    body:not(.offline-mode) #theme-toggle-btn {
-        top: 12px !important;
-        right: 10px !important;
-        padding: 4px 8px !important;
-        height: 32px !important;
-        font-size: 12px !important;
-    }
-    body.offline-mode #theme-toggle-btn {
+    #theme-toggle-btn {
         top: 12px !important;
         right: 140px !important;
         padding: 4px 8px !important;
         height: 32px !important;
         font-size: 12px !important;
     }
-    body.offline-mode:has(.app-instance-container .view.active:not(.view-class-select)) #theme-toggle-btn,
-    body.offline-mode.non-main-page #theme-toggle-btn {
+    body:has(.app-instance-container .view.active:not(.view-class-select)) #theme-toggle-btn,
+    body.non-main-page #theme-toggle-btn {
         right: 10px !important;
     }
-    body.offline-mode #view-mode-btn {
+    #view-mode-btn {
         top: 12px !important;
         right: 10px !important;
         padding: 4px 8px !important;
