@@ -1,3 +1,4 @@
+
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -248,6 +249,7 @@
                         <div class="feature-toggle-group">
                             <label><input type="checkbox" id="toggle-show-bonus"> Show Bonus</label>
                             <label><input type="checkbox" id="toggle-show-results"> Show Results</label>
+                            <label><input type="checkbox" id="toggle-check-updates"> Check for Updates</label>
                         </div>
                     </div>
                 </div>
@@ -331,6 +333,28 @@
             <div class="modal-footer">
                 <button class="btn-secondary" onclick="closeModals()">Cancel</button>
                 <button class="btn-primary" onclick="saveFolderConfig()">Save Config</button>
+            </div>
+        </div>
+
+        <!-- 4. Update Available Dialog -->
+        <div id="update-modal" class="modal-container hidden" style="max-width: 520px;">
+            <div class="modal-header">
+                <h2 id="update-modal-title">New Update Available</h2>
+            </div>
+            <div class="modal-body">
+                <p id="update-modal-text" style="font-size: 14px; line-height: 1.6; margin: 0 0 15px 0;">
+                    A new version of Mr. Cooper's Quiz Suite is available on GitHub. Would you like to automatically download and install the update now?
+                </p>
+                <div id="update-progress-container" class="hidden" style="margin-top: 15px;">
+                    <div style="font-size: 12px; margin-bottom: 6px; color: var(--text-muted);" id="update-progress-status">Downloading update from GitHub...</div>
+                    <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden;">
+                        <div id="update-progress-bar" style="width: 0%; height: 100%; background: var(--primary); transition: width 0.3s;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" id="update-modal-footer">
+                <button class="btn-secondary" id="btn-update-cancel" onclick="dismissUpdate()">Later</button>
+                <button class="btn-primary" id="btn-update-confirm" onclick="applyAppUpdate()">Update Now</button>
             </div>
         </div>
     </div>

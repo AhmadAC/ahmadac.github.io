@@ -59,6 +59,7 @@ export let appSettings = {
     manual_date_string: null,
     show_bonus: true,
     show_results: false,
+    check_updates: true,
     subjects: {
         "6": [],
         "7": ["Computer Science (CS)", "STEAM"],
@@ -76,11 +77,16 @@ export function updateAppSettings(newSettings) {
             ? (newSettings.show_results === true || newSettings.show_results === 'true' || newSettings.show_results === 1 || newSettings.show_results === '1')
             : appSettings.show_results;
 
+        const parsedUpdates = (newSettings.check_updates !== undefined)
+            ? (newSettings.check_updates === true || newSettings.check_updates === 'true' || newSettings.check_updates === 1 || newSettings.check_updates === '1')
+            : appSettings.check_updates;
+
         appSettings = { 
             ...appSettings, 
             ...newSettings,
             show_bonus: parsedBonus,
             show_results: parsedResults,
+            check_updates: parsedUpdates,
             subjects: {
                 "6": (newSettings.subjects && Array.isArray(newSettings.subjects["6"])) ? newSettings.subjects["6"] : (appSettings.subjects?.["6"] || []),
                 "7": (newSettings.subjects && Array.isArray(newSettings.subjects["7"])) ? newSettings.subjects["7"] : (appSettings.subjects?.["7"] || ["Computer Science (CS)", "STEAM"]),

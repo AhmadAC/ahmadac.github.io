@@ -173,6 +173,11 @@ async function initApp() {
     setViewMode(1);
     applyFeatureToggles();
     updateToggleScreensVisibility();
+
+    // Trigger background check for executable update if enabled
+    if (window.isOfflineMode && appSettings.check_updates !== false) {
+        setTimeout(checkForAppUpdates, 2500);
+    }
 }
 
 // Safely handle DOM loading state
@@ -204,6 +209,87 @@ function setViewMode(numScreens) {
     applyFeatureToggles();
     updateToggleScreensVisibility();
 }
+
+// --- GLOBAL UPDATE CHECK & INSTALLER LOGIC ---
+
+async function checkForAppUpdates() {
+    if (!window.isOfflineMode || appSettings.check_updates === false) return;
+    try {
+        const res = await fetch('/api/check_update');
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.available) {
+                // Ensure we don't spam modal if previously dismissed in this session
+                if (!sessionStorage.getItem('dismissed_update_' + data.latest_version)) {
+                    promptUpdateAvailable(data);
+                }
+            }
+        }
+    } catch (e) {
+        console.log("[DEBUG] Update check failed:", e);
+    }
+}
+
+function promptUpdateAvailable(updateData) {
+    const modal = document.getElementById('update-modal');
+    const overlay = document.getElementById('modal-overlay');
+    const titleEl = document.getElementById('update-modal-title');
+    const textEl = document.getElementById('update-modal-text');
+    const pContainer = document.getElementById('update-progress-container');
+    const footer = document.getElementById('update-modal-footer');
+
+    if (!modal || !overlay) return;
+
+    if (titleEl) {
+        titleEl.innerText = `New Update Available (${updateData.latest_version})`;
+    }
+    if (textEl) {
+        textEl.innerText = `A new version of Mr. Cooper's Quiz Server (${updateData.latest_version}) is available on GitHub. Would you like to automatically download and install the update now?`;
+    }
+
+    if (pContainer) pContainer.classList.add('hidden');
+    if (footer) footer.style.display = 'flex';
+
+    modal.dataset.version = updateData.latest_version;
+    overlay.classList.add('active');
+    modal.classList.remove('hidden');
+}
+
+window.dismissUpdate = function() {
+    const modal = document.getElementById('update-modal');
+    if (modal && modal.dataset.version) {
+        sessionStorage.setItem('dismissed_update_' + modal.dataset.version, 'true');
+    }
+    window.closeModals();
+};
+
+window.applyAppUpdate = async function() {
+    const statusEl = document.getElementById('update-progress-status');
+    const pBar = document.getElementById('update-progress-bar');
+    const pContainer = document.getElementById('update-progress-container');
+    const footer = document.getElementById('update-modal-footer');
+
+    if (pContainer) pContainer.classList.remove('hidden');
+    if (footer) footer.style.display = 'none';
+
+    if (statusEl) statusEl.innerText = "Downloading update from GitHub... Please keep this window open.";
+    if (pBar) pBar.style.width = "45%";
+
+    try {
+        const res = await fetch('/api/apply_update', { method: 'POST' });
+        const data = await res.json();
+        if (res.ok && data.success) {
+            if (pBar) pBar.style.width = "100%";
+            if (statusEl) statusEl.innerText = "Download complete! Restarting application now...";
+        } else {
+            throw new Error(data.error || "Update operation failed");
+        }
+    } catch (err) {
+        if (pContainer) pContainer.classList.add('hidden');
+        if (footer) footer.style.display = 'flex';
+        alert("Failed to install update: " + err.message);
+    }
+};
 
 // --- GLOBAL QR CODE MODAL HOOKS ---
 
@@ -474,7 +560,6 @@ window.handleHeaderPreset = function(preset) {
     if (!container) return;
     const toggles = container.querySelectorAll('.header-class-toggle');
 
-    // Update active highlight on preset buttons
     document.querySelectorAll('.header-target-presets .btn-preset').forEach(btn => {
         if (btn.getAttribute('onclick')?.includes(`'${preset}'`)) {
             btn.classList.add('active');
@@ -605,7 +690,6 @@ window.renameQuizPrompt = function(oldName) {
         return;
     }
 
-    // Track rename for disk file renaming on server save
     if (!isHeader) {
         let rootOldName = oldName;
         for (const [orig, curr] of Object.entries(quizzesToRename)) {
@@ -617,7 +701,6 @@ window.renameQuizPrompt = function(oldName) {
         quizzesToRename[rootOldName] = newName;
     }
 
-    // Update mappingState
     if (mappingState[oldName]) {
         mappingState[newName] = mappingState[oldName];
         delete mappingState[oldName];
@@ -629,7 +712,6 @@ window.renameQuizPrompt = function(oldName) {
         };
     }
 
-    // Update in window.appConfig.quizzes
     if (window.appConfig && Array.isArray(window.appConfig.quizzes)) {
         const qObj = window.appConfig.quizzes.find(q => q.name === oldName);
         if (qObj) {
@@ -637,7 +719,6 @@ window.renameQuizPrompt = function(oldName) {
         }
     }
 
-    // Update order.json in-memory so position is preserved
     if (window.appConfig && window.appConfig.order) {
         Object.keys(window.appConfig.order).forEach(k => {
             if (Array.isArray(window.appConfig.order[k])) {
@@ -646,7 +727,6 @@ window.renameQuizPrompt = function(oldName) {
         });
     }
 
-    // Update ignore array if present
     if (window.appConfig && Array.isArray(window.appConfig.ignore)) {
         const ignIdx = window.appConfig.ignore.indexOf(oldName);
         if (ignIdx > -1) {
@@ -679,9 +759,11 @@ function renderMappingList() {
     // Feature Toggles Checkboxes Setup
     const showBonusCb = document.getElementById('toggle-show-bonus');
     const showResultsCb = document.getElementById('toggle-show-results');
+    const checkUpdatesCb = document.getElementById('toggle-check-updates');
 
     if (showBonusCb) showBonusCb.checked = !!appSettings.show_bonus;
     if (showResultsCb) showResultsCb.checked = !!appSettings.show_results;
+    if (checkUpdatesCb) checkUpdatesCb.checked = appSettings.check_updates !== false;
 
     const grades = ["6", "7", "8"];
     const currentSubjects = appSettings.subjects || {};
@@ -705,7 +787,6 @@ function renderMappingList() {
         const row = document.createElement('div');
         row.className = 'mapping-row';
         
-        // Editable Name Element with Pencil Icon
         const nameEl = document.createElement('span'); 
         nameEl.className = 'mapping-quiz-name editable-quiz-name';
         nameEl.title = isHeader ? 'Click to rename header' : 'Click to rename assignment and file';
@@ -966,7 +1047,6 @@ window.saveMappingConfig = function() {
     let newIgnore = [];
     let updates = [];
 
-    // Read from mappingState directly to ensure un-rendered/searched items are never lost
     Object.entries(mappingState).forEach(([qname, state]) => {
         if (quizzesToDelete.includes(qname)) return;
 
@@ -978,10 +1058,11 @@ window.saveMappingConfig = function() {
         }
     });
     
-    // Save Settings (Teaching Week, Feature Toggles, & Subjects)
+    // Save Settings (Teaching Week, Feature Toggles, Updates & Subjects)
     const weekInput = document.getElementById('manual-week-input');
     const showBonusCb = document.getElementById('toggle-show-bonus');
     const showResultsCb = document.getElementById('toggle-show-results');
+    const checkUpdatesCb = document.getElementById('toggle-check-updates');
 
     if (!window.appConfig) window.appConfig = {};
     if (!window.appConfig.settings) window.appConfig.settings = {};
@@ -997,6 +1078,7 @@ window.saveMappingConfig = function() {
 
     if (showBonusCb) window.appConfig.settings.show_bonus = showBonusCb.checked;
     if (showResultsCb) window.appConfig.settings.show_results = showResultsCb.checked;
+    if (checkUpdatesCb) window.appConfig.settings.check_updates = checkUpdatesCb.checked;
     window.appConfig.settings.subjects = appSettings.subjects;
 
     updateAppSettings(window.appConfig.settings);
@@ -1007,7 +1089,6 @@ window.saveMappingConfig = function() {
     window.appConfig.ignore = newIgnore;
     window.appConfig.canvas = rebuildCanvasJson(window.appConfig.canvas, updates, quizzesToRename);
     
-    // Synchronize global in-memory state immediately
     setCanvasData(window.appConfig.canvas);
     setIgnoreData(newIgnore);
 
@@ -1054,12 +1135,10 @@ function getQuizMapping(q_name, data) {
         if (data[grade]) {
             const gradeData = data[grade];
             
-            // Check top-level quiz mapping (All classes in grade)
             if (gradeData[q_name] !== undefined && typeof gradeData[q_name] !== 'object') {
                 assigned.push(`G${grade}A`, `G${grade}B`, `G${grade}C`);
             }
 
-            // Check class or subject level mappings
             Object.entries(gradeData).forEach(([k, val]) => {
                 if (typeof val === 'object' && val !== null) {
                     if (k.startsWith(`G${grade}`)) {
@@ -1098,7 +1177,6 @@ function rebuildCanvasJson(oldData, updates, renamesMap = {}) {
     let finalData = { "6": {}, "7": {}, "8": {} };
     let nowStr = new Date().toISOString();
     
-    // Build reverse map to look up previous timestamps if an item was renamed
     const revRenames = {};
     if (renamesMap) {
         Object.entries(renamesMap).forEach(([oldN, newN]) => {
