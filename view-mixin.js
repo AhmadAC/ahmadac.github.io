@@ -225,8 +225,10 @@ export const ViewMixin = {
             cols.forEach(col => {
                 const subTitle = col.querySelector('.split-title').innerText;
                 const orderKey = `${this.selectedClass}__${subTitle}`;
+                const btnPrev = col.querySelector('.btn-show-previous');
+                const collapsed = (btnPrev && btnPrev._collapsedTitles) ? btnPrev._collapsedTitles : [];
                 const cards = col.querySelectorAll('.assignment-card');
-                const newOrder = [];
+                const newOrder = [...collapsed];
                 cards.forEach(c => {
                     if (c.dataset.rawTitle) {
                         newOrder.push(c.dataset.rawTitle);
@@ -235,8 +237,10 @@ export const ViewMixin = {
                 window.appConfig.order[orderKey] = newOrder;
             });
         } else {
+            const btnPrev = list.querySelector('.btn-show-previous');
+            const collapsed = (btnPrev && btnPrev._collapsedTitles) ? btnPrev._collapsedTitles : [];
             const cards = list.querySelectorAll('.assignment-card');
-            const newOrder = [];
+            const newOrder = [...collapsed];
             cards.forEach(c => {
                 if (c.dataset.rawTitle) {
                     newOrder.push(c.dataset.rawTitle);
@@ -257,8 +261,8 @@ export const ViewMixin = {
     },
 
     async renderPreviousAssignments(titles, buttonToRemove) {
-        const list = this.elements.assignmentList;
-        if (!list) return;
+        const targetContainer = buttonToRemove.parentNode || this.elements.assignmentList;
+        if (!targetContainer) return;
 
         const existenceChecks = titles.map(async (title) => {
             if (isHeaderAssignment(title)) return { title, exists: true };
@@ -267,7 +271,6 @@ export const ViewMixin = {
         });
 
         const results = await Promise.all(existenceChecks);
-        results.sort((a, b) => this.customWeekSort(a.title, b.title));
 
         const fragment = document.createDocumentFragment();
         results.forEach(result => {
@@ -275,7 +278,7 @@ export const ViewMixin = {
             fragment.appendChild(card);
         });
         
-        list.insertBefore(fragment, buttonToRemove);
+        targetContainer.insertBefore(fragment, buttonToRemove);
         buttonToRemove.remove();
     },
 
@@ -433,7 +436,29 @@ export const ViewMixin = {
                 continue;
             }
 
-            const existenceChecks = validTitles.map(async (title) => {
+            // Only show the last 4 assignments by default; collapse preceding ones
+            let previousTitles = [];
+            let recentTitles = validTitles;
+
+            if (validTitles.length > 4) {
+                previousTitles = validTitles.slice(0, validTitles.length - 4);
+                recentTitles = validTitles.slice(validTitles.length - 4);
+            }
+
+            if (previousTitles.length > 0) {
+                const btnPrevious = document.createElement("button");
+                btnPrevious.className = "btn-show-previous";
+                btnPrevious.innerText = `▲ Show Previous Assignments (${previousTitles.length})`;
+                btnPrevious._collapsedTitles = previousTitles;
+                btnPrevious.onclick = () => {
+                    btnPrevious.disabled = true;
+                    btnPrevious.innerText = "Loading previous assignments...";
+                    this.renderPreviousAssignments(previousTitles, btnPrevious);
+                };
+                subListElement.appendChild(btnPrevious);
+            }
+
+            const existenceChecks = recentTitles.map(async (title) => {
                 if (isHeaderAssignment(title)) return { title, exists: true };
                 const exists = await checkQuizExists(title);
                 return { title, exists };
@@ -549,7 +574,29 @@ export const ViewMixin = {
             return;
         }
 
-        const existenceChecks = validTitles.map(async (title) => {
+        // Only show the last 4 assignments by default; collapse preceding ones
+        let previousTitles = [];
+        let recentTitles = validTitles;
+
+        if (validTitles.length > 4) {
+            previousTitles = validTitles.slice(0, validTitles.length - 4);
+            recentTitles = validTitles.slice(validTitles.length - 4);
+        }
+
+        if (previousTitles.length > 0) {
+            const btnPrevious = document.createElement("button");
+            btnPrevious.className = "btn-show-previous";
+            btnPrevious.innerText = `▲ Show Previous Assignments (${previousTitles.length})`;
+            btnPrevious._collapsedTitles = previousTitles;
+            btnPrevious.onclick = () => {
+                btnPrevious.disabled = true;
+                btnPrevious.innerText = "Loading previous assignments...";
+                this.renderPreviousAssignments(previousTitles, btnPrevious);
+            };
+            list.appendChild(btnPrevious);
+        }
+
+        const existenceChecks = recentTitles.map(async (title) => {
             if (isHeaderAssignment(title)) return { title, exists: true };
             const exists = await checkQuizExists(title);
             return { title, exists };
