@@ -20,8 +20,6 @@ from http.server import SimpleHTTPRequestHandler
 from socketserver import ThreadingTCPServer
 from datetime import datetime
 
-CURRENT_VERSION = "v1.0.1.3"
-
 # --- Hide Windows Console window automatically if running directly or as compiled exe ---
 if platform.system() == "Windows":
     try:
@@ -88,6 +86,26 @@ if not WEB_DIR:
     WEB_DIR = BUNDLE_DIR
 
 os.chdir(WEB_DIR)
+
+def get_version_from_config(preferred_dir=None):
+    """Dynamically parses APP_VERSION from config.js to avoid writing it in two places."""
+    search_dirs = [preferred_dir] if preferred_dir else []
+    search_dirs.extend(candidate_web_dirs)
+    for c_dir in search_dirs:
+        if c_dir:
+            cfg_path = os.path.join(c_dir, "config.js")
+            if os.path.exists(cfg_path):
+                try:
+                    with open(cfg_path, 'r', encoding='utf-8') as f:
+                        content = f.read()
+                    m = re.search(r'APP_VERSION\s*=\s*["\']([^"\']+)["\']', content)
+                    if m:
+                        return m.group(1).strip()
+                except Exception:
+                    pass
+    return "v1.0.0.0"
+
+CURRENT_VERSION = get_version_from_config(WEB_DIR)
 
 def get_clean_env():
     env = os.environ.copy()
