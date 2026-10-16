@@ -3,7 +3,72 @@
 import { CLASSES } from './config.js?v=2.2';
 import { formatDisplayString, decodeUtf8B64 } from './utils.js?v=2.2';
 
+export function extractOptionVariations(val, key, qObj) {
+    let rawList = [];
+
+    if (Array.isArray(val)) {
+        rawList.push(...val);
+    } else if (val && typeof val === 'object') {
+        if (Array.isArray(val.variations)) {
+            rawList.push(...val.variations);
+        } else if (val.text) {
+            rawList.push(val.text);
+            if (Array.isArray(val.synonyms)) rawList.push(...val.synonyms);
+        } else {
+            rawList.push(...Object.values(val));
+        }
+    } else if (val !== undefined && val !== null) {
+        let strVal = String(val).trim();
+        if (strVal !== "") {
+            if (strVal.includes("|||")) {
+                rawList.push(...strVal.split("|||").map(s => s.trim()).filter(Boolean));
+            } else if (strVal.includes(";;;")) {
+                rawList.push(...strVal.split(";;;").map(s => s.trim()).filter(Boolean));
+            } else {
+                rawList.push(strVal);
+            }
+        }
+    }
+
+    // Check sibling keys if key is provided (e.g. 'a1', 'a2', 'a3', 'a_1', 'a_var1')
+    if (key && qObj) {
+        const suffixes = ['1', '2', '3', '_1', '_2', '_3', '_var1', '_var2', '_var3', '_variation1', '_variation2', '_variation3'];
+        suffixes.forEach(suf => {
+            const siblingKey = key + suf;
+            if (qObj[siblingKey] !== undefined && qObj[siblingKey] !== null && String(qObj[siblingKey]).trim() !== "") {
+                rawList.push(String(qObj[siblingKey]).trim());
+            }
+        });
+        const varArrKey = key + '_variations';
+        if (Array.isArray(qObj[varArrKey])) {
+            rawList.push(...qObj[varArrKey]);
+        }
+    }
+
+    let cleaned = [];
+    rawList.forEach(item => {
+        if (item === undefined || item === null) return;
+        let s = String(item).trim();
+        if (!s) return;
+        if (s.startsWith("b64:")) {
+            s = decodeUtf8B64(s.substring(4));
+        }
+        if (s && !cleaned.includes(s)) {
+            cleaned.push(s);
+        }
+    });
+
+    // Enforce a maximum of 3 variations per answer option
+    if (cleaned.length > 3) {
+        cleaned = cleaned.slice(0, 3);
+    }
+
+    return cleaned;
+}
+
 export function setupMultipleChoiceUI(container, q, idx) {
+    const isVariationOn = q._variationOn ?? (this && this.isVariationOn) ?? false;
+
     let options = [];
     let correctIdx = q['correct ans index'];
     if (typeof correctIdx === 'string' && !isNaN(parseFloat(correctIdx))) {
@@ -15,33 +80,52 @@ export function setupMultipleChoiceUI(container, q, idx) {
     // Load from direct properties: a, b, c, d, e, f, ... (1-26 options)
     for (let i = 0; i < 26; i++) {
         let k = String.fromCharCode(97 + i);
-        if (q[k] !== undefined && q[k] !== null && String(q[k]).trim() !== "") {
-            let optStr = String(q[k]);
-            if (optStr.startsWith("b64:")) {
-                optStr = decodeUtf8B64(optStr.substring(4));
+        let variations = extractOptionVariations(q[k], k, q);
+
+        if (variations.length > 0) {
+            let chosenText = "";
+            if (isVariationOn && variations.length > 1) {
+                // Randomly select one of up to 3 variations
+                const randIndex = Math.floor(Math.random() * variations.length);
+                chosenText = variations[randIndex];
+            } else {
+                chosenText = variations[0];
             }
-            options.push({ text: formatDisplayString(optStr), is_correct: i === correctIdx });
+
+            options.push({
+                text: formatDisplayString(chosenText),
+                is_correct: i === correctIdx
+            });
         }
     }
 
     // Fallback: Load from answers array if provided in JSON
     if (options.length === 0 && Array.isArray(q.answers)) {
         q.answers.forEach((ans, i) => {
-            let optText = "";
+            let variations = [];
             let isCorr = false;
-            if (typeof ans === 'string') {
-                optText = ans;
+            if (typeof ans === 'string' || Array.isArray(ans)) {
+                variations = extractOptionVariations(ans, null, null);
                 isCorr = (i === correctIdx);
             } else if (ans && typeof ans === 'object') {
-                optText = ans.text || ans.answer_text || "";
                 let weight = ans.weight !== undefined ? parseFloat(ans.weight) : 0;
                 isCorr = (ans.is_correct === true) || (weight > 0) || (i === correctIdx);
+                if (ans.variations) {
+                    variations = extractOptionVariations(ans.variations, null, null);
+                } else {
+                    variations = extractOptionVariations(ans.text || ans.answer_text || "", null, null);
+                }
             }
-            if (optText.startsWith("b64:")) {
-                optText = decodeUtf8B64(optText.substring(4));
-            }
-            if (optText.trim() !== "") {
-                options.push({ text: formatDisplayString(optText), is_correct: isCorr });
+
+            if (variations.length > 0) {
+                let chosenText = (isVariationOn && variations.length > 1)
+                    ? variations[Math.floor(Math.random() * variations.length)]
+                    : variations[0];
+
+                options.push({
+                    text: formatDisplayString(chosenText),
+                    is_correct: isCorr
+                });
             }
         });
     }
@@ -100,11 +184,25 @@ export function setupClassSelectionUI(container, q, idx) {
 }
 
 export function setupComplexMatchingUI(container, q, idx) {
-    let pairs = (q.answers || []).map(p => ({
-        ...p,
-        text: p.text ? formatDisplayString(String(p.text)) : p.text,
-        answer_text: p.answer_text ? formatDisplayString(String(p.answer_text)) : p.answer_text
-    }));
+    const isVariationOn = q._variationOn ?? (this && this.isVariationOn) ?? false;
+
+    let pairs = (q.answers || []).map(p => {
+        let rightText = p.answer_text !== undefined ? p.answer_text : p.answer_match_right;
+        if (p.variations || p.answer_variations) {
+            let rightVars = extractOptionVariations(p.variations || p.answer_variations, null, null);
+            if (rightVars.length > 0) {
+                rightText = (isVariationOn && rightVars.length > 1)
+                    ? rightVars[Math.floor(Math.random() * rightVars.length)]
+                    : rightVars[0];
+            }
+        }
+        return {
+            ...p,
+            text: p.text ? formatDisplayString(String(p.text)) : p.text,
+            answer_text: rightText ? formatDisplayString(String(rightText)) : rightText
+        };
+    });
+
     let distractors = (q.distractors || []).map(d => formatDisplayString(String(d))); 
     let allAnswers = pairs.map(p => p.answer_text);
     let allWords = [...allAnswers, ...distractors];

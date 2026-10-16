@@ -109,14 +109,51 @@ export const QuizRendererMixin = {
             }
 
             let infoContent = "";
+            let isVariationOn = false;
+
+            const checkVariationFlag = (obj) => {
+                if (!obj || typeof obj !== 'object') return false;
+                const v = obj["variation on"] ?? obj["variation_on"] ?? obj["variations"] ?? obj["variation"];
+                if (v === true || v === 1) return true;
+                if (typeof v === 'string') {
+                    const s = v.trim().toLowerCase();
+                    return s === 'true' || s === '1' || s === 'on' || s === 'yes' || s === 'enabled';
+                }
+                return false;
+            };
+
             if (Array.isArray(rawData)) {
                 const metaItem = rawData.find(item => item && item.quiz_metadata);
-                if (metaItem && metaItem.quiz_metadata.info_content) {
-                    infoContent = metaItem.quiz_metadata.info_content;
+                if (metaItem && metaItem.quiz_metadata) {
+                    if (metaItem.quiz_metadata.info_content) {
+                        infoContent = metaItem.quiz_metadata.info_content;
+                    }
+                    if (checkVariationFlag(metaItem.quiz_metadata)) {
+                        isVariationOn = true;
+                    }
                 }
-            } else if (rawData?.quiz_metadata?.info_content) {
-                infoContent = rawData.quiz_metadata.info_content;
+                if (!isVariationOn) {
+                    for (const item of rawData) {
+                        if (checkVariationFlag(item)) {
+                            isVariationOn = true;
+                            break;
+                        }
+                    }
+                }
+            } else if (rawData?.quiz_metadata) {
+                if (rawData.quiz_metadata.info_content) {
+                    infoContent = rawData.quiz_metadata.info_content;
+                }
+                if (checkVariationFlag(rawData.quiz_metadata) || checkVariationFlag(rawData)) {
+                    isVariationOn = true;
+                }
+            } else if (rawData && typeof rawData === 'object') {
+                if (checkVariationFlag(rawData)) {
+                    isVariationOn = true;
+                }
             }
+
+            this.isVariationOn = isVariationOn;
 
             const infoSection = this.root.querySelector('.quiz-info-section');
             const infoContentDiv = this.root.querySelector('.info-content');
@@ -170,6 +207,14 @@ export const QuizRendererMixin = {
             let normalized = normalizeQuizData(rawData);
 
             normalized.forEach(q => {
+                const qHasVar = q["variation on"] ?? q["variation_on"] ?? q["variations"] ?? q["variation"];
+                if (qHasVar !== undefined && qHasVar !== null) {
+                    const s = typeof qHasVar === 'string' ? qHasVar.trim().toLowerCase() : qHasVar;
+                    q._variationOn = (s === true || s === 1 || s === 'true' || s === '1' || s === 'on' || s === 'yes' || s === 'enabled');
+                } else {
+                    q._variationOn = isVariationOn;
+                }
+
                 const type = q.type || q.question_type;
                 
                 if (type === 'matching_question') {
@@ -212,7 +257,6 @@ export const QuizRendererMixin = {
             });
 
             if (randomizeQuestions) {
-                // Group questions that belong together (e.g. sharing identical charts, group_id, or svg)
                 const groupOrder = [];
                 const groupsMap = new Map();
 
@@ -237,7 +281,6 @@ export const QuizRendererMixin = {
                     }
                 });
 
-                // Fisher-Yates array shuffling helper
                 const shuffleArray = (arr) => {
                     for (let i = arr.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -246,10 +289,8 @@ export const QuizRendererMixin = {
                     return arr;
                 };
 
-                // 1. Shuffle the cluster groups across the quiz
                 shuffleArray(groupOrder);
 
-                // 2. Shuffle the questions within each group cluster so they stay together
                 groupOrder.forEach(key => {
                     shuffleArray(groupsMap.get(key));
                 });

@@ -138,15 +138,25 @@ export function normalizeQuizData(raw) {
             }
         }
         
-        let shifted = false;
+        // Detect legacy single-column shifted answer tables without stripping multi-choice variation arrays
+        let arrayOrObjKeys = [];
         for (let i = 97; i <= 122; i++) {
             let k = String.fromCharCode(i);
-            if (item[k] !== undefined && (Array.isArray(item[k]) || typeof item[k] === 'object')) {
-                shifted = true;
-                item['answers'] = item[k];
-                break;
+            if (item[k] !== undefined && (Array.isArray(item[k]) || (typeof item[k] === 'object' && item[k] !== null))) {
+                arrayOrObjKeys.push(k);
             }
         }
+
+        let shifted = false;
+        if (arrayOrObjKeys.length === 1 && !item['answers']) {
+            let singleKey = arrayOrObjKeys[0];
+            let val = item[singleKey];
+            if (Array.isArray(val) && val.length > 0 && typeof val[0] === 'object' && val[0] !== null && (val[0].text !== undefined || val[0].answer_match_left !== undefined)) {
+                shifted = true;
+                item['answers'] = val;
+            }
+        }
+
         if (shifted) {
             let real_options = [];
             for (let i = 97; i <= 122; i++) {
