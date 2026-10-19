@@ -1,7 +1,7 @@
 // quiz-renderer-mixin.js - Main Quiz Renderer Mixin Orchestrator
 
 import { normalizeQuizData, quizIndex } from './quiz-data.js?v=2.2';
-import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse, decodeUtf8B64, createSvgChart } from './utils.js?v=2.2';
+import { recursiveDecode, formatDisplayString, cleanQuizTitle, safeJsonParse, decodeUtf8B64, createSvgChart, renderMathToHtml } from './utils.js?v=2.2';
 import { setupAtomBuilderUI } from './atom-builder-ui.js?v=2.2';
 import { setupMultipleChoiceUI, setupClassSelectionUI, setupComplexMatchingUI } from './question-renderers.js?v=2.2';
 import { handleScrollStickyBank, renderStickyBank, fillSlotWithWord, handleSlotClick } from './matching-bank-handler.js?v=2.2';
@@ -159,6 +159,9 @@ export const QuizRendererMixin = {
             const infoContentDiv = this.root.querySelector('.info-content');
             if (infoSection && infoContentDiv) {
                 if (infoContent) {
+                    // Render Math and Exponents FIRST before injecting into the DOM
+                    infoContent = renderMathToHtml(infoContent);
+
                     infoContent = infoContent.replace(/(href|src)=("([^"]*)"|'([^']*)'|([^\s>]+))/gi, (match, attr, fullVal, dqVal, sqVal, unqVal) => {
                         let url = dqVal !== undefined ? dqVal : (sqVal !== undefined ? sqVal : unqVal);
                         let cleanUrl = url.replace(/\\/g, '/');
@@ -323,9 +326,23 @@ export const QuizRendererMixin = {
         this.currentQuestions.forEach((q, idx) => {
             let qNum = idx + 1;
             let type = q.type || q.question_type;
-            let qText = q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'];
+            let qTextRaw = q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "";
             
-            if (qText) qText = formatDisplayString(String(qText));
+            // Extract SVG if embedded natively inside the question text
+            let embeddedSvg = "";
+            let qTextPost = "";
+            let svgMatch = String(qTextRaw).match(/(<svg[\s\S]*?<\/svg>)/i);
+            if (svgMatch) {
+                embeddedSvg = svgMatch[1];
+                let parts = String(qTextRaw).split(embeddedSvg);
+                qTextRaw = parts[0].trim();
+                if (parts.length > 1 && parts[1].trim()) {
+                    qTextPost = parts[1].trim().replace(/^(?:<br\s*\/?>\s*)+/i, '').trim();
+                }
+            }
+
+            let qText = formatDisplayString(String(qTextRaw));
+            let qTextPostFormatted = qTextPost ? formatDisplayString(String(qTextPost)) : "";
             
             let qTextLower = (qText || "").toLowerCase();
             let pts = parseInt(q.points || q.points_possible) || 0;
@@ -391,18 +408,24 @@ export const QuizRendererMixin = {
             }
 
             // Native SVG Chart & Vector Drawing Integration
-            let svgMarkup = "";
-            if (q.svg || q.question_svg || q.chart_svg) {
-                let rawSvg = q.svg || q.question_svg || q.chart_svg;
-                if (typeof rawSvg === 'string') {
-                    svgMarkup = rawSvg.startsWith('b64:') ? decodeUtf8B64(rawSvg.substring(4)) : rawSvg;
+            let svgMarkup = embeddedSvg;
+            if (!svgMarkup) {
+                if (q.svg || q.question_svg || q.chart_svg) {
+                    let rawSvg = q.svg || q.question_svg || q.chart_svg;
+                    if (typeof rawSvg === 'string') {
+                        svgMarkup = rawSvg.startsWith('b64:') ? decodeUtf8B64(rawSvg.substring(4)) : rawSvg;
+                    }
+                } else if (q.chart && typeof q.chart === 'object') {
+                    svgMarkup = createSvgChart(q.chart);
                 }
-            } else if (q.chart && typeof q.chart === 'object') {
-                svgMarkup = createSvgChart(q.chart);
             }
 
             if (svgMarkup) {
                 header += `<div class="question-svg-wrapper">${svgMarkup}</div>`;
+            }
+
+            if (qTextPostFormatted) {
+                header += `<div class="question-text">${qTextPostFormatted}</div>`;
             }
             
             frame.innerHTML = header;

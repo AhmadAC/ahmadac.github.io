@@ -131,6 +131,18 @@
                     }
                 ]
             }
+        },
+        "a": {
+            "U1HW6 - W8 - Kinetic and Gravitational Potential Energy Calculations": {
+                "best": 3,
+                "attempts": [
+                    {
+                        "s": 3,
+                        "t": 10,
+                        "ts": "2026-10-19T12:48:53.571392"
+                    }
+                ]
+            }
         }
     },
     "G8B": {

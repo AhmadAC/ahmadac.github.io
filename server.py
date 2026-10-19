@@ -440,6 +440,11 @@ def get_quiz_points(file_path):
                     pts += int(float(raw_pts))
                 except Exception:
                     pass
+            elif isinstance(item, list) and len(item) > 4:
+                try:
+                    pts += int(float(item[4]))
+                except Exception:
+                    pass
     return pts
 
 def update_quiz_index():

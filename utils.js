@@ -128,13 +128,182 @@ export function cleanQuizTitle(title) {
     return clean;
 }
 
+export function renderMathToHtml(text) {
+    if (!text || typeof text !== 'string') return "";
+
+    const supMap = {
+        '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴',
+        '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+        '+': '⁺', '-': '⁻'
+    };
+
+    function convertSup(expStr) {
+        let clean = expStr.trim();
+        if (clean && clean.split('').every(c => supMap[c])) {
+            return clean.split('').map(c => supMap[c]).join('');
+        }
+        return `<sup>${clean}</sup>`;
+    }
+
+    function formatMathExpr(expr, isBlock = false) {
+        let s = expr.trim();
+        let placeholders = {};
+
+        // 1. Fractions: \frac{a}{b}
+        let lastS = "";
+        while (s.includes('\\frac{') && s !== lastS) {
+            lastS = s;
+            s = s.replace(/\\frac\{([^{}]+)\}\{([^{}]+)\}/g, (match, num, den) => {
+                num = num.trim();
+                den = den.trim();
+                if (num === '1' && den === '2') return '&frac12;';
+                if (num === '1' && den === '4') return '&frac14;';
+                if (num === '3' && den === '4') return '&frac34;';
+                return `<span style="white-space: nowrap;"><sup>${num}</sup>&frasl;<sub>${den}</sub></span>`;
+            });
+        }
+
+        // 2. Convert \text{...} or \mathrm{...} (Uses '@@' to avoid underscore stripping issues)
+        s = s.replace(/\\(?:text|mathrm|mathbf|textbf)\{([^}]+)\}\^\{([^}]+)\}/g, (m, txt, exp) => {
+            let idx = Object.keys(placeholders).length;
+            let key = `@@MATHTXT${idx}@@`;
+            let prefix = (m.startsWith('\\text{ ') || txt.startsWith(' ')) ? "&nbsp;" : "";
+            placeholders[key] = `${prefix}${txt.trim()}${convertSup(exp)}`;
+            return key;
+        });
+
+        s = s.replace(/\\(?:text|mathrm|mathbf|textbf)\{([^}]+)\}\^([0-9+\-]+)/g, (m, txt, exp) => {
+            let idx = Object.keys(placeholders).length;
+            let key = `@@MATHTXT${idx}@@`;
+            let prefix = (m.startsWith('\\text{ ') || txt.startsWith(' ')) ? "&nbsp;" : "";
+            placeholders[key] = `${prefix}${txt.trim()}${convertSup(exp)}`;
+            return key;
+        });
+
+        s = s.replace(/\\(?:text|mathrm|mathbf|textbf)\{([^}]+)\}/g, (m, content) => {
+            let origContent = content;
+            content = content.trim();
+            let idx = Object.keys(placeholders).length;
+            let key = `@@MATHTXT${idx}@@`;
+            if (["GPE", "KE", "Total Energy", "constant"].includes(content) || (content.length > 1 && content === content.toUpperCase())) {
+                placeholders[key] = `<b>${content}</b>`;
+            } else {
+                let prefix = (m.startsWith('\\text{ ') || origContent.startsWith(' ')) ? "&nbsp;" : "";
+                placeholders[key] = `${prefix}${content}`;
+            }
+            return key;
+        });
+
+        // 3. Standard LaTeX symbols
+        const symbols = [
+            [/\\times\b/g, ' &times; '],
+            [/\\cdot\b/g, ' &sdot; '],
+            [/\\div\b/g, ' &divide; '],
+            [/\\pm\b/g, ' &plusmn; '],
+            [/\\mp\b/g, ' &#8723; '],
+            [/\\approx\b/g, ' &asymp; '],
+            [/\\neq\b/g, ' &ne; '],
+            [/\\ne\b/g, ' &ne; '],
+            [/\\leq\b/g, ' &le; '],
+            [/\\le\b/g, ' &le; '],
+            [/\\geq\b/g, ' &ge; '],
+            [/\\ge\b/g, ' &ge; '],
+            [/\\infty\b/g, ' &infin; '],
+            [/\\circ\b/g, '&deg;'],
+            [/\\degree\b/g, '&deg;'],
+            [/\\Delta\b/g, '&Delta;'],
+            [/\\alpha\b/g, '&alpha;'],
+            [/\\beta\b/g, '&beta;'],
+            [/\\theta\b/g, '&theta;'],
+            [/\\lambda\b/g, '&lambda;'],
+            [/\\mu\b/g, '&mu;'],
+            [/\\pi\b/g, '&pi;'],
+            [/\\rho\b/g, '&rho;'],
+            [/\\sigma\b/g, '&sigma;'],
+            [/\\omega\b/g, '&omega;'],
+            [/\\Omega\b/g, '&Omega;'],
+            [/\\rightarrow\b/g, ' &rarr; '],
+            [/\\leftarrow\b/g, ' &larr; '],
+            [/\\quad\b/g, ' &nbsp;&nbsp; '],
+            [/\\qquad\b/g, ' &nbsp;&nbsp;&nbsp;&nbsp; '],
+            [/\\,/g, ' '],
+            [/\\;/g, ' '],
+            [/\\!/g, '']
+        ];
+        symbols.forEach(([pat, repl]) => {
+            s = s.replace(pat, repl);
+        });
+
+        // 4. Exponents and subscripts
+        s = s.replace(/\^\{([^}]+)\}/g, (match, exp) => convertSup(exp));
+        s = s.replace(/\^([0-9+\-]+)/g, (match, exp) => convertSup(exp));
+        s = s.replace(/_\{([^}]+)\}/g, '<sub>$1</sub>');
+        s = s.replace(/_([0-9a-zA-Z+\-]+)/g, '<sub>$1</sub>');
+
+        // 5. Italicize single-letter variables that are NOT adjacent to slashes (protecting units like m/s)
+        let parts = s.split(/(<[^>]+>|&[a-zA-Z0-9#]+;|@@MATHTXT\d+@@)/);
+        for (let i = 0; i < parts.length; i++) {
+            if (!parts[i].startsWith('<') && !parts[i].startsWith('&') && !parts[i].startsWith('@@MATHTXT')) {
+                parts[i] = parts[i].replace(/(?<![a-zA-Z/])([a-zA-Z])(?![a-zA-Z/²³⁴¹⁰⁺⁻])/g, '<i>$1</i>');
+            }
+        }
+        s = parts.join('');
+
+        // 6. Restore placeholders
+        for (let key in placeholders) {
+            s = s.replace(key, placeholders[key]);
+        }
+
+        s = s.replace(/ {2,}/g, ' ');
+        return s;
+    }
+
+    // 1. Block math: $$...$$ or \[...\]
+    let blockMathRegex = /\$\$(.*?)\$\$|\\\[(.*?)\\\]/gs;
+    text = text.replace(blockMathRegex, (match, g1, g2) => {
+        let expr = g1 || g2;
+        if (!expr) return "";
+        let formatted = formatMathExpr(expr, true);
+        return `<div style="margin: 6px 0; padding: 6px 14px; background-color: rgba(0, 142, 226, 0.08); border-left: 3px solid #008ee2; border-radius: 4px; font-size: 15px; color: #1a365d;">${formatted}</div>`;
+    });
+
+    // 2. Inline math: $...$ or \(...\)
+    let inlineMathRegex = /\$([^\$\n]+?)\$|\\\((.*?)\\\)/g;
+    text = text.replace(inlineMathRegex, (match, g1, g2) => {
+        let expr = g1 || g2;
+        if (!expr) return "";
+        if (/^\s*\d+(\.\d+)?\s*$/.test(expr)) {
+            return `$${expr}`;
+        }
+        let formatted = formatMathExpr(expr, false);
+        return `<span style="font-family: inherit;">${formatted}</span>`;
+    });
+
+    // 3. Standalone units
+    let unitRegex = /\b([a-zA-Z]+)\^([0-9+\-]+)\b/g;
+    text = text.replace(unitRegex, (match, base, exp) => {
+        let sup = supMap[exp] ? supMap[exp] : `<sup>${exp}</sup>`;
+        return `${base}${sup}`;
+    });
+
+    // 4. Markdown Bold
+    let boldRegex = /\*\*(.*?)\*\*/g;
+    text = text.replace(boldRegex, '<b>$1</b>');
+
+    return text;
+}
+
 // Safely replaces underscores with spaces AND formats fractions with stacked HTML layouts, ignoring HTML tags
 export function formatDisplayString(str) {
     if (typeof str !== 'string') return str;
     
     try {
-        let formatted = str.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
-        const fractionRegex = /(<[^>]+>)|(?:(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+))\/(?:\(([^)<>]+)\)|([-a-zA-Z0-9.]+)))/g;
+        let formatted = renderMathToHtml(str);
+        
+        formatted = formatted.replace(/(<[^>]+>)|_/g, (match, p1) => p1 ? p1 : ' ');
+        
+        // Includes Unicode Superscripts to ensure they get correctly sucked into the denominator block!
+        const fractionRegex = /(<[^>]+>)|(?:(?:\(([^)<>]+)\)|([-a-zA-Z0-9.⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+))\/(?:\(([^)<>]+)\)|([-a-zA-Z0-9.⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+)))/g;
         
         formatted = formatted.replace(fractionRegex, (match, tag, numP, numNP, denP, denNP) => {
             if (tag) return tag;
@@ -143,8 +312,12 @@ export function formatDisplayString(str) {
             const den = String(denP !== undefined ? denP : (denNP !== undefined ? denNP : ""));
             
             if (numP === undefined && denP === undefined) {
-                const isNumWord = /[a-zA-Z]/.test(num) && num.length >= 2 && !/[0-9]/.test(num);
-                const isDenWord = /[a-zA-Z]/.test(den) && den.length >= 2 && !/[0-9]/.test(den);
+                // Strip superscripts momentarily to test base length (So 's²' has length 1 and is treated as a variable, stacking cleanly)
+                const cleanNum = num.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]/g, '');
+                const cleanDen = den.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]/g, '');
+                const isNumWord = /[a-zA-Z]/.test(cleanNum) && cleanNum.length >= 2 && !/[0-9]/.test(cleanNum);
+                const isDenWord = /[a-zA-Z]/.test(cleanDen) && cleanDen.length >= 2 && !/[0-9]/.test(cleanDen);
+                
                 if (isNumWord || isDenWord) {
                     return match;
                 }
