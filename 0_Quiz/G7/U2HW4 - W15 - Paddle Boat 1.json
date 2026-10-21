@@ -1,5 +1,10 @@
 [
     {
+        "quiz_metadata": {
+            "info_content": "<b>Refer to the Paddle Boat Project paper for this quiz:</b><br><a href=\"media/Paddle Boat.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">Paddle Boat.pdf</a><b> </b>"
+        }
+    },
+    {
         "url": "",
         "question number": "Q1",
         "type": "multiple_choice_question",

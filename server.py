@@ -814,6 +814,62 @@ def launch_browser_app(url, profile_dir):
                 break
 
     else:
+        # Prefer Firefox on Linux/Fedora44 over Edge/Chromium
+        if shutil.which("firefox"):
+            print("[DEBUG] Launching native Firefox in new window mode with custom icon.")
+            
+            # 1. Search for your icon (Linux prefers .png over .ico, but we will check both)
+            icon_path = "firefox" # Fallback to default icon if yours isn't found
+            possible_icon_paths = [
+                os.path.join(WEB_DIR, 'icon.png'),
+                os.path.join(DATA_DIR, 'icon.png'),
+                os.path.join(EXE_DIR, 'icon.png'),
+                os.path.join(WEB_DIR, 'icon.ico'),
+                os.path.join(DATA_DIR, 'icon.ico'),
+                os.path.join(EXE_DIR, 'icon.ico')
+            ]
+            for p in possible_icon_paths:
+                if os.path.exists(p):
+                    icon_path = os.path.abspath(p)
+                    break
+
+            # 2. Create a dynamic .desktop file so Linux recognizes it as a separate app
+            desktop_dir = os.path.expanduser("~/.local/share/applications")
+            os.makedirs(desktop_dir, exist_ok=True)
+            desktop_file = os.path.join(desktop_dir, "MrCooperApp.desktop")
+            
+            desktop_content = (
+                "[Desktop Entry]\n"
+                "Version=1.0\n"
+                "Name=Mr. Cooper's STEAM & CS\n"
+                "Exec=firefox --class=MrCooperApp --name=MrCooperApp --new-window %u\n"
+                "Terminal=false\n"
+                "Type=Application\n"
+                f"Icon={icon_path}\n"
+                "StartupWMClass=MrCooperApp\n"
+            )
+            
+            try:
+                with open(desktop_file, "w", encoding="utf-8") as f:
+                    f.write(desktop_content)
+                # Tell the desktop environment to refresh its app list
+                if shutil.which("update-desktop-database"):
+                    subprocess.run(["update-desktop-database", desktop_dir], check=False, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+            except Exception as e:
+                print(f"[DEBUG] Failed to create .desktop file: {e}")
+
+            # 3. Launch Firefox with the custom class and name so it matches our .desktop file
+            return subprocess.Popen(["firefox", "--class=MrCooperApp", "--name=MrCooperApp", "--new-window", url], env=clean_env)
+
+        if shutil.which("flatpak"):
+            try:
+                out = subprocess.check_output(["flatpak", "list", "--app"], env=clean_env, universal_newlines=True, stderr=subprocess.DEVNULL)
+                if "org.mozilla.firefox" in out:
+                    print("[DEBUG] Launching Flatpak Firefox in new window mode.")
+                    return subprocess.Popen(["flatpak", "run", "org.mozilla.firefox", "--new-window", url], env=clean_env)
+            except Exception:
+                pass
+
         linux_binaries = [
             "microsoft-edge-stable", "microsoft-edge", "microsoft-edge-beta", "microsoft-edge-dev", "msedge",
             "google-chrome-stable", "google-chrome", "google-chrome-beta", "google-chrome-unstable",
@@ -882,19 +938,6 @@ def launch_browser_app(url, profile_dir):
         return subprocess.Popen(launch_args, env=clean_env)
 
     if platform.system() == "Linux":
-        if shutil.which("flatpak"):
-            try:
-                out = subprocess.check_output(["flatpak", "list", "--app"], env=clean_env, universal_newlines=True, stderr=subprocess.DEVNULL)
-                if "org.mozilla.firefox" in out:
-                    print("[DEBUG] Launching Flatpak Firefox in new window mode.")
-                    return subprocess.Popen(["flatpak", "run", "org.mozilla.firefox", "--new-window", url], env=clean_env)
-            except Exception:
-                pass
-
-        if shutil.which("firefox"):
-            print("[DEBUG] Launching native Firefox in new window mode.")
-            return subprocess.Popen(["firefox", "--new-window", url], env=clean_env)
-
         if shutil.which("xdg-open"):
             print("[DEBUG] Launching via xdg-open.")
             return subprocess.Popen(["xdg-open", url], env=clean_env)
