@@ -30,7 +30,6 @@ export function extractOptionVariations(val, key, qObj) {
         }
     }
 
-    // Check sibling keys if key is provided (e.g. 'a1', 'a2', 'a3', 'a_1', 'a_var1')
     if (key && qObj) {
         const suffixes = ['1', '2', '3', '_1', '_2', '_3', '_var1', '_var2', '_var3', '_variation1', '_variation2', '_variation3'];
         suffixes.forEach(suf => {
@@ -58,7 +57,6 @@ export function extractOptionVariations(val, key, qObj) {
         }
     });
 
-    // Enforce a maximum of 3 variations per answer option
     if (cleaned.length > 3) {
         cleaned = cleaned.slice(0, 3);
     }
@@ -77,7 +75,6 @@ export function setupMultipleChoiceUI(container, q, idx) {
         correctIdx = Math.floor(correctIdx) - 1;
     }
 
-    // Load from direct properties: a, b, c, d, e, f, ... (1-26 options)
     for (let i = 0; i < 26; i++) {
         let k = String.fromCharCode(97 + i);
         let variations = extractOptionVariations(q[k], k, q);
@@ -85,7 +82,6 @@ export function setupMultipleChoiceUI(container, q, idx) {
         if (variations.length > 0) {
             let chosenText = "";
             if (isVariationOn && variations.length > 1) {
-                // Randomly select one of up to 3 variations
                 const randIndex = Math.floor(Math.random() * variations.length);
                 chosenText = variations[randIndex];
             } else {
@@ -99,7 +95,6 @@ export function setupMultipleChoiceUI(container, q, idx) {
         }
     }
 
-    // Fallback: Load from answers array if provided in JSON
     if (options.length === 0 && Array.isArray(q.answers)) {
         q.answers.forEach((ans, i) => {
             let variations = [];
@@ -130,7 +125,6 @@ export function setupMultipleChoiceUI(container, q, idx) {
         });
     }
 
-    // Randomize option order for fairness while maintaining correct answer tracking
     options.sort(() => Math.random() - 0.5);
 
     let newCorrectIdx = options.findIndex(o => o.is_correct);
@@ -140,7 +134,6 @@ export function setupMultipleChoiceUI(container, q, idx) {
     q._mcqElements = [];
     q._selectedMcqIndex = -1;
 
-    // Display options without letters (a, b, c) or numbers (1, 2, 3)
     options.forEach((opt, i) => {
         let card = document.createElement('div');
         card.className = 'mcq-card';
@@ -166,10 +159,20 @@ export function setupMultipleChoiceUI(container, q, idx) {
 export function setupClassSelectionUI(container, q, idx) {
     let grid = document.createElement('div');
     grid.className = 'class-btn-group';
+    
+    // Automatically pre-select class if known from the class selection screen
+    const preselectedClass = this?.selectedClass || null;
+
     CLASSES.forEach(opt => {
         let btn = document.createElement('div');
         btn.className = 'class-btn-radio';
         btn.innerText = opt;
+
+        if (preselectedClass && opt === preselectedClass && !q._userAnswer) {
+            btn.classList.add('checked');
+            q._userAnswer = opt;
+        }
+
         btn.onclick = () => {
             Array.from(grid.children).forEach(c => c.classList.remove('checked'));
             btn.classList.add('checked');
@@ -245,3 +248,4 @@ export function setupComplexMatchingUI(container, q, idx) {
         container.appendChild(row);
     });
 }
+

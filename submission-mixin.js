@@ -21,7 +21,11 @@ export const SubmissionMixin = {
                     unansweredIndices.push(idx);
                 }
             } else if (type === 'multiple_choice_question') {
-                if (q._selectedMcqIndex === undefined || q._selectedMcqIndex === -1) {
+                if (isAdmin) {
+                    if (!q._userAnswer) {
+                        unansweredIndices.push(idx);
+                    }
+                } else if (q._selectedMcqIndex === undefined || q._selectedMcqIndex === -1) {
                     unansweredIndices.push(idx);
                 }
             } else if (type === 'essay_question') {
@@ -77,7 +81,7 @@ export const SubmissionMixin = {
         });
 
         if (!nameAns) nameAns = "Unknown";
-        if (!classAns) classAns = this.isBonus ? "Bonus" : "Unknown";
+        if (!classAns) classAns = this.selectedClass || (this.isBonus ? "Bonus" : "Unknown");
 
         if (this.elements.errorMsg) {
             this.elements.errorMsg.innerText = "";
@@ -138,7 +142,7 @@ export const SubmissionMixin = {
                         totalScore += Math.round((correctCount / state.slots.length) * pts);
                     }
                 }
-            } else if (type === 'multiple_choice_question') {
+            } else if (type === 'multiple_choice_question' && !isAdmin) {
                 totalPossible += pts;
                 let userIdx = q._selectedMcqIndex !== undefined ? q._selectedMcqIndex : -1;
                 let isCorrect = false;
@@ -225,7 +229,6 @@ export const SubmissionMixin = {
         if (this.elements.btnSubmit) this.elements.btnSubmit.disabled = true;
         this.elements.btnRedo?.classList.remove("hidden");
         
-        // Save Picture button is exclusively available in the online deployment
         if (!window.isOfflineMode) {
             this.elements.btnSavePic?.classList.remove("hidden");
         } else {
@@ -351,7 +354,6 @@ export const SubmissionMixin = {
             totalPossible: total
         };
 
-        // Notify active Results view and other quiz instances in the current window immediately
         try {
             window.dispatchEvent(new CustomEvent('quiz-result-updated', { detail: payload }));
         } catch (_) {}

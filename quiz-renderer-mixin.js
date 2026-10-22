@@ -159,7 +159,6 @@ export const QuizRendererMixin = {
             const infoContentDiv = this.root.querySelector('.info-content');
             if (infoSection && infoContentDiv) {
                 if (infoContent) {
-                    // Render Math and Exponents FIRST before injecting into the DOM
                     infoContent = renderMathToHtml(infoContent);
 
                     infoContent = infoContent.replace(/(href|src)=("([^"]*)"|'([^']*)'|([^\s>]+))/gi, (match, attr, fullVal, dqVal, sqVal, unqVal) => {
@@ -208,6 +207,46 @@ export const QuizRendererMixin = {
             }
 
             let normalized = normalizeQuizData(rawData);
+
+            // Automatically check and inject missing Admin Questions (Select your class & Insert your English name)
+            const hasClassQ = normalized.some(q => {
+                const txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
+                const qType = (q.type || q.question_type || "").toLowerCase();
+                return txt.includes('select your class') || txt.includes('select class') || (txt.includes('class') && !txt.includes('classic') && (qType.includes('multiple_choice') || qType.includes('matching')));
+            });
+
+            const hasNameQ = normalized.some(q => {
+                const txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
+                const qType = (q.type || q.question_type || "").toLowerCase();
+                return txt.includes('english name') || txt.includes('your name') || (txt.includes('name') && qType.includes('essay'));
+            });
+
+            let maxQNum = normalized.reduce((max, q) => {
+                let n = parseFloat(q['question number'] || q.question_number || 0);
+                return (!isNaN(n) && n > max) ? n : max;
+            }, 0);
+
+            if (!hasClassQ && !this.isBonus) {
+                maxQNum += 1;
+                normalized.push({
+                    "url": "",
+                    "question number": maxQNum,
+                    "type": "multiple_choice_question",
+                    "points": 0,
+                    "question text": "Select your class:"
+                });
+            }
+
+            if (!hasNameQ) {
+                maxQNum += 1;
+                normalized.push({
+                    "url": "",
+                    "question number": maxQNum,
+                    "type": "essay_question",
+                    "points": 0,
+                    "question text": "Insert your English name:"
+                });
+            }
 
             normalized.forEach(q => {
                 const qHasVar = q["variation on"] ?? q["variation_on"] ?? q["variations"] ?? q["variation"];
@@ -328,7 +367,6 @@ export const QuizRendererMixin = {
             let type = q.type || q.question_type;
             let qTextRaw = q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "";
             
-            // Extract SVG if embedded natively inside the question text
             let embeddedSvg = "";
             let qTextPost = "";
             let svgMatch = String(qTextRaw).match(/(<svg[\s\S]*?<\/svg>)/i);
@@ -407,7 +445,6 @@ export const QuizRendererMixin = {
                 header += `<img class="question-media" src="0_Quiz/media/${cleanUrl}${exts[0]}" onerror="this.onerror=null; this.src='0_Quiz/media/${cleanUrl}${exts[1] || ''}';">`;
             }
 
-            // Native SVG Chart & Vector Drawing Integration
             let svgMarkup = embeddedSvg;
             if (!svgMarkup) {
                 if (q.svg || q.question_svg || q.chart_svg) {
@@ -565,16 +602,18 @@ export const QuizRendererMixin = {
             let isAnswered = false;
             let type = q.type || q.question_type;
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined;
+            let txt = (q['question text'] || q.question_text || "").toLowerCase();
+            let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
             
             if (type === 'atom_builder_question') {
                 if (q._isCorrect) isAnswered = true;
-            } else if (isComplexMatching) {
+            } else if (isComplexMatching && !isAdmin) {
                 let state = this.matchingStates[idx];
                 if (state && state.slots.length > 0) {
                     let filled = state.slots.filter(s => s.current !== null).length;
                     if (filled === state.slots.length) isAnswered = true;
                 }
-            } else if (type === 'multiple_choice_question') {
+            } else if (type === 'multiple_choice_question' && !isAdmin) {
                 if (q._selectedMcqIndex !== undefined && q._selectedMcqIndex !== -1) isAnswered = true;
             } else if (type === 'essay_question') {
                 let val = this.root.querySelector(`[data-question-index="${idx}"] .essay-input`)?.value?.trim();

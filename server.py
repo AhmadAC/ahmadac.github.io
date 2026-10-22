@@ -1,3 +1,4 @@
+
 # server.py
 
 import os
@@ -428,6 +429,119 @@ def robust_json_load_file(file_path):
     except Exception:
         return None
 
+def ensure_admin_questions_in_file(file_path, is_bonus=False):
+    """
+    Checks if a quiz JSON file contains 'Select your class' and 'Insert your English name' questions.
+    If either is missing, appends them to the JSON and saves the file directly.
+    """
+    if not os.path.exists(file_path):
+        return False
+    try:
+        with open(file_path, 'r', encoding='utf-8-sig') as f:
+            content = f.read()
+        raw = json.loads(content, strict=False)
+    except Exception:
+        raw = robust_json_load_file(file_path)
+
+    if raw is None:
+        return False
+
+    is_list = isinstance(raw, list)
+    is_dict_data = isinstance(raw, dict) and isinstance(raw.get("data"), list)
+    
+    if not is_list and not is_dict_data:
+        return False
+
+    items = raw if is_list else raw["data"]
+
+    # Verify that this file actually represents a quiz
+    has_any_question = any(
+        isinstance(item, dict) and not item.get("quiz_metadata") and (
+            item.get("question text") or item.get("question_text") or 
+            item.get("Question Text") or item.get("type") or item.get("question_type")
+        )
+        for item in items
+    )
+    if not has_any_question:
+        return False
+
+    has_class_q = False
+    has_name_q = False
+    max_q_num = 0.0
+
+    for item in items:
+        if not isinstance(item, dict) or item.get("quiz_metadata"):
+            continue
+
+        q_txt = str(
+            item.get("question text") or item.get("question_text") or 
+            item.get("Question Text") or item.get("Question_Text") or 
+            item.get("question") or ""
+        ).lower()
+        q_type = str(item.get("type") or item.get("question_type") or "").lower()
+
+        raw_num = item.get("question number") or item.get("question_number") or item.get("Question Number")
+        if raw_num is not None:
+            try:
+                num_val = float(raw_num)
+                if num_val > max_q_num:
+                    max_q_num = num_val
+            except Exception:
+                pass
+
+        if "select your class" in q_txt or "select class" in q_txt or (("class" in q_txt) and ("classic" not in q_txt) and ("multiple_choice" in q_type or "matching" in q_type)):
+            has_class_q = True
+
+        if "english name" in q_txt or "your name" in q_txt or (("name" in q_txt) and ("essay" in q_type)):
+            has_name_q = True
+
+    modified = False
+
+    if not is_bonus and not has_class_q:
+        max_q_num += 1.0
+        class_q = {
+            "url": "",
+            "question number": max_q_num,
+            "type": "multiple_choice_question",
+            "points": 0.0,
+            "correct ans index": "",
+            "question text": "Select your class:",
+            "a": "", "b": "", "c": "", "d": "", "e": "", "f": "", "g": "", "h": "", "i": ""
+        }
+        items.append(class_q)
+        modified = True
+
+    if not has_name_q:
+        max_q_num += 1.0
+        name_q = {
+            "url": "",
+            "question number": max_q_num,
+            "type": "essay_question",
+            "points": 0.0,
+            "question text": "Insert your English name:"
+        }
+        items.append(name_q)
+        modified = True
+
+    if modified:
+        try:
+            tmp_path = file_path + ".tmp"
+            with open(tmp_path, 'w', encoding='utf-8') as out_f:
+                json.dump(raw, out_f, indent=4, ensure_ascii=False)
+            if os.path.exists(file_path):
+                try:
+                    os.remove(file_path)
+                except Exception:
+                    pass
+            shutil.move(tmp_path, file_path)
+            print(f"[AUTO-ADMIN] Added missing Class/Name questions to: {os.path.basename(file_path)}")
+            return True
+        except Exception as e:
+            print(f"[ERROR] Failed to save updated admin questions to '{file_path}': {e}")
+            return False
+
+    return False
+
 def get_quiz_points(file_path):
     pts = 0
     qd = robust_json_load_file(file_path)
@@ -455,12 +569,17 @@ def update_quiz_index():
 
     all_quizzes = []
     for root, dirs, files in os.walk(DATA_DIR):
-        if "media" in root or "bonus" in root:
+        if "media" in root:
             continue
+        is_bonus_dir = "bonus" in root
         for f in files:
             if f.endswith('.json') and f not in CONFIG_FILES:
                 quiz_name = f[:-5]
                 full_path = os.path.join(root, f)
+
+                # Automatically ensure Class and Name questions exist directly in the JSON on disk
+                ensure_admin_questions_in_file(full_path, is_bonus=is_bonus_dir)
+
                 rel_path = os.path.relpath(full_path, DATA_DIR).replace('\\', '/')
                 index_data[quiz_name] = rel_path
 
@@ -603,6 +722,10 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
                 relative_file_path = clean_path[len(prefix):]
                 target_file = os.path.join(DATA_DIR, relative_file_path)
                 if os.path.exists(target_file) and os.path.isfile(target_file):
+                    if target_file.lower().endswith('.json') and os.path.basename(target_file) not in CONFIG_FILES:
+                        is_bonus_file = "bonus" in target_file.replace('\\', '/').split('/')
+                        ensure_admin_questions_in_file(target_file, is_bonus=is_bonus_file)
+
                     self.send_response(200)
                     ctype = self.guess_type(target_file) or 'application/octet-stream'
                     if target_file.lower().endswith('.pdf'):
@@ -818,8 +941,7 @@ def launch_browser_app(url, profile_dir):
         if shutil.which("firefox"):
             print("[DEBUG] Launching native Firefox in new window mode with custom icon.")
             
-            # 1. Search for your icon (Linux prefers .png over .ico, but we will check both)
-            icon_path = "firefox" # Fallback to default icon if yours isn't found
+            icon_path = "firefox"
             possible_icon_paths = [
                 os.path.join(WEB_DIR, 'icon.png'),
                 os.path.join(DATA_DIR, 'icon.png'),
@@ -833,7 +955,6 @@ def launch_browser_app(url, profile_dir):
                     icon_path = os.path.abspath(p)
                     break
 
-            # 2. Create a dynamic .desktop file so Linux recognizes it as a separate app
             desktop_dir = os.path.expanduser("~/.local/share/applications")
             os.makedirs(desktop_dir, exist_ok=True)
             desktop_file = os.path.join(desktop_dir, "MrCooperApp.desktop")
@@ -852,13 +973,11 @@ def launch_browser_app(url, profile_dir):
             try:
                 with open(desktop_file, "w", encoding="utf-8") as f:
                     f.write(desktop_content)
-                # Tell the desktop environment to refresh its app list
                 if shutil.which("update-desktop-database"):
                     subprocess.run(["update-desktop-database", desktop_dir], check=False, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
             except Exception as e:
                 print(f"[DEBUG] Failed to create .desktop file: {e}")
 
-            # 3. Launch Firefox with the custom class and name so it matches our .desktop file
             return subprocess.Popen(["firefox", "--class=MrCooperApp", "--name=MrCooperApp", "--new-window", url], env=clean_env)
 
         if shutil.which("flatpak"):
@@ -967,7 +1086,6 @@ def run_app():
 
     update_quiz_index()
 
-    # Start background update checker
     update_thread = threading.Thread(target=check_for_updates, daemon=True)
     update_thread.start()
 
@@ -1002,3 +1120,4 @@ def run_app():
 
 if __name__ == '__main__':
     run_app()
+
