@@ -1,0 +1,672 @@
+[
+    {
+        "quiz_metadata": {
+            "info_content": "<b>Refer to the PDF or the paper version of the report, to answer the following questions:</b><a href=\"media/ball tosser.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">📄 ball tosser.pdf</a><b> </b><b>\n</b><b>Offline Paper HW: </b><a href=\"media/U1HW8 - W11 - Ball Tosser 1_questions.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">U1HW8 - W11 - Ball Tosser 1_questions.pdf</a>&nbsp;<b> </b>"
+        }
+    },
+    [
+        "Question 1",
+        "1",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "What happens to a ball when it is thrown with more force?",
+        "",
+        "1",
+        [
+            {
+                "answer_text": "b64:SXQgdHJhdmVscyBhIGxvbmdlciBkaXN0YW5jZS4=",
+                "text": "b64:SXQgdHJhdmVscyBhIGxvbmdlciBkaXN0YW5jZS4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:SXQgZmVlbHMgbGlnaHRlci4=",
+                "text": "b64:SXQgZmVlbHMgbGlnaHRlci4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgc3RvcHMgbW92aW5nIGNvbXBsZXRlbHku",
+                "text": "b64:SXQgc3RvcHMgbW92aW5nIGNvbXBsZXRlbHku",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgY2hhbmdlcyBpdHMgY29sb3Iu",
+                "text": "b64:SXQgY2hhbmdlcyBpdHMgY29sb3Iu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgbWFrZXMgYSBsb3VkZXIgc291bmQu",
+                "text": "b64:SXQgbWFrZXMgYSBsb3VkZXIgc291bmQu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgdHJhdmVscyBhIHNob3J0ZXIgZGlzdGFuY2Uu",
+                "text": "b64:SXQgdHJhdmVscyBhIHNob3J0ZXIgZGlzdGFuY2Uu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "It travels a longer distance.",
+        "It feels lighter.",
+        "It stops moving completely.",
+        "It changes its color.",
+        "It makes a louder sound.",
+        "It travels a shorter distance.",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 2",
+        "2",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "The path a ball takes as it flies through the air is called its:",
+        "",
+        "6",
+        [
+            {
+                "answer_text": "b64:c3BlZWQu",
+                "text": "b64:c3BlZWQu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:d2VpZ2h0Lg==",
+                "text": "b64:d2VpZ2h0Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Zm9yY2Uu",
+                "text": "b64:Zm9yY2Uu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:dGVtcGVyYXR1cmUu",
+                "text": "b64:dGVtcGVyYXR1cmUu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:ZnVsY3J1bS4=",
+                "text": "b64:ZnVsY3J1bS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:dHJhamVjdG9yeS4=",
+                "text": "b64:dHJhamVjdG9yeS4=",
+                "weight": "b64:MTAw"
+            }
+        ],
+        "speed.",
+        "weight.",
+        "force.",
+        "temperature.",
+        "fulcrum.",
+        "trajectory.",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 3",
+        "3",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "What is the name of the force that always pulls a flying ball back down to the ground?",
+        "",
+        "3",
+        [
+            {
+                "answer_text": "b64:RWxhc3RpYyBmb3JjZQ==",
+                "text": "b64:RWxhc3RpYyBmb3JjZQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UHVzaGluZyBmb3JjZQ==",
+                "text": "b64:UHVzaGluZyBmb3JjZQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:R3Jhdml0YXRpb25hbCBmb3JjZQ==",
+                "text": "b64:R3Jhdml0YXRpb25hbCBmb3JjZQ==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:TWFnbmV0aWMgZm9yY2U=",
+                "text": "b64:TWFnbmV0aWMgZm9yY2U=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:V2luZCBmb3JjZQ==",
+                "text": "b64:V2luZCBmb3JjZQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RnJpY3Rpb25hbCBmb3JjZQ==",
+                "text": "b64:RnJpY3Rpb25hbCBmb3JjZQ==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "Elastic force",
+        "Pushing force",
+        "Gravitational force",
+        "Magnetic force",
+        "Wind force",
+        "Frictional force",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 4",
+        "4",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "If you launch a ball straight up into the air at a 90-degree angle, where will it most likely land?",
+        "",
+        "5",
+        [
+            {
+                "answer_text": "b64:RmFyIGF3YXkgZnJvbSB3aGVyZSBpdCBzdGFydGVkLg==",
+                "text": "b64:RmFyIGF3YXkgZnJvbSB3aGVyZSBpdCBzdGFydGVkLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGVuIGZlZXQgdG8gdGhlIHJpZ2h0Lg==",
+                "text": "b64:VGVuIGZlZXQgdG8gdGhlIHJpZ2h0Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QmVoaW5kIHdoZXJlIGl0IHN0YXJ0ZWQu",
+                "text": "b64:QmVoaW5kIHdoZXJlIGl0IHN0YXJ0ZWQu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgd2lsbCBrZWVwIGdvaW5nIHVwIGFuZCBub3QgY29tZSBkb3duLg==",
+                "text": "b64:SXQgd2lsbCBrZWVwIGdvaW5nIHVwIGFuZCBub3QgY29tZSBkb3duLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SW4gdGhlIHNhbWUgc3BvdCBpdCB3YXMgbGF1bmNoZWQgZnJvbS4=",
+                "text": "b64:SW4gdGhlIHNhbWUgc3BvdCBpdCB3YXMgbGF1bmNoZWQgZnJvbS4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:VGVuIGZlZXQgdG8gdGhlIGxlZnQu",
+                "text": "b64:VGVuIGZlZXQgdG8gdGhlIGxlZnQu",
+                "weight": "b64:MA=="
+            }
+        ],
+        "Far away from where it started.",
+        "Ten feet to the right.",
+        "Behind where it started.",
+        "It will keep going up and not come down.",
+        "In the same spot it was launched from.",
+        "Ten feet to the left.",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 5",
+        "5",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "To make a ball travel the farthest distance, which launch angle is often the most effective?",
+        "",
+        "2",
+        [
+            {
+                "answer_text": "b64:QSBzdHJhaWdodC11cCBhbmdsZSBvZiA5MCBkZWdyZWVzLg==",
+                "text": "b64:QSBzdHJhaWdodC11cCBhbmdsZSBvZiA5MCBkZWdyZWVzLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBtaWRkbGUgYW5nbGUsIGxpa2UgNDUgZGVncmVlcy4=",
+                "text": "b64:QSBtaWRkbGUgYW5nbGUsIGxpa2UgNDUgZGVncmVlcy4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSB2ZXJ5IGxvdyBhbmdsZSwgbGlrZSAxMCBkZWdyZWVzLg==",
+                "text": "b64:QSB2ZXJ5IGxvdyBhbmdsZSwgbGlrZSAxMCBkZWdyZWVzLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSB2ZXJ5IGhpZ2ggYW5nbGUsIGxpa2UgODAgZGVncmVlcy4=",
+                "text": "b64:QSB2ZXJ5IGhpZ2ggYW5nbGUsIGxpa2UgODAgZGVncmVlcy4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSB6ZXJvLWRlZ3JlZSBhbmdsZS4=",
+                "text": "b64:QSB6ZXJvLWRlZ3JlZSBhbmdsZS4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QWxsIGFuZ2xlcyBtYWtlIHRoZSBiYWxsIGdvIHRoZSBzYW1lIGRpc3RhbmNlLg==",
+                "text": "b64:QWxsIGFuZ2xlcyBtYWtlIHRoZSBiYWxsIGdvIHRoZSBzYW1lIGRpc3RhbmNlLg==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "A straight-up angle of 90 degrees.",
+        "A middle angle, like 45 degrees.",
+        "A very low angle, like 10 degrees.",
+        "A very high angle, like 80 degrees.",
+        "A zero-degree angle.",
+        "All angles make the ball go the same distance.",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 6",
+        "6",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "In a catapult, what is the stiff arm that pivots to throw an object called?",
+        "",
+        "4",
+        [
+            {
+                "answer_text": "b64:QSB3aGVlbA==",
+                "text": "b64:QSB3aGVlbA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBzcHJpbmc=",
+                "text": "b64:QSBzcHJpbmc=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSByb3Bl",
+                "text": "b64:QSByb3Bl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBsZXZlcg==",
+                "text": "b64:QSBsZXZlcg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSBnZWFy",
+                "text": "b64:QSBnZWFy",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBzY3Jldw==",
+                "text": "b64:QSBzY3Jldw==",
+                "weight": "b64:MA=="
+            }
+        ],
+        "A wheel",
+        "A spring",
+        "A rope",
+        "A lever",
+        "A gear",
+        "A screw",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 7",
+        "7",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "What is the correct name for the pivot point that a lever pushes against?",
+        "",
+        "1",
+        [
+            {
+                "answer_text": "b64:QSBmdWxjcnVt",
+                "text": "b64:QSBmdWxjcnVt",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QSBsb2Fk",
+                "text": "b64:QSBsb2Fk",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBoYW5kbGU=",
+                "text": "b64:QSBoYW5kbGU=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBjb250YWluZXI=",
+                "text": "b64:QSBjb250YWluZXI=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBmb3JjZQ==",
+                "text": "b64:QSBmb3JjZQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QSBiYXNl",
+                "text": "b64:QSBiYXNl",
+                "weight": "b64:MA=="
+            }
+        ],
+        "A fulcrum",
+        "A load",
+        "A handle",
+        "A container",
+        "A force",
+        "A base",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 8",
+        "8",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "When a rubber band is stretched back on a launcher, what type of energy does it store?",
+        "",
+        "6",
+        [
+            {
+                "answer_text": "b64:S2luZXRpYyBlbmVyZ3k=",
+                "text": "b64:S2luZXRpYyBlbmVyZ3k=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SGVhdCBlbmVyZ3k=",
+                "text": "b64:SGVhdCBlbmVyZ3k=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U291bmQgZW5lcmd5",
+                "text": "b64:U291bmQgZW5lcmd5",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TGlnaHQgZW5lcmd5",
+                "text": "b64:TGlnaHQgZW5lcmd5",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RWxlY3RyaWNhbCBlbmVyZ3k=",
+                "text": "b64:RWxlY3RyaWNhbCBlbmVyZ3k=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UG90ZW50aWFsIGVuZXJneQ==",
+                "text": "b64:UG90ZW50aWFsIGVuZXJneQ==",
+                "weight": "b64:MTAw"
+            }
+        ],
+        "Kinetic energy",
+        "Heat energy",
+        "Sound energy",
+        "Light energy",
+        "Electrical energy",
+        "Potential energy",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 9",
+        "9",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "Newton's first law of motion states that a moving object will keep moving until what happens?",
+        "",
+        "3",
+        [
+            {
+                "answer_text": "b64:SXQgZ2V0cyB0aXJlZCBhbmQgZGVjaWRlcyB0byBzdG9wLg==",
+                "text": "b64:SXQgZ2V0cyB0aXJlZCBhbmQgZGVjaWRlcyB0byBzdG9wLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgcnVucyBvdXQgb2YgaXRzIG93biBlbmVyZ3ku",
+                "text": "b64:SXQgcnVucyBvdXQgb2YgaXRzIG93biBlbmVyZ3ku",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:QW5vdGhlciBmb3JjZSBhY3RzIG9uIGl0Lg==",
+                "text": "b64:QW5vdGhlciBmb3JjZSBhY3RzIG9uIGl0Lg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:SXQgZ2V0cyBib3JlZCBvZiBtb3Zpbmcu",
+                "text": "b64:SXQgZ2V0cyBib3JlZCBvZiBtb3Zpbmcu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgYmVjb21lcyB0b28gb2xkIHRvIG1vdmUu",
+                "text": "b64:SXQgYmVjb21lcyB0b28gb2xkIHRvIG1vdmUu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:SXQgY2hhbmdlcyBpdHMgbWluZC4=",
+                "text": "b64:SXQgY2hhbmdlcyBpdHMgbWluZC4=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "It gets tired and decides to stop.",
+        "It runs out of its own energy.",
+        "Another force acts on it.",
+        "It gets bored of moving.",
+        "It becomes too old to move.",
+        "It changes its mind.",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 10",
+        "10",
+        "multiple_choice_question",
+        "multiple_choice_question",
+        "1",
+        "What is the very first step you should take when beginning a new engineering challenge?",
+        "",
+        "5",
+        [
+            {
+                "answer_text": "b64:QnVpbGQ=",
+                "text": "b64:QnVpbGQ=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:VGVzdA==",
+                "text": "b64:VGVzdA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UmV2aXNl",
+                "text": "b64:UmV2aXNl",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RXZhbHVhdGU=",
+                "text": "b64:RXZhbHVhdGU=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:UGxhbg==",
+                "text": "b64:UGxhbg==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:U2hhcmU=",
+                "text": "b64:U2hhcmU=",
+                "weight": "b64:MA=="
+            }
+        ],
+        "Build",
+        "Test",
+        "Revise",
+        "Evaluate",
+        "Plan",
+        "Share",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 21",
+        "Q21",
+        "essay_question",
+        "essay_question",
+        "0",
+        "Please write your English name used in class:",
+        "",
+        "",
+        [],
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    [
+        "Question 22",
+        "Q22",
+        "matching_question",
+        "matching_question",
+        "0",
+        "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "",
+        "",
+        [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ],
+        "G6A",
+        "G6B",
+        "G6C",
+        "G7A",
+        "G7B",
+        "G7C",
+        "G8A",
+        "G8B",
+        "G8C"
+    ],
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    }
+]

@@ -2,7 +2,7 @@
     {
         "quiz_metadata": {
             "title": "Kinetic & Gravitational Potential Energy Calculation Audit",
-            "info_content": "<b>Energy Reference Sheet & Equations</b><br><a href=\"media/U1HW6 - W8 - Kinetic and Gravitational Potential Energy Calculations_questions.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">HW Paper Version</a><b> </b><br><a href=\"media/Kinetic & Potential Energy Calculations.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">In Class Practice - Kinetic & Potential Energy Calculations.pdf</a><b> </b><br><b>1. Gravitational Potential Energy (GPE):</b><b>\n$$\\text{GPE} = m \\times g \\times h$$</b><br><b>m (mass):</b><b> The mass of the object measured in kilograms (kg).</b><br><b>g (acceleration due to gravity):</b><b> The gravitational field strength at Earth's surface, taken as </b><b>9.8 m/s²</b><b> (unless specifically stated as 10 m/s² for approximation).</b><br><b>h (height):</b><b> The vertical elevation of the object above the reference ground level measured in meters (m).</b><br><b>GPE:</b><b> Energy stored by an object due to its vertical position in a gravitational field, measured in Joules (J).</b><br><b>2. Kinetic Energy (KE):</b><b>\n$$\\text{KE} = \\frac{1}{2} \\times m \\times v^2 = 0.5 \\times m \\times v^2$$</b><br><b>m (mass):</b><b> The mass of the moving object measured in kilograms (kg).</b><br><b>v (velocity/speed):</b><b> How fast the object is moving measured in meters per second (m/s). </b><b>Notice that velocity is squared ($v^2$)</b><b>.</b><br><b>KE:</b><b> The energy possessed by an object due to its motion, measured in Joules (J).</b><br><b>3. Conservation of Mechanical Energy:</b><b>\nIn an idealized system with no thermal losses due to friction or air resistance, total mechanical energy is conserved: $$\\text{Total Energy} = \\text{KE} + \\text{GPE} = \\text{constant}$$</b>"
+            "info_content": "<b>Energy Reference Sheet & Equations</b><br><a href=\"media/U1HW6 - W8 - Kinetic and Gravitational Potential Energy Calculations_questions.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">HW Paper Version</a><b> </b><br><a href=\"media/Kinetic & Potential Energy Calculations.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">In Class Practice - Kinetic & Potential Energy Calculations.pdf</a><b> </b><br><b>1. Gravitational Potential Energy (GPE):</b><b>\n$$\\text{GPE} = m \\times g \\times h$$</b><br><b>m (mass):</b><b> The mass of the object measured in kilograms (kg).</b><br><b>g (acceleration due to gravity):</b><b> The gravitational field strength at Earth's surface, taken as </b><b>9.8 m/s²</b><b> (unless specifically stated as 10 m/s² for approximation).</b><br><b>h (height):</b><b> The vertical elevation of the object above the reference ground level measured in meters (m).</b><br><b>GPE:</b><b> Energy stored by an object due to its vertical position in a gravitational field, measured in Joules (J).</b><br><b>2. Kinetic Energy (KE):</b><b>\n$$\\text{KE} = \\frac{1}{2} \\times m \\times v^2 = 0.5 \\times m \\times v^2$$</b><br><b>m (mass):</b><b> The mass of the moving object measured in kilograms (kg).</b><br><b>v (velocity/speed):</b><b> How fast the object is moving measured in meters per second (m/s). </b><b>Notice that velocity is squared ($v^2$)</b><b>.</b><br><b>KE:</b><b> The energy possessed by an object due to its motion, measured in Joules (J).</b><br><b>3. Conservation of Mechanical Energy:</b><b>\nIn an idealized system with no thermal losses due to friction or air resistance, total mechanical energy is conserved: $$\\text{Total Energy} = \\text{KE} + \\text{GPE} = \\text{constant}$$</b><br><b>Offline Paper HW: </b><a href=\"media/U1HW6 - W8 - Kinetic and Gravitational Potential Energy Calculations_questions.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">U1HW6 - W8 - Kinetic and Gravitational Potential Energy Calculations_questions.pdf</a>&nbsp;"
         }
     },
     [
@@ -244,5 +244,83 @@
         "b64:RzhB",
         "b64:RzhC",
         "b64:RzhD"
-    ]
+    ],
+    {
+        "question_name": "Question 1",
+        "question number": 1,
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 2",
+        "question number": 2,
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    }
 ]
