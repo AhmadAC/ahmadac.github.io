@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physical Science: Dynamics and Vector Kinematics | 物理科学：动力学与矢量运动学</title>
+  <style>
+    :root {
+      --primary: #1e3a5f;
+      --secondary: #2b5b84;
+      --accent: #3d7ea6;
+      --border: #cbd5e1;
+      --bg-neutral: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --zh-color: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f1f5f9;
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .document-wrapper {
+      max-width: 920px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 25px;
+    }
+
+    .chapter-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 6px 0 4px 0;
+    }
+
+    .subtitle-zh {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .section-block {
+      margin-top: 30px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      color: #ffffff;
+      background-color: var(--primary);
+      padding: 10px 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .section-content {
+      padding: 22px;
+    }
+
+    .bilingual-pair {
+      margin-bottom: 14px;
+    }
+
+    .en-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 3px;
+      text-align: justify;
+    }
+
+    .zh-text {
+      font-size: 0.9rem;
+      color: var(--zh-color);
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    .definition-box {
+      background-color: var(--bg-neutral);
+      border-left: 4px solid var(--secondary);
+      padding: 14px 18px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .definition-title {
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .diagram-container {
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 16px 12px;
+      margin: 18px 0 6px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: auto;
+    }
+
+    .diagram-container svg {
+      width: 100%;
+      max-width: 620px;
+      height: auto;
+      display: block;
+    }
+
+    .figure-caption {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .question-block {
+      background-color: var(--bg-neutral);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 16px;
+      margin-top: 18px;
+    }
+
+    .question-label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .response-input {
+      flex: 1;
+      min-width: 220px;
+      max-width: 320px;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-size: 0.9rem;
+      background: #ffffff;
+    }
+
+    .eval-button {
+      background-color: var(--secondary);
+      color: #ffffff;
+      border: none;
+      padding: 7px 16px;
+      font-size: 0.85rem;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .eval-button:hover {
+      background-color: var(--primary);
+    }
+
+    .feedback-pane {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .feedback-pane.correct {
+      background-color: #edf7ed;
+      color: #1e4620;
+      border: 1px solid #c8e6c9;
+    }
+
+    .feedback-pane.incorrect {
+      background-color: #fde8e8;
+      color: #9b1c1c;
+      border: 1px solid #f8b4b4;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 0.88rem;
+    }
+
+    table.data-table th, table.data-table td {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    table.data-table th {
+      background-color: var(--bg-neutral);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+      }
+      .document-wrapper {
+        border: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .eval-button, .feedback-pane {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="document-wrapper">
+
+  <header>
+    <div class="chapter-label">Physical Science Module | 物理科学模块</div>
+    <h1>Vector Kinematics and Dynamics</h1>
+    <div class="subtitle-zh">矢量运动学与动力学</div>
+  </header>
+
+  <!-- SECTION 0: FOUNDATIONAL TERMINOLOGY -->
+  <div class="section-block">
+    <h2>Foundation: Dynamics and Kinematics | 基础概念：动力学与运动学</h2>
+    <div class="section-content">
+      
+      <div class="definition-box">
+        <div class="definition-title">Term 1: Dynamics | 动力学</div>
+        <p class="en-text"><strong>Dynamics</strong> is the branch of physics that studies why objects move. It examines how forces like pushes, pulls, gravity, and water resistance cause an object to speed up, slow down, stop, or turn.</p>
+        <p class="zh-text"><strong>动力学</strong>是物理学中研究物体为什么运动的分支。它专门研究推力、拉力、重力和流体阻力等各种受力如何导致物体加速、减速、静止或改变方向。</p>
+      </div>
+
+      <div class="definition-box">
+        <div class="definition-title">Term 2: Vector Kinematics | 矢量运动学</div>
+        <p class="en-text"><strong>Kinematics</strong> is the branch of physics that describes how objects move without focusing on the forces causing the motion. <strong>Vector Kinematics</strong> uses directional mathematical measurements (such as position, displacement, velocity, and acceleration) to describe the exact path and speed of that motion.</p>
+        <p class="zh-text"><strong>运动学</strong>是只描述物体如何运动而不探究其受力原因的学科。<strong>矢量运动学</strong>则是利用带有方向性的测量量（例如位置、位移、速度和加速度），精确描述物体的运动轨迹与快慢。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 1: FORCE -->
+  <div class="section-block">
+    <h2>1. Force | 力</h2>
+    <div class="section-content">
+      <div class="definition-box">
+        <div class="definition-title">Definition | 定义</div>
+        <p class="en-text">A <strong>force</strong> is a push or pull exerted upon an object resulting from its interaction with another object. Force is quantified using the standard International System (SI) unit named the <strong>newton (N)</strong>.</p>
+        <p class="zh-text"><strong>力</strong>是物体之间相互作用所产生的推力或拉力。在国际单位制（SI）中，力的标准度量单位为<strong>牛顿（N）</strong>。</p>
+      </div>
+
+      <div class="bilingual-pair">
+        <p class="en-text">When a paddle boat operates, its rotating blades push backward against the water. The water exerts an equal reaction force that propels the hull forward. Simultaneously, the forward motion of the hull is resisted by fluid drag.</p>
+        <p class="zh-text">当明轮船运转时，旋转的桨叶向后推水。水体随之施加一个大小相等的反作用力，推动船体向前行进。同时，船体的前进运动受到流体阻力的阻碍。</p>
+      </div>
+
+      <!-- FIGURE 1: FIXED SPACING AND CLEARANCES -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,1 L7,4 L0,7 Z" fill="#1b5e20" />
+            </marker>
+            <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,1 L7,4 L0,7 Z" fill="#b71c1c" />
+            </marker>
+          </defs>
+          <rect width="600" height="240" fill="#f8fafc"/>
+          
+          <!-- Water Layer -->
+          <rect x="0" y="145" width="600" height="95" fill="#e2e8f0" opacity="0.8"/>
+          <line x1="0" y1="145" x2="600" y2="145" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+          
+          <!-- Fluid Medium Label (Moved safely to bottom corner) -->
+          <text x="25" y="222" font-size="11" fill="#475569" font-weight="600">Fluid Medium: Water | 流体介质：水</text>
+
+          <!-- Boat Profile -->
+          <path d="M170,140 L200,165 L340,165 L370,140 Z" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+          <text x="270" y="156" font-size="11" fill="#1e3a5f" font-weight="bold" text-anchor="middle">Boat Hull | 船体</text>
+
+          <!-- Paddle Mechanism -->
+          <circle cx="190" cy="140" r="22" fill="#ffffff" stroke="#2b5b84" stroke-width="2"/>
+          <line x1="190" y1="118" x2="190" y2="162" stroke="#2b5b84" stroke-width="2"/>
+          <line x1="168" y1="140" x2="212" y2="140" stroke="#2b5b84" stroke-width="2"/>
+
+          <!-- Forward Thrust Vector & Labels (Positioned safely with ample clearance) -->
+          <text x="430" y="85" font-size="11.5" font-weight="bold" fill="#1b5e20" text-anchor="middle">Forward Thrust | 前向推力</text>
+          <text x="430" y="102" font-size="10" fill="#1b5e20" text-anchor="middle">(Action of Water on Paddle | 水对桨的作用力)</text>
+          <line x1="330" y1="120" x2="520" y2="120" stroke="#1b5e20" stroke-width="3.5" marker-end="url(#arrow-green)"/>
+
+          <!-- Hydrodynamic Drag Vector & Labels (Separated vertically from water label) -->
+          <text x="135" y="172" font-size="11" font-weight="bold" fill="#b71c1c" text-anchor="middle">Hydrodynamic Drag | 流体阻力</text>
+          <line x1="220" y1="188" x2="60" y2="188" stroke="#b71c1c" stroke-width="3" marker-end="url(#arrow-red)"/>
+        </svg>
+      </div>
+      <div class="figure-caption">Figure 1. Propulsive thrust and opposing hydrodynamic drag | 图1. 推进推力与相反方向的流体阻力</div>
+
+      <div class="question-block">
+        <span class="question-label">Question 1 | 问题 1:</span>
+        <p class="en-text">What standard scientific unit is used to measure force?</p>
+        <p class="zh-text">用于测量力的标准国际科学单位是什么？</p>
+        <div class="input-row">
+          <input type="text" id="q1" class="response-input" placeholder="Enter unit name | 输入单位名称">
+          <button class="eval-button" onclick="evaluateAnswer('q1', ['newton', 'newtons', 'n', '牛顿'])">Check | 验证</button>
+        </div>
+        <div id="fb-q1" class="feedback-pane"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: MAGNITUDE -->
+  <div class="section-block">
+    <h2>2. Magnitude | 大小（数值）</h2>
+    <div class="section-content">
+      <div class="definition-box">
+        <div class="definition-title">Definition | 定义</div>
+        <p class="en-text"><strong>Magnitude</strong> refers strictly to the numerical size, amount, or physical quantity of a measurement. Magnitude is expressed by a number followed by an appropriate unit, independent of direction.</p>
+        <p class="zh-text"><strong>大小（数值）</strong>严格指代某个测量值的数值大小或物理量值。它由数值及相应单位组成，不包含任何方向信息。</p>
+      </div>
+
+      <div class="bilingual-pair">
+        <p class="en-text">In scientific vector illustrations, magnitude is represented by the physical length of the arrow. A longer arrow denotes a greater magnitude.</p>
+        <p class="zh-text">在科学矢量图示中，大小由箭头的实际长度表示。箭头越长，表示物理量的数值越大。</p>
+      </div>
+
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 170" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,1 L7,4 L0,7 Z" fill="#1e3a5f" />
+            </marker>
+          </defs>
+          <rect width="600" height="170" fill="#f8fafc"/>
+          
+          <text x="30" y="32" font-size="11.5" font-weight="bold" fill="#334155">Condition A: Low Tension | 状态 A：低张力</text>
+          <line x1="30" y1="58" x2="110" y2="58" stroke="#1e3a5f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+          <text x="135" y="62" font-size="12" font-weight="600" fill="#1e3a5f">Magnitude = 2 N | 大小 = 2 牛顿</text>
+
+          <text x="30" y="105" font-size="11.5" font-weight="bold" fill="#334155">Condition B: High Tension | 状态 B：高张力</text>
+          <line x1="30" y1="130" x2="250" y2="130" stroke="#1e3a5f" stroke-width="5" marker-end="url(#arrow-blue)"/>
+          <text x="275" y="134" font-size="12" font-weight="600" fill="#1e3a5f">Magnitude = 10 N | 大小 = 10 牛顿</text>
+        </svg>
+      </div>
+      <div class="figure-caption">Figure 2. Visual comparison of vector magnitude | 图2. 矢量大小的长度比例示意</div>
+
+      <div class="question-block">
+        <span class="question-label">Question 2 | 问题 2:</span>
+        <p class="en-text">In the recorded measurement "18 Newtons upward", which part represents the magnitude?</p>
+        <p class="zh-text">在测量记录“向上 18 牛顿”中，哪一部分代表大小（数值）？</p>
+        <div class="input-row">
+          <input type="text" id="q2" class="response-input" placeholder="Enter magnitude | 输入数值">
+          <button class="eval-button" onclick="evaluateAnswer('q2', ['18', '18 n', '18 newtons', '18牛顿', '18 牛顿'])">Check | 验证</button>
+        </div>
+        <div id="fb-q2" class="feedback-pane"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: SCALAR VS VECTOR -->
+  <div class="section-block">
+    <h2>3. Scalar and Vector Quantities | 标量与矢量</h2>
+    <div class="section-content">
+      <div class="definition-box">
+        <div class="definition-title">Definition | 定义</div>
+        <ul style="margin-left: 20px;">
+          <li class="en-text">A <strong>scalar quantity</strong> has magnitude only. It is completely described by a number and a unit.</li>
+          <li class="zh-text"><strong>标量</strong>只有大小，没有方向。仅凭数值和单位即可完整表述。</li>
+          <li class="en-text">A <strong>vector quantity</strong> has both magnitude and direction. Both properties are required to specify it.</li>
+          <li class="zh-text"><strong>矢量</strong>同时具备大小和方向两个要素。必须同时指明二者才能完整描述。</li>
+        </ul>
+      </div>
+
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="200" fill="#f8fafc"/>
+          
+          <!-- Scalar Container -->
+          <rect x="25" y="18" width="260" height="165" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="155" y="42" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">SCALAR | 标量</text>
+          <text x="155" y="60" font-size="10.5" fill="#64748b" text-anchor="middle">Magnitude Only | 仅有数值大小</text>
+          
+          <rect x="45" y="78" width="220" height="26" fill="#f1f5f9" stroke="#cbd5e1"/>
+          <text x="155" y="95" font-size="11" fill="#1e293b" text-anchor="middle">Mass: 50 g | 质量：50克</text>
+          
+          <rect x="45" y="112" width="220" height="26" fill="#f1f5f9" stroke="#cbd5e1"/>
+          <text x="155" y="129" font-size="11" fill="#1e293b" text-anchor="middle">Time: 12 s | 时间：12秒</text>
+          <text x="155" y="162" font-size="10.5" font-weight="600" fill="#64748b" text-anchor="middle">Direction: None | 无方向属性</text>
+
+          <!-- Vector Container -->
+          <rect x="315" y="18" width="260" height="165" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+          <text x="445" y="42" font-size="12" font-weight="bold" fill="#1e3a5f" text-anchor="middle">VECTOR | 矢量</text>
+          <text x="445" y="60" font-size="10.5" fill="#64748b" text-anchor="middle">Magnitude and Direction | 大小与方向并存</text>
+
+          <line x1="345" y1="92" x2="505" y2="92" stroke="#1e3a5f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+          <text x="425" y="82" font-size="10.5" font-weight="bold" fill="#1e3a5f" text-anchor="middle">Force: 4 N Forward | 力：向前 4 N</text>
+
+          <rect x="335" y="112" width="220" height="26" fill="#f1f5f9" stroke="#cbd5e1"/>
+          <text x="445" y="129" font-size="11" fill="#1e293b" text-anchor="middle">Velocity: 2 m/s East | 速度：向东 2 m/s</text>
+          <text x="445" y="162" font-size="10.5" font-weight="600" fill="#1b5e20" text-anchor="middle">Direction: Required | 必须具备明确方向</text>
+        </svg>
+      </div>
+      <div class="figure-caption">Figure 3. Comparison of scalar and vector properties | 图3. 标量特性与矢量特性对比</div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Concept | 概念</th>
+            <th>Scalar Form | 标量形式</th>
+            <th>Vector Form | 矢量形式</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Motion Length | 运动长度</td>
+            <td>Distance | 路程 (d)</td>
+            <td>Displacement | 位移 (Δx)</td>
+          </tr>
+          <tr>
+            <td>Motion Rate | 运动快慢</td>
+            <td>Speed | 速率 (v)</td>
+            <td>Velocity | 速度 (v)</td>
+          </tr>
+          <tr>
+            <td>Interaction | 物理作用</td>
+            <td>Energy | 能量 / 功 (J)</td>
+            <td>Force | 力 (F)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="question-block">
+        <span class="question-label">Question 3 | 问题 3:</span>
+        <p class="en-text">Does a scalar measurement include a spatial direction?</p>
+        <p class="zh-text">标量测量值是否包含空间方向？（回答 是 或 否 / Yes or No）</p>
+        <div class="input-row">
+          <input type="text" id="q3" class="response-input" placeholder="Yes / No | 是 / 否">
+          <button class="eval-button" onclick="evaluateAnswer('q3', ['no', '否', '不包含', '不是'])">Check | 验证</button>
+        </div>
+        <div id="fb-q3" class="feedback-pane"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: DISTANCE VS DISPLACEMENT -->
+  <div class="section-block">
+    <h2>4. Distance and Displacement | 路程与位移</h2>
+    <div class="section-content">
+      <div class="definition-box">
+        <div class="definition-title">Definition | 定义</div>
+        <ul style="margin-left: 20px;">
+          <li class="en-text"><strong>Distance (Scalar):</strong> The total length of the continuous path traveled by an object, accounting for every turn.</li>
+          <li class="zh-text"><strong>路程（标量）：</strong>物体实际运动轨迹的总长度，包含所有曲线与转折。</li>
+          <li class="en-text"><strong>Displacement (Vector):</strong> The shortest straight-line length and direction pointing directly from the starting position to the ending position.</li>
+          <li class="zh-text"><strong>位移（矢量）：</strong>从起始位置直接指向终点位置的最短有向线段，包含直线距离与空间方向。</li>
+        </ul>
+      </div>
+
+      <!-- FIGURE 4: FIXED MARGINS AND NO TEXT TRUNCATION -->
+      <div class="diagram-container">
+        <svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="620" height="220" fill="#f8fafc"/>
+          <rect x="15" y="15" width="590" height="190" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
+          
+          <!-- Start Position (Moved safely inward to avoid boundary clip) -->
+          <circle cx="95" cy="110" r="6" fill="#1e3a5f"/>
+          <text x="95" y="85" font-size="11" font-weight="bold" fill="#1e3a5f" text-anchor="middle">Start A | 起点 A</text>
+
+          <!-- Finish Position (Moved safely inward to avoid boundary clip) -->
+          <circle cx="515" cy="110" r="6" fill="#1e3a5f"/>
+          <text x="515" y="85" font-size="11" font-weight="bold" fill="#1e3a5f" text-anchor="middle">Finish B | 终点 B</text>
+
+          <!-- Traveled Curved Path -->
+          <path d="M95,110 C 170,40 240,175 320,90 C 375,30 435,165 515,110" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="5,4"/>
+          <text x="305" y="50" font-size="11.5" fill="#475569" font-weight="bold" text-anchor="middle">Distance Path = 140 cm | 实际运动路程 = 140 厘米</text>
+
+          <!-- Linear Displacement Vector -->
+          <line x1="95" y1="135" x2="505" y2="135" stroke="#1e3a5f" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+          <text x="305" y="162" font-size="11.5" font-weight="bold" fill="#1e3a5f" text-anchor="middle">Displacement = 100 cm East | 矢量位移 = 100 厘米 向东</text>
+        </svg>
+      </div>
+      <div class="figure-caption">Figure 4. Path distance compared with net displacement | 图4. 实际路程与净位移对比</div>
+
+      <div class="question-block">
+        <span class="question-label">Question 4 | 问题 4:</span>
+        <p class="en-text">A model boat travels 40 centimeters forward, then turns completely and travels 40 centimeters directly back to its starting point. State its total displacement:</p>
+        <p class="zh-text">一艘模型船向前行驶了40厘米，随后调头直接返回出发点。此时该船的总位移为多少？</p>
+        <div class="input-row">
+          <input type="text" id="q4" class="response-input" placeholder="Enter displacement | 输入位移数值">
+          <button class="eval-button" onclick="evaluateAnswer('q4', ['0', '0 cm', '0 centimeters', 'zero', '0厘米', '0 厘米', '零'])">Check | 验证</button>
+        </div>
+        <div id="fb-q4" class="feedback-pane"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: SUM OF FORCES (NET FORCE) -->
+  <div class="section-block">
+    <h2>5. Sum of Forces (Net Force) | 合力</h2>
+    <div class="section-content">
+      <div class="definition-box">
+        <div class="definition-title">Definition | 定义</div>
+        <p class="en-text">The <strong>sum of forces</strong>, also termed <strong>net force</strong> (denoted as ΣF), is the overall vector combination of all individual forces acting upon an object. When forces act along the same straight line, forces in the positive direction are added, while opposing forces are subtracted.</p>
+        <p class="zh-text"><strong>合力</strong>（通常记作 ΣF）是指作用在同一物体上的所有外力的矢量和。当多个力在同一直线上作用时，同方向的力相加，反方向的力相减。</p>
+      </div>
+
+      <div class="diagram-container">
+        <svg viewBox="0 0 600 185" xmlns="http://www.w3.org/2000/svg">
+          <rect width="600" height="185" fill="#f8fafc"/>
+          
+          <rect x="245" y="55" width="110" height="50" rx="3" fill="#ffffff" stroke="#1e3a5f" stroke-width="2"/>
+          <text x="300" y="78" font-size="11" font-weight="bold" fill="#1e3a5f" text-anchor="middle">Craft Body</text>
+          <text x="300" y="94" font-size="10.5" fill="#475569" text-anchor="middle">船体受力对象</text>
+
+          <!-- Opposing Drag Force -->
+          <line x1="245" y1="80" x2="115" y2="80" stroke="#b71c1c" stroke-width="3" marker-end="url(#arrow-red)"/>
+          <text x="175" y="65" font-size="11" font-weight="bold" fill="#b71c1c" text-anchor="middle">Drag = 3 N | 阻力</text>
+
+          <!-- Forward Thrust Force -->
+          <line x1="355" y1="80" x2="515" y2="80" stroke="#1b5e20" stroke-width="4.5" marker-end="url(#arrow-green)"/>
+          <text x="435" y="65" font-size="11" font-weight="bold" fill="#1b5e20" text-anchor="middle">Thrust = 8 N | 推力</text>
+
+          <!-- Resultant Equation Box -->
+          <rect x="50" y="132" width="500" height="34" rx="3" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="300" y="153" font-size="11.5" font-weight="bold" fill="#1e3a5f" text-anchor="middle">
+            Net Force (ΣF) = 8 N − 3 N = 5 N to the right | 合力 = 5 N 向右
+          </text>
+        </svg>
+      </div>
+      <div class="figure-caption">Figure 5. Algebraic summation of opposing horizontal forces | 图5. 水平相反方向力的代数求和</div>
+
+      <div class="question-block">
+        <span class="question-label">Question 5 | 问题 5:</span>
+        <p class="en-text">A propulsion paddle wheel creates 9 N of forward thrust. Hydrodynamic drag produces 5 N of backward resistance. Calculate the magnitude of the net force:</p>
+        <p class="zh-text">推进桨轮产生9牛顿的前向推力，水流产生5牛顿的反向阻力。计算此时船体所受合力的大小：</p>
+        <div class="input-row">
+          <input type="text" id="q5" class="response-input" placeholder="Enter net force magnitude | 输入合力大小">
+          <button class="eval-button" onclick="evaluateAnswer('q5', ['4', '4 n', '4 newtons', '4牛顿', '4 牛顿'])">Check | 验证</button>
+        </div>
+        <div id="fb-q5" class="feedback-pane"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function evaluateAnswer(fieldId, acceptedValues) {
+    var rawInput = document.getElementById(fieldId).value.trim().toLowerCase();
+    var feedbackElement = document.getElementById("fb-" + fieldId);
+    
+    var isCorrect = false;
+    for (var i = 0; i < acceptedValues.length; i = i + 1) {
+      if (rawInput === acceptedValues[i]) {
+        isCorrect = true;
+        break;
+      }
+    }
+
+    if (isCorrect) {
+      feedbackElement.className = "feedback-pane correct";
+      feedbackElement.innerHTML = "<strong>Evaluation confirmed:</strong> The entered answer matches scientific standards.<br><strong>判定结果：</strong>回答正确，符合物理科学定义。";
+      feedbackElement.style.display = "block";
+    } else {
+      feedbackElement.className = "feedback-pane incorrect";
+      feedbackElement.innerHTML = "<strong>Evaluation notice:</strong> The entered answer is incorrect. Review the definitions and diagrams.<br><strong>判定结果：</strong>回答不正确。请仔细参考上方定义与图示。";
+      feedbackElement.style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+[
+    {
+        "quiz_metadata": {
+            "title": "Vector Kinematics and Dynamics 2",
+            "info_content": "<b>Instructions:</b> Read each question and examine the included diagrams carefully. Select the best answer from the six available options.",
+            "randomize_questions": true
+        }
+    },
+    {
+        "question_name": "Question 11 - Characteristics of Vectors",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which statement precisely characterizes a <b>vector quantity</b>?",
+        "correct ans index": "b64:MQ==",
+        "a": "b64:SXQgcmVxdWlyZXMgYm90aCBtYWduaXR1ZGUgYW5kIGRpcmVjdGlvbiB0byBiZSBjb21wbGV0ZWx5IHNwZWNpZmllZC4=",
+        "b": "b64:SXQgaXMgc3BlY2lmaWVkIGJ5IGEgbnVtZXJpY2FsIHZhbHVlIG9ubHksIHdpdGggbm8gZGlyZWN0aW9uIHJlcXVpcmVkLg==",
+        "c": "b64:SXQgY2Fubm90IGJlIGRyYXduIGFzIGFuIGFycm93IG9uIGEgZ3JhcGgu",
+        "d": "b64:SXQgb25seSBhcHBsaWVzIHRvIHNjYWxhciBtZWFzdXJlbWVudHMgbGlrZSB0ZW1wZXJhdHVyZSBhbmQgbWFzcy4=",
+        "e": "b64:SXRzIG1hZ25pdHVkZSBkcm9wcyB0byB6ZXJvIHdoZW5ldmVyIGl0IGNoYW5nZXMgZGlyZWN0aW9uLg==",
+        "f": "b64:SXQgaXMgY29tcGxldGVseSBpbmRlcGVuZGVudCBvZiBjb29yZGluYXRlIHN5c3RlbXMu"
+    },
+    {
+        "question_name": "Question 12 - Scalar Classification Example",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Examine the classification diagram below:<br><br><svg viewBox='0 0 600 160' width='100%' height='130' xmlns='http://www.w3.org/2000/svg'><rect width='600' height='160' fill='#f8fafc'/><rect x='25' y='15' width='260' height='130' rx='4' fill='#ffffff' stroke='#94a3b8'/><text x='155' y='38' font-size='12' font-weight='bold' fill='#1e3a5f' text-anchor='middle'>SCALAR (Magnitude Only)</text><text x='155' y='70' font-size='11' fill='#1e293b' text-anchor='middle'>Mass: 50 g | Time: 12 s</text><text x='155' y='110' font-size='11' font-weight='600' fill='#64748b' text-anchor='middle'>Direction: None</text><rect x='315' y='15' width='260' height='130' rx='4' fill='#ffffff' stroke='#94a3b8'/><text x='445' y='38' font-size='12' font-weight='bold' fill='#1e3a5f' text-anchor='middle'>VECTOR (Magnitude + Direction)</text><text x='445' y='70' font-size='11' fill='#1e293b' text-anchor='middle'>Force: 4 N Forward</text><text x='445' y='95' font-size='11' fill='#1e293b' text-anchor='middle'>Velocity: 2 m/s East</text><text x='445' y='125' font-size='11' font-weight='600' fill='#1b5e20' text-anchor='middle'>Direction: Required</text></svg><br>Which of the following physical measurements is classified as a <b>scalar quantity</b>?",
+        "correct ans index": "b64:Mw==",
+        "a": "b64:VmVsb2NpdHkgb2YgMiBtL3MgRWFzdA==",
+        "b": "b64:RGlzcGxhY2VtZW50IG9mIDEwMCBjbSBFYXN0",
+        "c": "b64:TWFzcyBvZiA1MCBn",
+        "d": "b64:Rm9yY2Ugb2YgNCBOIEZvcndhcmQ=",
+        "e": "b64:TmV0IHRocnVzdCBvZiA1IE4gdG8gdGhlIHJpZ2h0",
+        "f": "b64:QWNjZWxlcmF0aW9uIG9mIDkuOCBtL3PCsiBkb3dud2FyZA=="
+    },
+    {
+        "question_name": "Question 13 - Vector Identification Example",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which of the following measurements represents a complete <b>vector quantity</b>?",
+        "correct ans index": "b64:Mw==",
+        "a": "b64:MzUgc2Vjb25kcw==",
+        "b": "b64:MjUwIG1pbGxpbGl0ZXJz",
+        "c": "b64:NCBOZXd0b25zIGZvcndhcmQ=",
+        "d": "b64:MTUgZ3JhbXM=",
+        "e": "b64:MjggZGVncmVlcyBDZWxzaXVz",
+        "f": "b64:MTAwIEpvdWxlcw=="
+    },
+    {
+        "question_name": "Question 14 - Speed vs Velocity",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the exact difference between <b>speed</b> and <b>velocity</b>?",
+        "correct ans index": "b64:MQ==",
+        "a": "b64:U3BlZWQgaXMgdGhlIHNjYWxhciBmb3JtIG9mIG1vdGlvbiByYXRlLCB3aGVyZWFzIHZlbG9jaXR5IGlzIHRoZSB2ZWN0b3IgZm9ybSB3aXRoIGRpcmVjdGlvbi4=",
+        "b": "b64:VmVsb2NpdHkgaXMgdGhlIHNjYWxhciBmb3JtLCB3aGVyZWFzIHNwZWVkIGlzIHRoZSB2ZWN0b3IgZm9ybS4=",
+        "c": "b64:Qm90aCBzcGVlZCBhbmQgdmVsb2NpdHkgYXJlIHNjYWxhciBxdWFudGl0aWVzIG1lYXN1cmVkIGluIE5ld3RvbnMu",
+        "d": "b64:U3BlZWQgaW5jbHVkZXMgZGlyZWN0aW9uLCB3aGVyZWFzIHZlbG9jaXR5IGRvZXMgbm90Lg==",
+        "e": "b64:VmVsb2NpdHkgbWVhc3VyZXMgZW5lcmd5LCB3aGlsZSBzcGVlZCBtZWFzdXJlcyBmb3JjZS4=",
+        "f": "b64:VGhlcmUgaXMgbm8gZGlmZmVyZW5jZSBiZXR3ZWVuIHNwZWVkIGFuZCB2ZWxvY2l0eSBpbiBwaHlzaWNzLg=="
+    },
+    {
+        "question_name": "Question 15 - Definition of Distance",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "<b>distance (d)</b> is defined as:",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:VGhlIHNob3J0ZXN0IHN0cmFpZ2h0IGxpbmUgcG9pbnRpbmcgZnJvbSBzdGFydCB0byBmaW5pc2gu",
+        "b": "b64:VGhlIHRvdGFsIGxlbmd0aCBvZiB0aGUgY29udGludW91cyBwYXRoIHRyYXZlbGVkIGJ5IGFuIG9iamVjdCwgYWNjb3VudGluZyBmb3IgZXZlcnkgY3VydmUgYW5kIHR1cm4u",
+        "c": "b64:VGhlIGFsZ2VicmFpYyBzdW0gb2YgZm9yd2FyZCB0aHJ1c3QgYW5kIGZsdWlkIGRyYWcu",
+        "d": "b64:VGhlIGNoYW5nZSBpbiB2ZWxvY2l0eSBwZXIgdW5pdCB0aW1lLg==",
+        "e": "b64:VGhlIHB1c2ggb3IgcHVsbCBleGVydGVkIGJldHdlZW4gaW50ZXJhY3Rpbmcgb2JqZWN0cy4=",
+        "f": "b64:VGhlIGdlb2dyYXBoaWNhbCBjb29yZGluYXRlIG9mIHRoZSBkZXN0aW5hdGlvbi4="
+    },
+    {
+        "question_name": "Question 16 - Definition of Displacement",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "<b>displacement (Δx)</b> is defined as:",
+        "correct ans index": "b64:Mw==",
+        "a": "b64:VGhlIHRvdGFsIG9kb21ldGVyIHJlYWRpbmcgb2YgYW55IGNvbnZvbHV0ZWQgcGF0aCB0YWtlbi4=",
+        "b": "b64:VGhlIHZvbHVtZSBvZiBsaXF1aWQgcHVzaGVkIGFzaWRlIGJ5IGFuIG9iamVjdCdzIGh1bGwu",
+        "c": "b64:VGhlIHNob3J0ZXN0IHN0cmFpZ2h0LWxpbmUgbGVuZ3RoIGFuZCBkaXJlY3Rpb24gcG9pbnRpbmcgZGlyZWN0bHkgZnJvbSB0aGUgc3RhcnRpbmcgcG9zaXRpb24gdG8gdGhlIGVuZGluZyBwb3NpdGlvbi4=",
+        "d": "b64:VGhlIHByb2R1Y3Qgb2YgbmV0IGZvcmNlIG11bHRpcGxpZWQgYnkgZWxhcHNlZCB0aW1lLg==",
+        "e": "b64:QSBzY2FsYXIgbWVhc3VyZW1lbnQgZGVzY3JpYmluZyBob3cgcmFwaWRseSBhbiBvYmplY3QgdHJhdmVscy4=",
+        "f": "b64:VGhlIGdyYXZpdGF0aW9uYWwgZm9yY2UgZXhlcnRlZCBvbiBhbiBvYmplY3QgYXQgcmVzdC4="
+    },
+    {
+        "question_name": "Question 17 - Distance vs Displacement Analysis",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Examine the path comparison diagram below:<br><br><svg viewBox='0 0 620 180' width='100%' height='150' xmlns='http://www.w3.org/2000/svg'><rect width='620' height='180' fill='#f8fafc'/><rect x='15' y='15' width='590' height='150' rx='4' fill='#ffffff' stroke='#cbd5e1'/><circle cx='95' cy='90' r='6' fill='#1e3a5f'/><text x='95' y='65' font-size='11' font-weight='bold' fill='#1e3a5f' text-anchor='middle'>Start A</text><circle cx='515' cy='90' r='6' fill='#1e3a5f'/><text x='515' y='65' font-size='11' font-weight='bold' fill='#1e3a5f' text-anchor='middle'>Finish B</text><path d='M95,90 C 170,20 240,155 320,70 C 375,10 435,145 515,90' fill='none' stroke='#64748b' stroke-width='2' stroke-dasharray='5,4'/><text x='305' y='35' font-size='11.5' fill='#475569' font-weight='bold' text-anchor='middle'>Distance Path = 140 cm</text><line x1='95' y1='115' x2='505' y2='115' stroke='#1e3a5f' stroke-width='2.5'/><polygon points='505,110 515,115 505,120' fill='#1e3a5f'/><text x='305' y='140' font-size='11.5' font-weight='bold' fill='#1e3a5f' text-anchor='middle'>Displacement = 100 cm East</text></svg><br>Why is the <b>Distance Path (140 cm)</b> greater in magnitude than the <b>Displacement (100 cm East)</b>?",
+        "correct ans index": "b64:MQ==",
+        "a": "b64:QmVjYXVzZSBkaXN0YW5jZSBtZWFzdXJlcyB0aGUgbWVhbmRlcmluZywgY3VydmVkIHJvdXRlIHRha2VuLCB3aGVyZWFzIGRpc3BsYWNlbWVudCBtZWFzdXJlcyBzb2xlbHkgdGhlIHNob3J0ZXN0IHN0cmFpZ2h0IGxpbmUgYmV0d2VlbiBzdGFydCBhbmQgZmluaXNoLg==",
+        "b": "b64:QmVjYXVzZSBkaXNwbGFjZW1lbnQgaW5jbHVkZXMgZnJpY3Rpb24sIHdoaWNoIHNob3J0ZW5zIHRoZSBkaXN0YW5jZS4=",
+        "c": "b64:QmVjYXVzZSB0aGUgc3R1ZGVudCBtYWRlIGEgbWVhc3VyZW1lbnQgZXJyb3IgdXNpbmcgdHdvIGRpZmZlcmVudCBydWxlcnMu",
+        "d": "b64:QmVjYXVzZSBkaXN0YW5jZSBpcyBhIHZlY3RvciBxdWFudGl0eSB3aGlsZSBkaXNwbGFjZW1lbnQgaXMgYSBzY2FsYXIgcXVhbnRpdHku",
+        "e": "b64:QmVjYXVzZSBkaXNwbGFjZW1lbnQgY2FuIG5ldmVyIGJlIHJlcHJlc2VudGVkIGFzIGEgc3RyYWlnaHQgbGluZS4=",
+        "f": "b64:QmVjYXVzZSBjdXJ2ZWQgcGF0aHMgYWx3YXlzIGhhdmUgc21hbGxlciBudW1lcmljYWwgdmFsdWVzIHRoYW4gc3RyYWlnaHQgbGluZXMu"
+    },
+    {
+        "question_name": "Question 18 - Round-Trip Motion Audit",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "A model boat navigates 40 centimeters forward across a test pool, executes an immediate 180° turn, and navigates 40 centimeters directly back to its exact starting dock. What are the boat's total <b>distance</b> and net <b>displacement</b>?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:RGlzdGFuY2UgPSAwIGNtOyBEaXNwbGFjZW1lbnQgPSA4MCBjbSBmb3J3YXJk",
+        "b": "b64:RGlzdGFuY2UgPSA4MCBjbTsgRGlzcGxhY2VtZW50ID0gMCBjbQ==",
+        "c": "b64:RGlzdGFuY2UgPSA0MCBjbTsgRGlzcGxhY2VtZW50ID0gNDAgY20=",
+        "d": "b64:RGlzdGFuY2UgPSA4MCBjbTsgRGlzcGxhY2VtZW50ID0gODAgY20gZm9yd2FyZA==",
+        "e": "b64:RGlzdGFuY2UgPSAwIGNtOyBEaXNwbGFjZW1lbnQgPSAwIGNt",
+        "f": "b64:RGlzdGFuY2UgPSA0MCBjbTsgRGlzcGxhY2VtZW50ID0gMCBjbQ=="
+    },
+    {
+        "question_name": "Question 19 - Concept of Net Force",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the scientific definition of the <b>sum of forces</b>, also known as the <b>net force (ΣF)</b>?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:VGhlIG11bHRpcGxpY2F0aW9uIG9mIGFsbCBmb3JjZXMgYWN0aW5nIGluIGFueSBkaXJlY3Rpb24u",
+        "b": "b64:VGhlIG92ZXJhbGwgdmVjdG9yIGNvbWJpbmF0aW9uIG9mIGFsbCBpbmRpdmlkdWFsIGZvcmNlcyBhY3RpbmcgdXBvbiBhbiBvYmplY3Qu",
+        "c": "b64:VGhlIGFtb3VudCBvZiBncmF2aXRhdGlvbmFsIHB1bGwgYWxvbmUsIHJlZ2FyZGxlc3Mgb2Ygb3RoZXIgZm9yY2VzLg==",
+        "d": "b64:VGhlIGZvcmNlIG9mIGRyYWcgZGl2aWRlZCBieSB0aGUgc3BlZWQgb2YgdGhlIG9iamVjdC4=",
+        "e": "b64:VGhlIHRvdGFsIG1hc3Mgb2YgdGhlIG9iamVjdCBkaXZpZGVkIGJ5IGl0cyBzdXJmYWNlIGFyZWEu",
+        "f": "b64:VGhlIGZvcmNlIGFwcGxpZWQgZXhjbHVzaXZlbHkgZHVyaW5nIHRoZSBmaXJzdCBzZWNvbmQgb2YgbW90aW9uLg=="
+    },
+    {
+        "question_name": "Question 20 - Net Force Calculation",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Examine the force diagram below:<br><br><svg viewBox='0 0 600 170' width='100%' height='130' xmlns='http://www.w3.org/2000/svg'><rect width='600' height='170' fill='#f8fafc'/><rect x='245' y='45' width='110' height='50' rx='3' fill='#ffffff' stroke='#1e3a5f' stroke-width='2'/><text x='300' y='75' font-size='12' font-weight='bold' fill='#1e3a5f' text-anchor='middle'>Craft Body</text><line x1='245' y1='70' x2='125' y2='70' stroke='#b71c1c' stroke-width='3'/><polygon points='125,65 115,70 125,75' fill='#b71c1c'/><text x='175' y='55' font-size='11' font-weight='bold' fill='#b71c1c' text-anchor='middle'>Drag = 3 N</text><line x1='355' y1='70' x2='505' y2='70' stroke='#1b5e20' stroke-width='4'/><polygon points='505,65 515,70 505,75' fill='#1b5e20'/><text x='435' y='55' font-size='11' font-weight='bold' fill='#1b5e20' text-anchor='middle'>Thrust = 8 N</text><rect x='100' y='120' width='400' height='30' rx='3' fill='#ffffff' stroke='#cbd5e1'/><text x='300' y='140' font-size='12' font-weight='bold' fill='#1e3a5f' text-anchor='middle'>Net Force = 8 N − 3 N = 5 N to the right</text></svg><br>In a newly tested configuration, the craft's paddle wheel produces <b>9 N</b> of forward thrust while hydrodynamic drag exerts <b>5 N</b> of backward resistance. What is the magnitude and direction of the net force (ΣF)?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:MTQgTiB0byB0aGUgcmlnaHQ=",
+        "b": "b64:NCBOIHRvIHRoZSByaWdodCAoZm9yd2FyZCk=",
+        "c": "b64:NCBOIHRvIHRoZSBsZWZ0IChiYWNrd2FyZCk=",
+        "d": "b64:NDUgTiB0byB0aGUgcmlnaHQ=",
+        "e": "b64:MS44IE4gdG8gdGhlIGxlZnQ=",
+        "f": "b64:MCBOIChiYWxhbmNlZCBmb3JjZXMp"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    }
+]

@@ -1,0 +1,237 @@
+[
+    {
+        "quiz_metadata": {
+            "title": "Vector Kinematics and Dynamics 1",
+            "info_content": "<b>Instructions:</b><b> Read each question and examine the included diagrams carefully. Select the best answer from the six available options.</b><br><br><b>Refer to the notes here to help answer the questions: </b><a href=\"E:/2027/MrCooperSuite/0HTMLOfflineQUiz/ahmadac.github.io/0_Quiz/media/vector kinematics and dynamics.html\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">Vector Kinematics and Dynamics</a><b> </b><br><b>Offline Paper HW: </b><a href=\"media/U1HW8 - W11 - Vector Kinematics and Dynamics 1_questions.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">U1HW8 - W11 - Vector Kinematics and Dynamics 1_questions.pdf</a>&nbsp;",
+            "randomize_questions": true
+        }
+    },
+    {
+        "question_name": "Question 1 - Focus of Dynamics",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What is the primary focus of <b>dynamics</b>?",
+        "correct ans index": "b64:MQ==",
+        "a": "b64:VGhlIHN0dWR5IG9mIHdoeSBvYmplY3RzIG1vdmUsIGV4YW1pbmluZyBob3cgZm9yY2VzIGNhdXNlIG9iamVjdHMgdG8gYWNjZWxlcmF0ZSwgc2xvdyBkb3duLCBvciB0dXJuLg==",
+        "b": "b64:VGhlIG1hdGhlbWF0aWNhbCBkZXNjcmlwdGlvbiBvZiBtb3Rpb24gd2l0aG91dCBjb25zaWRlcmluZyB0aGUgdW5kZXJseWluZyBmb3JjZXMu",
+        "c": "b64:VGhlIG1lYXN1cmVtZW50IG9mIGFuIG9iamVjdCdzIHRvdGFsIG1hc3Mgd2l0aG91dCBzcGF0aWFsIGNvb3JkaW5hdGVzLg==",
+        "d": "b64:VGhlIHN0dWR5IG9mIHN0YXRpb25hcnkgZmx1aWRzIGFuZCBoeWRyb3N0YXRpYyBwcmVzc3VyZS4=",
+        "e": "b64:VGhlIGNhbGN1bGF0aW9uIG9mIGVsZWN0cm9tYWduZXRpYyB3YXZlcyBpbiBhIHZhY3V1bS4=",
+        "f": "b64:VGhlIHN0dWR5IG9mIGNoZW1pY2FsIHJlYWN0aW9ucyBpbiBkaXNzb2x2aW5nIHNvbHV0ZXMu"
+    },
+    {
+        "question_name": "Question 2 - Vector Kinematics vs Dynamics",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "How does <b>vector kinematics</b> differ fundamentally from dynamics?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:VmVjdG9yIGtpbmVtYXRpY3MgbWVhc3VyZXMgdGhlIGVuZXJneSBjb25zdW1lZCBieSBhbiBlbmdpbmUu",
+        "b": "b64:VmVjdG9yIGtpbmVtYXRpY3MgZGVzY3JpYmVzIGhvdyBvYmplY3RzIG1vdmUgdXNpbmcgZGlyZWN0aW9uYWwgbWVhc3VyZW1lbnRzIGxpa2UgZGlzcGxhY2VtZW50IGFuZCB2ZWxvY2l0eSB3aXRob3V0IGZvY3VzaW5nIG9uIHRoZSBmb3JjZXMgY2F1c2luZyBtb3Rpb24u",
+        "c": "b64:VmVjdG9yIGtpbmVtYXRpY3Mgc3RyaWN0bHkgbWVhc3VyZXMgc2NhbGFyIHF1YW50aXRpZXMgc3VjaCBhcyBtYXNzIGFuZCB0ZW1wZXJhdHVyZS4=",
+        "d": "b64:VmVjdG9yIGtpbmVtYXRpY3MgZm9jdXNlcyBleGNsdXNpdmVseSBvbiB3aHkgZ3Jhdml0eSBhY3RzIG9uIGNlbGVzdGlhbCBib2RpZXMu",
+        "e": "b64:VmVjdG9yIGtpbmVtYXRpY3MgaWdub3JlcyBzcGF0aWFsIGRpcmVjdGlvbiBhbmQgb25seSBjb25zaWRlcnMgbnVtZXJpY2FsIG1hZ25pdHVkZS4=",
+        "f": "b64:VmVjdG9yIGtpbmVtYXRpY3Mgb25seSBhcHBsaWVzIHRvIG9iamVjdHMgYXQgY29tcGxldGUgcmVzdC4="
+    },
+    {
+        "question_name": "Question 3 - SI Unit of Force",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In the International System of Units (SI), what is the standard scientific unit used to measure <b>force</b>?",
+        "correct ans index": "b64:Mw==",
+        "a": "b64:Sm91bGUgKEop",
+        "b": "b64:S2lsb2dyYW0gKGtnKQ==",
+        "c": "b64:TmV3dG9uIChOKQ==",
+        "d": "b64:TWV0ZXIgcGVyIHNlY29uZCAobS9zKQ==",
+        "e": "b64:V2F0dCAoVyk=",
+        "f": "b64:UGFzY2FsIChQYSk="
+    },
+    {
+        "question_name": "Question 4 - Paddle Boat Propulsion",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Examine the propulsion diagram below:<br><br><svg viewBox='0 0 600 220' width='100%' height='200' xmlns='http://www.w3.org/2000/svg'><rect width='600' height='220' fill='#f8fafc'/><rect x='0' y='140' width='600' height='80' fill='#e2e8f0'/><line x1='0' y1='140' x2='600' y2='140' stroke='#94a3b8' stroke-width='1.5' stroke-dasharray='6,4'/><path d='M170,135 L200,160 L340,160 L370,135 Z' fill='#ffffff' stroke='#1e3a5f' stroke-width='2'/><text x='270' y='152' font-size='11' fill='#1e3a5f' font-weight='bold' text-anchor='middle'>Boat Hull</text><circle cx='190' cy='135' r='20' fill='#ffffff' stroke='#2b5b84' stroke-width='2'/><line x1='190' y1='115' x2='190' y2='155' stroke='#2b5b84' stroke-width='2'/><line x1='170' y1='135' x2='210' y2='135' stroke='#2b5b84' stroke-width='2'/><text x='430' y='80' font-size='12' font-weight='bold' fill='#1b5e20' text-anchor='middle'>Forward Thrust</text><line x1='330' y1='110' x2='510' y2='110' stroke='#1b5e20' stroke-width='3.5'/><polygon points='510,105 525,110 510,115' fill='#1b5e20'/><text x='130' y='170' font-size='11' font-weight='bold' fill='#b71c1c' text-anchor='middle'>Hydrodynamic Drag</text><line x1='210' y1='185' x2='70' y2='185' stroke='#b71c1c' stroke-width='3'/><polygon points='70,180 55,185 70,190' fill='#b71c1c'/></svg><br>According to the text, how is the <b>Forward Thrust</b> generated?",
+        "correct ans index": "b64:MQ==",
+        "a": "b64:VGhlIHJvdGF0aW5nIHBhZGRsZSBibGFkZXMgcHVzaCBiYWNrd2FyZCBhZ2FpbnN0IHRoZSB3YXRlciwgYW5kIHRoZSB3YXRlciBleGVydHMgYW4gZXF1YWwgZm9yd2FyZCByZWFjdGlvbiBmb3JjZSBvbiB0aGUgYm9hdC4=",
+        "b": "b64:VGhlIGVuZ2luZSBwdWxscyB0aGUgc3Vycm91bmRpbmcgYWlyIGZvcndhcmQgaW50byB0aGUgaHVsbC4=",
+        "c": "b64:SHlkcm9keW5hbWljIGRyYWcgcHVzaGVzIHRoZSBib2F0IGZvcndhcmQgYXMgc3BlZWQgaW5jcmVhc2VzLg==",
+        "d": "b64:VGhlIHdhdGVyIHB1bGxzIHRoZSBib2F0IGZvcndhcmQgdGhyb3VnaCBjYXBpbGxhcnkgc3VjdGlvbi4=",
+        "e": "b64:R3Jhdml0eSBwdWxscyB0aGUgYm9hdCBob3Jpem9udGFsbHkgYWNyb3NzIHRoZSBzdXJmYWNlIG9mIHRoZSB3YXRlci4=",
+        "f": "b64:QnVveWFudCBmb3JjZXMgZWxpbWluYXRlIHRoZSBuZWVkIGZvciBhbnkgcHJvcHVsc2l2ZSB0aHJ1c3Qu"
+    },
+    {
+        "question_name": "Question 5 - Direction of Fluid Drag",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In fluid mechanics and boat propulsion, in what direction does <b>hydrodynamic drag</b> act relative to the hull's motion?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:UGVycGVuZGljdWxhciB1cHdhcmQgdG93YXJkIHRoZSBza3ku",
+        "b": "b64:RGlyZWN0bHkgb3Bwb3NpdGUgdG8gdGhlIGRpcmVjdGlvbiBvZiB0aGUgaHVsbCdzIGZvcndhcmQgbW90aW9uLg==",
+        "c": "b64:SW4gdGhlIGV4YWN0IHNhbWUgZGlyZWN0aW9uIGFzIHRoZSBmb3J3YXJkIHRocnVzdC4=",
+        "d": "b64:UGVycGVuZGljdWxhciBkb3dud2FyZCB0b3dhcmQgdGhlIHNlYWJlZC4=",
+        "e": "b64:QXQgYSA0NS1kZWdyZWUgYW5nbGUgcG9pbnRpbmcgbm9ydGhlYXN0IGF0IGFsbCB0aW1lcy4=",
+        "f": "b64:SHlkcm9keW5hbWljIGRyYWcgaGFzIG1hZ25pdHVkZSBvbmx5IGFuZCBubyBwaHlzaWNhbCBkaXJlY3Rpb24u"
+    },
+    {
+        "question_name": "Question 6 - Scientific Meaning of Magnitude",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "What does the term <b>magnitude</b> strictly denote in physical measurements?",
+        "correct ans index": "b64:Mw==",
+        "a": "b64:VGhlIGNvbXBhc3MgYmVhcmluZyBvciBzcGF0aWFsIGRpcmVjdGlvbiBvZiBhIHZlY3Rvci4=",
+        "b": "b64:VGhlIHJhdGUgYXQgd2hpY2ggYW4gb2JqZWN0IGNoYW5nZXMgaXRzIGhlYWRpbmcu",
+        "c": "b64:VGhlIG51bWVyaWNhbCBzaXplLCBhbW91bnQsIG9yIHBoeXNpY2FsIHF1YW50aXR5IGV4cHJlc3NlZCBieSBhIG51bWJlciBhbmQgdW5pdCwgaW5kZXBlbmRlbnQgb2YgZGlyZWN0aW9uLg==",
+        "d": "b64:VGhlIHRvdGFsIHRpbWUgZWxhcHNlZCBkdXJpbmcgYSBwaHlzaWNhbCBldmVudC4=",
+        "e": "b64:VGhlIGZyaWN0aW9uIGNvZWZmaWNpZW50IGJldHdlZW4gdHdvIHRvdWNoaW5nIHN1cmZhY2VzLg==",
+        "f": "b64:VGhlIHJhdGlvIG9mIG1hc3MgdG8gdm9sdW1lIGluIGEgc3Vic3RhbmNlLg=="
+    },
+    {
+        "question_name": "Question 7 - Magnitude Identification",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In the recorded laboratory measurement <b>'18 Newtons upward'</b>, which component represents the <b>magnitude</b>?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:VXB3YXJk",
+        "b": "b64:MTggTmV3dG9ucyAob3IgMTggTik=",
+        "c": "b64:TmV3dG9ucyB1cHdhcmQ=",
+        "d": "b64:WmVybw==",
+        "e": "b64:VmVydGljYWwgcGxhbmU=",
+        "f": "b64:VGhlIHVwd2FyZCBhY2NlbGVyYXRpb24="
+    },
+    {
+        "question_name": "Question 8 - Vector Arrow Representation",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Inspect the vector diagrams below:<br><br><svg viewBox='0 0 600 150' width='100%' height='130' xmlns='http://www.w3.org/2000/svg'><rect width='600' height='150' fill='#f8fafc'/><text x='30' y='30' font-size='12' font-weight='bold' fill='#334155'>Condition A: Low Tension</text><line x1='30' y1='52' x2='100' y2='52' stroke='#1e3a5f' stroke-width='3'/><polygon points='100,47 112,52 100,57' fill='#1e3a5f'/><text x='130' y='57' font-size='12' font-weight='600' fill='#1e3a5f'>Magnitude = 2 N</text><text x='30' y='100' font-size='12' font-weight='bold' fill='#334155'>Condition B: High Tension</text><line x1='30' y1='122' x2='240' y2='122' stroke='#1e3a5f' stroke-width='4.5'/><polygon points='240,117 254,122 240,127' fill='#1e3a5f'/><text x='275' y='127' font-size='12' font-weight='600' fill='#1e3a5f'>Magnitude = 10 N</text></svg><br>In scientific illustrations, how is the <b>magnitude</b> of a vector visually indicated?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:QnkgdGhlIGNvbG9yIHBhbGV0dGUgdXNlZCBmb3IgdGhlIGFycm93Lg==",
+        "b": "b64:QnkgdGhlIHBoeXNpY2FsIGxlbmd0aCBvZiB0aGUgYXJyb3cu",
+        "c": "b64:QnkgdGhlIGFuZ2xlIHRoZSBhcnJvdyBtYWtlcyB3aXRoIHRoZSBob3Jpem9udGFsIGF4aXMu",
+        "d": "b64:QnkgdGhlIGRvdHRlZCBsaW5lIHBhdHRlcm4u",
+        "e": "b64:Qnkgd2hldGhlciB0aGUgYXJyb3cgcG9pbnRzIGxlZnQgb3IgcmlnaHQu",
+        "f": "b64:QnkgdGhlIGZvbnQgc3R5bGUgb2YgdGhlIHRleHQgbGFiZWwu"
+    },
+    {
+        "question_name": "Question 9 - Magnitude Ratio Comparison",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Referring to Condition A (2 N) and Condition B (10 N) shown in the vector diagram of Question 8, how many times greater is the magnitude of the force in Condition B compared to Condition A?",
+        "correct ans index": "b64:Mw==",
+        "a": "b64:MiB0aW1lcyBncmVhdGVy",
+        "b": "b64:MyB0aW1lcyBncmVhdGVy",
+        "c": "b64:NSB0aW1lcyBncmVhdGVy",
+        "d": "b64:OCB0aW1lcyBncmVhdGVy",
+        "e": "b64:MTAgdGltZXMgZ3JlYXRlcg==",
+        "f": "b64:MjAgdGltZXMgZ3JlYXRlcg=="
+    },
+    {
+        "question_name": "Question 10 - Characteristics of Scalars",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Which statement precisely characterizes a <b>scalar quantity</b>?",
+        "correct ans index": "b64:MQ==",
+        "a": "b64:SXQgaGFzIG1hZ25pdHVkZSBvbmx5IGFuZCBpcyBjb21wbGV0ZWx5IGRlc2NyaWJlZCBieSBhIG51bWJlciBhbmQgYSB1bml0IHdpdGhvdXQgZGlyZWN0aW9uLg==",
+        "b": "b64:SXQgbXVzdCBhbHdheXMgaGF2ZSBib3RoIGEgbWFnbml0dWRlIGFuZCBhIHNwYXRpYWwgY29tcGFzcyBkaXJlY3Rpb24u",
+        "c": "b64:SXQgY2FuIG9ubHkgZGVzY3JpYmUgbW92aW5nIG9iamVjdHMgaW4gdGhyZWUgZGltZW5zaW9ucy4=",
+        "d": "b64:SXQgaXMgYWx3YXlzIHJlcHJlc2VudGVkIHdpdGggYW4gYXJyb3cgcG9pbnRpbmcgdG93YXJkIHRoZSBvcmlnaW4u",
+        "e": "b64:SXQgY2hhbmdlcyB2YWx1ZSB3aGVuZXZlciBhbiBvYmplY3Qgcm90YXRlcyBpbiBzcGFjZS4=",
+        "f": "b64:SXQgaXMgcXVhbnRpZmllZCBzb2xlbHkgaW4gdW5pdHMgb2YgTmV3dG9ucy4="
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
+            {
+                "answer_text": "b64:RzZB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzZD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzdD",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhB",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhC",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RzhD",
+                "weight": "b64:MA=="
+            }
+        ],
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    }
+]
