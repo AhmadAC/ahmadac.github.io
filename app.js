@@ -1085,6 +1085,7 @@ window.saveMappingConfig = function() {
     applyFeatureToggles();
 
     const renameList = Object.entries(quizzesToRename).map(([old_name, new_name]) => ({ old_name, new_name }));
+    const hadRenames = renameList.length > 0;
 
     window.appConfig.ignore = newIgnore;
     window.appConfig.canvas = rebuildCanvasJson(window.appConfig.canvas, updates, quizzesToRename);
@@ -1105,6 +1106,11 @@ window.saveMappingConfig = function() {
         quizzesToRename = {};
         window.closeModals();
         
+        if (hadRenames) {
+            window.location.reload();
+            return;
+        }
+
         quizInstances.forEach(inst => {
             inst.initClassGrid();
             if (inst.selectedClass && inst.views.assignments.classList.contains('active')) {
