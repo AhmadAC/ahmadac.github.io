@@ -207,7 +207,7 @@
     ],
     [
         "Question 11",
-        "Q11",
+        "11",
         "essay_question",
         "essay_question",
         "0",
@@ -227,7 +227,7 @@
     ],
     [
         "Question 12",
-        "Q12",
+        "12",
         "matching_question",
         "matching_question",
         "0",
@@ -244,83 +244,5 @@
         "b64:RzhB",
         "b64:RzhC",
         "b64:RzhD"
-    ],
-    {
-        "question_name": "Question 1",
-        "question number": 1,
-        "question_type": "essay_question",
-        "type": "essay_question",
-        "points": 0,
-        "points_possible": 0,
-        "question text": "Please write your English name used in class:",
-        "question_text": "Please write your English name used in class:",
-        "url": "",
-        "question_url": "",
-        "correct ans index": " ",
-        "answers": []
-    },
-    {
-        "question_name": "Question 2",
-        "question number": 2,
-        "question_type": "matching_question",
-        "type": "matching_question",
-        "points": 0,
-        "points_possible": 0,
-        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
-        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
-        "url": "",
-        "question_url": "",
-        "correct ans index": " ",
-        "reusable": true,
-        "matches_reusable": true,
-        "allow_answers_to_be_used_more_than_once": true,
-        "consume_choices": false,
-        "answers": [
-            {
-                "answer_text": "b64:RzZB",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzZC",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzZD",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzdB",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzdC",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzdD",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzhB",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzhC",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RzhD",
-                "weight": "b64:MA=="
-            }
-        ],
-        "a": "b64:RzZB",
-        "b": "b64:RzZC",
-        "c": "b64:RzZD",
-        "d": "b64:RzdB",
-        "e": "b64:RzdC",
-        "f": "b64:RzdD",
-        "g": "b64:RzhB",
-        "h": "b64:RzhC",
-        "i": "b64:RzhD"
-    }
+    ]
 ]

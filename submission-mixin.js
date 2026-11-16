@@ -2,13 +2,59 @@
 
 import { triggerConfetti, formatDisplayString, cleanQuizTitle, hideFloatingTextPopup } from './utils.js?v=2.2';
 
+const getQuestionText = (q) => {
+    if (!q || typeof q !== 'object') return "";
+    return String(
+        q['question text'] ||
+        q.question_text ||
+        q['Question Text'] ||
+        q['Question_Text'] ||
+        q.question ||
+        q.Question ||
+        ""
+    );
+};
+
+const isClassQuestion = (txt, qType) => {
+    const t = (txt || "").toLowerCase();
+    const type = (qType || "").toLowerCase();
+    if (t.includes('class of lever') || t.includes('lever class') || t.includes('classify') || t.includes('classification')) {
+        return false;
+    }
+    if (t.includes('select your class') || t.includes('select class') || t.includes('choose your class') || t.includes('pick your class')) {
+        return true;
+    }
+    if ((t.includes('grade 6 class') || t.includes('g6a') || t.includes('g7a') || t.includes('g8a')) && t.includes('class')) {
+        return true;
+    }
+    if (t.includes('your class') && (type.includes('multiple_choice') || type.includes('matching') || !type)) {
+        return true;
+    }
+    if ((t.startsWith('class:') || t.startsWith('class :') || t === 'class') && !t.includes('classic')) {
+        return true;
+    }
+    return false;
+};
+
+const isNameQuestion = (txt, qType) => {
+    const t = (txt || "").toLowerCase();
+    const type = (qType || "").toLowerCase();
+    if (t.includes('english name') || t.includes('your name') || t.includes('student name') || t.includes('full name')) {
+        return true;
+    }
+    if ((t.startsWith('name:') || t.startsWith('name :') || t === 'name') && type.includes('essay')) {
+        return true;
+    }
+    return false;
+};
+
 export const SubmissionMixin = {
     submitQuiz() {
         let unansweredIndices = [];
         this.currentQuestions.forEach((q, idx) => {
-            let type = q.type || q.question_type;
-            let txt = (q['question text'] || q.question_text || "").toLowerCase();
-            let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
+            let type = q.type || q.question_type || "";
+            let txt = getQuestionText(q).toLowerCase();
+            let isAdmin = isClassQuestion(txt, type) || isNameQuestion(txt, type);
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined && !isAdmin;
             
             if (type === 'atom_builder_question') {
@@ -72,10 +118,11 @@ export const SubmissionMixin = {
 
         let nameAns = null, classAns = null;
         this.currentQuestions.forEach((q, idx) => {
-            const txt = (q['question text'] || q.question_text || "").toLowerCase();
-            if (q.type === 'essay_question' && txt.includes('name')) {
+            const txt = getQuestionText(q).toLowerCase();
+            const qType = (q.type || q.question_type || "").toLowerCase();
+            if (isNameQuestion(txt, qType)) {
                 nameAns = this.root.querySelector(`[data-question-index="${idx}"] .essay-input`)?.value.trim();
-            } else if (txt.includes('class')) {
+            } else if (isClassQuestion(txt, qType)) {
                 classAns = q._userAnswer;
             }
         });
@@ -97,12 +144,12 @@ export const SubmissionMixin = {
         this.currentQuestions.forEach((q, idx) => {
             let frame = this.root.querySelector(`[data-question-index="${idx}"]`);
             if (!frame) return;
-            let type = q.type || q.question_type, pts = parseInt(q.points || q.points_possible) || 0;
+            let type = q.type || q.question_type || "", pts = parseInt(q.points || q.points_possible) || 0;
             let qIsWrong = false;
             let qIsCorrect = false;
             
-            let txt = (q['question text'] || q.question_text || "").toLowerCase();
-            let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
+            let txt = getQuestionText(q).toLowerCase();
+            let isAdmin = isClassQuestion(txt, type) || isNameQuestion(txt, type);
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined && !isAdmin;
             
             if (type === 'atom_builder_question') {

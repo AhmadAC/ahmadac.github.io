@@ -1,5 +1,10 @@
 [
     {
+        "quiz_metadata": {
+            "randomize_questions": true
+        }
+    },
+    {
         "question_name": "Question 1",
         "question number": 1,
         "question_type": "matching_question",
@@ -43,14 +48,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:NC8z", "text": "b64:NC8z", "weight": "b64:MTAw" },
-            { "answer_text": "b64:My80", "text": "b64:My80", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTMvNA==", "text": "b64:LTMvNA==", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTQvMw==", "text": "b64:LTQvMw==", "weight": "b64:MA==" },
-            { "answer_text": "b64:MQ==", "text": "b64:MQ==", "weight": "b64:MA==" },
-            { "answer_text": "b64:MA==", "text": "b64:MA==", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:NC8z",
+                "text": "b64:NC8z",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:My80",
+                "text": "b64:My80",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTMvNA==",
+                "text": "b64:LTMvNA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTQvMw==",
+                "text": "b64:LTQvMw==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MQ==",
+                "text": "b64:MQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MA==",
+                "text": "b64:MA==",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:NC8z", "b": "b64:My80", "c": "b64:LTMvNA==", "d": "b64:LTQvMw==", "e": "b64:MQ==", "f": "b64:MA=="
+        "a": "b64:NC8z",
+        "b": "b64:My80",
+        "c": "b64:LTMvNA==",
+        "d": "b64:LTQvMw==",
+        "e": "b64:MQ==",
+        "f": "b64:MA=="
     },
     {
         "question_name": "Question 3",
@@ -65,14 +99,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:MS81", "text": "b64:MS81", "weight": "b64:MTAw" },
-            { "answer_text": "b64:NQ==", "text": "b64:NQ==", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTU=", "text": "b64:LTU=", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTEvNQ==", "text": "b64:LTEvNQ==", "weight": "b64:MA==" },
-            { "answer_text": "b64:MQ==", "text": "b64:MQ==", "weight": "b64:MA==" },
-            { "answer_text": "b64:MA==", "text": "b64:MA==", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:MS81",
+                "text": "b64:MS81",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:NQ==",
+                "text": "b64:NQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTU=",
+                "text": "b64:LTU=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTEvNQ==",
+                "text": "b64:LTEvNQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MQ==",
+                "text": "b64:MQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MA==",
+                "text": "b64:MA==",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:MS81", "b": "b64:NQ==", "c": "b64:LTU=", "d": "b64:LTEvNQ==", "e": "b64:MQ==", "f": "b64:MA=="
+        "a": "b64:MS81",
+        "b": "b64:NQ==",
+        "c": "b64:LTU=",
+        "d": "b64:LTEvNQ==",
+        "e": "b64:MQ==",
+        "f": "b64:MA=="
     },
     {
         "question_name": "Question 4",
@@ -87,14 +150,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAzLzIuIFRoaXMgaXMgdGhlIGludmVyc2Ugb3BlcmF0aW9uIHRoYXQgaXNvbGF0ZXMgeC4=", "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAzLzIuIFRoaXMgaXMgdGhlIGludmVyc2Ugb3BlcmF0aW9uIHRoYXQgaXNvbGF0ZXMgeC4=", "weight": "b64:MTAw" },
-            { "answer_text": "b64:QWRkIDIvMyB0byBib3RoIHNpZGVzLg==", "text": "b64:QWRkIDIvMyB0byBib3RoIHNpZGVzLg==", "weight": "b64:MA==" },
-            { "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA4Lg==", "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA4Lg==", "weight": "b64:MA==" },
-            { "answer_text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgOC4=", "text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgOC4=", "weight": "b64:MA==" },
-            { "answer_text": "b64:U3VidHJhY3QgOCBmcm9tIGJvdGggc2lkZXMu", "text": "b64:U3VidHJhY3QgOCBmcm9tIGJvdGggc2lkZXMu", "weight": "b64:MA==" },
-            { "answer_text": "b64:U3F1YXJlIGJvdGggc2lkZXMgdG8gcmVtb3ZlIHRoZSBmcmFjdGlvbi4=", "text": "b64:U3F1YXJlIGJvdGggc2lkZXMgdG8gcmVtb3ZlIHRoZSBmcmFjdGlvbi4=", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAzLzIuIFRoaXMgaXMgdGhlIGludmVyc2Ugb3BlcmF0aW9uIHRoYXQgaXNvbGF0ZXMgeC4=",
+                "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAzLzIuIFRoaXMgaXMgdGhlIGludmVyc2Ugb3BlcmF0aW9uIHRoYXQgaXNvbGF0ZXMgeC4=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QWRkIDIvMyB0byBib3RoIHNpZGVzLg==",
+                "text": "b64:QWRkIDIvMyB0byBib3RoIHNpZGVzLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA4Lg==",
+                "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA4Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgOC4=",
+                "text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgOC4=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3VidHJhY3QgOCBmcm9tIGJvdGggc2lkZXMu",
+                "text": "b64:U3VidHJhY3QgOCBmcm9tIGJvdGggc2lkZXMu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3F1YXJlIGJvdGggc2lkZXMgdG8gcmVtb3ZlIHRoZSBmcmFjdGlvbi4=",
+                "text": "b64:U3F1YXJlIGJvdGggc2lkZXMgdG8gcmVtb3ZlIHRoZSBmcmFjdGlvbi4=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAzLzIuIFRoaXMgaXMgdGhlIGludmVyc2Ugb3BlcmF0aW9uIHRoYXQgaXNvbGF0ZXMgeC4=", "b": "b64:QWRkIDIvMyB0byBib3RoIHNpZGVzLg==", "c": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA4Lg==", "d": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgOC4=", "e": "b64:U3VidHJhY3QgOCBmcm9tIGJvdGggc2lkZXMu", "f": "b64:U3F1YXJlIGJvdGggc2lkZXMgdG8gcmVtb3ZlIHRoZSBmcmFjdGlvbi4="
+        "a": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAzLzIuIFRoaXMgaXMgdGhlIGludmVyc2Ugb3BlcmF0aW9uIHRoYXQgaXNvbGF0ZXMgeC4=",
+        "b": "b64:QWRkIDIvMyB0byBib3RoIHNpZGVzLg==",
+        "c": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA4Lg==",
+        "d": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgOC4=",
+        "e": "b64:U3VidHJhY3QgOCBmcm9tIGJvdGggc2lkZXMu",
+        "f": "b64:U3F1YXJlIGJvdGggc2lkZXMgdG8gcmVtb3ZlIHRoZSBmcmFjdGlvbi4="
     },
     {
         "question_name": "Question 5",
@@ -109,14 +201,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAxLzQgKHRoZSByZWNpcHJvY2FsIG9mIDQpLiBUaGlzIHVuZG9lcyB0aGUgbXVsdGlwbGljYXRpb24u", "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAxLzQgKHRoZSByZWNpcHJvY2FsIG9mIDQpLiBUaGlzIHVuZG9lcyB0aGUgbXVsdGlwbGljYXRpb24u", "weight": "b64:MTAw" },
-            { "answer_text": "b64:QWRkIDQgdG8gYm90aCBzaWRlcy4gSXQgaXMgcmlnaHQu", "text": "b64:QWRkIDQgdG8gYm90aCBzaWRlcy4gSXQgaXMgcmlnaHQu", "weight": "b64:MA==" },
-            { "answer_text": "b64:U3VidHJhY3QgMjAgZnJvbSBib3RoIHNpZGVzLg==", "text": "b64:U3VidHJhY3QgMjAgZnJvbSBib3RoIHNpZGVzLg==", "weight": "b64:MA==" },
-            { "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA0Lg==", "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA0Lg==", "weight": "b64:MA==" },
-            { "answer_text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgMS80Lg==", "text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgMS80Lg==", "weight": "b64:MA==" },
-            { "answer_text": "b64:U3VidHJhY3QgNCBmcm9tIGJvdGggc2lkZXMu", "text": "b64:U3VidHJhY3QgNCBmcm9tIGJvdGggc2lkZXMu", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAxLzQgKHRoZSByZWNpcHJvY2FsIG9mIDQpLiBUaGlzIHVuZG9lcyB0aGUgbXVsdGlwbGljYXRpb24u",
+                "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAxLzQgKHRoZSByZWNpcHJvY2FsIG9mIDQpLiBUaGlzIHVuZG9lcyB0aGUgbXVsdGlwbGljYXRpb24u",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:QWRkIDQgdG8gYm90aCBzaWRlcy4gSXQgaXMgcmlnaHQu",
+                "text": "b64:QWRkIDQgdG8gYm90aCBzaWRlcy4gSXQgaXMgcmlnaHQu",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3VidHJhY3QgMjAgZnJvbSBib3RoIHNpZGVzLg==",
+                "text": "b64:U3VidHJhY3QgMjAgZnJvbSBib3RoIHNpZGVzLg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA0Lg==",
+                "text": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA0Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgMS80Lg==",
+                "text": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgMS80Lg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:U3VidHJhY3QgNCBmcm9tIGJvdGggc2lkZXMu",
+                "text": "b64:U3VidHJhY3QgNCBmcm9tIGJvdGggc2lkZXMu",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAxLzQgKHRoZSByZWNpcHJvY2FsIG9mIDQpLiBUaGlzIHVuZG9lcyB0aGUgbXVsdGlwbGljYXRpb24u", "b": "b64:QWRkIDQgdG8gYm90aCBzaWRlcy4gSXQgaXMgcmlnaHQu", "c": "b64:U3VidHJhY3QgMjAgZnJvbSBib3RoIHNpZGVzLg==", "d": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA0Lg==", "e": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgMS80Lg==", "f": "b64:U3VidHJhY3QgNCBmcm9tIGJvdGggc2lkZXMu"
+        "a": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSAxLzQgKHRoZSByZWNpcHJvY2FsIG9mIDQpLiBUaGlzIHVuZG9lcyB0aGUgbXVsdGlwbGljYXRpb24u",
+        "b": "b64:QWRkIDQgdG8gYm90aCBzaWRlcy4gSXQgaXMgcmlnaHQu",
+        "c": "b64:U3VidHJhY3QgMjAgZnJvbSBib3RoIHNpZGVzLg==",
+        "d": "b64:TXVsdGlwbHkgYm90aCBzaWRlcyBieSA0Lg==",
+        "e": "b64:RGl2aWRlIGJvdGggc2lkZXMgYnkgMS80Lg==",
+        "f": "b64:U3VidHJhY3QgNCBmcm9tIGJvdGggc2lkZXMu"
     },
     {
         "question_name": "Question 6",
@@ -131,14 +252,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:Ng==", "text": "b64:Ng==", "weight": "b64:MTAw" },
-            { "answer_text": "b64:MjU=", "text": "b64:MjU=", "weight": "b64:MA==" },
-            { "answer_text": "b64:MzU=", "text": "b64:MzU=", "weight": "b64:MA==" },
-            { "answer_text": "b64:MS82", "text": "b64:MS82", "weight": "b64:MA==" },
-            { "answer_text": "b64:MTUw", "text": "b64:MTUw", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTY=", "text": "b64:LTY=", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:Ng==",
+                "text": "b64:Ng==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:MjU=",
+                "text": "b64:MjU=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MzU=",
+                "text": "b64:MzU=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MS82",
+                "text": "b64:MS82",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MTUw",
+                "text": "b64:MTUw",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTY=",
+                "text": "b64:LTY=",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:Ng==", "b": "b64:MjU=", "c": "b64:MzU=", "d": "b64:MS82", "e": "b64:MTUw", "f": "b64:LTY="
+        "a": "b64:Ng==",
+        "b": "b64:MjU=",
+        "c": "b64:MzU=",
+        "d": "b64:MS82",
+        "e": "b64:MTUw",
+        "f": "b64:LTY="
     },
     {
         "question_name": "Question 7",
@@ -153,14 +303,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:MjE=", "text": "b64:MjE=", "weight": "b64:MTAw" },
-            { "answer_text": "b64:Ny8z", "text": "b64:Ny8z", "weight": "b64:MA==" },
-            { "answer_text": "b64:My83", "text": "b64:My83", "weight": "b64:MA==" },
-            { "answer_text": "b64:MTA=", "text": "b64:MTA=", "weight": "b64:MA==" },
-            { "answer_text": "b64:NA==", "text": "b64:NA==", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTIx", "text": "b64:LTIx", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:MjE=",
+                "text": "b64:MjE=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:Ny8z",
+                "text": "b64:Ny8z",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:My83",
+                "text": "b64:My83",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MTA=",
+                "text": "b64:MTA=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:NA==",
+                "text": "b64:NA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTIx",
+                "text": "b64:LTIx",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:MjE=", "b": "b64:Ny8z", "c": "b64:My83", "d": "b64:MTA=", "e": "b64:NA==", "f": "b64:LTIx"
+        "a": "b64:MjE=",
+        "b": "b64:Ny8z",
+        "c": "b64:My83",
+        "d": "b64:MTA=",
+        "e": "b64:NA==",
+        "f": "b64:LTIx"
     },
     {
         "question_name": "Question 8",
@@ -175,14 +354,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:MjU=", "text": "b64:MjU=", "weight": "b64:MTAw" },
-            { "answer_text": "b64:NA==", "text": "b64:NA==", "weight": "b64:MA==" },
-            { "answer_text": "b64:MTAw", "text": "b64:MTAw", "weight": "b64:MA==" },
-            { "answer_text": "b64:MjA=", "text": "b64:MjA=", "weight": "b64:MA==" },
-            { "answer_text": "b64:NTA=", "text": "b64:NTA=", "weight": "b64:MA==" },
-            { "answer_text": "b64:Mg==", "text": "b64:Mg==", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:MjU=",
+                "text": "b64:MjU=",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:NA==",
+                "text": "b64:NA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MTAw",
+                "text": "b64:MTAw",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MjA=",
+                "text": "b64:MjA=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:NTA=",
+                "text": "b64:NTA=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:Mg==",
+                "text": "b64:Mg==",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:MjU=", "b": "b64:NA==", "c": "b64:MTAw", "d": "b64:MjA=", "e": "b64:NTA=", "f": "b64:Mg=="
+        "a": "b64:MjU=",
+        "b": "b64:NA==",
+        "c": "b64:MTAw",
+        "d": "b64:MjA=",
+        "e": "b64:NTA=",
+        "f": "b64:Mg=="
     },
     {
         "question_name": "Question 9",
@@ -197,14 +405,43 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:LTEy", "text": "b64:LTEy", "weight": "b64:MTAw" },
-            { "answer_text": "b64:MTI=", "text": "b64:MTI=", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTI3LzQ=", "text": "b64:LTI3LzQ=", "weight": "b64:MA==" },
-            { "answer_text": "b64:MjcvNA==", "text": "b64:MjcvNA==", "weight": "b64:MA==" },
-            { "answer_text": "b64:MzY=", "text": "b64:MzY=", "weight": "b64:MA==" },
-            { "answer_text": "b64:LTM2", "text": "b64:LTM2", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:LTEy",
+                "text": "b64:LTEy",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:MTI=",
+                "text": "b64:MTI=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTI3LzQ=",
+                "text": "b64:LTI3LzQ=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MjcvNA==",
+                "text": "b64:MjcvNA==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:MzY=",
+                "text": "b64:MzY=",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:LTM2",
+                "text": "b64:LTM2",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:LTEy", "b": "b64:MTI=", "c": "b64:LTI3LzQ=", "d": "b64:MjcvNA==", "e": "b64:MzY=", "f": "b64:LTM2"
+        "a": "b64:LTEy",
+        "b": "b64:MTI=",
+        "c": "b64:LTI3LzQ=",
+        "d": "b64:MjcvNA==",
+        "e": "b64:MzY=",
+        "f": "b64:LTM2"
     },
     {
         "question_name": "Question 10",
@@ -219,18 +456,47 @@
         "question_url": "",
         "correct ans index": "b64:MQ==",
         "answers": [
-            { "answer_text": "b64:eCA9IChiYykvYQ==", "text": "b64:eCA9IChiYykvYQ==", "weight": "b64:MTAw" },
-            { "answer_text": "b64:eCA9IChhYykvYg==", "text": "b64:eCA9IChhYykvYg==", "weight": "b64:MA==" },
-            { "answer_text": "b64:eCA9IGMgLSAoYS9iKQ==", "text": "b64:eCA9IGMgLSAoYS9iKQ==", "weight": "b64:MA==" },
-            { "answer_text": "b64:eCA9IGMgKyAoYS9iKQ==", "text": "b64:eCA9IGMgKyAoYS9iKQ==", "weight": "b64:MA==" },
-            { "answer_text": "b64:eCA9IGEvKGJjKQ==", "text": "b64:eCA9IGEvKGJjKQ==", "weight": "b64:MA==" },
-            { "answer_text": "b64:eCA9IGIvKGFjKQ==", "text": "b64:eCA9IGIvKGFjKQ==", "weight": "b64:MA==" }
+            {
+                "answer_text": "b64:eCA9IChiYykvYQ==",
+                "text": "b64:eCA9IChiYykvYQ==",
+                "weight": "b64:MTAw"
+            },
+            {
+                "answer_text": "b64:eCA9IChhYykvYg==",
+                "text": "b64:eCA9IChhYykvYg==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:eCA9IGMgLSAoYS9iKQ==",
+                "text": "b64:eCA9IGMgLSAoYS9iKQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:eCA9IGMgKyAoYS9iKQ==",
+                "text": "b64:eCA9IGMgKyAoYS9iKQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:eCA9IGEvKGJjKQ==",
+                "text": "b64:eCA9IGEvKGJjKQ==",
+                "weight": "b64:MA=="
+            },
+            {
+                "answer_text": "b64:eCA9IGIvKGFjKQ==",
+                "text": "b64:eCA9IGIvKGFjKQ==",
+                "weight": "b64:MA=="
+            }
         ],
-        "a": "b64:eCA9IChiYykvYQ==", "b": "b64:eCA9IChhYykvYg==", "c": "b64:eCA9IGMgLSAoYS9iKQ==", "d": "b64:eCA9IGMgKyAoYS9iKQ==", "e": "b64:eCA9IGEvKGJjKQ==", "f": "b64:eCA9IGIvKGFjKQ=="
+        "a": "b64:eCA9IChiYykvYQ==",
+        "b": "b64:eCA9IChhYykvYg==",
+        "c": "b64:eCA9IGMgLSAoYS9iKQ==",
+        "d": "b64:eCA9IGMgKyAoYS9iKQ==",
+        "e": "b64:eCA9IGEvKGJjKQ==",
+        "f": "b64:eCA9IGIvKGFjKQ=="
     },
     {
         "question_name": "Question 11",
-        "question number": 11,
+        "question number": 11.0,
         "question_type": "essay_question",
         "type": "essay_question",
         "points": 0,
@@ -241,39 +507,5 @@
         "question_url": "",
         "correct ans index": " ",
         "answers": []
-    },
-    {
-        "question_name": "Question 12",
-        "question number": 12,
-        "question_type": "matching_question",
-        "type": "matching_question",
-        "points": 0,
-        "points_possible": 0,
-        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
-        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
-        "url": "",
-        "question_url": "",
-        "correct ans index": " ",
-        "reusable": true,
-        "matches_reusable": true,
-        "allow_answers_to_be_used_more_than_once": true,
-        "consume_choices": false,
-        "answers": [
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzZB", "answer_text": "b64:RzZB", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzZC", "answer_text": "b64:RzZC", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzZD", "answer_text": "b64:RzZD", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzdB", "answer_text": "b64:RzdB", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzdC", "answer_text": "b64:RzdC", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzdD", "answer_text": "b64:RzdD", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzhB", "answer_text": "b64:RzhB", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzhC", "answer_text": "b64:RzhC", "weight": "b64:MA==" },
-            { "answer_match_left": "b64:Q2xhc3M=", "answer_match_right": "b64:RzhD", "answer_text": "b64:RzhD", "weight": "b64:MA==" }
-        ],
-        "a": "b64:RzZB", "b": "b64:RzZC", "c": "b64:RzZD", "d": "b64:RzdB", "e": "b64:RzdC", "f": "b64:RzdD", "g": "b64:RzhB", "h": "b64:RzhC", "i": "b64:RzhD"
-    },
-    {
-        "quiz_metadata": {
-            "randomize_questions": true
-        }
     }
 ]

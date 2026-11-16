@@ -6,6 +6,39 @@ import { setupAtomBuilderUI } from './atom-builder-ui.js?v=2.2';
 import { setupMultipleChoiceUI, setupClassSelectionUI, setupComplexMatchingUI } from './question-renderers.js?v=2.2';
 import { handleScrollStickyBank, renderStickyBank, fillSlotWithWord, handleSlotClick } from './matching-bank-handler.js?v=2.2';
 
+const isClassQuestion = (txt, qType) => {
+    const t = (txt || "").toLowerCase();
+    const type = (qType || "").toLowerCase();
+    if (t.includes('class of lever') || t.includes('lever class') || t.includes('classify') || t.includes('classification')) {
+        return false;
+    }
+    if (t.includes('select your class') || t.includes('select class') || t.includes('choose your class') || t.includes('pick your class')) {
+        return true;
+    }
+    if ((t.includes('grade 6 class') || t.includes('g6a') || t.includes('g7a') || t.includes('g8a')) && t.includes('class')) {
+        return true;
+    }
+    if (t.includes('your class') && (type.includes('multiple_choice') || type.includes('matching') || !type)) {
+        return true;
+    }
+    if ((t.startsWith('class:') || t.startsWith('class :') || t === 'class') && !t.includes('classic')) {
+        return true;
+    }
+    return false;
+};
+
+const isNameQuestion = (txt, qType) => {
+    const t = (txt || "").toLowerCase();
+    const type = (qType || "").toLowerCase();
+    if (t.includes('english name') || t.includes('your name') || t.includes('student name') || t.includes('full name')) {
+        return true;
+    }
+    if ((t.startsWith('name:') || t.startsWith('name :') || t === 'name') && type.includes('essay')) {
+        return true;
+    }
+    return false;
+};
+
 export const QuizRendererMixin = {
     async startQuiz(quizName, isBonus = false) {
         this.isBonus = isBonus;
@@ -208,45 +241,10 @@ export const QuizRendererMixin = {
 
             let normalized = normalizeQuizData(rawData);
 
-            // Automatically check and inject missing Admin Questions (Select your class & Insert your English name)
-            const hasClassQ = normalized.some(q => {
-                const txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
-                const qType = (q.type || q.question_type || "").toLowerCase();
-                return txt.includes('select your class') || txt.includes('select class') || (txt.includes('class') && !txt.includes('classic') && (qType.includes('multiple_choice') || qType.includes('matching')));
-            });
-
-            const hasNameQ = normalized.some(q => {
-                const txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
-                const qType = (q.type || q.question_type || "").toLowerCase();
-                return txt.includes('english name') || txt.includes('your name') || (txt.includes('name') && qType.includes('essay'));
-            });
-
-            let maxQNum = normalized.reduce((max, q) => {
-                let n = parseFloat(q['question number'] || q.question_number || 0);
-                return (!isNaN(n) && n > max) ? n : max;
-            }, 0);
-
-            if (!hasClassQ && !this.isBonus) {
-                maxQNum += 1;
-                normalized.push({
-                    "url": "",
-                    "question number": maxQNum,
-                    "type": "multiple_choice_question",
-                    "points": 0,
-                    "question text": "Select your class:"
-                });
-            }
-
-            if (!hasNameQ) {
-                maxQNum += 1;
-                normalized.push({
-                    "url": "",
-                    "question number": maxQNum,
-                    "type": "essay_question",
-                    "points": 0,
-                    "question text": "Insert your English name:"
-                });
-            }
+            // Separate regular quiz questions from admin questions and deduplicate cleanly
+            let quizQuestions = [];
+            let classQuestions = [];
+            let nameQuestions = [];
 
             normalized.forEach(q => {
                 const qHasVar = q["variation on"] ?? q["variation_on"] ?? q["variations"] ?? q["variation"];
@@ -258,7 +256,6 @@ export const QuizRendererMixin = {
                 }
 
                 const type = q.type || q.question_type;
-                
                 if (type === 'matching_question') {
                     if (Array.isArray(q.answers)) {
                         q.answers.forEach(p => {
@@ -281,22 +278,67 @@ export const QuizRendererMixin = {
                 if (isComplexMatching) {
                     q.answers.sort(() => Math.random() - 0.5);
                 }
-            });
 
-            let quizQuestions = [], adminQuestions = [];
-            normalized.forEach(q => {
-                let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || "").toLowerCase();
-                
-                if (this.isBonus && txt.includes('select your class')) {
-                    return; 
-                }
+                let txt = (q['question text'] || q.question_text || q['Question Text'] || q['Question_Text'] || q.question || "").toLowerCase();
+                let qType = (q.type || q.question_type || "").toLowerCase();
 
-                if (txt.includes('select your class') || txt.includes('english name') || txt.includes('your name')) {
-                    adminQuestions.push(q);
+                if (isClassQuestion(txt, qType)) {
+                    if (!this.isBonus) {
+                        classQuestions.push(q);
+                    }
+                } else if (isNameQuestion(txt, qType)) {
+                    nameQuestions.push(q);
                 } else {
                     quizQuestions.push(q);
                 }
             });
+
+            let maxQNum = quizQuestions.reduce((max, q) => {
+                let n = parseFloat(q['question number'] || q.question_number || 0);
+                return (!isNaN(n) && n > max) ? n : max;
+            }, 0);
+
+            // Deduplicate: Keep exactly ONE English Name question
+            let singleNameQ = null;
+            if (nameQuestions.length > 0) {
+                singleNameQ = nameQuestions.find(q => {
+                    let t = (q['question text'] || q.question_text || "").toLowerCase();
+                    return t.includes('english name used in class') || t.includes('please write');
+                }) || nameQuestions[0];
+            } else {
+                maxQNum += 1;
+                singleNameQ = {
+                    "url": "",
+                    "question number": maxQNum,
+                    "type": "essay_question",
+                    "points": 0,
+                    "question text": "Please write your English name used in class:"
+                };
+            }
+
+            // Deduplicate: Keep exactly ONE Class Selection question (unless bonus)
+            let singleClassQ = null;
+            if (!this.isBonus) {
+                if (classQuestions.length > 0) {
+                    singleClassQ = classQuestions.find(q => {
+                        let t = (q['question text'] || q.question_text || "").toLowerCase();
+                        return t.includes('grade 6 class a') || t.includes('g6a');
+                    }) || classQuestions[0];
+                } else {
+                    maxQNum += 1;
+                    singleClassQ = {
+                        "url": "",
+                        "question number": maxQNum,
+                        "type": "matching_question",
+                        "points": 0,
+                        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C"
+                    };
+                }
+            }
+
+            let adminQuestions = [];
+            if (singleClassQ) adminQuestions.push(singleClassQ);
+            if (singleNameQ) adminQuestions.push(singleNameQ);
 
             if (randomizeQuestions) {
                 const groupOrder = [];
@@ -385,7 +427,7 @@ export const QuizRendererMixin = {
             let qTextLower = (qText || "").toLowerCase();
             let pts = parseInt(q.points || q.points_possible) || 0;
             let isComplexMatching = type === 'matching_question' && q.answers && Array.isArray(q.answers) && q.answers.length > 0 && q.answers[0]?.text !== undefined;
-            let isAdmin = qTextLower.includes('select your class') || qTextLower.includes('english name') || qTextLower.includes('your name');
+            let isAdmin = isClassQuestion(qTextLower, type) || isNameQuestion(qTextLower, type);
             
             let frame = document.createElement('div');
             frame.className = "question-frame";
@@ -468,7 +510,7 @@ export const QuizRendererMixin = {
             frame.innerHTML = header;
             let contentDiv = frame.querySelector('.question-content');
 
-            if (isAdmin && qTextLower.includes('select your class')) {
+            if (isAdmin && isClassQuestion(qTextLower, type)) {
                 this.setupClassSelectionUI(contentDiv, q, idx);
             } else if (isAdmin && type === 'matching_question') {
                 this.setupClassSelectionUI(contentDiv, q, idx);
@@ -603,7 +645,7 @@ export const QuizRendererMixin = {
             let type = q.type || q.question_type;
             let isComplexMatching = type === 'matching_question' && q.answers?.[0]?.text !== undefined;
             let txt = (q['question text'] || q.question_text || "").toLowerCase();
-            let isAdmin = txt.includes('select your class') || txt.includes('english name') || txt.includes('your name');
+            let isAdmin = isClassQuestion(txt, type) || isNameQuestion(txt, type);
             
             if (type === 'atom_builder_question') {
                 if (q._isCorrect) isAnswered = true;
