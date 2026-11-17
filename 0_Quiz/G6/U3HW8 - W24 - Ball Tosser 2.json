@@ -1,544 +1,192 @@
 [
-    [
-        "Question 11",
-        "11",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "Immediately after you finish building your ball tosser, what is the logical next step?",
-        "",
-        "b64:Mg==",
-        [
-            {
-                "answer_text": "b64:VGFrZSBpdCBhcGFydCB0byBzZWUgdGhlIHBpZWNlcy4=",
-                "text": "b64:VGFrZSBpdCBhcGFydCB0byBzZWUgdGhlIHBpZWNlcy4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VGVzdCBob3cgd2VsbCBpdCB3b3Jrcy4=",
-                "text": "b64:VGVzdCBob3cgd2VsbCBpdCB3b3Jrcy4=",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:R2l2ZSBpdCBhbiBpbnRlcmVzdGluZyBuYW1lLg==",
-                "text": "b64:R2l2ZSBpdCBhbiBpbnRlcmVzdGluZyBuYW1lLg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:Q2hhbmdlIGl0cyBjb2xvciB3aXRoIHBhaW50Lg==",
-                "text": "b64:Q2hhbmdlIGl0cyBjb2xvciB3aXRoIHBhaW50Lg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:SGlkZSBpdCBmcm9tIG90aGVycy4=",
-                "text": "b64:SGlkZSBpdCBmcm9tIG90aGVycy4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:UmVkZXNpZ24gaXQgcmlnaHQgYXdheS4=",
-                "text": "b64:UmVkZXNpZ24gaXQgcmlnaHQgYXdheS4=",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:VGFrZSBpdCBhcGFydCB0byBzZWUgdGhlIHBpZWNlcy4=",
-        "b64:VGVzdCBob3cgd2VsbCBpdCB3b3Jrcy4=",
-        "b64:R2l2ZSBpdCBhbiBpbnRlcmVzdGluZyBuYW1lLg==",
-        "b64:Q2hhbmdlIGl0cyBjb2xvciB3aXRoIHBhaW50Lg==",
-        "b64:SGlkZSBpdCBmcm9tIG90aGVycy4=",
-        "b64:UmVkZXNpZ24gaXQgcmlnaHQgYXdheS4=",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 12",
-        "12",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "If your first design doesn't throw the ball far enough, what should you do?",
-        "",
-        "b64:NA==",
-        [
-            {
-                "answer_text": "b64:R2l2ZSB1cCBvbiB0aGUgY2hhbGxlbmdlLg==",
-                "text": "b64:R2l2ZSB1cCBvbiB0aGUgY2hhbGxlbmdlLg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VGhyb3cgdGhlIG1hY2hpbmUgYXdheS4=",
-                "text": "b64:VGhyb3cgdGhlIG1hY2hpbmUgYXdheS4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VXNlIGEgbXVjaCBoZWF2aWVyIGJhbGwu",
-                "text": "b64:VXNlIGEgbXVjaCBoZWF2aWVyIGJhbGwu",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RXZhbHVhdGUgdGhlIHByb2JsZW0gYW5kIHJldmlzZSB5b3VyIGRlc2lnbi4=",
-                "text": "b64:RXZhbHVhdGUgdGhlIHByb2JsZW0gYW5kIHJldmlzZSB5b3VyIGRlc2lnbi4=",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:QXNrIGEgZnJpZW5kIHRvIGNvbXBsZXRlIGl0IGZvciB5b3Uu",
-                "text": "b64:QXNrIGEgZnJpZW5kIHRvIGNvbXBsZXRlIGl0IGZvciB5b3Uu",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:U3RhcnQgYSBkaWZmZXJlbnQgcHJvamVjdC4=",
-                "text": "b64:U3RhcnQgYSBkaWZmZXJlbnQgcHJvamVjdC4=",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:R2l2ZSB1cCBvbiB0aGUgY2hhbGxlbmdlLg==",
-        "b64:VGhyb3cgdGhlIG1hY2hpbmUgYXdheS4=",
-        "b64:VXNlIGEgbXVjaCBoZWF2aWVyIGJhbGwu",
-        "b64:RXZhbHVhdGUgdGhlIHByb2JsZW0gYW5kIHJldmlzZSB5b3VyIGRlc2lnbi4=",
-        "b64:QXNrIGEgZnJpZW5kIHRvIGNvbXBsZXRlIGl0IGZvciB5b3Uu",
-        "b64:U3RhcnQgYSBkaWZmZXJlbnQgcHJvamVjdC4=",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 13",
-        "13",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "What is the main testable goal of the Ball Tosser STEM challenge?",
-        "",
-        "b64:MQ==",
-        [
-            {
-                "answer_text": "b64:VG8gbGF1bmNoIGEgYmFsbCBpbnRvIGEgY29udGFpbmVyIDMgbWV0ZXJzIGF3YXku",
-                "text": "b64:VG8gbGF1bmNoIGEgYmFsbCBpbnRvIGEgY29udGFpbmVyIDMgbWV0ZXJzIGF3YXku",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:VG8gYnVpbGQgdGhlIG1hY2hpbmUgdGhhdCBsb29rcyB0aGUgYmVzdC4=",
-                "text": "b64:VG8gYnVpbGQgdGhlIG1hY2hpbmUgdGhhdCBsb29rcyB0aGUgYmVzdC4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VG8gbWFrZSB0aGUgbWFjaGluZSBhcyBub2lzeSBhcyBwb3NzaWJsZS4=",
-                "text": "b64:VG8gbWFrZSB0aGUgbWFjaGluZSBhcyBub2lzeSBhcyBwb3NzaWJsZS4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VG8gc2VlIGhvdyBoaWdoIHRoZSBiYWxsIGNhbiBnby4=",
-                "text": "b64:VG8gc2VlIGhvdyBoaWdoIHRoZSBiYWxsIGNhbiBnby4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VG8gdXNlIGV2ZXJ5IG1hdGVyaWFsIG9uIHRoZSBsaXN0Lg==",
-                "text": "b64:VG8gdXNlIGV2ZXJ5IG1hdGVyaWFsIG9uIHRoZSBsaXN0Lg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VG8gZmluaXNoIGJ1aWxkaW5nIGluIGxlc3MgdGhhbiBvbmUgaG91ci4=",
-                "text": "b64:VG8gZmluaXNoIGJ1aWxkaW5nIGluIGxlc3MgdGhhbiBvbmUgaG91ci4=",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:VG8gbGF1bmNoIGEgYmFsbCBpbnRvIGEgY29udGFpbmVyIDMgbWV0ZXJzIGF3YXku",
-        "b64:VG8gYnVpbGQgdGhlIG1hY2hpbmUgdGhhdCBsb29rcyB0aGUgYmVzdC4=",
-        "b64:VG8gbWFrZSB0aGUgbWFjaGluZSBhcyBub2lzeSBhcyBwb3NzaWJsZS4=",
-        "b64:VG8gc2VlIGhvdyBoaWdoIHRoZSBiYWxsIGNhbiBnby4=",
-        "b64:VG8gdXNlIGV2ZXJ5IG1hdGVyaWFsIG9uIHRoZSBsaXN0Lg==",
-        "b64:VG8gZmluaXNoIGJ1aWxkaW5nIGluIGxlc3MgdGhhbiBvbmUgaG91ci4=",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 14",
-        "14",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "Which statement best defines the word \"trajectory\"?",
-        "",
-        "b64:Ng==",
-        [
-            {
-                "answer_text": "b64:VGhlIGFtb3VudCBvZiBmb3JjZSB1c2VkIHRvIHRocm93IGFuIG9iamVjdC4=",
-                "text": "b64:VGhlIGFtb3VudCBvZiBmb3JjZSB1c2VkIHRvIHRocm93IGFuIG9iamVjdC4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VGhlIHdlaWdodCBvZiBhbiBvYmplY3QgYmVmb3JlIGl0IGlzIHRocm93bi4=",
-                "text": "b64:VGhlIHdlaWdodCBvZiBhbiBvYmplY3QgYmVmb3JlIGl0IGlzIHRocm93bi4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VGhlIHNwZWVkIG9mIGFuIG9iamVjdCBhcyBpdCBsYW5kcy4=",
-                "text": "b64:VGhlIHNwZWVkIG9mIGFuIG9iamVjdCBhcyBpdCBsYW5kcy4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VGhlIGNvbG9yIGFuZCBzaGFwZSBvZiBhbiBvYmplY3Qu",
-                "text": "b64:VGhlIGNvbG9yIGFuZCBzaGFwZSBvZiBhbiBvYmplY3Qu",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VGhlIHRpbWUgaXQgdGFrZXMgZm9yIGFuIG9iamVjdCB0byBsYXVuY2gu",
-                "text": "b64:VGhlIHRpbWUgaXQgdGFrZXMgZm9yIGFuIG9iamVjdCB0byBsYXVuY2gu",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VGhlIHBhdGggYW4gb2JqZWN0IGZvbGxvd3MgdGhyb3VnaCB0aGUgYWlyLg==",
-                "text": "b64:VGhlIHBhdGggYW4gb2JqZWN0IGZvbGxvd3MgdGhyb3VnaCB0aGUgYWlyLg==",
-                "weight": "b64:MTAw"
-            }
-        ],
-        "b64:VGhlIGFtb3VudCBvZiBmb3JjZSB1c2VkIHRvIHRocm93IGFuIG9iamVjdC4=",
-        "b64:VGhlIHdlaWdodCBvZiBhbiBvYmplY3QgYmVmb3JlIGl0IGlzIHRocm93bi4=",
-        "b64:VGhlIHNwZWVkIG9mIGFuIG9iamVjdCBhcyBpdCBsYW5kcy4=",
-        "b64:VGhlIGNvbG9yIGFuZCBzaGFwZSBvZiBhbiBvYmplY3Qu",
-        "b64:VGhlIHRpbWUgaXQgdGFrZXMgZm9yIGFuIG9iamVjdCB0byBsYXVuY2gu",
-        "b64:VGhlIHBhdGggYW4gb2JqZWN0IGZvbGxvd3MgdGhyb3VnaCB0aGUgYWlyLg==",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 15",
-        "15",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "In the diagrams in the Ball Tosser report, three people threw a ball with different amounts of force. The person who used the most force caused the ball to:",
-        "",
-        "b64:Mw==",
-        [
-            {
-                "answer_text": "b64:dHJhdmVsIHRoZSBzaG9ydGVzdCBkaXN0YW5jZS4=",
-                "text": "b64:dHJhdmVsIHRoZSBzaG9ydGVzdCBkaXN0YW5jZS4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:dHJhdmVsIHRoZSBzYW1lIGRpc3RhbmNlIGFzIHRoZSBvdGhlcnMu",
-                "text": "b64:dHJhdmVsIHRoZSBzYW1lIGRpc3RhbmNlIGFzIHRoZSBvdGhlcnMu",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:dHJhdmVsIHRoZSBmYXJ0aGVzdCBhbmQgaGlnaGVzdC4=",
-                "text": "b64:dHJhdmVsIHRoZSBmYXJ0aGVzdCBhbmQgaGlnaGVzdC4=",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:bGFuZCBiZWhpbmQgdGhlbS4=",
-                "text": "b64:bGFuZCBiZWhpbmQgdGhlbS4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:bW92ZSBpbiBhIHBlcmZlY3QgY2lyY2xlLg==",
-                "text": "b64:bW92ZSBpbiBhIHBlcmZlY3QgY2lyY2xlLg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:c3RvcCBpbiB0aGUgbWlkZGxlIG9mIHRoZSBhaXIu",
-                "text": "b64:c3RvcCBpbiB0aGUgbWlkZGxlIG9mIHRoZSBhaXIu",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:dHJhdmVsIHRoZSBzaG9ydGVzdCBkaXN0YW5jZS4=",
-        "b64:dHJhdmVsIHRoZSBzYW1lIGRpc3RhbmNlIGFzIHRoZSBvdGhlcnMu",
-        "b64:dHJhdmVsIHRoZSBmYXJ0aGVzdCBhbmQgaGlnaGVzdC4=",
-        "b64:bGFuZCBiZWhpbmQgdGhlbS4=",
-        "b64:bW92ZSBpbiBhIHBlcmZlY3QgY2lyY2xlLg==",
-        "b64:c3RvcCBpbiB0aGUgbWlkZGxlIG9mIHRoZSBhaXIu",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 16",
-        "16",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "What does the \"Brainstorm\" part of the design process involve?",
-        "",
-        "b64:NQ==",
-        [
-            {
-                "answer_text": "b64:VGVzdGluZyB0aGUgc3RyZW5ndGggb2YgdGhlIG1hdGVyaWFscy4=",
-                "text": "b64:VGVzdGluZyB0aGUgc3RyZW5ndGggb2YgdGhlIG1hdGVyaWFscy4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:SW1tZWRpYXRlbHkgYnVpbGRpbmcgdGhlIGZpcnN0IHRoaW5nIHlvdSB0aGluayBvZi4=",
-                "text": "b64:SW1tZWRpYXRlbHkgYnVpbGRpbmcgdGhlIGZpcnN0IHRoaW5nIHlvdSB0aGluayBvZi4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:V3JpdGluZyBhIGhpc3RvcnkgcmVwb3J0IGFib3V0IGxhdW5jaGVycy4=",
-                "text": "b64:V3JpdGluZyBhIGhpc3RvcnkgcmVwb3J0IGFib3V0IGxhdW5jaGVycy4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:TWVhc3VyaW5nIHRoZSBleGFjdCB0YXJnZXQgZGlzdGFuY2Uu",
-                "text": "b64:TWVhc3VyaW5nIHRoZSBleGFjdCB0YXJnZXQgZGlzdGFuY2Uu",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:RHJhd2luZyBkaWZmZXJlbnQgaWRlYXMgZm9yIGEgZGVzaWduLg==",
-                "text": "b64:RHJhd2luZyBkaWZmZXJlbnQgaWRlYXMgZm9yIGEgZGVzaWduLg==",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:RmluZGluZyBhIGdvb2QgcGFydG5lciB0byB3b3JrIHdpdGgu",
-                "text": "b64:RmluZGluZyBhIGdvb2QgcGFydG5lciB0byB3b3JrIHdpdGgu",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:VGVzdGluZyB0aGUgc3RyZW5ndGggb2YgdGhlIG1hdGVyaWFscy4=",
-        "b64:SW1tZWRpYXRlbHkgYnVpbGRpbmcgdGhlIGZpcnN0IHRoaW5nIHlvdSB0aGluayBvZi4=",
-        "b64:V3JpdGluZyBhIGhpc3RvcnkgcmVwb3J0IGFib3V0IGxhdW5jaGVycy4=",
-        "b64:TWVhc3VyaW5nIHRoZSBleGFjdCB0YXJnZXQgZGlzdGFuY2Uu",
-        "b64:RHJhd2luZyBkaWZmZXJlbnQgaWRlYXMgZm9yIGEgZGVzaWduLg==",
-        "b64:RmluZGluZyBhIGdvb2QgcGFydG5lciB0byB3b3JrIHdpdGgu",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 17",
-        "17",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "For a science experiment, why is a launching machine often better than a person throwing a ball?",
-        "",
-        "b64:Mg==",
-        [
-            {
-                "answer_text": "b64:QSBwZXJzb24gaXMgdXN1YWxseSBtdWNoIHN0cm9uZ2VyLg==",
-                "text": "b64:QSBwZXJzb24gaXMgdXN1YWxseSBtdWNoIHN0cm9uZ2VyLg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:QSBtYWNoaW5lIHByb3ZpZGVzIGEgbW9yZSBjb25zaXN0ZW50LCByZXBlYXRhYmxlIHRocm93Lg==",
-                "text": "b64:QSBtYWNoaW5lIHByb3ZpZGVzIGEgbW9yZSBjb25zaXN0ZW50LCByZXBlYXRhYmxlIHRocm93Lg==",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:QSBwZXJzb24gY2Fubm90IHRocm93IGEgYmFsbCB2ZXJ5IGZhci4=",
-                "text": "b64:QSBwZXJzb24gY2Fubm90IHRocm93IGEgYmFsbCB2ZXJ5IGZhci4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:QSBtYWNoaW5lIGNhbiBjaGFuZ2UgdGhlIGJhbGwncyBjb2xvci4=",
-                "text": "b64:QSBtYWNoaW5lIGNhbiBjaGFuZ2UgdGhlIGJhbGwncyBjb2xvci4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:QSBtYWNoaW5lIGNvc3RzIGxlc3MgdGhhbiBwYXlpbmcgYSBwZXJzb24u",
-                "text": "b64:QSBtYWNoaW5lIGNvc3RzIGxlc3MgdGhhbiBwYXlpbmcgYSBwZXJzb24u",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:QSBwZXJzb24gbWlnaHQgZ2V0IHRpcmVkIGFmdGVyIG9uZSB0aHJvdy4=",
-                "text": "b64:QSBwZXJzb24gbWlnaHQgZ2V0IHRpcmVkIGFmdGVyIG9uZSB0aHJvdy4=",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:QSBwZXJzb24gaXMgdXN1YWxseSBtdWNoIHN0cm9uZ2VyLg==",
-        "b64:QSBtYWNoaW5lIHByb3ZpZGVzIGEgbW9yZSBjb25zaXN0ZW50LCByZXBlYXRhYmxlIHRocm93Lg==",
-        "b64:QSBwZXJzb24gY2Fubm90IHRocm93IGEgYmFsbCB2ZXJ5IGZhci4=",
-        "b64:QSBtYWNoaW5lIGNhbiBjaGFuZ2UgdGhlIGJhbGwncyBjb2xvci4=",
-        "b64:QSBtYWNoaW5lIGNvc3RzIGxlc3MgdGhhbiBwYXlpbmcgYSBwZXJzb24u",
-        "b64:QSBwZXJzb24gbWlnaHQgZ2V0IHRpcmVkIGFmdGVyIG9uZSB0aHJvdy4=",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 18",
-        "18",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "In geometry, how many degrees are there in a complete circle?",
-        "",
-        "b64:NA==",
-        [
-            {
-                "answer_text": "b64:NDU=",
-                "text": "b64:NDU=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:OTA=",
-                "text": "b64:OTA=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:MTgw",
-                "text": "b64:MTgw",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:MzYw",
-                "text": "b64:MzYw",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:MTAw",
-                "text": "b64:MTAw",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:MTAwMA==",
-                "text": "b64:MTAwMA==",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:NDU=",
-        "b64:OTA=",
-        "b64:MTgw",
-        "b64:MzYw",
-        "b64:MTAw",
-        "b64:MTAwMA==",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 19",
-        "19",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "Why might you need to repeat the steps of the design process several times?",
-        "",
-        "b64:NQ==",
-        [
-            {
-                "answer_text": "b64:VG8gbWFrZSB5b3VyIHByb2plY3QgbG9vayBtb3JlIGNvbG9yZnVsLg==",
-                "text": "b64:VG8gbWFrZSB5b3VyIHByb2plY3QgbG9vayBtb3JlIGNvbG9yZnVsLg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VG8gdXNlIHVwIGFsbCBvZiB0aGUgZXh0cmEgYnVpbGRpbmcgbWF0ZXJpYWxzLg==",
-                "text": "b64:VG8gdXNlIHVwIGFsbCBvZiB0aGUgZXh0cmEgYnVpbGRpbmcgbWF0ZXJpYWxzLg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VG8gYWRkIG1vcmUgcGFydHMgdGhhdCBhcmUgbm90IG5lZWRlZC4=",
-                "text": "b64:VG8gYWRkIG1vcmUgcGFydHMgdGhhdCBhcmUgbm90IG5lZWRlZC4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:QmVjYXVzZSB5b3UgZGlkIG5vdCBoYXZlIGVub3VnaCB0aW1lIGF0IGZpcnN0Lg==",
-                "text": "b64:QmVjYXVzZSB5b3UgZGlkIG5vdCBoYXZlIGVub3VnaCB0aW1lIGF0IGZpcnN0Lg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VG8gbWFrZSBjb250aW51b3VzIGltcHJvdmVtZW50cyB0byB5b3VyIGRlc2lnbi4=",
-                "text": "b64:VG8gbWFrZSBjb250aW51b3VzIGltcHJvdmVtZW50cyB0byB5b3VyIGRlc2lnbi4=",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:VG8gbWFrZSB0aGUgbWFjaGluZSBtdWNoIGJpZ2dlci4=",
-                "text": "b64:VG8gbWFrZSB0aGUgbWFjaGluZSBtdWNoIGJpZ2dlci4=",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:VG8gbWFrZSB5b3VyIHByb2plY3QgbG9vayBtb3JlIGNvbG9yZnVsLg==",
-        "b64:VG8gdXNlIHVwIGFsbCBvZiB0aGUgZXh0cmEgYnVpbGRpbmcgbWF0ZXJpYWxzLg==",
-        "b64:VG8gYWRkIG1vcmUgcGFydHMgdGhhdCBhcmUgbm90IG5lZWRlZC4=",
-        "b64:QmVjYXVzZSB5b3UgZGlkIG5vdCBoYXZlIGVub3VnaCB0aW1lIGF0IGZpcnN0Lg==",
-        "b64:VG8gbWFrZSBjb250aW51b3VzIGltcHJvdmVtZW50cyB0byB5b3VyIGRlc2lnbi4=",
-        "b64:VG8gbWFrZSB0aGUgbWFjaGluZSBtdWNoIGJpZ2dlci4=",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 20",
-        "20",
-        "multiple_choice_question",
-        "multiple_choice_question",
-        "1",
-        "If your lever-based catapult is not throwing the ball far enough, what is one change that could improve its performance?",
-        "",
-        "b64:NA==",
-        [
-            {
-                "answer_text": "b64:VXNlIGEgbXVjaCBoZWF2aWVyIGJhbGwu",
-                "text": "b64:VXNlIGEgbXVjaCBoZWF2aWVyIGJhbGwu",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:TWFrZSB0aGUgbGV2ZXIgYXJtIG11Y2ggc2hvcnRlci4=",
-                "text": "b64:TWFrZSB0aGUgbGV2ZXIgYXJtIG11Y2ggc2hvcnRlci4=",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:QXBwbHkgdGhlIGZvcmNlIG1vcmUgc2xvd2x5Lg==",
-                "text": "b64:QXBwbHkgdGhlIGZvcmNlIG1vcmUgc2xvd2x5Lg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:SW5jcmVhc2UgdGhlIGZvcmNlIG9yIGNoYW5nZSB0aGUgZnVsY3J1bSdzIHBvc2l0aW9uLg==",
-                "text": "b64:SW5jcmVhc2UgdGhlIGZvcmNlIG9yIGNoYW5nZSB0aGUgZnVsY3J1bSdzIHBvc2l0aW9uLg==",
-                "weight": "b64:MTAw"
-            },
-            {
-                "answer_text": "b64:UG9pbnQgdGhlIGxldmVyIHRvd2FyZCB0aGUgZ3JvdW5kLg==",
-                "text": "b64:UG9pbnQgdGhlIGxldmVyIHRvd2FyZCB0aGUgZ3JvdW5kLg==",
-                "weight": "b64:MA=="
-            },
-            {
-                "answer_text": "b64:VXNlIGxlc3MgZm9yY2UgdGhhbiBiZWZvcmUu",
-                "text": "b64:VXNlIGxlc3MgZm9yY2UgdGhhbiBiZWZvcmUu",
-                "weight": "b64:MA=="
-            }
-        ],
-        "b64:VXNlIGEgbXVjaCBoZWF2aWVyIGJhbGwu",
-        "b64:TWFrZSB0aGUgbGV2ZXIgYXJtIG11Y2ggc2hvcnRlci4=",
-        "b64:QXBwbHkgdGhlIGZvcmNlIG1vcmUgc2xvd2x5Lg==",
-        "b64:SW5jcmVhc2UgdGhlIGZvcmNlIG9yIGNoYW5nZSB0aGUgZnVsY3J1bSdzIHBvc2l0aW9uLg==",
-        "b64:UG9pbnQgdGhlIGxldmVyIHRvd2FyZCB0aGUgZ3JvdW5kLg==",
-        "b64:VXNlIGxlc3MgZm9yY2UgdGhhbiBiZWZvcmUu",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 21",
-        "Q21",
-        "essay_question",
-        "essay_question",
-        "0",
-        "Please write your English name used in class:",
-        "",
-        "",
-        [],
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-    ],
-    [
-        "Question 22",
-        "Q22",
-        "matching_question",
-        "matching_question",
-        "0",
-        "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
-        "",
-        "",
-        [
+    {
+        "quiz_metadata": {
+            "title": "Ball Tosser 2",
+            "info_content": "<b>Instructions:</b><b> Read each question carefully and select the best answer from the available options.</b><br><b>Project PDF: </b><a href=\"media/ball tosser.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">ball tosser.pdf</a><b> \n</b><b>Offline Paper HW: </b><a href=\"media/U3HW8 - W24 - Ball Tosser 2_questions.pdf\" target=\"_blank\" style=\"color: #008ee2; font-weight: bold; text-decoration: underline;\">U3HW8 - W24 - Ball Tosser 2_questions.pdf</a><b> </b>",
+            "randomize_questions": true
+        }
+    },
+    {
+        "question_name": "Question 11 - Next Step After Building",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Immediately after assembling a catapult prototype, what is the next step in the engineering design process?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:RGlzYXNzZW1ibGUgYWxsIGNvbXBvbmVudHMgdG8gZXhhbWluZSB0aGUgcGllY2VzLg==",
+        "b": "b64:VGVzdCB0aGUgbGF1bmNoZXIgdG8gZXZhbHVhdGUgaG93IHdlbGwgaXQgZnVuY3Rpb25zLg==",
+        "c": "b64:UGFpbnQgYW5kIGRlY29yYXRlIHRoZSBjYXRhcHVsdCBmcmFtZS4=",
+        "d": "b64:U3RvcmUgdGhlIGNhdGFwdWx0IGF3YXkgd2l0aG91dCBvcGVyYXRpbmcgaXQu",
+        "e": "b64:UmVkZXNpZ24gdGhlIG1hY2hpbmUgYmVmb3JlIGNvbGxlY3RpbmcgYW55IHRlc3QgZGF0YS4=",
+        "f": "b64:U3dpdGNoIHRvIGFuIGVudGlyZWx5IGRpZmZlcmVudCBwcm9qZWN0Lg=="
+    },
+    {
+        "question_name": "Question 12 - Revising the Design",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If a catapult prototype fails to launch the projectile far enough to reach the target, what is the best course of action?",
+        "correct ans index": "b64:NA==",
+        "a": "b64:QWJhbmRvbiB0aGUgZW5naW5lZXJpbmcgY2hhbGxlbmdlIGNvbXBsZXRlbHku",
+        "b": "b64:RGlzY2FyZCB0aGUgZW50aXJlIGRldmljZSBhbmQgc3RhcnQgb3ZlciBmcm9tIHNjcmF0Y2gu",
+        "c": "b64:U3dpdGNoIHRvIGEgbXVjaCBoZWF2aWVyIHByb2plY3RpbGUu",
+        "d": "b64:RXZhbHVhdGUgdGhlIGxhdW5jaCBtZWNoYW5pY3MgYW5kIHJldmlzZSB0aGUgZGVzaWduLg==",
+        "e": "b64:QXNrIHNvbWVvbmUgZWxzZSB0byBmaW5pc2ggdGhlIHRlc3Rpbmcu",
+        "f": "b64:QXNzdW1lIGxldmVycyBhcmUgaW5jYXBhYmxlIG9mIGxhdW5jaGluZyBvYmplY3RzLg=="
+    },
+    {
+        "question_name": "Question 13 - Main Challenge Goal",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When designing a projectile launcher, which of the following represents a clear, measurable goal?",
+        "correct ans index": "b64:MQ==",
+        "a": "b64:TGF1bmNoaW5nIGEgYmFsbCBpbnRvIGEgY29udGFpbmVyIDMgbWV0ZXJzICgxMCBmZWV0KSBhd2F5Lg==",
+        "b": "b64:Q29uc3RydWN0aW5nIGEgY2F0YXB1bHQgdGhhdCBsb29rcyB2aXN1YWxseSBhcHBlYWxpbmcu",
+        "c": "b64:TWFraW5nIHRoZSBsYXVuY2hpbmcgbWVjaGFuaXNtIHByb2R1Y2UgYSBsb3VkIHNvdW5kLg==",
+        "d": "b64:RW5zdXJpbmcgdGhlIGJhbGwgcmVhY2hlcyB0aGUgZ3JlYXRlc3QgcG9zc2libGUgdmVydGljYWwgaGVpZ2h0Lg==",
+        "e": "b64:VXNpbmcgZXZlcnkgc2luZ2xlIGJ1aWxkaW5nIG1hdGVyaWFsIGF2YWlsYWJsZSBvbiB0aGUgc3VwcGx5IGxpc3Qu",
+        "f": "b64:Q29tcGxldGluZyBjb25zdHJ1Y3Rpb24gaW4gdW5kZXIgdGhpcnR5IG1pbnV0ZXMu"
+    },
+    {
+        "question_name": "Question 14 - Trajectory Definition",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In projectile motion and catapult mechanics, what does the term \"trajectory\" describe?",
+        "correct ans index": "b64:Ng==",
+        "a": "b64:VGhlIGFtb3VudCBvZiBwb3RlbnRpYWwgZW5lcmd5IHN0b3JlZCBpbiBhbiBlbGFzdGljIGJhbmQu",
+        "b": "b64:VGhlIHdlaWdodCBhbmQgZGVuc2l0eSBvZiB0aGUgcHJvamVjdGlsZS4=",
+        "c": "b64:VGhlIGltcGFjdCBzcGVlZCBvZiBhbiBvYmplY3Qgd2hlbiBpdCBoaXRzIHRoZSBncm91bmQu",
+        "d": "b64:VGhlIG1hdGVyaWFsIGNvbXBvc2l0aW9uIG9mIHRoZSBjYXRhcHVsdCdzIGxldmVyIGFybS4=",
+        "e": "b64:VGhlIHRpbWUgZWxhcHNlZCBiZWZvcmUgdHJpZ2dlcmluZyB0aGUgbGF1bmNoIG1lY2hhbmlzbS4=",
+        "f": "b64:VGhlIGN1cnZlZCBwYXRoIGFuIG9iamVjdCBmb2xsb3dzIHRocm91Z2ggdGhlIGFpci4="
+    },
+    {
+        "question_name": "Question 15 - Applied Force and Motion",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When launching identical projectiles from a catapult at the exact same angle, applying greater launching force will cause the projectile to:",
+        "correct ans index": "b64:Mw==",
+        "a": "b64:dHJhdmVsIGEgc2hvcnRlciBob3Jpem9udGFsIGRpc3RhbmNlLg==",
+        "b": "b64:bGFuZCBpbiB0aGUgZXhhY3Qgc2FtZSBsb2NhdGlvbiBhcyB3aXRoIGxlc3MgZm9yY2Uu",
+        "c": "b64:dHJhdmVsIGZhcnRoZXIgYW5kIHJlYWNoIGEgaGlnaGVyIHBlYWsgYWxvbmcgaXRzIGFyYy4=",
+        "d": "b64:cmV2ZXJzZSBkaXJlY3Rpb24gYW5kIGZseSBiZWhpbmQgdGhlIGxhdW5jaGVyLg==",
+        "e": "b64:b3JiaXQgdGhlIGxhdW5jaGVyIGluIGEgY29tcGxldGUgY2lyY2xlLg==",
+        "f": "b64:Y29tZSB0byBhIGNvbXBsZXRlIHN0b3AgYW5kIGhvdmVyIG1pZC1haXIu"
+    },
+    {
+        "question_name": "Question 16 - Brainstorming Phase",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "During the brainstorming phase of designing a catapult, what activity primarily takes place?",
+        "correct ans index": "b64:NQ==",
+        "a": "b64:VGVzdGluZyB0aGUgYnJlYWtpbmcgc3RyZW5ndGggb2YgYnVpbGRpbmcgbWF0ZXJpYWxzLg==",
+        "b": "b64:SW1tZWRpYXRlbHkgYnVpbGRpbmcgdGhlIGZpcnN0IG1lY2hhbmlzbSB0aGF0IGNvbWVzIHRvIG1pbmQu",
+        "c": "b64:V3JpdGluZyBhIGhpc3RvcmljYWwgcmVwb3J0IGFib3V0IGFuY2llbnQgc2llZ2UgZW5naW5lcy4=",
+        "d": "b64:TWVhc3VyaW5nIHRoZSBwcmVjaXNlIGRpc3RhbmNlIHRvIHRoZSB0YXJnZXQgem9uZS4=",
+        "e": "b64:U2tldGNoaW5nIGFuZCBleHBsb3JpbmcgbXVsdGlwbGUgZGVzaWduIGlkZWFzLg==",
+        "f": "b64:U2VsZWN0aW5nIGEgcGFydG5lciBiZWZvcmUgZG9pbmcgYW55IHBsYW5uaW5nLg=="
+    },
+    {
+        "question_name": "Question 17 - Scientific Consistency",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "In testing projectile trajectories, why is a mechanical launcher or catapult preferable to throwing by hand?",
+        "correct ans index": "b64:Mg==",
+        "a": "b64:QSBodW1hbiB0aHJvd2VyIGNhbiBnZW5lcmF0ZSBmYXIgbW9yZSBmb3JjZSB0aGFuIGFueSBtYWNoaW5lLg==",
+        "b": "b64:QSBtYWNoaW5lIGRlbGl2ZXJzIG1vcmUgY29uc2lzdGVudCwgcmVwZWF0YWJsZSBmb3JjZSBhbmQgbGF1bmNoIGFuZ2xlcy4=",
+        "c": "b64:QSBodW1hbiBjYW5ub3QgdGhyb3cgYW4gb2JqZWN0IGluIGEgY3VydmVkIHBhdGgu",
+        "d": "b64:QSBtYWNoaW5lIGFsdGVycyB0aGUgbWFzcyBvZiB0aGUgcHJvamVjdGlsZSBkdXJpbmcgbGF1bmNoLg==",
+        "e": "b64:QSBtYWNoaW5lIGVsaW1pbmF0ZXMgdGhlIGRvd253YXJkIHB1bGwgb2YgZ3Jhdml0eS4=",
+        "f": "b64:SHVtYW4gdGhyb3dzIGNhbm5vdCBiZSBtZWFzdXJlZCB3aXRoIGEgbWVhc3VyaW5nIHRhcGUu"
+    },
+    {
+        "question_name": "Question 18 - Degrees in a Circle",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "When determining launch angles from flat ground (0°) to straight up (90°), how many total degrees are in a full circle?",
+        "correct ans index": "b64:NA==",
+        "a": "b64:NDU=",
+        "b": "b64:OTA=",
+        "c": "b64:MTgw",
+        "d": "b64:MzYw",
+        "e": "b64:MTAw",
+        "f": "b64:MTAwMA=="
+    },
+    {
+        "question_name": "Question 19 - Iterative Design Process",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "Why is it important to repeat the cycle of testing, evaluating, and redesigning when engineering a catapult?",
+        "correct ans index": "b64:NQ==",
+        "a": "b64:VG8gbWFrZSB0aGUgY2F0YXB1bHQgbG9vayB2aXN1YWxseSBkaXN0aW5jdC4=",
+        "b": "b64:VG8gdXNlIHVwIGV2ZXJ5IGxlZnRvdmVyIHBpZWNlIG9mIHNjcmFwIG1hdGVyaWFsLg==",
+        "c": "b64:VG8gYWRkIG5vbmZ1bmN0aW9uYWwgY29tcG9uZW50cyB0byB0aGUgZnJhbWUu",
+        "d": "b64:VG8gZGVsYXkgdGVzdGluZyB1bnRpbCB0aW1lIHJ1bnMgb3V0Lg==",
+        "e": "b64:VG8gbWFrZSBjb250aW51b3VzIGltcHJvdmVtZW50cyB0byB0aGUgbGF1bmNoZXIncyBwZXJmb3JtYW5jZS4=",
+        "f": "b64:VG8gbWFrZSB0aGUgY2F0YXB1bHQgYXMgbGFyZ2UgYW5kIGhlYXZ5IGFzIHBvc3NpYmxlLg=="
+    },
+    {
+        "question_name": "Question 20 - Improving Lever Performance",
+        "question_type": "multiple_choice_question",
+        "type": "multiple_choice_question",
+        "points": 1,
+        "points_possible": 1,
+        "question text": "If a lever-based catapult is falling short of its target, which modification would most likely increase the projectile's distance?",
+        "correct ans index": "b64:NA==",
+        "a": "b64:UmVwbGFjaW5nIHRoZSBwcm9qZWN0aWxlIHdpdGggYSBzaWduaWZpY2FudGx5IGhlYXZpZXIgb2JqZWN0Lg==",
+        "b": "b64:U2hvcnRlbmluZyB0aGUgdGhyb3dpbmcgYXJtIGRyYXN0aWNhbGx5Lg==",
+        "c": "b64:QXBwbHlpbmcgdGhlIGxhdW5jaGluZyBmb3JjZSBtb3JlIHNsb3dseS4=",
+        "d": "b64:SW5jcmVhc2luZyB0aGUgYXBwbGllZCBmb3JjZSBvciByZXBvc2l0aW9uaW5nIHRoZSBmdWxjcnVtLg==",
+        "e": "b64:QWltaW5nIHRoZSBsZXZlciBhcm0gZGlyZWN0bHkgZG93biBhdCB0aGUgYmFzZS4=",
+        "f": "b64:RGVjcmVhc2luZyB0aGUgdGVuc2lvbiBzdG9yZWQgaW4gdGhlIGVsYXN0aWMgYmFuZCBvciBzcHJpbmcu"
+    },
+    {
+        "question_name": "Question 11",
+        "question number": 11,
+        "question_type": "essay_question",
+        "type": "essay_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please write your English name used in class:",
+        "question_text": "Please write your English name used in class:",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "answers": []
+    },
+    {
+        "question_name": "Question 12",
+        "question number": 12,
+        "question_type": "matching_question",
+        "type": "matching_question",
+        "points": 0,
+        "points_possible": 0,
+        "question text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "question_text": "Please select your class:<br>G6A = Grade 6 Class A<br>G6B = Grade 6 Class B<br>G6C = Grade 6 Class C<br>G7A = Grade 7 Class A<br>G7B = Grade 7 Class B<br>G7C = Grade 7 Class C<br>G8A = Grade 8 Class A<br>G8B = Grade 8 Class B<br>G8C = Grade 8 Class C",
+        "url": "",
+        "question_url": "",
+        "correct ans index": " ",
+        "reusable": true,
+        "matches_reusable": true,
+        "allow_answers_to_be_used_more_than_once": true,
+        "consume_choices": false,
+        "answers": [
             {
                 "answer_text": "b64:RzZB",
                 "weight": "b64:MA=="
@@ -576,14 +224,14 @@
                 "weight": "b64:MA=="
             }
         ],
-        "b64:RzZB",
-        "b64:RzZC",
-        "b64:RzZD",
-        "b64:RzdB",
-        "b64:RzdC",
-        "b64:RzdD",
-        "b64:RzhB",
-        "b64:RzhC",
-        "b64:RzhD"
-    ]
+        "a": "b64:RzZB",
+        "b": "b64:RzZC",
+        "c": "b64:RzZD",
+        "d": "b64:RzdB",
+        "e": "b64:RzdC",
+        "f": "b64:RzdD",
+        "g": "b64:RzhB",
+        "h": "b64:RzhC",
+        "i": "b64:RzhD"
+    }
 ]
