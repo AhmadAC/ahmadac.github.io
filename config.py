@@ -95,6 +95,38 @@ def get_version_from_config(preferred_dir=None):
 CURRENT_VERSION = get_version_from_config(WEB_DIR)
 
 
+def parse_screen_count():
+    """Parses command line flags like -1, -2, -3, --screens 2, or -s=3."""
+    screens = 1
+    args = sys.argv[1:]
+    for idx, arg in enumerate(args):
+        clean_arg = arg.strip().lower()
+        if clean_arg in ("-1", "/1"):
+            screens = 1
+        elif clean_arg in ("-2", "/2"):
+            screens = 2
+        elif clean_arg in ("-3", "/3"):
+            screens = 3
+        elif clean_arg in ("-s", "--screens", "-screens", "/screens") and (idx + 1) < len(args):
+            try:
+                val = int(args[idx + 1])
+                if 1 <= val <= 3:
+                    screens = val
+            except ValueError:
+                pass
+        elif clean_arg.startswith(("-s=", "--screens=", "-screens=", "/screens=")):
+            try:
+                val = int(clean_arg.split("=")[1])
+                if 1 <= val <= 3:
+                    screens = val
+            except ValueError:
+                pass
+    return screens
+
+
+DEFAULT_SCREENS = parse_screen_count()
+
+
 def get_clean_env():
     env = os.environ.copy()
 

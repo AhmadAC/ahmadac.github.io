@@ -6,7 +6,7 @@ import urllib.parse
 from http.server import SimpleHTTPRequestHandler
 from datetime import datetime
 
-from config import WEB_DIR, DATA_DIR, EXE_DIR, LAUNCH_DIR, CONFIG_FILES
+from config import WEB_DIR, DATA_DIR, EXE_DIR, LAUNCH_DIR, CONFIG_FILES, DEFAULT_SCREENS
 from quiz_store import (
     robust_json_load_file,
     ensure_admin_questions_in_file,
@@ -120,6 +120,7 @@ class QuizAPIHandler(SimpleHTTPRequestHandler):
             response = {
                 "is_offline_mode": True,
                 "show_save_image": False,
+                "default_screens": DEFAULT_SCREENS,
                 "canvas": canvas_data,
                 "ignore": ignore_data,
                 "autolink": autolink_data,

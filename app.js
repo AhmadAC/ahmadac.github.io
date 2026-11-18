@@ -170,7 +170,23 @@ async function initApp() {
         await loadQuizIndex();
     }
 
-    setViewMode(1);
+    // Determine initial split-screen count from URL parameter or server config
+    const urlParams = new URLSearchParams(window.location.search);
+    let initialScreens = 1;
+    if (urlParams.has('screens')) {
+        const parsed = parseInt(urlParams.get('screens'), 10);
+        if (!isNaN(parsed) && parsed >= 1 && parsed <= 3) {
+            initialScreens = parsed;
+        }
+    } else if (window.appConfig && window.appConfig.default_screens) {
+        const parsed = parseInt(window.appConfig.default_screens, 10);
+        if (!isNaN(parsed) && parsed >= 1 && parsed <= 3) {
+            initialScreens = parsed;
+        }
+    }
+
+    viewMode = initialScreens;
+    setViewMode(initialScreens);
     applyFeatureToggles();
     updateToggleScreensVisibility();
 
@@ -196,6 +212,7 @@ function setViewMode(numScreens) {
     const masterContainer = document.getElementById("master-container");
     if (!masterContainer) return;
     
+    viewMode = numScreens;
     masterContainer.innerHTML = "";
     quizInstances = [];
     

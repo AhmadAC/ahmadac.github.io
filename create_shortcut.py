@@ -57,9 +57,8 @@ def get_linux_desktop_dir():
     os.makedirs(fallback, exist_ok=True)
     return fallback
 
-def create_linux_desktop_shortcut(app_name, python_exe, target_script, working_dir, icon_path):
+def create_linux_desktop_shortcut(app_name, python_exe, target_script, working_dir, icon_path, extra_args=""):
     """Creates a .desktop file for Fedora Kinoite (KDE Plasma) and other Linux systems."""
-    # Sanitize filename for Linux
     safe_filename = re.sub(r'[^a-zA-Z0-9_\-]', '_', app_name.lower()) + ".desktop"
     
     desktop_dir = get_linux_desktop_dir()
@@ -67,13 +66,17 @@ def create_linux_desktop_shortcut(app_name, python_exe, target_script, working_d
     menu_shortcut_dir = os.path.expanduser("~/.local/share/applications")
     menu_shortcut_path = os.path.join(menu_shortcut_dir, safe_filename)
 
+    exec_cmd = f'"{python_exe}" "{target_script}"'
+    if extra_args:
+        exec_cmd += f' {extra_args}'
+
     desktop_entry = [
         "[Desktop Entry]",
         "Version=1.0",
         "Type=Application",
         f"Name={app_name}",
         f"Comment=Launch {app_name}",
-        f'Exec="{python_exe}" "{target_script}"',
+        f"Exec={exec_cmd}",
         f"Path={working_dir}",
         "Terminal=false",
         "Categories=Utility;Education;"
@@ -85,21 +88,17 @@ def create_linux_desktop_shortcut(app_name, python_exe, target_script, working_d
     content = "\n".join(desktop_entry) + "\n"
 
     target_paths = [desktop_shortcut_path]
-    # Also register in ~/.local/share/applications for KDE Launcher (Kickoff)
-    if os.path.exists(menu_shortcut_dir) or True:
-        os.makedirs(menu_shortcut_dir, exist_ok=True)
-        target_paths.append(menu_shortcut_path)
+    os.makedirs(menu_shortcut_dir, exist_ok=True)
+    target_paths.append(menu_shortcut_path)
 
     for path in target_paths:
         try:
             with open(path, "w", encoding="utf-8") as f:
                 f.write(content)
             
-            # KDE Plasma / Linux requires the executable bit (+x) to run .desktop files safely
             current_stat = os.stat(path)
             os.chmod(path, current_stat.st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
             
-            # Mark file as trusted in KDE/GNOME if gio is available
             if shutil.which("gio"):
                 try:
                     subprocess.run(["gio", "set", path, "metadata::trusted", "true"], check=False, capture_output=True)
@@ -110,11 +109,15 @@ def create_linux_desktop_shortcut(app_name, python_exe, target_script, working_d
         except Exception as e:
             print(f"[ERROR] Failed to create shortcut at '{path}': {e}")
 
-def create_windows_shortcut(app_name, python_exe, target_script, working_dir, icon_path):
+def create_windows_shortcut(app_name, python_exe, target_script, working_dir, icon_path, extra_args=""):
     shortcut_path = os.path.join(working_dir, f"{app_name}.lnk")
 
+    args_payload = f'"{target_script}"'
+    if extra_args:
+        args_payload += f' {extra_args}'
+
     print(f"Creating Windows shortcut targeting: {python_exe}")
-    print(f"Target script: {target_script}")
+    print(f"Target arguments: {args_payload}")
     print(f"Working directory: {working_dir}")
     print(f"Icon location: {icon_path}")
     print(f"Shortcut destination: {shortcut_path}")
@@ -132,7 +135,7 @@ def create_windows_shortcut(app_name, python_exe, target_script, working_dir, ic
     $WshShell = New-Object -ComObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut({ps_quote(shortcut_path)})
     $Shortcut.TargetPath = {ps_quote(python_exe)}
-    $Shortcut.Arguments = {ps_quote(f'"{target_script}"')}
+    $Shortcut.Arguments = {ps_quote(args_payload)}
     $Shortcut.WorkingDirectory = {ps_quote(working_dir)}
     """
     
@@ -151,6 +154,10 @@ def main():
     project_root = os.path.dirname(os.path.abspath(__file__))
     target_script = os.path.join(project_root, "server.py")
     app_name = "Mr. Cooper's Quiz Server"
+
+    # Forward extra command-line flags (e.g. -2, -3) into shortcut definition if specified
+    forward_args = [a for a in sys.argv[1:] if a.startswith(("-", "/"))]
+    extra_args_str = " ".join(forward_args)
 
     if not os.path.exists(target_script):
         print(f"Error: Target script not found at '{target_script}'.")
@@ -172,11 +179,10 @@ def main():
 
     if sys.platform == "win32":
         python_exe = get_pythonw_executable()
-        create_windows_shortcut(app_name, python_exe, target_script, project_root, icon_path)
+        create_windows_shortcut(app_name, python_exe, target_script, project_root, icon_path, extra_args_str)
     elif sys.platform.startswith("linux"):
-        # On Linux, sys.executable points to the current Python binary (system or venv)
         python_exe = sys.executable
-        create_linux_desktop_shortcut(app_name, python_exe, target_script, project_root, icon_path)
+        create_linux_desktop_shortcut(app_name, python_exe, target_script, project_root, icon_path, extra_args_str)
     else:
         print(f"Unsupported platform: '{sys.platform}'")
 
