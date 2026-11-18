@@ -132,7 +132,7 @@
         "type": "multiple_choice_question",
         "points": 1,
         "points_possible": 1,
-        "question text": "Referring to Condition A (2 N) and Condition B (10 N) shown in the vector diagram of Question 8, how many times greater is the magnitude of the force in Condition B compared to Condition A?",
+        "question text": "Examine the vector diagrams below:<br><br><svg viewBox='0 0 600 150' width='100%' height='130' xmlns='http://www.w3.org/2000/svg'><rect width='600' height='150' fill='#f8fafc'/><text x='30' y='30' font-size='12' font-weight='bold' fill='#334155'>Condition A: Low Tension</text><line x1='30' y1='52' x2='100' y2='52' stroke='#1e3a5f' stroke-width='3'/><polygon points='100,47 112,52 100,57' fill='#1e3a5f'/><text x='130' y='57' font-size='12' font-weight='600' fill='#1e3a5f'>Magnitude = 2 N</text><text x='30' y='100' font-size='12' font-weight='bold' fill='#334155'>Condition B: High Tension</text><line x1='30' y1='122' x2='240' y2='122' stroke='#1e3a5f' stroke-width='4.5'/><polygon points='240,117 254,122 240,127' fill='#1e3a5f'/><text x='275' y='127' font-size='12' font-weight='600' fill='#1e3a5f'>Magnitude = 10 N</text></svg><br>Referring to Condition A (2 N) and Condition B (10 N) shown in the diagram, how many times greater is the magnitude of the force in Condition B compared to Condition A?",
         "correct ans index": "b64:Mw==",
         "a": "b64:MiB0aW1lcyBncmVhdGVy",
         "b": "b64:MyB0aW1lcyBncmVhdGVy",
